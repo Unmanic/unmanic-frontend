@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <!-- BEGIN PAGE BASE CONTENT -->
+    {{#ifEquals page_name 'Dashboard'}}
+        <div class="page-content" style="padding-top:30px">
+            {{> ./pages/dashboard}}
+        </div>
+    {{/ifEquals}}
+    {{#ifEquals page_name 'Settings'}}
+        <div class="page-content">
+            {{> ./pages/settings}}
+        </div>
+    {{/ifEquals}}
+    {{#ifEquals page_name 'Plugins'}}
+        <div class="page-content" style="padding-top:30px">
+            {{> ./pages/plugins}}
+        </div>
+    {{/ifEquals}}
+
+    {{> ./sections/support-future-development}}
+    <!-- END PAGE BASE CONTENT -->
+</div>
