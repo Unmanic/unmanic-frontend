@@ -2,7 +2,6 @@ let $scope = {};
 
 /* Import Bootstrap */
 import 'bootstrap';
-import 'bootstrap-hover-dropdown';
 
 /* Import fontawesome */
 import '@fortawesome/fontawesome-free/js/fontawesome';
@@ -26,8 +25,8 @@ import '../scss/custom.scss';
 // Import Unmanic API
 import { UnmanicApi } from './api';
 
-// Import Handlebars templating
-import './handlebars';
+// Import DashboardData WS
+import { DashboardData } from './dashboard_data';
 
 import compiledTemplate from '../templates/page-template.hbs';
 
@@ -47,6 +46,7 @@ const renderPage = function () {
       break;
     default:
       pageName = 'Dashboard';
+      DashboardData.init();
       break;
   }
 

@@ -33,7 +33,8 @@
     "jquery.uniform": "^4.3.0",
     "popper.js": "^1.15.0",
     "simple-line-icons": "^2.5.5",
-    "socicon": "^3.0.5"
+    "socicon": "^3.0.5",
+    "ui-progress-circle": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

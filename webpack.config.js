@@ -125,6 +125,10 @@ const config = {
         port: 8889,
         proxy: {
             '/api': 'http://localhost:8888',
+            '/dashws': {
+                target: 'ws://localhost:8888',
+                ws: true
+            },
         },
     },
     optimization: {
