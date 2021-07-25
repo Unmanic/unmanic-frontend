@@ -1,34 +1,40 @@
 # Unmanic Web frontend
 
+A simple tool for optimising your video library to a single, uniform format.
+
+This project contains the frontend user interface for [Unmanic](https://github.com/Unmanic/unmanic).
+
+
+---
+
+
+## Install the dependencies
+```bash
+npm install -g @quasar/cli
+
+npm install
+```
+
+
 ## Development
 
-Run development environment:
-
-```
-npm run dev
-```
-
-Open browser to [localhost:8889](http://localhost:8889/)
-
-## Build
-
-Build project:
-
-```
-npm run build
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
+#or
+npm run serve
 ```
 
-Build project for deployment:
-
-```
-npm run build && npm run purge
-```
-
-## Linting
-
-```
+### Lint the files
+```bash
 npm run lint
 ```
+
+### Build the app for production
+```bash
+quasar build
+```
+
 
 ## License and Contribution
 
