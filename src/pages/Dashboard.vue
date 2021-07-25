@@ -36,9 +36,9 @@
 
       <div class="row">
 
-        <PendingTasks v-bind="pendingTasksData" />
+        <PendingTasks v-bind="pendingTasksData"/>
 
-        <CompletedTasks v-bind="completedTasksData" />
+        <CompletedTasks v-bind="completedTasksData"/>
 
       </div>
 
@@ -51,39 +51,48 @@ import WorkerProgress from 'components/WorkerProgress.vue'
 import PendingTasks from 'components/PendingTasks.vue'
 import CompletedTasks from "components/CompletedTasks";
 import dateTools from "src/js/dateTools";
+import { useQuasar } from "quasar";
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'Dashboard',
-  components: {CompletedTasks, WorkerProgress, PendingTasks },
-  data() {
-    return {
-      name: "name here",
-      connectionTimer: null,
-      serverId: null,
-      ws: null,
-      workerProgressList: [],
-      pendingTasksData: {
-        taskList: []
-      },
-      completedTasksData: {
-        taskList: []
-      }
-    }
-  },
-  methods: {
-    checkListsAreDifferent(listA, listB) {
-      if (listA.length !== listB.length) {
-        return true;
-      }
-      for (let i = 0; i < listA.length; ++i) {
-        if (listA[i] !== listB[i]) {
-          return true;
+  components: { CompletedTasks, WorkerProgress, PendingTasks },
+  setup() {
+    const $q = useQuasar();
+    const workerProgressList = ref([]);
+    const pendingTasksData = ref({
+      taskList: []
+    });
+    const completedTasksData = ref({
+      taskList: []
+    });
+
+    let connectionTimer = null;
+    let serverId = null;
+    let ws;
+
+    let clearConnectionWarning = null;
+
+    function connectionWarning(show) {
+      if (show) {
+        if (clearConnectionWarning === null) {
+          clearConnectionWarning = $q.notify({
+            timeout: 0,
+            spinner: true,
+            color: 'warning',
+            position: 'top',
+            message: 'Unable to connect to Unmanic backend. Please check that it is running.',
+            icon: 'report_problem'
+          })
+        }
+      } else {
+        if (typeof clearConnectionWarning === 'function') {
+          clearConnectionWarning();
         }
       }
-      console.log("SAME2")
-      return false;
-    },
-    updateWorkerProgressCharts: function (data) {
+    }
+
+    function updateWorkerProgressCharts(data) {
 
       let workerData = []
       for (let i = 0; i < data.length; i++) {
@@ -138,9 +147,10 @@ export default {
           }
         }
       }
-      this.workerProgressList = workerData;
-    },
-    updatePendingTasksList: function (data) {
+      workerProgressList.value = workerData;
+    }
+
+    function updatePendingTasksList(data) {
       let result;
       let results = [];
       for (let i = 0; i < data.results.length; i++) {
@@ -152,9 +162,10 @@ export default {
           status: data.results[i].status,
         }
       }
-      this.pendingTasksData.taskList = results;
-    },
-    updateCompletedTasksList: function (data) {
+      pendingTasksData.value.taskList = results;
+    }
+
+    function updateCompletedTasksList(data) {
       let result;
       let results = [];
       for (let i = 0; i < data.results.length; i++) {
@@ -166,9 +177,10 @@ export default {
           dateTimeSinceCompleted: data.results[i].human_readable_time,
         }
       }
-      this.completedTasksData.taskList = results;
-    },
-    openWS: function () {
+      completedTasksData.value.taskList = results;
+    }
+
+    function openWS() {
       // Build WS path
       let loc = window.location,
         new_uri;
@@ -180,39 +192,41 @@ export default {
       new_uri += '//' + loc.host + '/websocket';
 
       // Open WS connection
-      this.ws = new WebSocket(new_uri);
-    },
-    reconnectWS: function () {
-      this.ws = null;
-      this.timer = setTimeout(() => {
+      ws = new WebSocket(new_uri);
+    }
+
+    function reconnectWS() {
+      ws = null;
+      connectionTimer = setTimeout(() => {
         console.debug('Attempting reconnect to Unmanic server...');
-        this.initDashboardWebsocket();
-      }, 5000);
-    },
-    initDashboardWebsocket: function () {
-      let _this = this
+        initDashboardWebsocket();
+      }, 4000);
+    }
+
+    function initDashboardWebsocket() {
       console.log("Starting connection to WebSocket Server")
-      if (this.ws === undefined || this.ws === null) {
+      if (ws === undefined || ws === null) {
         // Open WS connection
-        _this.openWS();
+        openWS();
       }
 
-      this.ws.onopen = function () {
-        clearTimeout(this.timer);
-        _this.ws.send('start_workers_info');
-        _this.ws.send('start_pending_tasks_info');
-        _this.ws.send('start_completed_tasks_info');
+      ws.onopen = function () {
+        clearTimeout(connectionTimer);
+        connectionWarning(false)
+        ws.send('start_workers_info');
+        ws.send('start_pending_tasks_info');
+        ws.send('start_completed_tasks_info');
       };
 
-      this.ws.onmessage = function (evt) {
+      ws.onmessage = function (evt) {
         if (typeof evt.data === 'string') {
           let jsonData = JSON.parse(evt.data);
           if (jsonData.success) {
             // Ensure the server is still running the same instance...
-            if (_this.serverId === null) {
-              _this.serverId = jsonData.server_id;
+            if (serverId === null) {
+              serverId = jsonData.server_id;
             } else {
-              if (jsonData.server_id !== _this.serverId) {
+              if (jsonData.server_id !== serverId) {
                 // Reload the whole page. Some things may have changed
                 console.log('Unmanic server has restarted. Reloading page...');
                 location.reload();
@@ -221,13 +235,13 @@ export default {
             // Parse data type and update the dashboard
             switch (jsonData.type) {
               case 'workers_info':
-                _this.updateWorkerProgressCharts(jsonData.data);
+                updateWorkerProgressCharts(jsonData.data);
                 break;
               case 'pending_tasks':
-                _this.updatePendingTasksList(jsonData.data);
+                updatePendingTasksList(jsonData.data);
                 break;
               case 'completed_tasks':
-                _this.updateCompletedTasksList(jsonData.data);
+                updateCompletedTasksList(jsonData.data);
                 break;
               default:
                 console.error('WebSocket Error: Received data was not a valid type - ' + jsonData.type);
@@ -241,19 +255,33 @@ export default {
         }
       };
 
-      this.ws.onerror = function (evt) {
+      ws.onerror = function (evt) {
         console.error('WebSocket Error: ' + evt);
-        // TODO: Clear all workers
-        // TODO: Display error
+        // Clear all workers
+        updateWorkerProgressCharts([]);
+        // Display error
+        connectionWarning(true);
       };
 
-      this.ws.onclose = function () {
-        _this.reconnectWS();
+      ws.onclose = function () {
+        reconnectWS();
       };
     }
-  },
-  created: function () {
-    this.initDashboardWebsocket();
+
+    onMounted(() => {
+      // Start the websocket
+      initDashboardWebsocket()
+    })
+
+    return {
+      connectionTimer,
+      serverId,
+      ws,
+      workerProgressList,
+      pendingTasksData,
+      completedTasksData,
+      initDashboardWebsocket
+    }
   }
 }
 </script>
