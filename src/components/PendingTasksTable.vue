@@ -260,7 +260,7 @@ export default {
     }
 
     onMounted(() => {
-      // get initial data from server (1st page)
+      // get initial data from server
       onRequest({
         pagination: pagination.value,
         filter: undefined
