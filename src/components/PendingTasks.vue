@@ -7,7 +7,7 @@
           <div class="col">
             <div class="text-h6 text-amber-10">
               <q-icon name="fas fa-list-ul"/>
-              Pending Tasks
+              {{ $t('dashboard.headers.pendingTasks') }}
             </div>
           </div>
 
@@ -19,7 +19,7 @@
               round
               flat
               icon="open_in_full">
-              <q-tooltip class="bg-white text-primary">Show more</q-tooltip>
+              <q-tooltip class="bg-white text-primary">{{ $t('navigation.showMore') }}</q-tooltip>
             </q-btn>
           </div>
         </div>

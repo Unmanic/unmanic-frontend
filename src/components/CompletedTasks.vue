@@ -7,7 +7,7 @@
           <div class="col">
             <div class="text-h6 text-blue-10">
               <q-icon name="fas fa-list-ul"/>
-              Completed Tasks
+              {{ $t('dashboard.headers.completedTasks') }}
             </div>
           </div>
 
@@ -19,7 +19,7 @@
               round
               flat
               icon="open_in_full">
-              <q-tooltip class="bg-white text-primary">Show more</q-tooltip>
+              <q-tooltip class="bg-white text-primary">{{ $t('navigation.showMore') }}</q-tooltip>
             </q-btn>
           </div>
         </div>
@@ -36,7 +36,7 @@
 
                 <div class="full-width row flex-center text-accent q-gutter-sm">
                   <q-icon size="2em" name="sentiment_dissatisfied"/>
-                  <q-item-label>The Completed Tasks list is empty</q-item-label>
+                  <q-item-label>{{ $t('components.completedTasks.listEmpty') }}</q-item-label>
                   <q-icon size="2em" name="priority_high"/>
                 </div>
               </q-item-section>
@@ -46,7 +46,7 @@
 
                 <div class="full-width row flex-center text-accent q-gutter-sm">
                   <q-icon size="2em" name="sentiment_dissatisfied"/>
-                  <q-item-label>The Completed Tasks list is empty</q-item-label>
+                  <q-item-label>{{ $t('components.completedTasks.listEmpty') }}</q-item-label>
                   <q-icon size="2em" name="priority_high"/>
                 </div>
               </q-item-section>
@@ -69,11 +69,6 @@
                       caption>
                       {{ task.dateTimeSinceCompleted }}
                     </q-item-label>
-<!--                    <q-item-label
-                      caption
-                      class="row justify-end">
-                      <small>({{ task.dateTimeSinceCompleted }})</small>
-                    </q-item-label>-->
                   </div>
                   <div class="column justify-center">
                     <q-icon
@@ -102,9 +97,9 @@
             <q-card-section class="bg-grey-2">
               <div class="row items-center no-wrap">
                 <div class="col">
-                  <div class="text-h6 text-amber-10">
+                  <div class="text-h6 text-blue-10">
                     <q-icon name="fas fa-list-ul"/>
-                    Completed Tasks
+                    {{ $t('dashboard.headers.completedTasks') }}
                   </div>
                 </div>
 

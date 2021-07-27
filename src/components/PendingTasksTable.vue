@@ -81,10 +81,10 @@
 </template>
 
 <script>
-import {ref, onMounted} from 'vue'
-import {api} from "boot/axios";
-import unmanicGlobals from "src/js/unmanicGlobals";
-import {useQuasar} from "quasar";
+import { onMounted, ref } from 'vue';
+import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import { useQuasar } from "quasar";
+import axios from "axios";
 
 const columns = [
   {
@@ -125,18 +125,19 @@ export default {
     }
 
     function rescanLibrary() {
-      api.get(unmanicGlobals.getUnmanicApiUrl('v1', 'pending/rescan'))
-        .then((response) => {
-          rescanResponse.value = response.data
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v1', 'pending/rescan')
+      }).then((response) => {
+        rescanResponse.value = response.data
+      }).catch(() => {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while requesting a library rescan',
+          icon: 'report_problem'
         })
-        .catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'An error was encountered while requesting a library rescan',
-            icon: 'report_problem'
-          })
-        })
+      })
     }
 
     function moveToTop() {
@@ -187,27 +188,29 @@ export default {
       }
     }
 
-    function moveTo(params) {
-      api.post(unmanicGlobals.getUnmanicApiUrl('v2', 'pending/reorder'), params)
-        .then((response) => {
-          rescanResponse.value = response.data
-          onRequest({
-            pagination: pagination.value,
-            filter: filter.value
-          })
+    function moveTo(data) {
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/reorder'),
+        data: data
+      }).then((response) => {
+        rescanResponse.value = response.data
+        onRequest({
+          pagination: pagination.value,
+          filter: filter.value
         })
-        .catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'An error was encountered while requesting a task reorder',
-            icon: 'report_problem'
-          })
+      }).catch(() => {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while requesting a task reorder',
+          icon: 'report_problem'
         })
+      })
     }
 
     function onRequest(props) {
-      const {page, rowsPerPage, sortBy, descending} = props.pagination;
+      const { page, rowsPerPage, sortBy, descending } = props.pagination;
       const filter = props.filter;
 
       loading.value = true;
@@ -219,44 +222,52 @@ export default {
       const startRow = (page - 1) * rowsPerPage;
 
       // Fetch from server
-      let params = {
+      let data = {
         start: startRow,
         length: fetchCount,
         search_value: filter,
         order_by: sortBy,
         order_direction: descending ? 'desc' : 'asc',
       }
-      api.post(unmanicGlobals.getUnmanicApiUrl('v2', 'pending/tasks'), params)
-        .then((response) => {
-          // update rowsCount with appropriate value
-          pagination.value.rowsNumber = response.data.recordsFiltered;
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/tasks'),
+        data: data
+      }).then((response) => {
+        // update rowsCount with appropriate value
+        pagination.value.rowsNumber = response.data.recordsFiltered;
 
-          // Set returned data from server results
-          const returnedData = [];
-          for (let i = 0; i < response.data.results.length; i++) {
-            let results = response.data.results[i];
-            returnedData[i] = {
-              id: results.id,
-              name: results.abspath,
-              completed: results.finish_time,
-              status: results.success ? 'Success' : 'Failed'
-            }
+        // Set returned data from server results
+        const returnedData = [];
+        for (let i = 0; i < response.data.results.length; i++) {
+          let results = response.data.results[i];
+          returnedData[i] = {
+            id: results.id,
+            name: results.abspath,
+            completed: results.finish_time,
+            status: results.success ? 'Success' : 'Failed'
           }
+        }
 
-          // clear out existing data and add new
-          rows.value.splice(0, rows.value.length, ...returnedData);
+        // clear out existing data and add new
+        rows.value.splice(0, rows.value.length, ...returnedData);
 
-          // don't forget to update local pagination object
-          pagination.value.page = page;
-          pagination.value.rowsPerPage = rowsPerPage;
-          pagination.value.sortBy = sortBy;
-          pagination.value.descending = descending;
+        // don't forget to update local pagination object
+        pagination.value.page = page;
+        pagination.value.rowsPerPage = rowsPerPage;
+        pagination.value.sortBy = sortBy;
+        pagination.value.descending = descending;
 
-          // ...and turn of loading indicator
-          loading.value = false;
+        // ...and turn of loading indicator
+        loading.value = false;
+      }).catch(() => {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while requesting the pending tasks list',
+          icon: 'report_problem'
         })
-        .catch(() => {
-        })
+      })
     }
 
     onMounted(() => {

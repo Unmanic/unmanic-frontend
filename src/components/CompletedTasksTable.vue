@@ -51,7 +51,7 @@
       <template v-slot:no-data>
         <div class="full-width row flex-center text-accent q-gutter-sm">
           <q-icon size="2em" name="sentiment_dissatisfied"/>
-          <q-item-label>The Completed Tasks list is empty</q-item-label>
+          <q-item-label>{{ $t('components.completedTasks.listEmpty') }}</q-item-label>
           <q-icon size="2em" name="priority_high"/>
         </div>
       </template>
@@ -61,11 +61,11 @@
 </template>
 
 <script>
-import {ref, onMounted} from 'vue'
-import {axios} from "boot/axios";
-import unmanicGlobals from "src/js/unmanicGlobals";
-import {useQuasar} from "quasar";
+import { onMounted, ref } from 'vue';
+import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import { useQuasar } from "quasar";
 import dateTools from "src/js/dateTools";
+import axios from "axios";
 
 const columns = [
   {
@@ -127,13 +127,13 @@ export default {
           id_list[id_list.length] = row.id;
         }
         // Send those to the backend
-        let params = {
+        let data = {
           id_list: id_list,
         }
         axios({
           method: 'delete',
-          url: unmanicGlobals.getUnmanicApiUrl('v2', 'history/tasks'),
-          data: params
+          url: getUnmanicApiUrl('v2', 'history/tasks'),
+          data: data
         }).then((response) => {
           onRequest({
             pagination: pagination.value,
@@ -158,7 +158,7 @@ export default {
     }
 
     function onRequest(props) {
-      const {page, rowsPerPage, sortBy, descending} = props.pagination;
+      const { page, rowsPerPage, sortBy, descending } = props.pagination;
       const filter = props.filter;
 
       loading.value = true;
@@ -170,7 +170,7 @@ export default {
       const startRow = (page - 1) * rowsPerPage;
 
       // Fetch from server
-      let params = {
+      let data = {
         start: startRow,
         length: fetchCount,
         search_value: filter,
@@ -179,8 +179,8 @@ export default {
       }
       axios({
         method: 'post',
-        url: unmanicGlobals.getUnmanicApiUrl('v2', 'history/tasks'),
-        data: params
+        url: getUnmanicApiUrl('v2', 'history/tasks'),
+        data: data
       }).then((response) => {
         // update rowsCount with appropriate value
         pagination.value.rowsNumber = response.data.recordsFiltered;
