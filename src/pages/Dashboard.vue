@@ -2,7 +2,7 @@
   <q-page padding>
     <!-- content -->
 
-    <div class="q-pa-sm">
+    <div class="q-pa-none">
 
       <div class="row">
         <div class="col q-ma-sm">
@@ -93,57 +93,75 @@ export default {
     }
 
     function updateWorkerProgressCharts(data) {
+      //console.log(data)
+
+      function calculateEtc(percent_completed, time_elapsed) {
+        let percent_to_go = (100 - parseInt(percent_completed))
+        return (parseInt(time_elapsed) / parseInt(percent_completed) * percent_to_go)
+      }
 
       let workerData = []
       for (let i = 0; i < data.length; i++) {
         let worker = data[i];
 
+        // Set 'idle' status as defaults
         workerData[worker.id] = {
-          id: worker.id,
-          name: worker.name,
-          progress: 100,
-          progressText: '',
-          eta: '',
+          indeterminate: false,
+          id: worker.id,        // Eg. '1'
+          label: worker.name,
+          name: worker.name,    // Eg. 'Worker-1'
           color: 'warning',
+          progress: 100,
+          progressText: 'idle',
+          etc: '...',
           state: 'Waiting for another task...',
-          currentRunner: '',
+          currentRunner: 'None',
           startTime: '',
           totalProcTime: '',
-
-          indeterminate: false,
-          fullscreen: false,
+          workerLog: [],
         }
 
-        if (worker.idle) {
-          workerData[worker.id].progressText = 'idle';
-          workerData[worker.id].eta = '...';
-        } else {
+        if (! worker.idle) {
           if (typeof worker.progress.percent !== 'undefined') {
-            //console.log(worker.progress)
-            workerData[worker.id].state = 'Processing task...'
+            // Set the label
+            workerData[worker.id].label = worker.name + ': ' + worker.current_file;
+
+            // Set the progress graph
             workerData[worker.id].color = 'primary';
             workerData[worker.id].progress = Number(worker.progress.percent);
             workerData[worker.id].progressText = worker.progress.percent + '%';
-            workerData[worker.id].eta = '...';
-            // TODO: Calculate ETA
 
-            // Set the worker data
-            let currentRunner;
-            for (var x = 0; x < worker.runners_info; x++) {
-              if (worker.runners_info[x].status === 'in_progress') {
-                currentRunner = value.name;
+            // Set the ETC
+            workerData[worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.progress.percent, worker.progress.elapsed));
+
+            // Set the worker state
+            workerData[worker.id].state = 'Processing task...'
+
+            // Set the current runner this worker is executing
+            let currentRunner = 'Indeterminate';
+            if (typeof worker.runners_info === 'object' && worker.runners_info !== null) {
+              for (const [runnerKey, runnerValue] of Object.entries(worker.runners_info)) {
+                if (runnerValue.status === 'in_progress') {
+                  currentRunner = runnerValue.name;
+                }
               }
             }
             workerData[worker.id].currentRunner = currentRunner;
+
+            // Set the start and total processing time
             let startTime = new Date(worker.start_time * 1000);
-            workerData[worker.id].startTime = toString(startTime);
+            workerData[worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
             workerData[worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
+
+            // Set the worker log file
+            workerData[worker.id].workerLog = worker.worker_log_tail;
           } else {
-            workerData[worker.id].state = '...'
-            workerData[worker.id].color = 'warning';
+            // Set 'indeterminate' defaults
             workerData[worker.id].indeterminate = true;
+            workerData[worker.id].label = '...';
+            workerData[worker.id].color = 'warning';
             workerData[worker.id].progressText = '...';
-            workerData[worker.id].eta = '...';
+            workerData[worker.id].state = '...';
           }
         }
       }

@@ -65,21 +65,21 @@
               <q-item-section side top>
                 <div class="row">
                   <div class="column justify-center">
-                    <q-icon
-                      class="q-mr-sm"
-                      name="event"
-                      size="18px"/>
-                  </div>
-                  <div class="column">
                     <q-item-label
                       caption>
-                      {{ task.dateTimeCompleted }}
+                      {{ task.dateTimeSinceCompleted }}
                     </q-item-label>
-                    <q-item-label
+<!--                    <q-item-label
                       caption
                       class="row justify-end">
                       <small>({{ task.dateTimeSinceCompleted }})</small>
-                    </q-item-label>
+                    </q-item-label>-->
+                  </div>
+                  <div class="column justify-center">
+                    <q-icon
+                      class="q-ml-sm"
+                      name="event"
+                      size="18px"/>
                   </div>
                 </div>
 
