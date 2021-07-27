@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "plugins": "Plugins",
+    "top": "Top",
+    "new": "New",
+    "show": "Show",
+    "ask": "Ask",
+    "job": "Jobs",
+    "showMore": "Show more"
+  },
+  "pagination": {
+    "prev": "prev",
+    "more": "more"
+  },
+  "time": {
+    "ago": "ago",
+    "units": {
+      "minute": "minute | minutes",
+      "hour": "hour | hours",
+      "day": "day | days"
+    }
+  },
+  "notifications": {
+    "backendConnectionWarning": "Unable to connect to Unmanic backend. Please check that it is running.",
+    "failedToFetchSession": "An error was encountered while fetching the session data from Unmanic."
+  },
+  "dashboard": {
+    "headers": {
+      "workers": "Workers",
+      "pendingTasks": "Pending Tasks",
+      "completedTasks": "Completed Tasks"
+    }
+  },
+  "components": {
+    "workers": {
+      "state": {
+        "waiting": "Waiting for another task...",
+        "processing": "Processing task..."
+      },
+      "currentRunner": {
+        "none": "None",
+        "indeterminate": "Indeterminate"
+      }
+    },
+    "completedTasks": {
+      "listEmpty": "The Completed Tasks list is empty"
+    }
+  }
+}

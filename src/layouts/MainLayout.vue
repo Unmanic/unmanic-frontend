@@ -14,14 +14,14 @@
       </q-toolbar>
 
       <q-tabs align="left">
-        <q-route-tab to="/unmanic-dashboard" label="Dashboard" icon="home"/>
-        <q-route-tab to="/unmanic-settings" label="Settings" icon="settings"/>
-        <q-route-tab to="/unmanic-plugins" label="Plugins" icon="extension"/>
+        <q-route-tab to="/unmanic-dashboard" :label="$t('navigation.dashboard')" icon="home"/>
+        <q-route-tab to="/unmanic-settings" :label="$t('navigation.settings')" icon="settings"/>
+        <q-route-tab to="/unmanic-plugins" :label="$t('navigation.plugins')" icon="extension"/>
       </q-tabs>
     </q-header>
 
     <q-drawer v-model="rightDrawerOpen" side="right" overlay elevated>
-      <!-- drawer content -->
+      <Drawer/>
     </q-drawer>
 
     <q-page-container>
@@ -52,11 +52,12 @@
 </template>
 
 <script>
-import {ref} from 'vue';
+import { ref } from 'vue';
 import unmanicGlobals from "src/js/unmanicGlobals";
-import {api} from "boot/axios";
+import Drawer from "components/Drawer";
 
 export default {
+  components: { Drawer },
   data() {
     return {
       unmanicVersion: ''
@@ -74,17 +75,9 @@ export default {
   },
   created: function () {
     this.unmanicVersion = 'UNSET';
-    if (unmanicGlobals.unmanicVersion === '') {
-      api.get(unmanicGlobals.getUnmanicApiUrl('v2', 'version/read'))
-        .then((response) => {
-          this.unmanicVersion = response.data.version;
-          unmanicGlobals.unmanicVersion = this.unmanicVersion;
-        })
-        .catch(() => {
-        })
-    } else {
-      this.unmanicVersion = unmanicGlobals.unmanicVersion;
-    }
+    unmanicGlobals.getUnmanicVersion().then((version) => {
+      this.unmanicVersion = version;
+    })
   }
 }
 </script>

@@ -10,7 +10,7 @@
             <q-card-section class="bg-grey-2">
               <div class="text-h6 text-purple-10">
                 <q-icon name="fas fa-spinner"/>
-                Workers
+                {{ $t('dashboard.headers.workers') }}
               </div>
             </q-card-section>
 
@@ -52,12 +52,14 @@ import PendingTasks from 'components/PendingTasks.vue'
 import CompletedTasks from "components/CompletedTasks";
 import dateTools from "src/js/dateTools";
 import { useQuasar } from "quasar";
-import { ref, onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useI18n } from "vue-i18n";
 
 export default {
   name: 'Dashboard',
   components: { CompletedTasks, WorkerProgress, PendingTasks },
   setup() {
+    const { t: $t } = useI18n();
     const $q = useQuasar();
     const workerProgressList = ref([]);
     const pendingTasksData = ref({
@@ -81,7 +83,7 @@ export default {
             spinner: true,
             color: 'warning',
             position: 'top',
-            message: 'Unable to connect to Unmanic backend. Please check that it is running.',
+            message: $t('notifications.backendConnectionWarning'),
             icon: 'report_problem'
           })
         }
@@ -112,16 +114,16 @@ export default {
           name: worker.name,    // Eg. 'Worker-1'
           color: 'warning',
           progress: 100,
-          progressText: 'idle',
+          progressText: '-',
           etc: '...',
-          state: 'Waiting for another task...',
-          currentRunner: 'None',
+          state: $t('components.workers.state.waiting'),
+          currentRunner: $t('components.workers.currentRunner.none'),
           startTime: '',
           totalProcTime: '',
           workerLog: [],
         }
 
-        if (! worker.idle) {
+        if (!worker.idle) {
           if (typeof worker.progress.percent !== 'undefined') {
             // Set the label
             workerData[worker.id].label = worker.name + ': ' + worker.current_file;
@@ -135,10 +137,10 @@ export default {
             workerData[worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.progress.percent, worker.progress.elapsed));
 
             // Set the worker state
-            workerData[worker.id].state = 'Processing task...'
+            workerData[worker.id].state = $t('components.workers.state.processing');
 
             // Set the current runner this worker is executing
-            let currentRunner = 'Indeterminate';
+            let currentRunner = $t('components.workers.currentRunner.indeterminate');
             if (typeof worker.runners_info === 'object' && worker.runners_info !== null) {
               for (const [runnerKey, runnerValue] of Object.entries(worker.runners_info)) {
                 if (runnerValue.status === 'in_progress') {
