@@ -15,6 +15,17 @@ export default {
 
     return "Days: " + days + " Hours: " + hours + " Minutes: " + minutes + " Seconds: " + seconds;
   },
+  printTimeAsHoursMinsSeconds(timestamp) {
+    timestamp = Number(timestamp);
+    let hours = Math.floor(timestamp / 3600);
+    let minutes = Math.floor(timestamp % 3600 / 60);
+    let seconds = Math.floor(timestamp % 3600 % 60);
+
+    let hDisplay = hours > 0 ? hours + (hours == 1 ? " hour, " : " hours, ") : "";
+    let mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minute, " : " minutes, ") : "";
+    let sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " second" : " seconds") : "";
+    return hDisplay + mDisplay + sDisplay;
+  },
   printDateTimeString(dateTime) {
     let d = new Date(0);
     d.setUTCSeconds(dateTime);

@@ -1,108 +1,200 @@
 <template>
 
-    <q-card
-      class="worker-progress-card">
+  <q-card class="worker-progress-card">
+    <q-card-section class="" maxlength="2">
 
-      <q-card-section horizontal>
-        <q-card-section>
+      <div class="row items-center no-wrap">
+        <div class="col">
+          <div v-if="label.length<50" class="text-h8 text-primary">
+            {{ label }}
+          </div>
+          <div v-else class="text-h8 text-primary">
+            {{ label.substring(0, 48) + ".." }}
+          </div>
+        </div>
 
-          <q-circular-progress
-            :indeterminate="indeterminate"
-            show-value
-            :value="progress"
-            size="90px"
-            :thickness="0.2"
-            :color="color"
-            center-color="grey-3"
-            track-color="grey-7"
-            font-size="10px"
-            class="q-ma-md"
-          >
-            <q-avatar size="60px">
-              {{ progressText }}
-            </q-avatar>
-          </q-circular-progress>
+        <div class="col-auto">
+          <q-btn
+            @click="workerProgressPopup = true"
+            color="grey-7"
+            dense
+            round
+            flat
+            icon="open_in_full">
+            <q-tooltip class="bg-white text-primary">Show more</q-tooltip>
+          </q-btn>
+        </div>
 
-          <p class="text-center">ETA: {{ eta }}</p>
+      </div>
 
-        </q-card-section>
-        <q-card-section>
+    </q-card-section>
 
-          <q-list bordered padding>
-            <!--                      <q-item-label header>Status:</q-item-label>-->
+    <q-separator/>
 
-            <q-item>
-              <q-item-section>
-                <q-item-label>State</q-item-label>
-                <q-item-label caption>
-                  {{ state }}
-                </q-item-label>
-              </q-item-section>
-            </q-item>
+    <q-card-section horizontal>
+      <q-card-section class="q-pb-none col-4">
 
-            <q-item>
-              <q-item-section>
-                <q-item-label>Current Runner</q-item-label>
-                <q-item-label caption>
-                  {{ currentRunner }}
-                  Default Unmanic Process
-                </q-item-label>
-              </q-item-section>
-            </q-item>
+        <q-circular-progress
+          :indeterminate="indeterminate"
+          show-value
+          :value="progress"
+          size="90px"
+          :thickness="0.2"
+          :color="color"
+          center-color="grey-3"
+          track-color="grey-7"
+          font-size="10px"
+          class="q-ma-md"
+        >
+          <q-avatar size="60px">
+            {{ progressText }}
+          </q-avatar>
+        </q-circular-progress>
 
-            <q-item
-              class="worker-progress-card-state-more"
-              clickable
-              v-ripple>
-              <q-item-section>
-                <q-item-label>More...</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-
-          <q-item class="worker-progress-card-state-t-start">
-            <q-item-section>
-              <q-item-label>Start Time</q-item-label>
-              <q-item-label caption>
-                {{ startTime }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-
-          <q-item class="worker-progress-card-state-t-total">
-            <q-item-section>
-              <q-item-label>Total Processing Time</q-item-label>
-              <q-item-label caption>
-                {{ totalProcTime }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-
-        </q-card-section>
-
-        <q-card-section>
-          <q-page-sticky position="top-right" :offset="[18, 18]">
-            <q-btn
-              fab
-              color="primary"
-              label="Close"
-              class="worker-progress-card-close"
-              @click="fullscreen = false"/>
-          </q-page-sticky>
-        </q-card-section>
       </q-card-section>
 
-    </q-card>
+      <q-card-section class="q-pb-none col-auto">
+        <q-list bordered padding>
+          <q-item>
+            <q-item-section>
+              <q-item-label>State</q-item-label>
+              <q-item-label caption>
+                {{ state }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item>
+            <q-item-section>
+              <q-item-label>Current Runner</q-item-label>
+              <q-item-label caption>
+                {{ currentRunner }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-card-section>
+    </q-card-section>
+
+    <q-card-section
+      class="q-pt-sm">
+      <div class="row">
+        <div class="column q-ml-sm">ETC:</div>
+        <div class="column q-ml-lg">{{ etc }}</div>
+        <q-tooltip class="bg-white text-primary">Estimated Time of Completion</q-tooltip>
+      </div>
+    </q-card-section>
+
+    <!--FULL SCREEN-->
+    <q-card-section
+      class="q-pa-none">
+
+      <q-dialog
+        v-model="workerProgressPopup"
+        full-width
+        full-height
+      >
+        <q-card>
+
+          <!--CARD HEAD-->
+          <q-card-section class="bg-grey-2">
+            <div class="row items-center no-wrap">
+              <div class="col">
+                <div class="text-h6 text-primary">
+                  {{ label }}
+                </div>
+              </div>
+
+              <div class="col-auto">
+                <q-btn
+                  color="grey-7"
+                  dense
+                  round
+                  flat
+                  icon="close_fullscreen" v-close-popup>
+                  <q-tooltip class="bg-white text-primary">Close</q-tooltip>
+                </q-btn>
+              </div>
+            </div>
+          </q-card-section>
+
+          <!--CARD BODY-->
+          <q-card-section class="q-pt-none">
+            <div class="row">
+
+              <!--START STATUS-->
+              <q-card-section class="col-12 col-md-7">
+                <WorkerProgressStatus
+                  v-bind:state="state"
+                  v-bind:currentRunner="currentRunner"
+                  v-bind:startTime="startTime"
+                  v-bind:totalProcTime="totalProcTime"/>
+              </q-card-section>
+              <!--END STATUS-->
+
+              <!--START PROGRESS-->
+              <q-card-section class="col-12 col-md q-pb-none justify-center full-height full-width text-center">
+                <q-circular-progress
+                  :indeterminate="indeterminate"
+                  show-value
+                  :value="progress"
+                  size="90px"
+                  :thickness="0.2"
+                  :color="color"
+                  center-color="grey-3"
+                  track-color="grey-7"
+                  font-size="10px"
+                  class="q-ma-md"
+                >
+                  <q-avatar size="60px">
+                    {{ progressText }}
+                  </q-avatar>
+                </q-circular-progress>
+              </q-card-section>
+              <!--END PROGRESS-->
+
+            </div>
+            <div class="row">
+
+              <!--START WORKER LOG-->
+              <q-card-section class="col">
+                <WorkerProgressLog
+                  v-bind:workerLog="workerLog"/>
+              </q-card-section>
+              <!--END WORKER LOG-->
+
+            </div>
+
+          </q-card-section>
+
+        </q-card>
+      </q-dialog>
+    </q-card-section>
+
+  </q-card>
 
 </template>
 
 <script>
-import {defineComponent} from "vue";
+import { defineComponent, ref } from "vue";
+import WorkerProgressStatus from "components/WorkerProgressStatus";
+import WorkerProgressLog from "components/WorkerProgressLog";
 
 export default defineComponent({
   name: 'WorkerProgress',
+  components: { WorkerProgressStatus, WorkerProgressLog },
+  data() {
+    return {
+      workerProgressPopup: ref(false)
+    }
+  },
   props: {
     id: {
+      type: String,
+      required: true
+    },
+
+    label: {
       type: String,
       required: true
     },
@@ -122,7 +214,7 @@ export default defineComponent({
       default: ''
     },
 
-    eta: {
+    etc: {
       type: String,
       default: ''
     },
@@ -155,6 +247,10 @@ export default defineComponent({
     indeterminate: {
       type: Boolean,
       default: false
+    },
+
+    workerLog: {
+      type: Array
     }
   }
 })
@@ -163,23 +259,6 @@ export default defineComponent({
 <style lang="css" scoped>
 .worker-progress-card {
   margin: 5px;
-}
-
-.worker-progress-card.fullscreen {
-  margin: 130px auto 10px;
-  max-width: 99%;
-}
-/* Hide the fullscreen data */
-.worker-progress-card-close, .worker-progress-card-state-t-start, .worker-progress-card-state-t-total {
-  display: none;
-}
-/* Show the fullscreen data when fullscreen */
-.fullscreen .worker-progress-card-close, .fullscreen .worker-progress-card-state-t-start, .fullscreen .worker-progress-card-state-t-total {
-  display: inherit;
-}
-/* Hide the fullscreen button when fullscreen */
-.fullscreen .worker-progress-card-state-more {
-  display: none;
 }
 
 </style>
