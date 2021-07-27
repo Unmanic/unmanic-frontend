@@ -1,10 +1,16 @@
 <template>
   <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
     <div class="absolute-bottom bg-transparent">
-      <q-avatar size="56px" class="q-mb-sm">
+      <q-avatar
+        v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"
+        size="56px" class="q-mb-sm">
         <q-img :src="unmanicSession.picture_uri"/>
       </q-avatar>
-      <div class="text-weight-bold">{{ unmanicSession.name }}</div>
+      <div
+        v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"
+        class="text-weight-bold">
+        {{ unmanicSession.name }}
+      </div>
       <!--<div>{{ unmanicSession.email }}</div>-->
     </div>
   </q-img>
