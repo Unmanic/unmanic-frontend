@@ -20,8 +20,8 @@
               <div class="row">
 
                 <WorkerProgress
-                  v-for="workerProgress in workerProgressList"
-                  :key="workerProgress.id"
+                  v-for="(workerProgress, index) in workerProgressList"
+                  :key="index"
                   v-bind="workerProgress"
                 />
 
@@ -95,19 +95,17 @@ export default {
     }
 
     function updateWorkerProgressCharts(data) {
-      //console.log(data)
-
       function calculateEtc(percent_completed, time_elapsed) {
         let percent_to_go = (100 - parseInt(percent_completed))
         return (parseInt(time_elapsed) / parseInt(percent_completed) * percent_to_go)
       }
 
-      let workerData = []
+      let workerData = {}
       for (let i = 0; i < data.length; i++) {
         let worker = data[i];
 
         // Set 'idle' status as defaults
-        workerData[worker.id] = {
+        workerData['worker-' + worker.id] = {
           indeterminate: false,
           id: worker.id,        // Eg. '1'
           label: worker.name,
@@ -126,18 +124,18 @@ export default {
         if (!worker.idle) {
           if (typeof worker.progress.percent !== 'undefined') {
             // Set the label
-            workerData[worker.id].label = worker.name + ': ' + worker.current_file;
+            workerData['worker-' + worker.id].label = worker.name + ': ' + worker.current_file;
 
             // Set the progress graph
-            workerData[worker.id].color = 'primary';
-            workerData[worker.id].progress = Number(worker.progress.percent);
-            workerData[worker.id].progressText = worker.progress.percent + '%';
+            workerData['worker-' + worker.id].color = 'primary';
+            workerData['worker-' + worker.id].progress = Number(worker.progress.percent);
+            workerData['worker-' + worker.id].progressText = worker.progress.percent + '%';
 
             // Set the ETC
-            workerData[worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.progress.percent, worker.progress.elapsed));
+            workerData['worker-' + worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.progress.percent, worker.progress.elapsed));
 
             // Set the worker state
-            workerData[worker.id].state = $t('components.workers.state.processing');
+            workerData['worker-' + worker.id].state = $t('components.workers.state.processing');
 
             // Set the current runner this worker is executing
             let currentRunner = $t('components.workers.currentRunner.indeterminate');
@@ -148,22 +146,22 @@ export default {
                 }
               }
             }
-            workerData[worker.id].currentRunner = currentRunner;
+            workerData['worker-' + worker.id].currentRunner = currentRunner;
 
             // Set the start and total processing time
             let startTime = new Date(worker.start_time * 1000);
-            workerData[worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
-            workerData[worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
+            workerData['worker-' + worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
+            workerData['worker-' + worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
 
             // Set the worker log file
-            workerData[worker.id].workerLog = worker.worker_log_tail;
+            workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
           } else {
             // Set 'indeterminate' defaults
-            workerData[worker.id].indeterminate = true;
-            workerData[worker.id].label = '...';
-            workerData[worker.id].color = 'warning';
-            workerData[worker.id].progressText = '...';
-            workerData[worker.id].state = '...';
+            workerData['worker-' + worker.id].indeterminate = true;
+            workerData['worker-' + worker.id].label = '...';
+            workerData['worker-' + worker.id].color = 'warning';
+            workerData['worker-' + worker.id].progressText = '...';
+            workerData['worker-' + worker.id].state = '...';
           }
         }
       }
