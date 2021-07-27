@@ -13,10 +13,13 @@
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer"/>
       </q-toolbar>
 
-      <q-tabs align="left">
-        <q-route-tab to="/unmanic-dashboard" :label="$t('navigation.dashboard')" icon="home"/>
-        <q-route-tab to="/unmanic-settings" :label="$t('navigation.settings')" icon="settings"/>
-        <q-route-tab to="/unmanic-plugins" :label="$t('navigation.plugins')" icon="extension"/>
+      <!--TODO: Remove styling once new frontend is 100% in use-->
+      <q-tabs inline-label align="left" class="fit" style="min-height:64px">
+        <q-route-tab to="/unmanic-dashboard" :label="$t('navigation.dashboard')" icon="home" style="min-width:190px"/>
+<!--        <q-route-tab to="/unmanic-settings" :label="$t('navigation.settings')" icon="settings"/>
+        <q-route-tab to="/unmanic-plugins" :label="$t('navigation.plugins')" icon="extension"/>-->
+        <q-route-tab to="/settings/" exact :label="$t('navigation.settings')" icon="settings" style="min-width:190px"/>
+        <q-route-tab to="/plugins/" exact :label="$t('navigation.plugins')" icon="extension" style="min-width:190px"/>
       </q-tabs>
     </q-header>
 

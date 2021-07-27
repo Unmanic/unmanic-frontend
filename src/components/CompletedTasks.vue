@@ -133,12 +133,12 @@
 </template>
 
 <script>
-import {defineComponent, ref} from "vue";
+import { defineComponent, ref } from "vue";
 import CompletedTasksTable from "components/CompletedTasksTable";
 
 export default defineComponent({
   name: 'CompletedTasks',
-  components: {CompletedTasksTable},
+  components: { CompletedTasksTable },
   data() {
     return {
       completedTasksPopup: ref(false),
