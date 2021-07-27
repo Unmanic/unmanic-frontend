@@ -8,6 +8,13 @@ const routes = [
     ]
   },
   {
+    path: '/trigger',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Trigger.vue') }
+    ]
+  },
+  {
     path: '/unmanic-dashboard',
     component: () => import('layouts/MainLayout.vue'),
     children: [
