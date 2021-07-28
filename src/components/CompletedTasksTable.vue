@@ -25,7 +25,7 @@
       <template v-slot:top-right>
         <q-btn-dropdown class="q-ml-sm" color="primary" label="Options">
           <q-list>
-            <q-item clickable v-close-popup @click="deleteSelected">
+            <q-item clickable v-close-popup @click="addSelectedToPendingTaskList">
               <q-item-section>
                 <q-item-label>
                   <q-icon name="add"/>
@@ -165,6 +165,46 @@ export default {
       }
     }
 
+
+    function addSelectedToPendingTaskList() {
+      if (selected.value.length !== 0) {
+        // Fetch the selected row IDs
+        let id_list = []
+        for (let i = 0; i < selected.value.length; i++) {
+          let row = selected.value[i];
+          id_list[id_list.length] = row.id;
+        }
+        // Send those to the backend
+        let data = {
+          id_list: id_list,
+        }
+        axios({
+          method: 'post',
+          url: getUnmanicApiUrl('v2', 'history/reprocess'),
+          data: data
+        }).then((response) => {
+          onRequest({
+            pagination: pagination.value,
+            filter: filter.value
+          })
+        }).catch(() => {
+          $q.notify({
+            color: 'negative',
+            position: 'top',
+            message: 'An error was encountered while requesting the selected tasks be added to the pending tasks list',
+            icon: 'report_problem'
+          })
+        })
+      } else {
+        $q.notify({
+          color: 'warning',
+          position: 'top',
+          message: 'Nothing selected',
+          icon: 'report_problem'
+        })
+      }
+    }
+
     function onRequest(props) {
       const { page, rowsPerPage, sortBy, descending } = props.pagination;
       const filter = props.filter;
@@ -244,7 +284,8 @@ export default {
 
       getSelectedString,
       onRequest,
-      deleteSelected
+      deleteSelected,
+      addSelectedToPendingTaskList
     }
   }
 }
