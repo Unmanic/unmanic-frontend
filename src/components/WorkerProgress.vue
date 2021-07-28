@@ -1,6 +1,6 @@
 <template>
 
-  <q-card class="worker-progress-card">
+  <q-card inline style="width: 370px" class="worker-progress-card">
     <q-card-section class="" maxlength="2">
 
       <div class="row items-center no-wrap">
@@ -31,8 +31,8 @@
 
     <q-separator/>
 
-    <q-card-section horizontal>
-      <q-card-section class="q-pb-none col-4">
+    <div class="row">
+      <q-card-section class="q-pb-none col q-pb-none justify-center full-height full-width text-center">
 
         <q-circular-progress
           :indeterminate="indeterminate"
@@ -53,7 +53,7 @@
 
       </q-card-section>
 
-      <q-card-section class="q-pb-none col-auto">
+      <q-card-section class="q-pb-none col-7">
         <q-list bordered padding>
           <q-item>
             <q-item-section>
@@ -74,7 +74,7 @@
           </q-item>
         </q-list>
       </q-card-section>
-    </q-card-section>
+    </div>
 
     <q-card-section
       class="q-pt-sm">

@@ -36,9 +36,17 @@
 
       <div class="row">
 
-        <PendingTasks v-bind="pendingTasksData"/>
+        <div class="col-12 col-md-6">
+          <div class="q-ma-sm">
+            <PendingTasks v-bind="pendingTasksData"/>
+          </div>
+        </div>
 
-        <CompletedTasks v-bind="completedTasksData"/>
+        <div class="col-12 col-md-6">
+          <div class="q-ma-sm">
+            <CompletedTasks v-bind="completedTasksData"/>
+          </div>
+        </div>
 
       </div>
 
