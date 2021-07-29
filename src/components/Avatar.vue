@@ -1,5 +1,5 @@
 <template>
-  <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+  <q-img class="absolute-top" src="~assets/bg-md1.jpg" style="height: 150px">
     <div class="absolute-bottom bg-transparent">
       <q-avatar
         v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"

@@ -10,7 +10,7 @@
             <q-card-section class="bg-grey-2">
               <div class="text-h6 text-purple-10">
                 <q-icon name="fas fa-spinner"/>
-                {{ $t('dashboard.headers.workers') }}
+                {{ $t('headers.workers') }}
               </div>
             </q-card-section>
 

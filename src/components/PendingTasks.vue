@@ -6,7 +6,7 @@
         <div class="col">
           <div class="text-h6 text-amber-10">
             <q-icon name="fas fa-list-ul"/>
-            {{ $t('dashboard.headers.pendingTasks') }}
+            {{ $t('headers.pendingTasks') }}
           </div>
         </div>
 

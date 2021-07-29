@@ -2,12 +2,21 @@ import axios from "axios";
 
 let $unmanic = {};
 
-export const getUnmanicApiUrl = function (api_version, api_endpoint) {
-  if (typeof $unmanic.apiUrl === 'undefined') {
+export const getUnmanicServerUrl = function () {
+  if (typeof $unmanic.serverUrl === 'undefined') {
     let parser = document.createElement('a');
     parser.href = window.location.href;
 
-    $unmanic.apiUrl = parser.protocol + '//' + parser.host + '/api';
+    $unmanic.serverUrl = parser.protocol + '//' + parser.host;
+  }
+  return $unmanic.serverUrl;
+}
+
+export const getUnmanicApiUrl = function (api_version, api_endpoint) {
+  if (typeof $unmanic.apiUrl === 'undefined') {
+    let serverUrl = getUnmanicServerUrl();
+
+    $unmanic.apiUrl = serverUrl + '/api';
   }
   return $unmanic.apiUrl + '/' + api_version + '/' + api_endpoint;
 }
@@ -49,6 +58,24 @@ export default {
         })
       } else {
         resolve($unmanic.session);
+      }
+    })
+  },
+  getUnmanicPrivacyPolicy() {
+    return new Promise((resolve, reject) => {
+      $unmanic.docs = (typeof $unmanic.docs === 'undefined') ? {} : $unmanic.docs
+      if (typeof $unmanic.docs.privacypolicy === 'undefined') {
+        axios({
+          method: 'get',
+          url: getUnmanicApiUrl('v2', 'docs/privacypolicy')
+        }).then((response) => {
+          $unmanic.docs.privacypolicy = response.data.content.join('')
+          resolve($unmanic.docs.privacypolicy)
+        }).catch(() => {
+          reject()
+        })
+      } else {
+        resolve($unmanic.docs.privacypolicy);
       }
     })
   }
