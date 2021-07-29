@@ -83,6 +83,12 @@ module.exports = configure(function (ctx) {
           target: 'ws://localhost:8888',
           ws: true
         },
+        // Add temp routes for other parts of old web UI
+        '/assets': 'http://localhost:8888',
+        '/history': 'http://localhost:8888',
+        '/plugins': 'http://localhost:8888',
+        '/settings': 'http://localhost:8888',
+        '/filebrowser': 'http://localhost:8888',
       },
       open: false
     },
