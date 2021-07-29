@@ -6,7 +6,7 @@
         <div class="col">
           <div class="text-h6 text-blue-10">
             <q-icon name="fas fa-list-ul"/>
-            {{ $t('dashboard.headers.completedTasks') }}
+            {{ $t('headers.completedTasks') }}
           </div>
         </div>
 
@@ -56,7 +56,7 @@
             :key="task.id"
             v-bind="task">
             <q-item-section avatar>
-              <q-icon name="check_circle" class="text-primary" style="opacity: 0.8;"/>
+              <q-icon name="check_circle" class="text-secondary" style="opacity: 0.8;"/>
             </q-item-section>
             <q-item-section>
               <q-item-label>{{ task.label }}</q-item-label>
@@ -98,7 +98,7 @@
               <div class="col">
                 <div class="text-h6 text-blue-10">
                   <q-icon name="fas fa-list-ul"/>
-                  {{ $t('dashboard.headers.completedTasks') }}
+                  {{ $t('headers.completedTasks') }}
                 </div>
               </div>
 

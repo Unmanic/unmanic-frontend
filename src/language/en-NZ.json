@@ -28,12 +28,11 @@
     "failedToFetchLoginUrl": "Failed to get login URL.",
     "failedToFetchLogoutUrl": "Failed to get logout URL."
   },
-  "dashboard": {
-    "headers": {
-      "workers": "Workers",
-      "pendingTasks": "Pending Tasks",
-      "completedTasks": "Completed Tasks"
-    }
+  "headers": {
+    "workers": "Workers",
+    "pendingTasks": "Pending Tasks",
+    "completedTasks": "Completed Tasks",
+    "privacyPolicy": "Privacy Policy"
   },
   "components": {
     "workers": {

@@ -2,17 +2,7 @@
   <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
     <q-list padding>
 
-      <!--START LANGUAGE SELECT-->
-      <q-item clickable v-ripple>
-        <q-item-section avatar>
-          <q-icon name="language"/>
-        </q-item-section>
-        <q-item-section>
-          <LanguageSwitch/>
-        </q-item-section>
-      </q-item>
-      <!--END LANGUAGE SELECT-->
-
+      <q-item-label header>Account:</q-item-label>
       <!--START LOGOUT-->
       <q-item
         v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"
@@ -47,15 +37,51 @@
           </form>
           Login
         </q-item-section>
-        <div>
-        </div>
       </q-item>
       <!--END LOGOUT-->
+
+      <q-separator spaced/>
+
+      <q-item-label header>Config:</q-item-label>
+      <!--START LANGUAGE SELECT-->
+      <q-item clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="language"/>
+        </q-item-section>
+        <q-item-section>
+          <LanguageSwitch/>
+        </q-item-section>
+      </q-item>
+      <!--END LANGUAGE SELECT-->
+      <q-separator spaced/>
+
+      <q-item-label header>Documentation:</q-item-label>
+      <!--START PRIVACY POLICY-->
+      <q-item
+        clickable
+        @click="showPrivacyPolicyDialog"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="subject"/>
+        </q-item-section>
+        <q-item-section>
+          Privacy Policy
+        </q-item-section>
+      </q-item>
+      <!--END PRIVACY POLICY-->
 
     </q-list>
   </q-scroll-area>
 
   <Avatar/>
+
+  <q-img class="absolute-bottom lt-md" src="~assets/bg-md1.jpg" style="height: 120px">
+    <div class="absolute-top bg-transparent text-white">
+      <div class="q-pl-md">
+        <FooterData/>
+      </div>
+    </div>
+  </q-img>
 </template>
 
 <script>
@@ -67,9 +93,12 @@ import unmanicGlobals, { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import axios from "axios";
 import { useQuasar } from "quasar";
 import { useI18n } from "vue-i18n";
+import FooterData from "components/FooterData";
+import MarkdownDialog from "components/MarkdownDialog";
+import { markdownToHTML } from "src/js/markupParser";
 
 export default {
-  components: { Avatar, LanguageSwitch },
+  components: { Avatar, FooterData, LanguageSwitch },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
@@ -82,11 +111,30 @@ export default {
       unmanicSession.value = session;
     })
 
+    function showPrivacyPolicyDialog() {
+
+      unmanicGlobals.getUnmanicPrivacyPolicy().then((privacyPolicy) => {
+        console.log(privacyPolicy)
+        let privacyPolicyHtml = markdownToHTML(privacyPolicy);
+        console.log(privacyPolicyHtml)
+        $q.dialog({
+          component: MarkdownDialog,
+          // props forwarded to your custom component
+          componentProps: {
+            dialogHeader: $t('headers.privacyPolicy'),
+            dialogContent: privacyPolicyHtml
+          }
+        }).onDismiss(() => {
+        })
+      })
+    }
+
     return {
       unmanicSession,
       formAction,
       uuid,
       currentUri,
+      showPrivacyPolicyDialog,
     }
   },
   methods: {
