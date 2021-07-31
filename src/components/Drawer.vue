@@ -2,6 +2,37 @@
   <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
     <q-list padding>
 
+      <!--START LANGUAGE SELECT-->
+      <q-item
+        clickable
+        to="/unmanic-dashboard"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="dashboard"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.dashboard') }}
+        </q-item-section>
+      </q-item>
+      <q-item
+        clickable
+        to="/unmanic-settings"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="settings"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.settings') }}
+        </q-item-section>
+      </q-item>
+      <!--END LANGUAGE SELECT-->
+      <q-separator spaced/>
+
+      <!--START SETTINGS NAV-->
+
+      <!--END SETTINGS NAV-->
+
+
       <q-item-label header>Account:</q-item-label>
       <!--START LOGOUT-->
       <q-item

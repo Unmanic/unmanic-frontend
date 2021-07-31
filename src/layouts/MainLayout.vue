@@ -10,20 +10,39 @@
           </q-avatar>
         </q-toolbar-title>
 
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer"/>
+        <q-btn
+          v-if="$route.meta.showDrawer"
+          dense
+          flat
+          round
+          icon="menu"
+          @click="toggleRightDrawer"/>
+        <q-btn
+          v-if="!$route.meta.showDrawer"
+          dense
+          flat
+          round
+          @click="$router.push('/unmanic-dashboard')"
+          icon="arrow_forward">
+        </q-btn>
       </q-toolbar>
 
-      <!--TODO: Remove styling once new frontend is 100% in use-->
-      <q-tabs inline-label align="left" class="fit" style="min-height:64px">
-        <q-route-tab to="/unmanic-dashboard" :label="$t('navigation.dashboard')" icon="home" style="min-width:190px"/>
-        <!--        <q-route-tab to="/unmanic-settings" :label="$t('navigation.settings')" icon="settings"/>
-                <q-route-tab to="/unmanic-plugins" :label="$t('navigation.plugins')" icon="extension"/>-->
-        <q-route-tab to="/settings/" exact :label="$t('navigation.settings')" icon="settings" style="min-width:190px"/>
-        <q-route-tab to="/plugins/" exact :label="$t('navigation.plugins')" icon="extension" style="min-width:190px"/>
-      </q-tabs>
+      <!--
+            &lt;!&ndash;TODO: Remove styling once new frontend is 100% in use&ndash;&gt;
+            <q-tabs inline-label align="left" class="fit" style="min-height:64px">
+              <q-route-tab to="/unmanic-dashboard" :label="$t('navigation.dashboard')" icon="home" style="min-width:190px"/>
+              <q-route-tab to="/unmanic-settings" :label="$t('navigation.settings')" icon="settings"/>
+              <q-route-tab to="/unmanic-plugins" :label="$t('navigation.plugins')" icon="extension"/>&ndash;&gt;
+              <q-route-tab to="/settings/" exact :label="$t('navigation.settings')" icon="settings" style="min-width:190px"/>
+              <q-route-tab to="/plugins/" exact :label="$t('navigation.plugins')" icon="extension" style="min-width:190px"/>
+            </q-tabs>
+      -->
+
     </q-header>
 
-    <q-drawer v-model="rightDrawerOpen" side="right" overlay elevated>
+    <q-drawer
+      v-if="$route.meta.showDrawer"
+      v-model="rightDrawerOpen" side="right" overlay elevated>
       <Drawer/>
     </q-drawer>
 
@@ -36,7 +55,7 @@
       class="bg-primary text-white gt-sm">
       <q-toolbar>
         <q-toolbar-title>
-          <FooterData />
+          <FooterData/>
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
