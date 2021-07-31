@@ -1,11 +1,11 @@
-
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
-    ]
+    ],
+    meta: { showDrawer: true }
   },
   {
     path: '/trigger',
@@ -19,6 +19,14 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
+    ],
+    meta: { showDrawer: true }
+  },
+  {
+    path: '/unmanic-settings',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Settings.vue') }
     ]
   },
 
@@ -29,7 +37,9 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
     ],
-    beforeEnter() {location.href = '/plugins/'}
+    beforeEnter() {
+      location.href = '/plugins/'
+    }
   },
   {
     path: '/settings',
@@ -37,7 +47,9 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
     ],
-    beforeEnter() {location.href = '/settings/'}
+    beforeEnter() {
+      location.href = '/settings/'
+    }
   },
 
   // Always leave this as last one,
