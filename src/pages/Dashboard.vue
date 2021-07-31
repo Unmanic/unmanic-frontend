@@ -135,7 +135,7 @@ export default {
             workerData['worker-' + worker.id].label = worker.name + ': ' + worker.current_file;
 
             // Set the progress graph
-            workerData['worker-' + worker.id].color = 'primary';
+            workerData['worker-' + worker.id].color = 'secondary';
             workerData['worker-' + worker.id].progress = Number(worker.progress.percent);
             workerData['worker-' + worker.id].progressText = worker.progress.percent + '%';
 
