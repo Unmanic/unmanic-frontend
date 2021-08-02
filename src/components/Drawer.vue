@@ -16,7 +16,7 @@
       </q-item>
       <q-item
         clickable
-        to="/unmanic-settings"
+        to="/unmanic-settings?step=general"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="settings"/>

@@ -16,7 +16,7 @@ export default {
 
     function reloadSession() {
       axios({
-        method: 'get',
+        method: 'put',
         url: getUnmanicApiUrl('v2', 'session/reload')
       }).then((response) => {
         window.location.href = '/';
