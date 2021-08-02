@@ -14,7 +14,13 @@
     "show": "Show",
     "ask": "Ask",
     "job": "Jobs",
-    "showMore": "Show more"
+    "recordsPerPage": "Records per page",
+    "showMore": "Show more",
+    "search": "Search"
+  },
+  "status": {
+    "enabled": "enabled",
+    "disabled": "disabled"
   },
   "pagination": {
     "prev": "prev",
@@ -38,7 +44,8 @@
     "workers": "Workers",
     "pendingTasks": "Pending Tasks",
     "completedTasks": "Completed Tasks",
-    "privacyPolicy": "Privacy Policy"
+    "privacyPolicy": "Privacy Policy",
+    "plugins": "Plugins"
   },
   "components": {
     "workers": {
@@ -53,6 +60,16 @@
     },
     "completedTasks": {
       "listEmpty": "The Completed Tasks list is empty"
+    },
+    "plugins": {
+      "updateAvailable": "update available",
+      "upToDate": "up-to-date",
+      "enablePlugins": "Enable Plugins(s)",
+      "disablePlugins": "Disable Plugins(s)",
+      "updatePlugins": "Update Plugins(s)",
+      "removePlugins": "Remove Plugins(s)",
+      "addNew": "Add New",
+      "configurePluginFow": "Configure Plugin Flow"
     }
   }
 }

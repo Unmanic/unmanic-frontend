@@ -29,6 +29,13 @@ const routes = [
       { path: '', component: () => import('pages/Settings.vue') }
     ]
   },
+  {
+    path: '/unmanic-settings-plugins',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Plugins.vue') }
+    ]
+  },
 
   // TODO: Remove beforeEnter() redirects once the pages are handled by this new frontend
   {

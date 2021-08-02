@@ -1,40 +1,8 @@
 <template>
-  <div class="bg-grey-1 text-grey-8">
-    <q-tabs inline-label align="left" class="fit">
-      <q-route-tab
-        @click="setpage('general')"
-        :label="$t('navigation.general')"
-        icon="settings"
-        style="min-width:190px"/>
-      <q-route-tab
-        @click="setpage('container')"
-        :label="$t('navigation.container')"
-        icon="fa fa-file-archive"
-        style="min-width:190px"/>
-      <q-route-tab
-        @click="setpage('video')"
-        :label="$t('navigation.videoEncoding')"
-        icon="fa fa-file-video"
-        style="min-width:190px"/>
-      <q-route-tab
-        @click="setpage('audio')"
-        :label="$t('navigation.audioEncoding')"
-        icon="fa fa-file-audio"
-        style="min-width:190px"/>
-      <q-route-tab
-        @click="setpage('advanced')"
-        :label="$t('navigation.advancedOptions')"
-        icon="fa fa-unlock"
-        style="min-width:190px"/>
-      <q-route-tab
-        @click="setpage('plugins')"
-        :label="$t('navigation.plugins')"
-        icon="extension"
-        style="min-width:190px"/>
-    </q-tabs>
-  </div>
+  <SettingsNav v-bind:iframeSrc="iframeSrc" v-on:page="setIframeSrc"/>
   <q-page>
     <iframe
+      v-if="page !== 'plugins'"
       id="this-iframe"
       class="this-iframe"
       ref="iframeRef"
@@ -52,9 +20,13 @@
 
 <script>
 
+import SettingsNav from "components/SettingsNav";
+
 export default {
+  components: { SettingsNav },
   data() {
     return {
+      page: '',
       iframeSrc: '/settings/',
       iframeHeight: '0px',
     };
@@ -62,7 +34,7 @@ export default {
   created() {
     console.debug('Component has been created!');
     window.addEventListener('message', this.resizeIframe);
-    this.iframeSrc = '/settings/';
+    this.setInitialPageFromParams();
   },
   unmounted() {
     console.debug('Component has been destroyed!');
@@ -82,8 +54,19 @@ export default {
         }
       }
     },
-    setpage(pageName) {
+    setIframeSrc(pageName) {
+      this.page = pageName
       this.iframeSrc = '/settings/?step=' + pageName;
+    },
+    setInitialPageFromParams() {
+      console.log(this.$route.query)
+      if (typeof this.$route.query !== 'undefined') {
+        if (typeof this.$route.query.step !== 'undefined') {
+          this.iframeSrc = '/settings/?step=' + this.$route.query.step;
+          return
+        }
+      }
+      this.iframeSrc = '/settings/?step=general';
     }
   }
 }
