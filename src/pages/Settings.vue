@@ -57,6 +57,7 @@ export default {
     setIframeSrc(pageName) {
       this.page = pageName
       this.iframeSrc = '/settings/?step=' + pageName;
+      this.$router.push('/unmanic-settings?step=' + pageName)
     },
     setInitialPageFromParams() {
       console.log(this.$route.query)
