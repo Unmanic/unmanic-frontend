@@ -1,8 +1,13 @@
-import bbCodeParser from 'js-bbcode-parser';
+//import bbCodeToMD from 'bbcode-to-markdown';
+import XBBCODE from 'xbbcode-parser';
 import { Remarkable } from 'remarkable';
 
 export const bbCodeToHTML = function (strings) {
-  return bbCodeParser.parse(strings);
+  return XBBCODE.process({
+    text: strings,
+    removeMisalignedTags: false,
+    addInLineBreaks: true
+  }).html;
 }
 
 export const markdownToHTML = function (strings) {

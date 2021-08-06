@@ -1,5 +1,5 @@
 <template>
-  <SettingsNav v-bind:iframeSrc="iframeSrc" v-on:page="setIframeSrc"/>
+  <SettingsNav v-on:page="setIframeSrc"/>
   <q-page padding>
     <!-- content -->
 

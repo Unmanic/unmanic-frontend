@@ -16,7 +16,8 @@
     "job": "Jobs",
     "recordsPerPage": "Records per page",
     "showMore": "Show more",
-    "search": "Search"
+    "search": "Search",
+    "save": "Save"
   },
   "status": {
     "enabled": "enabled",
@@ -38,14 +39,18 @@
     "backendConnectionWarning": "Unable to connect to Unmanic backend. Please check that it is running.",
     "failedToFetchSession": "An error was encountered while fetching the session data from Unmanic.",
     "failedToFetchLoginUrl": "Failed to get login URL.",
-    "failedToFetchLogoutUrl": "Failed to get logout URL."
+    "failedToFetchLogoutUrl": "Failed to get logout URL.",
+    "failedToSavePluginSettings": "Failed to save Plugin settings.",
+    "saved": "Saved."
   },
   "headers": {
     "workers": "Workers",
     "pendingTasks": "Pending Tasks",
     "completedTasks": "Completed Tasks",
     "privacyPolicy": "Privacy Policy",
-    "plugins": "Plugins"
+    "plugins": "Plugins",
+    "pluginInfo": "Plugin Info",
+    "pluginSettings": "Plugin Settings"
   },
   "components": {
     "workers": {

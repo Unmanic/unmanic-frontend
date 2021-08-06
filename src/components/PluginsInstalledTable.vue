@@ -130,14 +130,17 @@
     </template>
 
   </q-table>
+
+  <PluginInfo v-bind:showPluginInfo="showPluginInfo" v-on:hide="closePluginInfo"/>
+
 </template>
 
 <script>
 import { onMounted, ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
-import dateTools from "src/js/dateTools";
 import axios from "axios";
+import PluginInfo from "components/PluginInfo";
 
 const columns = [
   {
@@ -200,6 +203,7 @@ const columns = [
 
 
 export default {
+  components: { PluginInfo },
   setup() {
     const $q = useQuasar();
     const rows = ref([])
@@ -213,6 +217,7 @@ export default {
       rowsNumber: 10
     })
     const selected = ref([]);
+    const listedPlugins = ref([]);
 
     function getSelectedString() {
       let return_value = ''
@@ -407,12 +412,12 @@ export default {
         pagination.value.rowsNumber = response.data.recordsFiltered;
 
         // Set returned data from server results
-        const returnedData = [];
+        listedPlugins.value = [];
         for (let i = 0; i < response.data.results.length; i++) {
           let results = response.data.results[i];
-          console.log(results)
-          returnedData[i] = {
+          listedPlugins.value[i] = {
             id: results.id,
+            plugin_id: results.plugin_id,
             icon: results.icon,
             name: results.name,
             description: results.description,
@@ -424,7 +429,7 @@ export default {
         }
 
         // clear out existing data and add new
-        rows.value.splice(0, rows.value.length, ...returnedData);
+        rows.value.splice(0, rows.value.length, ...listedPlugins.value);
 
         // don't forget to update local pagination object
         pagination.value.page = page;
@@ -444,9 +449,20 @@ export default {
       })
     }
 
-    function openPluginInfo(e) {
-      console.log(e)
+    const showPluginInfo = ref('');
 
+    function openPluginInfo(table_id) {
+      showPluginInfo.value = '';
+      for (let i = 0; i < listedPlugins.value.length; i++) {
+        let plugin = listedPlugins.value[i];
+        if (plugin.id === table_id) {
+          showPluginInfo.value = plugin.plugin_id;
+        }
+      }
+    }
+
+    function closePluginInfo() {
+      showPluginInfo.value = '';
     }
 
     onMounted(() => {
@@ -472,6 +488,8 @@ export default {
       updateSelected,
       uninstallSelected,
       openPluginInfo,
+      showPluginInfo,
+      closePluginInfo
     }
   }
 }
