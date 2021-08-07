@@ -109,7 +109,7 @@
                   round
                   flat
                   icon="close_fullscreen" v-close-popup>
-                  <q-tooltip class="bg-white text-primary">Close</q-tooltip>
+                  <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
                 </q-btn>
               </div>
             </div>
