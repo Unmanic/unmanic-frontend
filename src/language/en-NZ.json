@@ -53,7 +53,8 @@
     "plugins": "Plugins",
     "pluginInfo": "Plugin Info",
     "pluginSettings": "Plugin Settings",
-    "pluginInstaller": "Plugin Installer"
+    "pluginInstaller": "Plugin Installer",
+    "pluginFlow": "Configure Plugin Flow"
   },
   "tooltips": {
     "close": "Close",

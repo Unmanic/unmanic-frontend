@@ -89,6 +89,7 @@ module.exports = configure(function (ctx) {
         '/plugins': 'http://localhost:8888',
         '/settings': 'http://localhost:8888',
         '/filebrowser': 'http://localhost:8888',
+        '/plugin-flow': 'http://localhost:8888',
       },
       open: false
     },

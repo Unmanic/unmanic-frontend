@@ -29,6 +29,12 @@
       </q-td>
     </template>
 
+    <template v-slot:body-cell-description="props">
+      <q-td :props="props">
+        <span v-html="props.row.description"></span>
+      </q-td>
+    </template>
+
     <template v-slot:body-cell-status="props">
       <q-td :props="props">
         <div class="row">
@@ -65,11 +71,13 @@
     <template v-slot:top-left>
       <q-btn
         @click="installPluginPopup = !installPluginPopup"
+        class="q-ml-xs q-mt-xs"
         color="secondary"
         icon-right="add"
         :label="$t('components.plugins.addNew')"/>
       <q-btn
-        class="q-ml-sm"
+        @click="configurePluginFlowPopup = !configurePluginFlowPopup"
+        class="q-ml-xs q-mt-xs"
         color="secondary"
         icon-right="account_tree"
         :label="$t('components.plugins.configurePluginFow')"/>
@@ -143,6 +151,16 @@
 
   </q-dialog>
 
+  <q-dialog
+    v-model="configurePluginFlowPopup"
+    full-width
+    maximized
+    position="left">
+
+    <PluginFlowIframe/>
+
+  </q-dialog>
+
 </template>
 
 <script>
@@ -152,6 +170,8 @@ import { useQuasar } from "quasar";
 import axios from "axios";
 import PluginInfo from "components/PluginInfo";
 import PluginInstaller from "components/PluginInstaller";
+import PluginFlowIframe from "components/PluginFlowIframe";
+import { bbCodeToHTML } from "src/js/markupParser";
 
 const columns = [
   {
@@ -214,7 +234,7 @@ const columns = [
 
 
 export default {
-  components: { PluginInstaller, PluginInfo },
+  components: { PluginFlowIframe, PluginInstaller, PluginInfo },
   setup() {
     const $q = useQuasar();
     const rows = ref([]);
@@ -231,6 +251,7 @@ export default {
     const listedPlugins = ref([]);
 
     const installPluginPopup = ref(false);
+    const configurePluginFlowPopup = ref(false);
 
     function getSelectedString() {
       let return_value = ''
@@ -396,6 +417,17 @@ export default {
       }
     }
 
+    function parseAndLimitDescription (description_text) {
+      // Limit description text to 280 characters
+      if (description_text.length > 280) {
+        description_text = description_text.substring(0, 277) + '...';
+      }
+      // Only show first line in multi-line description text.
+      description_text = description_text.split('\n')[0];
+      // Parse BBCode
+      return bbCodeToHTML(description_text);
+    }
+
     function onRequest(props) {
       const { page, rowsPerPage, sortBy, descending } = props.pagination;
       const filter = props.filter;
@@ -433,7 +465,7 @@ export default {
             plugin_id: results.plugin_id,
             icon: results.icon,
             name: results.name,
-            description: results.description,
+            description: parseAndLimitDescription(results.description),
             tags: results.tags,
             author: results.author,
             version: results.version,
@@ -503,7 +535,8 @@ export default {
       openPluginInfo,
       showPluginInfo,
       closePluginInfo,
-      installPluginPopup
+      installPluginPopup,
+      configurePluginFlowPopup
     }
   }
 }
