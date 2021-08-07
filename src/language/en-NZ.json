@@ -36,12 +36,14 @@
     }
   },
   "notifications": {
+    "saved": "Saved.",
+    "installed": "Installed.",
     "backendConnectionWarning": "Unable to connect to Unmanic backend. Please check that it is running.",
     "failedToFetchSession": "An error was encountered while fetching the session data from Unmanic.",
     "failedToFetchLoginUrl": "Failed to get login URL.",
     "failedToFetchLogoutUrl": "Failed to get logout URL.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
-    "saved": "Saved."
+    "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin."
   },
   "headers": {
     "workers": "Workers",
@@ -50,7 +52,18 @@
     "privacyPolicy": "Privacy Policy",
     "plugins": "Plugins",
     "pluginInfo": "Plugin Info",
-    "pluginSettings": "Plugin Settings"
+    "pluginSettings": "Plugin Settings",
+    "pluginInstaller": "Plugin Installer"
+  },
+  "tooltips": {
+    "close": "Close",
+    "back": "Back",
+    "download": "Download",
+    "install": "Install",
+    "reinstall": "Reinstall",
+    "update": "Update",
+    "information": "Information",
+    "pluginInfo": "Plugin Info"
   },
   "components": {
     "workers": {
@@ -74,7 +87,12 @@
       "updatePlugins": "Update Plugins(s)",
       "removePlugins": "Remove Plugins(s)",
       "addNew": "Add New",
-      "configurePluginFow": "Configure Plugin Flow"
+      "configurePluginFow": "Configure Plugin Flow",
+      "listEmpty": "There are no plugins to display",
+      "tagFilter": "Tag Filter",
+      "name": "Name",
+      "author": "Author",
+      "version": "Version"
     }
   }
 }

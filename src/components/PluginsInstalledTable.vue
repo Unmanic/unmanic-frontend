@@ -64,6 +64,7 @@
 
     <template v-slot:top-left>
       <q-btn
+        @click="installPluginPopup = !installPluginPopup"
         color="secondary"
         icon-right="add"
         :label="$t('components.plugins.addNew')"/>
@@ -124,7 +125,7 @@
     <template v-slot:no-data>
       <div class="full-width row flex-center text-accent q-gutter-sm">
         <q-icon size="2em" name="sentiment_dissatisfied"/>
-        <q-item-label>{{ $t('components.completedTasks.listEmpty') }}</q-item-label>
+        <q-item-label>{{ $t('components.plugins.listEmpty') }}</q-item-label>
         <q-icon size="2em" name="priority_high"/>
       </div>
     </template>
@@ -132,6 +133,15 @@
   </q-table>
 
   <PluginInfo v-bind:showPluginInfo="showPluginInfo" v-on:hide="closePluginInfo"/>
+
+  <q-dialog
+    v-model="installPluginPopup"
+    maximized
+    position="left">
+
+    <PluginInstaller/>
+
+  </q-dialog>
 
 </template>
 
@@ -141,6 +151,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import PluginInfo from "components/PluginInfo";
+import PluginInstaller from "components/PluginInstaller";
 
 const columns = [
   {
@@ -203,12 +214,12 @@ const columns = [
 
 
 export default {
-  components: { PluginInfo },
+  components: { PluginInstaller, PluginInfo },
   setup() {
     const $q = useQuasar();
-    const rows = ref([])
-    const filter = ref('')
-    const loading = ref(false)
+    const rows = ref([]);
+    const filter = ref('');
+    const loading = ref(false);
     const pagination = ref({
       sortBy: 'name',
       descending: false,
@@ -218,6 +229,8 @@ export default {
     })
     const selected = ref([]);
     const listedPlugins = ref([]);
+
+    const installPluginPopup = ref(false);
 
     function getSelectedString() {
       let return_value = ''
@@ -489,7 +502,8 @@ export default {
       uninstallSelected,
       openPluginInfo,
       showPluginInfo,
-      closePluginInfo
+      closePluginInfo,
+      installPluginPopup
     }
   }
 }

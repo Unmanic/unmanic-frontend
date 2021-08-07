@@ -2,11 +2,13 @@
 
   <q-dialog
     v-model="pluginInfoShowDialog"
-    full-width
+    :full-width="settings.length > 0"
     full-height
     :maximized="$q.platform.is.mobile"
     @hide="onDialogHide">
-    <q-card style="width:100%">
+    <q-card
+      :style="settings.length > 0 ? '' : 'max-width: 1200px;'"
+      style="width:100%;">
       <q-card-section class="bg-grey-2">
         <div class="row items-center no-wrap">
           <div class="col">
@@ -23,7 +25,7 @@
               round
               flat
               icon="close_fullscreen" v-close-popup>
-              <q-tooltip class="bg-white text-primary">Close</q-tooltip>
+              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
             </q-btn>
           </div>
         </div>
@@ -32,7 +34,9 @@
       <q-card-section class="q-pa-none">
         <div class="row">
 
-          <div class="col col-md-6 col-12 q-pa-xs">
+          <div
+            :class="settings.length > 0 ? 'col-md-6 col-12' : 'col-12'"
+            class="col q-pa-xs">
             <!--INFO-->
             <div class="row">
               <div class="col col-md-auto col-12 q-pa-xs">
@@ -116,7 +120,9 @@
               </div>
             </div>
           </div>
-          <div class="col col-md-6 col-sm-12 q-pa-xs">
+          <div
+            v-if="!viewingRemoteInfo"
+            class="col col-md-6 col-sm-12 q-pa-xs">
             <!--SETTINGS-->
             <div class="row">
               <div class="col col-12 q-pa-xs">
@@ -164,19 +170,38 @@ export default {
   watch: {
     showPluginInfo(value) {
       if (value.length > 0) {
-        this.pluginInfoShowDialog = true;
         this.fetchPluginInfo();
+        this.pluginInfoShowDialog = true;
       } else {
         this.pluginInfoShowDialog = false;
+        this.resetData();
+
       }
     }
   },
   methods: {
+    resetData() {
+      this.id = null;
+      this.plugin_id = '';
+      this.icon = null;
+      this.name = null;
+      this.description = null;
+      this.tags = null;
+      this.author = null;
+      this.version = null;
+      this.changelog = null;
+      this.status = null;
+      this.settings = [];
+    },
     fetchPluginInfo() {
       console.debug('Fetching info for ' + this.showPluginInfo)
       // Fetch from server
       let data = {
         plugin_id: this.showPluginInfo,
+        prefer_local: true,
+      }
+      if (this.viewingRemoteInfo) {
+        data.prefer_local = false;
       }
       axios({
         method: 'post',
@@ -192,7 +217,9 @@ export default {
         this.version = response.data.version
         this.changelog = response.data.changelog
         this.status = response.data.status
-        this.settings = response.data.settings
+        if (!this.viewingRemoteInfo) {
+          this.settings = response.data.settings
+        }
 
         // Parse the changelog
         this.changelog = bbCodeToHTML(response.data.changelog);
@@ -209,6 +236,10 @@ export default {
     showPluginInfo: {
       type: String,
       required: true
+    },
+    viewingRemoteInfo: {
+      type: Boolean,
+      required: false
     }
   },
   setup() {
