@@ -43,7 +43,13 @@
     "failedToFetchLoginUrl": "Failed to get login URL.",
     "failedToFetchLogoutUrl": "Failed to get logout URL.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
-    "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin."
+    "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin.",
+    "repoAlreadyExists": "Repository already exists.",
+    "newRepoAddFailed": "New repository failed to save.",
+    "reposRefreshSuccess": "Successfully updated all repositories.",
+    "reposRefreshFailure": "Unable to update your configured repositories. Perhaps there is an error in one of the URLs?",
+    "repoRemovedSuccess": "Successfully removed repository.",
+    "repoRemovedFailed": "Something went wrong while trying to remove repository."
   },
   "headers": {
     "workers": "Workers",
@@ -54,7 +60,8 @@
     "pluginInfo": "Plugin Info",
     "pluginSettings": "Plugin Settings",
     "pluginInstaller": "Plugin Installer",
-    "pluginFlow": "Configure Plugin Flow"
+    "pluginFlow": "Configure Plugin Flow",
+    "information": "Info"
   },
   "tooltips": {
     "close": "Close",
@@ -90,10 +97,15 @@
       "addNew": "Add New",
       "configurePluginFow": "Configure Plugin Flow",
       "listEmpty": "There are no plugins to display",
-      "tagFilter": "Tag Filter",
+      "categoryFilter": "Category Filter",
       "name": "Name",
       "author": "Author",
-      "version": "Version"
+      "version": "Version",
+      "repoList": "Repository List",
+      "refreshRepositories": "Refresh Repositories",
+      "addRepository": "Add Repository",
+      "repoName": "Name",
+      "repoSource": "Repository URL"
     }
   }
 }
