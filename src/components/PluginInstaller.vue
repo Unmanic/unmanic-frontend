@@ -36,31 +36,51 @@
           hide-pagination
         >
           <template v-slot:top-left>
-            <q-input
-              outlined
-              dense
-              debounce="300"
-              v-model="filter"
-              placeholder="Search">
-              <template v-slot:append>
-                <q-icon name="search"/>
-              </template>
-            </q-input>
+            <div class="row q-col-gutter-xs q-ma-xs">
+              <div
+                v-if="$q.platform.is.mobile"
+                class="col-auto">
+                <PluginInstallerManageRepos/>
+              </div>
+              <div class="col-auto">
+                <q-input
+                  filled
+                  class="shadow-1"
+                  dense
+                  debounce="300"
+                  v-model="filter"
+                  :placeholder="$t('navigation.search')">
+                  <template v-slot:append>
+                    <q-icon name="search"/>
+                  </template>
+                </q-input>
+              </div>
+              <div class="col-auto">
+                <q-select
+                  filled
+                  class="shadow-1"
+                  @update:model-value="loadInstallablePlugins"
+                  dense
+                  :label="$t('components.plugins.categoryFilter')"
+                  v-model="tagFilter"
+                  :options="tags"
+                  style="min-width: 300px">
+                  <template v-slot:append>
+                    <q-icon name="style"/>
+                  </template>
+                </q-select>
+              </div>
+            </div>
           </template>
 
-          <template v-slot:top-right>
-            <q-select
-              @update:model-value="loadInstallablePlugins"
-              outlined
-              dense
-              :label="$t('components.plugins.tagFilter')"
-              v-model="tagFilter"
-              :options="tags"
-              style="min-width: 300px">
-              <template v-slot:append>
-                <q-icon name="style"/>
-              </template>
-            </q-select>
+          <template
+            v-if="!$q.platform.is.mobile"
+            v-slot:top-right>
+            <div class="row q-col-gutter-xs q-ma-xs">
+              <div class="col-auto">
+                <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
+              </div>
+            </div>
           </template>
 
           <template v-slot:no-data>
@@ -220,6 +240,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { computed, onMounted, ref } from "vue";
 import PluginInfo from "components/PluginInfo";
 import { useQuasar } from "quasar";
+import PluginInstallerManageRepos from "components/PluginInstallerManageRepos";
 
 const columns = [
   {
@@ -256,10 +277,11 @@ const columns = [
 
 export default {
   name: 'PluginInstaller',
-  components: { PluginInfo },
+  components: { PluginInstallerManageRepos, PluginInfo },
   setup() {
     const tags = ref([])
     const tagFilter = ref('All')
+    const repoList = ref('')
 
     const allPluginsList = ref([])
 
@@ -331,6 +353,15 @@ export default {
       });
     }
 
+    const reloadPluginsPostRepoReloaded = function () {
+      // A repo refresh will reset a bunch of things.
+      // This can mess up pagination. Best solution is to force us back to page one...
+      pagination.value.page = 1;
+
+      // Now trigger a reload of the installable plugins
+      loadInstallablePlugins();
+    }
+
     const showPluginInfo = ref('');
 
     function closePluginInfo() {
@@ -354,7 +385,9 @@ export default {
       showPluginInfo,
       viewingRemoteInfo: true,
       closePluginInfo,
-      pluginInstalling
+      pluginInstalling,
+      repoList,
+      reloadPluginsPostRepoReloaded
     }
   },
   methods: {
@@ -376,7 +409,8 @@ export default {
           color: 'positive',
           position: 'top',
           message: this.$t('notifications.installed'),
-          icon: 'report_problem'
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
         })
 
         // Mark it as installed
@@ -394,7 +428,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.failedToInstallPlugin'),
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
 
         this.pluginInstalling[plugin_id] = false
