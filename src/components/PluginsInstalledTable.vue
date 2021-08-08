@@ -69,65 +69,86 @@
     </template>
 
     <template v-slot:top-left>
-      <q-btn
-        @click="installPluginPopup = !installPluginPopup"
-        class="q-ml-xs q-mt-xs"
-        color="secondary"
-        icon-right="add"
-        :label="$t('components.plugins.addNew')"/>
-      <q-btn
-        @click="configurePluginFlowPopup = !configurePluginFlowPopup"
-        class="q-ml-xs q-mt-xs"
-        color="secondary"
-        icon-right="account_tree"
-        :label="$t('components.plugins.configurePluginFow')"/>
-      <q-input borderless dense debounce="300" color="primary" v-model="filter" :placeholder="$t('navigation.search')">
-        <template v-slot:append>
-          <q-icon name="search"/>
-        </template>
-      </q-input>
+      <div class="row q-gutter-xs q-mt-xs">
+        <div class="col-auto">
+          <q-btn
+            @click="installPluginPopup = !installPluginPopup"
+            class=""
+            color="secondary"
+            icon-right="add"
+            :label="$t('components.plugins.addNew')"/>
+        </div>
+        <div class="col-auto">
+          <q-btn
+            @click="configurePluginFlowPopup = !configurePluginFlowPopup"
+            class=""
+            color="secondary"
+            icon-right="account_tree"
+            :label="$t('components.plugins.configurePluginFow')"/>
+        </div>
+      </div>
+      <div class="row q-gutter-xs q-mt-xs">
+        <div class="col-auto">
+          <q-input
+            filled
+            class="shadow-1"
+            dense
+            debounce="300"
+            color="primary"
+            v-model="filter"
+            :placeholder="$t('navigation.search')">
+            <template v-slot:append>
+              <q-icon name="search"/>
+            </template>
+          </q-input>
+        </div>
+      </div>
     </template>
 
     <template v-slot:top-right>
-      <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
-        <q-list>
-          <q-item clickable v-close-popup @click="enableSelected">
-            <q-item-section>
-              <q-item-label>
-                <q-icon name="radio_button_checked"/>
-                {{ $t('components.plugins.enablePlugins') }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-          <q-item clickable v-close-popup @click="disableSelected">
-            <q-item-section>
-              <q-item-label>
-                <q-icon name="radio_button_unchecked"/>
-                {{ $t('components.plugins.disablePlugins') }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-          <q-item clickable v-close-popup @click="updateSelected">
-            <q-item-section>
-              <q-item-label>
-                <q-icon name="update"/>
-                {{ $t('components.plugins.updatePlugins') }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
+      <div class="row q-gutter-xs q-mt-xs">
+        <div class="col-auto">
+          <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
+            <q-list>
+              <q-item clickable v-close-popup @click="enableSelected">
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="radio_button_checked"/>
+                    {{ $t('components.plugins.enablePlugins') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup @click="disableSelected">
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="radio_button_unchecked"/>
+                    {{ $t('components.plugins.disablePlugins') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup @click="updateSelected">
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="update"/>
+                    {{ $t('components.plugins.updatePlugins') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
 
-          <q-separator/>
+              <q-separator/>
 
-          <q-item clickable v-close-popup @click="uninstallSelected">
-            <q-item-section>
-              <q-item-label>
-                <q-icon name="delete_outline"/>
-                {{ $t('components.plugins.removePlugins') }}
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-        </q-list>
-      </q-btn-dropdown>
+              <q-item clickable v-close-popup @click="uninstallSelected">
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="delete_outline"/>
+                    {{ $t('components.plugins.removePlugins') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-btn-dropdown>
+        </div>
+      </div>
     </template>
 
     <template v-slot:no-data>
@@ -144,8 +165,8 @@
 
   <q-dialog
     v-model="installPluginPopup"
-    maximized
-    position="left">
+    full-width
+    maximized>
 
     <PluginInstaller/>
 
@@ -154,8 +175,7 @@
   <q-dialog
     v-model="configurePluginFlowPopup"
     full-width
-    maximized
-    position="left">
+    maximized>
 
     <PluginFlowIframe/>
 
@@ -287,7 +307,8 @@ export default {
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected plugins be enabled',
-            icon: 'report_problem'
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
           })
         })
       } else {
@@ -295,7 +316,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -326,7 +348,8 @@ export default {
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected plugins be disabled',
-            icon: 'report_problem'
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
           })
         })
       } else {
@@ -334,7 +357,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -365,7 +389,8 @@ export default {
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected plugins be updated',
-            icon: 'report_problem'
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
           })
         })
       } else {
@@ -373,7 +398,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -404,7 +430,8 @@ export default {
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected plugins be removed',
-            icon: 'report_problem'
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
           })
         })
       } else {
@@ -412,12 +439,13 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
 
-    function parseAndLimitDescription (description_text) {
+    function parseAndLimitDescription(description_text) {
       // Limit description text to 280 characters
       if (description_text.length > 280) {
         description_text = description_text.substring(0, 277) + '...';
@@ -489,7 +517,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: 'An error was encountered while requesting the completed tasks list',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     }

@@ -175,7 +175,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.failedToSavePluginSettings'),
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       });
     }

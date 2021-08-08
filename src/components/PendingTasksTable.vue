@@ -15,7 +15,14 @@
       v-model:selected="selected"
     >
       <template v-slot:top-left>
-        <q-input borderless dense debounce="300" color="primary" v-model="filter" placeholder="Search">
+        <q-input
+          filled
+          class="shadow-1"
+          dense
+          debounce="300"
+          color="primary"
+          v-model="filter"
+          :placeholder="$t('navigation.search')">
           <template v-slot:append>
             <q-icon name="search"/>
           </template>
@@ -135,7 +142,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: 'An error was encountered while requesting a library rescan',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     }
@@ -159,7 +167,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -183,7 +192,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -204,7 +214,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: 'An error was encountered while requesting a task reorder',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     }
@@ -235,7 +246,8 @@ export default {
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected tasks be deleted',
-            icon: 'report_problem'
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
           })
         })
       } else {
@@ -243,7 +255,8 @@ export default {
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       }
     }
@@ -305,7 +318,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: 'An error was encountered while requesting the pending tasks list',
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     }

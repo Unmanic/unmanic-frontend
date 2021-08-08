@@ -195,7 +195,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.failedToFetchLoginUrl'),
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     },
@@ -225,7 +226,8 @@ export default {
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.failedToFetchLogoutUrl'),
-          icon: 'report_problem'
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
         })
       })
     }
