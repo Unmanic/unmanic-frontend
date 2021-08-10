@@ -125,10 +125,12 @@
               <!--START STATUS-->
               <q-card-section class="col-12 col-md-7">
                 <WorkerProgressStatus
+                  v-bind:id="id"
                   v-bind:state="state"
                   v-bind:currentRunner="currentRunner"
                   v-bind:startTime="startTime"
-                  v-bind:totalProcTime="totalProcTime"/>
+                  v-bind:totalProcTime="totalProcTime"
+                  v-bind:paused="paused"/>
               </q-card-section>
               <!--END STATUS-->
 
@@ -251,6 +253,14 @@ export default defineComponent({
 
     workerLog: {
       type: Array
+    },
+
+    idle: {
+      type: Boolean
+    },
+
+    paused: {
+      type: Boolean
     }
   }
 })

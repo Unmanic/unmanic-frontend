@@ -60,7 +60,7 @@ import PendingTasks from 'components/PendingTasks.vue'
 import CompletedTasks from "components/CompletedTasks";
 import dateTools from "src/js/dateTools";
 import { useQuasar } from "quasar";
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { useI18n } from "vue-i18n";
 
 export default {
@@ -77,6 +77,7 @@ export default {
       taskList: []
     });
 
+    let autoReconnectSocket = true;
     let connectionTimer = null;
     let serverId = null;
     let ws;
@@ -98,6 +99,76 @@ export default {
       } else {
         if (typeof clearConnectionWarning === 'function') {
           clearConnectionWarning();
+        }
+      }
+    }
+
+    let currentErrorMessages = {};
+
+    function dismissMessages(message_id) {
+      if (typeof currentErrorMessages[message_id] === 'function') {
+        currentErrorMessages[message_id]();
+        if (ws !== undefined && ws !== null) {
+          ws.send(JSON.stringify({ command: 'dismiss_message', params: { message_id: message_id } }));
+        }
+      }
+      if (typeof currentErrorMessages[message_id] !== undefined) {
+        delete currentErrorMessages[message_id]
+      }
+    }
+
+    function displayMessages(data) {
+      let current_ids = []
+      for (let i = 0; i < data.length; i++) {
+        let message_id = data[i].id
+        let type = data[i].type
+        let code = data[i].code
+        let message = data[i].message
+        if (!(message_id in currentErrorMessages)) {
+          // Fetch message string from i18n
+          let notificationStringId = 'notifications.serverMessages.' + code
+          let notificationString = $t(notificationStringId)
+          // If i18n doesnt have this string ID, then revert to default
+          if (notificationString === notificationStringId) {
+            notificationString = $t('notifications.serverMessages.defaults.' + type);
+          }
+
+          // Format notification based on message type
+          let color = 'info';
+          let icon = 'announcement';
+          if (type === 'error') {
+            color = 'negative';
+            icon = 'error';
+          } else if (type === 'warning') {
+            color = 'warning';
+            icon = 'warning';
+          } else if (type === 'success') {
+            color = 'positive';
+            icon = 'thumb_up';
+          }
+
+          currentErrorMessages[message_id] = $q.notify({
+            timeout: 0,
+            color: color,
+            position: 'bottom-right',
+            message: notificationString + ' - ' + message,
+            icon: icon,
+            actions: [
+              {
+                icon: 'close',
+                color: 'white',
+                handler: () => {
+                  dismissMessages(message_id);
+                }
+              }
+            ]
+          })
+        }
+        current_ids[current_ids.length] = message_id
+      }
+      for (let message_id in currentErrorMessages) {
+        if (!(current_ids.includes(message_id))) {
+          dismissMessages(message_id);
         }
       }
     }
@@ -127,8 +198,20 @@ export default {
           startTime: '',
           totalProcTime: '',
           workerLog: [],
+          idle: worker.idle,
+          paused: worker.paused
         }
 
+        // If the worker is paused, the setup initial paused style.
+        // NOTE: It is possible to have a worker that is 'paused' but not 'idle'.
+        //    Therefore this may be modified further below
+        if (worker.paused) {
+          // Set 'paused' defaults
+          workerData['worker-' + worker.id].label = '...';
+          workerData['worker-' + worker.id].color = 'negative';
+          workerData['worker-' + worker.id].progressText = '...';
+          workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
+        }
         if (!worker.idle) {
           if (typeof worker.progress.percent !== 'undefined') {
             // Set the label
@@ -163,6 +246,12 @@ export default {
 
             // Set the worker log file
             workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
+
+            // If the worker is paused mid task, then flick it over to paused statue formatting
+            if (worker.paused) {
+              workerData['worker-' + worker.id].color = 'negative';
+              workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
+            }
           } else {
             // Set 'indeterminate' defaults
             workerData['worker-' + worker.id].indeterminate = true;
@@ -230,7 +319,7 @@ export default {
     }
 
     function initDashboardWebsocket() {
-      console.log("Starting connection to WebSocket Server")
+      console.debug("Starting connection to websocket server")
       if (ws === undefined || ws === null) {
         // Open WS connection
         openWS();
@@ -239,9 +328,10 @@ export default {
       ws.onopen = function () {
         clearTimeout(connectionTimer);
         connectionWarning(false)
-        ws.send('start_workers_info');
-        ws.send('start_pending_tasks_info');
-        ws.send('start_completed_tasks_info');
+        ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
+        ws.send(JSON.stringify({ command: 'start_workers_info', params: {} }));
+        ws.send(JSON.stringify({ command: 'start_pending_tasks_info', params: {} }));
+        ws.send(JSON.stringify({ command: 'start_completed_tasks_info', params: {} }));
       };
 
       ws.onmessage = function (evt) {
@@ -254,7 +344,7 @@ export default {
             } else {
               if (jsonData.server_id !== serverId) {
                 // Reload the whole page. Some things may have changed
-                console.log('Unmanic server has restarted. Reloading page...');
+                console.debug('Unmanic server has restarted. Reloading page...');
                 location.reload();
               }
             }
@@ -268,6 +358,9 @@ export default {
                 break;
               case 'completed_tasks':
                 updateCompletedTasksList(jsonData.data);
+                break;
+              case 'frontend_message':
+                displayMessages(jsonData.data);
                 break;
               default:
                 console.error('WebSocket Error: Received data was not a valid type - ' + jsonData.type);
@@ -290,13 +383,30 @@ export default {
       };
 
       ws.onclose = function () {
-        reconnectWS();
+        if (autoReconnectSocket) {
+          reconnectWS();
+        }
       };
+    }
+
+    function closeDashboardWebsocket() {
+      console.debug("Closing connection to websocket server")
+      if (ws !== undefined && ws !== null) {
+        // Mark connection to not reconnect
+        autoReconnectSocket = false;
+        // Close WS connection
+        ws.close();
+      }
     }
 
     onMounted(() => {
       // Start the websocket
-      initDashboardWebsocket()
+      initDashboardWebsocket();
+    })
+
+    onUnmounted(() => {
+      // Close the websocket
+      closeDashboardWebsocket();
     })
 
     return {
