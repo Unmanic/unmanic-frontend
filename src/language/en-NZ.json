@@ -49,7 +49,16 @@
     "reposRefreshSuccess": "Successfully updated all repositories.",
     "reposRefreshFailure": "Unable to update your configured repositories. Perhaps there is an error in one of the URLs?",
     "repoRemovedSuccess": "Successfully removed repository.",
-    "repoRemovedFailed": "Something went wrong while trying to remove repository."
+    "repoRemovedFailed": "Something went wrong while trying to remove repository.",
+    "serverMessages": {
+      "defaults": {
+        "info": "Unknown message from server",
+        "error": "Unknown error occurred on server",
+        "warning": "Unknown warning from server",
+        "success": "Unknown message from server"
+      },
+      "incompatiblePlugin": "An incompatible plugin is preventing the server from running"
+    }
   },
   "headers": {
     "workers": "Workers",
@@ -75,9 +84,12 @@
   },
   "components": {
     "workers": {
+      "pauseWorker": "Pause this worker",
+      "resumeWorker": "Resume this worker",
       "state": {
         "waiting": "Waiting for another task...",
-        "processing": "Processing task..."
+        "processing": "Processing task...",
+        "paused": "Worker paused..."
       },
       "currentRunner": {
         "none": "None",
