@@ -92,7 +92,7 @@
                       </q-item>
                     </q-list>
                     <q-scroll-area style="height: 150px; max-width: 100%;">
-                      <span v-html="changelog"></span>
+                      <span class="plugin-changelog" v-html="changelog"></span>
                     </q-scroll-area>
                   </q-card-section>
                 </q-card>
@@ -111,7 +111,7 @@
                       </div>
 
                       <div class="row q-mt-md">
-                        <span v-html="description"></span>
+                        <span class="plugin-description" v-html="description"></span>
                       </div>
 
                     </q-card-section>
@@ -145,7 +145,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import { bbCodeToHTML } from "src/js/markupParser";
+import { markdownToHTML } from "src/js/markupParser";
 import PluginSettings from "components/PluginSettings";
 
 export default {
@@ -222,10 +222,10 @@ export default {
         }
 
         // Parse the changelog
-        this.changelog = bbCodeToHTML(response.data.changelog);
+        this.changelog = markdownToHTML(response.data.changelog);
 
         // Parse the description
-        this.description = bbCodeToHTML(response.data.description);
+        this.description = markdownToHTML(response.data.description);
       });
     },
     onDialogHide() {
@@ -248,13 +248,30 @@ export default {
 }
 </script>
 
-<style scoped>
-.fc-scroller {
-  overflow-y: auto;
-  overflow-x: hidden;
+<style>
+span.plugin-changelog * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
-
-.fc-month-view .fc-scroller {
-  height: auto !important;
+span.plugin-description * {
+  margin-bottom: 0;
+}
+span.plugin-description p {
+  margin-bottom: 5px;
+}
+span.plugin-description h2,
+span.plugin-description h3,
+span.plugin-description h4,
+span.plugin-description h5,
+span.plugin-description h6 {
+  margin-top: 10px;
+}
+span.plugin-description ul {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+span.plugin-description pre {
+  background: #EEE;
+  border: inset thin;
 }
 </style>

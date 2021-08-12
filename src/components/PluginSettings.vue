@@ -66,7 +66,11 @@
               @update:model-value="savePluginSettings"
               filled
               v-model="item.value"
+              emit-value
+              map-options
               :options="item.select_options"
+              :option-value="opt => Object(opt) === opt && 'value' in opt ? opt.value : null"
+              :option-label="opt => Object(opt) === opt && 'label' in opt ? opt.label : '- Null -'"
               :label="item.label"/>
           </q-item-section>
 
@@ -157,7 +161,7 @@ export default {
       });
     },
     savePluginSettings: function () {
-      console.debug('Fetching info for ' + this.showPluginInfo)
+      console.debug('Fetching info for ' + this.pluginId)
 
       let data = {
         plugin_id: this.pluginId,
