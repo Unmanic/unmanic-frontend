@@ -124,6 +124,7 @@ export default {
         let type = data[i].type
         let code = data[i].code
         let message = data[i].message
+        let timeout = data[i].timeout
         if (!(message_id in currentErrorMessages)) {
           // Fetch message string from i18n
           let notificationStringId = 'notifications.serverMessages.' + code
@@ -148,7 +149,7 @@ export default {
           }
 
           currentErrorMessages[message_id] = $q.notify({
-            timeout: 0,
+            timeout: timeout,
             color: color,
             position: 'bottom-right',
             message: notificationString + ' - ' + message,
@@ -213,52 +214,53 @@ export default {
           workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
         }
         if (!worker.idle) {
-          if (typeof worker.progress.percent !== 'undefined') {
-            // Set the label
-            workerData['worker-' + worker.id].label = worker.name + ': ' + worker.current_file;
+          // Set the label
+          workerData['worker-' + worker.id].label = worker.name + ': ' + worker.current_file;
+          // Set the progress graph colour
+          workerData['worker-' + worker.id].color = 'secondary';
+          // Set the worker state
+          workerData['worker-' + worker.id].state = $t('components.workers.state.processing');
 
-            // Set the progress graph
-            workerData['worker-' + worker.id].color = 'secondary';
-            workerData['worker-' + worker.id].progress = Number(worker.progress.percent);
-            workerData['worker-' + worker.id].progressText = worker.progress.percent + '%';
-
-            // Set the ETC
-            workerData['worker-' + worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.progress.percent, worker.progress.elapsed));
-
-            // Set the worker state
-            workerData['worker-' + worker.id].state = $t('components.workers.state.processing');
-
-            // Set the current runner this worker is executing
-            let currentRunner = $t('components.workers.currentRunner.indeterminate');
-            if (typeof worker.runners_info === 'object' && worker.runners_info !== null) {
-              for (const [runnerKey, runnerValue] of Object.entries(worker.runners_info)) {
-                if (runnerValue.status === 'in_progress') {
-                  currentRunner = runnerValue.name;
-                }
+          // Set the current runner this worker is executing
+          let currentRunner = $t('components.workers.currentRunner.indeterminate');
+          if (typeof worker.runners_info === 'object' && worker.runners_info !== null) {
+            for (const [runnerKey, runnerValue] of Object.entries(worker.runners_info)) {
+              if (runnerValue.status === 'in_progress') {
+                currentRunner = runnerValue.name;
               }
             }
-            workerData['worker-' + worker.id].currentRunner = currentRunner;
+          }
+          workerData['worker-' + worker.id].currentRunner = currentRunner;
 
-            // Set the start and total processing time
-            let startTime = new Date(worker.start_time * 1000);
-            workerData['worker-' + worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
-            workerData['worker-' + worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
+          // Set the start and total processing time
+          let startTime = new Date(worker.start_time * 1000);
+          workerData['worker-' + worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
+          workerData['worker-' + worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
 
-            // Set the worker log file
-            workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
+          // Set the worker log file
+          workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
 
-            // If the worker is paused mid task, then flick it over to paused statue formatting
-            if (worker.paused) {
-              workerData['worker-' + worker.id].color = 'negative';
-              workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
-            }
+          // Set progress if progress is given
+          if (typeof worker.subprocess.percent !== 'undefined' && worker.subprocess.percent !== '') {
+
+            // Set the progress graph
+            workerData['worker-' + worker.id].progress = Number(worker.subprocess.percent);
+            workerData['worker-' + worker.id].progressText = worker.subprocess.percent + '%';
+
+            // Set the ETC
+            workerData['worker-' + worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.subprocess.percent, worker.subprocess.elapsed));
+
           } else {
-            // Set 'indeterminate' defaults
+            // Set progress as 'indeterminate' if no progress is given
             workerData['worker-' + worker.id].indeterminate = true;
-            workerData['worker-' + worker.id].label = '...';
-            workerData['worker-' + worker.id].color = 'warning';
             workerData['worker-' + worker.id].progressText = '...';
-            workerData['worker-' + worker.id].state = '...';
+          }
+
+          // If the worker is paused mid task, then flick it over to paused statue formatting
+          if (worker.paused) {
+            workerData['worker-' + worker.id].indeterminate = true;
+            workerData['worker-' + worker.id].color = 'negative';
+            workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
           }
         }
       }

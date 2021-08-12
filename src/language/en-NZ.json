@@ -57,7 +57,7 @@
         "warning": "Unknown warning from server",
         "success": "Unknown message from server"
       },
-      "incompatiblePlugin": "An incompatible plugin is preventing the server from running"
+      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin"
     }
   },
   "headers": {
@@ -85,7 +85,11 @@
   "components": {
     "workers": {
       "pauseWorker": "Pause this worker",
+      "workerPaused": "Worker has been paused",
+      "workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
       "resumeWorker": "Resume this worker",
+      "workerResumed": "Worker has been resumed",
+      "workerResumedFailed": "Unmanic was unable to resume this worker for some reason",
       "state": {
         "waiting": "Waiting for another task...",
         "processing": "Processing task...",

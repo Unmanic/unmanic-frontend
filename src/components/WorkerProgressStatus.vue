@@ -8,6 +8,39 @@
             Status
           </div>
         </div>
+
+        <div class="col-auto">
+          <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
+            <q-list>
+
+              <q-item
+                v-if="paused"
+                clickable
+                @click="resumeWorker()"
+                v-close-popup>
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="play_arrow"/>
+                    {{ $t('components.workers.resumeWorker') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item
+                v-else
+                clickable
+                @click="pauseWorker()"
+                v-close-popup>
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="pause"/>
+                    {{ $t('components.workers.pauseWorker') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+
+            </q-list>
+          </q-btn-dropdown>
+        </div>
       </div>
 
     </q-card-section>
@@ -55,12 +88,19 @@
 </template>
 
 <script>
+import axios from "axios";
+import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+
 export default {
   // name: 'ComponentName',
-  setup () {
+  setup() {
     return {}
   },
   props: {
+    id: {
+      type: String
+    },
+
     state: {
       type: String,
       default: 'Waiting for another task...'
@@ -80,6 +120,64 @@ export default {
       type: String,
       default: ''
     },
+
+    paused: {
+      type: Boolean
+    }
+  },
+  methods: {
+    pauseWorker: function () {
+      let data = {
+        worker_id: this.id,
+      }
+      axios({
+        method: 'put',
+        url: getUnmanicApiUrl('v2', 'workers/worker/pause'),
+        data: data
+      }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('components.workers.workerPaused'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('components.workers.workerPausedFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    resumeWorker: function () {
+      let data = {
+        worker_id: this.id,
+      }
+      axios({
+        method: 'put',
+        url: getUnmanicApiUrl('v2', 'workers/worker/resume'),
+        data: data
+      }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('components.workers.workerResumed'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('components.workers.workerResumedFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    }
   }
 }
 </script>
