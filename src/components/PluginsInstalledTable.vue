@@ -516,7 +516,7 @@ export default {
         $q.notify({
           color: 'negative',
           position: 'top',
-          message: 'An error was encountered while requesting the completed tasks list',
+          message: 'An error was encountered while requesting the installed plugins list',
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })
