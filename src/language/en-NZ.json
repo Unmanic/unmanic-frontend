@@ -57,7 +57,8 @@
         "warning": "Unknown warning from server",
         "success": "Unknown message from server"
       },
-      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin"
+      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin",
+      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many plugins enabled. Consider sponsoring the project to enable more than 2 plugins."
     }
   },
   "headers": {

@@ -22,6 +22,7 @@ export const getUnmanicApiUrl = function (api_version, api_endpoint) {
 }
 
 export default {
+  $unmanic,
   getUnmanicVersion() {
     return new Promise((resolve, reject) => {
       if (typeof $unmanic.version === 'undefined') {

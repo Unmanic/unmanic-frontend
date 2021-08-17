@@ -62,6 +62,7 @@ import dateTools from "src/js/dateTools";
 import { useQuasar } from "quasar";
 import { onMounted, onUnmounted, ref } from 'vue';
 import { useI18n } from "vue-i18n";
+import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 
 export default {
   name: 'Dashboard',
@@ -77,102 +78,8 @@ export default {
       taskList: []
     });
 
-    let autoReconnectSocket = true;
-    let connectionTimer = null;
-    let serverId = null;
-    let ws;
-
-    let clearConnectionWarning = null;
-
-    function connectionWarning(show) {
-      if (show) {
-        if (clearConnectionWarning === null) {
-          clearConnectionWarning = $q.notify({
-            timeout: 0,
-            spinner: true,
-            color: 'warning',
-            position: 'top',
-            message: $t('notifications.backendConnectionWarning'),
-            icon: 'report_problem'
-          })
-        }
-      } else {
-        if (typeof clearConnectionWarning === 'function') {
-          clearConnectionWarning();
-        }
-      }
-    }
-
-    let currentErrorMessages = {};
-
-    function dismissMessages(message_id) {
-      if (typeof currentErrorMessages[message_id] === 'function') {
-        currentErrorMessages[message_id]();
-        if (ws !== undefined && ws !== null) {
-          ws.send(JSON.stringify({ command: 'dismiss_message', params: { message_id: message_id } }));
-        }
-      }
-      if (typeof currentErrorMessages[message_id] !== undefined) {
-        delete currentErrorMessages[message_id]
-      }
-    }
-
-    function displayMessages(data) {
-      let current_ids = []
-      for (let i = 0; i < data.length; i++) {
-        let message_id = data[i].id
-        let type = data[i].type
-        let code = data[i].code
-        let message = data[i].message
-        let timeout = data[i].timeout
-        if (!(message_id in currentErrorMessages)) {
-          // Fetch message string from i18n
-          let notificationStringId = 'notifications.serverMessages.' + code
-          let notificationString = $t(notificationStringId)
-          // If i18n doesnt have this string ID, then revert to default
-          if (notificationString === notificationStringId) {
-            notificationString = $t('notifications.serverMessages.defaults.' + type);
-          }
-
-          // Format notification based on message type
-          let color = 'info';
-          let icon = 'announcement';
-          if (type === 'error') {
-            color = 'negative';
-            icon = 'error';
-          } else if (type === 'warning') {
-            color = 'warning';
-            icon = 'warning';
-          } else if (type === 'success') {
-            color = 'positive';
-            icon = 'thumb_up';
-          }
-
-          currentErrorMessages[message_id] = $q.notify({
-            timeout: timeout,
-            color: color,
-            position: 'bottom-right',
-            message: notificationString + ' - ' + message,
-            icon: icon,
-            actions: [
-              {
-                icon: 'close',
-                color: 'white',
-                handler: () => {
-                  dismissMessages(message_id);
-                }
-              }
-            ]
-          })
-        }
-        current_ids[current_ids.length] = message_id
-      }
-      for (let message_id in currentErrorMessages) {
-        if (!(current_ids.includes(message_id))) {
-          dismissMessages(message_id);
-        }
-      }
-    }
+    let ws = null;
+    let unmanicWSHandler = UnmanicWebsocketHandler($t);
 
     function updateWorkerProgressCharts(data) {
       function calculateEtc(percent_completed, time_elapsed) {
@@ -297,46 +204,17 @@ export default {
       completedTasksData.value.taskList = results;
     }
 
-    function openWS() {
-      // Build WS path
-      let loc = window.location,
-        new_uri;
-      if (loc.protocol === 'https:') {
-        new_uri = 'wss:';
-      } else {
-        new_uri = 'ws:';
-      }
-      new_uri += '//' + loc.host + '/websocket';
-
-      // Open WS connection
-      ws = new WebSocket(new_uri);
-    }
-
-    function reconnectWS() {
-      ws = null;
-      connectionTimer = setTimeout(() => {
-        console.debug('Attempting reconnect to Unmanic server...');
-        initDashboardWebsocket();
-      }, 4000);
-    }
-
     function initDashboardWebsocket() {
-      console.debug("Starting connection to websocket server")
-      if (ws === undefined || ws === null) {
-        // Open WS connection
-        openWS();
-      }
+      ws = unmanicWSHandler.init();
+      let serverId = null;
 
-      ws.onopen = function () {
-        clearTimeout(connectionTimer);
-        connectionWarning(false)
-        ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
+      unmanicWSHandler.addEventListener('open', 'start_dashboard_messages', function (evt) {
         ws.send(JSON.stringify({ command: 'start_workers_info', params: {} }));
         ws.send(JSON.stringify({ command: 'start_pending_tasks_info', params: {} }));
         ws.send(JSON.stringify({ command: 'start_completed_tasks_info', params: {} }));
-      };
+      });
 
-      ws.onmessage = function (evt) {
+      unmanicWSHandler.addEventListener('message', 'handle_dashboard_messages', function (evt) {
         if (typeof evt.data === 'string') {
           let jsonData = JSON.parse(evt.data);
           if (jsonData.success) {
@@ -361,12 +239,6 @@ export default {
               case 'completed_tasks':
                 updateCompletedTasksList(jsonData.data);
                 break;
-              case 'frontend_message':
-                displayMessages(jsonData.data);
-                break;
-              default:
-                console.error('WebSocket Error: Received data was not a valid type - ' + jsonData.type);
-                break;
             }
           } else {
             console.error('WebSocket Error: Received contained errors - ' + evt.data);
@@ -374,31 +246,11 @@ export default {
         } else {
           console.error('WebSocket Error: Received data was not JSON - ' + evt.data);
         }
-      };
-
-      ws.onerror = function (evt) {
-        console.error('WebSocket Error: ' + evt);
-        // Clear all workers
-        updateWorkerProgressCharts([]);
-        // Display error
-        connectionWarning(true);
-      };
-
-      ws.onclose = function () {
-        if (autoReconnectSocket) {
-          reconnectWS();
-        }
-      };
+      });
     }
 
     function closeDashboardWebsocket() {
-      console.debug("Closing connection to websocket server")
-      if (ws !== undefined && ws !== null) {
-        // Mark connection to not reconnect
-        autoReconnectSocket = false;
-        // Close WS connection
-        ws.close();
-      }
+      unmanicWSHandler.close();
     }
 
     onMounted(() => {
@@ -412,13 +264,9 @@ export default {
     })
 
     return {
-      connectionTimer,
-      serverId,
-      ws,
       workerProgressList,
       pendingTasksData,
-      completedTasksData,
-      initDashboardWebsocket
+      completedTasksData
     }
   }
 }

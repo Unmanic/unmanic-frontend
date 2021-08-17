@@ -1,4 +1,5 @@
 import { Notify } from 'quasar'
+import $unmanic from './unmanicGlobals'
 
 /**
  * Function for handle default WS connection to the Unmanic service.
@@ -10,14 +11,17 @@ import { Notify } from 'quasar'
  * @constructor
  */
 export const UnmanicWebsocketHandler = function ($t) {
+  let clearConnectionWarning = null;
   let autoReconnectSocket = true;
   let connectionTimer = null;
   let serverId = null;
-  let ws;
 
+  /**
+   * Init the websocket to the unmanic backend server
+   *
+   * @returns {null|WebSocket|*}
+   */
   const initWebsocket = function () {
-
-    let clearConnectionWarning = null;
 
     function connectionWarning(show) {
       if (show) {
@@ -39,43 +43,52 @@ export const UnmanicWebsocketHandler = function ($t) {
     }
 
     function openWS() {
-      // Build WS path
-      let loc = window.location,
-        new_uri;
-      if (loc.protocol === 'https:') {
-        new_uri = 'wss:';
-      } else {
-        new_uri = 'ws:';
-      }
-      new_uri += '//' + loc.host + '/websocket';
+      if (typeof $unmanic.ws === 'undefined' || $unmanic.ws === null) {
+        // Build WS path
+        let loc = window.location,
+          new_uri;
+        if (loc.protocol === 'https:') {
+          new_uri = 'wss:';
+        } else {
+          new_uri = 'ws:';
+        }
+        new_uri += '//' + loc.host + '/websocket';
 
-      // Open WS connection
-      ws = new WebSocket(new_uri);
+        // Open WS connection
+        $unmanic.ws = new WebSocket(new_uri);
+      }
     }
 
     function reconnectWS() {
-      ws = null;
+      // Set ws as null so that it needs to be recreated
+      $unmanic.ws = null;
+      // Empty all websocket event listeners
+      $unmanic.websocketEventListeners = {};
       connectionTimer = setTimeout(() => {
         console.debug('Attempting reconnect to Unmanic server...');
         initWebsocket();
       }, 4000);
     }
 
-    let currentErrorMessages = {};
-
     function dismissMessages(message_id) {
-      if (typeof currentErrorMessages[message_id] === 'function') {
-        currentErrorMessages[message_id]();
-        if (ws !== undefined && ws !== null) {
-          ws.send(JSON.stringify({ command: 'dismiss_message', params: { message_id: message_id } }));
+      if (typeof $unmanic.frontendMessage === 'undefined') {
+        return
+      }
+      if (typeof $unmanic.frontendMessage[message_id] === 'function') {
+        $unmanic.frontendMessage[message_id]();
+        if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
+          $unmanic.ws.send(JSON.stringify({ command: 'dismiss_message', params: { message_id: message_id } }));
         }
       }
-      if (typeof currentErrorMessages[message_id] !== undefined) {
-        delete currentErrorMessages[message_id]
+      if (typeof $unmanic.frontendMessage[message_id] !== 'undefined') {
+        delete $unmanic.frontendMessage[message_id]
       }
     }
 
     function displayMessages(data) {
+      if (typeof $unmanic.frontendMessage === 'undefined') {
+        $unmanic.frontendMessage = {};
+      }
       let current_ids = []
       for (let i = 0; i < data.length; i++) {
         let message_id = data[i].id
@@ -83,13 +96,17 @@ export const UnmanicWebsocketHandler = function ($t) {
         let code = data[i].code
         let message = data[i].message
         let timeout = data[i].timeout
-        if (!(message_id in currentErrorMessages)) {
+        if (!(message_id in $unmanic.frontendMessage)) {
           // Fetch message string from i18n
           let notificationStringId = 'notifications.serverMessages.' + code
           let notificationString = $t(notificationStringId)
           // If i18n doesnt have this string ID, then revert to default
           if (notificationString === notificationStringId) {
             notificationString = $t('notifications.serverMessages.defaults.' + type);
+          }
+          // If the message is not empty, concatenate it to the end of the notification string
+          if (message) {
+            notificationString = notificationString + ' - ' + message;
           }
 
           // Format notification based on message type
@@ -106,11 +123,11 @@ export const UnmanicWebsocketHandler = function ($t) {
             icon = 'thumb_up';
           }
 
-          currentErrorMessages[message_id] = Notify.create({
+          $unmanic.frontendMessage[message_id] = Notify.create({
             timeout: timeout,
             color: color,
             position: 'bottom-right',
-            message: notificationString + ' - ' + message,
+            message: notificationString,
             icon: icon,
             actions: [
               {
@@ -125,26 +142,29 @@ export const UnmanicWebsocketHandler = function ($t) {
         }
         current_ids[current_ids.length] = message_id
       }
-      for (let message_id in currentErrorMessages) {
+      for (let message_id in $unmanic.frontendMessage) {
         if (!(current_ids.includes(message_id))) {
           dismissMessages(message_id);
         }
       }
     }
 
-    if (ws === undefined || ws === null) {
+    // Ensure the websocket is open
+    if (typeof $unmanic.ws === 'undefined' || $unmanic.ws === null) {
       console.debug("Starting connection to websocket server")
       // Open WS connection
       openWS();
     }
 
-    ws.addEventListener("open", function (evt) {
+    // Add event listener to request frontend messages from server
+    addWebsocketEventListener('open', 'start_frontend_messages', function (evt) {
       clearTimeout(connectionTimer);
       connectionWarning(false)
-      ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
+      $unmanic.ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
     });
 
-    ws.addEventListener("message", function (evt) {
+    // Add event listener to handle frontend messages from server
+    addWebsocketEventListener('message', 'handle_frontend_messages', function (evt) {
       if (typeof evt.data === 'string') {
         let jsonData = JSON.parse(evt.data);
         if (jsonData.success) {
@@ -172,28 +192,58 @@ export const UnmanicWebsocketHandler = function ($t) {
       }
     });
 
-    ws.addEventListener("error", function (evt) {
+    // Add event listener to handle an error in the websocket
+    addWebsocketEventListener('error', 'websocket_error', function (evt) {
       console.error('WebSocket Error: ' + evt);
       // Display error
       connectionWarning(true);
     });
 
-    ws.addEventListener("close", function (evt) {
+    // Add event listener to auto-reconnect the websocket if the socket closes
+    addWebsocketEventListener('close', 'websocket_close', function (evt) {
       if (autoReconnectSocket) {
         reconnectWS();
       }
     });
 
-    return ws;
+    return $unmanic.ws;
   }
 
+  /**
+   * Add an event listener to the websocket.
+   * This allows us to ensure that event listeners are not duplicated.
+   *
+   * @param type
+   * @param key
+   * @param callback
+   */
+  const addWebsocketEventListener = function (type, key, callback) {
+    if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
+      if (typeof $unmanic.websocketEventListeners === 'undefined') {
+        $unmanic.websocketEventListeners = {};
+      }
+      if (!(key in $unmanic.websocketEventListeners)) {
+        //console.debug("Adding '" + type + "' event listener to websocket - '" + key + "'")
+        $unmanic.ws.addEventListener(type, callback);
+        $unmanic.websocketEventListeners[key] = true
+      }
+    }
+  }
+
+  /**
+   * Close the websocket without triggering a reconnect
+   */
   const closeWebsocket = function () {
-    if (ws !== undefined && ws !== null) {
+    if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
       console.debug("Closing connection to websocket server")
       // Mark connection to not reconnect
       autoReconnectSocket = false;
       // Close WS connection
-      ws.close();
+      $unmanic.ws.close();
+      // Set ws as null so that it needs to be recreated
+      $unmanic.ws = null;
+      // Empty all websocket event listeners
+      $unmanic.websocketEventListeners = {};
     }
   }
 
@@ -203,6 +253,9 @@ export const UnmanicWebsocketHandler = function ($t) {
     },
     close: function () {
       closeWebsocket();
+    },
+    addEventListener: function (type, key, callback) {
+      addWebsocketEventListener(type, key, callback);
     }
   }
 }
