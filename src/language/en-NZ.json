@@ -70,7 +70,9 @@
     "pluginSettings": "Plugin Settings",
     "pluginInstaller": "Plugin Installer",
     "pluginFlow": "Configure Plugin Flow",
-    "information": "Info"
+    "information": "Info",
+    "selectDirectory": "Select a directory",
+    "selectFile": "Select a file"
   },
   "tooltips": {
     "close": "Close",
