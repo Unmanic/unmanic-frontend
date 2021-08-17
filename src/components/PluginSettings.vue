@@ -102,6 +102,26 @@
           </q-item-section>
 
           <!-- Directory browser input -->
+          <q-item-section
+            v-if="item.input_type === 'browse_directory'">
+
+            <q-input
+              readonly
+              filled
+              color="primary"
+              v-model="item.value"
+              :label="item.label"
+              :placeholder="item.label"
+              @click="updateWithDirectoryBrowser(item)">
+              <template v-slot:append>
+                <q-icon
+                  @click="updateWithDirectoryBrowser(item)"
+                  class="cursor-pointer"
+                  name="folder_open"/>
+              </template>
+            </q-input>
+
+          </q-item-section>
 
 
         </q-item>
@@ -127,6 +147,7 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
+import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 
 export default {
   name: 'PluginSettings',
@@ -183,6 +204,22 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    updateWithDirectoryBrowser: function (input) {
+      this.$q.dialog({
+        component: DirectoryBrowserDialog,
+        // props forwarded to your custom component
+        componentProps: {
+          dialogHeader: this.$t('headers.selectDirectory'),
+          initialPath: input.value,
+          listType: 'directories'
+        },
+      }).onOk((payload) => {
+        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
+          input.value = payload.selectedPath
+        }
+      }).onDismiss(() => {
+      })
     }
   },
   watch: {
