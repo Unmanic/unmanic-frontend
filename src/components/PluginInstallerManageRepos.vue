@@ -82,7 +82,8 @@
           <q-separator vertical inset class="q-mx-lg"/>
 
           <div class="column items-center">
-            <q-avatar size="72px">
+            <q-skeleton v-if="!repo.icon" width="72px" height="72px"/>
+            <q-avatar v-else rounded size="72px">
               <img :src="repo.icon">
             </q-avatar>
 

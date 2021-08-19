@@ -21,7 +21,8 @@
   },
   "status": {
     "enabled": "enabled",
-    "disabled": "disabled"
+    "disabled": "disabled",
+    "cannotLoadImage": "Cannot load image"
   },
   "pagination": {
     "prev": "prev",
