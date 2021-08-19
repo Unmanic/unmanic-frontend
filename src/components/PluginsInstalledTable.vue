@@ -20,7 +20,8 @@
           <span>
             <q-btn
               @click="openPluginInfo(props.row.id)">
-              <q-avatar rounded size="32px">
+              <q-skeleton v-if="!props.row.icon" width="35px" height="35px"/>
+              <q-avatar v-else rounded size="35px">
                 <img :src="props.row.icon" class="plugin-list-icon">
               </q-avatar>
             </q-btn>
@@ -80,10 +81,10 @@
         </div>
         <div class="col-auto">
           <q-btn
-            @click="configurePluginFlowPopup = !configurePluginFlowPopup"
+            @click="openPluginFlow"
             class=""
             color="secondary"
-            icon-right="account_tree"
+            icon-right="low_priority"
             :label="$t('components.plugins.configurePluginFow')"/>
         </div>
       </div>
@@ -172,15 +173,6 @@
 
   </q-dialog>
 
-  <q-dialog
-    v-model="configurePluginFlowPopup"
-    full-width
-    maximized>
-
-    <PluginFlowIframe/>
-
-  </q-dialog>
-
 </template>
 
 <script>
@@ -190,8 +182,8 @@ import { useQuasar } from "quasar";
 import axios from "axios";
 import PluginInfo from "components/PluginInfo";
 import PluginInstaller from "components/PluginInstaller";
-import PluginFlowIframe from "components/PluginFlowIframe";
 import { bbCodeToHTML } from "src/js/markupParser";
+import PluginFlow from "components/PluginFlow";
 
 const columns = [
   {
@@ -254,7 +246,7 @@ const columns = [
 
 
 export default {
-  components: { PluginFlowIframe, PluginInstaller, PluginInfo },
+  components: { PluginInstaller, PluginInfo },
   setup() {
     const $q = useQuasar();
     const rows = ref([]);
@@ -271,7 +263,6 @@ export default {
     const listedPlugins = ref([]);
 
     const installPluginPopup = ref(false);
-    const configurePluginFlowPopup = ref(false);
 
     function getSelectedString() {
       let return_value = ''
@@ -539,6 +530,16 @@ export default {
       showPluginInfo.value = '';
     }
 
+    function openPluginFlow() {
+      $q.dialog({
+        component: PluginFlow,
+        // props forwarded to your custom component
+        componentProps: {},
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
+    }
+
     onMounted(() => {
       // get initial data from server (1st page)
       onRequest({
@@ -565,7 +566,7 @@ export default {
       showPluginInfo,
       closePluginInfo,
       installPluginPopup,
-      configurePluginFlowPopup
+      openPluginFlow
     }
   }
 }
