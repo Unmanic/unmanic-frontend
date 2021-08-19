@@ -124,7 +124,25 @@
       "refreshRepositories": "Refresh Repositories",
       "addRepository": "Add Repository",
       "repoName": "Name",
-      "repoSource": "Repository URL"
+      "repoSource": "Repository URL",
+      "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type sections</b>. Each Plugin Type section contains a list of <b>Plugins</b>. A Plugin may be contained in multiple sections and so will be called multiple times by Unmanic at various times. See the description below each Plugin Type for details when the contained Plugins will be called.",
+      "errorSavingFlow": "An error was encountered while saving the plugin flow",
+      "types":{
+        "libraryManagement": {
+          "fileTest": "Library Management - File test",
+          "fileTestCaption": "These Plugins are called to test if files should be added to the pending task list"
+        },
+        "postprocessor": {
+          "fileMove": "Post-processor - File movements",
+          "fileMoveCaption": "These Plugins are called on completion of task to add additional file movements",
+          "taskResult": "Post-processor - Marking task success/failure",
+          "taskResultCaption": "These Plugins are called on the completion of a task to mark the overall success or failure of that task"
+        },
+        "worker": {
+          "processItem": "Worker - Processing file",
+          "processItemCaption": "These Plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+        }
+      }
     }
   }
 }
