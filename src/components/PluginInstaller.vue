@@ -138,10 +138,19 @@
                 <q-card-section>
                   <div class="row q-col-gutter-md">
                     <div class="col-auto">
+                      <q-skeleton v-if="!props.row.icon" width="100px" height="100px"/>
                       <q-avatar
+                        v-else
                         rounded
                         size="100px">
-                        <img :src="props.row.icon">
+                        <q-img :src="props.row.icon" style="height:100%; max-width: 100px;">
+                          <template v-slot:error>
+                            <div class="absolute-full flex flex-center bg-negative text-white text-caption">
+                              {{ $t('status.cannotLoadImage') }}
+                            </div>
+<!--                            <img :src="props.row.icon">-->
+                          </template>
+                        </q-img>
                       </q-avatar>
                     </div>
                     <div class="col-auto">
