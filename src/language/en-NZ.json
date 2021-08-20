@@ -104,6 +104,10 @@
         "runLibraryScanOnStart": "Run scan on start",
         "fileMonitor": "Library file monitor",
         "enableLibraryFileMonitor": "Enable the library file monitor"
+      },
+      "workers": {
+        "workerCount": "Worker count",
+        "path": "Cache path"
       }
     },
     "workers": {

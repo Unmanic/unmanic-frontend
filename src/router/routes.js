@@ -51,6 +51,17 @@ const routes = [
     }
   },
   {
+    path: '/unmanic-settings-workers',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/SettingsWorkers.vue') }
+    ],
+    meta: {
+      showHome: true,
+      showSettingsDrawer: true,
+    }
+  },
+  {
     path: '/unmanic-settings-plugins',
     component: () => import('layouts/MainLayout.vue'),
     children: [

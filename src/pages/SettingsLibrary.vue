@@ -188,14 +188,11 @@ export default {
       })
     },
     fetchSettings: function () {
-      console.log('fetchSettings')
       // Fetch current settings
-
       axios({
         method: 'get',
         url: getUnmanicApiUrl('v2', 'settings/read')
       }).then((response) => {
-        console.log(response)
         this.libraryPath = response.data.settings.library_path
         this.enableLibraryScanner = response.data.settings.enable_library_scanner
         this.libraryScanSchedule = response.data.settings.schedule_full_scan_minutes
