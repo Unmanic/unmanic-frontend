@@ -18,7 +18,7 @@
       <!--START SETTINGS SELECT-->
       <q-item
         clickable
-        to="/unmanic-settings?step=general"
+        to="/unmanic-settings-library"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="settings"/>
