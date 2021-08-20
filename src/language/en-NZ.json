@@ -2,13 +2,14 @@
   "navigation": {
     "dashboard": "Dashboard",
     "settings": "Settings",
+    "library": "Library",
+    "workers": "Workers",
     "plugins": "Plugins",
     "general": "General",
     "container": "container",
     "videoEncoding": "Video Encoding",
     "audioEncoding": "Audio Encoding",
     "advancedOptions": "Advanced Options",
-    "plugins": "Plugins",
     "top": "Top",
     "new": "New",
     "show": "Show",
@@ -17,7 +18,8 @@
     "recordsPerPage": "Records per page",
     "showMore": "Show more",
     "search": "Search",
-    "save": "Save"
+    "save": "Save",
+    "backToDashboard": "Back to Dashboard"
   },
   "status": {
     "enabled": "enabled",
@@ -43,6 +45,8 @@
     "failedToFetchSession": "An error was encountered while fetching the session data from Unmanic.",
     "failedToFetchLoginUrl": "Failed to get login URL.",
     "failedToFetchLogoutUrl": "Failed to get logout URL.",
+    "failedToSaveSettings": "Failed to save settings.",
+    "failedToFetchSettings": "Failed to fetch Unmanic's current settings.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
     "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin.",
     "repoAlreadyExists": "Repository already exists.",
@@ -74,7 +78,8 @@
     "pluginFlow": "Configure Plugin Flow",
     "information": "Info",
     "selectDirectory": "Select a directory",
-    "selectFile": "Select a file"
+    "selectFile": "Select a file",
+    "librarySettings": "Library Settings"
   },
   "tooltips": {
     "close": "Close",
@@ -87,6 +92,20 @@
     "pluginInfo": "Plugin Info"
   },
   "components": {
+    "settings": {
+      "pleaseEnterAValidNumber": "Please enter a valid number",
+      "library": {
+        "path": "Library path",
+        "libraryScanner": "Library scanner",
+        "enableLibraryScanner": "Enable the library scanner",
+        "libraryScannerSchedule": "Library scan schedule in minutes",
+        "libraryScannerScheduleNotValid": "Library scan schedule not valid",
+        "followSymlinks": "Follow symlinks",
+        "runLibraryScanOnStart": "Run scan on start",
+        "fileMonitor": "Library file monitor",
+        "enableLibraryFileMonitor": "Enable the library file monitor"
+      }
+    },
     "workers": {
       "pauseWorker": "Pause this worker",
       "workerPaused": "Worker has been paused",

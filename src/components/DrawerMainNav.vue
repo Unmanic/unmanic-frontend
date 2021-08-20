@@ -2,7 +2,7 @@
   <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
     <q-list padding>
 
-      <!--START LANGUAGE SELECT-->
+      <!--START DASHBOARD SELECT-->
       <q-item
         clickable
         to="/unmanic-dashboard"
@@ -14,6 +14,8 @@
           {{ $t('navigation.dashboard') }}
         </q-item-section>
       </q-item>
+      <!--END DASHBOARD SELECT-->
+      <!--START SETTINGS SELECT-->
       <q-item
         clickable
         to="/unmanic-settings?step=general"
@@ -25,12 +27,9 @@
           {{ $t('navigation.settings') }}
         </q-item-section>
       </q-item>
-      <!--END LANGUAGE SELECT-->
+      <!--END SETTINGS SELECT-->
+
       <q-separator spaced/>
-
-      <!--START SETTINGS NAV-->
-
-      <!--END SETTINGS NAV-->
 
 
       <q-item-label header>Account:</q-item-label>
@@ -73,6 +72,7 @@
 
       <q-separator spaced/>
 
+
       <q-item-label header>Config:</q-item-label>
       <!--START LANGUAGE SELECT-->
       <q-item clickable v-ripple>
@@ -84,7 +84,9 @@
         </q-item-section>
       </q-item>
       <!--END LANGUAGE SELECT-->
+
       <q-separator spaced/>
+
 
       <q-item-label header>Documentation:</q-item-label>
       <!--START PRIVACY POLICY-->
@@ -129,6 +131,7 @@ import MarkdownDialog from "components/MarkdownDialog";
 import { markdownToHTML } from "src/js/markupParser";
 
 export default {
+  name: 'DrawerMainNav',
   components: { Avatar, FooterData, LanguageSwitch },
   setup() {
     const $q = useQuasar();

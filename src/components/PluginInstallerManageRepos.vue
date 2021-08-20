@@ -227,7 +227,7 @@ export default {
               color: 'positive',
               position: 'top',
               message: this.$t('notifications.saved'),
-              icon: 'check_circle',
+              icon: 'cloud_done',
               actions: [{ icon: 'close', color: 'white' }]
             })
 
