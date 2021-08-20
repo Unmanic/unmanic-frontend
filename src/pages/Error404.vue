@@ -15,7 +15,7 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Go Home"
+        :label="$t('navigation.backToDashboard')"
         no-caps
       />
     </div>

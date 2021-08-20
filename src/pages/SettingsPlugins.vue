@@ -1,5 +1,4 @@
 <template>
-  <SettingsNav v-on:page="setIframeSrc"/>
   <q-page padding>
     <!-- content -->
 
@@ -16,42 +15,41 @@
 </template>
 
 <script>
-import SettingsNav from "components/SettingsNav";
 import PluginsInstalledTable from "components/PluginsInstalledTable";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
-  components: { PluginsInstalledTable, SettingsNav },
-  methods: {
-    setIframeSrc(pageName) {
-      this.$router.push('/unmanic-settings?step=' + pageName)
-    }
-  },
+  components: { PluginsInstalledTable },
   setup() {
     const { t: $t } = useI18n();
+
+    /**
+     * Unmanic WS handle
+     * @type {null}
+     */
     let ws = null;
     let unmanicWSHandler = UnmanicWebsocketHandler($t);
 
-    function initPluginsWebsocket() {
+    function initUnmanicWebsocket() {
       ws = unmanicWSHandler.init();
     }
 
-    function closePluginsWebsocket() {
+    function closeUnmanicWebsocket() {
       unmanicWSHandler.close();
     }
 
+    // END UNMANIC WS HANDLE
+
     onMounted(() => {
       // Start the websocket
-      initPluginsWebsocket();
+      initUnmanicWebsocket();
     })
-
     onUnmounted(() => {
       // Close the websocket
-      closePluginsWebsocket();
+      closeUnmanicWebsocket();
     })
-
   }
 }
 </script>

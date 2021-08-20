@@ -36,11 +36,6 @@
         :label="$t('navigation.advancedOptions')"
         icon="fa fa-unlock"
         style="min-width:190px"/>
-      <q-route-tab
-        to="/unmanic-settings-plugins"
-        :label="$t('navigation.plugins')"
-        icon="extension"
-        style="min-width:190px"/>
     </q-tabs>
   </div>
 </template>
