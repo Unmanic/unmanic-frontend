@@ -10,6 +10,40 @@
         </div>
       </div>
 
+      <!--START QUICK NAV-->
+      <div v-if="$q.platform.is.mobile">
+        <q-separator class="q-mb-lg"/>
+        <div class="row">
+          <div class="col-6 text-center">
+            <q-card
+              flat
+              bordered
+              @click="$router.push('/unmanic-settings-workers')"
+              class="bg-grey-1 q-ma-xs">
+              <q-btn
+                icon="navigate_before"
+                flat>
+                Workers
+              </q-btn>
+            </q-card>
+          </div>
+          <!--<div class="col-6 text-center">
+            <q-card
+              flat
+              bordered
+              @click="$router.push('/unmanic-settings-plugins')"
+              class="bg-grey-1 q-ma-xs">
+              <q-btn
+                icon-right="navigate_next"
+                flat>
+                Plugins
+              </q-btn>
+            </q-card>
+          </div>-->
+        </div>
+      </div>
+      <!--END QUICK NAV-->
+
     </div>
   </q-page>
 </template>
