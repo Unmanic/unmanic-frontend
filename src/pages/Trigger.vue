@@ -6,28 +6,34 @@
 
 <script>
 import { onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default {
   setup() {
-    const router = useRoute()
+    const router = useRouter()
+    const route = useRoute()
+
+    function navigateToDashboard() {
+      router.replace('/ui/dashboard')
+    }
 
     function reloadSession() {
       axios({
         method: 'put',
         url: getUnmanicApiUrl('v2', 'session/reload')
       }).then((response) => {
-        window.location.href = '/';
+        navigateToDashboard();
       }).catch(() => {
         console.error("Failed to reload session.")
       })
     }
 
     onMounted(() => {
-      if (typeof router.query !== 'undefined') {
-        if (router.query.session === 'reload') {
+      if (typeof route.query !== 'undefined') {
+        if (route.query.session === 'reload') {
+          console.log("HERE")
           reloadSession()
         }
       }
