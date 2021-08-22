@@ -16,7 +16,7 @@ export const getUnmanicApiUrl = function (api_version, api_endpoint) {
   if (typeof $unmanic.apiUrl === 'undefined') {
     let serverUrl = getUnmanicServerUrl();
 
-    $unmanic.apiUrl = serverUrl + '/api';
+    $unmanic.apiUrl = serverUrl + '/unmanic/api';
   }
   return $unmanic.apiUrl + '/' + api_version + '/' + api_endpoint;
 }

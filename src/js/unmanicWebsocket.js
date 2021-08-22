@@ -52,7 +52,7 @@ export const UnmanicWebsocketHandler = function ($t) {
         } else {
           new_uri = 'ws:';
         }
-        new_uri += '//' + loc.host + '/websocket';
+        new_uri += '//' + loc.host + '/unmanic/websocket';
 
         // Open WS connection
         $unmanic.ws = new WebSocket(new_uri);

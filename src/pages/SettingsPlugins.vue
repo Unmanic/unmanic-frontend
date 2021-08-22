@@ -18,7 +18,7 @@
             <q-card
               flat
               bordered
-              @click="$router.push('/unmanic-settings-workers')"
+              @click="$router.push('/ui/settings-workers')"
               class="bg-grey-1 q-ma-xs">
               <q-btn
                 icon="navigate_before"
@@ -31,7 +31,7 @@
             <q-card
               flat
               bordered
-              @click="$router.push('/unmanic-settings-plugins')"
+              @click="$router.push('/ui/settings-plugins')"
               class="bg-grey-1 q-ma-xs">
               <q-btn
                 icon-right="navigate_next"

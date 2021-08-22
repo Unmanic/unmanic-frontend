@@ -14,7 +14,7 @@
         color="white"
         text-color="blue"
         unelevated
-        to="/"
+        to="/ui/dashboard"
         :label="$t('navigation.backToDashboard')"
         no-caps
       />

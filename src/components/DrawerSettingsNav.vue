@@ -8,7 +8,7 @@
       <!--START LIBRARY SELECT-->
       <q-item
         clickable
-        to="/unmanic-settings-library"
+        to="/ui/settings-library"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="account_tree"/>
@@ -22,7 +22,7 @@
       <!--START WORKERS SELECT-->
       <q-item
         clickable
-        to="/unmanic-settings-workers"
+        to="/ui/settings-workers"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="engineering"/>
@@ -36,7 +36,7 @@
       <!--START PLUGINS SELECT-->
       <q-item
         clickable
-        to="/unmanic-settings-plugins"
+        to="/ui/settings-plugins"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="extension"/>
@@ -46,20 +46,6 @@
         </q-item-section>
       </q-item>
       <!--END PLUGINS SELECT-->
-
-      <!--START LEGACY SELECT-->
-      <q-item
-        clickable
-        to="/unmanic-settings"
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="settings"/>
-        </q-item-section>
-        <q-item-section>
-          Legacy {{ $t('navigation.settings') }} (will be removed)
-        </q-item-section>
-      </q-item>
-      <!--END LEGACY SELECT-->
 
     </q-list>
   </q-scroll-area>
@@ -72,7 +58,7 @@
       <q-avatar
         rounded
         clickable
-        @click="$router.push('/unmanic-dashboard')"
+        @click="$router.push('/ui/dashboard')"
         size="56px" class="q-mb-sm cursor-pointer">
         <q-img src="~assets/unmanic-logo-white.png"/>
       </q-avatar>
@@ -130,70 +116,6 @@ export default {
       uuid,
       currentUri,
       showPrivacyPolicyDialog,
-    }
-  },
-  methods: {
-    loginSubmit() {
-      // TODO: Create v2 API endpoint
-      axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'session/unmanic-patreon-login-url'),
-      }).then((response) => {
-        if (response.data.success) {
-          // If query was successful...
-          // Set the action URL
-          this.$refs.loginForm.action = response.data.data.url;
-          // Set the UUID
-          this.$refs.loginFormUuid.value = response.data.uuid;
-          // Set the current URI
-          this.$refs.loginFormCurrentUri.value = window.location.origin + "/trigger/?session=reload";
-          // Submit the form
-          this.$refs.loginForm.submit()
-
-        } else {
-          // Our query was unsuccessful
-          console.error('An error occurred while fetching the patreon sponsor page.');
-        }
-      }).catch(() => {
-        this.$q.notify({
-          color: 'negative',
-          position: 'top',
-          message: this.$t('notifications.failedToFetchLoginUrl'),
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-      })
-    },
-    logoutSubmit() {
-      // TODO: Create v2 API endpoint
-      axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'session/unmanic-sign-out-url'),
-      }).then((response) => {
-        if (response.data.success) {
-          // If query was successful...
-          // Set the action URL
-          this.$refs.logoutForm.action = response.data.data.url;
-          // Set the UUID
-          this.$refs.logoutFormUuid.value = response.data.uuid;
-          // Set the current URI
-          this.$refs.logoutFormCurrentUri.value = window.location.origin + "/trigger/?session=reload";
-          // Submit the form
-          this.$refs.logoutForm.submit()
-
-        } else {
-          // Our query was unsuccessful
-          console.error('An error occurred while fetching the sign out form details.');
-        }
-      }).catch(() => {
-        this.$q.notify({
-          color: 'negative',
-          position: 'top',
-          message: this.$t('notifications.failedToFetchLogoutUrl'),
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-      })
     }
   }
 }
