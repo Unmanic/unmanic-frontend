@@ -66,13 +66,6 @@
     </q-table>
   </div>
 
-  <!--TODO: Remove old records link-->
-  <div class="text-right q-mr-lg">
-    <a href="/history/">
-      View old "Completed Tasks" screen
-      <q-icon size="2em" name="navigate_next"/>
-    </a>
-  </div>
 </template>
 
 <script>
