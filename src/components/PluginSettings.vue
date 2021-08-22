@@ -1,5 +1,7 @@
 <template>
-  <q-card style="width:100%">
+  <q-card
+    v-if="pluginSettings.length > 0"
+    style="width:100%">
     <q-card-section class="">
       <div class="row items-center no-wrap">
         <div class="col">
@@ -27,7 +29,7 @@
     <q-card-section class="q-pt-none">
 
       <q-list
-        v-if="pluginSettings"
+        v-if="pluginSettings.length > 0"
         separator>
         <q-item
           v-for="item in pluginSettings"
