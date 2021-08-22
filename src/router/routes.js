@@ -5,20 +5,19 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
     ],
-    meta: {
-      showMainNavDrawer: true,
-      showHome: false,
+    beforeEnter() {
+      location.href = '/ui/dashboard'
     }
   },
   {
-    path: '/trigger',
+    path: '/ui/trigger',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Trigger.vue') }
     ]
   },
   {
-    path: '/unmanic-dashboard',
+    path: '/ui/dashboard',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
@@ -29,18 +28,7 @@ const routes = [
     }
   },
   {
-    path: '/unmanic-settings',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/LegacySettings.vue') }
-    ],
-    meta: {
-      showHome: true,
-      showSettingsDrawer: true,
-    }
-  },
-  {
-    path: '/unmanic-settings-library',
+    path: '/ui/settings-library',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/SettingsLibrary.vue') }
@@ -51,7 +39,7 @@ const routes = [
     }
   },
   {
-    path: '/unmanic-settings-workers',
+    path: '/ui/settings-workers',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/SettingsWorkers.vue') }
@@ -62,7 +50,7 @@ const routes = [
     }
   },
   {
-    path: '/unmanic-settings-plugins',
+    path: '/ui/settings-plugins',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/SettingsPlugins.vue') }
@@ -70,18 +58,6 @@ const routes = [
     meta: {
       showHome: true,
       showSettingsDrawer: true,
-    }
-  },
-
-  // TODO: Remove beforeEnter() redirects once the pages are handled by this new frontend
-  {
-    path: '/settings',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Dashboard.vue') }
-    ],
-    beforeEnter() {
-      location.href = '/settings/'
     }
   },
 

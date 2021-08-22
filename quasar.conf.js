@@ -49,6 +49,9 @@ module.exports = configure(function (ctx) {
     build: {
       vueRouterMode: 'history', // available values: 'hash', 'history'
 
+      // Set the root public path to /unmanic/*
+      publicPath: 'unmanic',
+
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
@@ -78,18 +81,11 @@ module.exports = configure(function (ctx) {
       https: false,
       port: 8889,
       proxy: {
-        '/api': 'http://localhost:8888',
-        '/websocket': {
+        '/unmanic/api': 'http://localhost:8888',
+        '/unmanic/websocket': {
           target: 'ws://localhost:8888',
           ws: true
         },
-        // Add temp routes for other parts of old web UI
-        '/assets': 'http://localhost:8888',
-        '/history': 'http://localhost:8888',
-        '/plugins': 'http://localhost:8888',
-        '/settings': 'http://localhost:8888',
-        '/filebrowser': 'http://localhost:8888',
-        '/plugin-flow': 'http://localhost:8888',
       },
       open: false
     },

@@ -5,7 +5,7 @@
       <!--START DASHBOARD SELECT-->
       <q-item
         clickable
-        to="/unmanic-dashboard"
+        to="/ui/dashboard"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="dashboard"/>
@@ -18,7 +18,7 @@
       <!--START SETTINGS SELECT-->
       <q-item
         clickable
-        to="/unmanic-settings-library"
+        to="/ui/settings-library"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="settings"/>
@@ -185,7 +185,7 @@ export default {
           // Set the UUID
           this.$refs.loginFormUuid.value = response.data.uuid;
           // Set the current URI
-          this.$refs.loginFormCurrentUri.value = window.location.origin + "/trigger/?session=reload";
+          this.$refs.loginFormCurrentUri.value = window.location.origin + "/ui/trigger/?session=reload";
           // Submit the form
           this.$refs.loginForm.submit()
 
@@ -216,7 +216,7 @@ export default {
           // Set the UUID
           this.$refs.logoutFormUuid.value = response.data.uuid;
           // Set the current URI
-          this.$refs.logoutFormCurrentUri.value = window.location.origin + "/trigger/?session=reload";
+          this.$refs.logoutFormCurrentUri.value = window.location.origin + "/ui/trigger/?session=reload";
           // Submit the form
           this.$refs.logoutForm.submit()
 

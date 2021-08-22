@@ -29,7 +29,7 @@
           dense
           flat
           round
-          @click="$router.push('/unmanic-dashboard')"
+          @click="$router.push('/ui/dashboard')"
           icon="home">
         </q-btn>
 
