@@ -24,7 +24,9 @@
   "status": {
     "enabled": "enabled",
     "disabled": "disabled",
-    "cannotLoadImage": "Cannot load image"
+    "cannotLoadImage": "Cannot load image",
+    "success": "Success",
+    "failed": "Failed"
   },
   "pagination": {
     "prev": "prev",

@@ -56,7 +56,16 @@
             :key="task.id"
             v-bind="task">
             <q-item-section avatar>
-              <q-icon name="check_circle" class="text-secondary" style="opacity: 0.8;"/>
+              <q-icon
+                v-if="task.success"
+                name="check_circle"
+                class="text-secondary"
+                style="opacity: 0.8;"/>
+              <q-icon
+                v-else
+                name="cancel"
+                class="text-negative"
+                style="opacity: 0.8;"/>
             </q-item-section>
             <q-item-section>
               <q-item-label>{{ task.label }}</q-item-label>

@@ -55,6 +55,25 @@
         </q-btn-dropdown>
       </template>
 
+      <template v-slot:body-cell-task_success="props">
+        <q-td :props="props">
+          <div class="row">
+            <q-badge
+              v-if="props.row.status"
+              color="positive"
+              class="shadow-1">
+              {{ $t('status.success') }}
+            </q-badge>
+            <q-badge
+              v-else
+              color="negative"
+              class="shadow-1">
+              {{ $t('status.failed') }}
+            </q-badge>
+          </div>
+        </q-td>
+      </template>
+
       <template v-slot:body-cell-details="props">
         <q-td :props="props">
           <div class="row">
@@ -265,7 +284,7 @@ export default {
             id: results.id,
             name: results.task_label,
             dateTimeCompleted: dateTools.printDateTimeString(results.finish_time),
-            status: results.task_success ? 'Success' : 'Failed'
+            status: results.task_success
           }
         }
 
