@@ -240,7 +240,7 @@ const columns = [
     required: true,
     align: 'left',
     field: 'status',
-    sortable: true
+    sortable: false
   }
 ]
 
@@ -256,7 +256,7 @@ export default {
       sortBy: 'name',
       descending: false,
       page: 1,
-      rowsPerPage: 10,
+      rowsPerPage: 15,
       rowsNumber: 10
     })
     const selected = ref([]);
