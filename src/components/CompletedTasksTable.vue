@@ -30,7 +30,7 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown class="q-ml-sm" color="primary" label="Options">
+        <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
           <q-list>
             <q-item clickable v-close-popup @click="addSelectedToPendingTaskList">
               <q-item-section>
@@ -55,6 +55,17 @@
         </q-btn-dropdown>
       </template>
 
+      <template v-slot:body-cell-details="props">
+        <q-td :props="props">
+          <div class="row">
+            <q-btn
+              @click="openDetailsDialog(props.row.id)"
+              color="secondary"
+              :label="$t('components.completedTasks.details')"/>
+          </div>
+        </q-td>
+      </template>
+
       <template v-slot:no-data>
         <div class="full-width row flex-center text-accent q-gutter-sm">
           <q-icon size="2em" name="sentiment_dissatisfied"/>
@@ -74,6 +85,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import dateTools from "src/js/dateTools";
 import axios from "axios";
+import CompletedTaskLogDialog from "components/CompletedTaskLogDialog";
 
 const columns = [
   {
@@ -99,6 +111,14 @@ const columns = [
     align: 'left',
     field: 'status',
     sortable: true
+  },
+  {
+    name: 'details',
+    label: 'Details',
+    required: true,
+    align: 'left',
+    field: 'id',
+    sortable: false
   }
 ]
 
@@ -271,6 +291,19 @@ export default {
       })
     }
 
+    function openDetailsDialog(id) {
+      console.log(id)
+      $q.dialog({
+        component: CompletedTaskLogDialog,
+        // props forwarded to your custom component
+        componentProps: {
+          completedTaskId: id
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
+    }
+
     onMounted(() => {
       // get initial data from server (1st page)
       onRequest({
@@ -290,7 +323,8 @@ export default {
       getSelectedString,
       onRequest,
       deleteSelected,
-      addSelectedToPendingTaskList
+      addSelectedToPendingTaskList,
+      openDetailsDialog
     }
   }
 }

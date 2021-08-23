@@ -79,7 +79,8 @@
     "information": "Info",
     "selectDirectory": "Select a directory",
     "selectFile": "Select a file",
-    "librarySettings": "Library Settings"
+    "librarySettings": "Library Settings",
+    "CompletedTaskDetails": "Completed Task Details"
   },
   "tooltips": {
     "close": "Close",
@@ -131,7 +132,9 @@
       }
     },
     "completedTasks": {
-      "listEmpty": "The Completed Tasks list is empty"
+      "listEmpty": "The Completed Tasks list is empty",
+      "details": "Details",
+      "errorGettingDetails": "An error was encountered while fetching the details for this task"
     },
     "plugins": {
       "updateAvailable": "update available",
