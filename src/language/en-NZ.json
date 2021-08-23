@@ -89,7 +89,10 @@
     "reinstall": "Reinstall",
     "update": "Update",
     "information": "Information",
-    "pluginInfo": "Plugin Info"
+    "pluginInfo": "Plugin Info",
+    "position": "Position",
+    "moveUp": "Move up",
+    "moveDown": "Move down"
   },
   "components": {
     "settings": {
@@ -149,7 +152,7 @@
       "addRepository": "Add Repository",
       "repoName": "Name",
       "repoSource": "Repository URL",
-      "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type sections</b>. Each Plugin Type section contains a list of <b>Plugins</b>. A Plugin may be contained in multiple sections and so will be called multiple times by Unmanic at various times. See the description below each Plugin Type for details when the contained Plugins will be called.",
+      "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type</b> sections. Each Plugin Type section may contain a list of <b>Plugins</b>.<br>See the description below each Plugin Type for details when the contained Plugins will be called.<br>A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections.",
       "errorSavingFlow": "An error was encountered while saving the plugin flow",
       "types":{
         "libraryManagement": {

@@ -81,6 +81,19 @@
                           :key="index"
                           v-bind="plugin">
 
+                          <q-item-section side class="gt-xs q-px-sm">
+                            <q-item-label lines="1" class="text-left">
+                              <span class="text-weight-medium">{{ index + 1 }}</span>
+                              <q-tooltip
+                                anchor="center right"
+                                self="center left"
+                                class="bg-white text-primary">{{ $t('tooltips.position') }}
+                              </q-tooltip>
+                            </q-item-label>
+                          </q-item-section>
+
+                          <q-separator inset vertical class="gt-xs q-mx-sm"/>
+
                           <q-item-section side class="q-px-sm">
                             <div class="text-grey-8 q-gutter-xs">
 
@@ -95,7 +108,7 @@
                                 <q-tooltip
                                   anchor="center right"
                                   self="center left"
-                                  class="bg-white text-primary">Move up
+                                  class="bg-white text-primary">{{ $t('tooltips.moveUp') }}
                                 </q-tooltip>
                               </q-btn>
 
@@ -110,7 +123,7 @@
                                 <q-tooltip
                                   anchor="center right"
                                   self="center left"
-                                  class="bg-white text-primary">Move down
+                                  class="bg-white text-primary">{{ $t('tooltips.moveDown') }}
                                 </q-tooltip>
                               </q-btn>
 
