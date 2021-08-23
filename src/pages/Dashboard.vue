@@ -199,6 +199,7 @@ export default {
           label: data.results[i].label,
           dateTimeCompleted: dateTools.printDateTimeString(data.results[i].finish_time),
           dateTimeSinceCompleted: data.results[i].human_readable_time,
+          success: data.results[i].success,
         }
       }
       completedTasksData.value.taskList = results;
