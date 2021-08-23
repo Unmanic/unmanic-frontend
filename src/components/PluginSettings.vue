@@ -90,6 +90,7 @@
               v-model="item.value"
               :min="item.slider_options.min"
               :max="item.slider_options.max"
+              :step="item.slider_options.step"
               label
               :label-value="item.label + ': ' + item.value + item.slider_options.suffix"
               label-always
