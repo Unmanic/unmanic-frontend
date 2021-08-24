@@ -1,6 +1,6 @@
 <template>
   <q-dialog
-    ref="pluginFlowDialogRef"
+    ref="dialogRef"
     :maximized="$q.platform.is.mobile"
     transition-show="slide-right"
     transition-hide="slide-left"
@@ -77,13 +77,13 @@ export default {
     // following method is REQUIRED
     // (don't change its name --> "show")
     show() {
-      this.$refs.pluginFlowDialogRef.show();
+      this.$refs.dialogRef.show();
     },
 
     // following method is REQUIRED
     // (don't change its name --> "hide")
     hide() {
-      this.$refs.pluginFlowDialogRef.hide();
+      this.$refs.dialogRef.hide();
     },
 
     onDialogHide() {
