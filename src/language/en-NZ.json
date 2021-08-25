@@ -52,7 +52,7 @@
     "failedToFetchSettings": "Failed to fetch Unmanic's current settings.",
     "SavedPluginSettings": "Plugin settings saved.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
-    "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin.",
+    "failedToInstallPlugin": "An error was encountered while attempting to install the requested Plugin.",
     "repoAlreadyExists": "Repository already exists.",
     "newRepoAddFailed": "New repository failed to save.",
     "reposRefreshSuccess": "Successfully updated all repositories.",
@@ -66,8 +66,9 @@
         "warning": "Unknown warning from server",
         "success": "Unknown message from server"
       },
-      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin",
-      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many plugins enabled. Consider sponsoring the project to enable more than 2 plugins."
+      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
+      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many Plugins enabled. Consider sponsoring the project to enable more than 2 Plugins.",
+      "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard."
     }
   },
   "headers": {
@@ -149,7 +150,7 @@
       "removePlugins": "Remove Plugins(s)",
       "addNew": "Add New",
       "configurePluginFow": "Configure Plugin Flow",
-      "listEmpty": "There are no plugins to display",
+      "listEmpty": "There are no Plugins to display",
       "categoryFilter": "Category Filter",
       "name": "Name",
       "author": "Author",
@@ -160,7 +161,7 @@
       "repoName": "Name",
       "repoSource": "Repository URL",
       "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type</b> sections. Each Plugin Type section may contain a list of <b>Plugins</b>.<br>See the description below each Plugin Type for details when the contained Plugins will be called.<br>A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections.",
-      "errorSavingFlow": "An error was encountered while saving the plugin flow",
+      "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
       "types":{
         "libraryManagement": {
           "fileTest": "Library Management - File test",
