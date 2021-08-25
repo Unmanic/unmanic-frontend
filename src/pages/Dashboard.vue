@@ -207,7 +207,7 @@ export default {
 
     function initDashboardWebsocket() {
       ws = unmanicWSHandler.init();
-      let serverId = null;
+      let serverId = unmanicWSHandler.serverId;
 
       unmanicWSHandler.addEventListener('open', 'start_dashboard_messages', function (evt) {
         ws.send(JSON.stringify({ command: 'start_workers_info', params: {} }));

@@ -6,6 +6,7 @@
     "workers": "Workers",
     "plugins": "Plugins",
     "general": "General",
+    "helpAndSupport": "Help & Support",
     "container": "container",
     "videoEncoding": "Video Encoding",
     "audioEncoding": "Audio Encoding",
@@ -117,6 +118,12 @@
       "workers": {
         "workerCount": "Worker count",
         "path": "Cache path"
+      },
+      "support": {
+        "logs": "Logs",
+        "enableDebugging": "EnableDebugging",
+        "currentSystemLogs": "Current System Logs",
+        "downloadSystemLogs": "Download System Logs"
       }
     },
     "workers": {
@@ -162,7 +169,7 @@
       "repoSource": "Repository URL",
       "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type</b> sections. Each Plugin Type section may contain a list of <b>Plugins</b>.<br>See the description below each Plugin Type for details when the contained Plugins will be called.<br>A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections.",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-      "types":{
+      "types": {
         "libraryManagement": {
           "fileTest": "Library Management - File test",
           "fileTestCaption": "These Plugins are called to test if files should be added to the pending task list"

@@ -248,6 +248,7 @@ export const UnmanicWebsocketHandler = function ($t) {
   }
 
   return {
+    serverId,
     init: function () {
       return initWebsocket();
     },
