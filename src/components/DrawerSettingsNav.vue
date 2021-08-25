@@ -47,6 +47,23 @@
       </q-item>
       <!--END PLUGINS SELECT-->
 
+      <q-separator spaced/>
+
+      <!--START SUPPORT SELECT-->
+      <q-item
+        clickable
+        to="/ui/settings-support"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="help_outline"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.helpAndSupport') }}
+        </q-item-section>
+      </q-item>
+      <!--END SUPPORT SELECT-->
+
+
     </q-list>
   </q-scroll-area>
 

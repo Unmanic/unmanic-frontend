@@ -2,12 +2,12 @@
   <q-page padding>
     <!-- content -->
 
-    <div className="q-pa-none">
+    <div class="q-pa-none">
 
       <!--      <h4 class="q-ma-none">{{ $t('headers.librarySettings') }}</h4>-->
 
-      <div className="row">
-        <div className="col q-ma-sm">
+      <div class="row">
+        <div class="col q-ma-sm">
 
           <div class="q-pa-md" style="max-width: 400px">
 
@@ -266,7 +266,8 @@ export default {
           color: 'positive',
           position: 'top',
           icon: 'cloud_done',
-          message: this.$t('notifications.saved')
+          message: this.$t('notifications.saved'),
+          timeout: 200
         })
       }).catch(() => {
         this.$q.notify({
