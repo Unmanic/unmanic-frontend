@@ -214,7 +214,7 @@ export default {
       // Fetch from server
       axios({
         method: 'get',
-        url: getUnmanicApiUrl('v2', 'plugins/types'),
+        url: getUnmanicApiUrl('v2', 'plugins/flow/types'),
       }).then((response) => {
         let results = response.data.results;
         let pluginTypes = []
