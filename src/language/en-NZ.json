@@ -52,6 +52,7 @@
     "failedToFetchLogoutUrl": "Failed to get logout URL.",
     "failedToSaveSettings": "Failed to save settings.",
     "failedToFetchSettings": "Failed to fetch Unmanic's current settings.",
+    "failedToFetchSystemConfig": "Failed to fetch Unmanic's system configuration.",
     "SavedPluginSettings": "Plugin settings saved.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
     "failedToInstallPlugin": "An error was encountered while attempting to install the requested Plugin.",
@@ -125,7 +126,21 @@
         "logs": "Logs",
         "enableDebugging": "EnableDebugging",
         "currentSystemLogs": "Current System Logs",
-        "downloadSystemLogs": "Download System Logs"
+        "downloadSystemLogs": "Download System Logs",
+        "configuration": "Configuration",
+        "appVersion": "Unmanic Version",
+        "pythonVersion": "Python Version",
+        "platform": "Platform (OS)",
+        "configPath": "Configuration Path",
+        "logsPath": "Logs Path",
+        "userdataPath": "Userdata Path",
+        "docs": "Documentation",
+        "apiSpec": "API Specification",
+        "applicationDocumentation": "Application Documentation",
+        "support": "Support",
+        "unmanicAppSourceRequests": "Request feature in Unmanic Application",
+        "unmanicFrontendSourceRequests": "Request feature in Unmanic Frontend",
+        "unmanicOfficialPluginRequests": "Request a Plugin for Unmanic"
       }
     },
     "workers": {
