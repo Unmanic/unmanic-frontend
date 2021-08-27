@@ -28,6 +28,19 @@
         </q-item-section>
       </q-item>
       <!--END SETTINGS SELECT-->
+      <!--START DATA PANELS SELECT-->
+      <q-item
+        clickable
+        to="/ui/data-panels"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="insights"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.dataPanels') }}
+        </q-item-section>
+      </q-item>
+      <!--END DATA PANELS SELECT-->
 
       <q-separator spaced/>
 

@@ -10,6 +10,7 @@ const routes = [
     }
   },
   {
+    name: 'trigger',
     path: '/ui/trigger',
     component: () => import('layouts/MainLayout.vue'),
     children: [
@@ -17,14 +18,28 @@ const routes = [
     ]
   },
   {
+    name: 'dashboard',
     path: '/ui/dashboard',
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Dashboard.vue') }
     ],
     meta: {
-      showMainNavDrawer: true,
       showHome: false,
+      showMainNavDrawer: true,
+    }
+  },
+  {
+    name: 'data-panels',
+    path: '/ui/data-panels',
+    props: true,
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/DataPanels.vue') }
+    ],
+    meta: {
+      showHome: true,
+      showDataPanelsDrawer: true,
     }
   },
   {

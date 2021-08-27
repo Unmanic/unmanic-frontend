@@ -2,6 +2,7 @@
   "navigation": {
     "dashboard": "Dashboard",
     "settings": "Settings",
+    "dataPanels": "Data Panels",
     "library": "Library",
     "workers": "Workers",
     "plugins": "Plugins",
@@ -60,6 +61,7 @@
     "reposRefreshFailure": "Unable to update your configured repositories. Perhaps there is an error in one of the URLs?",
     "repoRemovedSuccess": "Successfully removed repository.",
     "repoRemovedFailed": "Something went wrong while trying to remove repository.",
+    "failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
