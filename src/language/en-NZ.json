@@ -70,7 +70,7 @@
         "success": "Unknown message from server"
       },
       "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
-      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many Plugins enabled. Consider sponsoring the project to enable more than 2 Plugins.",
+      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than 5 Plugins.",
       "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard."
     }
   },
