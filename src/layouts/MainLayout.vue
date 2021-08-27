@@ -42,6 +42,15 @@
           icon="menu_open"
           @click="toggleSettingsDrawer"/>
 
+        <!--SHOW SETTINGS MENU BUTTON-->
+        <q-btn
+          v-if="$route.meta.showDataPanelsDrawer && $q.platform.is.mobile"
+          dense
+          flat
+          round
+          icon="menu_open"
+          @click="toggleDataPanelsDrawer"/>
+
         <q-toolbar-title>
           <q-avatar rounded size="2rem" font-size="82px">
             <img src="~assets/unmanic-logo-white.png">
@@ -70,6 +79,16 @@
       <DrawerSettingsNav/>
     </q-drawer>
 
+    <q-drawer
+      v-if="$route.meta.showDataPanelsDrawer"
+      v-model="leftDataPanelsDrawerOpen"
+      side="left"
+      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
+      :overlay="!!$q.platform.is.mobile"
+      elevated>
+      <DrawerDataPanelsNav/>
+    </q-drawer>
+
     <q-page-container>
       <router-view/>
     </q-page-container>
@@ -93,17 +112,20 @@ import DrawerMainNav from "components/DrawerMainNav";
 import FooterData from "components/FooterData";
 import DrawerSettingsNav from "components/DrawerSettingsNav";
 import { useQuasar } from "quasar";
+import DrawerDataPanelsNav from "components/DrawerDataPanelsNav";
 
 export default {
-  components: { DrawerMainNav, DrawerSettingsNav, FooterData },
+  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerSettingsNav, FooterData },
   setup() {
     const $q = useQuasar();
 
     const leftMainNavDrawerOpen = ref(false)
     const leftSettingsDrawerOpen = ref(false)
+    const leftDataPanelsDrawerOpen = ref(false)
 
     if (!$q.platform.is.mobile) {
       leftSettingsDrawerOpen.value = true;
+      leftDataPanelsDrawerOpen.value = true;
     }
 
     function toggleMainNavDrawer() {
@@ -114,11 +136,17 @@ export default {
       leftSettingsDrawerOpen.value = !leftSettingsDrawerOpen.value
     }
 
+    function toggleDataPanelsDrawer() {
+      leftDataPanelsDrawerOpen.value = !leftDataPanelsDrawerOpen.value
+    }
+
     return {
       leftMainNavDrawerOpen,
       leftSettingsDrawerOpen,
+      leftDataPanelsDrawerOpen,
       toggleMainNavDrawer,
-      toggleSettingsDrawer
+      toggleSettingsDrawer,
+      toggleDataPanelsDrawer
     }
   }
 }
