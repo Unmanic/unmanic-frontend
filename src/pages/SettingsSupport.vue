@@ -7,10 +7,195 @@
       <div class="row">
         <div class="col q-ma-sm">
 
+          <div class="row">
+            <div class="col-sm-6 col-xs-12">
+
+              <!--START CONFIGURATION-->
+              <h5 class="q-mb-none q-mt-sm">{{ $t('components.settings.support.configuration') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="debugging === null"
+                  type="QToggle"/>
+                <div class="q-pa-md" style="max-width: 350px">
+                  <q-list
+                    padding
+                    class="rounded-borders">
+
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-img src="~assets/unmanic-logo-white.png"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.appVersion') }}:</q-item-label>
+                        <q-item-label caption>{{ appVersion }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-separator spaced inset="item"/>
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fab fa-python"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.pythonVersion') }}:</q-item-label>
+                        <q-item-label caption>{{ pythonVersion }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-separator spaced inset="item"/>
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="computer"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.platform') }}:</q-item-label>
+                        <q-item-label caption>{{ platform }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-separator spaced inset="item"/>
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fas fa-folder"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.configPath') }}:</q-item-label>
+                        <q-item-label caption>{{ configPath }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fas fa-folder"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.logsPath') }}:</q-item-label>
+                        <q-item-label caption>{{ logsPath }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fas fa-folder"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.userdataPath') }}:</q-item-label>
+                        <q-item-label caption>{{ userdataPath }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                  </q-list>
+                </div>
+              </div>
+              <!--END CONFIGURATION-->
+
+            </div>
+            <div class="col-sm-6 col-xs-12">
+
+              <!--START EXT DOC LINKS-->
+              <h5 class="q-mb-none q-mt-sm">{{ $t('components.settings.support.docs') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="debugging === null"
+                  type="QToggle"/>
+                <div class="q-pa-md" style="max-width: 350px">
+                  <q-list
+                    dense
+                    padding
+                    class="rounded-borders">
+
+                    <q-item
+                      @click="openExternalURL('/unmanic/swagger')"
+                      clickable v-ripple>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="article"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.apiSpec') }}</q-item-label>
+                        <q-item-label caption></q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                    <q-item
+                      @click="openExternalURL('https://docs.unmanic.app/docs/')"
+                      clickable v-ripple>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="article"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.settings.support.applicationDocumentation') }}</q-item-label>
+                        <q-item-label caption></q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                  </q-list>
+                </div>
+              </div>
+              <!--END EXT DOC LINKS-->
+
+              <!--START EXT SUPPORT LINKS-->
+              <h5 class="q-mb-none q-mt-sm">{{ $t('components.settings.support.support') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="debugging === null"
+                  type="QToggle"/>
+                <div class="q-pa-md" style="max-width: 350px">
+                  <q-list
+                    dense
+                    padding
+                    class="rounded-borders">
+
+                    <q-item
+                      @click="openExternalURL('https://github.com/Unmanic/unmanic/issues')"
+                      clickable v-ripple>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fab fa-github"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>
+                          {{ $t('components.settings.support.unmanicAppSourceRequests') }}
+                        </q-item-label>
+                        <q-item-label caption></q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item
+                      @click="openExternalURL('https://github.com/Unmanic/unmanic-frontend/issues')"
+                      clickable v-ripple>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fab fa-github"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{
+                            $t('components.settings.support.unmanicFrontendSourceRequests')
+                          }}
+                        </q-item-label>
+                        <q-item-label caption></q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item
+                      @click="openExternalURL('https://github.com/Unmanic/unmanic-plugins/issues')"
+                      clickable v-ripple>
+                      <q-item-section avatar>
+                        <q-icon color="primary" name="fab fa-github"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{
+                            $t('components.settings.support.unmanicOfficialPluginRequests')
+                          }}
+                        </q-item-label>
+                        <q-item-label caption></q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                  </q-list>
+                </div>
+              </div>
+              <!--END EXT DOC LINKS-->
+
+            </div>
+          </div>
+
+          <q-separator/>
+
           <div class="q-pa-md" style="max-width: 400px">
 
             <!--START DEBUGGING ENABLE-->
-            <h5 class="q-mb-none">{{ $t('components.settings.support.logs') }}</h5>
+            <h5 class="q-mb-none q-mt-sm">{{ $t('components.settings.support.logs') }}</h5>
             <div class="q-gutter-sm">
               <q-skeleton
                 v-if="debugging === null"
@@ -88,10 +273,9 @@ import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted, ref } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
-import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
-import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import dateTools from "src/js/dateTools";
+import unmanicGlobals, { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import { openURL } from 'quasar'
 
 export default {
   name: 'SettingsLibrary',
@@ -101,6 +285,12 @@ export default {
 
     const currentLog = ref([]);
     const logsPath = ref('');
+
+    const appVersion = ref(null);
+    const pythonVersion = ref(null);
+    const platform = ref(null);
+    const configPath = ref(null);
+    const userdataPath = ref(null);
 
     /**
      * Unmanic WS handle
@@ -159,7 +349,12 @@ export default {
 
     return {
       currentLog,
-      logsPath
+      logsPath,
+      appVersion,
+      pythonVersion,
+      platform,
+      configPath,
+      userdataPath,
     }
   },
   data() {
@@ -168,6 +363,9 @@ export default {
     }
   },
   methods: {
+    openExternalURL: function (url) {
+      openURL(url)
+    },
     fetchSettings: function () {
       // Fetch current settings
       axios({
@@ -175,11 +373,49 @@ export default {
         url: getUnmanicApiUrl('v2', 'settings/read')
       }).then((response) => {
         this.debugging = response.data.settings.debugging
+
+        // Set system configuration paths
+        this.configPath = response.data.settings.config_path;
+        this.logsPath = response.data.settings.log_path;
+        this.userdataPath = response.data.settings.userdata_path;
+
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.failedToFetchSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    },
+    fetchSystemConfig: function () {
+      // Fetch unmanic version
+      unmanicGlobals.getUnmanicVersion().then((version) => {
+        this.appVersion = version;
+      })
+      // Fetch system config
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'settings/configuration')
+      }).then((response) => {
+        let configuration = response.data.configuration;
+
+        // Set python versoin
+        this.pythonVersion = configuration.python;
+
+        // Set platform data
+        if (typeof configuration.platform !== 'undefined' && configuration.platform.length > 0) {
+          let platform = configuration.platform.join(' ');
+          console.log(platform)
+          this.platform = platform;
+        }
+
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToFetchSystemConfig'),
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })
@@ -238,10 +474,11 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
-    }
+    },
   },
   created() {
     this.fetchSettings();
+    this.fetchSystemConfig();
   }
 }
 </script>

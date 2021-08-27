@@ -83,6 +83,7 @@ module.exports = configure(function (ctx) {
       proxy: {
         '/unmanic/api': 'http://localhost:8888',
         '/unmanic/panel': 'http://localhost:8888',
+        '/unmanic/swagger': 'http://localhost:8888',
         '/unmanic/websocket': {
           target: 'ws://localhost:8888',
           ws: true
