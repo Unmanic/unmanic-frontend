@@ -333,7 +333,7 @@ export default {
       this.pluginInstalling[plugin_id] = true;
 
       axios({
-        method: 'put',
+        method: 'post',
         url: getUnmanicApiUrl('v2', 'plugins/install'),
         data: data
       }).then((response) => {

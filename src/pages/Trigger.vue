@@ -21,7 +21,7 @@ export default {
 
     function reloadSession() {
       axios({
-        method: 'put',
+        method: 'post',
         url: getUnmanicApiUrl('v2', 'session/reload')
       }).then((response) => {
         navigateToDashboard();

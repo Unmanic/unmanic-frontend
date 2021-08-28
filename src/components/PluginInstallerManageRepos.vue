@@ -167,8 +167,8 @@ export default {
     },
     reloadAllReposData: function () {
       axios({
-        method: 'put',
-        url: getUnmanicApiUrl('v2', 'plugins/repos/reload')
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'plugins/repos/reload'),
       }).then((response) => {
         // Notify success
         this.$q.notify({

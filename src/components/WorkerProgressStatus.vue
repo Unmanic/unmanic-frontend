@@ -131,7 +131,7 @@ export default {
         worker_id: this.id,
       }
       axios({
-        method: 'put',
+        method: 'post',
         url: getUnmanicApiUrl('v2', 'workers/worker/pause'),
         data: data
       }).then((response) => {
@@ -157,7 +157,7 @@ export default {
         worker_id: this.id,
       }
       axios({
-        method: 'put',
+        method: 'post',
         url: getUnmanicApiUrl('v2', 'workers/worker/resume'),
         data: data
       }).then((response) => {
