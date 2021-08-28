@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Notify } from 'quasar'
 
 let $unmanic = {};
 
@@ -79,5 +80,120 @@ export default {
         resolve($unmanic.docs.privacypolicy);
       }
     })
-  }
+  },
+  login($t) {
+    // TODO: Create v2 API endpoint
+    axios({
+      method: 'get',
+      url: getUnmanicApiUrl('v1', 'session/unmanic-patreon-login-url'),
+    }).then((response) => {
+      if (response.data.success) {
+        // If query was successful...
+        // Set the action URL
+        let action = response.data.data.url;
+        // Set the UUID
+        let uuid = response.data.uuid;
+        // Set the current URI
+        let currentUri = window.location.origin + "/unmanic/ui/trigger/?session=reload";
+
+        let form = '' +
+          '<form id="loginForm" action="' + action + '" method="post" class="display:none;">' +
+          '<input type="hidden" name="uuid" value="' + uuid + '" />' +
+          '<input type="hidden" name="current_uri" value="' + currentUri + '" />' +
+          '</form>';
+
+        // Create form under body
+        document.body.innerHTML += form
+        // Submit the form
+        document.getElementById("loginForm").submit();
+      } else {
+        // Our query was unsuccessful
+        console.error('An error occurred while fetching the patreon sponsor page.');
+      }
+    }).catch(() => {
+      Notify.create({
+        color: 'negative',
+        position: 'top',
+        message: $t('notifications.failedToFetchLoginUrl'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      });
+    })
+  },
+  logout($t) {
+    // TODO: Create v2 API endpoint
+    axios({
+      method: 'get',
+      url: getUnmanicApiUrl('v1', 'session/unmanic-sign-out-url'),
+    }).then((response) => {
+      if (response.data.success) {
+        // If query was successful...
+        // Set the action URL
+        let action = response.data.data.url;
+        // Set the UUID
+        let uuid = response.data.uuid;
+        // Set the current URI
+        let currentUri = window.location.origin + "/unmanic/ui/trigger/?session=reload";
+
+        let form = '' +
+          '<form id="loginForm" action="' + action + '" method="post" class="display:none;">' +
+          '<input type="hidden" name="uuid" value="' + uuid + '" />' +
+          '<input type="hidden" name="current_uri" value="' + currentUri + '" />' +
+          '</form>';
+
+        // Create form under body
+        document.body.innerHTML += form
+        // Submit the form
+        document.getElementById("loginForm").submit();
+      } else {
+        // Our query was unsuccessful
+        console.error('An error occurred while fetching the patreon sponsor page.');
+      }
+    }).catch(() => {
+      Notify.create({
+        color: 'negative',
+        position: 'top',
+        message: $t('notifications.failedToFetchLogoutUrl'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      });
+    })
+  },
+  sponsorProject($t) {
+    // TODO: Create v2 API endpoint
+    axios({
+      method: 'get',
+      url: getUnmanicApiUrl('v1', 'session/unmanic-patreon-page'),
+    }).then((response) => {
+      if (response.data.success) {
+        // If query was successful...
+        // Open the Patreon sponsor page in a new tab
+        let win = window.open(response.data.data.sponsor_page, '_blank');
+        if (win) {
+          //Browser has allowed it to be opened
+          win.focus();
+        } else {
+          //Browser has blocked it
+          Notify.create({
+            color: 'negative',
+            position: 'top',
+            message: $t('notifications.allowPopups'),
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
+          });
+        }
+      } else {
+        // Our query was unsuccessful
+        console.error('An error occurred while fetching the patreon sponsor page.');
+      }
+    }).catch(() => {
+      Notify.create({
+        color: 'negative',
+        position: 'top',
+        message: $t('notifications.failedToFetchLoginUrl'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      });
+    })
+  },
 }
