@@ -76,11 +76,13 @@
 				"info": "Okänt meddelande från servern",
 				"error": "Okänt fel uppstod på servern",
 				"warning": "Okänd varning från servern",
-				"success": "Okänt meddelande från servern"
+				"success": "Okänt meddelande från servern",
+				"status": "Okänd statusuppdatering från servern"
 			},
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
 			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen."
+			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
+			"libraryScanProgress": "Biblioteksskanning körs"
 		}
 	},
 	"headers": {

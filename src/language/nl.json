@@ -76,11 +76,13 @@
 				"info": "Onbekend bericht van server",
 				"error": "Er is een onbekende fout opgetreden op de server",
 				"warning": "Onbekende waarschuwing van server",
-				"success": "Onbekend bericht van server"
+				"success": "Onbekend bericht van server",
+				"status": "Onbekende statusupdate van server"
 			},
 			"incompatiblePlugin": "Unmanic is gestopt met het verwerken van taken omdat het een incompatibele plug-in heeft gedetecteerd",
 			"pluginEnabledLimits": "Unmanic is gestopt met het verwerken van taken omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan 5 plug-ins mogelijk te maken.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard."
+			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard.",
+			"libraryScanProgress": "Bibliotheekscan wordt uitgevoerd"
 		}
 	},
 	"headers": {

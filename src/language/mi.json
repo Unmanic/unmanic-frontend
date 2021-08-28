@@ -76,11 +76,13 @@
 				"info": "He korero kaore i mohiotia mai i te kaituku",
 				"error": "I hapa te mohiotia i runga i te kaituku",
 				"warning": "Whakatūpato tē mōhiotia mai i te tūmau",
-				"success": "He korero kaore i mohiotia mai i te kaituku"
+				"success": "He korero kaore i mohiotia mai i te kaituku",
+				"status": "He whakahou mana tuuturu mai i te kaituku"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea kua kitea he honohono",
 			"pluginEnabledLimits": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea kua maha rawa o monomai i ahei mo te reanga kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 5 Nga Mono.",
-			"pluginSettingsChangeWorkersStopped": "Na Unmanic i aukati nga kaimahi katoa i te mea kua kitea he panoni ki te whirihoranga Mono. Ka rite ana koe, whakahouhia nga kaimahi mai i te papatohu."
+			"pluginSettingsChangeWorkersStopped": "Na Unmanic i aukati nga kaimahi katoa i te mea kua kitea he panoni ki te whirihoranga Mono. Ka rite ana koe, whakahouhia nga kaimahi mai i te papatohu.",
+			"libraryScanProgress": "Kei te rere te Matawai Whare Pukapuka"
 		}
 	},
 	"headers": {

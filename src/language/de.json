@@ -76,11 +76,13 @@
 				"info": "Unbekannte Nachricht vom Server",
 				"error": "Auf dem Server ist ein unbekannter Fehler aufgetreten",
 				"warning": "Unbekannte Warnung vom Server",
-				"success": "Unbekannte Nachricht vom Server"
+				"success": "Unbekannte Nachricht vom Server",
+				"status": "Unbekanntes Statusupdate vom Server"
 			},
 			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
 			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort."
+			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
+			"libraryScanProgress": "Bibliotheksscan läuft"
 		}
 	},
 	"headers": {

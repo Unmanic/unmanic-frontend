@@ -85,6 +85,91 @@ export const UnmanicWebsocketHandler = function ($t) {
       }
     }
 
+    function displayStatus($t, message_id, type, code, message, timeout) {
+      // Create new status message
+      // Fetch message string from i18n
+      let notificationStringId = 'notifications.serverMessages.' + code
+      let notificationString = $t(notificationStringId)
+      // If i18n doesnt have this string ID, then revert to default
+      if (notificationString === notificationStringId) {
+        notificationString = $t('notifications.serverMessages.defaults.' + type);
+      }
+      // If the message is not empty, concatenate it to the end of the notification string
+      if (message) {
+        notificationString = notificationString + '<br>' + message;
+      }
+
+      notificationString = '' +
+        '<span style="display: block; min-height: 50px;">' +
+        notificationString +
+        '</span>'
+
+      let icon = 'announcement';
+
+      if (!(message_id in $unmanic.frontendMessage)) {
+        $unmanic.frontendMessage[message_id] = Notify.create({
+          group: false,
+          type: 'ongoing',
+          position: 'bottom-left',
+          message: notificationString,
+          html: true,
+        })
+      } else {
+        // Update the current status message
+        $unmanic.frontendMessage[message_id]({
+          message: notificationString,
+          html: true,
+        })
+      }
+    }
+
+    function displayNotice($t, message_id, type, code, message, timeout) {
+      if (!(message_id in $unmanic.frontendMessage)) {
+        // Fetch message string from i18n
+        let notificationStringId = 'notifications.serverMessages.' + code
+        let notificationString = $t(notificationStringId)
+        // If i18n doesnt have this string ID, then revert to default
+        if (notificationString === notificationStringId) {
+          notificationString = $t('notifications.serverMessages.defaults.' + type);
+        }
+        // If the message is not empty, concatenate it to the end of the notification string
+        if (message) {
+          notificationString = notificationString + ' - ' + message;
+        }
+
+        // Format notification based on message type
+        let color = 'info';
+        let icon = 'announcement';
+        if (type === 'error') {
+          color = 'negative';
+          icon = 'error';
+        } else if (type === 'warning') {
+          color = 'warning';
+          icon = 'warning';
+        } else if (type === 'success') {
+          color = 'positive';
+          icon = 'thumb_up';
+        }
+
+        $unmanic.frontendMessage[message_id] = Notify.create({
+          timeout: timeout,
+          color: color,
+          position: 'bottom-right',
+          message: notificationString,
+          icon: icon,
+          actions: [
+            {
+              icon: 'close',
+              color: 'white',
+              handler: () => {
+                dismissMessages(message_id);
+              }
+            }
+          ]
+        })
+      }
+    }
+
     function displayMessages(data) {
       if (typeof $unmanic.frontendMessage === 'undefined') {
         $unmanic.frontendMessage = {};
@@ -96,49 +181,10 @@ export const UnmanicWebsocketHandler = function ($t) {
         let code = data[i].code
         let message = data[i].message
         let timeout = data[i].timeout
-        if (!(message_id in $unmanic.frontendMessage)) {
-          // Fetch message string from i18n
-          let notificationStringId = 'notifications.serverMessages.' + code
-          let notificationString = $t(notificationStringId)
-          // If i18n doesnt have this string ID, then revert to default
-          if (notificationString === notificationStringId) {
-            notificationString = $t('notifications.serverMessages.defaults.' + type);
-          }
-          // If the message is not empty, concatenate it to the end of the notification string
-          if (message) {
-            notificationString = notificationString + ' - ' + message;
-          }
-
-          // Format notification based on message type
-          let color = 'info';
-          let icon = 'announcement';
-          if (type === 'error') {
-            color = 'negative';
-            icon = 'error';
-          } else if (type === 'warning') {
-            color = 'warning';
-            icon = 'warning';
-          } else if (type === 'success') {
-            color = 'positive';
-            icon = 'thumb_up';
-          }
-
-          $unmanic.frontendMessage[message_id] = Notify.create({
-            timeout: timeout,
-            color: color,
-            position: 'bottom-right',
-            message: notificationString,
-            icon: icon,
-            actions: [
-              {
-                icon: 'close',
-                color: 'white',
-                handler: () => {
-                  dismissMessages(message_id);
-                }
-              }
-            ]
-          })
+        if (type === 'status') {
+          displayStatus($t, message_id, type, code, message, timeout);
+        } else {
+          displayNotice($t, message_id, type, code, message, timeout);
         }
         current_ids[current_ids.length] = message_id
       }
