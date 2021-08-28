@@ -45,7 +45,7 @@
       <q-separator spaced/>
 
 
-      <q-item-label header>Account:</q-item-label>
+      <q-item-label header>{{ $t('navigation.account') }}:</q-item-label>
       <!--START LOGOUT-->
       <q-item
         v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"
@@ -56,11 +56,7 @@
           <q-icon name="logout"/>
         </q-item-section>
         <q-item-section>
-          <form action="#" method="post" ref="logoutForm">
-            <input type="hidden" name="uuid" value="" ref="logoutFormUuid"/>
-            <input type="hidden" name="current_uri" value="" ref="logoutFormCurrentUri"/>
-          </form>
-          Logout
+          {{ $t('navigation.logout') }}
         </q-item-section>
       </q-item>
       <!--END LOGOUT-->
@@ -74,11 +70,7 @@
           <q-icon name="login"/>
         </q-item-section>
         <q-item-section>
-          <form action="#" method="post" ref="loginForm">
-            <input type="hidden" name="uuid" value="" ref="loginFormUuid"/>
-            <input type="hidden" name="current_uri" value="" ref="loginFormCurrentUri"/>
-          </form>
-          Login
+          {{ $t('navigation.login') }}
         </q-item-section>
       </q-item>
       <!--END LOGOUT-->
@@ -86,7 +78,7 @@
       <q-separator spaced/>
 
 
-      <q-item-label header>Config:</q-item-label>
+      <q-item-label header>{{ $t('navigation.config') }}:</q-item-label>
       <!--START LANGUAGE SELECT-->
       <q-item clickable v-ripple>
         <q-item-section avatar>
@@ -101,7 +93,7 @@
       <q-separator spaced/>
 
 
-      <q-item-label header>Documentation:</q-item-label>
+      <q-item-label header>{{ $t('navigation.documentation') }}:</q-item-label>
       <!--START PRIVACY POLICY-->
       <q-item
         clickable
@@ -150,9 +142,6 @@ export default {
     const $q = useQuasar();
     const { t: $t } = useI18n();
     const unmanicSession = ref(null);
-    const formAction = ref(null)
-    const uuid = ref(null)
-    const currentUri = ref(null)
 
     unmanicGlobals.getUnmanicSession().then((session) => {
       unmanicSession.value = session;
@@ -178,74 +167,15 @@ export default {
 
     return {
       unmanicSession,
-      formAction,
-      uuid,
-      currentUri,
       showPrivacyPolicyDialog,
     }
   },
   methods: {
     loginSubmit() {
-      // TODO: Create v2 API endpoint
-      axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'session/unmanic-patreon-login-url'),
-      }).then((response) => {
-        if (response.data.success) {
-          // If query was successful...
-          // Set the action URL
-          this.$refs.loginForm.action = response.data.data.url;
-          // Set the UUID
-          this.$refs.loginFormUuid.value = response.data.uuid;
-          // Set the current URI
-          this.$refs.loginFormCurrentUri.value = window.location.origin + "/unmanic/ui/trigger/?session=reload";
-          // Submit the form
-          this.$refs.loginForm.submit()
-
-        } else {
-          // Our query was unsuccessful
-          console.error('An error occurred while fetching the patreon sponsor page.');
-        }
-      }).catch(() => {
-        this.$q.notify({
-          color: 'negative',
-          position: 'top',
-          message: this.$t('notifications.failedToFetchLoginUrl'),
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-      })
+      unmanicGlobals.login(this.$t)
     },
     logoutSubmit() {
-      // TODO: Create v2 API endpoint
-      axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'session/unmanic-sign-out-url'),
-      }).then((response) => {
-        if (response.data.success) {
-          // If query was successful...
-          // Set the action URL
-          this.$refs.logoutForm.action = response.data.data.url;
-          // Set the UUID
-          this.$refs.logoutFormUuid.value = response.data.uuid;
-          // Set the current URI
-          this.$refs.logoutFormCurrentUri.value = window.location.origin + "/unmanic/ui/trigger/?session=reload";
-          // Submit the form
-          this.$refs.logoutForm.submit()
-
-        } else {
-          // Our query was unsuccessful
-          console.error('An error occurred while fetching the sign out form details.');
-        }
-      }).catch(() => {
-        this.$q.notify({
-          color: 'negative',
-          position: 'top',
-          message: this.$t('notifications.failedToFetchLogoutUrl'),
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-      })
+      unmanicGlobals.logout(this.$t)
     }
   }
 }

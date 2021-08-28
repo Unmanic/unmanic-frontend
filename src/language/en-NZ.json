@@ -3,6 +3,11 @@
     "dashboard": "Dashboard",
     "settings": "Settings",
     "dataPanels": "Data Panels",
+    "account": "Account",
+    "login": "Login",
+    "logout": "Logout",
+    "config": "Config",
+    "documentation": "Documentation",
     "library": "Library",
     "workers": "Workers",
     "plugins": "Plugins",
@@ -63,6 +68,7 @@
     "repoRemovedSuccess": "Successfully removed repository.",
     "repoRemovedFailed": "Something went wrong while trying to remove repository.",
     "failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
+    "allowPopups": "Please allow popups for this website.",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
