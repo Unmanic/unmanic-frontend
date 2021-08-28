@@ -74,7 +74,7 @@
               <!--END CACHE PATHS-->
 
               <div>
-                <q-btn :label="$t('navigation.options')" type="submit" color="primary"/>
+                <q-btn :label="$t('navigation.submit')" type="submit" color="secondary"/>
               </div>
             </q-form>
 
