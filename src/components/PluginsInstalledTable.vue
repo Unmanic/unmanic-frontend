@@ -73,7 +73,7 @@
       <div class="row q-gutter-xs q-mt-xs">
         <div class="col-auto">
           <q-btn
-            @click="installPluginPopup = !installPluginPopup"
+            @click="openPluginInstaller"
             class=""
             color="secondary"
             icon-right="add"
@@ -164,15 +164,6 @@
 
   <PluginInfo v-bind:showPluginInfo="showPluginInfo" v-on:hide="closePluginInfo"/>
 
-  <q-dialog
-    v-model="installPluginPopup"
-    full-width
-    maximized>
-
-    <PluginInstaller/>
-
-  </q-dialog>
-
 </template>
 
 <script>
@@ -181,9 +172,9 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import PluginInfo from "components/PluginInfo";
-import PluginInstaller from "components/PluginInstaller";
 import { bbCodeToHTML } from "src/js/markupParser";
-import PluginFlow from "components/PluginFlow";
+import PluginFlowDialog from "components/PluginFlowDialog";
+import PluginInstallerDialog from "components/PluginInstallerDialog";
 
 const columns = [
   {
@@ -246,7 +237,7 @@ const columns = [
 
 
 export default {
-  components: { PluginInstaller, PluginInfo },
+  components: { PluginInfo },
   setup() {
     const $q = useQuasar();
     const rows = ref([]);
@@ -261,8 +252,6 @@ export default {
     })
     const selected = ref([]);
     const listedPlugins = ref([]);
-
-    const installPluginPopup = ref(false);
 
     function getSelectedString() {
       let return_value = ''
@@ -532,11 +521,25 @@ export default {
 
     function openPluginFlow() {
       $q.dialog({
-        component: PluginFlow,
+        component: PluginFlowDialog,
         // props forwarded to your custom component
         componentProps: {},
       }).onOk((payload) => {
       }).onDismiss(() => {
+      })
+    }
+
+    function openPluginInstaller() {
+      $q.dialog({
+        component: PluginInstallerDialog,
+        // props forwarded to your custom component
+        componentProps: {},
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+        onRequest({
+          pagination: pagination.value,
+          filter: filter.value
+        })
       })
     }
 
@@ -565,8 +568,8 @@ export default {
       openPluginInfo,
       showPluginInfo,
       closePluginInfo,
-      installPluginPopup,
-      openPluginFlow
+      openPluginFlow,
+      openPluginInstaller
     }
   }
 }
