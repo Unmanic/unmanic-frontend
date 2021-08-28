@@ -1,0 +1,224 @@
+{
+	"navigation": {
+		"dashboard": "ダッシュボード",
+		"settings": "設定",
+		"dataPanels": "データパネル",
+		"account": "アカウント",
+		"login": "ログイン",
+		"logout": "ログアウト",
+		"config": "構成",
+		"documentation": "ドキュメンテーション",
+		"library": "図書館",
+		"workers": "労働者",
+		"plugins": "プラグイン",
+		"general": "全般的",
+		"helpAndSupport": "ヘルプサポート",
+		"container": "容器",
+		"videoEncoding": "ビデオエンコーディング",
+		"audioEncoding": "オーディオエンコーディング",
+		"advancedOptions": "高度なオプション",
+		"info": "情報",
+		"top": "上",
+		"new": "新しい",
+		"show": "見せる",
+		"ask": "聞く",
+		"job": "ジョブズ",
+		"recordsPerPage": "1ページあたりのレコード",
+		"showMore": "もっと見せる",
+		"search": "検索",
+		"save": "保存する",
+		"backToDashboard": "ダッシュボードに戻る",
+		"options": "オプション",
+		"submit": "送信"
+	},
+	"status": {
+		"enabled": "有効",
+		"disabled": "無効",
+		"cannotLoadImage": "画像を読み込めません",
+		"success": "成功",
+		"failed": "失敗した"
+	},
+	"pagination": {
+		"prev": "前へ",
+		"more": "もっと"
+	},
+	"time": {
+		"ago": "前に",
+		"units": {
+			"minute": "分|分",
+			"hour": "時間|時間",
+			"day": "日|日々"
+		}
+	},
+	"notifications": {
+		"saved": "保存しました。",
+		"installed": "インストールされています。",
+		"backendConnectionWarning": "Unmanicバックエンドに接続できません。実行されていることを確認してください。",
+		"failedToFetchSession": "Unmanicからセッションデータをフェッチ中にエラーが発生しました。",
+		"failedToFetchLoginUrl": "ログインURLの取得に失敗しました。",
+		"failedToFetchLogoutUrl": "ログアウトURLの取得に失敗しました。",
+		"failedToSaveSettings": "設定の保存に失敗しました。",
+		"failedToFetchSettings": "Unmanicの現在の設定を取得できませんでした。",
+		"failedToFetchSystemConfig": "Unmanicのシステム構成のフェッチに失敗しました。",
+		"SavedPluginSettings": "プラグイン設定が保存されました。",
+		"failedToSavePluginSettings": "プラグイン設定の保存に失敗しました。",
+		"failedToInstallPlugin": "要求されたプラグインをインストールしようとしたときにエラーが発生しました。",
+		"repoAlreadyExists": "リポジトリはすでに存在します。",
+		"newRepoAddFailed": "新しいリポジトリの保存に失敗しました。",
+		"reposRefreshSuccess": "すべてのリポジトリが正常に更新されました。",
+		"reposRefreshFailure": "構成済みのリポジトリーを更新できません。おそらく、URLの1つにエラーがありますか？",
+		"repoRemovedSuccess": "リポジトリが正常に削除されました。",
+		"repoRemovedFailed": "リポジトリを削除しようとしたときに問題が発生しました。",
+		"failedToFetchEnabledDataPanelPlugins": "有効なデータパネルプラグインリストの取得に失敗しました",
+		"allowPopups": "このウェブサイトのポップアップを許可してください。",
+		"serverMessages": {
+			"defaults": {
+				"info": "サーバーからの不明なメッセージ",
+				"error": "サーバーで不明なエラーが発生しました",
+				"warning": "サーバーからの不明な警告",
+				"success": "サーバーからの不明なメッセージ"
+			},
+			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
+			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
+			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。"
+		}
+	},
+	"headers": {
+		"workers": "労働者",
+		"pendingTasks": "保留中のタスク",
+		"completedTasks": "完了したタスク",
+		"privacyPolicy": "プライバシーポリシー",
+		"plugins": "プラグイン",
+		"pluginInfo": "プラグイン情報",
+		"pluginSettings": "プラグイン設定",
+		"pluginInstaller": "プラグインインストーラー",
+		"pluginFlow": "プラグインフローを構成する",
+		"information": "情報",
+		"selectDirectory": "ディレクトリを選択します",
+		"selectFile": "ファイルを選択します",
+		"librarySettings": "ライブラリ設定",
+		"CompletedTaskDetails": "完了したタスクの詳細",
+		"supportFutureDevelopment": "将来の開発をサポートする"
+	},
+	"tooltips": {
+		"close": "選ぶ",
+		"back": "戻る",
+		"download": "ダウンロード",
+		"install": "インストール",
+		"reinstall": "再インストール",
+		"update": "アップデート",
+		"information": "情報",
+		"pluginInfo": "プラグイン情報",
+		"position": "ポジション",
+		"moveUp": "上に移動",
+		"moveDown": "下に移動"
+	},
+	"components": {
+		"settings": {
+			"pleaseEnterAValidNumber": "有効な数値を入力してください",
+			"library": {
+				"path": "ライブラリパス",
+				"libraryScanner": "ライブラリスキャナー",
+				"enableLibraryScanner": "ライブラリスキャナーを有効にする",
+				"libraryScannerSchedule": "数分でのライブラリスキャンスケジュール",
+				"libraryScannerScheduleNotValid": "ライブラリスキャンスケジュールが無効です",
+				"followSymlinks": "シンボリックリンクをたどる",
+				"runLibraryScanOnStart": "開始時にスキャンを実行する",
+				"fileMonitor": "ライブラリファイルモニター",
+				"enableLibraryFileMonitor": "ライブラリファイルモニターを有効にする"
+			},
+			"workers": {
+				"workerCount": "労働者数",
+				"path": "キャッシュパス"
+			},
+			"support": {
+				"logs": "ログ",
+				"enableDebugging": "EnableDebugging",
+				"currentSystemLogs": "現在のシステムログ",
+				"downloadSystemLogs": "システムログをダウンロードする",
+				"configuration": "構成",
+				"appVersion": "Unmanicバージョン",
+				"pythonVersion": "Pythonバージョン",
+				"platform": "プラットフォーム（オペレーティングシステム）",
+				"configPath": "構成パス",
+				"logsPath": "ログパス",
+				"userdataPath": "ユーザーデータパス",
+				"docs": "ドキュメンテーション",
+				"apiSpec": "API仕様",
+				"applicationDocumentation": "アプリケーションドキュメント",
+				"support": "サポート",
+				"unmanicAppSourceRequests": "Unmanicアプリケーションのリクエスト機能",
+				"unmanicFrontendSourceRequests": "Unmanicフロントエンドのリクエスト機能",
+				"unmanicOfficialPluginRequests": "Unmanicのプラグインをリクエストする"
+			}
+		},
+		"workers": {
+			"pauseWorker": "このワーカーを一時停止します",
+			"workerPaused": "労働者は一時停止されました",
+			"workerPauseFailed": "Unmanicは、何らかの理由でこのワーカーを一時停止できませんでした",
+			"resumeWorker": "この労働者を再開する",
+			"workerResumed": "労働者が再開されました",
+			"workerResumedFailed": "Unmanicは何らかの理由でこのワーカーを再開できませんでした",
+			"workerLog": "労働者ログ",
+			"status": "状態",
+			"state": {
+				"waiting": "別のタスクを待っています...",
+				"processing": "処理タスク...",
+				"paused": "労働者は一時停止しました..."
+			},
+			"currentRunner": {
+				"none": "なし",
+				"indeterminate": "不定"
+			}
+		},
+		"completedTasks": {
+			"listEmpty": "完了したタスクのリストは空です",
+			"details": "詳細",
+			"errorGettingDetails": "このタスクの詳細を取得中にエラーが発生しました"
+		},
+		"plugins": {
+			"updateAvailable": "利用可能なアップデート",
+			"upToDate": "最新の",
+			"enablePlugins": "プラグインを有効にする",
+			"disablePlugins": "プラグインを無効にする",
+			"updatePlugins": "プラグインを更新します",
+			"removePlugins": "プラグインを削除します",
+			"addNew": "新しく追加する",
+			"configurePluginFow": "プラグインフローを構成する",
+			"listEmpty": "表示するプラグインはありません",
+			"categoryFilter": "カテゴリフィルター",
+			"name": "名前",
+			"author": "著者",
+			"version": "バージョン",
+			"repoList": "リポジトリリスト",
+			"refreshRepositories": "リポジトリの更新",
+			"addRepository": "リポジトリを追加",
+			"newRepository": "新しいリポジトリ",
+			"repoName": "名前",
+			"repoSource": "リポジトリのURL",
+			"errorSavingFlow": "プラグインフローの保存中にエラーが発生しました",
+			"configurePluginFlowSection": {
+				"line1": "プラグインが呼び出される順序を構成します。",
+				"line2": "以下は、プラグインタイプのセクションのリストです。各プラグインタイプセクションには、プラグインのリストが含まれる場合があります。",
+				"line3": "含まれているプラグインが呼び出されるタイミングの詳細については、各プラグインタイプの下の説明を参照してください。",
+				"line4": "プラグインは、複数のプラグインタイプで構成されている場合があります。もしそうなら、それはそれらの記述されたセクションのそれぞれでUnmanicによって呼び出されます。"
+			},
+			"types": {
+				"libraryManagement": {
+					"fileTest": "ライブラリ管理-ファイルテスト",
+					"fileTestCaption": "これらのプラグインは、ファイルを保留中のタスクリストに追加する必要があるかどうかをテストするために呼び出されます"
+				},
+				"postprocessor": {
+					"fileMove": "ポストプロセッサ-ファイルの移動",
+					"fileMoveCaption": "これらのプラグインは、タスクの完了時に呼び出され、ファイルの移動を追加します",
+					"taskResult": "ポストプロセッサ-タスクの成功/失敗のマーキング",
+					"taskResultCaption": "これらのプラグインは、タスクの完了時に呼び出され、そのタスクの全体的な成功または失敗をマークします"
+				},
+				"worker": {
+					"processItem": "ワーカー-ファイルの処理",
+					"processItemCaption": "これらのプラグインはワーカーによって呼び出され、そのワーカーによって実行および管理されるカスタムコマンドを生成します"
+				}
+			}
+		}
+	}
+}

@@ -30,7 +30,7 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
+        <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
           <q-list>
             <q-item clickable v-close-popup @click="addSelectedToPendingTaskList">
               <q-item-section>

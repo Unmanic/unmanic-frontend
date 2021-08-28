@@ -5,12 +5,12 @@
       <div class="row items-center no-wrap">
         <div class="col">
           <div class="text-h6 text-grey-8">
-            Status
+            {{ $t('components.workers.status') }}
           </div>
         </div>
 
         <div class="col-auto">
-          <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
+          <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
             <q-list>
 
               <q-item

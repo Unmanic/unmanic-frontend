@@ -109,7 +109,7 @@
     <template v-slot:top-right>
       <div class="row q-gutter-xs q-mt-xs">
         <div class="col-auto">
-          <q-btn-dropdown class="q-ml-sm" color="secondary" label="Options">
+          <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
             <q-list>
               <q-item clickable v-close-popup @click="enableSelected">
                 <q-item-section>

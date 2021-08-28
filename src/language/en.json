@@ -27,7 +27,9 @@
     "showMore": "Show more",
     "search": "Search",
     "save": "Save",
-    "backToDashboard": "Back to Dashboard"
+    "backToDashboard": "Back to Dashboard",
+    "options": "Options",
+    "submit": "Submit"
   },
   "status": {
     "enabled": "enabled",
@@ -95,7 +97,8 @@
     "selectDirectory": "Select a directory",
     "selectFile": "Select a file",
     "librarySettings": "Library Settings",
-    "CompletedTaskDetails": "Completed Task Details"
+    "CompletedTaskDetails": "Completed Task Details",
+    "supportFutureDevelopment": "Support future development"
   },
   "tooltips": {
     "close": "Close",
@@ -136,7 +139,7 @@
         "configuration": "Configuration",
         "appVersion": "Unmanic Version",
         "pythonVersion": "Python Version",
-        "platform": "Platform (OS)",
+        "platform": "Platform (Operating System)",
         "configPath": "Configuration Path",
         "logsPath": "Logs Path",
         "userdataPath": "Userdata Path",
@@ -156,6 +159,8 @@
       "resumeWorker": "Resume this worker",
       "workerResumed": "Worker has been resumed",
       "workerResumedFailed": "Unmanic was unable to resume this worker for some reason",
+      "workerLog" : "Worker Log",
+      "status" : "Status",
       "state": {
         "waiting": "Waiting for another task...",
         "processing": "Processing task...",
@@ -188,10 +193,16 @@
       "repoList": "Repository List",
       "refreshRepositories": "Refresh Repositories",
       "addRepository": "Add Repository",
+      "newRepository": "New Repository",
       "repoName": "Name",
       "repoSource": "Repository URL",
-      "configurePluginFlowSection": "Configure the order in which Plugins are called.<br><br>Below is a list of <b>Plugin Type</b> sections. Each Plugin Type section may contain a list of <b>Plugins</b>.<br>See the description below each Plugin Type for details when the contained Plugins will be called.<br>A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections.",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+      "configurePluginFlowSection": {
+        "line1": "Configure the order in which Plugins are called.",
+        "line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
+        "line3": "See the description below each Plugin Type for details when the contained Plugins will be called.",
+        "line4": "A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections."
+      },
       "types": {
         "libraryManagement": {
           "fileTest": "Library Management - File test",

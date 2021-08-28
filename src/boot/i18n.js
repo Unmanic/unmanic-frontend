@@ -24,12 +24,12 @@ const { id, messages } = loadLocaleInfo()
 let configuredLocale = LocalStorage.getItem('locale')
 if (configuredLocale === null) {
   // Default to English
-  configuredLocale = 'en-NZ';
+  configuredLocale = 'en';
 }
 
 const i18n = createI18n({
   locale: configuredLocale,
-  fallbackLocale: 'en-NZ',
+  fallbackLocale: 'en',
   messages
 })
 

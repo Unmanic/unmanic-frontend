@@ -1,0 +1,224 @@
+{
+	"navigation": {
+		"dashboard": "Dashboard",
+		"settings": "Instellingen",
+		"dataPanels": "Gegevenspanelen",
+		"account": "Rekening",
+		"login": "Log in",
+		"logout": "Uitloggen",
+		"config": "Configuratie",
+		"documentation": "Documentatie",
+		"library": "Bibliotheek",
+		"workers": "arbeiders",
+		"plugins": "Plug-ins",
+		"general": "Algemeen",
+		"helpAndSupport": "Help & Ondersteuning",
+		"container": "container",
+		"videoEncoding": "Videocodering",
+		"audioEncoding": "Audiocodering",
+		"advancedOptions": "Geavanceerde mogelijkheden",
+		"info": "Info",
+		"top": "Bovenkant",
+		"new": "Nieuw",
+		"show": "Laten zien",
+		"ask": "Vragen",
+		"job": "Banen",
+		"recordsPerPage": "Records per pagina",
+		"showMore": "Laat meer zien",
+		"search": "Zoeken",
+		"save": "Opslaan",
+		"backToDashboard": "Terug naar Dashboard",
+		"options": "Opties",
+		"submit": "Indienen"
+	},
+	"status": {
+		"enabled": "ingeschakeld",
+		"disabled": "gehandicapt",
+		"cannotLoadImage": "Kan afbeelding niet laden",
+		"success": "Succes",
+		"failed": "mislukt"
+	},
+	"pagination": {
+		"prev": "vorige",
+		"more": "meer"
+	},
+	"time": {
+		"ago": "geleden",
+		"units": {
+			"minute": "minuut | minuten",
+			"hour": "uur | uur",
+			"day": "dag | dagen"
+		}
+	},
+	"notifications": {
+		"saved": "Opgeslagen.",
+		"installed": "Geïnstalleerd.",
+		"backendConnectionWarning": "Kan geen verbinding maken met de Unmanic-backend. Controleer of het actief is.",
+		"failedToFetchSession": "Er is een fout opgetreden bij het ophalen van de sessiegegevens van Unmanic.",
+		"failedToFetchLoginUrl": "Kan inlog-URL niet ophalen.",
+		"failedToFetchLogoutUrl": "Kan uitlog-URL niet ophalen.",
+		"failedToSaveSettings": "Kan instellingen niet opslaan.",
+		"failedToFetchSettings": "Kan de huidige instellingen van Unmanic niet ophalen.",
+		"failedToFetchSystemConfig": "Kan de systeemconfiguratie van Unmanic niet ophalen.",
+		"SavedPluginSettings": "Plugin-instellingen opgeslagen.",
+		"failedToSavePluginSettings": "Kan plug-in-instellingen niet opslaan.",
+		"failedToInstallPlugin": "Er is een fout opgetreden bij het installeren van de gevraagde plug-in.",
+		"repoAlreadyExists": "Opslagplaats bestaat al.",
+		"newRepoAddFailed": "Nieuwe opslagplaats kan niet worden opgeslagen.",
+		"reposRefreshSuccess": "Alle repository's zijn bijgewerkt.",
+		"reposRefreshFailure": "Kan uw geconfigureerde opslagplaatsen niet bijwerken. Misschien staat er een fout in een van de URL's?",
+		"repoRemovedSuccess": "Repository is verwijderd.",
+		"repoRemovedFailed": "Er is iets misgegaan bij het verwijderen van de repository.",
+		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins voor het gegevenspaneel niet ophalen",
+		"allowPopups": "Sta pop-ups voor deze website toe.",
+		"serverMessages": {
+			"defaults": {
+				"info": "Onbekend bericht van server",
+				"error": "Er is een onbekende fout opgetreden op de server",
+				"warning": "Onbekende waarschuwing van server",
+				"success": "Onbekend bericht van server"
+			},
+			"incompatiblePlugin": "Unmanic is gestopt met het verwerken van taken omdat het een incompatibele plug-in heeft gedetecteerd",
+			"pluginEnabledLimits": "Unmanic is gestopt met het verwerken van taken omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan 5 plug-ins mogelijk te maken.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard."
+		}
+	},
+	"headers": {
+		"workers": "arbeiders",
+		"pendingTasks": "Taken in behandeling",
+		"completedTasks": "Voltooide taken",
+		"privacyPolicy": "Privacybeleid",
+		"plugins": "Plug-ins",
+		"pluginInfo": "Plugin-info",
+		"pluginSettings": "Plugin-instellingen",
+		"pluginInstaller": "Installatieprogramma voor plug-ins",
+		"pluginFlow": "Plugin-stroom configureren",
+		"information": "Info",
+		"selectDirectory": "Selecteer een map",
+		"selectFile": "Selecteer een bestand",
+		"librarySettings": "Bibliotheekinstellingen",
+		"CompletedTaskDetails": "Details van voltooide taak",
+		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling"
+	},
+	"tooltips": {
+		"close": "Dichtbij",
+		"back": "Rug",
+		"download": "Downloaden",
+		"install": "Installeren",
+		"reinstall": "Opnieuw installeren",
+		"update": "Update",
+		"information": "Informatie",
+		"pluginInfo": "Plugin-info",
+		"position": "Positie",
+		"moveUp": "Omhoog gaan",
+		"moveDown": "Naar beneden verplaatsen"
+	},
+	"components": {
+		"settings": {
+			"pleaseEnterAValidNumber": "Gelieve een geldig nummer invoeren",
+			"library": {
+				"path": "Bibliotheekpad",
+				"libraryScanner": "Bibliotheekscanner",
+				"enableLibraryScanner": "De bibliotheekscanner inschakelen",
+				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
+				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
+				"followSymlinks": "Symlinks volgen",
+				"runLibraryScanOnStart": "Scan uitvoeren bij start",
+				"fileMonitor": "Bibliotheek bestandsmonitor",
+				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen"
+			},
+			"workers": {
+				"workerCount": "Aantal werknemers",
+				"path": "Cache pad"
+			},
+			"support": {
+				"logs": "Logboeken",
+				"enableDebugging": "Foutopsporing inschakelen",
+				"currentSystemLogs": "Huidige systeemlogboeken",
+				"downloadSystemLogs": "Systeemlogboeken downloaden",
+				"configuration": "Configuratie",
+				"appVersion": "Unmanische versie",
+				"pythonVersion": "Python-versie",
+				"platform": "Platform (besturingssysteem)",
+				"configPath": "Configuratiepad",
+				"logsPath": "Logboekpad",
+				"userdataPath": "Pad gebruikersgegevens",
+				"docs": "Documentatie",
+				"apiSpec": "API-specificatie:",
+				"applicationDocumentation": "Toepassingsdocumentatie",
+				"support": "Steun",
+				"unmanicAppSourceRequests": "Verzoekfunctie in Unmanic Application",
+				"unmanicFrontendSourceRequests": "Functie aanvragen in Unmanic Frontend",
+				"unmanicOfficialPluginRequests": "Vraag een plug-in aan voor Unmanic"
+			}
+		},
+		"workers": {
+			"pauseWorker": "Deze werknemer onderbreken",
+			"workerPaused": "Werknemer is onderbroken",
+			"workerPauseFailed": "Unmanic kon deze werker om de een of andere reden niet pauzeren",
+			"resumeWorker": "Deze werknemer hervatten",
+			"workerResumed": "Werknemer is hervat",
+			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
+			"workerLog": "Werknemerslogboek",
+			"status": "Toestand",
+			"state": {
+				"waiting": "Wachten op een andere taak...",
+				"processing": "Taak verwerken...",
+				"paused": "Werknemer gepauzeerd..."
+			},
+			"currentRunner": {
+				"none": "Geen",
+				"indeterminate": "onbepaald"
+			}
+		},
+		"completedTasks": {
+			"listEmpty": "De lijst Voltooide taken is leeg",
+			"details": "Details",
+			"errorGettingDetails": "Er is een fout opgetreden bij het ophalen van de details voor deze taak"
+		},
+		"plugins": {
+			"updateAvailable": "update beschikbaar",
+			"upToDate": "actueel",
+			"enablePlugins": "Plug-ins(s) inschakelen",
+			"disablePlugins": "Schakel plug-ins(s) uit",
+			"updatePlugins": "Plug-ins(s) bijwerken",
+			"removePlugins": "Plug-ins(s) verwijderen",
+			"addNew": "Nieuw toevoegen",
+			"configurePluginFow": "Plugin-stroom configureren",
+			"listEmpty": "Er zijn geen plug-ins om weer te geven",
+			"categoryFilter": "Categoriefilter",
+			"name": "Naam",
+			"author": "Auteur",
+			"version": "Versie",
+			"repoList": "Lijst met opslagplaatsen",
+			"refreshRepositories": "Opslagplaatsen vernieuwen",
+			"addRepository": "Opslagplaats toevoegen",
+			"newRepository": "Nieuwe opslagplaats",
+			"repoName": "Naam",
+			"repoSource": "Repository-URL",
+			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
+			"configurePluginFlowSection": {
+				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
+				"line2": "Hieronder vindt u een lijst met secties voor het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
+				"line3": "Zie de beschrijving onder elk type plug-in voor details wanneer de plug-ins worden aangeroepen.",
+				"line4": "Een plug-in kan uit meerdere typen plug-ins bestaan. Als dat zo is, wordt het door Unmanic aangeroepen in elk van de beschreven secties."
+			},
+			"types": {
+				"libraryManagement": {
+					"fileTest": "Bibliotheekbeheer - Bestandstest",
+					"fileTestCaption": "Deze plug-ins worden aangeroepen om te testen of bestanden moeten worden toegevoegd aan de in behandeling zijnde takenlijst"
+				},
+				"postprocessor": {
+					"fileMove": "Postprocessor - Bestandsverplaatsingen",
+					"fileMoveCaption": "Deze plug-ins worden na voltooiing van de taak aangeroepen om extra bestandsverplaatsingen toe te voegen",
+					"taskResult": "Post-processor - Taak succes/mislukking markeren",
+					"taskResultCaption": "Deze plug-ins worden aangeroepen bij het voltooien van een taak om het algehele succes of falen van die taak te markeren"
+				},
+				"worker": {
+					"processItem": "Werknemer - Bestand wordt verwerkt",
+					"processItemCaption": "Deze plug-ins worden aangeroepen door een werker en produceren een aangepast commando dat door die werker moet worden uitgevoerd en beheerd"
+				}
+			}
+		}
+	}
+}

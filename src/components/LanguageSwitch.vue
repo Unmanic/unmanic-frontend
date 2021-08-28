@@ -20,11 +20,21 @@ export default {
   setup() {
     const { locale } = useI18n({ useScope: 'global' })
 
+    // Use ISO codes from table: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
     return {
       locale,
       localeOptions: [
-        { value: 'en-NZ', label: 'English' },
-        { value: 'nl-NL', label: 'Dutch' }
+        { value: 'en', label: 'English' },
+        { value: 'mi', label: 'Maori/te reo Māori' },
+        { value: 'zh', label: 'Chinese/中文' },
+        { value: 'nl', label: 'Dutch/Nederlands' },
+        { value: 'fr', label: 'French/français' },
+        { value: 'de', label: 'German/Deutsch' },
+        { value: 'it', label: 'Italian/Italiano' },
+        { value: 'ja', label: 'Japanese/日本語' },
+        { value: 'ru', label: 'Russian/русский' },
+        { value: 'es', label: 'Spanish/Español' },
+        { value: 'sv', label: 'Swedish/Svenska' }
       ]
     }
   },

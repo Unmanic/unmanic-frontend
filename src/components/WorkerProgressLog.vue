@@ -5,7 +5,7 @@
       <div class="row items-center no-wrap">
         <div class="col">
           <div class="text-h6 text-grey-8">
-            Worker Log
+            {{ $t('components.workers.workerLog') }}
           </div>
         </div>
       </div>

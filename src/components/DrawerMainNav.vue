@@ -103,7 +103,7 @@
           <q-icon name="subject"/>
         </q-item-section>
         <q-item-section>
-          Privacy Policy
+          {{ $t('headers.privacyPolicy') }}
         </q-item-section>
       </q-item>
       <!--END PRIVACY POLICY-->
