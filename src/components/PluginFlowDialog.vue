@@ -186,7 +186,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 const defaultOrder = []
 
 export default {
-  name: 'PluginFlow',
+  name: 'PluginFlowDialog',
   props: {},
   emits: [
     // REQUIRED
