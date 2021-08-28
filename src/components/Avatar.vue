@@ -10,7 +10,7 @@
           @click="supportProject()"
           color="secondary">
           <q-img class="support-btn-img" width="2em" src="~assets/coffee-btn-image.png"/>
-          <div>Support future development</div>
+          <div>{{ $t('headers.supportFutureDevelopment') }}</div>
         </q-btn>
       </div>
     </div>

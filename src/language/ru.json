@@ -1,0 +1,224 @@
+{
+	"navigation": {
+		"dashboard": "Щиток приборов",
+		"settings": "Настройки",
+		"dataPanels": "Панели данных",
+		"account": "Счет",
+		"login": "Авторизоваться",
+		"logout": "Выйти",
+		"config": "Конфиг",
+		"documentation": "Документация",
+		"library": "Библиотека",
+		"workers": "Рабочие",
+		"plugins": "Плагины",
+		"general": "Общий",
+		"helpAndSupport": "Помощь и поддержка",
+		"container": "контейнер",
+		"videoEncoding": "Кодирование видео",
+		"audioEncoding": "Аудио кодирование",
+		"advancedOptions": "Расширенные настройки",
+		"info": "Информация",
+		"top": "верхний",
+		"new": "Новый",
+		"show": "Показать",
+		"ask": "Просить",
+		"job": "Вакансии",
+		"recordsPerPage": "Записи на страницу",
+		"showMore": "Показать больше",
+		"search": "Поиск",
+		"save": "Сохранить",
+		"backToDashboard": "Вернуться в Личный кабинет",
+		"options": "Параметры",
+		"submit": "Представлять на рассмотрение"
+	},
+	"status": {
+		"enabled": "включено",
+		"disabled": "отключен",
+		"cannotLoadImage": "Невозможно загрузить изображение",
+		"success": "Успех",
+		"failed": "Не смогли"
+	},
+	"pagination": {
+		"prev": "предыдущий",
+		"more": "более"
+	},
+	"time": {
+		"ago": "назад",
+		"units": {
+			"minute": "минута | минут",
+			"hour": "час | часы",
+			"day": "день | дней"
+		}
+	},
+	"notifications": {
+		"saved": "Сохранено.",
+		"installed": "Установлены.",
+		"backendConnectionWarning": "Невозможно подключиться к бэкэнду Unmanic. Убедитесь, что он запущен.",
+		"failedToFetchSession": "Произошла ошибка при получении данных сеанса из Unmanic.",
+		"failedToFetchLoginUrl": "Не удалось получить URL-адрес для входа.",
+		"failedToFetchLogoutUrl": "Не удалось получить URL для выхода.",
+		"failedToSaveSettings": "Не удалось сохранить настройки.",
+		"failedToFetchSettings": "Не удалось получить текущие настройки Unmanic.",
+		"failedToFetchSystemConfig": "Не удалось получить конфигурацию системы Unmanic.",
+		"SavedPluginSettings": "Настройки плагина сохранены.",
+		"failedToSavePluginSettings": "Не удалось сохранить настройки плагина.",
+		"failedToInstallPlugin": "Произошла ошибка при попытке установить запрошенный плагин.",
+		"repoAlreadyExists": "Репозиторий уже существует.",
+		"newRepoAddFailed": "Новый репозиторий не удалось сохранить.",
+		"reposRefreshSuccess": "Успешно обновлены все репозитории.",
+		"reposRefreshFailure": "Невозможно обновить настроенные репозитории. Возможно, в одном из URL-адресов есть ошибка?",
+		"repoRemovedSuccess": "Репозиторий удален.",
+		"repoRemovedFailed": "Что-то пошло не так при попытке удалить репозиторий.",
+		"failedToFetchEnabledDataPanelPlugins": "Не удалось получить список включенных плагинов панели данных.",
+		"allowPopups": "Пожалуйста, разрешите всплывающие окна для этого веб-сайта.",
+		"serverMessages": {
+			"defaults": {
+				"info": "Неизвестное сообщение с сервера",
+				"error": "На сервере произошла неизвестная ошибка",
+				"warning": "Неизвестное предупреждение от сервера",
+				"success": "Неизвестное сообщение с сервера"
+			},
+			"incompatiblePlugin": "Unmanic прекратил обработку задач, так как обнаружил несовместимый плагин",
+			"pluginEnabledLimits": "Unmanic прекратил обработку задач, так как у вас слишком много подключаемых модулей, включенных для уровня, не поддерживающего поддержку. Рассмотрите возможность спонсирования проекта, чтобы включить более 5 подключаемых модулей.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic остановил всех воркеров, поскольку обнаружил изменение в конфигурации плагинов. Когда вы будете готовы, возобновите рабочих с панели инструментов."
+		}
+	},
+	"headers": {
+		"workers": "Рабочие",
+		"pendingTasks": "Незавершенные задачи",
+		"completedTasks": "Выполненные задачи",
+		"privacyPolicy": "Политика конфиденциальности",
+		"plugins": "Плагины",
+		"pluginInfo": "Информация о плагине",
+		"pluginSettings": "Настройки плагина",
+		"pluginInstaller": "Установщик плагинов",
+		"pluginFlow": "Настроить поток плагинов",
+		"information": "Информация",
+		"selectDirectory": "Выберите каталог",
+		"selectFile": "Выберите файл",
+		"librarySettings": "Настройки библиотеки",
+		"CompletedTaskDetails": "Детали выполненной задачи",
+		"supportFutureDevelopment": "Поддержка будущего развития"
+	},
+	"tooltips": {
+		"close": "Закрывать",
+		"back": "Назад",
+		"download": "Скачать",
+		"install": "Установить",
+		"reinstall": "Переустановить",
+		"update": "Обновлять",
+		"information": "Информация",
+		"pluginInfo": "Информация о плагине",
+		"position": "Позиция",
+		"moveUp": "Двигаться вверх",
+		"moveDown": "Двигаться вниз"
+	},
+	"components": {
+		"settings": {
+			"pleaseEnterAValidNumber": "пожалуйста введите правильное число",
+			"library": {
+				"path": "Путь к библиотеке",
+				"libraryScanner": "Сканер библиотеки",
+				"enableLibraryScanner": "Включите сканер библиотеки",
+				"libraryScannerSchedule": "Расписание сканирования библиотеки в минутах",
+				"libraryScannerScheduleNotValid": "Расписание сканирования библиотеки недействительно",
+				"followSymlinks": "Следуйте символическим ссылкам",
+				"runLibraryScanOnStart": "Запускать сканирование при запуске",
+				"fileMonitor": "Монитор файлов библиотеки",
+				"enableLibraryFileMonitor": "Включить монитор файлов библиотеки"
+			},
+			"workers": {
+				"workerCount": "Количество рабочих",
+				"path": "Путь к кешу"
+			},
+			"support": {
+				"logs": "Журналы",
+				"enableDebugging": "EnableDebugging",
+				"currentSystemLogs": "Текущие системные журналы",
+				"downloadSystemLogs": "Скачать системные журналы",
+				"configuration": "Конфигурация",
+				"appVersion": "Unmanic версия",
+				"pythonVersion": "Версия Python",
+				"platform": "Платформа (Операционная система)",
+				"configPath": "Путь к конфигурации",
+				"logsPath": "Путь к журналам",
+				"userdataPath": "Путь к пользовательским данным",
+				"docs": "Документация",
+				"apiSpec": "Спецификация API",
+				"applicationDocumentation": "Документация по применению",
+				"support": "Служба поддержки",
+				"unmanicAppSourceRequests": "Функция запроса в Unmanic Application",
+				"unmanicFrontendSourceRequests": "Функция запроса в Unmanic Frontend",
+				"unmanicOfficialPluginRequests": "Запросить плагин для Unmanic"
+			}
+		},
+		"workers": {
+			"pauseWorker": "Приостановить этого рабочего",
+			"workerPaused": "Рабочий был приостановлен",
+			"workerPauseFailed": "Unmanic по какой-то причине не смог приостановить этого рабочего.",
+			"resumeWorker": "Возобновить этого работника",
+			"workerResumed": "Работник возобновлен",
+			"workerResumedFailed": "Unmanic по какой-то причине не смог возобновить этого рабочего.",
+			"workerLog": "Журнал рабочего",
+			"status": "Положение дел",
+			"state": {
+				"waiting": "Жду очередного задания ...",
+				"processing": "Обработка задачи ...",
+				"paused": "Рабочий приостановлен ..."
+			},
+			"currentRunner": {
+				"none": "Никто",
+				"indeterminate": "Неопределенный"
+			}
+		},
+		"completedTasks": {
+			"listEmpty": "Список выполненных задач пуст.",
+			"details": "Подробности",
+			"errorGettingDetails": "Произошла ошибка при получении сведений об этой задаче."
+		},
+		"plugins": {
+			"updateAvailable": "Доступно обновление",
+			"upToDate": "своевременно",
+			"enablePlugins": "Включить плагины",
+			"disablePlugins": "Отключить плагины",
+			"updatePlugins": "Обновить плагины",
+			"removePlugins": "Удалить плагины",
+			"addNew": "Добавить новое",
+			"configurePluginFow": "Настроить поток плагинов",
+			"listEmpty": "Нет плагинов для отображения",
+			"categoryFilter": "Категория Фильтр",
+			"name": "Имя",
+			"author": "Автор",
+			"version": "Версия",
+			"repoList": "Список репозиториев",
+			"refreshRepositories": "Обновить репозитории",
+			"addRepository": "Добавить репозиторий",
+			"newRepository": "Новый репозиторий",
+			"repoName": "Имя",
+			"repoSource": "URL-адрес репозитория",
+			"errorSavingFlow": "Произошла ошибка при сохранении потока надстройки",
+			"configurePluginFlowSection": {
+				"line1": "Настройте порядок, в котором вызываются плагины.",
+				"line2": "Ниже приведен список разделов типа плагина. Каждый раздел типа плагина может содержать список плагинов.",
+				"line3": "См. Описание под каждым типом подключаемого модуля для получения подробной информации о том, когда будут вызываться содержащиеся подключаемые модули.",
+				"line4": "Плагин может состоять из нескольких типов плагинов. Если это так, он будет вызываться Unmanic в каждом из описанных разделов."
+			},
+			"types": {
+				"libraryManagement": {
+					"fileTest": "Управление библиотекой - проверка файлов",
+					"fileTestCaption": "Эти плагины вызываются для проверки, следует ли добавлять файлы в список ожидающих задач."
+				},
+				"postprocessor": {
+					"fileMove": "Постпроцессор - перемещение файлов",
+					"fileMoveCaption": "Эти плагины вызываются по завершении задачи для добавления дополнительных перемещений файлов.",
+					"taskResult": "Постпроцессор - Отметка задачи успешно / неудачно",
+					"taskResultCaption": "Эти плагины вызываются по завершении задачи, чтобы отметить общий успех или неудачу этой задачи."
+				},
+				"worker": {
+					"processItem": "Рабочий - Обработка файла",
+					"processItemCaption": "Эти плагины вызываются работником и создают настраиваемую команду, которая будет выполняться и управляться этим работником."
+				}
+			}
+		}
+	}
+}

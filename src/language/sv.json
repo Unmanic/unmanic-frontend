@@ -1,0 +1,224 @@
+{
+	"navigation": {
+		"dashboard": "instrumentbräda",
+		"settings": "inställningar",
+		"dataPanels": "Datapaneler",
+		"account": "konto",
+		"login": "Logga in",
+		"logout": "Logga ut",
+		"config": "Konfig",
+		"documentation": "Dokumentation",
+		"library": "Bibliotek",
+		"workers": "Arbetare",
+		"plugins": "Insticksprogram",
+		"general": "Allmän",
+		"helpAndSupport": "Hjälp och support",
+		"container": "behållare",
+		"videoEncoding": "Videokodning",
+		"audioEncoding": "Ljudkodning",
+		"advancedOptions": "Avancerade alternativ",
+		"info": "Info",
+		"top": "Topp",
+		"new": "Ny",
+		"show": "Show",
+		"ask": "Fråga",
+		"job": "Jobb",
+		"recordsPerPage": "Rekord per sida",
+		"showMore": "Visa mer",
+		"search": "Sök",
+		"save": "Spara",
+		"backToDashboard": "Tillbaka till instrumentpanelen",
+		"options": "alternativ",
+		"submit": "Skicka in"
+	},
+	"status": {
+		"enabled": "aktiverad",
+		"disabled": "Inaktiverad",
+		"cannotLoadImage": "Det går inte att ladda bilden",
+		"success": "Framgång",
+		"failed": "Misslyckades"
+	},
+	"pagination": {
+		"prev": "föregående",
+		"more": "Mer"
+	},
+	"time": {
+		"ago": "sedan",
+		"units": {
+			"minute": "minut | minuter",
+			"hour": "timme | timmar",
+			"day": "dag | dagar"
+		}
+	},
+	"notifications": {
+		"saved": "Sparad.",
+		"installed": "Installerad.",
+		"backendConnectionWarning": "Det gick inte att ansluta till Unmanic backend. Kontrollera att den körs.",
+		"failedToFetchSession": "Ett fel uppstod när sessionsdata skulle hämtas från Unmanic.",
+		"failedToFetchLoginUrl": "Det gick inte att få inloggningsadressen.",
+		"failedToFetchLogoutUrl": "Det gick inte att få utloggnings -URL.",
+		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
+		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
+		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
+		"SavedPluginSettings": "Insticksinställningarna sparade.",
+		"failedToSavePluginSettings": "Det gick inte att spara plugin -inställningarna.",
+		"failedToInstallPlugin": "Ett fel uppstod under försök att installera det begärda pluginprogrammet.",
+		"repoAlreadyExists": "Förvaret finns redan.",
+		"newRepoAddFailed": "Det nya förvaret kunde inte sparas.",
+		"reposRefreshSuccess": "Alla lagringsplatser har uppdaterats.",
+		"reposRefreshFailure": "Det gick inte att uppdatera dina konfigurerade lagringsplatser. Kanske finns det ett fel i en av webbadresserna?",
+		"repoRemovedSuccess": "Lagringsplatsen har tagits bort.",
+		"repoRemovedFailed": "Något gick fel när du försökte ta bort förvaret.",
+		"failedToFetchEnabledDataPanelPlugins": "Det gick inte att hämta listan över tillåtna datapanels plugins",
+		"allowPopups": "Vänligen tillåt popup -fönster för denna webbplats.",
+		"serverMessages": {
+			"defaults": {
+				"info": "Okänt meddelande från servern",
+				"error": "Okänt fel uppstod på servern",
+				"warning": "Okänd varning från servern",
+				"success": "Okänt meddelande från servern"
+			},
+			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
+			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen."
+		}
+	},
+	"headers": {
+		"workers": "Arbetare",
+		"pendingTasks": "Väntande uppgifter",
+		"completedTasks": "Slutförda uppgifter",
+		"privacyPolicy": "Integritetspolicy",
+		"plugins": "Insticksprogram",
+		"pluginInfo": "Plugin Info",
+		"pluginSettings": "Insticksprogram",
+		"pluginInstaller": "Plugin Installer",
+		"pluginFlow": "Konfigurera pluginflöde",
+		"information": "Info",
+		"selectDirectory": "Välj en katalog",
+		"selectFile": "Välj en fil",
+		"librarySettings": "Biblioteksinställningar",
+		"CompletedTaskDetails": "Slutförda uppgifter",
+		"supportFutureDevelopment": "Stödja framtida utveckling"
+	},
+	"tooltips": {
+		"close": "Stänga",
+		"back": "Tillbaka",
+		"download": "Ladda ner",
+		"install": "Installera",
+		"reinstall": "Installera om",
+		"update": "Uppdatering",
+		"information": "Information",
+		"pluginInfo": "Plugin Info",
+		"position": "Placera",
+		"moveUp": "Flytta upp",
+		"moveDown": "Flytta ner"
+	},
+	"components": {
+		"settings": {
+			"pleaseEnterAValidNumber": "var vänlig skriv in ett giltigt nummer",
+			"library": {
+				"path": "Biblioteksväg",
+				"libraryScanner": "Biblioteksskanner",
+				"enableLibraryScanner": "Aktivera biblioteksskannern",
+				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
+				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är ogiltigt",
+				"followSymlinks": "Följ symlänkar",
+				"runLibraryScanOnStart": "Kör skanning vid start",
+				"fileMonitor": "Biblioteksfilövervakare",
+				"enableLibraryFileMonitor": "Aktivera biblioteksfilövervakaren"
+			},
+			"workers": {
+				"workerCount": "Arbetarantal",
+				"path": "Cachebana"
+			},
+			"support": {
+				"logs": "Loggar",
+				"enableDebugging": "EnableDebugging",
+				"currentSystemLogs": "Nuvarande systemloggar",
+				"downloadSystemLogs": "Ladda ner systemloggar",
+				"configuration": "Konfiguration",
+				"appVersion": "Omanisk version",
+				"pythonVersion": "Python -version",
+				"platform": "Plattform (operativsystem)",
+				"configPath": "Konfigurationsväg",
+				"logsPath": "Loggar sökväg",
+				"userdataPath": "Userdata Path",
+				"docs": "Dokumentation",
+				"apiSpec": "API -specifikation",
+				"applicationDocumentation": "Ansökningsdokumentation",
+				"support": "Stöd",
+				"unmanicAppSourceRequests": "Begärningsfunktion i Unmanic Application",
+				"unmanicFrontendSourceRequests": "Begärningsfunktion i Unmanic Frontend",
+				"unmanicOfficialPluginRequests": "Begär ett plugin för Unmanic"
+			}
+		},
+		"workers": {
+			"pauseWorker": "Pausa den här arbetaren",
+			"workerPaused": "Arbetaren har pausats",
+			"workerPauseFailed": "Unmanic kunde av någon anledning inte pausa den här arbetaren",
+			"resumeWorker": "Återuppta den här arbetaren",
+			"workerResumed": "Arbetaren har återupptagits",
+			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
+			"workerLog": "Arbetarlogg",
+			"status": "Status",
+			"state": {
+				"waiting": "Väntar på en annan uppgift ...",
+				"processing": "Bearbetar uppgiften ...",
+				"paused": "Arbetaren pausade ..."
+			},
+			"currentRunner": {
+				"none": "Ingen",
+				"indeterminate": "Obestämd"
+			}
+		},
+		"completedTasks": {
+			"listEmpty": "Listan Slutförda uppgifter är tom",
+			"details": "Detaljer",
+			"errorGettingDetails": "Ett fel uppstod när uppgifterna för den här uppgiften skulle hämtas"
+		},
+		"plugins": {
+			"updateAvailable": "uppdatering tillgänglig",
+			"upToDate": "aktuell",
+			"enablePlugins": "Aktivera plugin (er)",
+			"disablePlugins": "Inaktivera plugins",
+			"updatePlugins": "Uppdatera plugins",
+			"removePlugins": "Ta bort plugins",
+			"addNew": "Lägg till ny",
+			"configurePluginFow": "Konfigurera pluginflöde",
+			"listEmpty": "Det finns inga plugins att visa",
+			"categoryFilter": "Kategorifilter",
+			"name": "namn",
+			"author": "Författare",
+			"version": "Version",
+			"repoList": "Förrådslista",
+			"refreshRepositories": "Uppdatera förråd",
+			"addRepository": "Lägg till förvar",
+			"newRepository": "Nytt förråd",
+			"repoName": "namn",
+			"repoSource": "Förrådets URL",
+			"errorSavingFlow": "Ett fel uppstod när pluginflödet skulle sparas",
+			"configurePluginFlowSection": {
+				"line1": "Konfigurera i vilken ordning plugins anropas.",
+				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
+				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
+				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
+			},
+			"types": {
+				"libraryManagement": {
+					"fileTest": "Library Management - Filtest",
+					"fileTestCaption": "Dessa plugins kallas för att testa om filer ska läggas till i den väntande uppgiftslistan"
+				},
+				"postprocessor": {
+					"fileMove": "Efterbehandlare - Filrörelser",
+					"fileMoveCaption": "Dessa insticksprogram kallas vid avslutad uppgift för att lägga till ytterligare filrörelser",
+					"taskResult": "Efterbehandlare - Markering av uppgiftens framgång/misslyckande",
+					"taskResultCaption": "Dessa plugins uppmanas att slutföra en uppgift för att markera den totala framgången eller misslyckandet av den uppgiften"
+				},
+				"worker": {
+					"processItem": "Arbetare - bearbetar fil",
+					"processItemCaption": "Dessa plugins anropas av en arbetare och producerar ett anpassat kommando som ska köras och hanteras av den arbetaren"
+				}
+			}
+		}
+	}
+}

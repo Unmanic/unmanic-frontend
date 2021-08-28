@@ -39,7 +39,10 @@
       <q-card-section class="q-pt-none q-pa-none">
 
         <div class="q-pt-md q-px-lg" style="width: 1000px; max-width: 90vw;">
-          <p v-html="$t('components.plugins.configurePluginFlowSection')"></p>
+          <p class="q-mb-xs" v-html="$t('components.plugins.configurePluginFlowSection.line1')"></p>
+          <p class="q-mb-xs" v-html="$t('components.plugins.configurePluginFlowSection.line2')"></p>
+          <p class="q-mb-xs" v-html="$t('components.plugins.configurePluginFlowSection.line3')"></p>
+          <p class="q-mb-xs" v-html="$t('components.plugins.configurePluginFlowSection.line4')"></p>
         </div>
 
       </q-card-section>

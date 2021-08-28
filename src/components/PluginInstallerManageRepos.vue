@@ -26,7 +26,7 @@
               filled
               type="textarea"
               v-model="newRepo"
-              label="New Repository"/>
+              :label="$t('components.plugins.newRepository')"/>
 
             <q-btn
               @click="saveNewRepo()"
