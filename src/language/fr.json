@@ -76,11 +76,13 @@
 				"info": "Message inconnu du serveur",
 				"error": "Une erreur inconnue s'est produite sur le serveur",
 				"warning": "Avertissement inconnu du serveur",
-				"success": "Message inconnu du serveur"
+				"success": "Message inconnu du serveur",
+				"status": "Mise à jour de statut inconnue du serveur"
 			},
 			"incompatiblePlugin": "Unmanic a arrêté de traiter les tâches car il a détecté un plugin incompatible",
 			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de 5 plugins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord."
+			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
+			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution"
 		}
 	},
 	"headers": {

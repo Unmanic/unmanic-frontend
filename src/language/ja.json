@@ -76,11 +76,13 @@
 				"info": "サーバーからの不明なメッセージ",
 				"error": "サーバーで不明なエラーが発生しました",
 				"warning": "サーバーからの不明な警告",
-				"success": "サーバーからの不明なメッセージ"
+				"success": "サーバーからの不明なメッセージ",
+				"status": "サーバーからの不明なステータスの更新"
 			},
 			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
 			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
-			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。"
+			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
+			"libraryScanProgress": "ライブラリスキャンの実行"
 		}
 	},
 	"headers": {
