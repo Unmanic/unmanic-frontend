@@ -1,6 +1,6 @@
 # Unmanic Web frontend
 
-A simple tool for optimising your video library to a single, uniform format.
+A simple tool for optimising your file library to a single, uniform format.
 
 This project contains the frontend user interface for [Unmanic](https://github.com/Unmanic/unmanic).
 
