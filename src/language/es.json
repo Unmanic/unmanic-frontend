@@ -80,7 +80,7 @@
 				"status": "Actualización de estado desconocida del servidor"
 			},
 			"incompatiblePlugin": "Unmanic ha dejado de procesar tareas porque ha detectado un complemento incompatible",
-			"pluginEnabledLimits": "Unmanic ha dejado de procesar tareas porque tienes demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de 5 complementos.",
+			"pluginEnabledLimits": "Unmanic ha detenido las tareas de procesamiento de Current Runner porque tiene demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de 5 complementos.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha detenido a todos los trabajadores porque ha detectado un cambio en la configuración de los complementos. Cuando esté listo, reanude los trabajadores desde el tablero.",
 			"libraryScanProgress": "Escaneo de biblioteca en ejecución"
 		}
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
 			"workerLog": "Registro de trabajador",
 			"status": "Estado",
+			"stateLabel": "Estado",
+			"currentRunnerLabel": "Corredor actual",
+			"startTimeLabel": "Hora de inicio",
+			"totalProcessingTimeLabel": "Tiempo total de procesamiento",
 			"state": {
 				"waiting": "Esperando otra tarea ...",
 				"processing": "Tarea de procesamiento ...",
@@ -172,6 +176,12 @@
 				"none": "Ninguno",
 				"indeterminate": "Indeterminado"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "Volver a explorar la biblioteca ahora",
+			"moveToTop": "Mover seleccionado al principio",
+			"moveToBottom": "Mover seleccionado al final",
+			"removeSelected": "Eliminar selección"
 		},
 		"completedTasks": {
 			"listEmpty": "La lista de tareas completadas está vacía",
@@ -192,7 +202,7 @@
 			"name": "Nombre",
 			"author": "Autor",
 			"version": "Versión",
-			"repoList": "Lista de repositorios",
+			"repoList": "Lista de repositorio",
 			"refreshRepositories": "Actualizar repositorios",
 			"addRepository": "Agregar repositorio",
 			"newRepository": "Nuevo repositorio",
@@ -202,7 +212,7 @@
 			"configurePluginFlowSection": {
 				"line1": "Configure el orden en el que se llaman los complementos.",
 				"line2": "A continuación se muestra una lista de las secciones de Tipo de complemento. Cada sección de tipo de complemento puede contener una lista de complementos.",
-				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamará a los complementos contenidos.",
+				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamarán los complementos contenidos.",
 				"line4": "Un complemento puede constar de varios tipos de complementos. Si es así, Unmanic lo llamará en cada una de las secciones descritas."
 			},
 			"types": {
@@ -212,7 +222,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocesador - Movimientos de archivos",
-					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
+					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
 					"taskResult": "Postprocesador: marcar el éxito / fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se solicitan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},

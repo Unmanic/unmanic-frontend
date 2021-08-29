@@ -80,8 +80,8 @@
 				"status": "来自服务器的未知状态更新"
 			},
 			"incompatiblePlugin": "Unmanic 已停止处理任务，因为它检测到不兼容的插件",
-			"pluginEnabledLimits": "Unmanic 已停止处理任务，因为您为非支持层启用了太多插件。考虑赞助该项目以启用 5 个以上的插件。",
-			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备就绪后，从仪表板恢复工作人员。",
+			"pluginEnabledLimits": "Unmanic 已停止 Current Runner 处理任务，因为您为非支持层启用了太多插件。考虑赞助该项目以启用 5 个以上的插件。",
+			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备好后，从仪表板恢复工作人员。",
 			"libraryScanProgress": "正在运行库扫描"
 		}
 	},
@@ -150,7 +150,7 @@
 				"applicationDocumentation": "申请文件",
 				"support": "支持",
 				"unmanicAppSourceRequests": "Unmanic 应用程序中的请求功能",
-				"unmanicFrontendSourceRequests": "Unmanic 前端的请求功能",
+				"unmanicFrontendSourceRequests": "Unmanic 前端中的请求功能",
 				"unmanicOfficialPluginRequests": "申请 Unmanic 插件"
 			}
 		},
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
 			"workerLog": "工人日志",
 			"status": "地位",
+			"stateLabel": "状态",
+			"currentRunnerLabel": "当前跑步者",
+			"startTimeLabel": "开始时间",
+			"totalProcessingTimeLabel": "总处理时间",
 			"state": {
 				"waiting": "等待另一个任务...",
 				"processing": "处理任务...",
@@ -172,6 +176,12 @@
 				"none": "没有任何",
 				"indeterminate": "不定"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "立即重新扫描图书馆",
+			"moveToTop": "将所选内容移至顶部",
+			"moveToBottom": "将所选内容移至底部",
+			"removeSelected": "删除选定"
 		},
 		"completedTasks": {
 			"listEmpty": "已完成的任务列表为空",

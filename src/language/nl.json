@@ -80,7 +80,7 @@
 				"status": "Onbekende statusupdate van server"
 			},
 			"incompatiblePlugin": "Unmanic is gestopt met het verwerken van taken omdat het een incompatibele plug-in heeft gedetecteerd",
-			"pluginEnabledLimits": "Unmanic is gestopt met het verwerken van taken omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan 5 plug-ins mogelijk te maken.",
+			"pluginEnabledLimits": "Unmanic heeft de huidige Runner-verwerkingstaken gestopt omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan 5 plug-ins mogelijk te maken.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard.",
 			"libraryScanProgress": "Bibliotheekscan wordt uitgevoerd"
 		}
@@ -122,12 +122,12 @@
 				"path": "Bibliotheekpad",
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "De bibliotheekscanner inschakelen",
-				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
+				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
 				"followSymlinks": "Symlinks volgen",
 				"runLibraryScanOnStart": "Scan uitvoeren bij start",
 				"fileMonitor": "Bibliotheek bestandsmonitor",
-				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen"
+				"enableLibraryFileMonitor": "Schakel de bibliotheekbestandsmonitor in"
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",
@@ -149,7 +149,7 @@
 				"apiSpec": "API-specificatie:",
 				"applicationDocumentation": "Toepassingsdocumentatie",
 				"support": "Steun",
-				"unmanicAppSourceRequests": "Verzoekfunctie in Unmanic Application",
+				"unmanicAppSourceRequests": "Functie aanvragen in Unmanic Application",
 				"unmanicFrontendSourceRequests": "Functie aanvragen in Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Vraag een plug-in aan voor Unmanic"
 			}
@@ -157,12 +157,16 @@
 		"workers": {
 			"pauseWorker": "Deze werknemer onderbreken",
 			"workerPaused": "Werknemer is onderbroken",
-			"workerPauseFailed": "Unmanic kon deze werker om de een of andere reden niet pauzeren",
+			"workerPauseFailed": "Unmanic kan deze werker om de een of andere reden niet pauzeren",
 			"resumeWorker": "Deze werknemer hervatten",
 			"workerResumed": "Werknemer is hervat",
 			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
 			"workerLog": "Werknemerslogboek",
 			"status": "Toestand",
+			"stateLabel": "Staat",
+			"currentRunnerLabel": "Huidige Runner",
+			"startTimeLabel": "Starttijd",
+			"totalProcessingTimeLabel": "Totale verwerkingstijd",
 			"state": {
 				"waiting": "Wachten op een andere taak...",
 				"processing": "Taak verwerken...",
@@ -172,6 +176,12 @@
 				"none": "Geen",
 				"indeterminate": "onbepaald"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
+			"moveToTop": "Geselecteerde naar boven verplaatsen",
+			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
+			"removeSelected": "Verwijder geselecteerde"
 		},
 		"completedTasks": {
 			"listEmpty": "De lijst Voltooide taken is leeg",

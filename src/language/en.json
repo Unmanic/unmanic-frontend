@@ -80,7 +80,7 @@
         "status": "Unknown status update from server"
       },
       "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
-      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than 5 Plugins.",
+      "pluginEnabledLimits": "Unmanic has stoppedCurrent Runner\n processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than 5 Plugins.",
       "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard.",
       "libraryScanProgress": "Library scan running"
     }
@@ -163,6 +163,10 @@
       "workerResumedFailed": "Unmanic was unable to resume this worker for some reason",
       "workerLog" : "Worker Log",
       "status" : "Status",
+      "stateLabel": "State",
+      "currentRunnerLabel": "Current Runner",
+      "startTimeLabel": "Start Time",
+      "totalProcessingTimeLabel": "Total Processing Time",
       "state": {
         "waiting": "Waiting for another task...",
         "processing": "Processing task...",
@@ -172,6 +176,12 @@
         "none": "None",
         "indeterminate": "Indeterminate"
       }
+    },
+    "pendingTasks": {
+      "rescanLibrary": "Rescan library now",
+      "moveToTop": "Move selected to top",
+      "moveToBottom": "Move selected to bottom",
+      "removeSelected": "Remove selected"
     },
     "completedTasks": {
       "listEmpty": "The Completed Tasks list is empty",

@@ -80,7 +80,7 @@
 				"status": "Aggiornamento di stato sconosciuto dal server"
 			},
 			"incompatiblePlugin": "Unmanic ha interrotto l'elaborazione delle attività poiché ha rilevato un plug-in incompatibile",
-			"pluginEnabledLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai troppi Plugin abilitati per un livello non di supporto. Considera la sponsorizzazione del progetto per abilitare più di 5 plugin.",
+			"pluginEnabledLimits": "Unmanic ha interrotto le attività di elaborazione di Current Runner perché hai troppi plugin abilitati per un livello non supporter. Considera la sponsorizzazione del progetto per abilitare più di 5 plugin.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha fermato tutti i lavoratori poiché ha rilevato una modifica alla configurazione dei plugin. Quando sei pronto, riprendi i lavoratori dalla dashboard.",
 			"libraryScanProgress": "Scansione della libreria in esecuzione"
 		}
@@ -126,7 +126,7 @@
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
 				"followSymlinks": "Segui i link simbolici",
 				"runLibraryScanOnStart": "Esegui scansione all'avvio",
-				"fileMonitor": "Monitoraggio file di libreria",
+				"fileMonitor": "Monitoraggio dei file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria"
 			},
 			"workers": {
@@ -139,7 +139,7 @@
 				"currentSystemLogs": "Registri di sistema correnti",
 				"downloadSystemLogs": "Scarica i registri di sistema",
 				"configuration": "Configurazione",
-				"appVersion": "Versione Unmania",
+				"appVersion": "Versione non maniacale",
 				"pythonVersion": "Versione Python",
 				"platform": "Piattaforma (sistema operativo)",
 				"configPath": "Percorso di configurazione",
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanic non è stato in grado di riprendere questo lavoratore per qualche motivo",
 			"workerLog": "Registro dei lavoratori",
 			"status": "Stato",
+			"stateLabel": "Stato",
+			"currentRunnerLabel": "Attuale corridore",
+			"startTimeLabel": "Ora di inizio",
+			"totalProcessingTimeLabel": "Tempo di elaborazione totale",
 			"state": {
 				"waiting": "In attesa di un altro compito...",
 				"processing": "Attività di elaborazione...",
@@ -172,6 +176,12 @@
 				"none": "Nessuno",
 				"indeterminate": "Indeterminato"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "Scansiona di nuovo la libreria ora",
+			"moveToTop": "Sposta selezionato in alto",
+			"moveToBottom": "Sposta selezionato in basso",
+			"removeSelected": "Rimuovi i selezionati"
 		},
 		"completedTasks": {
 			"listEmpty": "L'elenco delle attività completate è vuoto",
