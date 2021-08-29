@@ -80,7 +80,7 @@
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
 			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"pluginEnabledLimits": "Unmanic hat die aktuellen Verarbeitungsaufgaben des Runners gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft"
 		}
@@ -130,7 +130,7 @@
 				"enableLibraryFileMonitor": "Aktivieren Sie den Bibliotheksdateimonitor"
 			},
 			"workers": {
-				"workerCount": "Arbeiterzahl",
+				"workerCount": "Anzahl der Arbeiter",
 				"path": "Cache-Pfad"
 			},
 			"support": {
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanic konnte diesen Arbeiter aus irgendeinem Grund nicht wieder aufnehmen",
 			"workerLog": "Arbeiterprotokoll",
 			"status": "Status",
+			"stateLabel": "Bundesland",
+			"currentRunnerLabel": "Aktueller Läufer",
+			"startTimeLabel": "Startzeit",
+			"totalProcessingTimeLabel": "Gesamtbearbeitungszeit",
 			"state": {
 				"waiting": "Warte auf eine andere Aufgabe...",
 				"processing": "Verarbeitungsaufgabe...",
@@ -173,8 +177,14 @@
 				"indeterminate": "Unbestimmt"
 			}
 		},
+		"pendingTasks": {
+			"rescanLibrary": "Bibliothek jetzt erneut scannen",
+			"moveToTop": "Ausgewählte nach oben verschieben",
+			"moveToBottom": "Ausgewählte nach unten verschieben",
+			"removeSelected": "Ausgewählte entfernen"
+		},
 		"completedTasks": {
-			"listEmpty": "Die Liste Abgeschlossene Aufgaben ist leer",
+			"listEmpty": "Die Liste der erledigten Aufgaben ist leer",
 			"details": "Einzelheiten",
 			"errorGettingDetails": "Beim Abrufen der Details für diese Aufgabe ist ein Fehler aufgetreten"
 		},

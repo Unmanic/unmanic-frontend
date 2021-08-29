@@ -80,7 +80,7 @@
 				"status": "Mise à jour de statut inconnue du serveur"
 			},
 			"incompatiblePlugin": "Unmanic a arrêté de traiter les tâches car il a détecté un plugin incompatible",
-			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de 5 plugins.",
+			"pluginEnabledLimits": "Unmanic a arrêté les tâches de traitement de Current Runner car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
 			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution"
 		}
@@ -147,7 +147,7 @@
 				"userdataPath": "Chemin des données utilisateur",
 				"docs": "Documentation",
 				"apiSpec": "Spécification API",
-				"applicationDocumentation": "Documents d'application",
+				"applicationDocumentation": "Dossier de candidature",
 				"support": "Soutien",
 				"unmanicAppSourceRequests": "Fonctionnalité de demande dans l'application Unmanic",
 				"unmanicFrontendSourceRequests": "Fonctionnalité de demande dans Unmanic Frontend",
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
 			"workerLog": "Journal des travailleurs",
 			"status": "Statut",
+			"stateLabel": "État",
+			"currentRunnerLabel": "Coureur actuel",
+			"startTimeLabel": "Heure de début",
+			"totalProcessingTimeLabel": "Temps de traitement total",
 			"state": {
 				"waiting": "En attente d'une autre tâche...",
 				"processing": "Tâche de traitement...",
@@ -172,6 +176,12 @@
 				"none": "Rien",
 				"indeterminate": "Indéterminé"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
+			"moveToTop": "Déplacer la sélection vers le haut",
+			"moveToBottom": "Déplacer la sélection vers le bas",
+			"removeSelected": "Enlever la sélection"
 		},
 		"completedTasks": {
 			"listEmpty": "La liste des tâches terminées est vide",

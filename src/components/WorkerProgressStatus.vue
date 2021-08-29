@@ -50,7 +50,7 @@
     <q-list bordered padding>
       <q-item>
         <q-item-section>
-          <q-item-label>State</q-item-label>
+          <q-item-label>{{ $t('components.workers.stateLabel') }}</q-item-label>
           <q-item-label caption>
             {{ state }}
           </q-item-label>
@@ -59,7 +59,7 @@
 
       <q-item>
         <q-item-section>
-          <q-item-label>Current Runner</q-item-label>
+          <q-item-label>{{ $t('components.workers.currentRunnerLabel') }}</q-item-label>
           <q-item-label caption>
             {{ currentRunner }}
           </q-item-label>
@@ -68,7 +68,7 @@
 
       <q-item class="worker-progress-card-state-t-start">
         <q-item-section>
-          <q-item-label>Start Time</q-item-label>
+          <q-item-label>{{ $t('components.workers.startTimeLabel') }}</q-item-label>
           <q-item-label caption>
             {{ startTime }}
           </q-item-label>
@@ -77,7 +77,7 @@
 
       <q-item class="worker-progress-card-state-t-total">
         <q-item-section>
-          <q-item-label>Total Processing Time</q-item-label>
+          <q-item-label>{{ $t('components.workers.totalProcessingTimeLabel') }}</q-item-label>
           <q-item-label caption>
             {{ totalProcTime }}
           </q-item-label>

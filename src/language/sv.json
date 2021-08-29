@@ -80,7 +80,7 @@
 				"status": "Okänd statusuppdatering från servern"
 			},
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
-			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
+			"pluginEnabledLimits": "Unmanic har stoppat Current Runner-bearbetningsuppgifter eftersom du har för många plugins aktiverade för en icke-supporter-nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
 			"libraryScanProgress": "Biblioteksskanning körs"
 		}
@@ -123,7 +123,7 @@
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera biblioteksskannern",
 				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
-				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är ogiltigt",
+				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är inte giltigt",
 				"followSymlinks": "Följ symlänkar",
 				"runLibraryScanOnStart": "Kör skanning vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
 			"workerLog": "Arbetarlogg",
 			"status": "Status",
+			"stateLabel": "stat",
+			"currentRunnerLabel": "Nuvarande löpare",
+			"startTimeLabel": "Starttid",
+			"totalProcessingTimeLabel": "Total behandlingstid",
 			"state": {
 				"waiting": "Väntar på en annan uppgift ...",
 				"processing": "Bearbetar uppgiften ...",
@@ -173,16 +177,22 @@
 				"indeterminate": "Obestämd"
 			}
 		},
+		"pendingTasks": {
+			"rescanLibrary": "Skanna biblioteket igen",
+			"moveToTop": "Flytta markerat till toppen",
+			"moveToBottom": "Flytta markerat till botten",
+			"removeSelected": "Ta bort valda"
+		},
 		"completedTasks": {
 			"listEmpty": "Listan Slutförda uppgifter är tom",
 			"details": "Detaljer",
-			"errorGettingDetails": "Ett fel uppstod när uppgifterna för den här uppgiften skulle hämtas"
+			"errorGettingDetails": "Ett fel uppstod när informationen för den här uppgiften skulle hämtas"
 		},
 		"plugins": {
 			"updateAvailable": "uppdatering tillgänglig",
 			"upToDate": "aktuell",
 			"enablePlugins": "Aktivera plugin (er)",
-			"disablePlugins": "Inaktivera plugins",
+			"disablePlugins": "Inaktivera plugin (er)",
 			"updatePlugins": "Uppdatera plugins",
 			"removePlugins": "Ta bort plugins",
 			"addNew": "Lägg till ny",

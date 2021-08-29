@@ -36,7 +36,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="search"/>
-                  Rescan library now
+                  {{ $t('components.pendingTasks.rescanLibrary') }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -47,7 +47,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="arrow_upward"/>
-                  Move selected to top
+                  {{ $t('components.pendingTasks.moveToTop') }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -56,7 +56,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="arrow_downward"/>
-                  Move selected to bottom
+                  {{ $t('components.pendingTasks.moveToBottom') }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -67,7 +67,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="delete_outline"/>
-                  Remove selected
+                  {{ $t('components.pendingTasks.removeSelected') }}
                 </q-item-label>
               </q-item-section>
             </q-item>

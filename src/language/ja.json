@@ -80,7 +80,7 @@
 				"status": "サーバーからの不明なステータスの更新"
 			},
 			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
-			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
+			"pluginEnabledLimits": "非サポーター層に対して有効になっているプラグインが多すぎるため、UnmanicはCurrentRunnerの処理タスクを停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
 			"libraryScanProgress": "ライブラリスキャンの実行"
 		}
@@ -163,6 +163,10 @@
 			"workerResumedFailed": "Unmanicは何らかの理由でこのワーカーを再開できませんでした",
 			"workerLog": "労働者ログ",
 			"status": "状態",
+			"stateLabel": "州",
+			"currentRunnerLabel": "現在のランナー",
+			"startTimeLabel": "始まる時間",
+			"totalProcessingTimeLabel": "総処理時間",
 			"state": {
 				"waiting": "別のタスクを待っています...",
 				"processing": "処理タスク...",
@@ -172,6 +176,12 @@
 				"none": "なし",
 				"indeterminate": "不定"
 			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "ライブラリを今すぐ再スキャン",
+			"moveToTop": "選択したものを上に移動",
+			"moveToBottom": "選択したものを下に移動",
+			"removeSelected": "削除選択"
 		},
 		"completedTasks": {
 			"listEmpty": "完了したタスクのリストは空です",
