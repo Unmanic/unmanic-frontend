@@ -1,0 +1,238 @@
+{
+	"navigation": {
+		"dashboard": "Painel",
+		"settings": "Definições",
+		"dataPanels": "Painéis de Dados",
+		"account": "Conta",
+		"login": "Conecte-se",
+		"logout": "Sair",
+		"config": "Config",
+		"documentation": "Documentação",
+		"library": "Biblioteca",
+		"workers": "Trabalhadores",
+		"plugins": "Plugins",
+		"general": "Em geral",
+		"helpAndSupport": "Ajuda e Suporte",
+		"container": "recipiente",
+		"videoEncoding": "Codificação de Vídeo",
+		"audioEncoding": "Codificação de Áudio",
+		"advancedOptions": "Opções avançadas",
+		"info": "Informações",
+		"top": "Principal",
+		"new": "Novo",
+		"show": "Mostrar",
+		"ask": "Perguntar",
+		"job": "Empregos",
+		"recordsPerPage": "Registros por página",
+		"showMore": "Mostre mais",
+		"search": "Procurar",
+		"save": "Salve ",
+		"backToDashboard": "Voltar para o painel",
+		"options": "Opções",
+		"submit": "Enviar"
+	},
+	"status": {
+		"enabled": "ativado",
+		"disabled": "Desativado",
+		"cannotLoadImage": "Não é possível carregar a imagem",
+		"success": "Sucesso",
+		"failed": "Fracassado"
+	},
+	"pagination": {
+		"prev": "anterior",
+		"more": "mais"
+	},
+	"time": {
+		"ago": "atrás",
+		"units": {
+			"minute": "minuto | minutos",
+			"hour": "hora | horas",
+			"day": "dia | dias"
+		}
+	},
+	"notifications": {
+		"saved": "Salvou.",
+		"installed": "Instalado.",
+		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está funcionando.",
+		"failedToFetchSession": "Foi encontrado um erro ao buscar os dados da sessão do Unmanic.",
+		"failedToFetchLoginUrl": "Falha ao obter o URL de login.",
+		"failedToFetchLogoutUrl": "Falha ao obter URL de logout.",
+		"failedToSaveSettings": "Falha ao salvar as configurações.",
+		"failedToFetchSettings": "Falha ao buscar as configurações atuais de Unmanic.",
+		"failedToFetchSystemConfig": "Falha ao buscar a configuração do sistema de Unmanic.",
+		"SavedPluginSettings": "Configurações de plug-in salvas.",
+		"failedToSavePluginSettings": "Falha ao salvar as configurações do plug-in.",
+		"failedToInstallPlugin": "Foi encontrado um erro ao tentar instalar o plug-in solicitado.",
+		"repoAlreadyExists": "O repositório já existe.",
+		"newRepoAddFailed": "Novo repositório falhou ao salvar.",
+		"reposRefreshSuccess": "Todos os repositórios foram atualizados com sucesso.",
+		"reposRefreshFailure": "Incapaz de atualizar seus repositórios configurados. Talvez haja um erro em uma das URLs?",
+		"repoRemovedSuccess": "Repositório removido com sucesso.",
+		"repoRemovedFailed": "Algo deu errado ao tentar remover o repositório.",
+		"failedToFetchEnabledDataPanelPlugins": "Falha ao buscar a lista de plug-ins do painel de dados ativada",
+		"allowPopups": "Por favor, permita pop-ups para este site.",
+		"serverMessages": {
+			"defaults": {
+				"info": "Mensagem desconhecida do servidor",
+				"error": "Ocorreu um erro desconhecido no servidor",
+				"warning": "Aviso desconhecido do servidor",
+				"success": "Mensagem desconhecida do servidor",
+				"status": "Atualização de status desconhecida do servidor"
+			},
+			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um plug-in incompatível",
+			"pluginEnabledLimits": "Unmanic interrompeu as tarefas de processamento do Corredor Atual porque você tem muitos Plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de 5 plug-ins.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração dos plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
+			"libraryScanProgress": "Verificação da biblioteca em execução"
+		}
+	},
+	"headers": {
+		"workers": "Trabalhadores",
+		"pendingTasks": "Tarefas Pendentes",
+		"completedTasks": "Tarefas Concluídas",
+		"privacyPolicy": "Política de Privacidade",
+		"plugins": "Plugins",
+		"pluginInfo": "Informação do plugin",
+		"pluginSettings": "Configurações de plug-in",
+		"pluginInstaller": "Instalador de Plugin",
+		"pluginFlow": "Configurar Fluxo de Plugin",
+		"information": "Informações",
+		"selectDirectory": "Selecione um diretório",
+		"selectFile": "Selecione um arquivo",
+		"librarySettings": "Configurações da biblioteca",
+		"CompletedTaskDetails": "Detalhes da tarefa concluída",
+		"supportFutureDevelopment": "Apoie o desenvolvimento futuro"
+	},
+	"tooltips": {
+		"close": "Fechar",
+		"back": "Voltar",
+		"download": "Download",
+		"install": "Instalar",
+		"reinstall": "Reinstalar",
+		"update": "Atualizar",
+		"information": "Em formação",
+		"pluginInfo": "Informação do plugin",
+		"position": "Posição",
+		"moveUp": "Subir",
+		"moveDown": "Mova para baixo"
+	},
+	"components": {
+		"settings": {
+			"pleaseEnterAValidNumber": "Por favor insira um número válido",
+			"library": {
+				"path": "Caminho da biblioteca",
+				"libraryScanner": "Scanner de biblioteca",
+				"enableLibraryScanner": "Habilite o scanner da biblioteca",
+				"libraryScannerSchedule": "Cronograma de verificação da biblioteca em minutos",
+				"libraryScannerScheduleNotValid": "A programação da verificação da biblioteca não é válida",
+				"followSymlinks": "Siga os links simbólicos",
+				"runLibraryScanOnStart": "Executar verificação ao iniciar",
+				"fileMonitor": "Monitor de arquivo de biblioteca",
+				"enableLibraryFileMonitor": "Habilite o monitor de arquivo de biblioteca"
+			},
+			"workers": {
+				"workerCount": "Contagem de trabalhadores",
+				"path": "Caminho de cache"
+			},
+			"support": {
+				"logs": "Histórico",
+				"enableDebugging": "EnableDebugging",
+				"currentSystemLogs": "Logs atuais do sistema",
+				"downloadSystemLogs": "Baixar registros do sistema",
+				"configuration": "Configuração",
+				"appVersion": "Versão Unmanic",
+				"pythonVersion": "Versão Python",
+				"platform": "Plataforma (sistema operacional)",
+				"configPath": "Caminho de Configuração",
+				"logsPath": "Caminho de registros",
+				"userdataPath": "Caminho de dados do usuário",
+				"docs": "Documentação",
+				"apiSpec": "Especificação de API",
+				"applicationDocumentation": "Documentação do aplicativo",
+				"support": "Apoio, suporte",
+				"unmanicAppSourceRequests": "Solicitar recurso no aplicativo Unmanic",
+				"unmanicFrontendSourceRequests": "Solicitar recurso no Unmanic Frontend",
+				"unmanicOfficialPluginRequests": "Solicite um plugin para o Unmanic"
+			}
+		},
+		"workers": {
+			"pauseWorker": "Pause este trabalhador",
+			"workerPaused": "Trabalhador foi pausado",
+			"workerPauseFailed": "Unmanic não conseguiu pausar este trabalhador por algum motivo",
+			"resumeWorker": "Retomar este trabalhador",
+			"workerResumed": "Trabalhador foi retomado",
+			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
+			"pauseAllWorkers": "Pause todos os trabalhadores",
+			"resumeAllWorkers": "Retomar todos os trabalhadores",
+			"workerLog": "Diário de trabalho",
+			"status": "Status",
+			"stateLabel": "Estado",
+			"currentRunnerLabel": "Corredor Atual",
+			"startTimeLabel": "Hora de início",
+			"totalProcessingTimeLabel": "Tempo Total de Processamento",
+			"state": {
+				"waiting": "Esperando por outra tarefa ...",
+				"processing": "Processando tarefa ...",
+				"paused": "Trabalhador em pausa ..."
+			},
+			"currentRunner": {
+				"none": "Nenhum",
+				"indeterminate": "Indeterminado"
+			}
+		},
+		"pendingTasks": {
+			"rescanLibrary": "Verificar novamente a biblioteca agora",
+			"moveToTop": "Mover selecionado para o topo",
+			"moveToBottom": "Mover selecionado para o fundo",
+			"removeSelected": "Remover selecionado"
+		},
+		"completedTasks": {
+			"listEmpty": "A lista de tarefas concluídas está vazia",
+			"details": "Detalhes",
+			"errorGettingDetails": "Foi encontrado um erro ao buscar os detalhes para esta tarefa"
+		},
+		"plugins": {
+			"updateAvailable": "atualização disponível",
+			"upToDate": "atualizado",
+			"enablePlugins": "Habilitar Plug-ins",
+			"disablePlugins": "Desativar plug-ins",
+			"updatePlugins": "Atualizar plug-ins",
+			"removePlugins": "Remover plug-ins",
+			"addNew": "Adicionar novo",
+			"configurePluginFow": "Configurar Fluxo de Plugin",
+			"listEmpty": "Não há plug-ins para exibir",
+			"categoryFilter": "Filtro de Categoria",
+			"name": "Nome",
+			"author": "Autor",
+			"version": "Versão",
+			"repoList": "Lista de Repositório",
+			"refreshRepositories": "Atualizar Repositórios",
+			"addRepository": "Adicionar Repositório",
+			"newRepository": "Novo Repositório",
+			"repoName": "Nome",
+			"repoSource": "URL do repositório",
+			"errorSavingFlow": "Foi encontrado um erro ao salvar o Fluxo de Plug-in",
+			"configurePluginFlowSection": {
+				"line1": "Configure a ordem em que os plug-ins são chamados.",
+				"line2": "Abaixo está uma lista de seções de tipo de plug-in. Cada seção de tipo de plug-in pode conter uma lista de plug-ins.",
+				"line3": "Consulte a descrição abaixo de cada tipo de plug-in para obter detalhes sobre quando os plug-ins contidos serão chamados.",
+				"line4": "Um plug-in pode consistir em vários tipos de plug-in. Nesse caso, ele será chamado por Unmanic em cada uma das seções descritas."
+			},
+			"types": {
+				"libraryManagement": {
+					"fileTest": "Gerenciamento de biblioteca - teste de arquivo",
+					"fileTestCaption": "Estes Plugins são chamados para testar se os arquivos devem ser adicionados à lista de tarefas pendentes"
+				},
+				"postprocessor": {
+					"fileMove": "Pós-processador - Movimentos de arquivo",
+					"fileMoveCaption": "Estes Plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
+					"taskResult": "Pós-processador - Marcando o sucesso / falha da tarefa",
+					"taskResultCaption": "Esses plug-ins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
+				},
+				"worker": {
+					"processItem": "Trabalhador - Processando arquivo",
+					"processItemCaption": "Esses plug-ins são chamados por um trabalhador e produzem um comando personalizado a ser executado e gerenciado por esse trabalhador"
+				}
+			}
+		}
+	}
+}

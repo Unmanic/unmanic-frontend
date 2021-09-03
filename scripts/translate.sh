@@ -5,14 +5,14 @@
 # File Created: Saturday, 28th August 2021 2:04:46 pm
 # Author: Josh.5 (jsunnex@gmail.com)
 # -----
-# Last Modified: Sunday, 29th August 2021 2:09:04 pm
+# Last Modified: Friday, 3rd September 2021 11:49:47 pm
 # Modified By: Josh.5 (jsunnex@gmail.com)
 # -
 
 
 project_root="$(readlink -e $(dirname $(readlink -e ${BASH_SOURCE[0]}))/../)"
 
-languages_to_support="mi,zh,nl,fr,de,it,ja,ru,es,sv"
+languages_to_support="mi,zh,nl,fr,de,it,ja,ru,es,sv,pt-br"
 
 if [[ -z ${GOOGLE_TRANSLATE_API_KEY} ]]; then
     echo " Set the Google Translate API key in your bash variables before running. Exit!"

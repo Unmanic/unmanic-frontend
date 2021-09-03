@@ -32,6 +32,7 @@ export default {
         { value: 'de', label: 'German/Deutsch' },
         { value: 'it', label: 'Italian/Italiano' },
         { value: 'ja', label: 'Japanese/日本語' },
+        { value: 'pt-br', label: 'Portuguese (Brazil)/Português' },
         { value: 'ru', label: 'Russian/русский' },
         { value: 'es', label: 'Spanish/Español' },
         { value: 'sv', label: 'Swedish/Svenska' }
