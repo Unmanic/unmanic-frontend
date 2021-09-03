@@ -161,6 +161,8 @@
       "resumeWorker": "Resume this worker",
       "workerResumed": "Worker has been resumed",
       "workerResumedFailed": "Unmanic was unable to resume this worker for some reason",
+      "pauseAllWorkers": "Pause all workers",
+      "resumeAllWorkers": "Resume all workers",
       "workerLog" : "Worker Log",
       "status" : "Status",
       "stateLabel": "State",

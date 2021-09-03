@@ -161,6 +161,8 @@
 			"resumeWorker": "恢复这个工人",
 			"workerResumed": "工人已恢复",
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
+			"pauseAllWorkers": "暂停所有工人",
+			"resumeAllWorkers": "恢复所有工人",
 			"workerLog": "工人日志",
 			"status": "地位",
 			"stateLabel": "状态",

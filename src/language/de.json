@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -80,7 +80,7 @@
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
 			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die aktuellen Verarbeitungsaufgaben des Runners gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"pluginEnabledLimits": "Unmanic hat die aktuellen Verarbeitungsaufgaben von Runner gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft"
 		}
@@ -161,6 +161,8 @@
 			"resumeWorker": "Diesen Arbeiter wieder aufnehmen",
 			"workerResumed": "Arbeiter wurde wieder aufgenommen",
 			"workerResumedFailed": "Unmanic konnte diesen Arbeiter aus irgendeinem Grund nicht wieder aufnehmen",
+			"pauseAllWorkers": "Alle Arbeiter pausieren",
+			"resumeAllWorkers": "Alle Arbeiter wieder aufnehmen",
 			"workerLog": "Arbeiterprotokoll",
 			"status": "Status",
 			"stateLabel": "Bundesland",
@@ -184,7 +186,7 @@
 			"removeSelected": "Ausgewählte entfernen"
 		},
 		"completedTasks": {
-			"listEmpty": "Die Liste der erledigten Aufgaben ist leer",
+			"listEmpty": "Die Liste Abgeschlossene Aufgaben ist leer",
 			"details": "Einzelheiten",
 			"errorGettingDetails": "Beim Abrufen der Details für diese Aufgabe ist ein Fehler aufgetreten"
 		},
@@ -223,7 +225,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markieren von Erfolg/Misserfolg der Aufgabe",
+					"taskResult": "Postprozessor - Markierung von Aufgabenerfolg/-fehlschlag",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {

@@ -8,9 +8,45 @@
         <div class="col q-ma-sm">
           <q-card>
             <q-card-section class="bg-grey-2">
-              <div class="text-h6 text-purple-10">
-                <q-icon name="fas fa-spinner"/>
-                {{ $t('headers.workers') }}
+
+              <div class="row items-center no-wrap">
+                <div class="col">
+                  <div class="text-h6 text-purple-10">
+                    <q-icon name="fas fa-spinner"/>
+                    {{ $t('headers.workers') }}
+                  </div>
+                </div>
+
+                <div class="col-auto">
+                  <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
+                    <q-list>
+
+                      <q-item
+                        clickable
+                        @click="pauseAllWorkers()"
+                        v-close-popup>
+                        <q-item-section>
+                          <q-item-label>
+                            <q-icon name="pause"/>
+                            {{ $t('components.workers.pauseAllWorkers') }}
+                          </q-item-label>
+                        </q-item-section>
+                      </q-item>
+                      <q-item
+                        clickable
+                        @click="resumeAllWorkers()"
+                        v-close-popup>
+                        <q-item-section>
+                          <q-item-label>
+                            <q-icon name="play_arrow"/>
+                            {{ $t('components.workers.resumeAllWorkers') }}
+                          </q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                    </q-list>
+                  </q-btn-dropdown>
+                </div>
               </div>
             </q-card-section>
 
@@ -63,6 +99,8 @@ import { useQuasar } from "quasar";
 import { onMounted, onUnmounted, ref } from 'vue';
 import { useI18n } from "vue-i18n";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
+import axios from "axios";
+import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default {
   name: 'Dashboard',
@@ -268,6 +306,54 @@ export default {
       workerProgressList,
       pendingTasksData,
       completedTasksData
+    }
+  },
+  methods: {
+    pauseAllWorkers: function () {
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'workers/worker/pause/all'),
+        data: {}
+      }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('components.workers.workerPaused'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('components.workers.workerPausedFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    resumeAllWorkers: function () {
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'workers/worker/resume/all'),
+        data: {}
+      }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('components.workers.workerResumed'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('components.workers.workerResumedFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
     }
   }
 }

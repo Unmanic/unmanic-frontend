@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "保存しました。",
 		"installed": "インストールされています。",
-		"backendConnectionWarning": "Unmanicバックエンドに接続できません。実行されていることを確認してください。",
+		"backendConnectionWarning": "Unmanicバックエンドに接続できません。動作していることを確認してください。",
 		"failedToFetchSession": "Unmanicからセッションデータをフェッチ中にエラーが発生しました。",
 		"failedToFetchLoginUrl": "ログインURLの取得に失敗しました。",
 		"failedToFetchLogoutUrl": "ログアウトURLの取得に失敗しました。",
@@ -161,6 +161,8 @@
 			"resumeWorker": "この労働者を再開する",
 			"workerResumed": "労働者が再開されました",
 			"workerResumedFailed": "Unmanicは何らかの理由でこのワーカーを再開できませんでした",
+			"pauseAllWorkers": "すべての労働者を一時停止します",
+			"resumeAllWorkers": "すべての労働者を再開する",
 			"workerLog": "労働者ログ",
 			"status": "状態",
 			"stateLabel": "州",

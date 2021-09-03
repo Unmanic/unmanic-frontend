@@ -17,7 +17,7 @@
 		"videoEncoding": "Codificación de video",
 		"audioEncoding": "Codificación de audio",
 		"advancedOptions": "Opciones avanzadas",
-		"info": "Información",
+		"info": "Info",
 		"top": "Cima",
 		"new": "Nuevo",
 		"show": "Show",
@@ -95,7 +95,7 @@
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
 		"pluginFlow": "Configurar el flujo de complementos",
-		"information": "Información",
+		"information": "Info",
 		"selectDirectory": "Seleccionar un directorio",
 		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",
@@ -161,6 +161,8 @@
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "Trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
+			"pauseAllWorkers": "Pausar a todos los trabajadores",
+			"resumeAllWorkers": "Reanudar a todos los trabajadores",
 			"workerLog": "Registro de trabajador",
 			"status": "Estado",
 			"stateLabel": "Estado",
@@ -212,7 +214,7 @@
 			"configurePluginFlowSection": {
 				"line1": "Configure el orden en el que se llaman los complementos.",
 				"line2": "A continuación se muestra una lista de las secciones de Tipo de complemento. Cada sección de tipo de complemento puede contener una lista de complementos.",
-				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamarán los complementos contenidos.",
+				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamará a los complementos contenidos.",
 				"line4": "Un complemento puede constar de varios tipos de complementos. Si es así, Unmanic lo llamará en cada una de las secciones descritas."
 			},
 			"types": {

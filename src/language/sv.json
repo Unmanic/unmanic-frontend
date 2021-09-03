@@ -123,7 +123,7 @@
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera biblioteksskannern",
 				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
-				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är inte giltigt",
+				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är ogiltigt",
 				"followSymlinks": "Följ symlänkar",
 				"runLibraryScanOnStart": "Kör skanning vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
@@ -161,6 +161,8 @@
 			"resumeWorker": "Återuppta den här arbetaren",
 			"workerResumed": "Arbetaren har återupptagits",
 			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
+			"pauseAllWorkers": "Pausa alla arbetare",
+			"resumeAllWorkers": "Återuppta alla arbetare",
 			"workerLog": "Arbetarlogg",
 			"status": "Status",
 			"stateLabel": "stat",
@@ -213,7 +215,7 @@
 				"line1": "Konfigurera i vilken ordning plugins anropas.",
 				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
 				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
-				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
+				"line4": "Ett insticksprogram kan bestå av flera plugin -typer. Om så är fallet kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
 			},
 			"types": {
 				"libraryManagement": {

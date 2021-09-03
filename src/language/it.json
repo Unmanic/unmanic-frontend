@@ -126,7 +126,7 @@
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
 				"followSymlinks": "Segui i link simbolici",
 				"runLibraryScanOnStart": "Esegui scansione all'avvio",
-				"fileMonitor": "Monitoraggio dei file di libreria",
+				"fileMonitor": "Monitoraggio file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria"
 			},
 			"workers": {
@@ -161,6 +161,8 @@
 			"resumeWorker": "Riprendi questo lavoratore",
 			"workerResumed": "Il lavoratore è stato ripreso",
 			"workerResumedFailed": "Unmanic non è stato in grado di riprendere questo lavoratore per qualche motivo",
+			"pauseAllWorkers": "Metti in pausa tutti i lavoratori",
+			"resumeAllWorkers": "Riprendete tutti i lavoratori",
 			"workerLog": "Registro dei lavoratori",
 			"status": "Stato",
 			"stateLabel": "Stato",
@@ -193,7 +195,7 @@
 			"upToDate": "aggiornato",
 			"enablePlugins": "Abilita plugin",
 			"disablePlugins": "Disattiva plugin",
-			"updatePlugins": "Aggiorna plugin",
+			"updatePlugins": "Plugin di aggiornamento",
 			"removePlugins": "Rimuovi plugin",
 			"addNew": "Aggiungere nuova",
 			"configurePluginFow": "Configura flusso plugin",

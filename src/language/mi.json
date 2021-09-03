@@ -54,7 +54,7 @@
 		"saved": "Tiakina",
 		"installed": "Kua whakauruhia.",
 		"backendConnectionWarning": "Kaore e taea te hono atu ki te backend Unmanic. Tena tirohia kei te rere.",
-		"failedToFetchSession": "I puta he raru i a koe e tango ana i nga korero o te Unmanic.",
+		"failedToFetchSession": "I puta he raru i a koe e tango ana i nga korero a te Unmanic.",
 		"failedToFetchLoginUrl": "I rahua te tiki URL whakauru.",
 		"failedToFetchLogoutUrl": "I rahua te tiki URL takiuru.",
 		"failedToSaveSettings": "I rahua te tiaki tautuhinga.",
@@ -80,7 +80,7 @@
 				"status": "He whakahou mana tuuturu mai i te kaituku"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea kua kitea he honohono",
-			"pluginEnabledLimits": "Kua aukatia e Unmanic nga mahi tukatuka Runner onaianei na te mea he maha rawa o monomai kua whakahohea mo te roopu kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 5 Nga Mono.",
+			"pluginEnabledLimits": "Kua aukatia e Unmanic nga mahi tukatuka Runner onaianei na te mea kua maha rawa o monomai i ahei mo te reanga kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 5 Nga Mono.",
 			"pluginSettingsChangeWorkersStopped": "Na Unmanic i aukati nga kaimahi katoa i te mea kua kitea he panoni ki te whirihoranga Mono. Ka rite ana koe, whakahouhia nga kaimahi mai i te papatohu.",
 			"libraryScanProgress": "Kei te rere te Matawai Whare Pukapuka"
 		}
@@ -161,6 +161,8 @@
 			"resumeWorker": "Me haere tonu tenei kaimahi",
 			"workerResumed": "Kua timata ano te kaimahi",
 			"workerResumedFailed": "Kaore i taea e Unmanic te whakaora i tenei kaimahi mo etahi take",
+			"pauseAllWorkers": "Whakamutua nga kaimahi katoa",
+			"resumeAllWorkers": "Me anga whakamua nga kaimahi katoa",
 			"workerLog": "Rangitaki Kaimahi",
 			"status": "Tūnga",
 			"stateLabel": "State",
@@ -208,7 +210,7 @@
 			"newRepository": "Whare Pupuri Hou",
 			"repoName": "Ingoa",
 			"repoSource": "Repository URL",
-			"errorSavingFlow": "I puta he raru i a koe e tiaki ana i te Rerenga Mono",
+			"errorSavingFlow": "I puta he raru i a koe e tiaki ana i te Rere Mono",
 			"configurePluginFlowSection": {
 				"line1": "Whirihorahia te raupapa e karangahia ai nga Mono.",
 				"line2": "Kei raro nei te raarangi o nga waahanga Momo Momo. Kei ia waahanga Momo Momo he raarangi Mono.",

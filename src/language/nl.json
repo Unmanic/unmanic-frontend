@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "Opgeslagen.",
 		"installed": "Geïnstalleerd.",
-		"backendConnectionWarning": "Kan geen verbinding maken met de Unmanic-backend. Controleer of het actief is.",
+		"backendConnectionWarning": "Kan geen verbinding maken met Unmanic-backend. Controleer of het actief is.",
 		"failedToFetchSession": "Er is een fout opgetreden bij het ophalen van de sessiegegevens van Unmanic.",
 		"failedToFetchLoginUrl": "Kan inlog-URL niet ophalen.",
 		"failedToFetchLogoutUrl": "Kan uitlog-URL niet ophalen.",
@@ -127,7 +127,7 @@
 				"followSymlinks": "Symlinks volgen",
 				"runLibraryScanOnStart": "Scan uitvoeren bij start",
 				"fileMonitor": "Bibliotheek bestandsmonitor",
-				"enableLibraryFileMonitor": "Schakel de bibliotheekbestandsmonitor in"
+				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen"
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",
@@ -157,10 +157,12 @@
 		"workers": {
 			"pauseWorker": "Deze werknemer onderbreken",
 			"workerPaused": "Werknemer is onderbroken",
-			"workerPauseFailed": "Unmanic kan deze werker om de een of andere reden niet pauzeren",
+			"workerPauseFailed": "Unmanic kon deze werker om de een of andere reden niet pauzeren",
 			"resumeWorker": "Deze werknemer hervatten",
 			"workerResumed": "Werknemer is hervat",
 			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
+			"pauseAllWorkers": "Alle werkers pauzeren",
+			"resumeAllWorkers": "Alle werknemers hervatten",
 			"workerLog": "Werknemerslogboek",
 			"status": "Toestand",
 			"stateLabel": "Staat",
