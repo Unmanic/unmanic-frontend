@@ -114,7 +114,7 @@ export default {
     const loading = ref(false);
     const pagination = ref({
       sortBy: 'priority',
-      descending: false,
+      descending: true,
       page: 1,
       rowsPerPage: 15,
       rowsNumber: 10
