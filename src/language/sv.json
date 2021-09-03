@@ -99,8 +99,9 @@
 		"selectDirectory": "Välj en katalog",
 		"selectFile": "Välj en fil",
 		"librarySettings": "Biblioteksinställningar",
-		"CompletedTaskDetails": "Slutförda uppgifter",
-		"supportFutureDevelopment": "Stödja framtida utveckling"
+		"completedTaskDetails": "Slutförda uppgifter",
+		"supportFutureDevelopment": "Stödja framtida utveckling",
+		"confirm": "Bekräfta"
 	},
 	"tooltips": {
 		"close": "Stänga",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Återuppta den här arbetaren",
 			"workerResumed": "Arbetaren har återupptagits",
 			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
+			"terminateWorker": "Avsluta den här arbetaren",
+			"terminateWorkerWarning": "Är du säker på att du vill avsluta den här medarbetaren och dess nuvarande uppgift? Den aktuella uppgiften markeras som misslyckad i listan över slutförda uppgifter.",
+			"workerTerminated": "Arbetaren har sagt upp sig",
+			"workerTerminationFailed": "Unmanic kunde av någon anledning inte säga upp den här arbetaren",
 			"pauseAllWorkers": "Pausa alla arbetare",
 			"resumeAllWorkers": "Återuppta alla arbetare",
 			"workerLog": "Arbetarlogg",

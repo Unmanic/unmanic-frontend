@@ -99,8 +99,9 @@
 		"selectDirectory": "Tohua he raarangi whaiaronga",
 		"selectFile": "Tohua he konae",
 		"librarySettings": "Tautuhinga Puna",
-		"CompletedTaskDetails": "Nga Taipitopito Taumahi Kua Oti",
-		"supportFutureDevelopment": "Tautokohia te whanaketanga a meake nei"
+		"completedTaskDetails": "Nga Taipitopito Taumahi Kua Oti",
+		"supportFutureDevelopment": "Tautokohia te whanaketanga a meake nei",
+		"confirm": "Whakaū"
 	},
 	"tooltips": {
 		"close": "Katia",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Me haere tonu tenei kaimahi",
 			"workerResumed": "Kua timata ano te kaimahi",
 			"workerResumedFailed": "Kaore i taea e Unmanic te whakaora i tenei kaimahi mo etahi take",
+			"terminateWorker": "Whakamutua tenei kaimahi",
+			"terminateWorkerWarning": "Kei te tino hiahia koe ki te whakamutu i tenei kaimahi me ana mahi o naianei? Ko te mahi onaianei ka tohua kua rahua i te raarangi mahi kua oti.",
+			"workerTerminated": "Kua mutu te kaimahi",
+			"workerTerminationFailed": "Kaore i taea e Unmanic te whakamutu i tenei kaimahi mo etahi take",
 			"pauseAllWorkers": "Whakamutua nga kaimahi katoa",
 			"resumeAllWorkers": "Me anga whakamua nga kaimahi katoa",
 			"workerLog": "Rangitaki Kaimahi",

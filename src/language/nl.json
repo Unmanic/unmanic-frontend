@@ -99,8 +99,9 @@
 		"selectDirectory": "Selecteer een map",
 		"selectFile": "Selecteer een bestand",
 		"librarySettings": "Bibliotheekinstellingen",
-		"CompletedTaskDetails": "Details van voltooide taak",
-		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling"
+		"completedTaskDetails": "Details van voltooide taak",
+		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
+		"confirm": "Bevestigen"
 	},
 	"tooltips": {
 		"close": "Dichtbij",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Deze werknemer hervatten",
 			"workerResumed": "Werknemer is hervat",
 			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
+			"terminateWorker": "Deze werknemer beëindigen",
+			"terminateWorkerWarning": "Weet u zeker dat u deze werknemer en zijn huidige taak wilt beëindigen? De huidige taak wordt gemarkeerd als mislukt in de lijst met voltooide taken.",
+			"workerTerminated": "Werknemer is beëindigd",
+			"workerTerminationFailed": "Unmanic kon deze werknemer om de een of andere reden niet beëindigen",
 			"pauseAllWorkers": "Alle werkers pauzeren",
 			"resumeAllWorkers": "Alle werknemers hervatten",
 			"workerLog": "Werknemerslogboek",

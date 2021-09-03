@@ -99,8 +99,9 @@
 		"selectDirectory": "选择目录",
 		"selectFile": "选择一个文件",
 		"librarySettings": "图书馆设置",
-		"CompletedTaskDetails": "已完成的任务详情",
-		"supportFutureDevelopment": "支持未来发展"
+		"completedTaskDetails": "已完成的任务详情",
+		"supportFutureDevelopment": "支持未来发展",
+		"confirm": "确认"
 	},
 	"tooltips": {
 		"close": "关闭",
@@ -161,6 +162,10 @@
 			"resumeWorker": "恢复这个工人",
 			"workerResumed": "工人已恢复",
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
+			"terminateWorker": "终止这个工人",
+			"terminateWorkerWarning": "您确定要终止此工作者及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
+			"workerTerminated": "工人已被终止",
+			"workerTerminationFailed": "由于某种原因，Unmanic 无法终止此工作者",
 			"pauseAllWorkers": "暂停所有工人",
 			"resumeAllWorkers": "恢复所有工人",
 			"workerLog": "工人日志",

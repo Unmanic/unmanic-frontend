@@ -99,8 +99,9 @@
 		"selectDirectory": "Выберите каталог",
 		"selectFile": "Выберите файл",
 		"librarySettings": "Настройки библиотеки",
-		"CompletedTaskDetails": "Детали выполненной задачи",
-		"supportFutureDevelopment": "Поддержка будущего развития"
+		"completedTaskDetails": "Детали выполненной задачи",
+		"supportFutureDevelopment": "Поддержка будущего развития",
+		"confirm": "Подтверждать"
 	},
 	"tooltips": {
 		"close": "Закрывать",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Возобновить этого работника",
 			"workerResumed": "Работник возобновлен",
 			"workerResumedFailed": "Unmanic по какой-то причине не смог возобновить этого рабочего.",
+			"terminateWorker": "Прекратить этот рабочий",
+			"terminateWorkerWarning": "Вы уверены, что хотите прекратить работу этого воркера и его текущей задачи? Текущая задача будет отмечена как неудавшаяся в списке выполненных задач.",
+			"workerTerminated": "Работник был уволен",
+			"workerTerminationFailed": "Unmanic не смог остановить этого воркера по какой-то причине",
 			"pauseAllWorkers": "Приостановить всех рабочих",
 			"resumeAllWorkers": "Возобновить всех работников",
 			"workerLog": "Журнал рабочего",

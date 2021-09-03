@@ -99,8 +99,9 @@
     "selectDirectory": "Select a directory",
     "selectFile": "Select a file",
     "librarySettings": "Library Settings",
-    "CompletedTaskDetails": "Completed Task Details",
-    "supportFutureDevelopment": "Support future development"
+    "completedTaskDetails": "Completed Task Details",
+    "supportFutureDevelopment": "Support future development",
+    "confirm": "Confirm"
   },
   "tooltips": {
     "close": "Close",
@@ -161,6 +162,10 @@
       "resumeWorker": "Resume this worker",
       "workerResumed": "Worker has been resumed",
       "workerResumedFailed": "Unmanic was unable to resume this worker for some reason",
+      "terminateWorker": "Terminate this worker",
+      "terminateWorkerWarning": "Are you sure you want to terminate this worker and its current task? The current task will be marked as failed in the completed task list.",
+      "workerTerminated": "Worker has been terminated",
+      "workerTerminationFailed": "Unmanic was unable to terminate this worker for some reason",
       "pauseAllWorkers": "Pause all workers",
       "resumeAllWorkers": "Resume all workers",
       "workerLog" : "Worker Log",

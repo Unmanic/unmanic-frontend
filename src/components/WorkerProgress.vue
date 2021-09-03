@@ -130,7 +130,8 @@
                   v-bind:currentRunner="currentRunner"
                   v-bind:startTime="startTime"
                   v-bind:totalProcTime="totalProcTime"
-                  v-bind:paused="paused"/>
+                  v-bind:paused="paused"
+                  v-bind:idle="idle"/>
               </q-card-section>
               <!--END STATUS-->
 

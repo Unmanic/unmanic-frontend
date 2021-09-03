@@ -99,8 +99,9 @@
 		"selectDirectory": "Seleziona una directory",
 		"selectFile": "Seleziona un file",
 		"librarySettings": "Impostazioni libreria",
-		"CompletedTaskDetails": "Dettagli dell'attività completata",
-		"supportFutureDevelopment": "Sostieni lo sviluppo futuro"
+		"completedTaskDetails": "Dettagli dell'attività completata",
+		"supportFutureDevelopment": "Sostieni lo sviluppo futuro",
+		"confirm": "Confermare"
 	},
 	"tooltips": {
 		"close": "Chiudere",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Riprendi questo lavoratore",
 			"workerResumed": "Il lavoratore è stato ripreso",
 			"workerResumedFailed": "Unmanic non è stato in grado di riprendere questo lavoratore per qualche motivo",
+			"terminateWorker": "Termina questo lavoratore",
+			"terminateWorkerWarning": "Sei sicuro di voler terminare questo lavoratore e la sua attività attuale? L'attività corrente verrà contrassegnata come non riuscita nell'elenco delle attività completate.",
+			"workerTerminated": "Il lavoratore è stato licenziato",
+			"workerTerminationFailed": "Unmanic non è stato in grado di licenziare questo lavoratore per qualche motivo",
 			"pauseAllWorkers": "Metti in pausa tutti i lavoratori",
 			"resumeAllWorkers": "Riprendete tutti i lavoratori",
 			"workerLog": "Registro dei lavoratori",

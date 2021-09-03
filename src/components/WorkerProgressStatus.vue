@@ -38,6 +38,20 @@
                 </q-item-section>
               </q-item>
 
+              <q-separator/>
+
+              <q-item
+                clickable
+                @click="terminateWorkerPrompt()"
+                v-close-popup>
+                <q-item-section>
+                  <q-item-label>
+                    <q-icon name="fas fa-skull-crossbones"/>
+                    {{ $t('components.workers.terminateWorker') }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+
             </q-list>
           </q-btn-dropdown>
         </div>
@@ -121,6 +135,10 @@ export default {
       default: ''
     },
 
+    idle: {
+      type: Boolean
+    },
+
     paused: {
       type: Boolean
     }
@@ -177,7 +195,49 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       })
-    }
+    },
+    terminateWorker: function () {
+      let data = {
+        worker_id: this.id,
+      }
+      axios({
+        method: 'delete',
+        url: getUnmanicApiUrl('v2', 'workers/worker/terminate'),
+        data: data
+      }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('components.workers.workerTerminated'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('components.workers.workerTerminationFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    terminateWorkerPrompt: function () {
+      if (this.idle) {
+        // If the worker is idle, dont prompt, just terminate it.
+        this.terminateWorker();
+      } else {
+        // If the worker is not idle, prompt to confirm the termination
+        this.$q.dialog({
+          title: this.$t('headers.confirm'),
+          message: this.$t('components.workers.terminateWorkerWarning'),
+          cancel: true,
+          persistent: true
+        }).onOk(() => {
+          this.terminateWorker();
+        })
+      }
+    },
   }
 }
 </script>

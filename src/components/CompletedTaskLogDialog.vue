@@ -29,7 +29,7 @@
           <div class="col">
             <div class="text-h6 text-secondary">
               <q-icon name="description"/>
-              {{ $t('headers.CompletedTaskDetails') }}
+              {{ $t('headers.completedTaskDetails') }}
             </div>
           </div>
 
@@ -182,5 +182,8 @@ export default {
   border: 1px solid #ccc;
   border-radius: 4px;
   overflow: auto;
+}
+.completed-task-details-dialog-content span.terminated {
+  color: $negative;
 }
 </style>

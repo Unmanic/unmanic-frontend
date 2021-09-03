@@ -99,8 +99,9 @@
 		"selectDirectory": "Sélectionnez un répertoire",
 		"selectFile": "Sélectionner un fichier",
 		"librarySettings": "Paramètres de la bibliothèque",
-		"CompletedTaskDetails": "Détails de la tâche terminée",
-		"supportFutureDevelopment": "Soutenir le développement futur"
+		"completedTaskDetails": "Détails de la tâche terminée",
+		"supportFutureDevelopment": "Soutenir le développement futur",
+		"confirm": "Confirmer"
 	},
 	"tooltips": {
 		"close": "proche",
@@ -161,6 +162,10 @@
 			"resumeWorker": "Reprendre ce travailleur",
 			"workerResumed": "Le travailleur a repris",
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
+			"terminateWorker": "Mettre fin à ce travailleur",
+			"terminateWorkerWarning": "Êtes-vous sûr de vouloir mettre fin à ce travailleur et à sa tâche actuelle ? La tâche en cours sera marquée comme ayant échoué dans la liste des tâches terminées.",
+			"workerTerminated": "Le travailleur a été licencié",
+			"workerTerminationFailed": "Unmanic n'a pas pu licencier ce travailleur pour une raison quelconque",
 			"pauseAllWorkers": "Suspendre tous les travailleurs",
 			"resumeAllWorkers": "Reprendre tous les travailleurs",
 			"workerLog": "Journal des travailleurs",
