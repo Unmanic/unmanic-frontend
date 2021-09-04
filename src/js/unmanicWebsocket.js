@@ -97,10 +97,20 @@ export const UnmanicWebsocketHandler = function ($t) {
       // If the message is not empty, concatenate it to the end of the notification string
       if (message) {
         notificationString = notificationString + '<br>' + message;
+      } else {
+        // Check if a preset message is available
+        let messageStringId = 'notifications.serverMessages.' + code + 'Message'
+        let messageString = $t(messageStringId)
+        // If i18n doesnt have this string ID, then revert to default
+        if (messageString !== messageStringId) {
+          message = $t('notifications.serverMessages.' + code + 'Message');
+          // Concatenate it to the end
+          notificationString = notificationString + '<br>' + message;
+        }
       }
 
       notificationString = '' +
-        '<span style="display: block; min-height: 50px;">' +
+        '<span style="display:block;min-height:50px;white-space:pre;">' +
         notificationString +
         '</span>'
 

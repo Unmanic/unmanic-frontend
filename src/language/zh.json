@@ -82,7 +82,9 @@
 			"incompatiblePlugin": "Unmanic 已停止处理任务，因为它检测到不兼容的插件",
 			"pluginEnabledLimits": "Unmanic 已停止 Current Runner 处理任务，因为您为非支持层启用了太多插件。考虑赞助该项目以启用 5 个以上的插件。",
 			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备好后，从仪表板恢复工作人员。",
-			"libraryScanProgress": "正在运行库扫描"
+			"libraryScanProgress": "正在运行库扫描",
+			"pendingTaskHaltedPostProcessorQueueFull": "后处理器队列达到极限",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "直到后处理器队列下降到当前配置的工作人员计数以下，工作人员才会收到新的待处理任务"
 		}
 	},
 	"headers": {

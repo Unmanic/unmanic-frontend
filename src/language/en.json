@@ -80,9 +80,11 @@
         "status": "Unknown status update from server"
       },
       "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
-      "pluginEnabledLimits": "Unmanic has stoppedCurrent Runner\n processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than 5 Plugins.",
+      "pluginEnabledLimits": "Unmanic has stopped Current Runner processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than 5 Plugins.",
       "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard.",
-      "libraryScanProgress": "Library scan running"
+      "libraryScanProgress": "Library scan running",
+      "pendingTaskHaltedPostProcessorQueueFull": "The Post-processor queue reached its limit",
+      "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count"
     }
   },
   "headers": {

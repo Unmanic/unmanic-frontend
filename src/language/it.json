@@ -80,9 +80,11 @@
 				"status": "Aggiornamento di stato sconosciuto dal server"
 			},
 			"incompatiblePlugin": "Unmanic ha interrotto l'elaborazione delle attività poiché ha rilevato un plug-in incompatibile",
-			"pluginEnabledLimits": "Unmanic ha interrotto le attività di elaborazione di Current Runner perché hai troppi plugin abilitati per un livello non supporter. Considera la sponsorizzazione del progetto per abilitare più di 5 plugin.",
+			"pluginEnabledLimits": "Unmanic ha interrotto le attività di elaborazione di Current Runner perché hai troppi Plugin abilitati per un livello non supporter. Considera la sponsorizzazione del progetto per abilitare più di 5 plugin.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha fermato tutti i lavoratori poiché ha rilevato una modifica alla configurazione dei plugin. Quando sei pronto, riprendi i lavoratori dalla dashboard.",
-			"libraryScanProgress": "Scansione della libreria in esecuzione"
+			"libraryScanProgress": "Scansione della libreria in esecuzione",
+			"pendingTaskHaltedPostProcessorQueueFull": "La coda del post-processore ha raggiunto il limite",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scenderà al di sotto del numero di lavoratori attualmente configurato"
 		}
 	},
 	"headers": {
@@ -127,7 +129,7 @@
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
 				"followSymlinks": "Segui i link simbolici",
 				"runLibraryScanOnStart": "Esegui scansione all'avvio",
-				"fileMonitor": "Monitoraggio file di libreria",
+				"fileMonitor": "Monitoraggio dei file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria"
 			},
 			"workers": {
@@ -200,7 +202,7 @@
 			"upToDate": "aggiornato",
 			"enablePlugins": "Abilita plugin",
 			"disablePlugins": "Disattiva plugin",
-			"updatePlugins": "Plugin di aggiornamento",
+			"updatePlugins": "Aggiorna plugin",
 			"removePlugins": "Rimuovi plugin",
 			"addNew": "Aggiungere nuova",
 			"configurePluginFow": "Configura flusso plugin",

@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -80,9 +80,11 @@
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
 			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die aktuellen Verarbeitungsaufgaben von Runner gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Current Runner-Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
-			"libraryScanProgress": "Bibliotheksscan läuft"
+			"libraryScanProgress": "Bibliotheksscan läuft",
+			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessor-Warteschlange hat ihr Limit erreicht",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbeiter erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Arbeiterzahl fällt"
 		}
 	},
 	"headers": {
@@ -131,7 +133,7 @@
 				"enableLibraryFileMonitor": "Aktivieren Sie den Bibliotheksdateimonitor"
 			},
 			"workers": {
-				"workerCount": "Anzahl der Arbeiter",
+				"workerCount": "Arbeiterzahl",
 				"path": "Cache-Pfad"
 			},
 			"support": {

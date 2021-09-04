@@ -80,9 +80,11 @@
 				"status": "He whakahou mana tuuturu mai i te kaituku"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea kua kitea he honohono",
-			"pluginEnabledLimits": "Kua aukatia e Unmanic nga mahi tukatuka Runner onaianei na te mea kua maha rawa o monomai i ahei mo te reanga kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 5 Nga Mono.",
+			"pluginEnabledLimits": "Kua whakamutua e Unmanic nga mahi tukatuka a te Kaiwhakamahara o Naianei na te mea kua maha rawa nga monomai kua whakahohea mo te waahanga tautoko-kore. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 5 Nga Mono.",
 			"pluginSettingsChangeWorkersStopped": "Na Unmanic i aukati nga kaimahi katoa i te mea kua kitea he panoni ki te whirihoranga Mono. Ka rite ana koe, whakahouhia nga kaimahi mai i te papatohu.",
-			"libraryScanProgress": "Kei te rere te Matawai Whare Pukapuka"
+			"libraryScanProgress": "Kei te rere te Matawai Whare Pukapuka",
+			"pendingTaskHaltedPostProcessorQueueFull": "Ko te rarangi pou-tukatuka kua tae ki tona rohe",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Kaore nga kaimahi e whiwhi i tetahi mahi hou e tatari ana kia heke ra ano te rarangi pou-tukatuka i raro i te tatauranga o nga kaimahi whirihora"
 		}
 	},
 	"headers": {
@@ -158,7 +160,7 @@
 		"workers": {
 			"pauseWorker": "Whakamutua tenei kaimahi",
 			"workerPaused": "Kua okioki te kaimahi",
-			"workerPauseFailed": "Kaore i taea e Unmanic te whakaoho i tenei kaimahi mo etahi take",
+			"workerPauseFailed": "Kare i taea e Unmanic te tarai i tenei kaimahi mo etahi take",
 			"resumeWorker": "Me haere tonu tenei kaimahi",
 			"workerResumed": "Kua timata ano te kaimahi",
 			"workerResumedFailed": "Kaore i taea e Unmanic te whakaora i tenei kaimahi mo etahi take",

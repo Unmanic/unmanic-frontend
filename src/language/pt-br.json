@@ -34,7 +34,7 @@
 	"status": {
 		"enabled": "ativado",
 		"disabled": "Desativado",
-		"cannotLoadImage": "Não é possível carregar a imagem",
+		"cannotLoadImage": "Impossível carregar imagem",
 		"success": "Sucesso",
 		"failed": "Fracassado"
 	},
@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "Salvou.",
 		"installed": "Instalado.",
-		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está funcionando.",
+		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está em execução.",
 		"failedToFetchSession": "Foi encontrado um erro ao buscar os dados da sessão do Unmanic.",
 		"failedToFetchLoginUrl": "Falha ao obter o URL de login.",
 		"failedToFetchLogoutUrl": "Falha ao obter URL de logout.",
@@ -80,9 +80,11 @@
 				"status": "Atualização de status desconhecida do servidor"
 			},
 			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um plug-in incompatível",
-			"pluginEnabledLimits": "Unmanic interrompeu as tarefas de processamento do Corredor Atual porque você tem muitos Plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de 5 plug-ins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração dos plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
-			"libraryScanProgress": "Verificação da biblioteca em execução"
+			"pluginEnabledLimits": "Unmanic interrompeu as tarefas de processamento do Corredor Atual porque você tem muitos Plug-ins habilitados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de 5 plug-ins.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração de plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
+			"libraryScanProgress": "Verificação da biblioteca em execução",
+			"pendingTaskHaltedPostProcessorQueueFull": "A fila de pós-processador atingiu seu limite",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurados atualmente"
 		}
 	},
 	"headers": {
@@ -165,7 +167,7 @@
 			"terminateWorker": "Desligue este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "Trabalhador foi demitido",
-			"workerTerminationFailed": "Unmanic não conseguiu demitir este trabalhador por algum motivo",
+			"workerTerminationFailed": "Unmanic não foi capaz de encerrar este trabalhador por algum motivo",
 			"pauseAllWorkers": "Pause todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"workerLog": "Diário de trabalho",

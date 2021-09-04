@@ -82,7 +82,9 @@
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
 			"pluginEnabledLimits": "Unmanic har stoppat Current Runner-bearbetningsuppgifter eftersom du har för många plugins aktiverade för en icke-supporter-nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
-			"libraryScanProgress": "Biblioteksskanning körs"
+			"libraryScanProgress": "Biblioteksskanning körs",
+			"pendingTaskHaltedPostProcessorQueueFull": "Post-processor-kön nådde sin gräns",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbetare får inte en ny väntande uppgift förrän kön efter processor sjunker under det nuvarande konfigurerade antalet arbetare"
 		}
 	},
 	"headers": {
@@ -193,7 +195,7 @@
 		"completedTasks": {
 			"listEmpty": "Listan Slutförda uppgifter är tom",
 			"details": "Detaljer",
-			"errorGettingDetails": "Ett fel uppstod när informationen för den här uppgiften skulle hämtas"
+			"errorGettingDetails": "Ett fel uppstod när uppgifterna för den här uppgiften skulle hämtas"
 		},
 		"plugins": {
 			"updateAvailable": "uppdatering tillgänglig",
@@ -220,7 +222,7 @@
 				"line1": "Konfigurera i vilken ordning plugins anropas.",
 				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
 				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
-				"line4": "Ett insticksprogram kan bestå av flera plugin -typer. Om så är fallet kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
+				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
 			},
 			"types": {
 				"libraryManagement": {

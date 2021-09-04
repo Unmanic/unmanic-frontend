@@ -82,7 +82,9 @@
 			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
 			"pluginEnabledLimits": "非サポーター層に対して有効になっているプラグインが多すぎるため、UnmanicはCurrentRunnerの処理タスクを停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
-			"libraryScanProgress": "ライブラリスキャンの実行"
+			"libraryScanProgress": "ライブラリスキャンの実行",
+			"pendingTaskHaltedPostProcessorQueueFull": "ポストプロセッサキューが制限に達しました",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "ポストプロセッサキューが現在設定されているワーカー数を下回るまで、ワーカーは新しい保留中のタスクを受け取りません。"
 		}
 	},
 	"headers": {

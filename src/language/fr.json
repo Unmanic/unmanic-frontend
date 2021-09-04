@@ -82,7 +82,9 @@
 			"incompatiblePlugin": "Unmanic a arrêté de traiter les tâches car il a détecté un plugin incompatible",
 			"pluginEnabledLimits": "Unmanic a arrêté les tâches de traitement de Current Runner car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
-			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution"
+			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution",
+			"pendingTaskHaltedPostProcessorQueueFull": "La file d'attente du post-processeur a atteint sa limite",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré."
 		}
 	},
 	"headers": {
@@ -148,7 +150,7 @@
 				"userdataPath": "Chemin des données utilisateur",
 				"docs": "Documentation",
 				"apiSpec": "Spécification API",
-				"applicationDocumentation": "Documents d'application",
+				"applicationDocumentation": "Dossier de candidature",
 				"support": "Soutien",
 				"unmanicAppSourceRequests": "Fonctionnalité de demande dans l'application Unmanic",
 				"unmanicFrontendSourceRequests": "Fonctionnalité de demande dans Unmanic Frontend",
@@ -220,11 +222,11 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion de la bibliothèque - Test de fichier",
+					"fileTest": "Gestion des bibliothèques - Test de fichiers",
 					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
 				},
 				"postprocessor": {
