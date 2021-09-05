@@ -247,7 +247,7 @@ export default {
       sortBy: 'name',
       descending: false,
       page: 1,
-      rowsPerPage: 15,
+      rowsPerPage: 50,
       rowsNumber: 10
     })
     const selected = ref([]);

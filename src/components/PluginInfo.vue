@@ -522,4 +522,9 @@ span.plugin-description pre {
   background: #EEE;
   border: inset thin;
 }
+
+span.plugin-description hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 </style>
