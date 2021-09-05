@@ -80,7 +80,7 @@
 				"status": "Okänd statusuppdatering från servern"
 			},
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
-			"pluginEnabledLimits": "Unmanic har stoppat Current Runner-bearbetningsuppgifter eftersom du har för många plugins aktiverade för en icke-supporter-nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
+			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
 			"libraryScanProgress": "Biblioteksskanning körs",
 			"pendingTaskHaltedPostProcessorQueueFull": "Post-processor-kön nådde sin gräns",

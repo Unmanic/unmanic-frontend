@@ -80,7 +80,7 @@
 				"status": "Actualización de estado desconocida del servidor"
 			},
 			"incompatiblePlugin": "Unmanic ha dejado de procesar tareas porque ha detectado un complemento incompatible",
-			"pluginEnabledLimits": "Unmanic ha detenido las tareas de procesamiento de Current Runner porque tienes demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de 5 complementos.",
+			"pluginEnabledLimits": "Unmanic ha dejado de procesar tareas porque tienes demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de 5 complementos.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha detenido a todos los trabajadores porque ha detectado un cambio en la configuración de los complementos. Cuando esté listo, reanude los trabajadores desde el tablero.",
 			"libraryScanProgress": "Escaneo de biblioteca en ejecución",
 			"pendingTaskHaltedPostProcessorQueueFull": "La cola del posprocesador alcanzó su límite",
