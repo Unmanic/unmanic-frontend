@@ -207,7 +207,7 @@ export default {
       let data = {
         settings: {
           number_of_workers: this.workerCount,
-          cachePath: this.cachePath,
+          cache_path: this.cachePath,
         }
       }
       axios({
