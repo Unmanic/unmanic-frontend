@@ -302,6 +302,25 @@ export default {
 
     function updateServerLogs(data) {
       currentLog.value = data.system_logs;
+      let styledLogs = [];
+      for (let i = 0; i < data.system_logs.length; i++) {
+        let logLine = data.system_logs[i];
+
+        // Highlight paths
+        logLine = logLine.replace(/\/[\/|.|\s|\w|-]+/, "<span style='color:var(--q-secondary);'>$&</span>")
+
+        // Debug logs
+        logLine = logLine.replace(/[\d(\-|T|\:)]+\:DEBUG:[\w(\.|\-)]+/, "<span style='color:var(--q-primary);'>$&</span>")
+
+        // Warning logs
+        logLine = logLine.replace(/[\d(\-|T|\:)]+\:WARNING:[\w(\.|\-)]+/, "<span style='color:var(--q-warning);'>$&</span>")
+
+        // Error logs
+        logLine = logLine.replace(/[\d(\-|T|\:)]+\:ERROR:[\w(\.|\-)]+/, "<span style='color:var(--q-negative);'>$&</span>")
+
+        styledLogs[i] = logLine;
+      }
+      currentLog.value = styledLogs;
       logsPath.value = data.logs_path;
     }
 
@@ -486,5 +505,6 @@ export default {
 <style lang="scss">
 .system-log-content p {
   margin: 0 0;
+  white-space: pre-wrap;
 }
 </style>
