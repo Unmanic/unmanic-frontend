@@ -79,86 +79,68 @@
                         class="rounded-borders"
                         style="max-width: 1500px">
 
-                        <q-item
-                          v-for="(plugin, index) in pluginFlowByType[pt.type]"
-                          :key="index"
-                          v-bind="plugin">
+                        <draggable
+                          class="plugin-flow-group"
+                          item-key="order"
+                          tag="transition-group"
+                          :component-data="{ tag: 'ul', name: 'flip-list', type: 'transition' }"
+                          v-model="pluginFlowByType[pt.type]"
+                          v-bind="dragOptions"
+                          @end="savePluginFlow(pt.type)"
+                        >
+                          <template #item="{ element, index }">
+                            <q-item
+                              :key="index"
+                              class="q-pa-none rounded-borders"
+                              active-class="plugin-flow-item">
 
-                          <q-item-section side class="gt-xs q-px-sm">
-                            <q-item-label lines="1" class="text-left">
-                              <span class="text-weight-medium">{{ index + 1 }}</span>
-                              <q-tooltip
-                                anchor="center right"
-                                self="center left"
-                                class="bg-white text-primary">{{ $t('tooltips.position') }}
-                              </q-tooltip>
-                            </q-item-label>
-                          </q-item-section>
+                              <q-item-section side class="gt-xs q-px-sm">
+                                <q-item-label lines="1" class="text-left">
+                                  <span class="text-weight-medium">{{ index + 1 }}</span>
+                                  <q-tooltip
+                                    anchor="center right"
+                                    self="center left"
+                                    class="bg-white text-primary">{{ $t('tooltips.position') }}
+                                  </q-tooltip>
+                                </q-item-label>
+                              </q-item-section>
 
-                          <q-separator inset vertical class="gt-xs q-mx-sm"/>
+                              <q-separator inset vertical class="gt-xs q-mx-sm"/>
 
-                          <q-item-section side class="q-px-sm">
-                            <div class="text-grey-8 q-gutter-xs">
+                              <q-item-section avatar class="q-px-sm q-mx-sm">
+                                <q-skeleton v-if="!element.icon" width="35px" height="35px"/>
+                                <q-avatar v-else rounded size="35px">
+                                  <q-img :src="element.icon" class="" style="max-width: 30px;"/>
+                                </q-avatar>
+                              </q-item-section>
 
-                              <!--Move Extension Up-->
-                              <q-btn
-                                @click="movePluginInFlow(pt.type, index, plugin.plugin_id, 'up')"
-                                size="12px"
-                                flat
-                                dense
-                                round
-                                icon="expand_less">
+                              <q-item-section top class="q-mx-md">
+                                <q-item-label lines="1" class="text-left">
+                                  <span class="text-weight-medium">{{ element.name }}</span>
+                                </q-item-label>
+                                <q-item-label caption lines="1" class="text-left q-ml-sm">
+                                  <!--TODO: Limit length of description-->
+                                  {{ element.description }}
+                                </q-item-label>
                                 <q-tooltip
-                                  anchor="center right"
-                                  self="center left"
-                                  class="bg-white text-primary">{{ $t('tooltips.moveUp') }}
+                                  anchor="center middle"
+                                  self="center middle"
+                                  class="bg-white text-primary lt-sm">
+                                  {{ element.name }}
                                 </q-tooltip>
-                              </q-btn>
+                              </q-item-section>
 
-                              <!--Move Extension Down-->
-                              <q-btn
-                                @click="movePluginInFlow(pt.type, index, plugin.plugin_id, 'down')"
-                                size="12px"
-                                flat
-                                dense
-                                round
-                                icon="expand_more">
-                                <q-tooltip
-                                  anchor="center right"
-                                  self="center left"
-                                  class="bg-white text-primary">{{ $t('tooltips.moveDown') }}
-                                </q-tooltip>
-                              </q-btn>
+                              <q-separator inset vertical class="q-mx-sm"/>
 
-                            </div>
-                          </q-item-section>
+                              <q-item-section avatar>
+                                <q-avatar rounded>
+                                  <q-icon name="drag_handle" class="" style="max-width: 30px;"/>
+                                </q-avatar>
+                              </q-item-section>
 
-                          <q-separator inset vertical class="gt-xs q-mx-sm"/>
-
-                          <q-item-section avatar class="gt-xs q-px-sm q-mx-sm">
-                            <q-skeleton v-if="!plugin.icon" width="35px" height="35px"/>
-                            <q-avatar v-else rounded size="35px">
-                              <q-img :src="plugin.icon" class="" style="max-width: 30px;"/>
-                            </q-avatar>
-                          </q-item-section>
-
-                          <q-item-section top class="q-mx-md">
-                            <q-item-label lines="1" class="text-left">
-                              <span class="text-weight-medium">{{ plugin.name }}</span>
-                            </q-item-label>
-                            <q-item-label caption lines="1" class="text-left q-ml-sm">
-                              <!--TODO: Limit length of description-->
-                              {{ plugin.description }}
-                            </q-item-label>
-                            <q-tooltip
-                              anchor="center middle"
-                              self="center middle"
-                              class="bg-white text-primary lt-sm">
-                              {{ plugin.name }}
-                            </q-tooltip>
-                          </q-item-section>
-
-                        </q-item>
+                            </q-item>
+                          </template>
+                        </draggable>
 
                       </q-list>
 
@@ -184,12 +166,16 @@
 <script>
 import { ref } from 'vue';
 import axios from "axios";
+import draggable from "vuedraggable";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 const defaultOrder = []
 
 export default {
   name: 'PluginFlowDialog',
+  components: {
+    draggable
+  },
   props: {},
   emits: [
     // REQUIRED
@@ -319,10 +305,41 @@ export default {
   data: function () {
     // TODO: Move strings to i18n
     return {
+      options: {
+        dropzoneSelector: ".q-list",
+        draggableSelector: ".q-item"
+      },
       pluginTypes: ref([]),
       pluginFlowByType: ref({}),
       files: ref([])
     }
+  },
+  computed: {
+    dragOptions() {
+      return {
+        animation: 100,
+        group: "pluginFlow",
+        disabled: false,
+        ghostClass: "ghost",
+        direction: "vertical",
+        delay: 200,
+        delayOnTouchOnly: true,
+      };
+    }
   }
 }
 </script>
+<style>
+.plugin-flow-group {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.ghost {
+  opacity: 0;
+}
+
+.plugin-flow-item {
+  background: #F2C037;
+}
+</style>
