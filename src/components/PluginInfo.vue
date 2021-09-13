@@ -497,6 +497,10 @@ span.plugin-changelog * {
   margin-bottom: 0;
 }
 
+span.plugin-description {
+  width: 100%;
+}
+
 span.plugin-description * {
   margin-bottom: 0;
 }
