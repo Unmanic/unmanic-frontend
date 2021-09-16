@@ -410,11 +410,13 @@ export default {
     },
 
     beforeDialogHide() {
-      if (this.currentSettings.length > 0) {
-        // Only save if settings are different
-        if (this.settingsHaveBeenModified()) {
-          // Settings have changed since they were last saved... save them again.
-          this.savePluginSettings();
+      if (typeof this.currentSettings !== 'undefined') {
+        if (this.currentSettings.length > 0) {
+          // Only save if settings are different
+          if (this.settingsHaveBeenModified()) {
+            // Settings have changed since they were last saved... save them again.
+            this.savePluginSettings();
+          }
         }
       }
     },
