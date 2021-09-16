@@ -110,7 +110,9 @@
                   <q-card-section
                     style="min-height: 80px">
                     <div class="row">
-                      <strong>{{ props.row.name }}</strong>
+                      <span style="overflow: hidden;white-space: nowrap;">
+                        <strong>{{ props.row.name }}</strong>
+                      </span>
                     </div>
                     <div class="row float-right">
                       <!--INSTALLED STATUS-->
@@ -451,7 +453,6 @@ export default {
       rowsPerPage: 12
     })
 
-    // TODO: Move strings to i18n
     return {
       filter,
       columns,

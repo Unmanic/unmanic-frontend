@@ -303,7 +303,6 @@ export default {
     this.fetchPluginTypes();
   },
   data: function () {
-    // TODO: Move strings to i18n
     return {
       options: {
         dropzoneSelector: ".q-list",

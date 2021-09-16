@@ -118,7 +118,6 @@ export default {
     this.fetchCompletedTaskLog();
   },
   data: function () {
-    // TODO: Move strings to i18n
     return {
       taskDetails: ref([]),
     }
