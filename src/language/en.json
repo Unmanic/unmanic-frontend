@@ -211,6 +211,7 @@
       "name": "Name",
       "author": "Author",
       "version": "Version",
+      "repo": "Repository",
       "repoList": "Repository List",
       "refreshRepositories": "Refresh Repositories",
       "addRepository": "Add Repository",

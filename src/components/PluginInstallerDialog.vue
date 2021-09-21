@@ -167,62 +167,68 @@
                           </q-img>
                         </q-avatar>
                       </div>
-                      <div class="col-auto">
+                      <div class="col">
                         <div class="row q-col-gutter-md">
-                          <div class="col-auto">{{ $t('components.plugins.author') }}</div>
-                          <div class="col-auto">{{ props.row.author }}</div>
+                          <div class="col-4 self-start">{{ $t('components.plugins.author') }}</div>
+                          <div class="col self-end">{{ props.row.author }}</div>
                         </div>
                         <div class="row q-col-gutter-md">
-                          <div class="col-auto">{{ $t('components.plugins.version') }}</div>
-                          <div class="col-auto">{{ props.row.version }}</div>
+                          <div class="col-4 self-start">{{ $t('components.plugins.version') }}</div>
+                          <div class="col self-end">{{ props.row.version }}</div>
                         </div>
-                        <div class="row q-col-gutter-md q-mt-sm">
-                          <div class="col-auto">
-
-                            <!--INSTALL BUTTON-->
-                            <q-btn
-                              v-if="props.row.update_available"
-                              @click="installPlugin(props.row.plugin_id)"
-                              color="accent"
-                              dense
-                              round
-                              flat
-                              icon="update">
-                              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.update') }}</q-tooltip>
-                            </q-btn>
-                            <q-btn
-                              v-else-if="props.row.installed"
-                              @click="installPlugin(props.row.plugin_id)"
-                              color="accent"
-                              dense
-                              round
-                              flat
-                              icon="download_for_offline">
-                              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.reinstall') }}</q-tooltip>
-                            </q-btn>
-                            <q-btn
-                              v-else
-                              @click="installPlugin(props.row.plugin_id)"
-                              color="accent"
-                              dense
-                              round
-                              flat
-                              icon="download_for_offline">
-                              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.install') }}</q-tooltip>
-                            </q-btn>
-
-                            <!--DISPLAY INFORMATION BUTTON-->
-                            <q-btn
-                              @click="showPluginInfo = props.row.plugin_id"
-                              color="secondary"
-                              dense
-                              round
-                              flat
-                              icon="info">
-                              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.pluginInfo') }}</q-tooltip>
-                            </q-btn>
-                          </div>
+                        <div class="row q-col-gutter-md">
+                          <div class="col-4 self-start">{{ $t('components.plugins.repo') }}</div>
+                          <div class="col self-end">{{ props.row.repo_name }}</div>
                         </div>
+                      </div>
+                    </div>
+                  </q-card-section>
+
+                  <q-card-section>
+                    <div class="row">
+                      <div class="col-auto items-end">
+                        <!--INSTALL BUTTON-->
+                        <q-btn
+                          v-if="props.row.update_available"
+                          @click="installPlugin(props.row.plugin_id)"
+                          color="accent"
+                          dense
+                          round
+                          flat
+                          icon="update">
+                          <q-tooltip class="bg-white text-primary">{{ $t('tooltips.update') }}</q-tooltip>
+                        </q-btn>
+                        <q-btn
+                          v-else-if="props.row.installed"
+                          @click="installPlugin(props.row.plugin_id)"
+                          color="accent"
+                          dense
+                          round
+                          flat
+                          icon="download_for_offline">
+                          <q-tooltip class="bg-white text-primary">{{ $t('tooltips.reinstall') }}</q-tooltip>
+                        </q-btn>
+                        <q-btn
+                          v-else
+                          @click="installPlugin(props.row.plugin_id)"
+                          color="accent"
+                          dense
+                          round
+                          flat
+                          icon="download_for_offline">
+                          <q-tooltip class="bg-white text-primary">{{ $t('tooltips.install') }}</q-tooltip>
+                        </q-btn>
+
+                        <!--DISPLAY INFORMATION BUTTON-->
+                        <q-btn
+                          @click="showPluginInfo = props.row.plugin_id"
+                          color="secondary"
+                          dense
+                          round
+                          flat
+                          icon="info">
+                          <q-tooltip class="bg-white text-primary">{{ $t('tooltips.pluginInfo') }}</q-tooltip>
+                        </q-btn>
                       </div>
                     </div>
                   </q-card-section>
@@ -411,6 +417,7 @@ export default {
             update_available: plugin.status.update_available,
             package_url: plugin.package_url,
             changelog_url: plugin.changelog_url,
+            repo_name: plugin.repo_name,
           }
 
         }
