@@ -190,7 +190,7 @@
                         <!--INSTALL BUTTON-->
                         <q-btn
                           v-if="props.row.update_available"
-                          @click="installPlugin(props.row.plugin_id)"
+                          @click="installPlugin(props.row.plugin_id, props.row.repo_id)"
                           color="accent"
                           dense
                           round
@@ -200,7 +200,7 @@
                         </q-btn>
                         <q-btn
                           v-else-if="props.row.installed"
-                          @click="installPlugin(props.row.plugin_id)"
+                          @click="installPlugin(props.row.plugin_id, props.row.repo_id)"
                           color="accent"
                           dense
                           round
@@ -210,7 +210,7 @@
                         </q-btn>
                         <q-btn
                           v-else
-                          @click="installPlugin(props.row.plugin_id)"
+                          @click="installPlugin(props.row.plugin_id, props.row.repo_id)"
                           color="accent"
                           dense
                           round
@@ -233,7 +233,7 @@
                     </div>
                   </q-card-section>
 
-                  <q-inner-loading :showing="pluginInstalling[props.row.plugin_id]">
+                  <q-inner-loading :showing="pluginInstalling[props.row.repo_id + props.row.plugin_id]">
                     <q-spinner size="100px" color="secondary"/>
                   </q-inner-loading>
 
@@ -331,14 +331,15 @@ export default {
       // when QDialog emits "hide" event
       this.$emit('hide')
     },
-    installPlugin: function (plugin_id) {
-      console.debug('Installing plugin by Plugin ID: ' + plugin_id)
+    installPlugin: function (plugin_id, repo_id) {
+      console.debug('Installing plugin by Plugin ID: ' + plugin_id + 'from Repo ID - ' + repo_id)
 
       let data = {
         plugin_id: plugin_id,
+        repo_id: repo_id,
       }
 
-      this.pluginInstalling[plugin_id] = true;
+      this.pluginInstalling[repo_id + plugin_id] = true;
 
       axios({
         method: 'post',
@@ -362,7 +363,7 @@ export default {
           }
         }
 
-        this.pluginInstalling[plugin_id] = false
+        this.pluginInstalling[repo_id + plugin_id] = false
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
@@ -372,7 +373,7 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
 
-        this.pluginInstalling[plugin_id] = false
+        this.pluginInstalling[repo_id + plugin_id] = false
       })
     },
     loadInstallablePlugins: function () {
@@ -418,6 +419,7 @@ export default {
             package_url: plugin.package_url,
             changelog_url: plugin.changelog_url,
             repo_name: plugin.repo_name,
+            repo_id: plugin.repo_id,
           }
 
         }
