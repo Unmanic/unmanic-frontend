@@ -116,7 +116,8 @@
 		"pluginInfo": "Mōhiohio Mono",
 		"position": "Tuunga",
 		"moveUp": "Neke ki runga",
-		"moveDown": "Nuku ki raro"
+		"moveDown": "Nuku ki raro",
+		"etc": "Te Wahanga Whakatikatika mo te Whakaotinga"
 	},
 	"components": {
 		"settings": {

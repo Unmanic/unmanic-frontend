@@ -116,7 +116,8 @@
 		"pluginInfo": "プラグイン情報",
 		"position": "ポジション",
 		"moveUp": "上に移動",
-		"moveDown": "下に移動"
+		"moveDown": "下に移動",
+		"etc": "完了予定時間"
 	},
 	"components": {
 		"settings": {

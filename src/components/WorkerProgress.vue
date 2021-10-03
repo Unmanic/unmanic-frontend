@@ -81,7 +81,7 @@
       <div class="row">
         <div class="column q-ml-sm">ETC:</div>
         <div class="column q-ml-lg">{{ etc }}</div>
-        <q-tooltip class="bg-white text-primary">Estimated Time of Completion</q-tooltip>
+        <q-tooltip class="bg-white text-primary">{{ $t('tooltips.etc') }}</q-tooltip>
       </div>
     </q-card-section>
 

@@ -116,7 +116,8 @@
 		"pluginInfo": "Plugin Info",
 		"position": "Placera",
 		"moveUp": "Flytta upp",
-		"moveDown": "Flytta ner"
+		"moveDown": "Flytta ner",
+		"etc": "Beräknad tid för slutförande"
 	},
 	"components": {
 		"settings": {

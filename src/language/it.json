@@ -116,7 +116,8 @@
 		"pluginInfo": "Informazioni sui plugin",
 		"position": "Posizione",
 		"moveUp": "Andare avanti",
-		"moveDown": "Abbassati"
+		"moveDown": "Abbassati",
+		"etc": "Tempo stimato di completamento"
 	},
 	"components": {
 		"settings": {

@@ -116,7 +116,8 @@
 		"pluginInfo": "Plugin-info",
 		"position": "Positie",
 		"moveUp": "Omhoog gaan",
-		"moveDown": "Naar beneden verplaatsen"
+		"moveDown": "Naar beneden verplaatsen",
+		"etc": "Geschatte tijd van voltooiing"
 	},
 	"components": {
 		"settings": {

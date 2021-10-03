@@ -116,7 +116,8 @@
 		"pluginInfo": "插件信息",
 		"position": "位置",
 		"moveUp": "提升",
-		"moveDown": "下移"
+		"moveDown": "下移",
+		"etc": "预计完工时间"
 	},
 	"components": {
 		"settings": {

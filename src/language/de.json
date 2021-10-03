@@ -116,7 +116,8 @@
 		"pluginInfo": "Plugin-Info",
 		"position": "Position",
 		"moveUp": "Nach oben",
-		"moveDown": "Sich abwärts bewegen"
+		"moveDown": "Sich abwärts bewegen",
+		"etc": "Geschätzter Zeitpunkt der Fertigstellung"
 	},
 	"components": {
 		"settings": {
