@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Il n'y a pas de travailleurs en cours d'exécution actuellement. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour générer un travailleur.",
 			"pauseWorker": "Mettre ce travailleur en pause",
 			"workerPaused": "Le nœud de calcul a été mis en pause",
 			"workerPauseFailed": "Unmanic n'a pas pu mettre en pause ce travailleur pour une raison quelconque",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "La liste des tâches en attente est vide",
 			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
 			"moveToTop": "Déplacer la sélection vers le haut",
 			"moveToBottom": "Déplacer la sélection vers le bas",

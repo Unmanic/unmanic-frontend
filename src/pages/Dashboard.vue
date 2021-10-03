@@ -18,7 +18,11 @@
                 </div>
 
                 <div class="col-auto">
-                  <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
+                  <q-btn-dropdown
+                    class="q-ml-sm"
+                    :color="Object.keys(workerProgressList).length === 0 ? 'grey-7' : 'secondary'"
+                    :disable-main-btn="Object.keys(workerProgressList).length === 0"
+                    :label="$t('navigation.options')">
                     <q-list>
 
                       <q-item
@@ -55,6 +59,11 @@
               <!-- START WORKERS PROGRESS-->
               <div class="row">
 
+                <div
+                  v-if="Object.keys(workerProgressList).length === 0"
+                  class="full-width row flex-center text-accent q-gutter-sm">
+                  <q-item-label>{{ $t('components.workers.listEmpty') }}</q-item-label>
+                </div>
                 <WorkerProgress
                   v-for="(workerProgress, index) in workerProgressList"
                   :key="index"

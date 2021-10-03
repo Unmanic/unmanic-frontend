@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Det finns inga arbetare på gång just nu. Öka antalet arbetare i Unmanics inställningar för att skapa en arbetare.",
 			"pauseWorker": "Pausa den här arbetaren",
 			"workerPaused": "Arbetaren har pausats",
 			"workerPauseFailed": "Unmanic kunde av någon anledning inte pausa den här arbetaren",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "Listan Väntande uppgifter är tom",
 			"rescanLibrary": "Skanna biblioteket igen",
 			"moveToTop": "Flytta markerat till toppen",
 			"moveToBottom": "Flytta markerat till botten",

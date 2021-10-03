@@ -18,59 +18,57 @@
 
               <!--START WORKER COUNT-->
               <h5 class="q-mb-none">{{ $t('components.settings.workers.workerCount') }}</h5>
-              <q-skeleton
-                v-if="workerCount === null"
-                type="QInput"/>
-              <q-input
-                v-if="workerCount !== null"
-                readonly
-                outlined
-                color="primary"
-                v-model="workerCount"
-                :label="$t('components.settings.workers.workerCount')"
-                :placeholder="workerCount">
-                <!--                <template v-slot:append>
-                                  <q-icon
-                                    @click="updateLibraryWithDirectoryBrowser"
-                                    class="cursor-pointer"
-                                    name="folder_open"/>
-                                </template>-->
-              </q-input>
-              <q-skeleton
-                v-if="workerCount === null"
-                type="QSlider"/>
-              <q-slider
-                v-if="workerCount !== null"
-                v-model="workerCount"
-                :min="1"
-                :max="12"
-                color="primary"
-              />
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="workerCount === null"
+                  type="QInput"/>
+                <q-input
+                  v-if="workerCount !== null"
+                  readonly
+                  outlined
+                  color="primary"
+                  v-model="workerCount"
+                  :label="$t('components.settings.workers.workerCount')"
+                  :placeholder="workerCount">
+                </q-input>
+                <q-skeleton
+                  v-if="workerCount === null"
+                  type="QSlider"/>
+                <q-slider
+                  v-if="workerCount !== null"
+                  v-model="workerCount"
+                  :min="0"
+                  :max="12"
+                  color="primary"
+                />
+              </div>
               <!--END WORKER COUNT-->
 
               <q-separator class="q-my-lg"/>
 
               <!--START CACHE PATHS-->
               <h5 class="q-mb-none">{{ $t('components.settings.workers.path') }}</h5>
-              <q-skeleton
-                v-if="cachePath === null"
-                type="QInput"/>
-              <q-input
-                v-else
-                readonly
-                outlined
-                color="primary"
-                v-model="cachePath"
-                :label="$t('components.settings.workers.path')"
-                :placeholder="cachePath"
-                @click="updateLibraryWithDirectoryBrowser">
-                <template v-slot:append>
-                  <q-icon
-                    @click="updateLibraryWithDirectoryBrowser"
-                    class="cursor-pointer"
-                    name="folder_open"/>
-                </template>
-              </q-input>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="cachePath === null"
+                  type="QInput"/>
+                <q-input
+                  v-else
+                  readonly
+                  outlined
+                  color="primary"
+                  v-model="cachePath"
+                  :label="$t('components.settings.workers.path')"
+                  :placeholder="cachePath"
+                  @click="updateLibraryWithDirectoryBrowser">
+                  <template v-slot:append>
+                    <q-icon
+                      @click="updateLibraryWithDirectoryBrowser"
+                      class="cursor-pointer"
+                      name="folder_open"/>
+                  </template>
+                </q-input>
+              </div>
               <!--END CACHE PATHS-->
 
               <div>

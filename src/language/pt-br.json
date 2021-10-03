@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Não há trabalhos em execução no momento. Aumente a contagem de trabalhadores nas configurações de Unmanic para gerar um trabalhador.",
 			"pauseWorker": "Pause este trabalhador",
 			"workerPaused": "Trabalhador foi pausado",
 			"workerPauseFailed": "Unmanic não conseguiu pausar este trabalhador por algum motivo",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "A lista de Tarefas Pendentes está vazia",
 			"rescanLibrary": "Verificar novamente a biblioteca agora",
 			"moveToTop": "Mover selecionado para o topo",
 			"moveToBottom": "Mover selecionado para o fundo",

@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Derzeit sind keine Arbeiter im Einsatz. Erhöhen Sie die Arbeiterzahl in den Einstellungen von Unmanic, um einen Arbeiter zu spawnen.",
 			"pauseWorker": "Diesen Worker pausieren",
 			"workerPaused": "Arbeiter wurde angehalten",
 			"workerPauseFailed": "Unmanic konnte diesen Worker aus irgendeinem Grund nicht pausieren",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "Die Liste der ausstehenden Aufgaben ist leer",
 			"rescanLibrary": "Bibliothek jetzt erneut scannen",
 			"moveToTop": "Ausgewählte nach oben verschieben",
 			"moveToBottom": "Ausgewählte nach unten verschieben",

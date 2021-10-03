@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Kaore he kaimahi e rere ana i tenei wa. Whakanuia te tatauranga o nga kaimahi ki nga waahi a Unmanic ki te whakatipu kaimahi.",
 			"pauseWorker": "Whakamutua tenei kaimahi",
 			"workerPaused": "Kua okioki te kaimahi",
 			"workerPauseFailed": "Kare i taea e Unmanic te tarai i tenei kaimahi mo etahi take",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "Ko te raarangi Tūmahi Tatari kei te putua",
 			"rescanLibrary": "Whakahaerehia te whare pukapuka inaianei",
 			"moveToTop": "Nuku i tohua ki runga",
 			"moveToBottom": "Nuku i tohua ki raro",

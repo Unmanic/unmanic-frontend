@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Er zijn momenteel geen arbeiders actief. Verhoog het aantal werkers in de instellingen van Unmanic om een werker te spawnen.",
 			"pauseWorker": "Deze werknemer onderbreken",
 			"workerPaused": "Werknemer is onderbroken",
 			"workerPauseFailed": "Unmanic kan deze werker om de een of andere reden niet pauzeren",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "De lijst met lopende taken is leeg",
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
 			"moveToTop": "Geselecteerde naar boven verplaatsen",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",

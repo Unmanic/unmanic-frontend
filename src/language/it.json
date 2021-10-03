@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "Non ci sono lavoratori attualmente in esecuzione. Aumenta il conteggio dei lavoratori nelle impostazioni di Unmanic per generare un lavoratore.",
 			"pauseWorker": "Metti in pausa questo lavoratore",
 			"workerPaused": "Il lavoratore è stato messo in pausa",
 			"workerPauseFailed": "Unmanic non è stato in grado di mettere in pausa questo lavoratore per qualche motivo",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "L'elenco delle attività in sospeso è vuoto",
 			"rescanLibrary": "Scansiona di nuovo la libreria ora",
 			"moveToTop": "Sposta selezionato in alto",
 			"moveToBottom": "Sposta selezionato in basso",

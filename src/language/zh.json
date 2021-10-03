@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "当前没有工作人员正在运行。在 Unmanic 的设置中增加工人数量以产生工人。",
 			"pauseWorker": "暂停此工作器",
 			"workerPaused": "工人已暂停",
 			"workerPauseFailed": "由于某种原因，Unmanic 无法暂停此工作者",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "待处理任务列表为空",
 			"rescanLibrary": "立即重新扫描图书馆",
 			"moveToTop": "将所选内容移至顶部",
 			"moveToBottom": "将所选内容移至底部",

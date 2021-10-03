@@ -159,6 +159,7 @@
       }
     },
     "workers": {
+      "listEmpty": "There are no workers currently running. Increase the worker count in Unmanic's settings to spawn a worker.",
       "pauseWorker": "Pause this worker",
       "workerPaused": "Worker has been paused",
       "workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
@@ -188,6 +189,7 @@
       }
     },
     "pendingTasks": {
+      "listEmpty": "The Pending Tasks list is empty",
       "rescanLibrary": "Rescan library now",
       "moveToTop": "Move selected to top",
       "moveToBottom": "Move selected to bottom",

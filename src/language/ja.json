@@ -159,6 +159,7 @@
 			}
 		},
 		"workers": {
+			"listEmpty": "現在実行中のワーカーはありません。 Unmanicの設定でワーカー数を増やして、ワーカーを生成します。",
 			"pauseWorker": "このワーカーを一時停止します",
 			"workerPaused": "労働者は一時停止されました",
 			"workerPauseFailed": "Unmanicは、何らかの理由でこのワーカーを一時停止できませんでした",
@@ -188,6 +189,7 @@
 			}
 		},
 		"pendingTasks": {
+			"listEmpty": "保留中のタスクリストが空です",
 			"rescanLibrary": "ライブラリを今すぐ再スキャン",
 			"moveToTop": "選択したものを上に移動",
 			"moveToBottom": "選択したものを下に移動",
