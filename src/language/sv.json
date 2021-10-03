@@ -80,7 +80,7 @@
 				"status": "Okänd statusuppdatering från servern"
 			},
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
-			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
+			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många insticksprogram aktiverade för en nivå som inte stödjer. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
 			"libraryScanProgress": "Biblioteksskanning körs",
 			"pendingTaskHaltedPostProcessorQueueFull": "Post-processor-kön nådde sin gräns",
@@ -122,13 +122,14 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "var vänlig skriv in ett giltigt nummer",
 			"library": {
+				"pathConfiguration": "Konfiguration av biblioteksväg",
 				"path": "Biblioteksväg",
 				"libraryScanner": "Biblioteksskanner",
-				"enableLibraryScanner": "Aktivera biblioteksskannern",
+				"enableLibraryScanner": "Aktivera periodiska biblioteksskanningar",
 				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
 				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är ogiltigt",
-				"followSymlinks": "Följ symlänkar",
-				"runLibraryScanOnStart": "Kör skanning vid start",
+				"followSymlinks": "Följ symlänkar på biblioteksskanningar",
+				"runLibraryScanOnStart": "Kör en engångsbibliotekskanning vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
 				"enableLibraryFileMonitor": "Aktivera biblioteksfilövervakaren"
 			},
@@ -195,7 +196,7 @@
 		"completedTasks": {
 			"listEmpty": "Listan Slutförda uppgifter är tom",
 			"details": "Detaljer",
-			"errorGettingDetails": "Ett fel uppstod när uppgifterna för den här uppgiften skulle hämtas"
+			"errorGettingDetails": "Ett fel uppstod när informationen för den här uppgiften skulle hämtas"
 		},
 		"plugins": {
 			"updateAvailable": "uppdatering tillgänglig",
@@ -211,6 +212,7 @@
 			"name": "namn",
 			"author": "Författare",
 			"version": "Version",
+			"repo": "Förvar",
 			"repoList": "Förrådslista",
 			"refreshRepositories": "Uppdatera förråd",
 			"addRepository": "Lägg till förvar",
@@ -222,7 +224,7 @@
 				"line1": "Konfigurera i vilken ordning plugins anropas.",
 				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
 				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
-				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
+				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. Om så är fallet kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
 			},
 			"types": {
 				"libraryManagement": {

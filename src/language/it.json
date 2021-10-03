@@ -122,14 +122,15 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "Per favore, inserire un numero valido",
 			"library": {
+				"pathConfiguration": "Configurazione del percorso della libreria",
 				"path": "Percorso della biblioteca",
 				"libraryScanner": "Scanner della biblioteca",
-				"enableLibraryScanner": "Abilita lo scanner della biblioteca",
+				"enableLibraryScanner": "Abilita le scansioni periodiche della libreria",
 				"libraryScannerSchedule": "Pianificazione della scansione della biblioteca in pochi minuti",
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
-				"followSymlinks": "Segui i link simbolici",
-				"runLibraryScanOnStart": "Esegui scansione all'avvio",
-				"fileMonitor": "Monitoraggio dei file di libreria",
+				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della biblioteca",
+				"runLibraryScanOnStart": "Esegui una scansione della libreria una tantum all'avvio",
+				"fileMonitor": "Monitoraggio file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria"
 			},
 			"workers": {
@@ -211,6 +212,7 @@
 			"name": "Nome",
 			"author": "Autore",
 			"version": "Versione",
+			"repo": "Repository",
 			"repoList": "Elenco dei repository",
 			"refreshRepositories": "Aggiorna repository",
 			"addRepository": "Aggiungi repository",

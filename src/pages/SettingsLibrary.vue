@@ -17,26 +17,28 @@
             >
 
               <!--START LIBRARY PATHS-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.path') }}</h5>
-              <q-skeleton
-                v-if="libraryPath === null"
-                type="QInput"/>
-              <q-input
-                v-else
-                readonly
-                outlined
-                color="primary"
-                v-model="libraryPath"
-                :label="$t('components.settings.library.path')"
-                :placeholder="libraryPath"
-                @click="updateLibraryWithDirectoryBrowser">
-                <template v-slot:append>
-                  <q-icon
-                    @click="updateLibraryWithDirectoryBrowser"
-                    class="cursor-pointer"
-                    name="folder_open"/>
-                </template>
-              </q-input>
+              <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="libraryPath === null"
+                  type="QInput"/>
+                <q-input
+                  v-else
+                  readonly
+                  outlined
+                  color="primary"
+                  v-model="libraryPath"
+                  :label="$t('components.settings.library.path')"
+                  :placeholder="libraryPath"
+                  @click="updateLibraryWithDirectoryBrowser">
+                  <template v-slot:append>
+                    <q-icon
+                      @click="updateLibraryWithDirectoryBrowser"
+                      class="cursor-pointer"
+                      name="folder_open"/>
+                  </template>
+                </q-input>
+              </div>
               <!--END LIBRARY PATHS-->
 
               <q-separator class="q-my-lg"/>
@@ -52,40 +54,46 @@
                   v-model="enableLibraryScanner"
                   :label="$t('components.settings.library.enableLibraryScanner')"
                 />
-              </div>
-              <q-skeleton
-                v-if="libraryScanSchedule === null"
-                type="QInput"/>
-              <q-input
-                v-if="enableLibraryScanner && libraryScanSchedule !== null"
-                outlined
-                type="number"
-                v-model="libraryScanSchedule"
-                :label="$t('components.settings.library.libraryScannerSchedule')"
-                lazy-rules
-                :rules="[
+                <div
+                  v-if="enableLibraryScanner"
+                  class="sub-setting">
+                  <div class="q-gutter-sm">
+                    <q-skeleton
+                      v-if="libraryScanSchedule === null"
+                      type="QInput"/>
+                    <q-input
+                      v-if="enableLibraryScanner && libraryScanSchedule !== null"
+                      outlined
+                      type="number"
+                      v-model="libraryScanSchedule"
+                      :label="$t('components.settings.library.libraryScannerSchedule')"
+                      lazy-rules
+                      :rules="[
                   val => val !== null && val !== '' || $t('components.settings.library.libraryScannerScheduleNotValid'),
                   val => val > 0 || $t('components.settings.pleaseEnterAValidNumber')
                 ]"
-              />
-              <div class="q-gutter-sm">
-                <q-skeleton
-                  v-if="libraryScanFollowSymlinks === null"
-                  type="QToggle"/>
-                <q-toggle
-                  v-if="enableLibraryScanner && libraryScanFollowSymlinks !== null"
-                  v-model="libraryScanFollowSymlinks"
-                  :label="$t('components.settings.library.followSymlinks')"
-                />
+                    />
+                  </div>
+                </div>
               </div>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="runLibraryScanOnStart === null"
                   type="QToggle"/>
                 <q-toggle
-                  v-if="enableLibraryScanner && runLibraryScanOnStart !== null"
+                  v-if="runLibraryScanOnStart !== null"
                   v-model="runLibraryScanOnStart"
                   :label="$t('components.settings.library.runLibraryScanOnStart')"
+                />
+              </div>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="libraryScanFollowSymlinks === null"
+                  type="QToggle"/>
+                <q-toggle
+                  v-if="libraryScanFollowSymlinks !== null"
+                  v-model="libraryScanFollowSymlinks"
+                  :label="$t('components.settings.library.followSymlinks')"
                 />
               </div>
               <!--END LIBRARY SCANNER-->
@@ -285,3 +293,12 @@ export default {
   }
 }
 </script>
+
+<style>
+div.sub-setting {
+  margin-left: 30px;
+  padding-top: 8px;
+  padding-left: 8px;
+  border-left: solid thin var(--q-primary);
+}
+</style>

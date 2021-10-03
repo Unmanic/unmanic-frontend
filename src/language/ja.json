@@ -53,7 +53,7 @@
 	"notifications": {
 		"saved": "保存しました。",
 		"installed": "インストールされています。",
-		"backendConnectionWarning": "Unmanicバックエンドに接続できません。動作していることを確認してください。",
+		"backendConnectionWarning": "Unmanicバックエンドに接続できません。実行されていることを確認してください。",
 		"failedToFetchSession": "Unmanicからセッションデータをフェッチ中にエラーが発生しました。",
 		"failedToFetchLoginUrl": "ログインURLの取得に失敗しました。",
 		"failedToFetchLogoutUrl": "ログアウトURLの取得に失敗しました。",
@@ -122,13 +122,14 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "有効な数値を入力してください",
 			"library": {
+				"pathConfiguration": "ライブラリパスの構成",
 				"path": "ライブラリパス",
 				"libraryScanner": "ライブラリスキャナー",
-				"enableLibraryScanner": "ライブラリスキャナーを有効にする",
+				"enableLibraryScanner": "定期的なライブラリスキャンを有効にする",
 				"libraryScannerSchedule": "数分でのライブラリスキャンスケジュール",
 				"libraryScannerScheduleNotValid": "ライブラリスキャンスケジュールが無効です",
-				"followSymlinks": "シンボリックリンクをたどる",
-				"runLibraryScanOnStart": "開始時にスキャンを実行する",
+				"followSymlinks": "ライブラリスキャンでシンボリックリンクをたどる",
+				"runLibraryScanOnStart": "起動時に1回限りのライブラリスキャンを実行する",
 				"fileMonitor": "ライブラリファイルモニター",
 				"enableLibraryFileMonitor": "ライブラリファイルモニターを有効にする"
 			},
@@ -211,6 +212,7 @@
 			"name": "名前",
 			"author": "著者",
 			"version": "バージョン",
+			"repo": "リポジトリ",
 			"repoList": "リポジトリリスト",
 			"refreshRepositories": "リポジトリの更新",
 			"addRepository": "リポジトリを追加",

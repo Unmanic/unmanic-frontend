@@ -81,7 +81,7 @@
 			},
 			"incompatiblePlugin": "Unmanic 已停止处理任务，因为它检测到不兼容的插件",
 			"pluginEnabledLimits": "Unmanic 已停止处理任务，因为您为非支持层启用了太多插件。考虑赞助该项目以启用 5 个以上的插件。",
-			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备好后，从仪表板恢复工作人员。",
+			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备就绪后，从仪表板恢复工作人员。",
 			"libraryScanProgress": "正在运行库扫描",
 			"pendingTaskHaltedPostProcessorQueueFull": "后处理器队列达到极限",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "直到后处理器队列下降到当前配置的工作人员计数以下，工作人员才会收到新的待处理任务"
@@ -122,13 +122,14 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "请输入有效号码",
 			"library": {
+				"pathConfiguration": "库路径配置",
 				"path": "库路径",
 				"libraryScanner": "图书馆扫描仪",
-				"enableLibraryScanner": "启用库扫描器",
+				"enableLibraryScanner": "启用定期库扫描",
 				"libraryScannerSchedule": "几分钟内的图书馆扫描计划",
 				"libraryScannerScheduleNotValid": "库扫描计划无效",
-				"followSymlinks": "按照符号链接",
-				"runLibraryScanOnStart": "开始时运行扫描",
+				"followSymlinks": "按照库扫描的符号链接",
+				"runLibraryScanOnStart": "在启动时运行一次性库扫描",
 				"fileMonitor": "库文件监视器",
 				"enableLibraryFileMonitor": "启用库文件监视器"
 			},
@@ -165,7 +166,7 @@
 			"workerResumed": "工人已恢复",
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
 			"terminateWorker": "终止这个工人",
-			"terminateWorkerWarning": "您确定要终止此工作者及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
+			"terminateWorkerWarning": "您确定要终止此工作人员及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
 			"workerTerminated": "工人已被终止",
 			"workerTerminationFailed": "由于某种原因，Unmanic 无法终止此工作者",
 			"pauseAllWorkers": "暂停所有工人",
@@ -211,6 +212,7 @@
 			"name": "姓名",
 			"author": "作者",
 			"version": "版本",
+			"repo": "存储库",
 			"repoList": "存储库列表",
 			"refreshRepositories": "刷新存储库",
 			"addRepository": "添加存储库",

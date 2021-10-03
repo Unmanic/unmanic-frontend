@@ -122,13 +122,14 @@
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "library": {
+        "pathConfiguration": "Library path configuration",
         "path": "Library path",
         "libraryScanner": "Library scanner",
-        "enableLibraryScanner": "Enable the library scanner",
+        "enableLibraryScanner": "Enable periodic library scans",
         "libraryScannerSchedule": "Library scan schedule in minutes",
         "libraryScannerScheduleNotValid": "Library scan schedule not valid",
-        "followSymlinks": "Follow symlinks",
-        "runLibraryScanOnStart": "Run scan on start",
+        "followSymlinks": "Follow symlinks on library scans",
+        "runLibraryScanOnStart": "Run a one off library scan on startup",
         "fileMonitor": "Library file monitor",
         "enableLibraryFileMonitor": "Enable the library file monitor"
       },

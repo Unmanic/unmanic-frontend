@@ -122,13 +122,14 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "S'il vous plait, entrez un nombre valide",
 			"library": {
+				"pathConfiguration": "Configuration du chemin de la bibliothèque",
 				"path": "Chemin de la bibliothèque",
 				"libraryScanner": "Scanner de bibliothèque",
-				"enableLibraryScanner": "Activer le scanner de bibliothèque",
+				"enableLibraryScanner": "Activer les analyses périodiques de la bibliothèque",
 				"libraryScannerSchedule": "Planification de l'analyse de la bibliothèque en quelques minutes",
 				"libraryScannerScheduleNotValid": "Le programme d'analyse de la bibliothèque n'est pas valide",
-				"followSymlinks": "Suivre les liens symboliques",
-				"runLibraryScanOnStart": "Exécuter l'analyse au démarrage",
+				"followSymlinks": "Suivez les liens symboliques sur les analyses de bibliothèque",
+				"runLibraryScanOnStart": "Exécuter une analyse de bibliothèque unique au démarrage",
 				"fileMonitor": "Moniteur de fichiers de bibliothèque",
 				"enableLibraryFileMonitor": "Activer le moniteur de fichiers de bibliothèque"
 			},
@@ -211,6 +212,7 @@
 			"name": "Nom",
 			"author": "Auteur",
 			"version": "Version",
+			"repo": "Dépôt",
 			"repoList": "Liste de référentiel",
 			"refreshRepositories": "Actualiser les référentiels",
 			"addRepository": "Ajouter un référentiel",
@@ -222,7 +224,7 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {

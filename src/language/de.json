@@ -122,13 +122,14 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "Bitte geben Sie eine gültige Nummer ein",
 			"library": {
+				"pathConfiguration": "Konfiguration des Bibliothekspfads",
 				"path": "Bibliothekspfad",
 				"libraryScanner": "Bibliotheksscanner",
-				"enableLibraryScanner": "Aktivieren Sie den Bibliotheksscanner",
+				"enableLibraryScanner": "Aktivieren Sie regelmäßige Bibliotheksscans",
 				"libraryScannerSchedule": "Zeitplan für den Bibliotheksscan in wenigen Minuten",
 				"libraryScannerScheduleNotValid": "Zeitplan für Bibliotheksscan nicht gültig",
-				"followSymlinks": "Symlinks folgen",
-				"runLibraryScanOnStart": "Scan beim Start ausführen",
+				"followSymlinks": "Folgen Sie Symlinks bei Bibliotheksscans",
+				"runLibraryScanOnStart": "Führen Sie beim Start einen einmaligen Bibliotheksscan durch",
 				"fileMonitor": "Bibliotheksdateimonitor",
 				"enableLibraryFileMonitor": "Aktivieren Sie den Bibliotheksdateimonitor"
 			},
@@ -177,7 +178,7 @@
 			"startTimeLabel": "Startzeit",
 			"totalProcessingTimeLabel": "Gesamtbearbeitungszeit",
 			"state": {
-				"waiting": "Warte auf eine andere Aufgabe...",
+				"waiting": "Warten auf eine andere Aufgabe...",
 				"processing": "Verarbeitungsaufgabe...",
 				"paused": "Arbeiter pausiert..."
 			},
@@ -211,6 +212,7 @@
 			"name": "Name",
 			"author": "Autor",
 			"version": "Ausführung",
+			"repo": "Repository",
 			"repoList": "Repository-Liste",
 			"refreshRepositories": "Repositorys aktualisieren",
 			"addRepository": "Repository hinzufügen",
@@ -232,7 +234,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markierung von Aufgabenerfolg/-fehlschlag",
+					"taskResult": "Postprozessor - Markieren von Erfolg/Misserfolg der Aufgabe",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
