@@ -29,7 +29,10 @@
 		"save": "Speichern",
 		"backToDashboard": "Zurück zum Dashboard",
 		"options": "Optionen",
-		"submit": "einreichen"
+		"submit": "einreichen",
+		"cancel": "Abbrechen",
+		"close": "Nah dran",
+		"back": "Zurück"
 	},
 	"status": {
 		"enabled": "aktiviert",
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Beim Versuch, das Repository zu entfernen, ist ein Fehler aufgetreten.",
 		"failedToFetchEnabledDataPanelPlugins": "Fehler beim Abrufen der Liste der aktivierten Datenpanel-Plugins",
 		"allowPopups": "Bitte erlauben Sie Popups für diese Website.",
+		"invalidWorkerEvent": "Ungültiges Worker-Ereignis kann nicht hinzugefügt werden.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Unbekannte Nachricht vom Server",
@@ -79,8 +83,8 @@
 				"success": "Unbekannte Nachricht vom Server",
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
-			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da es ein inkompatibles Plugin erkannt hat",
+			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessor-Warteschlange hat ihr Limit erreicht",
@@ -90,20 +94,20 @@
 	"headers": {
 		"workers": "Arbeitskräfte",
 		"pendingTasks": "Ausstehende Aufgaben",
-		"completedTasks": "Abgeschlossene Aufgaben",
-		"privacyPolicy": "Datenschutz-Bestimmungen",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
 		"plugins": "Plugins",
-		"pluginInfo": "Plugin-Info",
+		"pluginInfo": "Plugin Info",
 		"pluginSettings": "Plugin-Einstellungen",
-		"pluginInstaller": "Plugin-Installationsprogramm",
-		"pluginFlow": "Plugin-Flow konfigurieren",
-		"information": "Die Info",
-		"selectDirectory": "Wählen Sie ein Verzeichnis",
-		"selectFile": "Wählen Sie eine Datei aus",
-		"librarySettings": "Bibliothekseinstellungen",
+		"pluginInstaller": "Plugin Installer",
+		"pluginFlow": "Configure Plugin Flow",
+		"information": "Info",
+		"selectDirectory": "Select a directory",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
 		"completedTaskDetails": "Details zur abgeschlossenen Aufgabe",
-		"supportFutureDevelopment": "Unterstützen Sie die zukünftige Entwicklung",
-		"confirm": "Bestätigen Sie"
+		"supportFutureDevelopment": "Support future development",
+		"confirm": "Confirm"
 	},
 	"tooltips": {
 		"close": "Nah dran",
@@ -117,7 +121,8 @@
 		"position": "Position",
 		"moveUp": "Nach oben",
 		"moveDown": "Sich abwärts bewegen",
-		"etc": "Geschätzter Zeitpunkt der Fertigstellung"
+		"etc": "Geschätzter Zeitpunkt der Fertigstellung",
+		"add": "Hinzufügen"
 	},
 	"components": {
 		"settings": {
@@ -135,15 +140,35 @@
 				"enableLibraryFileMonitor": "Aktivieren Sie den Bibliotheksdateimonitor"
 			},
 			"workers": {
-				"workerCount": "Arbeiterzahl",
-				"path": "Cache-Pfad"
+				"workerCount": "Anzahl der Arbeiter",
+				"path": "Cache-Pfad",
+				"schedule": "Terminplan für Arbeiter",
+				"newScheduledEvent": "Neue geplante Veranstaltung",
+				"repetition": "Wiederholung",
+				"task": "Aufgabe",
+				"addEvent": "Ereignis hinzufügen",
+				"scheduleLabels": {
+					"daily": "Täglich",
+					"weekday": "Jeden Wochentag",
+					"weekend": "Jeden Samstag und Sonntag",
+					"monday": "Jeden Montag",
+					"tuesday": "Jeden Dienstag",
+					"wednesday": "Jeder Mittwoch",
+					"thursday": "Jeden Donnerstag",
+					"friday": "Jeden Freitag",
+					"saturday": "Jeden Samstag",
+					"sunday": "Jeden Sonntag",
+					"count": "Arbeiteranzahl festlegen",
+					"pause": "Alle Arbeiter pausieren",
+					"resume": "Alle Arbeiter wieder aufnehmen"
+				}
 			},
 			"support": {
-				"logs": "Protokolle",
+				"logs": "Logs",
 				"enableDebugging": "Debugging aktivieren",
 				"currentSystemLogs": "Aktuelle Systemprotokolle",
 				"downloadSystemLogs": "Systemprotokolle herunterladen",
-				"configuration": "Aufbau",
+				"configuration": "Configuration",
 				"appVersion": "Unmanische Version",
 				"pythonVersion": "Python-Version",
 				"platform": "Plattform (Betriebssystem)",
@@ -161,18 +186,18 @@
 		},
 		"workers": {
 			"listEmpty": "Derzeit sind keine Arbeiter im Einsatz. Erhöhen Sie die Arbeiterzahl in den Einstellungen von Unmanic, um einen Arbeiter zu spawnen.",
-			"pauseWorker": "Diesen Worker pausieren",
-			"workerPaused": "Arbeiter wurde angehalten",
+			"pauseWorker": "Pause this worker",
+			"workerPaused": "Worker has been paused",
 			"workerPauseFailed": "Unmanic konnte diesen Worker aus irgendeinem Grund nicht pausieren",
 			"resumeWorker": "Diesen Arbeiter wieder aufnehmen",
-			"workerResumed": "Arbeiter wurde wieder aufgenommen",
+			"workerResumed": "Worker has been resumed",
 			"workerResumedFailed": "Unmanic konnte diesen Arbeiter aus irgendeinem Grund nicht wieder aufnehmen",
 			"terminateWorker": "Diesen Arbeiter kündigen",
 			"terminateWorkerWarning": "Möchten Sie diesen Worker und seine aktuelle Aufgabe wirklich beenden? Die aktuelle Aufgabe wird in der Liste der erledigten Aufgaben als fehlgeschlagen markiert.",
 			"workerTerminated": "Arbeiter wurde gekündigt",
 			"workerTerminationFailed": "Unmanic konnte diesen Arbeiter aus irgendeinem Grund nicht kündigen",
 			"pauseAllWorkers": "Alle Arbeiter pausieren",
-			"resumeAllWorkers": "Alle Arbeiter wieder aufnehmen",
+			"resumeAllWorkers": "Resume all workers",
 			"workerLog": "Arbeiterprotokoll",
 			"status": "Status",
 			"stateLabel": "Bundesland",
@@ -180,17 +205,17 @@
 			"startTimeLabel": "Startzeit",
 			"totalProcessingTimeLabel": "Gesamtbearbeitungszeit",
 			"state": {
-				"waiting": "Warten auf eine andere Aufgabe...",
+				"waiting": "Warte auf eine andere Aufgabe...",
 				"processing": "Verarbeitungsaufgabe...",
 				"paused": "Arbeiter pausiert..."
 			},
 			"currentRunner": {
 				"none": "Keiner",
-				"indeterminate": "Unbestimmt"
+				"indeterminate": "Indeterminate"
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "Die Liste der ausstehenden Aufgaben ist leer",
+			"listEmpty": "The Pending Tasks list is empty",
 			"rescanLibrary": "Bibliothek jetzt erneut scannen",
 			"moveToTop": "Ausgewählte nach oben verschieben",
 			"moveToBottom": "Ausgewählte nach unten verschieben",
@@ -225,7 +250,7 @@
 			"errorSavingFlow": "Beim Speichern des Plugin-Flows ist ein Fehler aufgetreten",
 			"configurePluginFlowSection": {
 				"line1": "Konfigurieren Sie die Reihenfolge, in der Plugins aufgerufen werden.",
-				"line2": "Unten finden Sie eine Liste der Plugin-Typ-Abschnitte. Jeder Plugin-Typ-Abschnitt kann eine Liste von Plugins enthalten.",
+				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
 				"line3": "Siehe die Beschreibung unter jedem Plugin-Typ für Details, wann die enthaltenen Plugins aufgerufen werden.",
 				"line4": "Ein Plugin kann aus mehreren Plugin-Typen bestehen. Wenn dies der Fall ist, wird es von Unmanic in jedem dieser beschriebenen Abschnitte aufgerufen."
 			},

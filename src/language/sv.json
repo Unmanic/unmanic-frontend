@@ -29,7 +29,10 @@
 		"save": "Spara",
 		"backToDashboard": "Tillbaka till instrumentpanelen",
 		"options": "alternativ",
-		"submit": "Skicka in"
+		"submit": "Skicka in",
+		"cancel": "Avbryt",
+		"close": "Stänga",
+		"back": "Tillbaka"
 	},
 	"status": {
 		"enabled": "aktiverad",
@@ -55,7 +58,7 @@
 		"installed": "Installerad.",
 		"backendConnectionWarning": "Det gick inte att ansluta till Unmanic backend. Kontrollera att den körs.",
 		"failedToFetchSession": "Ett fel uppstod när sessionsdata skulle hämtas från Unmanic.",
-		"failedToFetchLoginUrl": "Det gick inte att få inloggningsadressen.",
+		"failedToFetchLoginUrl": "Det gick inte att få inloggnings -URL.",
 		"failedToFetchLogoutUrl": "Det gick inte att få utloggnings -URL.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Något gick fel när du försökte ta bort förvaret.",
 		"failedToFetchEnabledDataPanelPlugins": "Det gick inte att hämta listan över tillåtna datapanels plugins",
 		"allowPopups": "Vänligen tillåt popup -fönster för denna webbplats.",
+		"invalidWorkerEvent": "Det gick inte att lägga till ogiltig medarbetarhändelse.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Okänt meddelande från servern",
@@ -80,7 +84,7 @@
 				"status": "Okänd statusuppdatering från servern"
 			},
 			"incompatiblePlugin": "Unmanic har slutat bearbeta uppgifter eftersom det har upptäckt ett inkompatibelt plugin",
-			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många insticksprogram aktiverade för en nivå som inte stödjer. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
+			"pluginEnabledLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har för många plugins aktiverade för en icke-supporter nivå. Överväg att sponsra projektet för att aktivera mer än 5 plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom det har upptäckt en ändring av plugin -konfigurationen. När du är redo, fortsätt arbetarna från instrumentpanelen.",
 			"libraryScanProgress": "Biblioteksskanning körs",
 			"pendingTaskHaltedPostProcessorQueueFull": "Post-processor-kön nådde sin gräns",
@@ -89,20 +93,20 @@
 	},
 	"headers": {
 		"workers": "Arbetare",
-		"pendingTasks": "Väntande uppgifter",
-		"completedTasks": "Slutförda uppgifter",
-		"privacyPolicy": "Integritetspolicy",
-		"plugins": "Insticksprogram",
+		"pendingTasks": "Pending Tasks",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
+		"plugins": "Plugins",
 		"pluginInfo": "Plugin Info",
 		"pluginSettings": "Insticksprogram",
 		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "Konfigurera pluginflöde",
 		"information": "Info",
 		"selectDirectory": "Välj en katalog",
-		"selectFile": "Välj en fil",
-		"librarySettings": "Biblioteksinställningar",
-		"completedTaskDetails": "Slutförda uppgifter",
-		"supportFutureDevelopment": "Stödja framtida utveckling",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
+		"completedTaskDetails": "Completed Task Details",
+		"supportFutureDevelopment": "Support future development",
 		"confirm": "Bekräfta"
 	},
 	"tooltips": {
@@ -117,7 +121,8 @@
 		"position": "Placera",
 		"moveUp": "Flytta upp",
 		"moveDown": "Flytta ner",
-		"etc": "Beräknad tid för slutförande"
+		"etc": "Beräknad tid för slutförande",
+		"add": "Lägg till"
 	},
 	"components": {
 		"settings": {
@@ -128,7 +133,7 @@
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera periodiska biblioteksskanningar",
 				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
-				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är ogiltigt",
+				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
 				"followSymlinks": "Följ symlänkar på biblioteksskanningar",
 				"runLibraryScanOnStart": "Kör en engångsbibliotekskanning vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
@@ -136,7 +141,27 @@
 			},
 			"workers": {
 				"workerCount": "Arbetarantal",
-				"path": "Cachebana"
+				"path": "Cachebana",
+				"schedule": "Arbetarevenemangsschema",
+				"newScheduledEvent": "Nytt schemalagt evenemang",
+				"repetition": "Upprepning",
+				"task": "Uppgift",
+				"addEvent": "Lägg till händelse",
+				"scheduleLabels": {
+					"daily": "Dagligen",
+					"weekday": "Varje veckodag",
+					"weekend": "Varje lördag och söndag",
+					"monday": "Varje måndag",
+					"tuesday": "Varje tisdag",
+					"wednesday": "Varje onsdag",
+					"thursday": "Varje torsdag",
+					"friday": "Varje fredag",
+					"saturday": "Varje lördag",
+					"sunday": "Varje söndag",
+					"count": "Ange antal arbetare",
+					"pause": "Pausa alla arbetare",
+					"resume": "Återuppta alla arbetare"
+				}
 			},
 			"support": {
 				"logs": "Loggar",
@@ -160,11 +185,11 @@
 			}
 		},
 		"workers": {
-			"listEmpty": "Det finns inga arbetare på gång just nu. Öka antalet arbetare i Unmanics inställningar för att skapa en arbetare.",
+			"listEmpty": "There are no workers currently running. Increase the worker count in Unmanic's settings to spawn a worker.",
 			"pauseWorker": "Pausa den här arbetaren",
 			"workerPaused": "Arbetaren har pausats",
 			"workerPauseFailed": "Unmanic kunde av någon anledning inte pausa den här arbetaren",
-			"resumeWorker": "Återuppta den här arbetaren",
+			"resumeWorker": "Resume this worker",
 			"workerResumed": "Arbetaren har återupptagits",
 			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
 			"terminateWorker": "Avsluta den här arbetaren",
@@ -199,7 +224,7 @@
 		"completedTasks": {
 			"listEmpty": "Listan Slutförda uppgifter är tom",
 			"details": "Detaljer",
-			"errorGettingDetails": "Ett fel uppstod när informationen för den här uppgiften skulle hämtas"
+			"errorGettingDetails": "Ett fel uppstod när uppgifterna för den här uppgiften skulle hämtas"
 		},
 		"plugins": {
 			"updateAvailable": "uppdatering tillgänglig",
@@ -224,10 +249,10 @@
 			"repoSource": "Förrådets URL",
 			"errorSavingFlow": "Ett fel uppstod när pluginflödet skulle sparas",
 			"configurePluginFlowSection": {
-				"line1": "Konfigurera i vilken ordning plugins anropas.",
-				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
-				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
-				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. Om så är fallet kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
+				"line1": "Configure the order in which Plugins are called.",
+				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
+				"line3": "See the description below each Plugin Type for details when the contained Plugins will be called.",
+				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
 			},
 			"types": {
 				"libraryManagement": {

@@ -29,7 +29,10 @@
 		"save": "Ahorrar",
 		"backToDashboard": "Volver al panel",
 		"options": "Opciones",
-		"submit": "Enviar"
+		"submit": "Enviar",
+		"cancel": "Cancelar",
+		"close": "Cerrar",
+		"back": "atrás"
 	},
 	"status": {
 		"enabled": "activado",
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Se produjo un error al intentar eliminar el repositorio.",
 		"failedToFetchEnabledDataPanelPlugins": "No se pudo recuperar la lista de complementos del panel de datos habilitados",
 		"allowPopups": "Permita ventanas emergentes para este sitio web.",
+		"invalidWorkerEvent": "No se puede agregar el evento de trabajador no válido.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensaje desconocido del servidor",
@@ -90,19 +94,19 @@
 	"headers": {
 		"workers": "Trabajadores",
 		"pendingTasks": "Tareas pendientes",
-		"completedTasks": "Tareas completadas",
-		"privacyPolicy": "Política de privacidad",
-		"plugins": "Complementos",
-		"pluginInfo": "Información del complemento",
-		"pluginSettings": "Configuración del complemento",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
+		"plugins": "Plugins",
+		"pluginInfo": "Plugin Info",
+		"pluginSettings": "Plugin Settings",
 		"pluginInstaller": "Instalador de complementos",
-		"pluginFlow": "Configurar el flujo de complementos",
+		"pluginFlow": "Configure Plugin Flow",
 		"information": "Información",
-		"selectDirectory": "Seleccionar un directorio",
-		"selectFile": "Seleccione un archivo",
-		"librarySettings": "Configuración de la biblioteca",
-		"completedTaskDetails": "Detalles de la tarea completada",
-		"supportFutureDevelopment": "Apoyar el desarrollo futuro",
+		"selectDirectory": "Select a directory",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
+		"completedTaskDetails": "Completed Task Details",
+		"supportFutureDevelopment": "Support future development",
 		"confirm": "Confirmar"
 	},
 	"tooltips": {
@@ -117,7 +121,8 @@
 		"position": "Posición",
 		"moveUp": "Ascender",
 		"moveDown": "Mover hacia abajo",
-		"etc": "Tiempo estimado de finalización"
+		"etc": "Tiempo estimado de finalización",
+		"add": "Agregar"
 	},
 	"components": {
 		"settings": {
@@ -128,7 +133,7 @@
 				"libraryScanner": "Escáner de biblioteca",
 				"enableLibraryScanner": "Habilitar exploraciones periódicas de la biblioteca",
 				"libraryScannerSchedule": "Programación de escaneo de la biblioteca en minutos",
-				"libraryScannerScheduleNotValid": "La programación de análisis de la biblioteca no es válida",
+				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
 				"followSymlinks": "Siga los enlaces simbólicos en los escaneos de bibliotecas",
 				"runLibraryScanOnStart": "Ejecute un escaneo único de la biblioteca al inicio",
 				"fileMonitor": "Monitor de archivos de biblioteca",
@@ -136,12 +141,32 @@
 			},
 			"workers": {
 				"workerCount": "Recuento de trabajadores",
-				"path": "Ruta de caché"
+				"path": "Ruta de caché",
+				"schedule": "Calendario de eventos para trabajadores",
+				"newScheduledEvent": "Nuevo evento programado",
+				"repetition": "Repetición",
+				"task": "Tarea",
+				"addEvent": "Añadir evento",
+				"scheduleLabels": {
+					"daily": "Diario",
+					"weekday": "Todos los días de la semana",
+					"weekend": "Todos los sábados y domingos",
+					"monday": "Cada lunes",
+					"tuesday": "Cada martes",
+					"wednesday": "Cada miércoles",
+					"thursday": "Cada jueves",
+					"friday": "Cada viernes",
+					"saturday": "Cada Sábado",
+					"sunday": "Todos los domingos",
+					"count": "Establecer recuento de trabajadores",
+					"pause": "Pausar a todos los trabajadores",
+					"resume": "Reanudar a todos los trabajadores"
+				}
 			},
 			"support": {
 				"logs": "Registros",
 				"enableDebugging": "Habilitar depuración",
-				"currentSystemLogs": "Registros actuales del sistema",
+				"currentSystemLogs": "Current System Logs",
 				"downloadSystemLogs": "Descargar registros del sistema",
 				"configuration": "Configuración",
 				"appVersion": "Versión antimaníaca",
@@ -156,14 +181,14 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
 			}
 		},
 		"workers": {
 			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumenta el número de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar este trabajador",
 			"workerPaused": "El trabajador se ha detenido",
-			"workerPauseFailed": "Unmanic no pudo detener a este trabajador por alguna razón",
+			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "Trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
@@ -171,14 +196,14 @@
 			"terminateWorkerWarning": "¿Está seguro de que desea dar de baja a este trabajador y su tarea actual? La tarea actual se marcará como fallida en la lista de tareas completadas.",
 			"workerTerminated": "Trabajador ha sido despedido",
 			"workerTerminationFailed": "Unmanic no pudo despedir a este trabajador por alguna razón",
-			"pauseAllWorkers": "Pausar a todos los trabajadores",
+			"pauseAllWorkers": "Pause all workers",
 			"resumeAllWorkers": "Reanudar a todos los trabajadores",
 			"workerLog": "Registro de trabajador",
 			"status": "Estado",
 			"stateLabel": "Estado",
 			"currentRunnerLabel": "Corredor actual",
 			"startTimeLabel": "Hora de inicio",
-			"totalProcessingTimeLabel": "Tiempo total de procesamiento",
+			"totalProcessingTimeLabel": "Total Processing Time",
 			"state": {
 				"waiting": "Esperando otra tarea ...",
 				"processing": "Tarea de procesamiento ...",
@@ -226,7 +251,7 @@
 			"configurePluginFlowSection": {
 				"line1": "Configure el orden en el que se llaman los complementos.",
 				"line2": "A continuación se muestra una lista de las secciones de Tipo de complemento. Cada sección de tipo de complemento puede contener una lista de complementos.",
-				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamarán los complementos contenidos.",
+				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamará a los complementos contenidos.",
 				"line4": "Un complemento puede constar de varios tipos de complementos. Si es así, Unmanic lo llamará en cada una de las secciones descritas."
 			},
 			"types": {

@@ -29,7 +29,10 @@
 		"save": "Salve ",
 		"backToDashboard": "Voltar para o painel",
 		"options": "Opções",
-		"submit": "Enviar"
+		"submit": "Enviar",
+		"cancel": "Cancelar",
+		"close": "Fechar",
+		"back": "Voltar"
 	},
 	"status": {
 		"enabled": "ativado",
@@ -53,7 +56,7 @@
 	"notifications": {
 		"saved": "Salvou.",
 		"installed": "Instalado.",
-		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está em execução.",
+		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está funcionando.",
 		"failedToFetchSession": "Foi encontrado um erro ao buscar os dados da sessão do Unmanic.",
 		"failedToFetchLoginUrl": "Falha ao obter o URL de login.",
 		"failedToFetchLogoutUrl": "Falha ao obter URL de logout.",
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Algo deu errado ao tentar remover o repositório.",
 		"failedToFetchEnabledDataPanelPlugins": "Falha ao buscar a lista de plug-ins do painel de dados ativada",
 		"allowPopups": "Por favor, permita pop-ups para este site.",
+		"invalidWorkerEvent": "Incapaz de adicionar evento de trabalhador inválido.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -89,20 +93,20 @@
 	},
 	"headers": {
 		"workers": "Trabalhadores",
-		"pendingTasks": "Tarefas Pendentes",
-		"completedTasks": "Tarefas Concluídas",
-		"privacyPolicy": "Política de Privacidade",
+		"pendingTasks": "Pending Tasks",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
 		"plugins": "Plugins",
 		"pluginInfo": "Informação do plugin",
-		"pluginSettings": "Configurações de plug-in",
-		"pluginInstaller": "Instalador de Plugin",
-		"pluginFlow": "Configurar Fluxo de Plugin",
-		"information": "Informações",
-		"selectDirectory": "Selecione um diretório",
-		"selectFile": "Selecione um arquivo",
-		"librarySettings": "Configurações da biblioteca",
-		"completedTaskDetails": "Detalhes da tarefa concluída",
-		"supportFutureDevelopment": "Apoie o desenvolvimento futuro",
+		"pluginSettings": "Plugin Settings",
+		"pluginInstaller": "Plugin Installer",
+		"pluginFlow": "Configure Plugin Flow",
+		"information": "Info",
+		"selectDirectory": "Select a directory",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
+		"completedTaskDetails": "Completed Task Details",
+		"supportFutureDevelopment": "Support future development",
 		"confirm": "confirme"
 	},
 	"tooltips": {
@@ -117,7 +121,8 @@
 		"position": "Posição",
 		"moveUp": "Subir",
 		"moveDown": "Mova para baixo",
-		"etc": "Tempo estimado de conclusão"
+		"etc": "Tempo estimado de conclusão",
+		"add": "Adicionar"
 	},
 	"components": {
 		"settings": {
@@ -128,7 +133,7 @@
 				"libraryScanner": "Scanner de biblioteca",
 				"enableLibraryScanner": "Habilitar varreduras periódicas da biblioteca",
 				"libraryScannerSchedule": "Agenda de verificação da biblioteca em minutos",
-				"libraryScannerScheduleNotValid": "A programação da verificação da biblioteca não é válida",
+				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
 				"followSymlinks": "Siga os links simbólicos nas análises da biblioteca",
 				"runLibraryScanOnStart": "Execute uma varredura de biblioteca única na inicialização",
 				"fileMonitor": "Monitor de arquivo de biblioteca",
@@ -136,16 +141,36 @@
 			},
 			"workers": {
 				"workerCount": "Contagem de trabalhadores",
-				"path": "Caminho de cache"
+				"path": "Caminho de cache",
+				"schedule": "Agenda de eventos do trabalhador",
+				"newScheduledEvent": "Novo evento agendado",
+				"repetition": "Repetição",
+				"task": "Tarefa",
+				"addEvent": "Adicionar Evento",
+				"scheduleLabels": {
+					"daily": "Diário",
+					"weekday": "Todos os dias da semana",
+					"weekend": "Todos os sábados e domingos",
+					"monday": "Toda segunda-feira",
+					"tuesday": "Toda terça-feira",
+					"wednesday": "Toda quarta-feira",
+					"thursday": "Toda quinta-feira",
+					"friday": "Toda sexta-feira",
+					"saturday": "Todos os sábados",
+					"sunday": "Todos os domingos",
+					"count": "Definir contagem de trabalhadores",
+					"pause": "Pausar todos os trabalhadores",
+					"resume": "Retomar todos os trabalhadores"
+				}
 			},
 			"support": {
 				"logs": "Histórico",
 				"enableDebugging": "EnableDebugging",
-				"currentSystemLogs": "Logs do sistema atual",
-				"downloadSystemLogs": "Baixar registros do sistema",
+				"currentSystemLogs": "Logs atuais do sistema",
+				"downloadSystemLogs": "Download System Logs",
 				"configuration": "Configuração",
-				"appVersion": "Versão Unmanic",
-				"pythonVersion": "Versão Python",
+				"appVersion": "Unmanic Version",
+				"pythonVersion": "Python Version",
 				"platform": "Plataforma (sistema operacional)",
 				"configPath": "Caminho de Configuração",
 				"logsPath": "Caminho de registros",
@@ -161,9 +186,9 @@
 		},
 		"workers": {
 			"listEmpty": "Não há trabalhos em execução no momento. Aumente a contagem de trabalhadores nas configurações de Unmanic para gerar um trabalhador.",
-			"pauseWorker": "Pause este trabalhador",
+			"pauseWorker": "Pause this worker",
 			"workerPaused": "Trabalhador foi pausado",
-			"workerPauseFailed": "Unmanic não conseguiu pausar este trabalhador por algum motivo",
+			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
 			"resumeWorker": "Retomar este trabalhador",
 			"workerResumed": "Trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
@@ -171,7 +196,7 @@
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "Trabalhador foi demitido",
 			"workerTerminationFailed": "Unmanic não conseguiu demitir este trabalhador por algum motivo",
-			"pauseAllWorkers": "Pause todos os trabalhadores",
+			"pauseAllWorkers": "Pausar todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"workerLog": "Diário de Trabalho",
 			"status": "Status",
@@ -191,9 +216,9 @@
 		},
 		"pendingTasks": {
 			"listEmpty": "A lista de Tarefas Pendentes está vazia",
-			"rescanLibrary": "Verificar novamente a biblioteca agora",
+			"rescanLibrary": "Rescan library now",
 			"moveToTop": "Mover selecionado para o topo",
-			"moveToBottom": "Mover selecionado para o fundo",
+			"moveToBottom": "Move selected to bottom",
 			"removeSelected": "Remover selecionado"
 		},
 		"completedTasks": {
@@ -225,7 +250,7 @@
 			"errorSavingFlow": "Foi encontrado um erro ao salvar o Fluxo de Plug-in",
 			"configurePluginFlowSection": {
 				"line1": "Configure a ordem em que os plug-ins são chamados.",
-				"line2": "Abaixo está uma lista de seções de tipo de plug-in. Cada seção de tipo de plug-in pode conter uma lista de plug-ins.",
+				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
 				"line3": "Consulte a descrição abaixo de cada tipo de plug-in para obter detalhes sobre quando os plug-ins contidos serão chamados.",
 				"line4": "Um plug-in pode consistir em vários tipos de plug-in. Nesse caso, ele será chamado por Unmanic em cada uma das seções descritas."
 			},

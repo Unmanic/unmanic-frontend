@@ -29,13 +29,16 @@
 		"save": "Opslaan",
 		"backToDashboard": "Terug naar Dashboard",
 		"options": "Opties",
-		"submit": "Indienen"
+		"submit": "Indienen",
+		"cancel": "Annuleren",
+		"close": "Dichtbij",
+		"back": "Rug"
 	},
 	"status": {
 		"enabled": "ingeschakeld",
 		"disabled": "gehandicapt",
 		"cannotLoadImage": "Kan afbeelding niet laden",
-		"success": "Succes",
+		"success": "Success",
 		"failed": "mislukt"
 	},
 	"pagination": {
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Er is iets misgegaan bij het verwijderen van de repository.",
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins voor het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
+		"invalidWorkerEvent": "Kan geen ongeldige werknemergebeurtenis toevoegen.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Onbekend bericht van server",
@@ -90,20 +94,20 @@
 	"headers": {
 		"workers": "arbeiders",
 		"pendingTasks": "Taken in behandeling",
-		"completedTasks": "Voltooide taken",
-		"privacyPolicy": "Privacybeleid",
-		"plugins": "Plug-ins",
-		"pluginInfo": "Plugin-info",
-		"pluginSettings": "Plugin-instellingen",
-		"pluginInstaller": "Installatieprogramma voor plug-ins",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
+		"plugins": "Plugins",
+		"pluginInfo": "Plugin Info",
+		"pluginSettings": "Plugin Settings",
+		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "Plugin-stroom configureren",
 		"information": "Info",
-		"selectDirectory": "Selecteer een map",
-		"selectFile": "Selecteer een bestand",
-		"librarySettings": "Bibliotheekinstellingen",
+		"selectDirectory": "Select a directory",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
 		"completedTaskDetails": "Details van voltooide taak",
-		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
-		"confirm": "Bevestigen"
+		"supportFutureDevelopment": "Support future development",
+		"confirm": "Confirm"
 	},
 	"tooltips": {
 		"close": "Dichtbij",
@@ -117,7 +121,8 @@
 		"position": "Positie",
 		"moveUp": "Omhoog gaan",
 		"moveDown": "Naar beneden verplaatsen",
-		"etc": "Geschatte tijd van voltooiing"
+		"etc": "Geschatte tijd van voltooiing",
+		"add": "Toevoegen"
 	},
 	"components": {
 		"settings": {
@@ -127,7 +132,7 @@
 				"path": "Bibliotheekpad",
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "Periodieke bibliotheekscans inschakelen",
-				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
+				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
 				"followSymlinks": "Symlinks volgen op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
@@ -136,7 +141,27 @@
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",
-				"path": "Cache pad"
+				"path": "Cache pad",
+				"schedule": "Schema voor werknemersevenementen",
+				"newScheduledEvent": "Nieuw gepland evenement",
+				"repetition": "Herhaling",
+				"task": "Taak",
+				"addEvent": "Voeg evenement toe",
+				"scheduleLabels": {
+					"daily": "Dagelijks",
+					"weekday": "Elke weekdag",
+					"weekend": "Elke zaterdag en zondag",
+					"monday": "Elke maandag",
+					"tuesday": "Elke dinsdag",
+					"wednesday": "Elke woensdag",
+					"thursday": "Elke donderdag",
+					"friday": "Elke vrijdag",
+					"saturday": "Elke zaterdag",
+					"sunday": "Elke zondag",
+					"count": "Aantal werknemers instellen",
+					"pause": "Alle werkers pauzeren",
+					"resume": "Alle werknemers hervatten"
+				}
 			},
 			"support": {
 				"logs": "Logboeken",
@@ -154,25 +179,25 @@
 				"apiSpec": "API-specificatie:",
 				"applicationDocumentation": "Toepassingsdocumentatie",
 				"support": "Steun",
-				"unmanicAppSourceRequests": "Verzoekfunctie in Unmanic Application",
+				"unmanicAppSourceRequests": "Functie aanvragen in Unmanic Application",
 				"unmanicFrontendSourceRequests": "Functie aanvragen in Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Vraag een plug-in aan voor Unmanic"
 			}
 		},
 		"workers": {
-			"listEmpty": "Er zijn momenteel geen arbeiders actief. Verhoog het aantal werkers in de instellingen van Unmanic om een werker te spawnen.",
+			"listEmpty": "There are no workers currently running. Increase the worker count in Unmanic's settings to spawn a worker.",
 			"pauseWorker": "Deze werknemer onderbreken",
 			"workerPaused": "Werknemer is onderbroken",
 			"workerPauseFailed": "Unmanic kan deze werker om de een of andere reden niet pauzeren",
 			"resumeWorker": "Deze werknemer hervatten",
-			"workerResumed": "Werknemer is hervat",
+			"workerResumed": "Worker has been resumed",
 			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
 			"terminateWorker": "Deze werknemer beëindigen",
 			"terminateWorkerWarning": "Weet u zeker dat u deze werknemer en zijn huidige taak wilt beëindigen? De huidige taak wordt gemarkeerd als mislukt in de lijst met voltooide taken.",
 			"workerTerminated": "Werknemer is beëindigd",
 			"workerTerminationFailed": "Unmanic kon deze werknemer om de een of andere reden niet beëindigen",
 			"pauseAllWorkers": "Alle werkers pauzeren",
-			"resumeAllWorkers": "Alle werknemers hervatten",
+			"resumeAllWorkers": "Resume all workers",
 			"workerLog": "Werknemerslogboek",
 			"status": "Toestand",
 			"stateLabel": "Staat",
@@ -194,7 +219,7 @@
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
 			"moveToTop": "Geselecteerde naar boven verplaatsen",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
-			"removeSelected": "Verwijder geselecteerde"
+			"removeSelected": "Remove selected"
 		},
 		"completedTasks": {
 			"listEmpty": "De lijst Voltooide taken is leeg",
@@ -225,7 +250,7 @@
 			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
-				"line2": "Hieronder vindt u een lijst met secties voor het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
+				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
 				"line3": "Zie de beschrijving onder elk type plug-in voor details wanneer de plug-ins worden aangeroepen.",
 				"line4": "Een plug-in kan uit meerdere typen plug-ins bestaan. Als dat zo is, wordt het door Unmanic aangeroepen in elk van de beschreven secties."
 			},

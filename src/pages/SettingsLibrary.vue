@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col q-ma-sm">
 
-          <div class="q-pa-md" style="max-width: 400px">
+          <div class="q-pa-md" style="max-width: 500px">
 
             <q-form
               @submit="save"

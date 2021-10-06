@@ -29,7 +29,10 @@
     "save": "Save",
     "backToDashboard": "Back to Dashboard",
     "options": "Options",
-    "submit": "Submit"
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "close": "Close",
+    "back": "Back"
   },
   "status": {
     "enabled": "enabled",
@@ -71,6 +74,7 @@
     "repoRemovedFailed": "Something went wrong while trying to remove repository.",
     "failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
     "allowPopups": "Please allow popups for this website.",
+    "invalidWorkerEvent": "Unable to add Invalid worker event.",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
@@ -117,7 +121,8 @@
     "position": "Position",
     "moveUp": "Move up",
     "moveDown": "Move down",
-    "etc": "Estimated Time of Completion"
+    "etc": "Estimated Time of Completion",
+    "add": "Add"
   },
   "components": {
     "settings": {
@@ -136,7 +141,27 @@
       },
       "workers": {
         "workerCount": "Worker count",
-        "path": "Cache path"
+        "path": "Cache path",
+        "schedule": "Worker event schedule",
+        "newScheduledEvent": "New scheduled event",
+        "repetition": "Repetition",
+        "task": "Task",
+        "addEvent": "Add Event",
+        "scheduleLabels": {
+          "daily": "Daily",
+          "weekday":"Every Weekday",
+          "weekend": "Every Saturday and Sunday",
+          "monday":"Every Monday",
+          "tuesday": "Every Tuesday",
+          "wednesday":"Every Wednesday",
+          "thursday": "Every Thursday",
+          "friday":"Every Friday",
+          "saturday": "Every Saturday",
+          "sunday":"Every Sunday",
+          "count":"Set worker count",
+          "pause":"Pause all workers",
+          "resume":"Resume all workers"
+        }
       },
       "support": {
         "logs": "Logs",

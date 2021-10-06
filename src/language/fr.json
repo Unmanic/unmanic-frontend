@@ -29,7 +29,10 @@
 		"save": "sauvegarder",
 		"backToDashboard": "Retour au tableau de bord",
 		"options": "Options",
-		"submit": "Soumettre"
+		"submit": "Soumettre",
+		"cancel": "Annuler",
+		"close": "proche",
+		"back": "Arrière"
 	},
 	"status": {
 		"enabled": "activée",
@@ -71,6 +74,7 @@
 		"repoRemovedFailed": "Une erreur s'est produite lors de la tentative de suppression du référentiel.",
 		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
 		"allowPopups": "Veuillez autoriser les fenêtres contextuelles pour ce site Web.",
+		"invalidWorkerEvent": "Impossible d'ajouter un événement de travail non valide.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Message inconnu du serveur",
@@ -90,20 +94,20 @@
 	"headers": {
 		"workers": "Ouvriers",
 		"pendingTasks": "Tâches en attente",
-		"completedTasks": "Tâches terminées",
-		"privacyPolicy": "Politique de confidentialité",
+		"completedTasks": "Completed Tasks",
+		"privacyPolicy": "Privacy Policy",
 		"plugins": "Plugins",
 		"pluginInfo": "Informations sur le plugin",
-		"pluginSettings": "Paramètres du plugin",
+		"pluginSettings": "Plugin Settings",
 		"pluginInstaller": "Installateur de plugin",
-		"pluginFlow": "Configurer le flux de plugin",
+		"pluginFlow": "Configure Plugin Flow",
 		"information": "Info",
 		"selectDirectory": "Sélectionnez un répertoire",
-		"selectFile": "Sélectionner un fichier",
-		"librarySettings": "Paramètres de la bibliothèque",
+		"selectFile": "Select a file",
+		"librarySettings": "Library Settings",
 		"completedTaskDetails": "Détails de la tâche terminée",
-		"supportFutureDevelopment": "Soutenir le développement futur",
-		"confirm": "Confirmer"
+		"supportFutureDevelopment": "Support future development",
+		"confirm": "Confirm"
 	},
 	"tooltips": {
 		"close": "proche",
@@ -117,7 +121,8 @@
 		"position": "Position",
 		"moveUp": "Déplacer vers le haut",
 		"moveDown": "Descendre",
-		"etc": "Temps d'achèvement estimé"
+		"etc": "Temps d'achèvement estimé",
+		"add": "Ajouter"
 	},
 	"components": {
 		"settings": {
@@ -136,10 +141,30 @@
 			},
 			"workers": {
 				"workerCount": "Nombre de travailleurs",
-				"path": "Chemin du cache"
+				"path": "Chemin du cache",
+				"schedule": "Calendrier des événements des travailleurs",
+				"newScheduledEvent": "Nouvel événement programmé",
+				"repetition": "Répétition",
+				"task": "Tâche",
+				"addEvent": "Ajouter un évènement",
+				"scheduleLabels": {
+					"daily": "du quotidien",
+					"weekday": "Tous les jours de la semaine",
+					"weekend": "Tous les samedis et dimanches",
+					"monday": "Tous les lundis",
+					"tuesday": "Tous les mardis",
+					"wednesday": "Chaque mercredi",
+					"thursday": "Chaque jeudi",
+					"friday": "Tous les vendredis",
+					"saturday": "Tout les samedi",
+					"sunday": "Chaque dimanche",
+					"count": "Définir le nombre de travailleurs",
+					"pause": "Suspendre tous les travailleurs",
+					"resume": "Reprendre tous les travailleurs"
+				}
 			},
 			"support": {
-				"logs": "Journaux",
+				"logs": "Logs",
 				"enableDebugging": "Activer le débogage",
 				"currentSystemLogs": "Journaux système actuels",
 				"downloadSystemLogs": "Télécharger les journaux système",
@@ -161,18 +186,18 @@
 		},
 		"workers": {
 			"listEmpty": "Il n'y a pas de travailleurs en cours d'exécution actuellement. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour générer un travailleur.",
-			"pauseWorker": "Mettre ce travailleur en pause",
+			"pauseWorker": "Pause this worker",
 			"workerPaused": "Le nœud de calcul a été mis en pause",
 			"workerPauseFailed": "Unmanic n'a pas pu mettre en pause ce travailleur pour une raison quelconque",
 			"resumeWorker": "Reprendre ce travailleur",
-			"workerResumed": "Le travailleur a repris",
+			"workerResumed": "Worker has been resumed",
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
 			"terminateWorker": "Mettre fin à ce travailleur",
 			"terminateWorkerWarning": "Êtes-vous sûr de vouloir mettre fin à ce travailleur et à sa tâche actuelle ? La tâche en cours sera marquée comme ayant échoué dans la liste des tâches terminées.",
 			"workerTerminated": "Le travailleur a été licencié",
 			"workerTerminationFailed": "Unmanic n'a pas pu licencier ce travailleur pour une raison quelconque",
 			"pauseAllWorkers": "Suspendre tous les travailleurs",
-			"resumeAllWorkers": "Reprendre tous les travailleurs",
+			"resumeAllWorkers": "Resume all workers",
 			"workerLog": "Journal des travailleurs",
 			"status": "Statut",
 			"stateLabel": "État",
@@ -190,7 +215,7 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "La liste des tâches en attente est vide",
+			"listEmpty": "The Pending Tasks list is empty",
 			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
 			"moveToTop": "Déplacer la sélection vers le haut",
 			"moveToBottom": "Déplacer la sélection vers le bas",
@@ -231,7 +256,7 @@
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion des bibliothèques - Test de fichiers",
+					"fileTest": "Gestion de la bibliothèque - Test de fichier",
 					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
 				},
 				"postprocessor": {
