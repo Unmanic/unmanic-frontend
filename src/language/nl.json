@@ -38,7 +38,7 @@
 		"enabled": "ingeschakeld",
 		"disabled": "gehandicapt",
 		"cannotLoadImage": "Kan afbeelding niet laden",
-		"success": "Success",
+		"success": "Succes",
 		"failed": "mislukt"
 	},
 	"pagination": {
@@ -94,20 +94,20 @@
 	"headers": {
 		"workers": "arbeiders",
 		"pendingTasks": "Taken in behandeling",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
-		"plugins": "Plugins",
-		"pluginInfo": "Plugin Info",
-		"pluginSettings": "Plugin Settings",
-		"pluginInstaller": "Plugin Installer",
+		"completedTasks": "Voltooide taken",
+		"privacyPolicy": "Privacybeleid",
+		"plugins": "Plug-ins",
+		"pluginInfo": "Plugin-info",
+		"pluginSettings": "Plugin-instellingen",
+		"pluginInstaller": "Installatieprogramma voor plug-ins",
 		"pluginFlow": "Plugin-stroom configureren",
 		"information": "Info",
-		"selectDirectory": "Select a directory",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
+		"selectDirectory": "Selecteer een map",
+		"selectFile": "Selecteer een bestand",
+		"librarySettings": "Bibliotheekinstellingen",
 		"completedTaskDetails": "Details van voltooide taak",
-		"supportFutureDevelopment": "Support future development",
-		"confirm": "Confirm"
+		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
+		"confirm": "Bevestigen"
 	},
 	"tooltips": {
 		"close": "Dichtbij",
@@ -137,12 +137,14 @@
 				"followSymlinks": "Symlinks volgen op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
 				"fileMonitor": "Bibliotheek bestandsmonitor",
-				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen"
+				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen",
+				"pendingTasks": "Taken in behandeling",
+				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten"
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",
 				"path": "Cache pad",
-				"schedule": "Schema voor werknemersevenementen",
+				"schedule": "Werkrooster voor evenementen",
 				"newScheduledEvent": "Nieuw gepland evenement",
 				"repetition": "Herhaling",
 				"task": "Taak",
@@ -179,25 +181,25 @@
 				"apiSpec": "API-specificatie:",
 				"applicationDocumentation": "Toepassingsdocumentatie",
 				"support": "Steun",
-				"unmanicAppSourceRequests": "Functie aanvragen in Unmanic Application",
+				"unmanicAppSourceRequests": "Verzoekfunctie in Unmanic Application",
 				"unmanicFrontendSourceRequests": "Functie aanvragen in Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Vraag een plug-in aan voor Unmanic"
 			}
 		},
 		"workers": {
-			"listEmpty": "There are no workers currently running. Increase the worker count in Unmanic's settings to spawn a worker.",
+			"listEmpty": "Er zijn momenteel geen arbeiders actief. Verhoog het aantal werkers in de instellingen van Unmanic om een werker te spawnen.",
 			"pauseWorker": "Deze werknemer onderbreken",
 			"workerPaused": "Werknemer is onderbroken",
 			"workerPauseFailed": "Unmanic kan deze werker om de een of andere reden niet pauzeren",
 			"resumeWorker": "Deze werknemer hervatten",
-			"workerResumed": "Worker has been resumed",
+			"workerResumed": "Werknemer is hervat",
 			"workerResumedFailed": "Unmanic kon deze werknemer om de een of andere reden niet hervatten",
 			"terminateWorker": "Deze werknemer beëindigen",
 			"terminateWorkerWarning": "Weet u zeker dat u deze werknemer en zijn huidige taak wilt beëindigen? De huidige taak wordt gemarkeerd als mislukt in de lijst met voltooide taken.",
 			"workerTerminated": "Werknemer is beëindigd",
 			"workerTerminationFailed": "Unmanic kon deze werknemer om de een of andere reden niet beëindigen",
 			"pauseAllWorkers": "Alle werkers pauzeren",
-			"resumeAllWorkers": "Resume all workers",
+			"resumeAllWorkers": "Alle werknemers hervatten",
 			"workerLog": "Werknemerslogboek",
 			"status": "Toestand",
 			"stateLabel": "Staat",
@@ -219,7 +221,7 @@
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
 			"moveToTop": "Geselecteerde naar boven verplaatsen",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
-			"removeSelected": "Remove selected"
+			"removeSelected": "Verwijder geselecteerde"
 		},
 		"completedTasks": {
 			"listEmpty": "De lijst Voltooide taken is leeg",
@@ -250,7 +252,7 @@
 			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
-				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
+				"line2": "Hieronder vindt u een lijst met secties voor het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
 				"line3": "Zie de beschrijving onder elk type plug-in voor details wanneer de plug-ins worden aangeroepen.",
 				"line4": "Een plug-in kan uit meerdere typen plug-ins bestaan. Als dat zo is, wordt het door Unmanic aangeroepen in elk van de beschreven secties."
 			},

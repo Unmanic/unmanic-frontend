@@ -94,20 +94,20 @@
 	"headers": {
 		"workers": "Ouvriers",
 		"pendingTasks": "Tâches en attente",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
+		"completedTasks": "Tâches terminées",
+		"privacyPolicy": "Politique de confidentialité",
 		"plugins": "Plugins",
 		"pluginInfo": "Informations sur le plugin",
-		"pluginSettings": "Plugin Settings",
+		"pluginSettings": "Paramètres du plugin",
 		"pluginInstaller": "Installateur de plugin",
-		"pluginFlow": "Configure Plugin Flow",
+		"pluginFlow": "Configurer le flux de plugin",
 		"information": "Info",
 		"selectDirectory": "Sélectionnez un répertoire",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
+		"selectFile": "Sélectionner un fichier",
+		"librarySettings": "Paramètres de la bibliothèque",
 		"completedTaskDetails": "Détails de la tâche terminée",
-		"supportFutureDevelopment": "Support future development",
-		"confirm": "Confirm"
+		"supportFutureDevelopment": "Soutenir le développement futur",
+		"confirm": "Confirmer"
 	},
 	"tooltips": {
 		"close": "proche",
@@ -137,7 +137,9 @@
 				"followSymlinks": "Suivez les liens symboliques sur les analyses de bibliothèque",
 				"runLibraryScanOnStart": "Exécuter une analyse de bibliothèque unique au démarrage",
 				"fileMonitor": "Moniteur de fichiers de bibliothèque",
-				"enableLibraryFileMonitor": "Activer le moniteur de fichiers de bibliothèque"
+				"enableLibraryFileMonitor": "Activer le moniteur de fichiers de bibliothèque",
+				"pendingTasks": "Tâches en attente",
+				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage"
 			},
 			"workers": {
 				"workerCount": "Nombre de travailleurs",
@@ -164,7 +166,7 @@
 				}
 			},
 			"support": {
-				"logs": "Logs",
+				"logs": "Journaux",
 				"enableDebugging": "Activer le débogage",
 				"currentSystemLogs": "Journaux système actuels",
 				"downloadSystemLogs": "Télécharger les journaux système",
@@ -186,18 +188,18 @@
 		},
 		"workers": {
 			"listEmpty": "Il n'y a pas de travailleurs en cours d'exécution actuellement. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour générer un travailleur.",
-			"pauseWorker": "Pause this worker",
+			"pauseWorker": "Mettre ce travailleur en pause",
 			"workerPaused": "Le nœud de calcul a été mis en pause",
 			"workerPauseFailed": "Unmanic n'a pas pu mettre en pause ce travailleur pour une raison quelconque",
 			"resumeWorker": "Reprendre ce travailleur",
-			"workerResumed": "Worker has been resumed",
+			"workerResumed": "Le travailleur a repris",
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
 			"terminateWorker": "Mettre fin à ce travailleur",
 			"terminateWorkerWarning": "Êtes-vous sûr de vouloir mettre fin à ce travailleur et à sa tâche actuelle ? La tâche en cours sera marquée comme ayant échoué dans la liste des tâches terminées.",
 			"workerTerminated": "Le travailleur a été licencié",
 			"workerTerminationFailed": "Unmanic n'a pas pu licencier ce travailleur pour une raison quelconque",
 			"pauseAllWorkers": "Suspendre tous les travailleurs",
-			"resumeAllWorkers": "Resume all workers",
+			"resumeAllWorkers": "Reprendre tous les travailleurs",
 			"workerLog": "Journal des travailleurs",
 			"status": "Statut",
 			"stateLabel": "État",
@@ -215,7 +217,7 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "The Pending Tasks list is empty",
+			"listEmpty": "La liste des tâches en attente est vide",
 			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
 			"moveToTop": "Déplacer la sélection vers le haut",
 			"moveToBottom": "Déplacer la sélection vers le bas",
@@ -256,7 +258,7 @@
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion de la bibliothèque - Test de fichier",
+					"fileTest": "Gestion des bibliothèques - Test de fichiers",
 					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
 				},
 				"postprocessor": {

@@ -137,7 +137,9 @@
         "followSymlinks": "Follow symlinks on library scans",
         "runLibraryScanOnStart": "Run a one off library scan on startup",
         "fileMonitor": "Library file monitor",
-        "enableLibraryFileMonitor": "Enable the library file monitor"
+        "enableLibraryFileMonitor": "Enable the library file monitor",
+        "pendingTasks": "Pending tasks",
+        "clearPendingTasksOnStart": "Clear all pending tasks on startup"
       },
       "workers": {
         "workerCount": "Worker count",

@@ -114,6 +114,22 @@
               </div>
               <!--END LIBRARY SCANNER-->
 
+              <q-separator class="q-my-lg"/>
+
+              <!--START PENDING TASKS CONFIG-->
+              <h5 class="q-mb-none">{{ $t('components.settings.library.pendingTasks') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="clearPendingTasksOnStart === null"
+                  type="QToggle"/>
+                <q-toggle
+                  v-else
+                  v-model="clearPendingTasksOnStart"
+                  :label="$t('components.settings.library.clearPendingTasksOnStart')"
+                />
+              </div>
+              <!--END PENDING TASKS CONFIG-->
+
               <div>
                 <q-btn :label="$t('navigation.submit')" type="submit" color="secondary"/>
               </div>
@@ -211,6 +227,7 @@ export default {
       libraryScanFollowSymlinks: ref(null),
       runLibraryScanOnStart: ref(null),
       enableLibraryFileMonitor: ref(null),
+      clearPendingTasksOnStart: ref(null),
     }
   },
   methods: {
@@ -241,6 +258,7 @@ export default {
         this.libraryScanFollowSymlinks = response.data.settings.follow_symlinks
         this.runLibraryScanOnStart = response.data.settings.run_full_scan_on_start
         this.enableLibraryFileMonitor = response.data.settings.enable_inotify
+        this.clearPendingTasksOnStart = response.data.settings.clear_pending_tasks_on_restart
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
@@ -261,6 +279,7 @@ export default {
           follow_symlinks: this.libraryScanFollowSymlinks,
           run_full_scan_on_start: this.runLibraryScanOnStart,
           enable_inotify: this.enableLibraryFileMonitor,
+          clear_pending_tasks_on_restart: this.clearPendingTasksOnStart
         }
       }
       axios({

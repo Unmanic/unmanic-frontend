@@ -94,20 +94,20 @@
 	"headers": {
 		"workers": "Рабочие",
 		"pendingTasks": "Незавершенные задачи",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
-		"plugins": "Plugins",
-		"pluginInfo": "Plugin Info",
-		"pluginSettings": "Plugin Settings",
+		"completedTasks": "Выполненные задачи",
+		"privacyPolicy": "Политика конфиденциальности",
+		"plugins": "Плагины",
+		"pluginInfo": "Информация о плагине",
+		"pluginSettings": "Настройки плагина",
 		"pluginInstaller": "Установщик плагинов",
-		"pluginFlow": "Configure Plugin Flow",
-		"information": "Info",
-		"selectDirectory": "Select a directory",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
-		"completedTaskDetails": "Completed Task Details",
-		"supportFutureDevelopment": "Support future development",
-		"confirm": "Confirm"
+		"pluginFlow": "Настроить поток плагинов",
+		"information": "Информация",
+		"selectDirectory": "Выберите каталог",
+		"selectFile": "Выберите файл",
+		"librarySettings": "Настройки библиотеки",
+		"completedTaskDetails": "Детали выполненной задачи",
+		"supportFutureDevelopment": "Поддержка будущего развития",
+		"confirm": "Подтверждать"
 	},
 	"tooltips": {
 		"close": "Закрывать",
@@ -133,16 +133,18 @@
 				"libraryScanner": "Сканер библиотеки",
 				"enableLibraryScanner": "Включить периодическое сканирование библиотеки",
 				"libraryScannerSchedule": "Расписание сканирования библиотеки в минутах",
-				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
+				"libraryScannerScheduleNotValid": "Расписание сканирования библиотеки недействительно",
 				"followSymlinks": "Следуйте символическим ссылкам при сканировании библиотек",
 				"runLibraryScanOnStart": "Выполнить одноразовое сканирование библиотеки при запуске",
 				"fileMonitor": "Монитор файлов библиотеки",
-				"enableLibraryFileMonitor": "Включить монитор файлов библиотеки"
+				"enableLibraryFileMonitor": "Включить монитор файлов библиотеки",
+				"pendingTasks": "Незавершенные задачи",
+				"clearPendingTasksOnStart": "Очистить все незавершенные задачи при запуске"
 			},
 			"workers": {
 				"workerCount": "Количество рабочих",
 				"path": "Путь к кешу",
-				"schedule": "График мероприятий рабочего",
+				"schedule": "Расписание мероприятий рабочего",
 				"newScheduledEvent": "Новое запланированное мероприятие",
 				"repetition": "Повторение",
 				"task": "Задача",
@@ -164,7 +166,7 @@
 				}
 			},
 			"support": {
-				"logs": "Logs",
+				"logs": "Журналы",
 				"enableDebugging": "EnableDebugging",
 				"currentSystemLogs": "Текущие системные журналы",
 				"downloadSystemLogs": "Скачать системные журналы",
@@ -188,7 +190,7 @@
 			"listEmpty": "В настоящее время нет работающих рабочих. Увеличьте количество рабочих в настройках Unmanic, чтобы создать рабочего.",
 			"pauseWorker": "Приостановить этого рабочего",
 			"workerPaused": "Рабочий был приостановлен",
-			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
+			"workerPauseFailed": "Unmanic по какой-то причине не смог приостановить этого рабочего.",
 			"resumeWorker": "Возобновить этого работника",
 			"workerResumed": "Работник возобновлен",
 			"workerResumedFailed": "Unmanic по какой-то причине не смог возобновить этого рабочего.",
@@ -202,7 +204,7 @@
 			"status": "Положение дел",
 			"stateLabel": "Состояние",
 			"currentRunnerLabel": "Текущий бегун",
-			"startTimeLabel": "Start Time",
+			"startTimeLabel": "Начальное время",
 			"totalProcessingTimeLabel": "Общее время обработки",
 			"state": {
 				"waiting": "Жду очередного задания ...",
@@ -215,7 +217,7 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "The Pending Tasks list is empty",
+			"listEmpty": "Список ожидающих задач пуст.",
 			"rescanLibrary": "Пересканировать библиотеку сейчас",
 			"moveToTop": "Переместить выбранное наверх",
 			"moveToBottom": "Переместить выделенное вниз",
@@ -246,12 +248,12 @@
 			"addRepository": "Добавить репозиторий",
 			"newRepository": "Новый репозиторий",
 			"repoName": "Имя",
-			"repoSource": "Repository URL",
+			"repoSource": "URL-адрес репозитория",
 			"errorSavingFlow": "Произошла ошибка при сохранении потока надстройки",
 			"configurePluginFlowSection": {
-				"line1": "Configure the order in which Plugins are called.",
-				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
-				"line3": "См. Описание каждого типа подключаемого модуля для получения подробной информации о том, когда будут вызываться содержащиеся подключаемые модули.",
+				"line1": "Настройте порядок, в котором вызываются плагины.",
+				"line2": "Ниже приведен список разделов типа плагина. Каждый раздел типа плагина может содержать список плагинов.",
+				"line3": "См. Описание под каждым типом подключаемого модуля для получения подробной информации о том, когда будут вызываться содержащиеся подключаемые модули.",
 				"line4": "Плагин может состоять из нескольких типов плагинов. Если это так, он будет вызываться Unmanic в каждом из описанных разделов."
 			},
 			"types": {

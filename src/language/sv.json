@@ -93,20 +93,20 @@
 	},
 	"headers": {
 		"workers": "Arbetare",
-		"pendingTasks": "Pending Tasks",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
-		"plugins": "Plugins",
+		"pendingTasks": "Väntande uppgifter",
+		"completedTasks": "Slutförda uppgifter",
+		"privacyPolicy": "Integritetspolicy",
+		"plugins": "Insticksprogram",
 		"pluginInfo": "Plugin Info",
 		"pluginSettings": "Insticksprogram",
 		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "Konfigurera pluginflöde",
 		"information": "Info",
 		"selectDirectory": "Välj en katalog",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
-		"completedTaskDetails": "Completed Task Details",
-		"supportFutureDevelopment": "Support future development",
+		"selectFile": "Välj en fil",
+		"librarySettings": "Biblioteksinställningar",
+		"completedTaskDetails": "Slutförda uppgifter",
+		"supportFutureDevelopment": "Stödja framtida utveckling",
 		"confirm": "Bekräfta"
 	},
 	"tooltips": {
@@ -121,7 +121,7 @@
 		"position": "Placera",
 		"moveUp": "Flytta upp",
 		"moveDown": "Flytta ner",
-		"etc": "Beräknad tid för slutförande",
+		"etc": "Uppskattad tid för slutförande",
 		"add": "Lägg till"
 	},
 	"components": {
@@ -133,11 +133,13 @@
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera periodiska biblioteksskanningar",
 				"libraryScannerSchedule": "Bibliotekets skanningsschema på några minuter",
-				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
+				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är inte giltigt",
 				"followSymlinks": "Följ symlänkar på biblioteksskanningar",
 				"runLibraryScanOnStart": "Kör en engångsbibliotekskanning vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
-				"enableLibraryFileMonitor": "Aktivera biblioteksfilövervakaren"
+				"enableLibraryFileMonitor": "Aktivera biblioteksfilövervakaren",
+				"pendingTasks": "Väntande uppgifter",
+				"clearPendingTasksOnStart": "Rensa alla väntande uppgifter vid start"
 			},
 			"workers": {
 				"workerCount": "Arbetarantal",
@@ -185,11 +187,11 @@
 			}
 		},
 		"workers": {
-			"listEmpty": "There are no workers currently running. Increase the worker count in Unmanic's settings to spawn a worker.",
+			"listEmpty": "Det finns inga arbetare på gång just nu. Öka antalet arbetare i Unmanics inställningar för att skapa en arbetare.",
 			"pauseWorker": "Pausa den här arbetaren",
 			"workerPaused": "Arbetaren har pausats",
 			"workerPauseFailed": "Unmanic kunde av någon anledning inte pausa den här arbetaren",
-			"resumeWorker": "Resume this worker",
+			"resumeWorker": "Återuppta den här arbetaren",
 			"workerResumed": "Arbetaren har återupptagits",
 			"workerResumedFailed": "Unmanic kunde av någon anledning inte återuppta den här arbetaren",
 			"terminateWorker": "Avsluta den här arbetaren",
@@ -249,9 +251,9 @@
 			"repoSource": "Förrådets URL",
 			"errorSavingFlow": "Ett fel uppstod när pluginflödet skulle sparas",
 			"configurePluginFlowSection": {
-				"line1": "Configure the order in which Plugins are called.",
-				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
-				"line3": "See the description below each Plugin Type for details when the contained Plugins will be called.",
+				"line1": "Konfigurera i vilken ordning plugins anropas.",
+				"line2": "Nedan finns en lista över plugin -typavsnitt. Varje avsnitt av plugin -typ kan innehålla en lista med plugins.",
+				"line3": "Se beskrivningen nedan för varje plugin -typ för detaljer när de innehållna pluginsna kommer att ringas.",
 				"line4": "Ett insticksprogram kan bestå av flera olika plugin -typer. I så fall kommer det att kallas av Unmanic vid var och en av de beskrivna sektionerna."
 			},
 			"types": {

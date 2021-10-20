@@ -94,20 +94,20 @@
 	"headers": {
 		"workers": "工人",
 		"pendingTasks": "待处理的任务",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
-		"plugins": "Plugins",
-		"pluginInfo": "Plugin Info",
-		"pluginSettings": "Plugin Settings",
-		"pluginInstaller": "Plugin Installer",
-		"pluginFlow": "Configure Plugin Flow",
-		"information": "Info",
-		"selectDirectory": "Select a directory",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
-		"completedTaskDetails": "Completed Task Details",
-		"supportFutureDevelopment": "Support future development",
-		"confirm": "Confirm"
+		"completedTasks": "已完成的任务",
+		"privacyPolicy": "隐私政策",
+		"plugins": "插件",
+		"pluginInfo": "插件信息",
+		"pluginSettings": "插件设置",
+		"pluginInstaller": "插件安装程序",
+		"pluginFlow": "配置插件流程",
+		"information": "信息",
+		"selectDirectory": "选择目录",
+		"selectFile": "选择一个文件",
+		"librarySettings": "图书馆设置",
+		"completedTaskDetails": "已完成的任务详情",
+		"supportFutureDevelopment": "支持未来发展",
+		"confirm": "确认"
 	},
 	"tooltips": {
 		"close": "关闭",
@@ -133,11 +133,13 @@
 				"libraryScanner": "图书馆扫描仪",
 				"enableLibraryScanner": "启用定期库扫描",
 				"libraryScannerSchedule": "几分钟内的图书馆扫描计划",
-				"libraryScannerScheduleNotValid": "Library scan schedule not valid",
+				"libraryScannerScheduleNotValid": "库扫描计划无效",
 				"followSymlinks": "按照库扫描的符号链接",
 				"runLibraryScanOnStart": "在启动时运行一次性库扫描",
 				"fileMonitor": "库文件监视器",
-				"enableLibraryFileMonitor": "启用库文件监视器"
+				"enableLibraryFileMonitor": "启用库文件监视器",
+				"pendingTasks": "待处理的任务",
+				"clearPendingTasksOnStart": "启动时清除所有挂起的任务"
 			},
 			"workers": {
 				"workerCount": "工人数",
@@ -188,7 +190,7 @@
 			"listEmpty": "当前没有工作人员正在运行。在 Unmanic 的设置中增加工人数量以产生工人。",
 			"pauseWorker": "暂停此工作器",
 			"workerPaused": "工人已暂停",
-			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
+			"workerPauseFailed": "由于某种原因，Unmanic 无法暂停此工作者",
 			"resumeWorker": "恢复这个工人",
 			"workerResumed": "工人已恢复",
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
@@ -219,11 +221,11 @@
 			"rescanLibrary": "立即重新扫描图书馆",
 			"moveToTop": "将所选内容移至顶部",
 			"moveToBottom": "将所选内容移至底部",
-			"removeSelected": "Remove selected"
+			"removeSelected": "删除选定"
 		},
 		"completedTasks": {
 			"listEmpty": "已完成的任务列表为空",
-			"details": "Details",
+			"details": "细节",
 			"errorGettingDetails": "获取此任务的详细信息时遇到错误"
 		},
 		"plugins": {
@@ -250,7 +252,7 @@
 			"errorSavingFlow": "保存插件流程时遇到错误",
 			"configurePluginFlowSection": {
 				"line1": "配置调用插件的顺序。",
-				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
+				"line2": "下面是插件类型部分的列表。每个插件类型部分可能包含一个插件列表。",
 				"line3": "有关何时调用包含的插件的详细信息，请参阅每个插件类型下面的说明。",
 				"line4": "一个插件可能由多个插件类型组成。如果是这样，Unmanic 将在每个描述的部分调用它。"
 			},

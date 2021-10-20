@@ -94,20 +94,20 @@
 	"headers": {
 		"workers": "Lavoratori",
 		"pendingTasks": "Compiti in sospeso",
-		"completedTasks": "Completed Tasks",
-		"privacyPolicy": "Privacy Policy",
-		"plugins": "Plugins",
+		"completedTasks": "Compiti completati",
+		"privacyPolicy": "politica sulla riservatezza",
+		"plugins": "Plugin",
 		"pluginInfo": "Informazioni sui plugin",
-		"pluginSettings": "Plugin Settings",
-		"pluginInstaller": "Plugin Installer",
-		"pluginFlow": "Configure Plugin Flow",
-		"information": "Info",
-		"selectDirectory": "Select a directory",
-		"selectFile": "Select a file",
-		"librarySettings": "Library Settings",
-		"completedTaskDetails": "Completed Task Details",
-		"supportFutureDevelopment": "Support future development",
-		"confirm": "Confirm"
+		"pluginSettings": "Impostazioni plugin",
+		"pluginInstaller": "Programma di installazione del plug-in",
+		"pluginFlow": "Configura flusso plugin",
+		"information": "Informazioni",
+		"selectDirectory": "Seleziona una directory",
+		"selectFile": "Seleziona un file",
+		"librarySettings": "Impostazioni libreria",
+		"completedTaskDetails": "Dettagli dell'attività completata",
+		"supportFutureDevelopment": "Sostieni lo sviluppo futuro",
+		"confirm": "Confermare"
 	},
 	"tooltips": {
 		"close": "Chiudere",
@@ -137,7 +137,9 @@
 				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della biblioteca",
 				"runLibraryScanOnStart": "Esegui una scansione della libreria una tantum all'avvio",
 				"fileMonitor": "Monitoraggio dei file di libreria",
-				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria"
+				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria",
+				"pendingTasks": "Compiti in sospeso",
+				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio"
 			},
 			"workers": {
 				"workerCount": "Contatore dei lavoratori",
@@ -164,10 +166,10 @@
 				}
 			},
 			"support": {
-				"logs": "Logs",
+				"logs": "Registri",
 				"enableDebugging": "Abilita debug",
 				"currentSystemLogs": "Registri di sistema correnti",
-				"downloadSystemLogs": "Download System Logs",
+				"downloadSystemLogs": "Scarica i registri di sistema",
 				"configuration": "Configurazione",
 				"appVersion": "Versione non maniacale",
 				"pythonVersion": "Versione Python",
@@ -195,10 +197,10 @@
 			"terminateWorker": "Termina questo lavoratore",
 			"terminateWorkerWarning": "Sei sicuro di voler terminare questo lavoratore e la sua attività attuale? L'attività corrente verrà contrassegnata come non riuscita nell'elenco delle attività completate.",
 			"workerTerminated": "Il lavoratore è stato licenziato",
-			"workerTerminationFailed": "Unmanic was unable to terminate this worker for some reason",
+			"workerTerminationFailed": "Unmanic non è stato in grado di licenziare questo lavoratore per qualche motivo",
 			"pauseAllWorkers": "Metti in pausa tutti i lavoratori",
 			"resumeAllWorkers": "Riprendete tutti i lavoratori",
-			"workerLog": "Worker Log",
+			"workerLog": "Registro dei lavoratori",
 			"status": "Stato",
 			"stateLabel": "Stato",
 			"currentRunnerLabel": "Attuale corridore",
@@ -211,11 +213,11 @@
 			},
 			"currentRunner": {
 				"none": "Nessuno",
-				"indeterminate": "Indeterminate"
+				"indeterminate": "Indeterminato"
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "The Pending Tasks list is empty",
+			"listEmpty": "L'elenco delle attività in sospeso è vuoto",
 			"rescanLibrary": "Scansiona di nuovo la libreria ora",
 			"moveToTop": "Sposta selezionato in alto",
 			"moveToBottom": "Sposta selezionato in basso",
@@ -250,7 +252,7 @@
 			"errorSavingFlow": "Si è verificato un errore durante il salvataggio del flusso del plugin",
 			"configurePluginFlowSection": {
 				"line1": "Configura l'ordine in cui vengono chiamati i plugin.",
-				"line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
+				"line2": "Di seguito è riportato un elenco di sezioni Tipo di plug-in. Ogni sezione Tipo di Plugin può contenere un elenco di Plugin.",
 				"line3": "Vedere la descrizione sotto ogni tipo di plug-in per i dettagli su quando verranno chiamati i plug-in contenuti.",
 				"line4": "Un Plugin può essere costituito da più tipi di Plugin. In tal caso, verrà chiamato da Unmanic in ciascuna di quelle sezioni descritte."
 			},
