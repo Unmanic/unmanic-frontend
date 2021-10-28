@@ -74,7 +74,7 @@
                             <span class="text-weight-bold">{{ $t('components.settings.link.name') }}:</span>
                           </div>
                           <div class="col-grow">
-                            <span class="q-pl-md">{{ installation.name }}</span>
+                            <span class="q-pl-none">{{ installation.name }}</span>
                           </div>
                         </div>
                       </q-item-label>
@@ -85,7 +85,7 @@
                             <span class="text-weight-bold">{{ $t('components.settings.link.version') }}:</span>
                           </div>
                           <div class="col-grow">
-                            <span class="q-pl-md">{{ installation.version }}</span>
+                            <span class="q-pl-none">{{ installation.version }}</span>
                           </div>
                         </div>
                       </q-item-label>
@@ -206,7 +206,7 @@ import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted, ref } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
-import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
+import LinkConfigureDialog from "components/LinkConfigureDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
@@ -265,10 +265,11 @@ export default {
           let remoteInstallation = response.data.settings.remote_installations[i];
           remoteInstallationsList[remoteInstallationsList.length] = {
             address: remoteInstallation.address,
-            enableReceiving: remoteInstallation.enable_receiving,
-            enableSending: remoteInstallation.enable_sending,
+            enableReceivingTasks: remoteInstallation.enable_receiving_tasks,
+            enableSendingTasks: remoteInstallation.enable_sending_tasks,
             name: remoteInstallation.name,
             version: remoteInstallation.version,
+            uuid: remoteInstallation.uuid,
             available: remoteInstallation.available,
           }
         }
@@ -289,10 +290,11 @@ export default {
       for (let i = 0; i < this.remoteInstallations.length; i++) {
         remoteInstallationsList[remoteInstallationsList.length] = {
           address: this.remoteInstallations[i].address,
-          enable_receiving: this.remoteInstallations[i].enableReceiving,
-          enable_sending: this.remoteInstallations[i].enableSending,
+          enable_receiving_tasks: this.remoteInstallations[i].enableReceivingTasks,
+          enable_sending_tasks: this.remoteInstallations[i].enableSendingTasks,
           name: this.remoteInstallations[i].name,
           version: this.remoteInstallations[i].version,
+          uuid: this.remoteInstallations[i].uuid,
           available: this.remoteInstallations[i].available,
         };
       }
@@ -363,13 +365,15 @@ export default {
           // Get name and version from API validation
           let name = response.data.installation.settings.installation_name;
           let version = response.data.installation.version;
+          let uuid = response.data.installation.session.uuid;
           // Add to list
           this.remoteInstallations[this.remoteInstallations.length] = {
             address: this.newRemoteInstallationAddress,
-            enable_receiving: false,
-            enable_sending: false,
+            enable_receiving_tasks: false,
+            enable_sending_tasks: false,
             name: name,
             version: version,
+            uuid: uuid,
             available: true,
           }
         }
@@ -393,6 +397,19 @@ export default {
         newList[newList.length] = this.remoteInstallations[i];
       }
       this.remoteInstallations = newList;
+    },
+    configureRemoteInstallation: function (index) {
+      let installation = this.remoteInstallations[index]
+      this.$q.dialog({
+        component: LinkConfigureDialog,
+        componentProps: {
+          dialogHeader: this.$t('headers.configureRemoteInstallationLink'),
+          uuid: installation.uuid
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+        this.fetchSettings()
+      })
     }
   },
   created() {
