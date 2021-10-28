@@ -76,6 +76,17 @@ const routes = [
     }
   },
   {
+    path: '/ui/settings-link',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/SettingsLink.vue') }
+    ],
+    meta: {
+      showHome: true,
+      showSettingsDrawer: true,
+    }
+  },
+  {
     path: '/ui/settings-support',
     component: () => import('layouts/MainLayout.vue'),
     children: [

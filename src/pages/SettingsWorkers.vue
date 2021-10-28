@@ -46,7 +46,7 @@
 
               <q-separator class="q-my-lg"/>
 
-              <!--START CACHE PATHS-->
+              <!--START EVENT SCHEDULE-->
               <h5 class="q-mb-none">{{ $t('components.settings.workers.schedule') }}</h5>
               <div class="q-gutter-sm">
                 <q-skeleton
@@ -181,7 +181,7 @@
                 </q-dialog>
 
               </div>
-              <!--END CACHE PATHS-->
+              <!--END EVENT SCHEDULE-->
 
               <q-separator class="q-my-lg"/>
 
@@ -269,7 +269,7 @@ import draggable from "vuedraggable";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default {
-  name: 'SettingsLibrary',
+  name: 'SettingsWorkers',
   components: {
     draggable
   },

@@ -27,11 +27,11 @@
               </q-btn>
             </q-card>
           </div>
-          <!--<div class="col-6 text-center">
+          <div class="col-6 text-center">
             <q-card
               flat
               bordered
-              @click="$router.push('/ui/settings-plugins')"
+              @click="$router.push('/ui/settings-link')"
               class="bg-grey-1 q-ma-xs">
               <q-btn
                 icon-right="navigate_next"
@@ -39,7 +39,7 @@
                 Plugins
               </q-btn>
             </q-card>
-          </div>-->
+          </div>
         </div>
       </div>
       <!--END QUICK NAV-->
