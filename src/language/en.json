@@ -11,6 +11,7 @@
     "library": "Library",
     "workers": "Workers",
     "plugins": "Plugins",
+    "link": "Link",
     "general": "General",
     "helpAndSupport": "Help & Support",
     "container": "container",
@@ -74,7 +75,10 @@
     "repoRemovedFailed": "Something went wrong while trying to remove repository.",
     "failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
     "allowPopups": "Please allow popups for this website.",
-    "invalidWorkerEvent": "Unable to add Invalid worker event.",
+    "invalidWorkerEvent": "Unable to add invalid worker event.",
+    "remoteInstallationAlreadyInList": "The address you entered is already in the list of remote installations.",
+    "invalidRemoteInstallationAddress": "The address you entered was not a valid Unmanic installation.",
+    "incompatibleRemoteInstallation": "The remote Unmanic installation that you are trying to add is not compatible with linking. Try updating it first.",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
@@ -151,19 +155,29 @@
         "addEvent": "Add Event",
         "scheduleLabels": {
           "daily": "Daily",
-          "weekday":"Every Weekday",
+          "weekday": "Every Weekday",
           "weekend": "Every Saturday and Sunday",
-          "monday":"Every Monday",
+          "monday": "Every Monday",
           "tuesday": "Every Tuesday",
-          "wednesday":"Every Wednesday",
+          "wednesday": "Every Wednesday",
           "thursday": "Every Thursday",
-          "friday":"Every Friday",
+          "friday": "Every Friday",
           "saturday": "Every Saturday",
-          "sunday":"Every Sunday",
-          "count":"Set worker count",
-          "pause":"Pause all workers",
-          "resume":"Resume all workers"
+          "sunday": "Every Sunday",
+          "count": "Set worker count",
+          "pause": "Pause all workers",
+          "resume": "Resume all workers"
         }
+      },
+      "link": {
+        "thisInstallation": "This installation",
+        "nameThisInstall": "Name this installation",
+        "remoteInstallations": "Remote installations",
+        "name": "Name",
+        "version": "Version",
+        "addRemoteInstallation": "Add remote installation",
+        "address": "Address",
+        "add": "Add"
       },
       "support": {
         "logs": "Logs",
@@ -200,8 +214,8 @@
       "workerTerminationFailed": "Unmanic was unable to terminate this worker for some reason",
       "pauseAllWorkers": "Pause all workers",
       "resumeAllWorkers": "Resume all workers",
-      "workerLog" : "Worker Log",
-      "status" : "Status",
+      "workerLog": "Worker Log",
+      "status": "Status",
       "stateLabel": "State",
       "currentRunnerLabel": "Current Runner",
       "startTimeLabel": "Start Time",

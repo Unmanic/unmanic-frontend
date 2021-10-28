@@ -47,6 +47,20 @@
       </q-item>
       <!--END PLUGINS SELECT-->
 
+      <!--START PLUGINS SELECT-->
+      <q-item
+        clickable
+        to="/ui/settings-link"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="link"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.link') }}
+        </q-item-section>
+      </q-item>
+      <!--END PLUGINS SELECT-->
+
       <q-separator spaced/>
 
       <!--START SUPPORT SELECT-->
