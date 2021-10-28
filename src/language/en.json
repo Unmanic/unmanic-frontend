@@ -111,7 +111,8 @@
     "librarySettings": "Library Settings",
     "completedTaskDetails": "Completed Task Details",
     "supportFutureDevelopment": "Support future development",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "configureRemoteInstallationLink": "Configure remote installation link"
   },
   "tooltips": {
     "close": "Close",
@@ -177,7 +178,11 @@
         "version": "Version",
         "addRemoteInstallation": "Add remote installation",
         "address": "Address",
-        "add": "Add"
+        "add": "Add",
+        "connection": "Connection",
+        "configuration": "Configuration",
+        "allowReceivingTasks": "Receive tasks from this installation when workers are available",
+        "allowSendingTasks": "Send tasks from this installation when workers are available"
       },
       "support": {
         "logs": "Logs",
