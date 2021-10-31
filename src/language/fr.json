@@ -11,6 +11,7 @@
 		"library": "Une bibliothèque",
 		"workers": "Ouvriers",
 		"plugins": "Plugins",
+		"link": "Relier",
 		"general": "Général",
 		"helpAndSupport": "Support d'aide",
 		"container": "récipient",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
 		"allowPopups": "Veuillez autoriser les fenêtres contextuelles pour ce site Web.",
 		"invalidWorkerEvent": "Impossible d'ajouter un événement de travail non valide.",
+		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie est déjà dans la liste des installations distantes.",
+		"invalidRemoteInstallationAddress": "L'adresse que vous avez entrée n'était pas une installation Unmanic valide.",
+		"incompatibleRemoteInstallation": "L'installation à distance d'Unmanic que vous essayez d'ajouter n'est pas compatible avec la liaison. Essayez d'abord de le mettre à jour.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Message inconnu du serveur",
@@ -107,7 +111,8 @@
 		"librarySettings": "Paramètres de la bibliothèque",
 		"completedTaskDetails": "Détails de la tâche terminée",
 		"supportFutureDevelopment": "Soutenir le développement futur",
-		"confirm": "Confirmer"
+		"confirm": "Confirmer",
+		"configureRemoteInstallationLink": "Configurer le lien d'installation à distance"
 	},
 	"tooltips": {
 		"close": "proche",
@@ -164,6 +169,20 @@
 					"pause": "Suspendre tous les travailleurs",
 					"resume": "Reprendre tous les travailleurs"
 				}
+			},
+			"link": {
+				"thisInstallation": "Cette installation",
+				"nameThisInstall": "Nommez cette installation",
+				"remoteInstallations": "Installations à distance",
+				"name": "Nom",
+				"version": "Version",
+				"addRemoteInstallation": "Ajouter une installation à distance",
+				"address": "Adresse",
+				"add": "Ajouter",
+				"connection": "Lien",
+				"configuration": "Configuration",
+				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
+				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles"
 			},
 			"support": {
 				"logs": "Journaux",
@@ -233,7 +252,7 @@
 			"upToDate": "à jour",
 			"enablePlugins": "Activer les plugins",
 			"disablePlugins": "Désactiver les plugins",
-			"updatePlugins": "Mettre à jour le(s) plugin(s)",
+			"updatePlugins": "Mettre à jour les plugins",
 			"removePlugins": "Supprimer le(s) plugin(s)",
 			"addNew": "Ajouter un nouveau",
 			"configurePluginFow": "Configurer le flux de plugin",
@@ -254,7 +273,7 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {

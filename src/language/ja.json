@@ -11,6 +11,7 @@
 		"library": "図書館",
 		"workers": "労働者",
 		"plugins": "プラグイン",
+		"link": "リンク",
 		"general": "全般的",
 		"helpAndSupport": "ヘルプサポート",
 		"container": "容器",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "有効なデータパネルプラグインリストの取得に失敗しました",
 		"allowPopups": "このウェブサイトのポップアップを許可してください。",
 		"invalidWorkerEvent": "無効なワーカーイベントを追加できません。",
+		"remoteInstallationAlreadyInList": "入力したアドレスは、すでにリモートインストールのリストにあります。",
+		"invalidRemoteInstallationAddress": "入力したアドレスは、有効なUnmanicインストールではありませんでした。",
+		"incompatibleRemoteInstallation": "追加しようとしているリモートUnmanicインストールは、リンクと互換性がありません。最初に更新してみてください。",
 		"serverMessages": {
 			"defaults": {
 				"info": "サーバーからの不明なメッセージ",
@@ -107,7 +111,8 @@
 		"librarySettings": "ライブラリ設定",
 		"completedTaskDetails": "完了したタスクの詳細",
 		"supportFutureDevelopment": "将来の開発をサポートする",
-		"confirm": "確認"
+		"confirm": "確認",
+		"configureRemoteInstallationLink": "リモートインストールリンクを構成する"
 	},
 	"tooltips": {
 		"close": "選ぶ",
@@ -165,6 +170,20 @@
 					"resume": "すべての労働者を再開する"
 				}
 			},
+			"link": {
+				"thisInstallation": "このインストール",
+				"nameThisInstall": "このインストールに名前を付ける",
+				"remoteInstallations": "リモートインストール",
+				"name": "名前",
+				"version": "バージョン",
+				"addRemoteInstallation": "リモートインストールを追加する",
+				"address": "住所",
+				"add": "追加",
+				"connection": "繋がり",
+				"configuration": "構成",
+				"allowReceivingTasks": "ワーカーが利用可能になったときに、このインストールからタスクを受け取ります",
+				"allowSendingTasks": "ワーカーが利用可能になったら、このインストールにタスクを送信します"
+			},
 			"support": {
 				"logs": "ログ",
 				"enableDebugging": "EnableDebugging",
@@ -190,14 +209,14 @@
 			"listEmpty": "現在実行中のワーカーはありません。 Unmanicの設定でワーカー数を増やして、ワーカーを生成します。",
 			"pauseWorker": "このワーカーを一時停止します",
 			"workerPaused": "労働者は一時停止されました",
-			"workerPauseFailed": "Unmanicは、何らかの理由でこのワーカーを一時停止できませんでした",
+			"workerPauseFailed": "Unmanicは何らかの理由でこのワーカーを一時停止できませんでした",
 			"resumeWorker": "この労働者を再開する",
 			"workerResumed": "労働者が再開されました",
 			"workerResumedFailed": "Unmanicは何らかの理由でこのワーカーを再開できませんでした",
 			"terminateWorker": "この労働者を終了します",
 			"terminateWorkerWarning": "このワーカーとその現在のタスクを終了してもよろしいですか？現在のタスクは、完了したタスクリストで失敗としてマークされます。",
 			"workerTerminated": "労働者は解雇されました",
-			"workerTerminationFailed": "Unmanicは、何らかの理由でこのワーカーを終了できませんでした",
+			"workerTerminationFailed": "Unmanicは何らかの理由でこのワーカーを終了できませんでした",
 			"pauseAllWorkers": "すべての労働者を一時停止します",
 			"resumeAllWorkers": "すべての労働者を再開する",
 			"workerLog": "労働者ログ",

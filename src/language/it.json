@@ -11,6 +11,7 @@
 		"library": "Biblioteca",
 		"workers": "Lavoratori",
 		"plugins": "Plugin",
+		"link": "Collegamento",
 		"general": "Generale",
 		"helpAndSupport": "Supporto",
 		"container": "contenitore",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "Impossibile recuperare l'elenco dei plug-in del pannello dati abilitati",
 		"allowPopups": "Si prega di consentire i popup per questo sito web.",
 		"invalidWorkerEvent": "Impossibile aggiungere un evento lavoratore non valido.",
+		"remoteInstallationAlreadyInList": "L'indirizzo inserito è già nell'elenco delle installazioni remote.",
+		"invalidRemoteInstallationAddress": "L'indirizzo che hai inserito non era un'installazione Unmanic valida.",
+		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai tentando di aggiungere non è compatibile con il collegamento. Prova prima ad aggiornarlo.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Messaggio sconosciuto dal server",
@@ -107,7 +111,8 @@
 		"librarySettings": "Impostazioni libreria",
 		"completedTaskDetails": "Dettagli dell'attività completata",
 		"supportFutureDevelopment": "Sostieni lo sviluppo futuro",
-		"confirm": "Confermare"
+		"confirm": "Confermare",
+		"configureRemoteInstallationLink": "Configura collegamento installazione remota"
 	},
 	"tooltips": {
 		"close": "Chiudere",
@@ -136,7 +141,7 @@
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
 				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della biblioteca",
 				"runLibraryScanOnStart": "Esegui una scansione della libreria una tantum all'avvio",
-				"fileMonitor": "Monitoraggio dei file di libreria",
+				"fileMonitor": "Monitoraggio file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria",
 				"pendingTasks": "Compiti in sospeso",
 				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio"
@@ -164,6 +169,20 @@
 					"pause": "Metti in pausa tutti i lavoratori",
 					"resume": "Riprendete tutti i lavoratori"
 				}
+			},
+			"link": {
+				"thisInstallation": "Questa installazione",
+				"nameThisInstall": "Dai un nome a questa installazione",
+				"remoteInstallations": "Installazioni remote",
+				"name": "Nome",
+				"version": "Versione",
+				"addRemoteInstallation": "Aggiungi installazione remota",
+				"address": "Indirizzo",
+				"add": "Aggiungere",
+				"connection": "Connessione",
+				"configuration": "Configurazione",
+				"allowReceivingTasks": "Ricevi attività da questa installazione quando i lavoratori sono disponibili",
+				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili"
 			},
 			"support": {
 				"logs": "Registri",

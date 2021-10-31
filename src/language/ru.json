@@ -11,6 +11,7 @@
 		"library": "Библиотека",
 		"workers": "Рабочие",
 		"plugins": "Плагины",
+		"link": "Ссылка",
 		"general": "Общий",
 		"helpAndSupport": "Помощь и поддержка",
 		"container": "контейнер",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "Не удалось получить список включенных плагинов панели данных.",
 		"allowPopups": "Пожалуйста, разрешите всплывающие окна для этого веб-сайта.",
 		"invalidWorkerEvent": "Невозможно добавить недопустимое рабочее событие.",
+		"remoteInstallationAlreadyInList": "Введенный вами адрес уже находится в списке удаленных установок.",
+		"invalidRemoteInstallationAddress": "Введенный вами адрес не является действительной установкой Unmanic.",
+		"incompatibleRemoteInstallation": "Удаленная установка Unmanic, которую вы пытаетесь добавить, несовместима с компоновкой. Попробуйте сначала обновить его.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Неизвестное сообщение с сервера",
@@ -107,7 +111,8 @@
 		"librarySettings": "Настройки библиотеки",
 		"completedTaskDetails": "Детали выполненной задачи",
 		"supportFutureDevelopment": "Поддержка будущего развития",
-		"confirm": "Подтверждать"
+		"confirm": "Подтверждать",
+		"configureRemoteInstallationLink": "Настроить ссылку для удаленной установки"
 	},
 	"tooltips": {
 		"close": "Закрывать",
@@ -144,7 +149,7 @@
 			"workers": {
 				"workerCount": "Количество рабочих",
 				"path": "Путь к кешу",
-				"schedule": "Расписание мероприятий рабочего",
+				"schedule": "График мероприятий рабочего",
 				"newScheduledEvent": "Новое запланированное мероприятие",
 				"repetition": "Повторение",
 				"task": "Задача",
@@ -164,6 +169,20 @@
 					"pause": "Приостановить всех рабочих",
 					"resume": "Возобновить всех работников"
 				}
+			},
+			"link": {
+				"thisInstallation": "Эта установка",
+				"nameThisInstall": "Назовите эту установку",
+				"remoteInstallations": "Удаленная установка",
+				"name": "Имя",
+				"version": "Версия",
+				"addRemoteInstallation": "Добавить удаленную установку",
+				"address": "Адрес",
+				"add": "Добавлять",
+				"connection": "Связь",
+				"configuration": "Конфигурация",
+				"allowReceivingTasks": "Получать задачи из этой установки, когда рабочие доступны",
+				"allowSendingTasks": "Отправлять задачи в эту установку, когда рабочие доступны"
 			},
 			"support": {
 				"logs": "Журналы",
