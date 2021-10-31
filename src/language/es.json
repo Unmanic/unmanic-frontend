@@ -11,6 +11,7 @@
 		"library": "Biblioteca",
 		"workers": "Trabajadores",
 		"plugins": "Complementos",
+		"link": "Enlace",
 		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
 		"container": "envase",
@@ -25,7 +26,7 @@
 		"job": "Trabajos",
 		"recordsPerPage": "Registros por página",
 		"showMore": "Mostrar más",
-		"search": "Search",
+		"search": "Buscar",
 		"save": "Ahorrar",
 		"backToDashboard": "Volver al panel",
 		"options": "Opciones",
@@ -37,7 +38,7 @@
 	"status": {
 		"enabled": "activado",
 		"disabled": "discapacitado",
-		"cannotLoadImage": "No se puede cargar la imagen.",
+		"cannotLoadImage": "Cannot load image",
 		"success": "Éxito",
 		"failed": "Fallido"
 	},
@@ -74,7 +75,10 @@
 		"repoRemovedFailed": "Se produjo un error al intentar eliminar el repositorio.",
 		"failedToFetchEnabledDataPanelPlugins": "No se pudo recuperar la lista de complementos del panel de datos habilitados",
 		"allowPopups": "Permita ventanas emergentes para este sitio web.",
-		"invalidWorkerEvent": "No se puede agregar el evento de trabajador no válido.",
+		"invalidWorkerEvent": "No se puede agregar un evento de trabajador no válido.",
+		"remoteInstallationAlreadyInList": "La dirección que ingresó ya está en la lista de instalaciones remotas.",
+		"invalidRemoteInstallationAddress": "La dirección que ingresó no era una instalación Unmanic válida.",
+		"incompatibleRemoteInstallation": "La instalación remota de Unmanic que está intentando agregar no es compatible con la vinculación. Intente actualizarlo primero.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensaje desconocido del servidor",
@@ -107,7 +111,8 @@
 		"librarySettings": "Configuración de la biblioteca",
 		"completedTaskDetails": "Detalles de la tarea completada",
 		"supportFutureDevelopment": "Apoyar el desarrollo futuro",
-		"confirm": "Confirmar"
+		"confirm": "Confirmar",
+		"configureRemoteInstallationLink": "Configurar el enlace de instalación remota"
 	},
 	"tooltips": {
 		"close": "Cerrar",
@@ -165,6 +170,20 @@
 					"resume": "Reanudar a todos los trabajadores"
 				}
 			},
+			"link": {
+				"thisInstallation": "Esta instalación",
+				"nameThisInstall": "Nombra esta instalación",
+				"remoteInstallations": "Instalaciones remotas",
+				"name": "Nombre",
+				"version": "Versión",
+				"addRemoteInstallation": "Agregar instalación remota",
+				"address": "Dirección",
+				"add": "Agregar",
+				"connection": "Conexión",
+				"configuration": "Configuración",
+				"allowReceivingTasks": "Reciba tareas de esta instalación cuando haya trabajadores disponibles",
+				"allowSendingTasks": "Envíe tareas a esta instalación cuando haya trabajadores disponibles"
+			},
 			"support": {
 				"logs": "Registros",
 				"enableDebugging": "Habilitar depuración",
@@ -183,7 +202,7 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
 			}
 		},
 		"workers": {
@@ -263,8 +282,8 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocesador - Movimientos de archivos",
-					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
-					"taskResult": "Postprocesador: marcar el éxito o el fracaso de la tarea",
+					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
+					"taskResult": "Postprocesador: marcar el éxito / fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se solicitan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
 				"worker": {

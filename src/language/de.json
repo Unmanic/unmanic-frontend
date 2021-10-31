@@ -11,6 +11,7 @@
 		"library": "Bücherei",
 		"workers": "Arbeitskräfte",
 		"plugins": "Plugins",
+		"link": "Verknüpfung",
 		"general": "Allgemein",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"container": "Container",
@@ -56,7 +57,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "Fehler beim Abrufen der Liste der aktivierten Datenpanel-Plugins",
 		"allowPopups": "Bitte erlauben Sie Popups für diese Website.",
 		"invalidWorkerEvent": "Ungültiges Worker-Ereignis kann nicht hinzugefügt werden.",
+		"remoteInstallationAlreadyInList": "Die von Ihnen eingegebene Adresse befindet sich bereits in der Liste der Remote-Installationen.",
+		"invalidRemoteInstallationAddress": "Die von Ihnen eingegebene Adresse war keine gültige Unmanic-Installation.",
+		"incompatibleRemoteInstallation": "Die Remote-Unmanic-Installation, die Sie hinzufügen möchten, ist nicht mit der Verknüpfung kompatibel. Versuchen Sie es zuerst zu aktualisieren.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Unbekannte Nachricht vom Server",
@@ -83,8 +87,8 @@
 				"success": "Unbekannte Nachricht vom Server",
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
-			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da es ein inkompatibles Plugin erkannt hat",
+			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessor-Warteschlange hat ihr Limit erreicht",
@@ -107,7 +111,8 @@
 		"librarySettings": "Bibliothekseinstellungen",
 		"completedTaskDetails": "Details zur abgeschlossenen Aufgabe",
 		"supportFutureDevelopment": "Unterstützen Sie die zukünftige Entwicklung",
-		"confirm": "Bestätigen Sie"
+		"confirm": "Bestätigen Sie",
+		"configureRemoteInstallationLink": "Link zur Remote-Installation konfigurieren"
 	},
 	"tooltips": {
 		"close": "Nah dran",
@@ -164,6 +169,20 @@
 					"pause": "Alle Arbeiter pausieren",
 					"resume": "Alle Arbeiter wieder aufnehmen"
 				}
+			},
+			"link": {
+				"thisInstallation": "Diese Installation",
+				"nameThisInstall": "Benennen Sie diese Installation",
+				"remoteInstallations": "Remote-Installationen",
+				"name": "Name",
+				"version": "Ausführung",
+				"addRemoteInstallation": "Remote-Installation hinzufügen",
+				"address": "Die Anschrift",
+				"add": "Hinzufügen",
+				"connection": "Verbindung",
+				"configuration": "Aufbau",
+				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Mitarbeiter verfügbar sind",
+				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Mitarbeiter verfügbar sind"
 			},
 			"support": {
 				"logs": "Protokolle",
@@ -264,8 +283,8 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markieren von Erfolg/Misserfolg der Aufgabe",
-					"taskResultCaption": "Diese Plugins werden nach Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu kennzeichnen"
+					"taskResult": "Postprozessor - Markieren von Erfolg/Fehlschlag der Aufgabe",
+					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
 					"processItem": "Arbeiter - Verarbeitungsdatei",

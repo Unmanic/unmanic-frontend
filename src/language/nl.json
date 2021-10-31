@@ -11,6 +11,7 @@
 		"library": "Bibliotheek",
 		"workers": "arbeiders",
 		"plugins": "Plug-ins",
+		"link": "Koppeling",
 		"general": "Algemeen",
 		"helpAndSupport": "Help & Ondersteuning",
 		"container": "container",
@@ -74,7 +75,10 @@
 		"repoRemovedFailed": "Er is iets misgegaan bij het verwijderen van de repository.",
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins voor het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
-		"invalidWorkerEvent": "Kan geen ongeldige werknemergebeurtenis toevoegen.",
+		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
+		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
+		"invalidRemoteInstallationAddress": "Het ingevoerde adres was geen geldige Unmanic-installatie.",
+		"incompatibleRemoteInstallation": "De externe Unmanic-installatie die u probeert toe te voegen, is niet compatibel met koppelen. Probeer het eerst te updaten.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Onbekend bericht van server",
@@ -107,7 +111,8 @@
 		"librarySettings": "Bibliotheekinstellingen",
 		"completedTaskDetails": "Details van voltooide taak",
 		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
-		"confirm": "Bevestigen"
+		"confirm": "Bevestigen",
+		"configureRemoteInstallationLink": "Link voor installatie op afstand configureren"
 	},
 	"tooltips": {
 		"close": "Dichtbij",
@@ -144,7 +149,7 @@
 			"workers": {
 				"workerCount": "Aantal werknemers",
 				"path": "Cache pad",
-				"schedule": "Werkrooster voor evenementen",
+				"schedule": "Schema voor werknemersevenementen",
 				"newScheduledEvent": "Nieuw gepland evenement",
 				"repetition": "Herhaling",
 				"task": "Taak",
@@ -165,6 +170,20 @@
 					"resume": "Alle werknemers hervatten"
 				}
 			},
+			"link": {
+				"thisInstallation": "Deze installatie",
+				"nameThisInstall": "Geef deze installatie een naam",
+				"remoteInstallations": "Installaties op afstand",
+				"name": "Naam",
+				"version": "Versie",
+				"addRemoteInstallation": "Installatie op afstand toevoegen",
+				"address": "Adres",
+				"add": "Toevoegen",
+				"connection": "Verbinding",
+				"configuration": "Configuratie",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werknemers beschikbaar zijn",
+				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn"
+			},
 			"support": {
 				"logs": "Logboeken",
 				"enableDebugging": "Foutopsporing inschakelen",
@@ -181,7 +200,7 @@
 				"apiSpec": "API-specificatie:",
 				"applicationDocumentation": "Toepassingsdocumentatie",
 				"support": "Steun",
-				"unmanicAppSourceRequests": "Verzoekfunctie in Unmanic Application",
+				"unmanicAppSourceRequests": "Functie aanvragen in Unmanic Application",
 				"unmanicFrontendSourceRequests": "Functie aanvragen in Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Vraag een plug-in aan voor Unmanic"
 			}
@@ -263,7 +282,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocessor - Bestandsverplaatsingen",
-					"fileMoveCaption": "Deze plug-ins worden na voltooiing van de taak aangeroepen om extra bestandsverplaatsingen toe te voegen",
+					"fileMoveCaption": "These Plugins are called on completion of task to add additional file movements",
 					"taskResult": "Post-processor - Taak succes/mislukking markeren",
 					"taskResultCaption": "Deze plug-ins worden aangeroepen bij het voltooien van een taak om het algehele succes of falen van die taak te markeren"
 				},

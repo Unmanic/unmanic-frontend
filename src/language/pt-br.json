@@ -11,6 +11,7 @@
 		"library": "Biblioteca",
 		"workers": "Trabalhadores",
 		"plugins": "Plugins",
+		"link": "Ligação",
 		"general": "Em geral",
 		"helpAndSupport": "Ajuda e Suporte",
 		"container": "recipiente",
@@ -75,6 +76,9 @@
 		"failedToFetchEnabledDataPanelPlugins": "Falha ao buscar a lista de plug-ins do painel de dados ativada",
 		"allowPopups": "Por favor, permita pop-ups para este site.",
 		"invalidWorkerEvent": "Incapaz de adicionar evento de trabalhador inválido.",
+		"remoteInstallationAlreadyInList": "O endereço que você digitou já está na lista de instalações remotas.",
+		"invalidRemoteInstallationAddress": "O endereço que você inseriu não era uma instalação válida do Unmanic.",
+		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -107,7 +111,8 @@
 		"librarySettings": "Configurações da biblioteca",
 		"completedTaskDetails": "Detalhes da tarefa concluída",
 		"supportFutureDevelopment": "Apoie o desenvolvimento futuro",
-		"confirm": "confirme"
+		"confirm": "confirme",
+		"configureRemoteInstallationLink": "Configurar link de instalação remota"
 	},
 	"tooltips": {
 		"close": "Fechar",
@@ -132,8 +137,8 @@
 				"path": "Caminho da biblioteca",
 				"libraryScanner": "Scanner de biblioteca",
 				"enableLibraryScanner": "Habilitar varreduras periódicas da biblioteca",
-				"libraryScannerSchedule": "Cronograma de verificação da biblioteca em minutos",
-				"libraryScannerScheduleNotValid": "A programação de verificação da biblioteca não é válida",
+				"libraryScannerSchedule": "Agenda de verificação da biblioteca em minutos",
+				"libraryScannerScheduleNotValid": "A programação da verificação da biblioteca não é válida",
 				"followSymlinks": "Siga os links simbólicos nas análises da biblioteca",
 				"runLibraryScanOnStart": "Execute uma varredura de biblioteca única na inicialização",
 				"fileMonitor": "Monitor de arquivo de biblioteca",
@@ -161,9 +166,23 @@
 					"saturday": "Todos os sábados",
 					"sunday": "Todos os domingos",
 					"count": "Definir contagem de trabalhadores",
-					"pause": "Pause todos os trabalhadores",
+					"pause": "Pausar todos os trabalhadores",
 					"resume": "Retomar todos os trabalhadores"
 				}
+			},
+			"link": {
+				"thisInstallation": "Esta instalação",
+				"nameThisInstall": "Nomeie esta instalação",
+				"remoteInstallations": "Instalações remotas",
+				"name": "Nome",
+				"version": "Versão",
+				"addRemoteInstallation": "Adicionar instalação remota",
+				"address": "Endereço",
+				"add": "Adicionar",
+				"connection": "Conexão",
+				"configuration": "Configuração",
+				"allowReceivingTasks": "Receba tarefas desta instalação quando os trabalhadores estiverem disponíveis",
+				"allowSendingTasks": "Envie tarefas para esta instalação quando os trabalhadores estiverem disponíveis"
 			},
 			"support": {
 				"logs": "Histórico",
@@ -197,8 +216,8 @@
 			"terminateWorker": "Desligue este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "Trabalhador foi demitido",
-			"workerTerminationFailed": "Unmanic não foi capaz de encerrar este trabalhador por algum motivo",
-			"pauseAllWorkers": "Pause todos os trabalhadores",
+			"workerTerminationFailed": "Unmanic não conseguiu demitir este trabalhador por algum motivo",
+			"pauseAllWorkers": "Pausar todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"workerLog": "Diário de Trabalho",
 			"status": "Status",

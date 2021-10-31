@@ -182,7 +182,7 @@
         "connection": "Connection",
         "configuration": "Configuration",
         "allowReceivingTasks": "Receive tasks from this installation when workers are available",
-        "allowSendingTasks": "Send tasks from this installation when workers are available"
+        "allowSendingTasks": "Send tasks to this installation when workers are available"
       },
       "support": {
         "logs": "Logs",
