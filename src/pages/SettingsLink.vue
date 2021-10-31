@@ -376,6 +376,8 @@ export default {
             uuid: uuid,
             available: true,
           }
+          // Trigger a save event
+          this.save();
         }
       }).catch(() => {
         this.$q.notify({
