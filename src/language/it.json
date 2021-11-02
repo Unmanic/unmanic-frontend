@@ -77,7 +77,7 @@
 		"allowPopups": "Si prega di consentire i popup per questo sito web.",
 		"invalidWorkerEvent": "Impossibile aggiungere un evento lavoratore non valido.",
 		"remoteInstallationAlreadyInList": "L'indirizzo inserito è già nell'elenco delle installazioni remote.",
-		"invalidRemoteInstallationAddress": "L'indirizzo che hai inserito non era un'installazione Unmanic valida.",
+		"invalidRemoteInstallationAddress": "L'indirizzo inserito non era un'installazione Unmanic valida.",
 		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai tentando di aggiungere non è compatibile con il collegamento. Prova prima ad aggiornarlo.",
 		"serverMessages": {
 			"defaults": {
@@ -92,7 +92,8 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha fermato tutti i lavoratori poiché ha rilevato una modifica alla configurazione dei plugin. Quando sei pronto, riprendi i lavoratori dalla dashboard.",
 			"libraryScanProgress": "Scansione della libreria in esecuzione",
 			"pendingTaskHaltedPostProcessorQueueFull": "La coda del post-processore ha raggiunto il limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scenderà al di sotto del numero di lavoratori attualmente configurato"
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scenderà al di sotto del numero di lavoratori attualmente configurato",
+			"receivingRemoteFile": "Ricezione file remoto"
 		}
 	},
 	"headers": {
@@ -141,7 +142,7 @@
 				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
 				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della biblioteca",
 				"runLibraryScanOnStart": "Esegui una scansione della libreria una tantum all'avvio",
-				"fileMonitor": "Monitoraggio file di libreria",
+				"fileMonitor": "Monitoraggio dei file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria",
 				"pendingTasks": "Compiti in sospeso",
 				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio"

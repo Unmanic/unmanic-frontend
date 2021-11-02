@@ -60,7 +60,7 @@
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchSession": "Ett fel påträffades vid hämtning av sessionsdata från Unmanic.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
@@ -92,7 +92,8 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic har stoppat alla arbetare eftersom den har upptäckt en ändring av plugins-konfigurationen. När du är redo, återuppta arbetarna från instrumentpanelen.",
 			"libraryScanProgress": "Bibliotekssökning körs",
 			"pendingTaskHaltedPostProcessorQueueFull": "Efterbehandlingskön nådde sin gräns",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbetare kommer inte att få en ny väntande uppgift förrän efterbehandlarkön sjunker under det nuvarande konfigurerade antalet arbetare"
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbetare kommer inte att få en ny väntande uppgift förrän efterbehandlarkön sjunker under det nuvarande konfigurerade antalet arbetare",
+			"receivingRemoteFile": "Tar emot fjärrfil"
 		}
 	},
 	"headers": {
@@ -138,7 +139,7 @@
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera periodiska bibliotekssökningar",
 				"libraryScannerSchedule": "Biblioteksskanningsschema på några minuter",
-				"libraryScannerScheduleNotValid": "Bibliotekets genomsökningsschema är inte giltigt",
+				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är inte giltigt",
 				"followSymlinks": "Följ symbollänkar på biblioteksskanningar",
 				"runLibraryScanOnStart": "Kör en biblioteksskanning en gång vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
@@ -284,7 +285,7 @@
 					"fileMove": "Post-processor - Filrörelser",
 					"fileMoveCaption": "Dessa plugins anropas när uppgiften är klar för att lägga till ytterligare filrörelser",
 					"taskResult": "Efterbehandlare - Markera uppgiften lyckad/misslyckad",
-					"taskResultCaption": "Dessa plugins anropas vid slutförandet av en uppgift för att markera den övergripande framgången eller misslyckandet för den uppgiften"
+					"taskResultCaption": "Dessa plugins anropas när en uppgift slutförs för att markera den övergripande framgången eller misslyckandet för den uppgiften"
 				},
 				"worker": {
 					"processItem": "Arbetare - Bearbetar fil",

@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -87,12 +87,13 @@
 				"success": "Unbekannte Nachricht vom Server",
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
-			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da es ein inkompatibles Plugin erkannt hat",
-			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
+			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessor-Warteschlange hat ihr Limit erreicht",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbeiter erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Arbeiterzahl fällt"
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbeiter erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Arbeiterzahl fällt",
+			"receivingRemoteFile": "Remote-Datei empfangen"
 		}
 	},
 	"headers": {
@@ -243,7 +244,7 @@
 			"removeSelected": "Ausgewählte entfernen"
 		},
 		"completedTasks": {
-			"listEmpty": "Die Liste der erledigten Aufgaben ist leer",
+			"listEmpty": "Die Liste Abgeschlossene Aufgaben ist leer",
 			"details": "Einzelheiten",
 			"errorGettingDetails": "Beim Abrufen der Details für diese Aufgabe ist ein Fehler aufgetreten"
 		},
@@ -283,7 +284,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markieren von Erfolg/Fehlschlag der Aufgabe",
+					"taskResult": "Postprozessor - Markierung von Aufgabenerfolg/-fehlschlag",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
