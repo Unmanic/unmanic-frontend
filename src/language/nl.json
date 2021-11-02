@@ -92,7 +92,8 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard.",
 			"libraryScanProgress": "Bibliotheekscan wordt uitgevoerd",
 			"pendingTaskHaltedPostProcessorQueueFull": "De wachtrij van de postprocessor heeft zijn limiet bereikt",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Werknemers ontvangen geen nieuwe taak die in behandeling is totdat de wachtrij na de processor onder het huidige geconfigureerde aantal werknemers komt"
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Werknemers ontvangen geen nieuwe taak die in behandeling is totdat de wachtrij na de processor onder het huidige geconfigureerde aantal werknemers komt",
+			"receivingRemoteFile": "Bestand op afstand ontvangen"
 		}
 	},
 	"headers": {
@@ -149,7 +150,7 @@
 			"workers": {
 				"workerCount": "Aantal werknemers",
 				"path": "Cache pad",
-				"schedule": "Schema voor werknemersevenementen",
+				"schedule": "Werkrooster voor evenementen",
 				"newScheduledEvent": "Nieuw gepland evenement",
 				"repetition": "Herhaling",
 				"task": "Taak",
@@ -282,7 +283,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocessor - Bestandsverplaatsingen",
-					"fileMoveCaption": "These Plugins are called on completion of task to add additional file movements",
+					"fileMoveCaption": "Deze plug-ins worden na voltooiing van de taak aangeroepen om extra bestandsverplaatsingen toe te voegen",
 					"taskResult": "Post-processor - Taak succes/mislukking markeren",
 					"taskResultCaption": "Deze plug-ins worden aangeroepen bij het voltooien van een taak om het algehele succes of falen van die taak te markeren"
 				},

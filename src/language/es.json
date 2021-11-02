@@ -18,7 +18,7 @@
 		"videoEncoding": "Codificación de video",
 		"audioEncoding": "Codificación de audio",
 		"advancedOptions": "Opciones avanzadas",
-		"info": "Info",
+		"info": "Información",
 		"top": "Cima",
 		"new": "Nuevo",
 		"show": "Show",
@@ -38,7 +38,7 @@
 	"status": {
 		"enabled": "activado",
 		"disabled": "discapacitado",
-		"cannotLoadImage": "Cannot load image",
+		"cannotLoadImage": "No se puede cargar la imagen.",
 		"success": "Éxito",
 		"failed": "Fallido"
 	},
@@ -92,7 +92,8 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha detenido a todos los trabajadores porque ha detectado un cambio en la configuración de los complementos. Cuando esté listo, reanude los trabajadores desde el tablero.",
 			"libraryScanProgress": "Escaneo de biblioteca en ejecución",
 			"pendingTaskHaltedPostProcessorQueueFull": "La cola del posprocesador alcanzó su límite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Los trabajadores no recibirán una nueva tarea pendiente hasta que la cola del posprocesador caiga por debajo del recuento de trabajadores configurado actual"
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Los trabajadores no recibirán una nueva tarea pendiente hasta que la cola del posprocesador caiga por debajo del recuento de trabajadores configurado actual",
+			"receivingRemoteFile": "Recibiendo archivo remoto"
 		}
 	},
 	"headers": {
@@ -105,7 +106,7 @@
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
 		"pluginFlow": "Configurar el flujo de complementos",
-		"information": "Info",
+		"information": "Información",
 		"selectDirectory": "Seleccionar un directorio",
 		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",
@@ -202,14 +203,14 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
 			}
 		},
 		"workers": {
 			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumenta el número de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar este trabajador",
 			"workerPaused": "El trabajador se ha detenido",
-			"workerPauseFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
+			"workerPauseFailed": "Unmanic no pudo detener a este trabajador por alguna razón",
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "Trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
@@ -282,8 +283,8 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocesador - Movimientos de archivos",
-					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
-					"taskResult": "Postprocesador: marcar el éxito / fracaso de la tarea",
+					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
+					"taskResult": "Postprocesador: marcar el éxito o el fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se solicitan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
 				"worker": {

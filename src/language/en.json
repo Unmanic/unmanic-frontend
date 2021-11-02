@@ -92,7 +92,8 @@
       "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard.",
       "libraryScanProgress": "Library scan running",
       "pendingTaskHaltedPostProcessorQueueFull": "The Post-processor queue reached its limit",
-      "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count"
+      "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count",
+      "receivingRemoteFile": "Receiving remote file"
     }
   },
   "headers": {

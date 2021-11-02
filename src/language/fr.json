@@ -76,7 +76,7 @@
 		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
 		"allowPopups": "Veuillez autoriser les fenêtres contextuelles pour ce site Web.",
 		"invalidWorkerEvent": "Impossible d'ajouter un événement de travail non valide.",
-		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie est déjà dans la liste des installations distantes.",
+		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie figure déjà dans la liste des installations distantes.",
 		"invalidRemoteInstallationAddress": "L'adresse que vous avez entrée n'était pas une installation Unmanic valide.",
 		"incompatibleRemoteInstallation": "L'installation à distance d'Unmanic que vous essayez d'ajouter n'est pas compatible avec la liaison. Essayez d'abord de le mettre à jour.",
 		"serverMessages": {
@@ -92,7 +92,8 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
 			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution",
 			"pendingTaskHaltedPostProcessorQueueFull": "La file d'attente du post-processeur a atteint sa limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré."
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré.",
+			"receivingRemoteFile": "Réception de fichier distant"
 		}
 	},
 	"headers": {
@@ -252,7 +253,7 @@
 			"upToDate": "à jour",
 			"enablePlugins": "Activer les plugins",
 			"disablePlugins": "Désactiver les plugins",
-			"updatePlugins": "Mettre à jour les plugins",
+			"updatePlugins": "Mettre à jour le(s) plugin(s)",
 			"removePlugins": "Supprimer le(s) plugin(s)",
 			"addNew": "Ajouter un nouveau",
 			"configurePluginFow": "Configurer le flux de plugin",
@@ -273,7 +274,7 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {
