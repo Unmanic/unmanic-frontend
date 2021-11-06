@@ -47,7 +47,7 @@
 		"more": "meer"
 	},
 	"time": {
-		"ago": "geleden",
+		"ago": "ago",
 		"units": {
 			"minute": "minuut | minuten",
 			"hour": "uur | uur",
@@ -88,12 +88,13 @@
 				"status": "Onbekende statusupdate van server"
 			},
 			"incompatiblePlugin": "Unmanic is gestopt met het verwerken van taken omdat het een incompatibele plug-in heeft gedetecteerd",
-			"pluginEnabledLimits": "Unmanic is gestopt met het verwerken van taken omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan 5 plug-ins mogelijk te maken.",
+			"pluginEnabledLimits": "Unmanic is gestopt met het verwerken van taken omdat je te veel plug-ins hebt ingeschakeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan tien plug-ins mogelijk te maken.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic heeft alle werkers gestopt omdat het een wijziging in de configuratie van de plug-ins heeft gedetecteerd. Als u klaar bent, hervat u de werknemers vanaf het dashboard.",
 			"libraryScanProgress": "Bibliotheekscan wordt uitgevoerd",
 			"pendingTaskHaltedPostProcessorQueueFull": "De wachtrij van de postprocessor heeft zijn limiet bereikt",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Werknemers ontvangen geen nieuwe taak die in behandeling is totdat de wachtrij na de processor onder het huidige geconfigureerde aantal werknemers komt",
-			"receivingRemoteFile": "Bestand op afstand ontvangen"
+			"receivingRemoteFile": "Bestand op afstand ontvangen",
+			"linkedInstallationLimits": "Unmanic is gestopt met het verwerken van taken omdat u te veel externe installaties hebt gekoppeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan één externe installatie te koppelen."
 		}
 	},
 	"headers": {

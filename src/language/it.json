@@ -88,12 +88,13 @@
 				"status": "Aggiornamento di stato sconosciuto dal server"
 			},
 			"incompatiblePlugin": "Unmanic ha interrotto l'elaborazione delle attività poiché ha rilevato un plug-in incompatibile",
-			"pluginEnabledLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai troppi Plugin abilitati per un livello non di supporto. Considera la sponsorizzazione del progetto per abilitare più di 5 plugin.",
+			"pluginEnabledLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai troppi Plugin abilitati per un livello non di supporto. Considera la sponsorizzazione del progetto per abilitare più di dieci plugin.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha fermato tutti i lavoratori poiché ha rilevato una modifica alla configurazione dei plugin. Quando sei pronto, riprendi i lavoratori dalla dashboard.",
 			"libraryScanProgress": "Scansione della libreria in esecuzione",
 			"pendingTaskHaltedPostProcessorQueueFull": "La coda del post-processore ha raggiunto il limite",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scenderà al di sotto del numero di lavoratori attualmente configurato",
-			"receivingRemoteFile": "Ricezione file remoto"
+			"receivingRemoteFile": "Ricezione file remoto",
+			"linkedInstallationLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai collegato troppe installazioni remote per un livello non di supporto. Considera la sponsorizzazione del progetto per collegare più di un'installazione remota."
 		}
 	},
 	"headers": {

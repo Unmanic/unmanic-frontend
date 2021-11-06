@@ -88,12 +88,13 @@
 				"status": "Mise à jour de statut inconnue du serveur"
 			},
 			"incompatiblePlugin": "Unmanic a arrêté de traiter les tâches car il a détecté un plugin incompatible",
-			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de 5 plugins.",
+			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de dix plugins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
 			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution",
 			"pendingTaskHaltedPostProcessorQueueFull": "La file d'attente du post-processeur a atteint sa limite",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré.",
-			"receivingRemoteFile": "Réception de fichier distant"
+			"receivingRemoteFile": "Réception de fichier distant",
+			"linkedInstallationLimits": "Unmanic a arrêté de traiter les tâches car vous avez lié trop d'installations distantes pour un niveau non-support. Envisagez de parrainer le projet pour relier plus d'une installation distante."
 		}
 	},
 	"headers": {
