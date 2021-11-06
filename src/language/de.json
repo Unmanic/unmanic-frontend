@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Diese Installation",
+				"thisInstallation": "Lokal",
 				"nameThisInstall": "Benennen Sie diese Installation",
 				"remoteInstallations": "Remote-Installationen",
 				"name": "Name",
@@ -183,7 +183,8 @@
 				"connection": "Verbindung",
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Mitarbeiter verfügbar sind",
-				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Mitarbeiter verfügbar sind"
+				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Mitarbeiter verfügbar sind",
+				"enableTaskPreloading": "Laden Sie eine Aufgabe vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation"
 			},
 			"support": {
 				"logs": "Protokolle",
@@ -284,7 +285,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markierung von Aufgabenerfolg/-fehlschlag",
+					"taskResult": "Postprozessor - Markieren von Erfolg/Misserfolg der Aufgabe",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {

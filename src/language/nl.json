@@ -138,7 +138,7 @@
 				"path": "Bibliotheekpad",
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "Periodieke bibliotheekscans inschakelen",
-				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
+				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
 				"followSymlinks": "Symlinks volgen op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Deze installatie",
+				"thisInstallation": "lokaal",
 				"nameThisInstall": "Geef deze installatie een naam",
 				"remoteInstallations": "Installaties op afstand",
 				"name": "Naam",
@@ -183,7 +183,8 @@
 				"connection": "Verbinding",
 				"configuration": "Configuratie",
 				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werknemers beschikbaar zijn",
-				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn"
+				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
+				"enableTaskPreloading": "Een taak vooraf laden in de wachtrij voor de installatie op afstand In afwachting van taken"
 			},
 			"support": {
 				"logs": "Logboeken",
@@ -272,7 +273,7 @@
 			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
-				"line2": "Hieronder vindt u een lijst met secties voor het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
+				"line2": "Hieronder vindt u een lijst met secties over het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
 				"line3": "Zie de beschrijving onder elk type plug-in voor details wanneer de plug-ins worden aangeroepen.",
 				"line4": "Een plug-in kan uit meerdere typen plug-ins bestaan. Als dat zo is, wordt het door Unmanic aangeroepen in elk van de beschreven secties."
 			},

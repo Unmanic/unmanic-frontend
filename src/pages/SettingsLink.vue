@@ -445,4 +445,11 @@ export default {
 .schedule-list-item {
   background: #F2C037;
 }
+
+div.sub-setting {
+  margin-left: 30px;
+  padding-top: 8px;
+  padding-left: 8px;
+  border-left: solid thin var(--q-primary);
+}
 </style>

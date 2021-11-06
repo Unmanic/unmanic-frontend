@@ -10,7 +10,7 @@
 		"documentation": "Documentación",
 		"library": "Biblioteca",
 		"workers": "Trabajadores",
-		"plugins": "Complementos",
+		"plugins": "Plugins",
 		"link": "Enlace",
 		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Esta instalación",
+				"thisInstallation": "Local",
 				"nameThisInstall": "Nombra esta instalación",
 				"remoteInstallations": "Instalaciones remotas",
 				"name": "Nombre",
@@ -183,7 +183,8 @@
 				"connection": "Conexión",
 				"configuration": "Configuración",
 				"allowReceivingTasks": "Reciba tareas de esta instalación cuando haya trabajadores disponibles",
-				"allowSendingTasks": "Envíe tareas a esta instalación cuando haya trabajadores disponibles"
+				"allowSendingTasks": "Envíe tareas a esta instalación cuando haya trabajadores disponibles",
+				"enableTaskPreloading": "Cargar previamente una tarea en la cola Tareas pendientes de instalación remota"
 			},
 			"support": {
 				"logs": "Registros",
@@ -203,14 +204,14 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
 			}
 		},
 		"workers": {
 			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumenta el número de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar este trabajador",
 			"workerPaused": "El trabajador se ha detenido",
-			"workerPauseFailed": "Unmanic no pudo detener a este trabajador por alguna razón",
+			"workerPauseFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "Trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
@@ -284,7 +285,7 @@
 				"postprocessor": {
 					"fileMove": "Postprocesador - Movimientos de archivos",
 					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
-					"taskResult": "Postprocesador: marcar el éxito o el fracaso de la tarea",
+					"taskResult": "Postprocesador: marcar el éxito / fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se solicitan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
 				"worker": {

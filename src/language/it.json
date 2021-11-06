@@ -77,7 +77,7 @@
 		"allowPopups": "Si prega di consentire i popup per questo sito web.",
 		"invalidWorkerEvent": "Impossibile aggiungere un evento lavoratore non valido.",
 		"remoteInstallationAlreadyInList": "L'indirizzo inserito è già nell'elenco delle installazioni remote.",
-		"invalidRemoteInstallationAddress": "L'indirizzo inserito non era un'installazione Unmanic valida.",
+		"invalidRemoteInstallationAddress": "L'indirizzo che hai inserito non era un'installazione Unmanic valida.",
 		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai tentando di aggiungere non è compatibile con il collegamento. Prova prima ad aggiornarlo.",
 		"serverMessages": {
 			"defaults": {
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Questa installazione",
+				"thisInstallation": "Locale",
 				"nameThisInstall": "Dai un nome a questa installazione",
 				"remoteInstallations": "Installazioni remote",
 				"name": "Nome",
@@ -183,7 +183,8 @@
 				"connection": "Connessione",
 				"configuration": "Configurazione",
 				"allowReceivingTasks": "Ricevi attività da questa installazione quando i lavoratori sono disponibili",
-				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili"
+				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili",
+				"enableTaskPreloading": "Precarica un'attività nella coda delle attività in sospeso dell'installazione remota"
 			},
 			"support": {
 				"logs": "Registri",

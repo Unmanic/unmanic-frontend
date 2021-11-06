@@ -60,7 +60,7 @@
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchSession": "Ett fel påträffades vid hämtning av sessionsdata från Unmanic.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
@@ -104,7 +104,7 @@
 		"plugins": "Plugins",
 		"pluginInfo": "Plugin info",
 		"pluginSettings": "Plugin-inställningar",
-		"pluginInstaller": "Plugin Installer",
+		"pluginInstaller": "Installation av plugin",
 		"pluginFlow": "Konfigurera Plugin Flow",
 		"information": "Info",
 		"selectDirectory": "Välj en katalog",
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Denna installation",
+				"thisInstallation": "Lokal",
 				"nameThisInstall": "Namnge denna installation",
 				"remoteInstallations": "Fjärrinstallationer",
 				"name": "namn",
@@ -183,7 +183,8 @@
 				"connection": "Förbindelse",
 				"configuration": "Konfiguration",
 				"allowReceivingTasks": "Ta emot uppgifter från den här installationen när arbetare är tillgängliga",
-				"allowSendingTasks": "Skicka uppgifter till den här installationen när arbetare är tillgängliga"
+				"allowSendingTasks": "Skicka uppgifter till den här installationen när arbetare är tillgängliga",
+				"enableTaskPreloading": "Förladda en uppgift på fjärrinstallationens kön för väntande uppgifter"
 			},
 			"support": {
 				"logs": "Loggar",
