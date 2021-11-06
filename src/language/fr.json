@@ -76,7 +76,7 @@
 		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
 		"allowPopups": "Veuillez autoriser les fenêtres contextuelles pour ce site Web.",
 		"invalidWorkerEvent": "Impossible d'ajouter un événement de travail non valide.",
-		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie figure déjà dans la liste des installations distantes.",
+		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie est déjà dans la liste des installations distantes.",
 		"invalidRemoteInstallationAddress": "L'adresse que vous avez entrée n'était pas une installation Unmanic valide.",
 		"incompatibleRemoteInstallation": "L'installation à distance d'Unmanic que vous essayez d'ajouter n'est pas compatible avec la liaison. Essayez d'abord de le mettre à jour.",
 		"serverMessages": {
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Cette installation",
+				"thisInstallation": "Local",
 				"nameThisInstall": "Nommez cette installation",
 				"remoteInstallations": "Installations à distance",
 				"name": "Nom",
@@ -183,7 +183,8 @@
 				"connection": "Lien",
 				"configuration": "Configuration",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
-				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles"
+				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
+				"enableTaskPreloading": "Précharger une tâche sur la file d'attente des tâches en attente d'installation à distance"
 			},
 			"support": {
 				"logs": "Journaux",
@@ -274,7 +275,7 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {

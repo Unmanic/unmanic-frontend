@@ -61,9 +61,6 @@
               <h5 class="">{{ $t('components.settings.link.connection') }}</h5>
 
               <div class="q-gutter-sm">
-                <q-skeleton
-                  v-if="address === null"
-                  type="QInput"/>
                 <q-input
                   outlined
                   color="primary"
@@ -85,7 +82,6 @@
                 />
               </div>
 
-              <!--TODO: Disable this field if the IP address is not valid-->
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="enableSendingTasks === null"
@@ -94,7 +90,23 @@
                   v-else
                   v-model="enableSendingTasks"
                   :label="$t('components.settings.link.allowSendingTasks')"
+                  :disable="address === '???'"
                 />
+              </div>
+
+              <div
+                v-if="enableSendingTasks"
+                class="sub-setting">
+                <div class="q-gutter-sm">
+                  <q-skeleton
+                    v-if="enableTaskPreloading === null"
+                    type="QToggle"/>
+                  <q-toggle
+                    v-else
+                    v-model="enableTaskPreloading"
+                    :label="$t('components.settings.link.enableTaskPreloading')"
+                  />
+                </div>
               </div>
 
             </q-card-section>
@@ -171,10 +183,12 @@ export default {
       }).then((response) => {
         let link_config = response.data.link_config;
         this.address = link_config.address;
+        this.available = link_config.available;
         this.name = link_config.name;
         this.version = link_config.version;
         this.enableReceivingTasks = link_config.enable_receiving_tasks;
         this.enableSendingTasks = link_config.enable_sending_tasks;
+        this.enableTaskPreloading = link_config.enable_task_preloading;
       });
     },
 
@@ -186,6 +200,7 @@ export default {
           address: this.address,
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
+          enable_task_preloading: this.enableTaskPreloading,
         }
       }
       axios({
@@ -223,11 +238,13 @@ export default {
     return {
       maximizedToggle: true,
       currentUuid: ref(null),
-      address: ref(null),
-      name: ref(null),
-      version: ref(null),
+      address: ref(''),
+      available: ref(false),
+      name: ref(''),
+      version: ref(''),
       enableReceivingTasks: ref(null),
       enableSendingTasks: ref(null),
+      enableTaskPreloading: ref(null),
     }
   }
 }

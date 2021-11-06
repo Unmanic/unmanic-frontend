@@ -92,7 +92,7 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração de plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
 			"libraryScanProgress": "Verificação da biblioteca em execução",
 			"pendingTaskHaltedPostProcessorQueueFull": "A fila de pós-processador atingiu seu limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurada atual",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurados atualmente",
 			"receivingRemoteFile": "Recebendo arquivo remoto"
 		}
 	},
@@ -172,7 +172,7 @@
 				}
 			},
 			"link": {
-				"thisInstallation": "Esta instalação",
+				"thisInstallation": "Local",
 				"nameThisInstall": "Nomeie esta instalação",
 				"remoteInstallations": "Instalações remotas",
 				"name": "Nome",
@@ -183,12 +183,13 @@
 				"connection": "Conexão",
 				"configuration": "Configuração",
 				"allowReceivingTasks": "Receba tarefas desta instalação quando os trabalhadores estiverem disponíveis",
-				"allowSendingTasks": "Envie tarefas para esta instalação quando os trabalhadores estiverem disponíveis"
+				"allowSendingTasks": "Envie tarefas para esta instalação quando os trabalhadores estiverem disponíveis",
+				"enableTaskPreloading": "Pré-carregar uma tarefa na fila de tarefas pendentes de instalação remota"
 			},
 			"support": {
 				"logs": "Histórico",
 				"enableDebugging": "EnableDebugging",
-				"currentSystemLogs": "Logs do sistema atual",
+				"currentSystemLogs": "Logs atuais do sistema",
 				"downloadSystemLogs": "Baixar registros do sistema",
 				"configuration": "Configuração",
 				"appVersion": "Versão Unmanic",

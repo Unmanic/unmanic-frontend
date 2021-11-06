@@ -172,7 +172,7 @@
         }
       },
       "link": {
-        "thisInstallation": "This installation",
+        "thisInstallation": "Local",
         "nameThisInstall": "Name this installation",
         "remoteInstallations": "Remote installations",
         "name": "Name",
@@ -183,7 +183,8 @@
         "connection": "Connection",
         "configuration": "Configuration",
         "allowReceivingTasks": "Receive tasks from this installation when workers are available",
-        "allowSendingTasks": "Send tasks to this installation when workers are available"
+        "allowSendingTasks": "Send tasks to this installation when workers are available",
+        "enableTaskPreloading": "Preload a task on the remote installation Pending Tasks queue"
       },
       "support": {
         "logs": "Logs",
