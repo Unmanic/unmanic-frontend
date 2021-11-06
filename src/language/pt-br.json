@@ -9,7 +9,7 @@
 		"config": "Config",
 		"documentation": "Documentação",
 		"library": "Biblioteca",
-		"workers": "Trabalhadores",
+		"workers": "Workers",
 		"plugins": "Plugins",
 		"link": "Ligação",
 		"general": "Em geral",
@@ -88,12 +88,13 @@
 				"status": "Atualização de status desconhecida do servidor"
 			},
 			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um plug-in incompatível",
-			"pluginEnabledLimits": "Unmanic parou de processar tarefas porque você tem muitos plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de 5 plug-ins.",
+			"pluginEnabledLimits": "Unmanic parou de processar tarefas porque você tem muitos plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de dez plug-ins.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração de plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
 			"libraryScanProgress": "Verificação da biblioteca em execução",
 			"pendingTaskHaltedPostProcessorQueueFull": "A fila de pós-processador atingiu seu limite",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurados atualmente",
-			"receivingRemoteFile": "Recebendo arquivo remoto"
+			"receivingRemoteFile": "Recebendo arquivo remoto",
+			"linkedInstallationLimits": "Unmanic parou de processar tarefas porque você vinculou muitas instalações remotas para uma camada de não suporte. Considere patrocinar o projeto para vincular mais de uma instalação remota."
 		}
 	},
 	"headers": {

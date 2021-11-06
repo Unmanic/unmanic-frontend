@@ -7,11 +7,11 @@
 		"login": "Anmeldung",
 		"logout": "Ausloggen",
 		"config": "Konfig",
-		"documentation": "Dokumentation",
+		"documentation": "Documentation",
 		"library": "Bücherei",
 		"workers": "Arbeitskräfte",
 		"plugins": "Plugins",
-		"link": "Verknüpfung",
+		"link": "Link",
 		"general": "Allgemein",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"container": "Container",
@@ -88,12 +88,13 @@
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
 			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
-			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als 5 Plugins zu aktivieren.",
+			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als zehn Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessor-Warteschlange hat ihr Limit erreicht",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbeiter erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Arbeiterzahl fällt",
-			"receivingRemoteFile": "Remote-Datei empfangen"
+			"receivingRemoteFile": "Remote-Datei empfangen",
+			"linkedInstallationLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Remote-Installationen für eine Stufe ohne Supporter verknüpft haben. Ziehen Sie in Betracht, das Projekt zu sponsern, um mehr als eine Remote-Installation zu verknüpfen."
 		}
 	},
 	"headers": {

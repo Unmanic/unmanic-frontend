@@ -10,7 +10,7 @@
 		"documentation": "ドキュメンテーション",
 		"library": "図書館",
 		"workers": "労働者",
-		"plugins": "Plugins",
+		"plugins": "プラグイン",
 		"link": "リンク",
 		"general": "全般的",
 		"helpAndSupport": "ヘルプサポート",
@@ -47,7 +47,7 @@
 		"more": "もっと"
 	},
 	"time": {
-		"ago": "前に",
+		"ago": "ago",
 		"units": {
 			"minute": "分|分",
 			"hour": "時間|時間",
@@ -88,12 +88,13 @@
 				"status": "サーバーからの不明なステータスの更新"
 			},
 			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
-			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 5つ以上のプラグインを有効にするために、プロジェクトを後援することを検討してください。",
+			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 10を超えるプラグインを有効にするために、プロジェクトを後援することを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
 			"libraryScanProgress": "ライブラリスキャンの実行",
 			"pendingTaskHaltedPostProcessorQueueFull": "ポストプロセッサキューが制限に達しました",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "ポストプロセッサキューが現在設定されているワーカー数を下回るまで、ワーカーは新しい保留中のタスクを受け取りません。",
-			"receivingRemoteFile": "リモートファイルの受信"
+			"receivingRemoteFile": "リモートファイルの受信",
+			"linkedInstallationLimits": "非サポーター層にリンクしたリモートインストールが多すぎるため、Unmanicはタスクの処理を停止しました。複数のリモートインストールをリンクするプロジェクトを後援することを検討してください。"
 		}
 	},
 	"headers": {

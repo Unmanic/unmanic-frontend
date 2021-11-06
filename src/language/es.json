@@ -10,15 +10,15 @@
 		"documentation": "Documentación",
 		"library": "Biblioteca",
 		"workers": "Trabajadores",
-		"plugins": "Plugins",
+		"plugins": "Complementos",
 		"link": "Enlace",
 		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
 		"container": "envase",
-		"videoEncoding": "Codificación de video",
+		"videoEncoding": "Video Encoding",
 		"audioEncoding": "Codificación de audio",
 		"advancedOptions": "Opciones avanzadas",
-		"info": "Información",
+		"info": "Info",
 		"top": "Cima",
 		"new": "Nuevo",
 		"show": "Show",
@@ -88,12 +88,13 @@
 				"status": "Actualización de estado desconocida del servidor"
 			},
 			"incompatiblePlugin": "Unmanic ha dejado de procesar tareas porque ha detectado un complemento incompatible",
-			"pluginEnabledLimits": "Unmanic ha dejado de procesar tareas porque tienes demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de 5 complementos.",
+			"pluginEnabledLimits": "Unmanic ha dejado de procesar tareas porque tienes demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de diez complementos.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha detenido a todos los trabajadores porque ha detectado un cambio en la configuración de los complementos. Cuando esté listo, reanude los trabajadores desde el tablero.",
 			"libraryScanProgress": "Escaneo de biblioteca en ejecución",
 			"pendingTaskHaltedPostProcessorQueueFull": "La cola del posprocesador alcanzó su límite",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Los trabajadores no recibirán una nueva tarea pendiente hasta que la cola del posprocesador caiga por debajo del recuento de trabajadores configurado actual",
-			"receivingRemoteFile": "Recibiendo archivo remoto"
+			"receivingRemoteFile": "Recibiendo archivo remoto",
+			"linkedInstallationLimits": "Unmanic ha dejado de procesar tareas porque ha vinculado demasiadas instalaciones remotas para un nivel que no es de soporte. Considere patrocinar el proyecto para vincular más de una instalación remota."
 		}
 	},
 	"headers": {
@@ -106,7 +107,7 @@
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
 		"pluginFlow": "Configurar el flujo de complementos",
-		"information": "Información",
+		"information": "Info",
 		"selectDirectory": "Seleccionar un directorio",
 		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",

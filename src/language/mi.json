@@ -39,7 +39,7 @@
 		"enabled": "kua whakahohea",
 		"disabled": "hauā",
 		"cannotLoadImage": "Kaore e taea te uta atahanga",
-		"success": "Angitu",
+		"success": "Success",
 		"failed": "I rahua"
 	},
 	"pagination": {
@@ -47,7 +47,7 @@
 		"more": "atu"
 	},
 	"time": {
-		"ago": "i mua",
+		"ago": "ago",
 		"units": {
 			"minute": "meneti | meneti",
 			"hour": "haora | haora",
@@ -88,12 +88,13 @@
 				"status": "Whakahōu tūnga tē mōhiotia mai i te tūmau"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua kitea he Monomai hotokore",
-			"pluginEnabledLimits": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea he maha rawa nga monomai kua whakahohea mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia nui ake i te 5 monomai.",
+			"pluginEnabledLimits": "Kua whakamutua e Unmanic te tukatuka i nga mahi na te mea he maha rawa nga monomai kua whakahohea mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te tekau monomai.",
 			"pluginSettingsChangeWorkersStopped": "Kua whakamutua e Unmanic nga kaimahi katoa na te mea kua kitea he huringa ki te whirihoranga Monomai. Kia reri koe, whakaara ano i nga kaimahi mai i te papatohu.",
 			"libraryScanProgress": "E rere ana te karapa whare pukapuka",
 			"pendingTaskHaltedPostProcessorQueueFull": "I tae te rarangi Pou-tukatuka ki tona rohe",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Karekau nga kaimahi e whiwhi i tetahi mahi hou e tatari ana kia taka ra ano te rarangi Pou-tukatuka ki raro i te tatau kaimahi kua whirihorahia.",
-			"receivingRemoteFile": "Te whiwhi kōnae mamao"
+			"receivingRemoteFile": "Te whiwhi kōnae mamao",
+			"linkedInstallationLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua honoa e koe te maha o nga whakaurunga mamao mo te taumata kore-tautoko. Whakaarohia te tautoko i te kaupapa ki te hono neke atu i te kotahi te whakaurunga mamao."
 		}
 	},
 	"headers": {
