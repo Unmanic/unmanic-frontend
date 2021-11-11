@@ -105,7 +105,7 @@
 		"plugins": "Plugin",
 		"pluginInfo": "Informazioni sui plugin",
 		"pluginSettings": "Impostazioni plugin",
-		"pluginInstaller": "Programma di installazione del plug-in",
+		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "Configura flusso plugin",
 		"information": "Informazioni",
 		"selectDirectory": "Seleziona una directory",
@@ -185,7 +185,9 @@
 				"configuration": "Configurazione",
 				"allowReceivingTasks": "Ricevi attività da questa installazione quando i lavoratori sono disponibili",
 				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili",
-				"enableTaskPreloading": "Precarica un'attività nella coda delle attività in sospeso dell'installazione remota"
+				"enableTaskPreloading": "Precarica un'attività nella coda delle attività in sospeso dell'installazione remota",
+				"enableDistributedWorkerCount": "Abilita il conteggio dei lavoratori distribuiti per questo collegamento",
+				"workerTarget": "Obiettivo lavoratore"
 			},
 			"support": {
 				"logs": "Registri",
@@ -254,7 +256,7 @@
 			"updateAvailable": "aggiornamento disponibile",
 			"upToDate": "aggiornato",
 			"enablePlugins": "Abilita plugin",
-			"disablePlugins": "Disattiva plugin",
+			"disablePlugins": "Disattiva plug-in",
 			"updatePlugins": "Aggiorna plugin",
 			"removePlugins": "Rimuovi plugin",
 			"addNew": "Aggiungere nuova",

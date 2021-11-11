@@ -185,7 +185,9 @@
 				"configuration": "Configuration",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
-				"enableTaskPreloading": "Précharger une tâche sur la file d'attente des tâches en attente d'installation à distance"
+				"enableTaskPreloading": "Précharger une tâche sur la file d'attente des tâches en attente d'installation à distance",
+				"enableDistributedWorkerCount": "Activer le nombre de nœuds de calcul distribués pour ce lien",
+				"workerTarget": "Cible du travailleur"
 			},
 			"support": {
 				"logs": "Journaux",
@@ -201,7 +203,7 @@
 				"userdataPath": "Chemin des données utilisateur",
 				"docs": "Documentation",
 				"apiSpec": "Spécification API",
-				"applicationDocumentation": "Dossier de candidature",
+				"applicationDocumentation": "Documents d'application",
 				"support": "Soutien",
 				"unmanicAppSourceRequests": "Fonctionnalité de demande dans l'application Unmanic",
 				"unmanicFrontendSourceRequests": "Fonctionnalité de demande dans Unmanic Frontend",
@@ -280,7 +282,7 @@
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion des bibliothèques - Test de fichiers",
+					"fileTest": "Gestion de la bibliothèque - Test de fichier",
 					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
 				},
 				"postprocessor": {

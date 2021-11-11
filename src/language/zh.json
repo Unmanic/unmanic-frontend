@@ -11,7 +11,7 @@
 		"library": "图书馆",
 		"workers": "工人",
 		"plugins": "插件",
-		"link": "Link",
+		"link": "关联",
 		"general": "一般的",
 		"helpAndSupport": "帮助支持",
 		"container": "容器",
@@ -47,9 +47,9 @@
 		"more": "更多的"
 	},
 	"time": {
-		"ago": "ago",
+		"ago": "前",
 		"units": {
-			"minute": "minute | minutes",
+			"minute": "分钟 |分钟",
 			"hour": "小时 |小时",
 			"day": "日 |天"
 		}
@@ -185,7 +185,9 @@
 				"configuration": "配置",
 				"allowReceivingTasks": "当工作人员可用时从该安装接收任务",
 				"allowSendingTasks": "当工作人员可用时将任务发送到此安装",
-				"enableTaskPreloading": "在远程安装挂起任务队列中预加载任务"
+				"enableTaskPreloading": "在远程安装挂起任务队列中预加载任务",
+				"enableDistributedWorkerCount": "为这个链接启用分布式工作者计数",
+				"workerTarget": "工人目标"
 			},
 			"support": {
 				"logs": "日志",
@@ -204,7 +206,7 @@
 				"applicationDocumentation": "申请文件",
 				"support": "支持",
 				"unmanicAppSourceRequests": "Unmanic 应用程序中的请求功能",
-				"unmanicFrontendSourceRequests": "Unmanic 前端的请求功能",
+				"unmanicFrontendSourceRequests": "Unmanic 前端中的请求功能",
 				"unmanicOfficialPluginRequests": "申请 Unmanic 插件"
 			}
 		},

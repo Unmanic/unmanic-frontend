@@ -109,6 +109,41 @@
                 </div>
               </div>
 
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="enableDistributedWorkerCount === null"
+                  type="QToggle"/>
+                <q-toggle
+                  v-else
+                  v-model="enableDistributedWorkerCount"
+                  :label="$t('components.settings.link.enableDistributedWorkerCount')"
+                />
+              </div>
+
+              <div
+                v-if="enableDistributedWorkerCount"
+                class="sub-setting">
+                <div class="q-gutter-sm">
+                  <q-skeleton
+                    v-if="distributedWorkerCountTarget === null"
+                    type="QSlider"/>
+                  <div
+                    class="q-pl-lg"
+                    style="width: 80%">
+                    <q-slider
+                      v-if="distributedWorkerCountTarget !== null"
+                      v-model="distributedWorkerCountTarget"
+                      :min="0"
+                      :max="12"
+                      label
+                      :label-value="$t('components.settings.link.workerTarget') + ': ' + distributedWorkerCountTarget"
+                      label-always
+                      color="primary"
+                    />
+                  </div>
+                </div>
+              </div>
+
             </q-card-section>
 
           </q-card>
@@ -189,6 +224,8 @@ export default {
         this.enableReceivingTasks = link_config.enable_receiving_tasks;
         this.enableSendingTasks = link_config.enable_sending_tasks;
         this.enableTaskPreloading = link_config.enable_task_preloading;
+        this.enableDistributedWorkerCount = link_config.enable_distributed_worker_count;
+        this.distributedWorkerCountTarget = response.data.distributed_worker_count_target;
       });
     },
 
@@ -201,7 +238,9 @@ export default {
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
           enable_task_preloading: this.enableTaskPreloading,
-        }
+          enable_distributed_worker_count: this.enableDistributedWorkerCount,
+        },
+        distributed_worker_count_target: this.distributedWorkerCountTarget,
       }
       axios({
         method: 'post',
@@ -245,6 +284,8 @@ export default {
       enableReceivingTasks: ref(null),
       enableSendingTasks: ref(null),
       enableTaskPreloading: ref(null),
+      enableDistributedWorkerCount: ref(null),
+      distributedWorkerCountTarget: ref(null),
     }
   }
 }
