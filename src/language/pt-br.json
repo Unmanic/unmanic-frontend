@@ -9,7 +9,7 @@
 		"config": "Config",
 		"documentation": "Documentação",
 		"library": "Biblioteca",
-		"workers": "Workers",
+		"workers": "Trabalhadores",
 		"plugins": "Plugins",
 		"link": "Ligação",
 		"general": "Em geral",
@@ -18,7 +18,7 @@
 		"videoEncoding": "Codificação de Vídeo",
 		"audioEncoding": "Codificação de Áudio",
 		"advancedOptions": "Opções avançadas",
-		"info": "Informações",
+		"info": "Info",
 		"top": "Principal",
 		"new": "Novo",
 		"show": "Mostrar",
@@ -38,7 +38,7 @@
 	"status": {
 		"enabled": "ativado",
 		"disabled": "Desativado",
-		"cannotLoadImage": "Não é possível carregar a imagem",
+		"cannotLoadImage": "Impossível carregar imagem",
 		"success": "Sucesso",
 		"failed": "Fracassado"
 	},
@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Salvou.",
 		"installed": "Instalado.",
-		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está funcionando.",
+		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Verifique se ele está em execução.",
 		"failedToFetchSession": "Foi encontrado um erro ao buscar os dados da sessão do Unmanic.",
 		"failedToFetchLoginUrl": "Falha ao obter o URL de login.",
 		"failedToFetchLogoutUrl": "Falha ao obter URL de logout.",
@@ -89,10 +89,10 @@
 			},
 			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um plug-in incompatível",
 			"pluginEnabledLimits": "Unmanic parou de processar tarefas porque você tem muitos plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de dez plug-ins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração de plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração dos plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
 			"libraryScanProgress": "Verificação da biblioteca em execução",
 			"pendingTaskHaltedPostProcessorQueueFull": "A fila de pós-processador atingiu seu limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurados atualmente",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurada atual",
 			"receivingRemoteFile": "Recebendo arquivo remoto",
 			"linkedInstallationLimits": "Unmanic parou de processar tarefas porque você vinculou muitas instalações remotas para uma camada de não suporte. Considere patrocinar o projeto para vincular mais de uma instalação remota."
 		}
@@ -139,8 +139,8 @@
 				"path": "Caminho da biblioteca",
 				"libraryScanner": "Scanner de biblioteca",
 				"enableLibraryScanner": "Habilitar varreduras periódicas da biblioteca",
-				"libraryScannerSchedule": "Agenda de verificação da biblioteca em minutos",
-				"libraryScannerScheduleNotValid": "A programação de verificação da biblioteca não é válida",
+				"libraryScannerSchedule": "Cronograma de verificação da biblioteca em minutos",
+				"libraryScannerScheduleNotValid": "A programação da verificação da biblioteca não é válida",
 				"followSymlinks": "Siga os links simbólicos nas análises da biblioteca",
 				"runLibraryScanOnStart": "Execute uma varredura de biblioteca única na inicialização",
 				"fileMonitor": "Monitor de arquivo de biblioteca",
@@ -168,7 +168,7 @@
 					"saturday": "Todos os sábados",
 					"sunday": "Todos os domingos",
 					"count": "Definir contagem de trabalhadores",
-					"pause": "Pausar todos os trabalhadores",
+					"pause": "Pause todos os trabalhadores",
 					"resume": "Retomar todos os trabalhadores"
 				}
 			},
@@ -185,7 +185,9 @@
 				"configuration": "Configuração",
 				"allowReceivingTasks": "Receba tarefas desta instalação quando os trabalhadores estiverem disponíveis",
 				"allowSendingTasks": "Envie tarefas para esta instalação quando os trabalhadores estiverem disponíveis",
-				"enableTaskPreloading": "Pré-carregar uma tarefa na fila de tarefas pendentes de instalação remota"
+				"enableTaskPreloading": "Pré-carregar uma tarefa na fila de tarefas pendentes de instalação remota",
+				"enableDistributedWorkerCount": "Habilitar contagem de trabalhadores distribuídos para este link",
+				"workerTarget": "Objetivo do trabalhador"
 			},
 			"support": {
 				"logs": "Histórico",
@@ -220,7 +222,7 @@
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "Trabalhador foi demitido",
 			"workerTerminationFailed": "Unmanic não conseguiu demitir este trabalhador por algum motivo",
-			"pauseAllWorkers": "Pausar todos os trabalhadores",
+			"pauseAllWorkers": "Pause todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"workerLog": "Diário de trabalho",
 			"status": "Status",

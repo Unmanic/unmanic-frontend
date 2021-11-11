@@ -47,7 +47,7 @@
 		"more": "meer"
 	},
 	"time": {
-		"ago": "ago",
+		"ago": "geleden",
 		"units": {
 			"minute": "minuut | minuten",
 			"hour": "uur | uur",
@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Opgeslagen.",
 		"installed": "Geïnstalleerd.",
-		"backendConnectionWarning": "Kan geen verbinding maken met Unmanic-backend. Controleer of het actief is.",
+		"backendConnectionWarning": "Kan geen verbinding maken met de Unmanic-backend. Controleer of het actief is.",
 		"failedToFetchSession": "Er is een fout opgetreden bij het ophalen van de sessiegegevens van Unmanic.",
 		"failedToFetchLoginUrl": "Kan inlog-URL niet ophalen.",
 		"failedToFetchLogoutUrl": "Kan uitlog-URL niet ophalen.",
@@ -73,7 +73,7 @@
 		"reposRefreshFailure": "Kan uw geconfigureerde opslagplaatsen niet bijwerken. Misschien staat er een fout in een van de URL's?",
 		"repoRemovedSuccess": "Repository is verwijderd.",
 		"repoRemovedFailed": "Er is iets misgegaan bij het verwijderen van de repository.",
-		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins voor het gegevenspaneel niet ophalen",
+		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
 		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
@@ -94,7 +94,7 @@
 			"pendingTaskHaltedPostProcessorQueueFull": "De wachtrij van de postprocessor heeft zijn limiet bereikt",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Werknemers ontvangen geen nieuwe taak die in behandeling is totdat de wachtrij na de processor onder het huidige geconfigureerde aantal werknemers komt",
 			"receivingRemoteFile": "Bestand op afstand ontvangen",
-			"linkedInstallationLimits": "Unmanic is gestopt met het verwerken van taken omdat u te veel externe installaties hebt gekoppeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan één externe installatie te koppelen."
+			"linkedInstallationLimits": "Unmanic is gestopt met het verwerken van taken omdat u te veel externe installaties hebt gekoppeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan één installatie op afstand te koppelen."
 		}
 	},
 	"headers": {
@@ -104,7 +104,7 @@
 		"privacyPolicy": "Privacybeleid",
 		"plugins": "Plug-ins",
 		"pluginInfo": "Plugin-info",
-		"pluginSettings": "Plugin-instellingen",
+		"pluginSettings": "Instellingen voor plug-ins",
 		"pluginInstaller": "Installatieprogramma voor plug-ins",
 		"pluginFlow": "Plugin-stroom configureren",
 		"information": "Info",
@@ -113,7 +113,7 @@
 		"librarySettings": "Bibliotheekinstellingen",
 		"completedTaskDetails": "Details van voltooide taak",
 		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
-		"confirm": "Bevestigen",
+		"confirm": "Confirm",
 		"configureRemoteInstallationLink": "Link voor installatie op afstand configureren"
 	},
 	"tooltips": {
@@ -168,13 +168,13 @@
 					"saturday": "Elke zaterdag",
 					"sunday": "Elke zondag",
 					"count": "Aantal werknemers instellen",
-					"pause": "Alle werkers pauzeren",
+					"pause": "Pauzeer alle werkers",
 					"resume": "Alle werknemers hervatten"
 				}
 			},
 			"link": {
 				"thisInstallation": "lokaal",
-				"nameThisInstall": "Geef deze installatie een naam",
+				"nameThisInstall": "Name this installation",
 				"remoteInstallations": "Installaties op afstand",
 				"name": "Naam",
 				"version": "Versie",
@@ -183,9 +183,11 @@
 				"add": "Toevoegen",
 				"connection": "Verbinding",
 				"configuration": "Configuratie",
-				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werknemers beschikbaar zijn",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werkers beschikbaar zijn",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
-				"enableTaskPreloading": "Een taak vooraf laden in de wachtrij voor de installatie op afstand In afwachting van taken"
+				"enableTaskPreloading": "Laad een taak vooraf in de wachtrij voor installatie op afstand in afwachting van taken",
+				"enableDistributedWorkerCount": "Gedistribueerd aantal werknemers inschakelen voor deze link",
+				"workerTarget": "Werknemer doel"
 			},
 			"support": {
 				"logs": "Logboeken",
@@ -220,7 +222,7 @@
 			"terminateWorkerWarning": "Weet u zeker dat u deze werknemer en zijn huidige taak wilt beëindigen? De huidige taak wordt gemarkeerd als mislukt in de lijst met voltooide taken.",
 			"workerTerminated": "Werknemer is beëindigd",
 			"workerTerminationFailed": "Unmanic kon deze werknemer om de een of andere reden niet beëindigen",
-			"pauseAllWorkers": "Alle werkers pauzeren",
+			"pauseAllWorkers": "Pauzeer alle werkers",
 			"resumeAllWorkers": "Alle werknemers hervatten",
 			"workerLog": "Werknemerslogboek",
 			"status": "Toestand",
@@ -241,7 +243,7 @@
 		"pendingTasks": {
 			"listEmpty": "De lijst met lopende taken is leeg",
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
-			"moveToTop": "Geselecteerde naar boven verplaatsen",
+			"moveToTop": "Verplaats geselecteerde naar boven",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
 			"removeSelected": "Verwijder geselecteerde"
 		},
@@ -254,9 +256,9 @@
 			"updateAvailable": "update beschikbaar",
 			"upToDate": "actueel",
 			"enablePlugins": "Plug-ins(s) inschakelen",
-			"disablePlugins": "Schakel plug-ins(s) uit",
+			"disablePlugins": "Plug-ins(s) uitschakelen",
 			"updatePlugins": "Plug-ins(s) bijwerken",
-			"removePlugins": "Plug-ins(s) verwijderen",
+			"removePlugins": "Verwijder plug-ins(s)",
 			"addNew": "Nieuw toevoegen",
 			"configurePluginFow": "Plugin-stroom configureren",
 			"listEmpty": "Er zijn geen plug-ins om weer te geven",
@@ -271,7 +273,7 @@
 			"newRepository": "Nieuwe opslagplaats",
 			"repoName": "Naam",
 			"repoSource": "Repository-URL",
-			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
+			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de plug-instroom",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
 				"line2": "Hieronder vindt u een lijst met secties over het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
@@ -285,7 +287,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocessor - Bestandsverplaatsingen",
-					"fileMoveCaption": "Deze plug-ins worden na voltooiing van de taak aangeroepen om extra bestandsverplaatsingen toe te voegen",
+					"fileMoveCaption": "Deze plug-ins worden aangeroepen na voltooiing van de taak om extra bestandsverplaatsingen toe te voegen",
 					"taskResult": "Post-processor - Taak succes/mislukking markeren",
 					"taskResultCaption": "Deze plug-ins worden aangeroepen bij het voltooien van een taak om het algehele succes of falen van die taak te markeren"
 				},

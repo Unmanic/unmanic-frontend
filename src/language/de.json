@@ -7,11 +7,11 @@
 		"login": "Anmeldung",
 		"logout": "Ausloggen",
 		"config": "Konfig",
-		"documentation": "Documentation",
+		"documentation": "Dokumentation",
 		"library": "Bücherei",
 		"workers": "Arbeitskräfte",
 		"plugins": "Plugins",
-		"link": "Link",
+		"link": "Verknüpfung",
 		"general": "Allgemein",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"container": "Container",
@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -149,7 +149,7 @@
 				"clearPendingTasksOnStart": "Alle ausstehenden Aufgaben beim Start löschen"
 			},
 			"workers": {
-				"workerCount": "Anzahl der Arbeiter",
+				"workerCount": "Arbeiterzahl",
 				"path": "Cache-Pfad",
 				"schedule": "Terminplan für Arbeiter",
 				"newScheduledEvent": "Neue geplante Veranstaltung",
@@ -185,7 +185,9 @@
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Mitarbeiter verfügbar sind",
 				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Mitarbeiter verfügbar sind",
-				"enableTaskPreloading": "Laden Sie eine Aufgabe vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation"
+				"enableTaskPreloading": "Laden Sie eine Aufgabe vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
+				"enableDistributedWorkerCount": "Anzahl verteilter Mitarbeiter für diesen Link aktivieren",
+				"workerTarget": "Arbeiterziel"
 			},
 			"support": {
 				"logs": "Protokolle",

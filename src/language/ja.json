@@ -47,7 +47,7 @@
 		"more": "もっと"
 	},
 	"time": {
-		"ago": "ago",
+		"ago": "前に",
 		"units": {
 			"minute": "分|分",
 			"hour": "時間|時間",
@@ -87,7 +87,7 @@
 				"success": "サーバーからの不明なメッセージ",
 				"status": "サーバーからの不明なステータスの更新"
 			},
-			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
+			"incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
 			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 10を超えるプラグインを有効にするために、プロジェクトを後援することを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
 			"libraryScanProgress": "ライブラリスキャンの実行",
@@ -185,7 +185,9 @@
 				"configuration": "構成",
 				"allowReceivingTasks": "ワーカーが利用可能になったときに、このインストールからタスクを受け取ります",
 				"allowSendingTasks": "ワーカーが利用可能になったら、このインストールにタスクを送信します",
-				"enableTaskPreloading": "リモートインストールの保留中のタスクキューにタスクをプリロードします"
+				"enableTaskPreloading": "リモートインストールの保留中のタスクキューにタスクをプリロードします",
+				"enableDistributedWorkerCount": "このリンクの分散ワーカー数を有効にする",
+				"workerTarget": "労働者の目標"
 			},
 			"support": {
 				"logs": "ログ",

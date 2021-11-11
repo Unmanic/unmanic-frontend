@@ -117,7 +117,6 @@
                   v-else
                   v-model="enableDistributedWorkerCount"
                   :label="$t('components.settings.link.enableDistributedWorkerCount')"
-                  :disable="address === '???'"
                 />
               </div>
 

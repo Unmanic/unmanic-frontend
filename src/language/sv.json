@@ -50,7 +50,7 @@
 		"ago": "sedan",
 		"units": {
 			"minute": "minut | minuter",
-			"hour": "hour | hours",
+			"hour": "timme | timmar",
 			"day": "dag | dagar"
 		}
 	},
@@ -60,7 +60,7 @@
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchSession": "Ett fel påträffades vid hämtning av sessionsdata från Unmanic.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
@@ -69,8 +69,8 @@
 		"failedToInstallPlugin": "Ett fel påträffades vid försök att installera det begärda pluginprogrammet.",
 		"repoAlreadyExists": "Lagret finns redan.",
 		"newRepoAddFailed": "Det gick inte att spara det nya arkivet.",
-		"reposRefreshSuccess": "Uppdaterade alla arkiv.",
-		"reposRefreshFailure": "Det går inte att uppdatera dina konfigurerade förråd. Kanske är det ett fel i en av webbadresserna?",
+		"reposRefreshSuccess": "Alla arkiv har uppdaterats.",
+		"reposRefreshFailure": "Det går inte att uppdatera dina konfigurerade arkiv. Kanske är det ett fel i en av webbadresserna?",
 		"repoRemovedSuccess": "Repository har tagits bort.",
 		"repoRemovedFailed": "Något gick fel när arkivet skulle tas bort.",
 		"failedToFetchEnabledDataPanelPlugins": "Det gick inte att hämta listan över aktiverade datapanelpluginprogram",
@@ -105,7 +105,7 @@
 		"plugins": "Plugins",
 		"pluginInfo": "Plugin info",
 		"pluginSettings": "Plugin-inställningar",
-		"pluginInstaller": "Installation av plugin",
+		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "Konfigurera Plugin Flow",
 		"information": "Info",
 		"selectDirectory": "Välj en katalog",
@@ -135,7 +135,7 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "var vänlig skriv in ett giltigt nummer",
 			"library": {
-				"pathConfiguration": "Konfiguration av biblioteksväg",
+				"pathConfiguration": "Bibliotekssökvägskonfiguration",
 				"path": "Bibliotekets väg",
 				"libraryScanner": "Biblioteksskanner",
 				"enableLibraryScanner": "Aktivera periodiska bibliotekssökningar",
@@ -144,7 +144,7 @@
 				"followSymlinks": "Följ symbollänkar på biblioteksskanningar",
 				"runLibraryScanOnStart": "Kör en biblioteksskanning en gång vid start",
 				"fileMonitor": "Biblioteksfilövervakare",
-				"enableLibraryFileMonitor": "Aktivera bibliotekets filövervakare",
+				"enableLibraryFileMonitor": "Aktivera bibliotekets filövervakning",
 				"pendingTasks": "Väntande uppgifter",
 				"clearPendingTasksOnStart": "Rensa alla väntande uppgifter vid start"
 			},
@@ -183,9 +183,11 @@
 				"add": "Lägg till",
 				"connection": "Förbindelse",
 				"configuration": "Konfiguration",
-				"allowReceivingTasks": "Ta emot uppgifter från den här installationen när arbetare är tillgängliga",
+				"allowReceivingTasks": "Ta emot uppgifter från denna installation när arbetare är tillgängliga",
 				"allowSendingTasks": "Skicka uppgifter till den här installationen när arbetare är tillgängliga",
-				"enableTaskPreloading": "Förladda en uppgift på fjärrinstallationens kön för väntande uppgifter"
+				"enableTaskPreloading": "Förladda en uppgift på fjärrinstallationens kön för väntande uppgifter",
+				"enableDistributedWorkerCount": "Aktivera distribuerat antal arbetare för denna länk",
+				"workerTarget": "Arbetarmål"
 			},
 			"support": {
 				"logs": "Loggar",
@@ -267,7 +269,7 @@
 			"repo": "Förvar",
 			"repoList": "Förvarslista",
 			"refreshRepositories": "Uppdatera förråd",
-			"addRepository": "Lägg till arkiv",
+			"addRepository": "Lägg till förråd",
 			"newRepository": "Nytt förråd",
 			"repoName": "namn",
 			"repoSource": "Repository URL",
@@ -275,7 +277,7 @@
 			"configurePluginFlowSection": {
 				"line1": "Konfigurera i vilken ordning plugins anropas.",
 				"line2": "Nedan finns en lista över sektioner av plugintyp. Varje instickstypssektion kan innehålla en lista med insticksprogram.",
-				"line3": "Se beskrivningen under varje instickstyp för information om när de inneslutna insticksprogrammen kommer att anropas.",
+				"line3": "Se beskrivningen under varje instickstyp för detaljer när de inneslutna insticksmodulerna kommer att anropas.",
 				"line4": "En plugin kan bestå av flera plugintyper. Om så är fallet kommer det att anropas av Unmanic vid vart och ett av de beskrivna avsnitten."
 			},
 			"types": {
@@ -287,7 +289,7 @@
 					"fileMove": "Post-processor - Filrörelser",
 					"fileMoveCaption": "Dessa plugins anropas när uppgiften är klar för att lägga till ytterligare filrörelser",
 					"taskResult": "Efterbehandlare - Markera uppgiften lyckad/misslyckad",
-					"taskResultCaption": "Dessa plugins anropas när en uppgift slutförs för att markera den övergripande framgången eller misslyckandet för den uppgiften"
+					"taskResultCaption": "Dessa plugins anropas vid slutförandet av en uppgift för att markera den övergripande framgången eller misslyckandet för den uppgiften"
 				},
 				"worker": {
 					"processItem": "Arbetare - Bearbetar fil",
