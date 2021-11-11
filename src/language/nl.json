@@ -113,7 +113,7 @@
 		"librarySettings": "Bibliotheekinstellingen",
 		"completedTaskDetails": "Details van voltooide taak",
 		"supportFutureDevelopment": "Ondersteuning toekomstige ontwikkeling",
-		"confirm": "Confirm",
+		"confirm": "Bevestigen",
 		"configureRemoteInstallationLink": "Link voor installatie op afstand configureren"
 	},
 	"tooltips": {
@@ -174,7 +174,7 @@
 			},
 			"link": {
 				"thisInstallation": "lokaal",
-				"nameThisInstall": "Name this installation",
+				"nameThisInstall": "Geef deze installatie een naam",
 				"remoteInstallations": "Installaties op afstand",
 				"name": "Naam",
 				"version": "Versie",

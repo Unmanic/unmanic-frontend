@@ -87,7 +87,7 @@
 				"success": "サーバーからの不明なメッセージ",
 				"status": "サーバーからの不明なステータスの更新"
 			},
-			"incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
+			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
 			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 10を超えるプラグインを有効にするために、プロジェクトを後援することを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
 			"libraryScanProgress": "ライブラリスキャンの実行",
