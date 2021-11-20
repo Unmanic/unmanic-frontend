@@ -296,6 +296,9 @@
 					"processItemCaption": "Questi plugin sono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
 				}
 			}
+		},
+		"footer": {
+			"version": "Versione"
 		}
 	}
 }

@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -288,7 +288,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markieren von Erfolg/Misserfolg der Aufgabe",
+					"taskResult": "Postprozessor - Markieren von Erfolg/Fehlschlag der Aufgabe",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
@@ -296,6 +296,9 @@
 					"processItemCaption": "Diese Plugins werden von einem Worker aufgerufen und erzeugen einen benutzerdefinierten Befehl, der von diesem Worker ausgeführt und verwaltet wird"
 				}
 			}
+		},
+		"footer": {
+			"version": "Ausführung"
 		}
 	}
 }

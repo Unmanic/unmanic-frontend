@@ -1,13 +1,16 @@
 <template>
-  <div class="row">
-    <div class="col">
+  <div class="row q-mt-lg">
+    <div class="col q-ml-lg">
       <p class="text-subtitle1">
-        &copy; 2018-2021 by <a href="https://github.com/Josh5">Josh Sunnex</a> (<a href="https://ko-fi.com/josh5coffee">Buy Me a Coffee!</a>)
+        &copy; 2018-2021 by <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
       </p>
     </div>
-    <div class="col-auto">
+    <div class="col-auto q-mr-lg">
       <p class="text-subtitle1">
-        Unmanic Version <a href="https://github.com/unmanic/unmanic/releases">{{ unmanicVersion }}</a>
+        {{ $t('components.footer.version') }}:
+        <a class="footer-link"
+           target="_blank"
+           href="https://github.com/unmanic/unmanic/releases">{{ unmanicVersion }}</a>
       </p>
     </div>
   </div>
@@ -37,3 +40,10 @@ export default {
   }
 }
 </script>
+
+<style>
+a.footer-link {
+  color: inherit;
+  text-decoration: inherit;
+}
+</style>

@@ -296,6 +296,9 @@
 					"processItemCaption": "Deze plug-ins worden aangeroepen door een werker en produceren een aangepast commando dat door die werker moet worden uitgevoerd en beheerd"
 				}
 			}
+		},
+		"footer": {
+			"version": "Versie"
 		}
 	}
 }

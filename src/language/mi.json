@@ -296,6 +296,9 @@
 					"processItemCaption": "Ka karangahia enei Monohiko e tetahi kaimahi me te whakaputa i tetahi whakahau ritenga hei whakahaere me te whakahaere e taua kaimahi"
 				}
 			}
+		},
+		"footer": {
+			"version": "Putanga"
 		}
 	}
 }

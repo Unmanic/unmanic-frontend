@@ -296,6 +296,9 @@
 					"processItemCaption": "Dessa plugins anropas av en arbetare och producerar ett anpassat kommando som ska köras och hanteras av den arbetaren"
 				}
 			}
+		},
+		"footer": {
+			"version": "Version"
 		}
 	}
 }

@@ -296,6 +296,9 @@
 					"processItemCaption": "Estos complementos son llamados por un trabajador y producen un comando personalizado para ser ejecutado y administrado por ese trabajador."
 				}
 			}
+		},
+		"footer": {
+			"version": "Versión"
 		}
 	}
 }
