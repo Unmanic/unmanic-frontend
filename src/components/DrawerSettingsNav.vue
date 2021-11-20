@@ -77,6 +77,19 @@
       </q-item>
       <!--END SUPPORT SELECT-->
 
+      <!--START PRIVACY POLICY-->
+      <q-item
+        clickable
+        @click="showPrivacyPolicyDialog"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="shield-account"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('headers.privacyPolicy') }}
+        </q-item-section>
+      </q-item>
+      <!--END PRIVACY POLICY-->
 
     </q-list>
   </q-scroll-area>

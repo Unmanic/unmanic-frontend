@@ -92,15 +92,27 @@
 
       <q-separator spaced/>
 
+      <!--START SUPPORT SELECT-->
+      <q-item
+        clickable
+        to="/ui/settings-support"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="help_outline"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.helpAndSupport') }}
+        </q-item-section>
+      </q-item>
+      <!--END SUPPORT SELECT-->
 
-      <q-item-label header>{{ $t('navigation.documentation') }}:</q-item-label>
       <!--START PRIVACY POLICY-->
       <q-item
         clickable
         @click="showPrivacyPolicyDialog"
         v-ripple>
         <q-item-section avatar>
-          <q-icon name="subject"/>
+          <q-icon name="shield-account"/>
         </q-item-section>
         <q-item-section>
           {{ $t('headers.privacyPolicy') }}
