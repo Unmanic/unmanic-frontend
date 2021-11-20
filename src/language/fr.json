@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Enregistré.",
 		"installed": "Installée.",
-		"backendConnectionWarning": "Impossible de se connecter au backend Unmanic. Veuillez vérifier qu'il fonctionne.",
+		"backendConnectionWarning": "Impossible de se connecter au backend Unmanic. Veuillez vérifier qu'il est en cours d'exécution.",
 		"failedToFetchSession": "Une erreur s'est produite lors de la récupération des données de session depuis Unmanic.",
 		"failedToFetchLoginUrl": "Échec de l'obtention de l'URL de connexion.",
 		"failedToFetchLogoutUrl": "Échec de l'obtention de l'URL de déconnexion.",
@@ -146,7 +146,9 @@
 				"fileMonitor": "Moniteur de fichiers de bibliothèque",
 				"enableLibraryFileMonitor": "Activer le moniteur de fichiers de bibliothèque",
 				"pendingTasks": "Tâches en attente",
-				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage"
+				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage",
+				"fileTesting": "Test de fichiers",
+				"concurrentFileTesters": "Testeurs de fichiers simultanés"
 			},
 			"workers": {
 				"workerCount": "Nombre de travailleurs",
@@ -186,7 +188,7 @@
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
 				"enableTaskPreloading": "Précharger une tâche sur la file d'attente des tâches en attente d'installation à distance",
-				"enableDistributedWorkerCount": "Activer le nombre de nœuds de calcul distribués pour ce lien",
+				"enableDistributedWorkerCount": "Activer le nombre de travailleurs distribués pour ce lien",
 				"workerTarget": "Cible du travailleur"
 			},
 			"support": {
@@ -203,7 +205,7 @@
 				"userdataPath": "Chemin des données utilisateur",
 				"docs": "Documentation",
 				"apiSpec": "Spécification API",
-				"applicationDocumentation": "Documents d'application",
+				"applicationDocumentation": "Dossier de candidature",
 				"support": "Soutien",
 				"unmanicAppSourceRequests": "Fonctionnalité de demande dans l'application Unmanic",
 				"unmanicFrontendSourceRequests": "Fonctionnalité de demande dans Unmanic Frontend",
@@ -257,7 +259,7 @@
 			"upToDate": "à jour",
 			"enablePlugins": "Activer les plugins",
 			"disablePlugins": "Désactiver les plugins",
-			"updatePlugins": "Mettre à jour le(s) plugin(s)",
+			"updatePlugins": "Mettre à jour les plugins",
 			"removePlugins": "Supprimer le(s) plugin(s)",
 			"addNew": "Ajouter un nouveau",
 			"configurePluginFow": "Configurer le flux de plugin",
@@ -278,7 +280,7 @@
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
 				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut être constitué de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {
@@ -288,7 +290,7 @@
 				"postprocessor": {
 					"fileMove": "Post-processeur - Mouvements de fichiers",
 					"fileMoveCaption": "Ces plugins sont appelés à la fin de la tâche pour ajouter des mouvements de fichiers supplémentaires",
-					"taskResult": "Post-processeur - Marquer le succès/l'échec d'une tâche",
+					"taskResult": "Post-processeur - Marquer le succès/l'échec de la tâche",
 					"taskResultCaption": "Ces plugins sont appelés à la fin d'une tâche pour marquer le succès ou l'échec global de cette tâche"
 				},
 				"worker": {

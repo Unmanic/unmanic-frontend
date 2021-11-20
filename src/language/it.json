@@ -105,7 +105,7 @@
 		"plugins": "Plugin",
 		"pluginInfo": "Informazioni sui plugin",
 		"pluginSettings": "Impostazioni plugin",
-		"pluginInstaller": "Plugin Installer",
+		"pluginInstaller": "Programma di installazione del plug-in",
 		"pluginFlow": "Configura flusso plugin",
 		"information": "Informazioni",
 		"selectDirectory": "Seleziona una directory",
@@ -146,7 +146,9 @@
 				"fileMonitor": "Monitoraggio dei file di libreria",
 				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria",
 				"pendingTasks": "Compiti in sospeso",
-				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio"
+				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio",
+				"fileTesting": "Test dei file",
+				"concurrentFileTesters": "Tester di file simultanei"
 			},
 			"workers": {
 				"workerCount": "Contatore dei lavoratori",
@@ -256,8 +258,8 @@
 			"updateAvailable": "aggiornamento disponibile",
 			"upToDate": "aggiornato",
 			"enablePlugins": "Abilita plugin",
-			"disablePlugins": "Disattiva plug-in",
-			"updatePlugins": "Aggiorna plugin",
+			"disablePlugins": "Disattiva plugin",
+			"updatePlugins": "Plugin di aggiornamento",
 			"removePlugins": "Rimuovi plugin",
 			"addNew": "Aggiungere nuova",
 			"configurePluginFow": "Configura flusso plugin",

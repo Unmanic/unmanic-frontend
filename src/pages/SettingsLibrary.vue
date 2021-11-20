@@ -116,6 +116,37 @@
 
               <q-separator class="q-my-lg"/>
 
+              <!--START FILE TESTING-->
+              <h5 class="q-mb-none">{{ $t('components.settings.library.fileTesting') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="concurrentFileTesters === null"
+                  type="QInput"/>
+                <q-input
+                  v-if="concurrentFileTesters !== null"
+                  readonly
+                  outlined
+                  color="primary"
+                  v-model="concurrentFileTesters"
+                  :label="$t('components.settings.library.concurrentFileTesters')"
+                  :placeholder="concurrentFileTesters">
+                </q-input>
+                <q-skeleton
+                  v-if="concurrentFileTesters === null"
+                  type="QSlider"/>
+                <q-slider
+                  v-if="concurrentFileTesters !== null"
+                  v-model="concurrentFileTesters"
+                  :min="1"
+                  :max="10"
+                  :step="1"
+                  color="primary"
+                />
+              </div>
+              <!--END FILE TESTING-->
+
+              <q-separator class="q-my-lg"/>
+
               <!--START PENDING TASKS CONFIG-->
               <h5 class="q-mb-none">{{ $t('components.settings.library.pendingTasks') }}</h5>
               <div class="q-gutter-sm">
@@ -225,6 +256,7 @@ export default {
       enableLibraryScanner: ref(null),
       libraryScanSchedule: ref(null),
       libraryScanFollowSymlinks: ref(null),
+      concurrentFileTesters: ref(null),
       runLibraryScanOnStart: ref(null),
       enableLibraryFileMonitor: ref(null),
       clearPendingTasksOnStart: ref(null),
@@ -256,6 +288,7 @@ export default {
         this.enableLibraryScanner = response.data.settings.enable_library_scanner
         this.libraryScanSchedule = response.data.settings.schedule_full_scan_minutes
         this.libraryScanFollowSymlinks = response.data.settings.follow_symlinks
+        this.concurrentFileTesters = response.data.settings.concurrent_file_testers
         this.runLibraryScanOnStart = response.data.settings.run_full_scan_on_start
         this.enableLibraryFileMonitor = response.data.settings.enable_inotify
         this.clearPendingTasksOnStart = response.data.settings.clear_pending_tasks_on_restart
@@ -277,6 +310,7 @@ export default {
           enable_library_scanner: this.enableLibraryScanner,
           schedule_full_scan_minutes: this.libraryScanSchedule,
           follow_symlinks: this.libraryScanFollowSymlinks,
+          concurrent_file_testers: this.concurrentFileTesters,
           run_full_scan_on_start: this.runLibraryScanOnStart,
           enable_inotify: this.enableLibraryFileMonitor,
           clear_pending_tasks_on_restart: this.clearPendingTasksOnStart

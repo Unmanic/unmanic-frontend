@@ -6,12 +6,12 @@
 		"account": "帐户",
 		"login": "登录",
 		"logout": "登出",
-		"config": "配置",
-		"documentation": "文档",
+		"config": "Config",
+		"documentation": "Documentation",
 		"library": "图书馆",
 		"workers": "工人",
 		"plugins": "插件",
-		"link": "关联",
+		"link": "Link",
 		"general": "一般的",
 		"helpAndSupport": "帮助支持",
 		"container": "容器",
@@ -25,7 +25,7 @@
 		"ask": "问",
 		"job": "工作",
 		"recordsPerPage": "每页记录",
-		"showMore": "展示更多",
+		"showMore": "Show more",
 		"search": "搜索",
 		"save": "节省",
 		"backToDashboard": "返回仪表板",
@@ -56,10 +56,10 @@
 	},
 	"notifications": {
 		"saved": "已保存。",
-		"installed": "已安装。",
+		"installed": "安装。",
 		"backendConnectionWarning": "无法连接到 Unmanic 后端。请检查它是否正在运行。",
 		"failedToFetchSession": "从 Unmanic 获取会话数据时遇到错误。",
-		"failedToFetchLoginUrl": "获取登录网址失败。",
+		"failedToFetchLoginUrl": "获取登录 URL 失败。",
 		"failedToFetchLogoutUrl": "无法获取注销 URL。",
 		"failedToSaveSettings": "无法保存设置。",
 		"failedToFetchSettings": "无法获取 Unmanic 的当前设置。",
@@ -74,9 +74,9 @@
 		"repoRemovedSuccess": "已成功删除存储库。",
 		"repoRemovedFailed": "尝试删除存储库时出现问题。",
 		"failedToFetchEnabledDataPanelPlugins": "无法获取已启用的数据面板插件列表",
-		"allowPopups": "请允许此网站的弹出窗口。",
+		"allowPopups": "Please allow popups for this website.",
 		"invalidWorkerEvent": "无法添加无效的工作器事件。",
-		"remoteInstallationAlreadyInList": "您输入的地址已经在远程安装列表中。",
+		"remoteInstallationAlreadyInList": "您输入的地址已在远程安装列表中。",
 		"invalidRemoteInstallationAddress": "您输入的地址不是有效的 Unmanic 安装。",
 		"incompatibleRemoteInstallation": "您尝试添加的远程 Unmanic 安装与链接不兼容。尝试先更新它。",
 		"serverMessages": {
@@ -92,7 +92,7 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备好后，从仪表板恢复工作人员。",
 			"libraryScanProgress": "正在运行库扫描",
 			"pendingTaskHaltedPostProcessorQueueFull": "后处理器队列达到极限",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "直到后处理器队列下降到当前配置的工作人员计数以下，工作人员才会收到新的待处理任务",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "直到后处理器队列下降到当前配置的工作人员数量以下，工作人员才会收到新的待处理任务",
 			"receivingRemoteFile": "接收远程文件",
 			"linkedInstallationLimits": "Unmanic 已停止处理任务，因为您为非支持层链接了太多远程安装。考虑赞助该项目以链接多个远程安装。"
 		}
@@ -105,7 +105,7 @@
 		"plugins": "插件",
 		"pluginInfo": "插件信息",
 		"pluginSettings": "插件设置",
-		"pluginInstaller": "插件安装程序",
+		"pluginInstaller": "Plugin Installer",
 		"pluginFlow": "配置插件流程",
 		"information": "信息",
 		"selectDirectory": "选择目录",
@@ -128,7 +128,7 @@
 		"position": "位置",
 		"moveUp": "提升",
 		"moveDown": "下移",
-		"etc": "预计完工时间",
+		"etc": "预计完成时间",
 		"add": "添加"
 	},
 	"components": {
@@ -146,7 +146,9 @@
 				"fileMonitor": "库文件监视器",
 				"enableLibraryFileMonitor": "启用库文件监视器",
 				"pendingTasks": "待处理的任务",
-				"clearPendingTasksOnStart": "启动时清除所有挂起的任务"
+				"clearPendingTasksOnStart": "启动时清除所有挂起的任务",
+				"fileTesting": "文件测试",
+				"concurrentFileTesters": "并发文件测试器"
 			},
 			"workers": {
 				"workerCount": "工人数",
@@ -206,7 +208,7 @@
 				"applicationDocumentation": "申请文件",
 				"support": "支持",
 				"unmanicAppSourceRequests": "Unmanic 应用程序中的请求功能",
-				"unmanicFrontendSourceRequests": "Unmanic 前端中的请求功能",
+				"unmanicFrontendSourceRequests": "Unmanic 前端的请求功能",
 				"unmanicOfficialPluginRequests": "申请 Unmanic 插件"
 			}
 		},
@@ -253,7 +255,7 @@
 			"errorGettingDetails": "获取此任务的详细信息时遇到错误"
 		},
 		"plugins": {
-			"updateAvailable": "更新可用",
+			"updateAvailable": "可用更新",
 			"upToDate": "最新",
 			"enablePlugins": "启用插件",
 			"disablePlugins": "禁用插件",
@@ -277,7 +279,7 @@
 			"configurePluginFlowSection": {
 				"line1": "配置调用插件的顺序。",
 				"line2": "下面是插件类型部分的列表。每个插件类型部分可能包含一个插件列表。",
-				"line3": "有关何时调用包含的插件的详细信息，请参阅每个插件类型下面的说明。",
+				"line3": "有关何时调用包含的插件的详细信息，请参阅每个插件类型下方的说明。",
 				"line4": "一个插件可能由多个插件类型组成。如果是这样，Unmanic 将在每个描述的部分调用它。"
 			},
 			"types": {

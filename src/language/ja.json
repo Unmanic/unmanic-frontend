@@ -146,7 +146,9 @@
 				"fileMonitor": "ライブラリファイルモニター",
 				"enableLibraryFileMonitor": "ライブラリファイルモニターを有効にする",
 				"pendingTasks": "保留中のタスク",
-				"clearPendingTasksOnStart": "起動時に保留中のタスクをすべてクリアする"
+				"clearPendingTasksOnStart": "起動時に保留中のタスクをすべてクリアする",
+				"fileTesting": "ファイルテスト",
+				"concurrentFileTesters": "並行ファイルテスター"
 			},
 			"workers": {
 				"workerCount": "労働者数",

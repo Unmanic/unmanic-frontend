@@ -15,7 +15,7 @@
 		"general": "Allgemein",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"container": "Container",
-		"videoEncoding": "Videokodierung",
+		"videoEncoding": "Video Encoding",
 		"audioEncoding": "Audiocodierung",
 		"advancedOptions": "Erweiterte Optionen",
 		"info": "Die Info",
@@ -87,7 +87,7 @@
 				"success": "Unbekannte Nachricht vom Server",
 				"status": "Unbekanntes Statusupdate vom Server"
 			},
-			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da ein inkompatibles Plugin erkannt wurde",
+			"incompatiblePlugin": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da es ein inkompatibles Plugin erkannt hat",
 			"pluginEnabledLimits": "Unmanic hat die Verarbeitung von Aufgaben gestoppt, da Sie zu viele Plugins für eine Nicht-Supporter-Stufe aktiviert haben. Ziehen Sie in Erwägung, das Projekt zu sponsern, um mehr als zehn Plugins zu aktivieren.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic hat alle Arbeiter gestoppt, da es eine Änderung an der Plugins-Konfiguration festgestellt hat. Wenn Sie bereit sind, setzen Sie die Worker über das Dashboard fort.",
 			"libraryScanProgress": "Bibliotheksscan läuft",
@@ -146,19 +146,21 @@
 				"fileMonitor": "Bibliotheksdateimonitor",
 				"enableLibraryFileMonitor": "Aktivieren Sie den Bibliotheksdateimonitor",
 				"pendingTasks": "Ausstehende Aufgaben",
-				"clearPendingTasksOnStart": "Alle ausstehenden Aufgaben beim Start löschen"
+				"clearPendingTasksOnStart": "Alle ausstehenden Aufgaben beim Start löschen",
+				"fileTesting": "Dateitest",
+				"concurrentFileTesters": "Gleichzeitige Dateitester"
 			},
 			"workers": {
 				"workerCount": "Arbeiterzahl",
 				"path": "Cache-Pfad",
-				"schedule": "Terminplan für Arbeiter",
+				"schedule": "Worker event schedule",
 				"newScheduledEvent": "Neue geplante Veranstaltung",
 				"repetition": "Wiederholung",
 				"task": "Aufgabe",
 				"addEvent": "Ereignis hinzufügen",
 				"scheduleLabels": {
 					"daily": "Täglich",
-					"weekday": "Jeden Wochentag",
+					"weekday": "Every Weekday",
 					"weekend": "Jeden Samstag und Sonntag",
 					"monday": "Jeden Montag",
 					"tuesday": "Jeden Dienstag",

@@ -82,7 +82,7 @@
 		"serverMessages": {
 			"defaults": {
 				"info": "Onbekend bericht van server",
-				"error": "Er is een onbekende fout opgetreden op de server",
+				"error": "Unknown error occurred on server",
 				"warning": "Onbekende waarschuwing van server",
 				"success": "Onbekend bericht van server",
 				"status": "Onbekende statusupdate van server"
@@ -128,7 +128,7 @@
 		"position": "Positie",
 		"moveUp": "Omhoog gaan",
 		"moveDown": "Naar beneden verplaatsen",
-		"etc": "Geschatte tijd van voltooiing",
+		"etc": "Geschatte voltooiingstijd",
 		"add": "Toevoegen"
 	},
 	"components": {
@@ -146,7 +146,9 @@
 				"fileMonitor": "Bibliotheek bestandsmonitor",
 				"enableLibraryFileMonitor": "De bibliotheekbestandsmonitor inschakelen",
 				"pendingTasks": "Taken in behandeling",
-				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten"
+				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten",
+				"fileTesting": "Bestand testen",
+				"concurrentFileTesters": "Gelijktijdige bestandstesters"
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",

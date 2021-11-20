@@ -11,14 +11,14 @@
 		"library": "Biblioteca",
 		"workers": "Trabajadores",
 		"plugins": "Complementos",
-		"link": "Enlace",
+		"link": "Link",
 		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
 		"container": "envase",
 		"videoEncoding": "Codificación de video",
 		"audioEncoding": "Codificación de audio",
 		"advancedOptions": "Opciones avanzadas",
-		"info": "Información",
+		"info": "Info",
 		"top": "Cima",
 		"new": "Nuevo",
 		"show": "Show",
@@ -107,7 +107,7 @@
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
 		"pluginFlow": "Configurar el flujo de complementos",
-		"information": "Información",
+		"information": "Info",
 		"selectDirectory": "Seleccionar un directorio",
 		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",
@@ -146,7 +146,9 @@
 				"fileMonitor": "Monitor de archivos de biblioteca",
 				"enableLibraryFileMonitor": "Habilitar el monitor de archivos de la biblioteca",
 				"pendingTasks": "Tareas pendientes",
-				"clearPendingTasksOnStart": "Borrar todas las tareas pendientes al inicio"
+				"clearPendingTasksOnStart": "Borrar todas las tareas pendientes al inicio",
+				"fileTesting": "Prueba de archivos",
+				"concurrentFileTesters": "Probadores de archivos concurrentes"
 			},
 			"workers": {
 				"workerCount": "Recuento de trabajadores",
@@ -207,11 +209,11 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
 			}
 		},
 		"workers": {
-			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumenta el número de trabajadores en la configuración de Unmanic para generar un trabajador.",
+			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumente el recuento de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar este trabajador",
 			"workerPaused": "El trabajador se ha detenido",
 			"workerPauseFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
@@ -241,8 +243,8 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "La lista de tareas pendientes está vacía",
-			"rescanLibrary": "Volver a explorar la biblioteca ahora",
+			"listEmpty": "The Pending Tasks list is empty",
+			"rescanLibrary": "Rescan library now",
 			"moveToTop": "Mover seleccionado al principio",
 			"moveToBottom": "Mover seleccionado al final",
 			"removeSelected": "Eliminar selección"

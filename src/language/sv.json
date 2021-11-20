@@ -11,7 +11,7 @@
 		"library": "Bibliotek",
 		"workers": "Arbetare",
 		"plugins": "Plugins",
-		"link": "Länk",
+		"link": "Link",
 		"general": "Allmän",
 		"helpAndSupport": "Hjälp & Support",
 		"container": "behållare",
@@ -73,7 +73,7 @@
 		"reposRefreshFailure": "Det går inte att uppdatera dina konfigurerade arkiv. Kanske är det ett fel i en av webbadresserna?",
 		"repoRemovedSuccess": "Repository har tagits bort.",
 		"repoRemovedFailed": "Något gick fel när arkivet skulle tas bort.",
-		"failedToFetchEnabledDataPanelPlugins": "Det gick inte att hämta listan över aktiverade datapanelpluginprogram",
+		"failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
 		"allowPopups": "Tillåt popup-fönster för denna webbplats.",
 		"invalidWorkerEvent": "Det gick inte att lägga till ogiltig arbetshändelse.",
 		"remoteInstallationAlreadyInList": "Adressen du angav finns redan i listan över fjärrinstallationer.",
@@ -81,7 +81,7 @@
 		"incompatibleRemoteInstallation": "Fjärrinstallationen av Unmanic som du försöker lägga till är inte kompatibel med länkning. Försök att uppdatera den först.",
 		"serverMessages": {
 			"defaults": {
-				"info": "Okänt meddelande från servern",
+				"info": "Unknown message from server",
 				"error": "Okänt fel uppstod på servern",
 				"warning": "Okänd varning från servern",
 				"success": "Okänt meddelande från servern",
@@ -146,7 +146,9 @@
 				"fileMonitor": "Biblioteksfilövervakare",
 				"enableLibraryFileMonitor": "Aktivera bibliotekets filövervakning",
 				"pendingTasks": "Väntande uppgifter",
-				"clearPendingTasksOnStart": "Rensa alla väntande uppgifter vid start"
+				"clearPendingTasksOnStart": "Rensa alla väntande uppgifter vid start",
+				"fileTesting": "Filtestning",
+				"concurrentFileTesters": "Samtidiga filtestare"
 			},
 			"workers": {
 				"workerCount": "Antal arbetare",
@@ -175,7 +177,7 @@
 			"link": {
 				"thisInstallation": "Lokal",
 				"nameThisInstall": "Namnge denna installation",
-				"remoteInstallations": "Fjärrinstallationer",
+				"remoteInstallations": "Remote installations",
 				"name": "namn",
 				"version": "Version",
 				"addRemoteInstallation": "Lägg till fjärrinstallation",
@@ -289,7 +291,7 @@
 					"fileMove": "Post-processor - Filrörelser",
 					"fileMoveCaption": "Dessa plugins anropas när uppgiften är klar för att lägga till ytterligare filrörelser",
 					"taskResult": "Efterbehandlare - Markera uppgiften lyckad/misslyckad",
-					"taskResultCaption": "Dessa plugins anropas vid slutförandet av en uppgift för att markera den övergripande framgången eller misslyckandet för den uppgiften"
+					"taskResultCaption": "Dessa plugins anropas när en uppgift slutförs för att markera den övergripande framgången eller misslyckandet för den uppgiften"
 				},
 				"worker": {
 					"processItem": "Arbetare - Bearbetar fil",

@@ -146,7 +146,9 @@
         "fileMonitor": "Library file monitor",
         "enableLibraryFileMonitor": "Enable the library file monitor",
         "pendingTasks": "Pending tasks",
-        "clearPendingTasksOnStart": "Clear all pending tasks on startup"
+        "clearPendingTasksOnStart": "Clear all pending tasks on startup",
+        "fileTesting": "File testing",
+        "concurrentFileTesters": "Concurrent file testers"
       },
       "workers": {
         "workerCount": "Worker count",
