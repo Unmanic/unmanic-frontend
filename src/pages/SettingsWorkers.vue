@@ -17,7 +17,9 @@
             >
 
               <!--START WORKER COUNT-->
-              <h5 class="q-mb-none">{{ $t('components.settings.workers.workerCount') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.workers.workerCount') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/workers_settings#worker-count"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="workerCount === null"
@@ -47,7 +49,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START EVENT SCHEDULE-->
-              <h5 class="q-mb-none">{{ $t('components.settings.workers.schedule') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.workers.schedule') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/workers_settings#worker-event-schedule"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="cachePath === null"
@@ -186,7 +190,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START CACHE PATHS-->
-              <h5 class="q-mb-none">{{ $t('components.settings.workers.path') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.workers.path') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/workers_settings#cache-path"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="cachePath === null"

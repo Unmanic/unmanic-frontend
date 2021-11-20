@@ -17,7 +17,9 @@
             >
 
               <!--START LIBRARY PATHS-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/library_settings#library-path-configuration"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="libraryPath === null"
@@ -44,7 +46,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START LIBRARY SCANNER-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.libraryScanner') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.library.libraryScanner') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/library_settings#library-scanner"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="enableLibraryScanner === null"
@@ -101,7 +105,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START LIBRARY FILE MONITOR-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.fileMonitor') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.library.fileMonitor') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/library_settings#library-file-monitor"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="enableLibraryFileMonitor === null"
@@ -117,7 +123,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START FILE TESTING-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.fileTesting') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.library.fileTesting') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/library_settings#pending-tasks"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="concurrentFileTesters === null"
