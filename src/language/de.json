@@ -12,10 +12,10 @@
 		"workers": "Arbeitskräfte",
 		"plugins": "Plugins",
 		"link": "Verknüpfung",
-		"general": "Allgemein",
+		"general": "General",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"container": "Container",
-		"videoEncoding": "Video Encoding",
+		"videoEncoding": "Videokodierung",
 		"audioEncoding": "Audiocodierung",
 		"advancedOptions": "Erweiterte Optionen",
 		"info": "Die Info",
@@ -33,7 +33,7 @@
 		"submit": "einreichen",
 		"cancel": "Abbrechen",
 		"close": "Nah dran",
-		"back": "Zurück"
+		"back": "Back"
 	},
 	"status": {
 		"enabled": "aktiviert",
@@ -57,7 +57,7 @@
 	"notifications": {
 		"saved": "Gerettet.",
 		"installed": "Eingerichtet.",
-		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Back-End hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
+		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchSession": "Beim Abrufen der Sitzungsdaten von Unmanic ist ein Fehler aufgetreten.",
 		"failedToFetchLoginUrl": "Fehler beim Abrufen der Anmelde-URL.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
@@ -153,14 +153,14 @@
 			"workers": {
 				"workerCount": "Arbeiterzahl",
 				"path": "Cache-Pfad",
-				"schedule": "Worker event schedule",
+				"schedule": "Terminplan für Arbeiter",
 				"newScheduledEvent": "Neue geplante Veranstaltung",
 				"repetition": "Wiederholung",
 				"task": "Aufgabe",
 				"addEvent": "Ereignis hinzufügen",
 				"scheduleLabels": {
 					"daily": "Täglich",
-					"weekday": "Every Weekday",
+					"weekday": "Jeden Wochentag",
 					"weekend": "Jeden Samstag und Sonntag",
 					"monday": "Jeden Montag",
 					"tuesday": "Jeden Dienstag",
@@ -199,7 +199,7 @@
 				"configuration": "Aufbau",
 				"appVersion": "Unmanische Version",
 				"pythonVersion": "Python-Version",
-				"platform": "Plattform (Betriebssystem)",
+				"platform": "Platform (Operating System)",
 				"configPath": "Konfigurationspfad",
 				"logsPath": "Protokollpfad",
 				"userdataPath": "Benutzerdatenpfad",
@@ -250,7 +250,7 @@
 			"removeSelected": "Ausgewählte entfernen"
 		},
 		"completedTasks": {
-			"listEmpty": "Die Liste Abgeschlossene Aufgaben ist leer",
+			"listEmpty": "Die Liste der erledigten Aufgaben ist leer",
 			"details": "Einzelheiten",
 			"errorGettingDetails": "Beim Abrufen der Details für diese Aufgabe ist ein Fehler aufgetreten"
 		},
@@ -290,7 +290,7 @@
 				"postprocessor": {
 					"fileMove": "Postprozessor - Dateibewegungen",
 					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Postprozessor - Markieren von Erfolg/Fehlschlag der Aufgabe",
+					"taskResult": "Postprozessor - Markierung von Aufgabenerfolg/-fehlschlag",
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
@@ -298,6 +298,9 @@
 					"processItemCaption": "Diese Plugins werden von einem Worker aufgerufen und erzeugen einen benutzerdefinierten Befehl, der von diesem Worker ausgeführt und verwaltet wird"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "Sie haben keine Datenbereiche aktiviert. Installieren Sie eines von Ihren Plugin-Einstellungen."
 		},
 		"footer": {
 			"version": "Ausführung"

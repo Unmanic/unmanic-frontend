@@ -63,7 +63,7 @@
 		"failedToFetchLogoutUrl": "Falha ao obter URL de logout.",
 		"failedToSaveSettings": "Falha ao salvar as configurações.",
 		"failedToFetchSettings": "Falha ao buscar as configurações atuais de Unmanic.",
-		"failedToFetchSystemConfig": "Falha ao buscar a configuração do sistema Unmanic.",
+		"failedToFetchSystemConfig": "Falha ao buscar a configuração do sistema de Unmanic.",
 		"SavedPluginSettings": "Configurações de plug-in salvas.",
 		"failedToSavePluginSettings": "Falha ao salvar as configurações do plug-in.",
 		"failedToInstallPlugin": "Foi encontrado um erro ao tentar instalar o plug-in solicitado.",
@@ -73,7 +73,7 @@
 		"reposRefreshFailure": "Incapaz de atualizar seus repositórios configurados. Talvez haja um erro em uma das URLs?",
 		"repoRemovedSuccess": "Repositório removido com sucesso.",
 		"repoRemovedFailed": "Algo deu errado ao tentar remover o repositório.",
-		"failedToFetchEnabledDataPanelPlugins": "Failed to fetch the enabled data panel plugins list",
+		"failedToFetchEnabledDataPanelPlugins": "Falha ao buscar a lista de plug-ins do painel de dados ativada",
 		"allowPopups": "Por favor, permita pop-ups para este site.",
 		"invalidWorkerEvent": "Incapaz de adicionar evento de trabalhador inválido.",
 		"remoteInstallationAlreadyInList": "O endereço que você digitou já está na lista de instalações remotas.",
@@ -89,10 +89,10 @@
 			},
 			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um plug-in incompatível",
 			"pluginEnabledLimits": "Unmanic parou de processar tarefas porque você tem muitos plug-ins ativados para uma camada de não suporte. Considere patrocinar o projeto para habilitar mais de dez plug-ins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração dos plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic interrompeu todos os trabalhadores, pois detectou uma mudança na configuração de plug-ins. Quando estiver pronto, retome os trabalhadores do painel.",
 			"libraryScanProgress": "Verificação da biblioteca em execução",
 			"pendingTaskHaltedPostProcessorQueueFull": "A fila de pós-processador atingiu seu limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurados atualmente",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila de pós-processador caia abaixo da contagem de trabalhadores configurada atual",
 			"receivingRemoteFile": "Recebendo arquivo remoto",
 			"linkedInstallationLimits": "Unmanic parou de processar tarefas porque você vinculou muitas instalações remotas para uma camada de não suporte. Considere patrocinar o projeto para vincular mais de uma instalação remota."
 		}
@@ -117,7 +117,7 @@
 		"configureRemoteInstallationLink": "Configurar link de instalação remota"
 	},
 	"tooltips": {
-		"close": "Close",
+		"close": "Fechar",
 		"back": "Voltar",
 		"download": "Download",
 		"install": "Instalar",
@@ -267,7 +267,7 @@
 			"categoryFilter": "Filtro de Categoria",
 			"name": "Nome",
 			"author": "Autor",
-			"version": "Versão",
+			"version": "Version",
 			"repo": "Repositório",
 			"repoList": "Lista de Repositório",
 			"refreshRepositories": "Atualizar Repositórios",
@@ -298,6 +298,9 @@
 					"processItemCaption": "Esses plug-ins são chamados por um trabalhador e produzem um comando personalizado a ser executado e gerenciado por esse trabalhador"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "Você não tem nenhum painel de dados habilitado. Instale um a partir de suas configurações de plug-in."
 		},
 		"footer": {
 			"version": "Versão"

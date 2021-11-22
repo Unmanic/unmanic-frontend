@@ -1,12 +1,29 @@
 <template>
   <q-page>
     <div class="iframe-container">
+
       <iframe
         v-if="(iframeSrc !== null)"
         id="data-panel-iframe"
         :src="iframeSrc">
         Your browser is not supported. Sorry.
       </iframe>
+
+      <div v-else>
+        <div class="full-width row flex-center text-negative q-gutter-sm">
+          <q-icon size="2em" name="sentiment_dissatisfied"/>
+          <q-item-label>{{ $t('components.dataPanels.noDataPanelsEnabled') }}</q-item-label>
+          <q-icon size="2em" name="priority_high"/>
+        </div>
+
+        <div class="full-width row flex-center text-negative absolute-center">
+          <q-icon
+            size="512px"
+            name="warning_amber"
+          />
+        </div>
+      </div>
+
     </div>
   </q-page>
 </template>

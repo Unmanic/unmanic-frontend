@@ -6,12 +6,12 @@
 		"account": "帐户",
 		"login": "登录",
 		"logout": "登出",
-		"config": "Config",
-		"documentation": "Documentation",
+		"config": "配置",
+		"documentation": "文档",
 		"library": "图书馆",
 		"workers": "工人",
 		"plugins": "插件",
-		"link": "Link",
+		"link": "关联",
 		"general": "一般的",
 		"helpAndSupport": "帮助支持",
 		"container": "容器",
@@ -25,10 +25,10 @@
 		"ask": "问",
 		"job": "工作",
 		"recordsPerPage": "每页记录",
-		"showMore": "Show more",
+		"showMore": "展示更多",
 		"search": "搜索",
 		"save": "节省",
-		"backToDashboard": "返回仪表板",
+		"backToDashboard": "Back to Dashboard",
 		"options": "选项",
 		"submit": "提交",
 		"cancel": "取消",
@@ -74,9 +74,9 @@
 		"repoRemovedSuccess": "已成功删除存储库。",
 		"repoRemovedFailed": "尝试删除存储库时出现问题。",
 		"failedToFetchEnabledDataPanelPlugins": "无法获取已启用的数据面板插件列表",
-		"allowPopups": "Please allow popups for this website.",
+		"allowPopups": "请允许此网站的弹出窗口。",
 		"invalidWorkerEvent": "无法添加无效的工作器事件。",
-		"remoteInstallationAlreadyInList": "您输入的地址已在远程安装列表中。",
+		"remoteInstallationAlreadyInList": "您输入的地址已经在远程安装列表中。",
 		"invalidRemoteInstallationAddress": "您输入的地址不是有效的 Unmanic 安装。",
 		"incompatibleRemoteInstallation": "您尝试添加的远程 Unmanic 安装与链接不兼容。尝试先更新它。",
 		"serverMessages": {
@@ -105,7 +105,7 @@
 		"plugins": "插件",
 		"pluginInfo": "插件信息",
 		"pluginSettings": "插件设置",
-		"pluginInstaller": "Plugin Installer",
+		"pluginInstaller": "插件安装程序",
 		"pluginFlow": "配置插件流程",
 		"information": "信息",
 		"selectDirectory": "选择目录",
@@ -221,7 +221,7 @@
 			"workerResumed": "工人已恢复",
 			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
 			"terminateWorker": "终止这个工人",
-			"terminateWorkerWarning": "您确定要终止此工作者及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
+			"terminateWorkerWarning": "您确定要终止此工作人员及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
 			"workerTerminated": "工人已被终止",
 			"workerTerminationFailed": "由于某种原因，Unmanic 无法终止此工作者",
 			"pauseAllWorkers": "暂停所有工人",
@@ -298,6 +298,9 @@
 					"processItemCaption": "这些插件由工作人员调用并生成由该工作人员执行和管理的自定义命令"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "您没有启用任何数据面板。从您的插件设置安装一个。"
 		},
 		"footer": {
 			"version": "版本"

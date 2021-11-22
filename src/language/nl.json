@@ -76,13 +76,13 @@
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
-		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
+		"remoteInstallationAlreadyInList": "Het door u ingevoerde adres staat al in de lijst met installaties op afstand.",
 		"invalidRemoteInstallationAddress": "Het ingevoerde adres was geen geldige Unmanic-installatie.",
 		"incompatibleRemoteInstallation": "De externe Unmanic-installatie die u probeert toe te voegen, is niet compatibel met koppelen. Probeer het eerst te updaten.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Onbekend bericht van server",
-				"error": "Unknown error occurred on server",
+				"error": "Er is een onbekende fout opgetreden op de server",
 				"warning": "Onbekende waarschuwing van server",
 				"success": "Onbekend bericht van server",
 				"status": "Onbekende statusupdate van server"
@@ -197,7 +197,7 @@
 				"currentSystemLogs": "Huidige systeemlogboeken",
 				"downloadSystemLogs": "Systeemlogboeken downloaden",
 				"configuration": "Configuratie",
-				"appVersion": "Unmanische versie",
+				"appVersion": "Unmanic Version",
 				"pythonVersion": "Python-versie",
 				"platform": "Platform (besturingssysteem)",
 				"configPath": "Configuratiepad",
@@ -275,7 +275,7 @@
 			"newRepository": "Nieuwe opslagplaats",
 			"repoName": "Naam",
 			"repoSource": "Repository-URL",
-			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de plug-instroom",
+			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
 				"line2": "Hieronder vindt u een lijst met secties over het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
@@ -298,6 +298,9 @@
 					"processItemCaption": "Deze plug-ins worden aangeroepen door een werker en produceren een aangepast commando dat door die werker moet worden uitgevoerd en beheerd"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "U heeft geen datapanelen ingeschakeld. Installeer er een vanuit uw plug-in-instellingen."
 		},
 		"footer": {
 			"version": "Versie"

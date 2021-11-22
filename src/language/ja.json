@@ -23,7 +23,7 @@
 		"new": "新しい",
 		"show": "見せる",
 		"ask": "聞く",
-		"job": "ジョブズ",
+		"job": "Jobs",
 		"recordsPerPage": "1ページあたりのレコード",
 		"showMore": "もっと見せる",
 		"search": "検索",
@@ -298,6 +298,9 @@
 					"processItemCaption": "これらのプラグインはワーカーによって呼び出され、そのワーカーによって実行および管理されるカスタムコマンドを生成します"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "データパネルが有効になっていません。プラグイン設定からインストールします。"
 		},
 		"footer": {
 			"version": "バージョン"

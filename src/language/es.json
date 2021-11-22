@@ -11,14 +11,14 @@
 		"library": "Biblioteca",
 		"workers": "Trabajadores",
 		"plugins": "Complementos",
-		"link": "Link",
+		"link": "Enlace",
 		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
 		"container": "envase",
 		"videoEncoding": "Codificación de video",
 		"audioEncoding": "Codificación de audio",
 		"advancedOptions": "Opciones avanzadas",
-		"info": "Info",
+		"info": "Información",
 		"top": "Cima",
 		"new": "Nuevo",
 		"show": "Show",
@@ -107,7 +107,7 @@
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
 		"pluginFlow": "Configurar el flujo de complementos",
-		"information": "Info",
+		"information": "Información",
 		"selectDirectory": "Seleccionar un directorio",
 		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",
@@ -213,10 +213,10 @@
 			}
 		},
 		"workers": {
-			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumente el recuento de trabajadores en la configuración de Unmanic para generar un trabajador.",
+			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumenta el número de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar este trabajador",
 			"workerPaused": "El trabajador se ha detenido",
-			"workerPauseFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
+			"workerPauseFailed": "Unmanic no pudo detener a este trabajador por alguna razón",
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "Trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar a este trabajador por alguna razón",
@@ -243,8 +243,8 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "The Pending Tasks list is empty",
-			"rescanLibrary": "Rescan library now",
+			"listEmpty": "La lista de tareas pendientes está vacía",
+			"rescanLibrary": "Volver a explorar la biblioteca ahora",
 			"moveToTop": "Mover seleccionado al principio",
 			"moveToBottom": "Mover seleccionado al final",
 			"removeSelected": "Eliminar selección"
@@ -261,7 +261,7 @@
 			"disablePlugins": "Deshabilitar complementos",
 			"updatePlugins": "Actualizar complementos",
 			"removePlugins": "Eliminar complementos",
-			"addNew": "Agregar nuevo",
+			"addNew": "Add New",
 			"configurePluginFow": "Configurar el flujo de complementos",
 			"listEmpty": "No hay complementos para mostrar",
 			"categoryFilter": "Filtro de categoría",
@@ -279,7 +279,7 @@
 			"configurePluginFlowSection": {
 				"line1": "Configure el orden en el que se llaman los complementos.",
 				"line2": "A continuación se muestra una lista de las secciones de Tipo de complemento. Cada sección de tipo de complemento puede contener una lista de complementos.",
-				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamarán los complementos contenidos.",
+				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamará a los complementos contenidos.",
 				"line4": "Un complemento puede constar de varios tipos de complementos. Si es así, Unmanic lo llamará en cada una de las secciones descritas."
 			},
 			"types": {
@@ -289,7 +289,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Postprocesador - Movimientos de archivos",
-					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
+					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
 					"taskResult": "Postprocesador: marcar el éxito / fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se solicitan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
@@ -298,6 +298,9 @@
 					"processItemCaption": "Estos complementos son llamados por un trabajador y producen un comando personalizado para ser ejecutado y administrado por ese trabajador."
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "No tiene ningún Panel de datos habilitado. Instale uno desde la configuración de su complemento."
 		},
 		"footer": {
 			"version": "Versión"

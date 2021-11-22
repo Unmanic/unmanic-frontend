@@ -299,6 +299,9 @@
         }
       }
     },
+    "dataPanels" : {
+      "noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your Plugin settings."
+    },
     "footer": {
       "version": "Version"
     }

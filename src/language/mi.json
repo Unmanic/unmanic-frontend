@@ -74,7 +74,7 @@
 		"repoRemovedSuccess": "I momoho te tango putunga.",
 		"repoRemovedFailed": "I hapa i te wa e ngana ana ki te tango putunga.",
 		"failedToFetchEnabledDataPanelPlugins": "I rahua te tiki i te rarangi monomai paewhiri raraunga kua whakahohea",
-		"allowPopups": "Please allow popups for this website.",
+		"allowPopups": "Tukuna koa nga pahū-ake mo tenei paetukutuku.",
 		"invalidWorkerEvent": "Kāore e taea te tāpiri takahanga kaimahi muhu.",
 		"remoteInstallationAlreadyInList": "Ko te wahitau i whakauruhia e koe kei te rarangi o nga whakaurunga mamao.",
 		"invalidRemoteInstallationAddress": "Ko te wahitau i whakauruhia e koe ehara i te whakaurunga Unmanic tika.",
@@ -85,12 +85,12 @@
 				"error": "I puta he hapa kore mohiotia i runga i te tūmau",
 				"warning": "Whakatūpato tē mōhiotia mai i te tūmau",
 				"success": "Karere kore mohiotia mai i te tūmau",
-				"status": "Whakahoutanga mana kore e mohiotia mai i te tūmau"
+				"status": "Whakahōu tūnga tē mōhiotia mai i te tūmau"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua kitea he Monomai hotokore",
 			"pluginEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga monomai kua whakahohea mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te tekau monomai.",
 			"pluginSettingsChangeWorkersStopped": "Kua whakamutua e Unmanic nga kaimahi katoa na te mea kua kitea he huringa ki te whirihoranga Monomai. Ina reri koe, haere ano nga kaimahi mai i te papatohu.",
-			"libraryScanProgress": "E rere ana te karapa whare pukapuka",
+			"libraryScanProgress": "Kei te rere te karapa whare pukapuka",
 			"pendingTaskHaltedPostProcessorQueueFull": "I tae te rarangi Pou-tukatuka ki tona rohe",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Karekau nga kaimahi e whiwhi mahi hou e tatari ana kia taka ra ano te rarangi Pou-tukatuka ki raro i te tatau kaimahi kua whirihorahia inaianei",
 			"receivingRemoteFile": "Te whiwhi kōnae mamao",
@@ -135,7 +135,7 @@
 		"settings": {
 			"pleaseEnterAValidNumber": "Whakaurua koa he nama whaimana",
 			"library": {
-				"pathConfiguration": "Library path configuration",
+				"pathConfiguration": "whirihoranga ara whare pukapuka",
 				"path": "Te ara whare pukapuka",
 				"libraryScanner": "Matawai whare pukapuka",
 				"enableLibraryScanner": "Whakahohehia te tirotiro whare pukapuka i ia wa",
@@ -185,8 +185,8 @@
 				"add": "Tāpiri",
 				"connection": "Hononga",
 				"configuration": "Whirihoranga",
-				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina waatea nga kaimahi",
-				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina e waatea ana nga kaimahi",
+				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina watea ana nga kaimahi",
+				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina waatea nga kaimahi",
 				"enableTaskPreloading": "Utaina i mua i te mahi i runga i te whakaurunga mamao i te rarangi Tūmahi e tatari ana",
 				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hononga",
 				"workerTarget": "Te whainga kaimahi"
@@ -288,7 +288,7 @@
 					"fileTestCaption": "Ka karangahia enei Monomai ki te whakamatautau mena me taapiri nga konae ki te rarangi mahi e tatari ana"
 				},
 				"postprocessor": {
-					"fileMove": "Pou-tukatuka - Ko nga nekehanga kōnae",
+					"fileMove": "Tukatuka-muri - Nga nekehanga kōnae",
 					"fileMoveCaption": "Ka karangahia enei Monomai i te otinga o nga mahi hei taapiri atu i nga nekehanga o nga konae",
 					"taskResult": "Pou-tukatuka - Tohu i te angitu/rahunga mahi",
 					"taskResultCaption": "Ka karangahia enei Monomai i runga i te otinga o tetahi mahi hei tohu i te angitu katoa, i kore ranei o taua mahi"
@@ -298,6 +298,9 @@
 					"processItemCaption": "Ka karangahia enei Monohiko e tetahi kaimahi me te whakaputa i tetahi whakahau ritenga hei whakahaere me te whakahaere e taua kaimahi"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "Karekau he Paewhiri Raraunga e whakahohea ana. Tāutahia tētahi mai i ō tautuhinga monomai."
 		},
 		"footer": {
 			"version": "Putanga"

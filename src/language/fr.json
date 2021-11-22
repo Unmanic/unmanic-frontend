@@ -70,7 +70,7 @@
 		"repoAlreadyExists": "Le référentiel existe déjà.",
 		"newRepoAddFailed": "Échec de l'enregistrement du nouveau référentiel.",
 		"reposRefreshSuccess": "Tous les référentiels ont été mis à jour avec succès.",
-		"reposRefreshFailure": "Impossible de mettre à jour vos référentiels configurés. Peut-être y a-t-il une erreur dans l'une des URL ?",
+		"reposRefreshFailure": "Unable to update your configured repositories. Perhaps there is an error in one of the URLs?",
 		"repoRemovedSuccess": "Référentiel supprimé avec succès.",
 		"repoRemovedFailed": "Une erreur s'est produite lors de la tentative de suppression du référentiel.",
 		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
@@ -216,7 +216,7 @@
 			"listEmpty": "Il n'y a pas de travailleurs en cours d'exécution actuellement. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour générer un travailleur.",
 			"pauseWorker": "Mettre ce travailleur en pause",
 			"workerPaused": "Le nœud de calcul a été mis en pause",
-			"workerPauseFailed": "Unmanic n'a pas pu mettre en pause ce travailleur pour une raison quelconque",
+			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
 			"resumeWorker": "Reprendre ce travailleur",
 			"workerResumed": "Le travailleur a repris",
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
@@ -259,7 +259,7 @@
 			"upToDate": "à jour",
 			"enablePlugins": "Activer les plugins",
 			"disablePlugins": "Désactiver les plugins",
-			"updatePlugins": "Mettre à jour les plugins",
+			"updatePlugins": "Mettre à jour le(s) plugin(s)",
 			"removePlugins": "Supprimer le(s) plugin(s)",
 			"addNew": "Ajouter un nouveau",
 			"configurePluginFow": "Configurer le flux de plugin",
@@ -298,6 +298,9 @@
 					"processItemCaption": "Ces plugins sont appelés par un travailleur et produisent une commande personnalisée à exécuter et à gérer par ce travailleur"
 				}
 			}
+		},
+		"dataPanels": {
+			"noDataPanelsEnabled": "Aucun panneau de données n'est activé. Installez-en un à partir des paramètres de votre plugin."
 		},
 		"footer": {
 			"version": "Version"
