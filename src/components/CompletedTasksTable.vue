@@ -47,7 +47,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="delete_outline"/>
-                  Delete selected
+                  Remove selected from list
                 </q-item-label>
               </q-item-section>
             </q-item>
