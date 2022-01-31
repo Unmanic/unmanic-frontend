@@ -247,7 +247,7 @@
       "rescanLibrary": "Rescan library now",
       "moveToTop": "Move selected to top",
       "moveToBottom": "Move selected to bottom",
-      "removeSelected": "Remove selected"
+      "removeSelected": "Remove selected from list"
     },
     "completedTasks": {
       "listEmpty": "The Completed Tasks list is empty",
