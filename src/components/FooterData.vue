@@ -2,7 +2,7 @@
   <div class="row q-mt-lg">
     <div class="col q-ml-lg">
       <p class="text-subtitle1">
-        &copy; 2018-2021 by <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
+        &copy; 2018-{{ new Date().getFullYear() }} by <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
       </p>
     </div>
     <div class="col-auto q-mr-lg">
