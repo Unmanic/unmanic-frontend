@@ -2,17 +2,17 @@
 	"navigation": {
 		"dashboard": "Pannello di controllo",
 		"settings": "Impostazioni",
-		"dataPanels": "Pannelli dati",
+		"dataPanels": "Pannelli Dati",
 		"account": "Account",
 		"login": "Login",
 		"logout": "Disconnettersi",
-		"config": "config",
+		"config": "Config",
 		"documentation": "Documentazione",
 		"library": "Biblioteca",
 		"workers": "Lavoratori",
 		"plugins": "Plugin",
 		"link": "Collegamento",
-		"general": "General",
+		"general": "Generale",
 		"helpAndSupport": "Supporto",
 		"container": "contenitore",
 		"videoEncoding": "Codifica video",
@@ -32,8 +32,8 @@
 		"options": "Opzioni",
 		"submit": "Invia",
 		"cancel": "Annulla",
-		"close": "Chiudere",
-		"back": "Di ritorno"
+		"close": "Vicino",
+		"back": "Indietro"
 	},
 	"status": {
 		"enabled": "abilitato",
@@ -43,7 +43,7 @@
 		"failed": "fallito"
 	},
 	"pagination": {
-		"prev": "precedente",
+		"prev": "prec",
 		"more": "Di più"
 	},
 	"time": {
@@ -57,44 +57,44 @@
 	"notifications": {
 		"saved": "Salvato.",
 		"installed": "Installato.",
-		"backendConnectionWarning": "Impossibile connettersi al backend Unmanic. Si prega di verificare che sia in esecuzione.",
+		"backendConnectionWarning": "Impossibile connettersi al backend di Unmanic. Si prega di verificare che sia in esecuzione.",
 		"failedToFetchSession": "Si è verificato un errore durante il recupero dei dati della sessione da Unmanic.",
 		"failedToFetchLoginUrl": "Impossibile ottenere l'URL di accesso.",
-		"failedToFetchLogoutUrl": "Impossibile ottenere l'URL di logout.",
+		"failedToFetchLogoutUrl": "Impossibile ottenere l'URL di disconnessione.",
 		"failedToSaveSettings": "Impossibile salvare le impostazioni.",
 		"failedToFetchSettings": "Impossibile recuperare le impostazioni correnti di Unmanic.",
 		"failedToFetchSystemConfig": "Impossibile recuperare la configurazione di sistema di Unmanic.",
-		"SavedPluginSettings": "Impostazioni del plugin salvate.",
+		"SavedPluginSettings": "Impostazioni del plug-in salvate.",
 		"failedToSavePluginSettings": "Impossibile salvare le impostazioni del plug-in.",
 		"failedToInstallPlugin": "Si è verificato un errore durante il tentativo di installare il plug-in richiesto.",
 		"repoAlreadyExists": "Il repository esiste già.",
 		"newRepoAddFailed": "Impossibile salvare il nuovo repository.",
-		"reposRefreshSuccess": "Aggiornati con successo tutti i repository.",
+		"reposRefreshSuccess": "Aggiornato con successo tutti i repository.",
 		"reposRefreshFailure": "Impossibile aggiornare i repository configurati. Forse c'è un errore in uno degli URL?",
 		"repoRemovedSuccess": "Repository rimosso con successo.",
 		"repoRemovedFailed": "Qualcosa è andato storto durante il tentativo di rimuovere il repository.",
 		"failedToFetchEnabledDataPanelPlugins": "Impossibile recuperare l'elenco dei plug-in del pannello dati abilitati",
-		"allowPopups": "Si prega di consentire i popup per questo sito web.",
-		"invalidWorkerEvent": "Impossibile aggiungere un evento lavoratore non valido.",
+		"allowPopups": "Si prega di consentire i popup per questo sito Web.",
+		"invalidWorkerEvent": "Impossibile aggiungere un evento di lavoro non valido.",
 		"remoteInstallationAlreadyInList": "L'indirizzo inserito è già nell'elenco delle installazioni remote.",
-		"invalidRemoteInstallationAddress": "L'indirizzo che hai inserito non era un'installazione Unmanic valida.",
-		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai tentando di aggiungere non è compatibile con il collegamento. Prova prima ad aggiornarlo.",
+		"invalidRemoteInstallationAddress": "L'indirizzo inserito non era un'installazione Unmanic valida.",
+		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai cercando di aggiungere non è compatibile con il collegamento. Prova ad aggiornarlo prima.",
 		"serverMessages": {
 			"defaults": {
 				"info": "Messaggio sconosciuto dal server",
 				"error": "Si è verificato un errore sconosciuto sul server",
 				"warning": "Avviso sconosciuto dal server",
 				"success": "Messaggio sconosciuto dal server",
-				"status": "Aggiornamento di stato sconosciuto dal server"
+				"status": "Aggiornamento dello stato sconosciuto dal server"
 			},
 			"incompatiblePlugin": "Unmanic ha interrotto l'elaborazione delle attività poiché ha rilevato un plug-in incompatibile",
-			"pluginEnabledLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai troppi Plugin abilitati per un livello non di supporto. Considera la sponsorizzazione del progetto per abilitare più di dieci plugin.",
+			"pluginEnabledLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai troppi plugin abilitati per un livello non supporter. Prendi in considerazione la possibilità di sponsorizzare il progetto per abilitare più di dieci plugin.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha fermato tutti i lavoratori poiché ha rilevato una modifica alla configurazione dei plugin. Quando sei pronto, riprendi i lavoratori dalla dashboard.",
 			"libraryScanProgress": "Scansione della libreria in esecuzione",
 			"pendingTaskHaltedPostProcessorQueueFull": "La coda del post-processore ha raggiunto il limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scenderà al di sotto del numero di lavoratori attualmente configurato",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "I lavoratori non riceveranno una nuova attività in sospeso finché la coda del post-processore non scende al di sotto del conteggio dei lavoratori attualmente configurato",
 			"receivingRemoteFile": "Ricezione file remoto",
-			"linkedInstallationLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai collegato troppe installazioni remote per un livello non di supporto. Considera la sponsorizzazione del progetto per collegare più di un'installazione remota."
+			"linkedInstallationLimits": "Unmanic ha interrotto l'elaborazione delle attività poiché hai collegato troppe installazioni remote per un livello non supporter. Prendi in considerazione la possibilità di sponsorizzare il progetto per collegare più di un'installazione remota."
 		}
 	},
 	"headers": {
@@ -103,28 +103,28 @@
 		"completedTasks": "Compiti completati",
 		"privacyPolicy": "politica sulla riservatezza",
 		"plugins": "Plugin",
-		"pluginInfo": "Informazioni sui plugin",
-		"pluginSettings": "Impostazioni plugin",
-		"pluginInstaller": "Programma di installazione del plug-in",
-		"pluginFlow": "Configura flusso plugin",
+		"pluginInfo": "Informazioni sul plug-in",
+		"pluginSettings": "Impostazioni dei plug-in",
+		"pluginInstaller": "Installatore di plugin",
+		"pluginFlow": "Configura flusso di plug-in",
 		"information": "Informazioni",
 		"selectDirectory": "Seleziona una directory",
 		"selectFile": "Seleziona un file",
-		"librarySettings": "Impostazioni libreria",
-		"completedTaskDetails": "Dettagli dell'attività completata",
+		"librarySettings": "Impostazioni della libreria",
+		"completedTaskDetails": "Dettagli attività completate",
 		"supportFutureDevelopment": "Sostieni lo sviluppo futuro",
 		"confirm": "Confermare",
-		"configureRemoteInstallationLink": "Configura collegamento installazione remota"
+		"configureRemoteInstallationLink": "Configura il collegamento di installazione remota"
 	},
 	"tooltips": {
-		"close": "Chiudere",
-		"back": "Di ritorno",
+		"close": "Vicino",
+		"back": "Indietro",
 		"download": "Scarica",
 		"install": "Installare",
 		"reinstall": "Reinstalla",
 		"update": "Aggiornare",
 		"information": "Informazione",
-		"pluginInfo": "Informazioni sui plugin",
+		"pluginInfo": "Informazioni sul plug-in",
 		"position": "Posizione",
 		"moveUp": "Andare avanti",
 		"moveDown": "Abbassati",
@@ -136,24 +136,24 @@
 			"pleaseEnterAValidNumber": "Per favore, inserire un numero valido",
 			"library": {
 				"pathConfiguration": "Configurazione del percorso della libreria",
-				"path": "Percorso della biblioteca",
-				"libraryScanner": "Scanner della biblioteca",
-				"enableLibraryScanner": "Abilita le scansioni periodiche della libreria",
-				"libraryScannerSchedule": "Pianificazione della scansione della biblioteca in pochi minuti",
-				"libraryScannerScheduleNotValid": "Programma di scansione della biblioteca non valido",
-				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della biblioteca",
-				"runLibraryScanOnStart": "Esegui una scansione della libreria una tantum all'avvio",
-				"fileMonitor": "Monitoraggio dei file di libreria",
-				"enableLibraryFileMonitor": "Abilita il monitoraggio dei file della libreria",
+				"path": "Percorso libreria",
+				"libraryScanner": "Scanner per biblioteche",
+				"enableLibraryScanner": "Abilita scansioni periodiche della libreria",
+				"libraryScannerSchedule": "Programma di scansione della libreria in pochi minuti",
+				"libraryScannerScheduleNotValid": "Programma di scansione della libreria non valido",
+				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della libreria",
+				"runLibraryScanOnStart": "Eseguire una scansione della libreria una tantum all'avvio",
+				"fileMonitor": "Monitoraggio file libreria",
+				"enableLibraryFileMonitor": "Abilita il monitoraggio del file di libreria",
 				"pendingTasks": "Compiti in sospeso",
 				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio",
-				"fileTesting": "Test dei file",
+				"fileTesting": "Test di file",
 				"concurrentFileTesters": "Tester di file simultanei"
 			},
 			"workers": {
-				"workerCount": "Contatore dei lavoratori",
-				"path": "Percorso cache",
-				"schedule": "Programma degli eventi per i lavoratori",
+				"workerCount": "Conteggio operai",
+				"path": "Percorso della cache",
+				"schedule": "Programma degli eventi dei lavoratori",
 				"newScheduledEvent": "Nuovo evento in programma",
 				"repetition": "Ripetizione",
 				"task": "Compito",
@@ -171,12 +171,12 @@
 					"sunday": "Ogni domenica",
 					"count": "Imposta il conteggio dei lavoratori",
 					"pause": "Metti in pausa tutti i lavoratori",
-					"resume": "Riprendete tutti i lavoratori"
+					"resume": "Riprendi tutti i lavoratori"
 				}
 			},
 			"link": {
 				"thisInstallation": "Locale",
-				"nameThisInstall": "Dai un nome a questa installazione",
+				"nameThisInstall": "Assegna un nome a questa installazione",
 				"remoteInstallations": "Installazioni remote",
 				"name": "Nome",
 				"version": "Versione",
@@ -187,9 +187,9 @@
 				"configuration": "Configurazione",
 				"allowReceivingTasks": "Ricevi attività da questa installazione quando i lavoratori sono disponibili",
 				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili",
-				"enableTaskPreloading": "Precarica un'attività nella coda delle attività in sospeso dell'installazione remota",
+				"enableTaskPreloading": "Precaricare un'attività nella coda delle attività in sospeso dell'installazione remota",
 				"enableDistributedWorkerCount": "Abilita il conteggio dei lavoratori distribuiti per questo collegamento",
-				"workerTarget": "Obiettivo lavoratore"
+				"workerTarget": "Obiettivo del lavoratore"
 			},
 			"support": {
 				"logs": "Registri",
@@ -204,11 +204,11 @@
 				"logsPath": "Percorso dei registri",
 				"userdataPath": "Percorso dati utente",
 				"docs": "Documentazione",
-				"apiSpec": "Specifiche API",
-				"applicationDocumentation": "Documentazione dell'applicazione",
+				"apiSpec": "Specifica API",
+				"applicationDocumentation": "Documentazione per la domanda",
 				"support": "Supporto",
-				"unmanicAppSourceRequests": "Funzionalità di richiesta nell'applicazione Unmanic",
-				"unmanicFrontendSourceRequests": "Funzionalità di richiesta in Unmanic Frontend",
+				"unmanicAppSourceRequests": "Richiedi la funzionalità in Unmaniac Application",
+				"unmanicFrontendSourceRequests": "Richiedi la funzionalità in Unmaniac Frontend",
 				"unmanicOfficialPluginRequests": "Richiedi un plugin per Unmanic"
 			}
 		},
@@ -221,21 +221,21 @@
 			"workerResumed": "Il lavoratore è stato ripreso",
 			"workerResumedFailed": "Unmanic non è stato in grado di riprendere questo lavoratore per qualche motivo",
 			"terminateWorker": "Termina questo lavoratore",
-			"terminateWorkerWarning": "Sei sicuro di voler terminare questo lavoratore e la sua attività attuale? L'attività corrente verrà contrassegnata come non riuscita nell'elenco delle attività completate.",
+			"terminateWorkerWarning": "Sei sicuro di voler terminare questo lavoratore e la sua attività corrente? L'attività corrente verrà contrassegnata come non riuscita nell'elenco delle attività completate.",
 			"workerTerminated": "Il lavoratore è stato licenziato",
 			"workerTerminationFailed": "Unmanic non è stato in grado di licenziare questo lavoratore per qualche motivo",
 			"pauseAllWorkers": "Metti in pausa tutti i lavoratori",
-			"resumeAllWorkers": "Riprendete tutti i lavoratori",
+			"resumeAllWorkers": "Riprendi tutti i lavoratori",
 			"workerLog": "Registro dei lavoratori",
 			"status": "Stato",
 			"stateLabel": "Stato",
-			"currentRunnerLabel": "Attuale corridore",
+			"currentRunnerLabel": "Runner attuale",
 			"startTimeLabel": "Ora di inizio",
 			"totalProcessingTimeLabel": "Tempo di elaborazione totale",
 			"state": {
 				"waiting": "In attesa di un altro compito...",
 				"processing": "Attività di elaborazione...",
-				"paused": "L'operaio si è fermato..."
+				"paused": "Il lavoratore si è fermato..."
 			},
 			"currentRunner": {
 				"none": "Nessuno",
@@ -246,61 +246,63 @@
 			"listEmpty": "L'elenco delle attività in sospeso è vuoto",
 			"rescanLibrary": "Scansiona di nuovo la libreria ora",
 			"moveToTop": "Sposta selezionato in alto",
-			"moveToBottom": "Sposta selezionato in basso",
-			"removeSelected": "Rimuovi i selezionati"
+			"moveToBottom": "Sposta selezionato in fondo",
+			"removeSelected": "Rimuovi selezionati dall'elenco"
 		},
 		"completedTasks": {
 			"listEmpty": "L'elenco delle attività completate è vuoto",
 			"details": "Particolari",
-			"errorGettingDetails": "Si è verificato un errore durante il recupero dei dettagli per questa attività"
+			"errorGettingDetails": "Si è verificato un errore durante il recupero dei dettagli per questa attività",
+			"addToPendingTasksList": "Aggiungi selezionato all'elenco delle attività in sospeso",
+			"removeSelected": "Rimuovi selezionati dall'elenco"
 		},
 		"plugins": {
 			"updateAvailable": "aggiornamento disponibile",
 			"upToDate": "aggiornato",
-			"enablePlugins": "Abilita plugin",
-			"disablePlugins": "Disattiva plugin",
-			"updatePlugins": "Aggiorna plugin",
-			"removePlugins": "Rimuovi plugin",
+			"enablePlugins": "Abilita plug-in",
+			"disablePlugins": "Disabilita plug-in",
+			"updatePlugins": "Plugin di aggiornamento",
+			"removePlugins": "Rimuovere i plugin",
 			"addNew": "Aggiungere nuova",
-			"configurePluginFow": "Configura flusso plugin",
+			"configurePluginFow": "Configura flusso di plug-in",
 			"listEmpty": "Non ci sono plugin da visualizzare",
-			"categoryFilter": "Filtro per categoria",
+			"categoryFilter": "Filtro di categoria",
 			"name": "Nome",
 			"author": "Autore",
 			"version": "Versione",
 			"repo": "Repository",
-			"repoList": "Elenco dei repository",
+			"repoList": "Elenco repository",
 			"refreshRepositories": "Aggiorna repository",
 			"addRepository": "Aggiungi repository",
-			"newRepository": "Nuovo repository",
+			"newRepository": "Nuovo archivio",
 			"repoName": "Nome",
 			"repoSource": "URL del repository",
-			"errorSavingFlow": "Si è verificato un errore durante il salvataggio del flusso del plugin",
+			"errorSavingFlow": "Si è verificato un errore durante il salvataggio del flusso di plug-in",
 			"configurePluginFlowSection": {
 				"line1": "Configura l'ordine in cui vengono chiamati i plugin.",
-				"line2": "Di seguito è riportato un elenco di sezioni Tipo di plug-in. Ogni sezione Tipo di Plugin può contenere un elenco di Plugin.",
-				"line3": "Vedere la descrizione sotto ogni tipo di plug-in per i dettagli su quando verranno chiamati i plug-in contenuti.",
-				"line4": "Un Plugin può essere costituito da più tipi di Plugin. In tal caso, verrà chiamato da Unmanic in ciascuna di quelle sezioni descritte."
+				"line2": "Di seguito è riportato un elenco delle sezioni del tipo di plug-in. Ciascuna sezione del tipo di plug-in può contenere un elenco di plug-in.",
+				"line3": "Vedere la descrizione sotto ogni Tipo di Plugin per i dettagli su quando verranno chiamati i Plugin contenuti.",
+				"line4": "Un plug-in può essere costituito da più tipi di plug-in. In tal caso, verrà chiamato da Unmanic in ciascuna delle sezioni descritte."
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestione della libreria - Prova file",
+					"fileTest": "Gestione della libreria - Test dei file",
 					"fileTestCaption": "Questi plugin vengono chiamati per verificare se i file devono essere aggiunti all'elenco delle attività in sospeso"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processore - Movimenti file",
-					"fileMoveCaption": "Questi plugin vengono chiamati al completamento dell'attività per aggiungere ulteriori movimenti di file",
-					"taskResult": "Post-processore: contrassegnare il successo/insuccesso dell'attività",
-					"taskResultCaption": "Questi plugin vengono chiamati al completamento di un'attività per contrassegnare il successo o il fallimento complessivo di quell'attività"
+					"fileMove": "Post-processore - Movimenti di file",
+					"fileMoveCaption": "Questi plugin vengono chiamati al termine dell'attività per aggiungere ulteriori movimenti di file",
+					"taskResult": "Post-processore - Contrassegno di successo/fallimento dell'attività",
+					"taskResultCaption": "Questi plug-in vengono chiamati al completamento di un'attività per contrassegnare il successo o il fallimento generale di tale attività"
 				},
 				"worker": {
-					"processItem": "Lavoratore - Elaborazione file",
-					"processItemCaption": "Questi plugin sono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
+					"processItem": "Lavoratore - File di elaborazione",
+					"processItemCaption": "Questi plugin vengono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Non hai nessun Data Panel abilitato. Installa uno dalle impostazioni del tuo Plugin."
+			"noDataPanelsEnabled": "Non hai alcun pannello dati abilitato. Installarne uno dalle impostazioni del plug-in."
 		},
 		"footer": {
 			"version": "Versione"

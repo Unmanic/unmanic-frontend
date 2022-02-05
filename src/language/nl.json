@@ -26,8 +26,8 @@
 		"job": "Banen",
 		"recordsPerPage": "Records per pagina",
 		"showMore": "Laat meer zien",
-		"search": "Zoeken",
-		"save": "Opslaan",
+		"search": "Zoekopdracht",
+		"save": "Sparen",
 		"backToDashboard": "Terug naar Dashboard",
 		"options": "Opties",
 		"submit": "Indienen",
@@ -76,7 +76,7 @@
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
-		"remoteInstallationAlreadyInList": "Het door u ingevoerde adres staat al in de lijst met installaties op afstand.",
+		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
 		"invalidRemoteInstallationAddress": "Het ingevoerde adres was geen geldige Unmanic-installatie.",
 		"incompatibleRemoteInstallation": "De externe Unmanic-installatie die u probeert toe te voegen, is niet compatibel met koppelen. Probeer het eerst te updaten.",
 		"serverMessages": {
@@ -122,7 +122,7 @@
 		"download": "Downloaden",
 		"install": "Installeren",
 		"reinstall": "Opnieuw installeren",
-		"update": "Update",
+		"update": "Bijwerken",
 		"information": "Informatie",
 		"pluginInfo": "Plugin-info",
 		"position": "Positie",
@@ -187,7 +187,7 @@
 				"configuration": "Configuratie",
 				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werkers beschikbaar zijn",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
-				"enableTaskPreloading": "Laad een taak vooraf in de wachtrij voor installatie op afstand in afwachting van taken",
+				"enableTaskPreloading": "Een taak vooraf laden in de wachtrij voor de installatie op afstand In afwachting van taken",
 				"enableDistributedWorkerCount": "Gedistribueerd aantal werknemers inschakelen voor deze link",
 				"workerTarget": "Werknemer doel"
 			},
@@ -197,7 +197,7 @@
 				"currentSystemLogs": "Huidige systeemlogboeken",
 				"downloadSystemLogs": "Systeemlogboeken downloaden",
 				"configuration": "Configuratie",
-				"appVersion": "Unmanic Version",
+				"appVersion": "Unmanische versie",
 				"pythonVersion": "Python-versie",
 				"platform": "Platform (besturingssysteem)",
 				"configPath": "Configuratiepad",
@@ -247,12 +247,14 @@
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
 			"moveToTop": "Verplaats geselecteerde naar boven",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
-			"removeSelected": "Verwijder geselecteerde"
+			"removeSelected": "Geselecteerde uit lijst verwijderen"
 		},
 		"completedTasks": {
 			"listEmpty": "De lijst Voltooide taken is leeg",
 			"details": "Details",
-			"errorGettingDetails": "Er is een fout opgetreden bij het ophalen van de details voor deze taak"
+			"errorGettingDetails": "Er is een fout opgetreden bij het ophalen van de details voor deze taak",
+			"addToPendingTasksList": "Geselecteerde toevoegen aan lijst met lopende taken",
+			"removeSelected": "Geselecteerde uit lijst verwijderen"
 		},
 		"plugins": {
 			"updateAvailable": "update beschikbaar",
@@ -260,7 +262,7 @@
 			"enablePlugins": "Plug-ins(s) inschakelen",
 			"disablePlugins": "Plug-ins(s) uitschakelen",
 			"updatePlugins": "Plug-ins(s) bijwerken",
-			"removePlugins": "Verwijder plug-ins(s)",
+			"removePlugins": "Plug-ins(s) verwijderen",
 			"addNew": "Nieuw toevoegen",
 			"configurePluginFow": "Plugin-stroom configureren",
 			"listEmpty": "Er zijn geen plug-ins om weer te geven",
@@ -275,10 +277,10 @@
 			"newRepository": "Nieuwe opslagplaats",
 			"repoName": "Naam",
 			"repoSource": "Repository-URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de plug-instroom",
 			"configurePluginFlowSection": {
 				"line1": "Configureer de volgorde waarin plug-ins worden aangeroepen.",
-				"line2": "Hieronder vindt u een lijst met secties over het type plug-in. Elke sectie Plug-intype kan een lijst met plug-ins bevatten.",
+				"line2": "Hieronder vindt u een lijst met secties over het type plug-in. Elke sectie met plug-ins kan een lijst met plug-ins bevatten.",
 				"line3": "Zie de beschrijving onder elk type plug-in voor details wanneer de plug-ins worden aangeroepen.",
 				"line4": "Een plug-in kan uit meerdere typen plug-ins bestaan. Als dat zo is, wordt het door Unmanic aangeroepen in elk van de beschreven secties."
 			},

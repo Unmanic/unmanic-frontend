@@ -8,7 +8,7 @@
 		"logout": "ログアウト",
 		"config": "構成",
 		"documentation": "ドキュメンテーション",
-		"library": "図書館",
+		"library": "としょうかん",
 		"workers": "労働者",
 		"plugins": "プラグイン",
 		"link": "リンク",
@@ -23,7 +23,7 @@
 		"new": "新しい",
 		"show": "見せる",
 		"ask": "聞く",
-		"job": "Jobs",
+		"job": "ジョブズ",
 		"recordsPerPage": "1ページあたりのレコード",
 		"showMore": "もっと見せる",
 		"search": "検索",
@@ -57,28 +57,28 @@
 	"notifications": {
 		"saved": "保存しました。",
 		"installed": "インストールされています。",
-		"backendConnectionWarning": "Unmanicバックエンドに接続できません。実行されていることを確認してください。",
+		"backendConnectionWarning": "Unmanicバックエンドに接続できません。動作していることを確認してください。",
 		"failedToFetchSession": "Unmanicからセッションデータをフェッチ中にエラーが発生しました。",
 		"failedToFetchLoginUrl": "ログインURLの取得に失敗しました。",
 		"failedToFetchLogoutUrl": "ログアウトURLの取得に失敗しました。",
 		"failedToSaveSettings": "設定の保存に失敗しました。",
 		"failedToFetchSettings": "Unmanicの現在の設定を取得できませんでした。",
-		"failedToFetchSystemConfig": "Unmanicのシステム構成のフェッチに失敗しました。",
+		"failedToFetchSystemConfig": "Unmanicのシステム構成をフェッチできませんでした。",
 		"SavedPluginSettings": "プラグイン設定が保存されました。",
 		"failedToSavePluginSettings": "プラグイン設定の保存に失敗しました。",
 		"failedToInstallPlugin": "要求されたプラグインをインストールしようとしたときにエラーが発生しました。",
 		"repoAlreadyExists": "リポジトリはすでに存在します。",
-		"newRepoAddFailed": "新しいリポジトリの保存に失敗しました。",
-		"reposRefreshSuccess": "すべてのリポジトリが正常に更新されました。",
-		"reposRefreshFailure": "構成済みのリポジトリーを更新できません。おそらく、URLの1つにエラーがありますか？",
+		"newRepoAddFailed": "新しいリポジトリを保存できませんでした。",
+		"reposRefreshSuccess": "すべてのリポジトリを正常に更新しました。",
+		"reposRefreshFailure": "構成されたリポジトリーを更新できません。おそらく、URLの1つにエラーがありますか？",
 		"repoRemovedSuccess": "リポジトリが正常に削除されました。",
 		"repoRemovedFailed": "リポジトリを削除しようとしたときに問題が発生しました。",
 		"failedToFetchEnabledDataPanelPlugins": "有効なデータパネルプラグインリストの取得に失敗しました",
 		"allowPopups": "このウェブサイトのポップアップを許可してください。",
 		"invalidWorkerEvent": "無効なワーカーイベントを追加できません。",
-		"remoteInstallationAlreadyInList": "入力したアドレスは、すでにリモートインストールのリストにあります。",
+		"remoteInstallationAlreadyInList": "入力したアドレスは、リモートインストールのリストにすでに含まれています。",
 		"invalidRemoteInstallationAddress": "入力したアドレスは、有効なUnmanicインストールではありませんでした。",
-		"incompatibleRemoteInstallation": "追加しようとしているリモートUnmanicインストールは、リンクと互換性がありません。最初に更新してみてください。",
+		"incompatibleRemoteInstallation": "追加しようとしているリモートのUnmanicインストールは、リンクと互換性がありません。最初に更新してみてください。",
 		"serverMessages": {
 			"defaults": {
 				"info": "サーバーからの不明なメッセージ",
@@ -88,13 +88,13 @@
 				"status": "サーバーからの不明なステータスの更新"
 			},
 			"incompatiblePlugin": "Unmanicは、互換性のないプラグインを検出したため、タスクの処理を停止しました",
-			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 10を超えるプラグインを有効にするために、プロジェクトを後援することを検討してください。",
+			"pluginEnabledLimits": "非サポーター層で有効になっているプラグインが多すぎるため、Unmanicはタスクの処理を停止しました。 10を超えるプラグインを有効にするために、プロジェクトのスポンサーになることを検討してください。",
 			"pluginSettingsChangeWorkersStopped": "Unmanicは、プラグイン構成の変更を検出したため、すべてのワーカーを停止しました。準備ができたら、ダッシュボードからワーカーを再開します。",
 			"libraryScanProgress": "ライブラリスキャンの実行",
 			"pendingTaskHaltedPostProcessorQueueFull": "ポストプロセッサキューが制限に達しました",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "ポストプロセッサキューが現在設定されているワーカー数を下回るまで、ワーカーは新しい保留中のタスクを受け取りません。",
 			"receivingRemoteFile": "リモートファイルの受信",
-			"linkedInstallationLimits": "非サポーター層にリンクしたリモートインストールが多すぎるため、Unmanicはタスクの処理を停止しました。複数のリモートインストールをリンクするプロジェクトを後援することを検討してください。"
+			"linkedInstallationLimits": "非サポーター層にリンクしているリモートインストールが多すぎるため、Unmanicはタスクの処理を停止しました。複数のリモートインストールをリンクするプロジェクトを後援することを検討してください。"
 		}
 	},
 	"headers": {
@@ -106,10 +106,10 @@
 		"pluginInfo": "プラグイン情報",
 		"pluginSettings": "プラグイン設定",
 		"pluginInstaller": "プラグインインストーラー",
-		"pluginFlow": "プラグインフローを構成する",
+		"pluginFlow": "プラグインフローの構成",
 		"information": "情報",
 		"selectDirectory": "ディレクトリを選択します",
-		"selectFile": "ファイルを選択します",
+		"selectFile": "ファイルを選択",
 		"librarySettings": "ライブラリ設定",
 		"completedTaskDetails": "完了したタスクの詳細",
 		"supportFutureDevelopment": "将来の開発をサポートする",
@@ -156,7 +156,7 @@
 				"schedule": "労働者のイベントスケジュール",
 				"newScheduledEvent": "新しいスケジュールされたイベント",
 				"repetition": "繰り返し",
-				"task": "タスク",
+				"task": "仕事",
 				"addEvent": "イベントを追加",
 				"scheduleLabels": {
 					"daily": "毎日",
@@ -169,7 +169,7 @@
 					"friday": "毎週金曜日",
 					"saturday": "毎週土曜日に",
 					"sunday": "毎週日曜日に",
-					"count": "労働者数を設定する",
+					"count": "ワーカー数を設定する",
 					"pause": "すべての労働者を一時停止します",
 					"resume": "すべての労働者を再開する"
 				}
@@ -220,7 +220,7 @@
 			"resumeWorker": "この労働者を再開する",
 			"workerResumed": "労働者が再開されました",
 			"workerResumedFailed": "Unmanicは何らかの理由でこのワーカーを再開できませんでした",
-			"terminateWorker": "この労働者を終了します",
+			"terminateWorker": "このワーカーを終了します",
 			"terminateWorkerWarning": "このワーカーとその現在のタスクを終了してもよろしいですか？現在のタスクは、完了したタスクリストで失敗としてマークされます。",
 			"workerTerminated": "労働者は解雇されました",
 			"workerTerminationFailed": "Unmanicは何らかの理由でこのワーカーを終了できませんでした",
@@ -247,12 +247,14 @@
 			"rescanLibrary": "ライブラリを今すぐ再スキャン",
 			"moveToTop": "選択したものを上に移動",
 			"moveToBottom": "選択したものを下に移動",
-			"removeSelected": "削除選択"
+			"removeSelected": "リストから選択したものを削除する"
 		},
 		"completedTasks": {
 			"listEmpty": "完了したタスクのリストは空です",
 			"details": "詳細",
-			"errorGettingDetails": "このタスクの詳細を取得中にエラーが発生しました"
+			"errorGettingDetails": "このタスクの詳細を取得中にエラーが発生しました",
+			"addToPendingTasksList": "選択したものを[保留中のタスク]リストに追加",
+			"removeSelected": "リストから選択したものを削除する"
 		},
 		"plugins": {
 			"updateAvailable": "利用可能なアップデート",
@@ -262,7 +264,7 @@
 			"updatePlugins": "プラグインを更新します",
 			"removePlugins": "プラグインを削除します",
 			"addNew": "新しく追加する",
-			"configurePluginFow": "プラグインフローを構成する",
+			"configurePluginFow": "プラグインフローの構成",
 			"listEmpty": "表示するプラグインはありません",
 			"categoryFilter": "カテゴリフィルター",
 			"name": "名前",
@@ -294,7 +296,7 @@
 					"taskResultCaption": "これらのプラグインは、タスクの完了時に呼び出され、そのタスクの全体的な成功または失敗をマークします"
 				},
 				"worker": {
-					"processItem": "ワーカー-ファイルの処理",
+					"processItem": "ワーカー-処理ファイル",
 					"processItemCaption": "これらのプラグインはワーカーによって呼び出され、そのワーカーによって実行および管理されるカスタムコマンドを生成します"
 				}
 			}

@@ -21,7 +21,7 @@
 		"info": "Info",
 		"top": "Topp",
 		"new": "Ny",
-		"show": "Show",
+		"show": "Visa",
 		"ask": "Fråga",
 		"job": "Jobb",
 		"recordsPerPage": "Rekord per sida",
@@ -31,7 +31,7 @@
 		"backToDashboard": "Tillbaka till Dashboard",
 		"options": "alternativ",
 		"submit": "Skicka in",
-		"cancel": "Avbryt",
+		"cancel": "Annullera",
 		"close": "Stänga",
 		"back": "Tillbaka"
 	},
@@ -138,7 +138,7 @@
 				"pathConfiguration": "Bibliotekssökvägskonfiguration",
 				"path": "Bibliotekets väg",
 				"libraryScanner": "Biblioteksskanner",
-				"enableLibraryScanner": "Aktivera periodiska bibliotekssökningar",
+				"enableLibraryScanner": "Aktivera periodiska biblioteksskanningar",
 				"libraryScannerSchedule": "Biblioteksskanningsschema på några minuter",
 				"libraryScannerScheduleNotValid": "Bibliotekets skanningsschema är inte giltigt",
 				"followSymlinks": "Följ symbollänkar på biblioteksskanningar",
@@ -247,12 +247,14 @@
 			"rescanLibrary": "Skanna biblioteket igen nu",
 			"moveToTop": "Flytta markerade till toppen",
 			"moveToBottom": "Flytta markerade till botten",
-			"removeSelected": "Ta bort valda"
+			"removeSelected": "Ta bort markerade från listan"
 		},
 		"completedTasks": {
 			"listEmpty": "Listan med slutförda uppgifter är tom",
 			"details": "Detaljer",
-			"errorGettingDetails": "Ett fel påträffades när detaljerna för denna uppgift skulle hämtas"
+			"errorGettingDetails": "Ett fel påträffades när detaljerna för denna uppgift skulle hämtas",
+			"addToPendingTasksList": "Lägg till markerade i listan över väntande uppgifter",
+			"removeSelected": "Ta bort markerade från listan"
 		},
 		"plugins": {
 			"updateAvailable": "uppdatering tillgänglig",
@@ -271,15 +273,15 @@
 			"repo": "Förvar",
 			"repoList": "Förvarslista",
 			"refreshRepositories": "Uppdatera förråd",
-			"addRepository": "Lägg till förråd",
-			"newRepository": "New Repository",
+			"addRepository": "Lägg till arkiv",
+			"newRepository": "Nytt förråd",
 			"repoName": "namn",
 			"repoSource": "Repository URL",
 			"errorSavingFlow": "Ett fel påträffades när pluginflödet skulle sparas",
 			"configurePluginFlowSection": {
 				"line1": "Konfigurera i vilken ordning plugins anropas.",
 				"line2": "Nedan finns en lista över sektioner av plugintyp. Varje instickstypssektion kan innehålla en lista med insticksprogram.",
-				"line3": "Se beskrivningen under varje instickstyp för detaljer när de inneslutna insticksmodulerna kommer att anropas.",
+				"line3": "Se beskrivningen under varje instickstyp för information om när de inneslutna insticksmodulerna kommer att anropas.",
 				"line4": "En plugin kan bestå av flera plugintyper. Om så är fallet kommer det att anropas av Unmanic vid vart och ett av de beskrivna avsnitten."
 			},
 			"types": {

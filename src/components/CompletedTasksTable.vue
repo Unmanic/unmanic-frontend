@@ -36,7 +36,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="add"/>
-                  Add selected to Pending Tasks list
+                  {{ $t('components.completedTasks.addToPendingTasksList') }}
                 </q-item-label>
               </q-item-section>
             </q-item>
@@ -47,7 +47,7 @@
               <q-item-section>
                 <q-item-label>
                   <q-icon name="delete_outline"/>
-                  Remove selected from list
+                  {{ $t('components.completedTasks.removeSelected') }}
                 </q-item-label>
               </q-item-section>
             </q-item>

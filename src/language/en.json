@@ -160,18 +160,18 @@
         "addEvent": "Add Event",
         "scheduleLabels": {
           "daily": "Daily",
-          "weekday":"Every Weekday",
+          "weekday": "Every Weekday",
           "weekend": "Every Saturday and Sunday",
-          "monday":"Every Monday",
+          "monday": "Every Monday",
           "tuesday": "Every Tuesday",
-          "wednesday":"Every Wednesday",
+          "wednesday": "Every Wednesday",
           "thursday": "Every Thursday",
-          "friday":"Every Friday",
+          "friday": "Every Friday",
           "saturday": "Every Saturday",
-          "sunday":"Every Sunday",
-          "count":"Set worker count",
-          "pause":"Pause all workers",
-          "resume":"Resume all workers"
+          "sunday": "Every Sunday",
+          "count": "Set worker count",
+          "pause": "Pause all workers",
+          "resume": "Resume all workers"
         }
       },
       "link": {
@@ -226,8 +226,8 @@
       "workerTerminationFailed": "Unmanic was unable to terminate this worker for some reason",
       "pauseAllWorkers": "Pause all workers",
       "resumeAllWorkers": "Resume all workers",
-      "workerLog" : "Worker Log",
-      "status" : "Status",
+      "workerLog": "Worker Log",
+      "status": "Status",
       "stateLabel": "State",
       "currentRunnerLabel": "Current Runner",
       "startTimeLabel": "Start Time",
@@ -252,7 +252,9 @@
     "completedTasks": {
       "listEmpty": "The Completed Tasks list is empty",
       "details": "Details",
-      "errorGettingDetails": "An error was encountered while fetching the details for this task"
+      "errorGettingDetails": "An error was encountered while fetching the details for this task",
+      "addToPendingTasksList": "Add selected to Pending Tasks list",
+      "removeSelected": "Remove selected from list"
     },
     "plugins": {
       "updateAvailable": "update available",
@@ -299,7 +301,7 @@
         }
       }
     },
-    "dataPanels" : {
+    "dataPanels": {
       "noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your Plugin settings."
     },
     "footer": {

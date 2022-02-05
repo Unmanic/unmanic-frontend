@@ -67,7 +67,7 @@
 		"SavedPluginSettings": "Kua tiakina nga tautuhinga mono.",
 		"failedToSavePluginSettings": "I rahua te tiaki i nga tautuhinga monomai.",
 		"failedToInstallPlugin": "I puta he hapa i te wa e ngana ana ki te whakauru i te monomai i tonoa.",
-		"repoAlreadyExists": "Kei te noho kee te putunga.",
+		"repoAlreadyExists": "Kei te noho tonu te putunga.",
 		"newRepoAddFailed": "I rahua te penapena purongo hou.",
 		"reposRefreshSuccess": "I momoho te whakahou i nga putunga katoa.",
 		"reposRefreshFailure": "Kāore e taea te whakahōu i ō putunga whirihora. Akene he hapa kei tetahi o nga URL?",
@@ -85,7 +85,7 @@
 				"error": "I puta he hapa kore mohiotia i runga i te tūmau",
 				"warning": "Whakatūpato tē mōhiotia mai i te tūmau",
 				"success": "Karere kore mohiotia mai i te tūmau",
-				"status": "Whakahōu tūnga tē mōhiotia mai i te tūmau"
+				"status": "Whakahoutanga mana kore e mohiotia mai i te tūmau"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua kitea he Monomai hotokore",
 			"pluginEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga monomai kua whakahohea mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te tekau monomai.",
@@ -140,7 +140,7 @@
 				"libraryScanner": "Matawai whare pukapuka",
 				"enableLibraryScanner": "Whakahohehia te tirotiro whare pukapuka i ia wa",
 				"libraryScannerSchedule": "Te rarangi karapa whare pukapuka i roto i nga meneti",
-				"libraryScannerScheduleNotValid": "Karekau i te mana te raarangi karapa whare pukapuka",
+				"libraryScannerScheduleNotValid": "Kaore i te whaimana te raarangi karapa whare pukapuka",
 				"followSymlinks": "Whaia nga hononga tohu mo nga karapa whare pukapuka",
 				"runLibraryScanOnStart": "Whakahaerehia he karapa whare pukapuka kotahi i te tiimatanga",
 				"fileMonitor": "Aroturuki kōnae whare pukapuka",
@@ -186,7 +186,7 @@
 				"connection": "Hononga",
 				"configuration": "Whirihoranga",
 				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina watea ana nga kaimahi",
-				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina waatea nga kaimahi",
+				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina e waatea ana nga kaimahi",
 				"enableTaskPreloading": "Utaina i mua i te mahi i runga i te whakaurunga mamao i te rarangi Tūmahi e tatari ana",
 				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hononga",
 				"workerTarget": "Te whainga kaimahi"
@@ -226,7 +226,7 @@
 			"workerTerminationFailed": "Kaore i taea e Unmanic te whakamutu i tenei kaimahi mo etahi take",
 			"pauseAllWorkers": "Tatari nga kaimahi katoa",
 			"resumeAllWorkers": "Whakahokia nga kaimahi katoa",
-			"workerLog": "Rangi Kaimahi",
+			"workerLog": "Rangitaki Kaimahi",
 			"status": "Tūnga",
 			"stateLabel": "State",
 			"currentRunnerLabel": "Kaiwhaiwhai o naianei",
@@ -247,12 +247,14 @@
 			"rescanLibrary": "Matawai ano te whare pukapuka inaianei",
 			"moveToTop": "Nuku kua tohua ki runga",
 			"moveToBottom": "Nuku kua tohua ki raro",
-			"removeSelected": "Tango kua tohua"
+			"removeSelected": "Tango kua tohua mai i te rarangi"
 		},
 		"completedTasks": {
 			"listEmpty": "Kei te putua te rarangi Mahi kua oti",
 			"details": "Nga korero",
-			"errorGettingDetails": "I hapa i te tiki i nga korero mo tenei mahi"
+			"errorGettingDetails": "I hapa i te tiki i nga korero mo tenei mahi",
+			"addToPendingTasksList": "Tāpirihia i tīpakohia ki te rārangi Tūmahi Tārewa",
+			"removeSelected": "Tango kua tohua mai i te rarangi"
 		},
 		"plugins": {
 			"updateAvailable": "whakahōu e wātea ana",
@@ -275,10 +277,10 @@
 			"newRepository": "Whare Pupuri Hou",
 			"repoName": "Ingoa",
 			"repoSource": "URL putunga",
-			"errorSavingFlow": "I puta he hapa i te wa e tiaki ana i te Rere Monomai",
+			"errorSavingFlow": "I puta he hapa i te tiaki i te Rere Monomai",
 			"configurePluginFlowSection": {
 				"line1": "Whirihorahia te raupapa e karangahia ai nga Monomai.",
-				"line2": "Kei raro nei te rarangi o nga waahanga Momo Mono. Kei ia wahanga Momo Mono he rarangi o nga Monomai.",
+				"line2": "Kei raro nei te rarangi o nga waahanga Momo Mono. Kei ia wahanga Momo Mono he rarangi o Monomai.",
 				"line3": "Tirohia te whakaahuatanga kei raro i ia Momo Mono mo nga korero mo te wa ka karangahia nga Monomai kei roto.",
 				"line4": "Ko te monomai he maha nga momo monomai. Mena ka penei, ka karangahia e Unmanic i ia waahanga kua whakaahuahia."
 			},
@@ -289,7 +291,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Tukatuka-muri - Nga nekehanga kōnae",
-					"fileMoveCaption": "Ka karangahia enei Monomai i te otinga o nga mahi hei taapiri atu i nga nekehanga o nga konae",
+					"fileMoveCaption": "Ka karangahia enei Monomai i te otinga o nga mahi ki te taapiri i etahi atu nekehanga konae",
 					"taskResult": "Pou-tukatuka - Tohu i te angitu/rahunga mahi",
 					"taskResultCaption": "Ka karangahia enei Monomai i runga i te otinga o tetahi mahi hei tohu i te angitu katoa, i kore ranei o taua mahi"
 				},

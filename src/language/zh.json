@@ -1,6 +1,6 @@
 {
 	"navigation": {
-		"dashboard": "仪表盘",
+		"dashboard": "仪表板",
 		"settings": "设置",
 		"dataPanels": "数据面板",
 		"account": "帐户",
@@ -25,10 +25,10 @@
 		"ask": "问",
 		"job": "工作",
 		"recordsPerPage": "每页记录",
-		"showMore": "展示更多",
+		"showMore": "显示更多",
 		"search": "搜索",
-		"save": "节省",
-		"backToDashboard": "Back to Dashboard",
+		"save": "保存",
+		"backToDashboard": "返回仪表板",
 		"options": "选项",
 		"submit": "提交",
 		"cancel": "取消",
@@ -37,7 +37,7 @@
 	},
 	"status": {
 		"enabled": "启用",
-		"disabled": "残疾",
+		"disabled": "禁用",
 		"cannotLoadImage": "无法加载图片",
 		"success": "成功",
 		"failed": "失败的"
@@ -51,31 +51,31 @@
 		"units": {
 			"minute": "分钟 |分钟",
 			"hour": "小时 |小时",
-			"day": "日 |天"
+			"day": "天 |天"
 		}
 	},
 	"notifications": {
 		"saved": "已保存。",
-		"installed": "安装。",
+		"installed": "已安装。",
 		"backendConnectionWarning": "无法连接到 Unmanic 后端。请检查它是否正在运行。",
 		"failedToFetchSession": "从 Unmanic 获取会话数据时遇到错误。",
 		"failedToFetchLoginUrl": "获取登录 URL 失败。",
-		"failedToFetchLogoutUrl": "无法获取注销 URL。",
+		"failedToFetchLogoutUrl": "获取注销 URL 失败。",
 		"failedToSaveSettings": "无法保存设置。",
 		"failedToFetchSettings": "无法获取 Unmanic 的当前设置。",
 		"failedToFetchSystemConfig": "无法获取 Unmanic 的系统配置。",
 		"SavedPluginSettings": "插件设置已保存。",
 		"failedToSavePluginSettings": "无法保存插件设置。",
 		"failedToInstallPlugin": "尝试安装请求的插件时遇到错误。",
-		"repoAlreadyExists": "存储库已存在。",
-		"newRepoAddFailed": "无法保存新存储库。",
+		"repoAlreadyExists": "存储库已经存在。",
+		"newRepoAddFailed": "新存储库无法保存。",
 		"reposRefreshSuccess": "已成功更新所有存储库。",
 		"reposRefreshFailure": "无法更新您配置的存储库。也许其中一个 URL 有错误？",
 		"repoRemovedSuccess": "已成功删除存储库。",
 		"repoRemovedFailed": "尝试删除存储库时出现问题。",
-		"failedToFetchEnabledDataPanelPlugins": "无法获取已启用的数据面板插件列表",
+		"failedToFetchEnabledDataPanelPlugins": "获取启用的数据面板插件列表失败",
 		"allowPopups": "请允许此网站的弹出窗口。",
-		"invalidWorkerEvent": "无法添加无效的工作器事件。",
+		"invalidWorkerEvent": "无法添加无效的工作人员事件。",
 		"remoteInstallationAlreadyInList": "您输入的地址已经在远程安装列表中。",
 		"invalidRemoteInstallationAddress": "您输入的地址不是有效的 Unmanic 安装。",
 		"incompatibleRemoteInstallation": "您尝试添加的远程 Unmanic 安装与链接不兼容。尝试先更新它。",
@@ -88,13 +88,13 @@
 				"status": "来自服务器的未知状态更新"
 			},
 			"incompatiblePlugin": "Unmanic 已停止处理任务，因为它检测到不兼容的插件",
-			"pluginEnabledLimits": "Unmanic 已停止处理任务，因为您为非支持层启用了太多插件。考虑赞助该项目以启用十多个插件。",
-			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作程序，因为它检测到插件配置发生了变化。准备好后，从仪表板恢复工作人员。",
-			"libraryScanProgress": "正在运行库扫描",
+			"pluginEnabledLimits": "Unmanic 已停止处理任务，因为您为非支持者层启用了太多插件。考虑赞助该项目以启用十多个插件。",
+			"pluginSettingsChangeWorkersStopped": "Unmanic 已停止所有工作人员，因为它检测到插件配置发生更改。准备好后，从仪表板恢复工作人员。",
+			"libraryScanProgress": "库扫描运行",
 			"pendingTaskHaltedPostProcessorQueueFull": "后处理器队列达到极限",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "直到后处理器队列下降到当前配置的工作人员数量以下，工作人员才会收到新的待处理任务",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "在后处理器队列低于当前配置的工作人员计数之前，工作人员不会收到新的待处理任务",
 			"receivingRemoteFile": "接收远程文件",
-			"linkedInstallationLimits": "Unmanic 已停止处理任务，因为您为非支持层链接了太多远程安装。考虑赞助该项目以链接多个远程安装。"
+			"linkedInstallationLimits": "Unmanic 已停止处理任务，因为您为非支持者层链接了太多远程安装。考虑赞助该项目以链接多个远程安装。"
 		}
 	},
 	"headers": {
@@ -110,8 +110,8 @@
 		"information": "信息",
 		"selectDirectory": "选择目录",
 		"selectFile": "选择一个文件",
-		"librarySettings": "图书馆设置",
-		"completedTaskDetails": "已完成的任务详情",
+		"librarySettings": "库设置",
+		"completedTaskDetails": "已完成任务详情",
 		"supportFutureDevelopment": "支持未来发展",
 		"confirm": "确认",
 		"configureRemoteInstallationLink": "配置远程安装链接"
@@ -139,56 +139,56 @@
 				"path": "库路径",
 				"libraryScanner": "图书馆扫描仪",
 				"enableLibraryScanner": "启用定期库扫描",
-				"libraryScannerSchedule": "几分钟内的图书馆扫描计划",
+				"libraryScannerSchedule": "几分钟内的库扫描计划",
 				"libraryScannerScheduleNotValid": "库扫描计划无效",
-				"followSymlinks": "按照库扫描的符号链接",
+				"followSymlinks": "关注图书馆扫描的符号链接",
 				"runLibraryScanOnStart": "在启动时运行一次性库扫描",
 				"fileMonitor": "库文件监视器",
 				"enableLibraryFileMonitor": "启用库文件监视器",
 				"pendingTasks": "待处理的任务",
-				"clearPendingTasksOnStart": "启动时清除所有挂起的任务",
+				"clearPendingTasksOnStart": "启动时清除所有待处理任务",
 				"fileTesting": "文件测试",
 				"concurrentFileTesters": "并发文件测试器"
 			},
 			"workers": {
 				"workerCount": "工人数",
 				"path": "缓存路径",
-				"schedule": "工人活动时间表",
-				"newScheduledEvent": "新的预定活动",
+				"schedule": "工人活动日程",
+				"newScheduledEvent": "新安排的活动",
 				"repetition": "重复",
 				"task": "任务",
 				"addEvent": "添加事件",
 				"scheduleLabels": {
-					"daily": "日常的",
+					"daily": "日常",
 					"weekday": "每个工作日",
 					"weekend": "每周六和周日",
 					"monday": "每逢星期一",
 					"tuesday": "每逢星期二",
-					"wednesday": "每周三",
+					"wednesday": "每个星期三",
 					"thursday": "每个星期四",
-					"friday": "每星期五",
+					"friday": "每周五",
 					"saturday": "每周六",
 					"sunday": "每个星期天",
 					"count": "设置工人数量",
-					"pause": "暂停所有工人",
+					"pause": "暂停所有工作人员",
 					"resume": "恢复所有工人"
 				}
 			},
 			"link": {
 				"thisInstallation": "当地的",
-				"nameThisInstall": "命名此安装",
+				"nameThisInstall": "将此安装命名为",
 				"remoteInstallations": "远程安装",
-				"name": "姓名",
+				"name": "名称",
 				"version": "版本",
 				"addRemoteInstallation": "添加远程安装",
 				"address": "地址",
 				"add": "添加",
 				"connection": "联系",
 				"configuration": "配置",
-				"allowReceivingTasks": "当工作人员可用时从该安装接收任务",
+				"allowReceivingTasks": "当工作人员可用时接收来自此安装的任务",
 				"allowSendingTasks": "当工作人员可用时将任务发送到此安装",
 				"enableTaskPreloading": "在远程安装挂起任务队列中预加载任务",
-				"enableDistributedWorkerCount": "为这个链接启用分布式工作者计数",
+				"enableDistributedWorkerCount": "启用此链接的分布式工作人员计数",
 				"workerTarget": "工人目标"
 			},
 			"support": {
@@ -197,8 +197,8 @@
 				"currentSystemLogs": "当前系统日志",
 				"downloadSystemLogs": "下载系统日志",
 				"configuration": "配置",
-				"appVersion": "无躁版",
-				"pythonVersion": "蟒蛇版",
+				"appVersion": "狂躁版",
+				"pythonVersion": "蟒蛇版本",
 				"platform": "平台（操作系统）",
 				"configPath": "配置路径",
 				"logsPath": "日志路径",
@@ -208,34 +208,34 @@
 				"applicationDocumentation": "申请文件",
 				"support": "支持",
 				"unmanicAppSourceRequests": "Unmanic 应用程序中的请求功能",
-				"unmanicFrontendSourceRequests": "Unmanic 前端的请求功能",
+				"unmanicFrontendSourceRequests": "Unmanic Frontend 中的请求功能",
 				"unmanicOfficialPluginRequests": "申请 Unmanic 插件"
 			}
 		},
 		"workers": {
-			"listEmpty": "当前没有工作人员正在运行。在 Unmanic 的设置中增加工人数量以产生工人。",
-			"pauseWorker": "暂停此工作器",
+			"listEmpty": "当前没有工作人员在运行。增加 Unmanic 设置中的工人数量以生成工人。",
+			"pauseWorker": "暂停此工作人员",
 			"workerPaused": "工人已暂停",
-			"workerPauseFailed": "由于某种原因，Unmanic 无法暂停此工作者",
+			"workerPauseFailed": "Unmanic 出于某种原因无法暂停此工作人员",
 			"resumeWorker": "恢复这个工人",
 			"workerResumed": "工人已恢复",
-			"workerResumedFailed": "由于某种原因，Unmanic 无法恢复该工人",
-			"terminateWorker": "终止这个工人",
+			"workerResumedFailed": "Unmanic 由于某种原因无法恢复该工作人员",
+			"terminateWorker": "终止此工人",
 			"terminateWorkerWarning": "您确定要终止此工作人员及其当前任务吗？当前任务将在已完成任务列表中标记为失败。",
 			"workerTerminated": "工人已被终止",
-			"workerTerminationFailed": "由于某种原因，Unmanic 无法终止此工作者",
-			"pauseAllWorkers": "暂停所有工人",
+			"workerTerminationFailed": "Unmanic 由于某种原因无法终止该工人",
+			"pauseAllWorkers": "暂停所有工作人员",
 			"resumeAllWorkers": "恢复所有工人",
 			"workerLog": "工人日志",
 			"status": "地位",
 			"stateLabel": "状态",
-			"currentRunnerLabel": "当前跑步者",
+			"currentRunnerLabel": "当前亚军",
 			"startTimeLabel": "开始时间",
 			"totalProcessingTimeLabel": "总处理时间",
 			"state": {
 				"waiting": "等待另一个任务...",
 				"processing": "处理任务...",
-				"paused": "工人暂停..."
+				"paused": "工人停下来..."
 			},
 			"currentRunner": {
 				"none": "没有任何",
@@ -244,15 +244,17 @@
 		},
 		"pendingTasks": {
 			"listEmpty": "待处理任务列表为空",
-			"rescanLibrary": "立即重新扫描图书馆",
+			"rescanLibrary": "立即重新扫描库",
 			"moveToTop": "将所选内容移至顶部",
 			"moveToBottom": "将所选内容移至底部",
-			"removeSelected": "删除选定"
+			"removeSelected": "从列表中删除所选内容"
 		},
 		"completedTasks": {
 			"listEmpty": "已完成的任务列表为空",
 			"details": "细节",
-			"errorGettingDetails": "获取此任务的详细信息时遇到错误"
+			"errorGettingDetails": "获取此任务的详细信息时遇到错误",
+			"addToPendingTasksList": "将所选内容添加到待处理任务列表",
+			"removeSelected": "从列表中删除所选内容"
 		},
 		"plugins": {
 			"updateAvailable": "可用更新",
@@ -265,27 +267,27 @@
 			"configurePluginFow": "配置插件流程",
 			"listEmpty": "没有可显示的插件",
 			"categoryFilter": "类别过滤器",
-			"name": "姓名",
+			"name": "名称",
 			"author": "作者",
 			"version": "版本",
 			"repo": "存储库",
 			"repoList": "存储库列表",
 			"refreshRepositories": "刷新存储库",
 			"addRepository": "添加存储库",
-			"newRepository": "新建存储库",
-			"repoName": "姓名",
-			"repoSource": "储存库网址",
+			"newRepository": "新存储库",
+			"repoName": "名称",
+			"repoSource": "存储库 URL",
 			"errorSavingFlow": "保存插件流程时遇到错误",
 			"configurePluginFlowSection": {
 				"line1": "配置调用插件的顺序。",
 				"line2": "下面是插件类型部分的列表。每个插件类型部分可能包含一个插件列表。",
-				"line3": "有关何时调用包含的插件的详细信息，请参阅每个插件类型下方的说明。",
-				"line4": "一个插件可能由多个插件类型组成。如果是这样，Unmanic 将在每个描述的部分调用它。"
+				"line3": "有关何时调用包含的插件的详细信息，请参阅每个插件类型下面的描述。",
+				"line4": "一个插件可能由多个插件类型组成。如果是这样，它将由 Unmanic 在每个描述的部分中调用。"
 			},
 			"types": {
 				"libraryManagement": {
 					"fileTest": "图书馆管理 - 文件测试",
-					"fileTestCaption": "调用这些插件来测试是否应将文件添加到待处理任务列表中"
+					"fileTestCaption": "调用这些插件来测试是否应将文件添加到待处理任务列表"
 				},
 				"postprocessor": {
 					"fileMove": "后处理器 - 文件移动",
@@ -300,7 +302,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "您没有启用任何数据面板。从您的插件设置安装一个。"
+			"noDataPanelsEnabled": "您没有启用任何数据面板。从您的插件设置中安装一个。"
 		},
 		"footer": {
 			"version": "版本"

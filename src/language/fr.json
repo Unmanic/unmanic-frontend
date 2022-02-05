@@ -1,17 +1,17 @@
 {
 	"navigation": {
 		"dashboard": "Tableau de bord",
-		"settings": "Paramètres",
+		"settings": "Réglages",
 		"dataPanels": "Panneaux de données",
 		"account": "Compte",
 		"login": "Connexion",
 		"logout": "Se déconnecter",
 		"config": "Configuration",
 		"documentation": "Documentation",
-		"library": "Une bibliothèque",
+		"library": "Bibliothèque",
 		"workers": "Ouvriers",
 		"plugins": "Plugins",
-		"link": "Relier",
+		"link": "Lien",
 		"general": "Général",
 		"helpAndSupport": "Support d'aide",
 		"container": "récipient",
@@ -19,37 +19,37 @@
 		"audioEncoding": "Encodage audio",
 		"advancedOptions": "Options avancées",
 		"info": "Info",
-		"top": "Sommet",
-		"new": "Nouveau",
-		"show": "Spectacle",
+		"top": "Haut",
+		"new": "Nouvelle",
+		"show": "Montrer",
 		"ask": "Interroger",
 		"job": "Travaux",
 		"recordsPerPage": "Enregistrements par page",
 		"showMore": "Montre plus",
 		"search": "Chercher",
-		"save": "sauvegarder",
+		"save": "Sauvegarder",
 		"backToDashboard": "Retour au tableau de bord",
-		"options": "Options",
+		"options": "Choix",
 		"submit": "Soumettre",
 		"cancel": "Annuler",
-		"close": "proche",
-		"back": "Arrière"
+		"close": "Fermer",
+		"back": "Retour"
 	},
 	"status": {
 		"enabled": "activée",
 		"disabled": "désactivée",
 		"cannotLoadImage": "Impossible de charger l'image",
 		"success": "Succès",
-		"failed": "Échoué"
+		"failed": "Manqué"
 	},
 	"pagination": {
 		"prev": "précédent",
 		"more": "Suite"
 	},
 	"time": {
-		"ago": "depuis",
+		"ago": "il y a",
 		"units": {
-			"minute": "minute | minutes",
+			"minute": "minutes | minutes",
 			"hour": "heure | les heures",
 			"day": "jour | jours"
 		}
@@ -58,25 +58,25 @@
 		"saved": "Enregistré.",
 		"installed": "Installée.",
 		"backendConnectionWarning": "Impossible de se connecter au backend Unmanic. Veuillez vérifier qu'il est en cours d'exécution.",
-		"failedToFetchSession": "Une erreur s'est produite lors de la récupération des données de session depuis Unmanic.",
-		"failedToFetchLoginUrl": "Échec de l'obtention de l'URL de connexion.",
-		"failedToFetchLogoutUrl": "Échec de l'obtention de l'URL de déconnexion.",
+		"failedToFetchSession": "Une erreur s'est produite lors de la récupération des données de session d'Unmanic.",
+		"failedToFetchLoginUrl": "Impossible d'obtenir l'URL de connexion.",
+		"failedToFetchLogoutUrl": "Impossible d'obtenir l'URL de déconnexion.",
 		"failedToSaveSettings": "Échec de l'enregistrement des paramètres.",
-		"failedToFetchSettings": "Échec de la récupération des paramètres actuels d'Unmanic.",
-		"failedToFetchSystemConfig": "Échec de la récupération de la configuration système d'Unmanic.",
-		"SavedPluginSettings": "Paramètres du plugin enregistrés.",
-		"failedToSavePluginSettings": "Échec de l'enregistrement des paramètres du plugin.",
-		"failedToInstallPlugin": "Une erreur s'est produite lors de la tentative d'installation du plugin demandé.",
+		"failedToFetchSettings": "Impossible de récupérer les paramètres actuels d'Unmanic.",
+		"failedToFetchSystemConfig": "Impossible de récupérer la configuration système d'Unmanic.",
+		"SavedPluginSettings": "Paramètres du plug-in enregistrés.",
+		"failedToSavePluginSettings": "Échec de l'enregistrement des paramètres du plug-in.",
+		"failedToInstallPlugin": "Une erreur s'est produite lors de la tentative d'installation du plug-in demandé.",
 		"repoAlreadyExists": "Le référentiel existe déjà.",
 		"newRepoAddFailed": "Échec de l'enregistrement du nouveau référentiel.",
 		"reposRefreshSuccess": "Tous les référentiels ont été mis à jour avec succès.",
-		"reposRefreshFailure": "Unable to update your configured repositories. Perhaps there is an error in one of the URLs?",
-		"repoRemovedSuccess": "Référentiel supprimé avec succès.",
+		"reposRefreshFailure": "Impossible de mettre à jour vos référentiels configurés. Peut-être y a-t-il une erreur dans l'une des URL ?",
+		"repoRemovedSuccess": "Dépôt supprimé avec succès.",
 		"repoRemovedFailed": "Une erreur s'est produite lors de la tentative de suppression du référentiel.",
-		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins de panneau de données activés",
+		"failedToFetchEnabledDataPanelPlugins": "Échec de la récupération de la liste des plug-ins du panneau de données activés",
 		"allowPopups": "Veuillez autoriser les fenêtres contextuelles pour ce site Web.",
-		"invalidWorkerEvent": "Impossible d'ajouter un événement de travail non valide.",
-		"remoteInstallationAlreadyInList": "L'adresse que vous avez saisie est déjà dans la liste des installations distantes.",
+		"invalidWorkerEvent": "Impossible d'ajouter un événement de travailleur non valide.",
+		"remoteInstallationAlreadyInList": "L'adresse que vous avez entrée est déjà dans la liste des installations à distance.",
 		"invalidRemoteInstallationAddress": "L'adresse que vous avez entrée n'était pas une installation Unmanic valide.",
 		"incompatibleRemoteInstallation": "L'installation à distance d'Unmanic que vous essayez d'ajouter n'est pas compatible avec la liaison. Essayez d'abord de le mettre à jour.",
 		"serverMessages": {
@@ -88,13 +88,13 @@
 				"status": "Mise à jour de statut inconnue du serveur"
 			},
 			"incompatiblePlugin": "Unmanic a arrêté de traiter les tâches car il a détecté un plugin incompatible",
-			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-support. Envisagez de parrainer le projet pour activer plus de dix plugins.",
-			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les travailleurs à partir du tableau de bord.",
+			"pluginEnabledLimits": "Unmanic a arrêté de traiter les tâches car vous avez trop de plugins activés pour un niveau non-supporter. Envisagez de parrainer le projet pour activer plus de dix plugins.",
+			"pluginSettingsChangeWorkersStopped": "Unmanic a arrêté tous les travailleurs car il a détecté un changement dans la configuration des plugins. Lorsque vous êtes prêt, reprenez les ouvriers depuis le tableau de bord.",
 			"libraryScanProgress": "Analyse de la bibliothèque en cours d'exécution",
 			"pendingTaskHaltedPostProcessorQueueFull": "La file d'attente du post-processeur a atteint sa limite",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré.",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré",
 			"receivingRemoteFile": "Réception de fichier distant",
-			"linkedInstallationLimits": "Unmanic a arrêté de traiter les tâches car vous avez lié trop d'installations distantes pour un niveau non-support. Envisagez de parrainer le projet pour relier plus d'une installation distante."
+			"linkedInstallationLimits": "Unmanic a arrêté de traiter les tâches car vous avez lié trop d'installations à distance pour un niveau non supporteur. Envisagez de parrainer le projet pour relier plus d'une installation à distance."
 		}
 	},
 	"headers": {
@@ -103,10 +103,10 @@
 		"completedTasks": "Tâches terminées",
 		"privacyPolicy": "Politique de confidentialité",
 		"plugins": "Plugins",
-		"pluginInfo": "Informations sur le plugin",
-		"pluginSettings": "Paramètres du plugin",
-		"pluginInstaller": "Installateur de plugin",
-		"pluginFlow": "Configurer le flux de plugin",
+		"pluginInfo": "Informations sur le plug-in",
+		"pluginSettings": "Paramètres des plugins",
+		"pluginInstaller": "Installateur de plug-ins",
+		"pluginFlow": "Configurer le flux du plugin",
 		"information": "Info",
 		"selectDirectory": "Sélectionnez un répertoire",
 		"selectFile": "Sélectionner un fichier",
@@ -117,43 +117,43 @@
 		"configureRemoteInstallationLink": "Configurer le lien d'installation à distance"
 	},
 	"tooltips": {
-		"close": "proche",
-		"back": "Arrière",
+		"close": "Fermer",
+		"back": "Retour",
 		"download": "Télécharger",
 		"install": "Installer",
 		"reinstall": "Réinstaller",
 		"update": "Mettre à jour",
-		"information": "Informations",
-		"pluginInfo": "Informations sur le plugin",
+		"information": "Information",
+		"pluginInfo": "Informations sur le plug-in",
 		"position": "Position",
 		"moveUp": "Déplacer vers le haut",
 		"moveDown": "Descendre",
-		"etc": "Temps d'achèvement estimé",
+		"etc": "Délai d'exécution estimé",
 		"add": "Ajouter"
 	},
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "S'il vous plait, entrez un nombre valide",
 			"library": {
-				"pathConfiguration": "Configuration du chemin de la bibliothèque",
+				"pathConfiguration": "Configuration du chemin d'accès à la bibliothèque",
 				"path": "Chemin de la bibliothèque",
-				"libraryScanner": "Scanner de bibliothèque",
+				"libraryScanner": "Numériseur de bibliothèque",
 				"enableLibraryScanner": "Activer les analyses périodiques de la bibliothèque",
-				"libraryScannerSchedule": "Planification de l'analyse de la bibliothèque en quelques minutes",
-				"libraryScannerScheduleNotValid": "Le programme d'analyse de la bibliothèque n'est pas valide",
-				"followSymlinks": "Suivez les liens symboliques sur les analyses de bibliothèque",
+				"libraryScannerSchedule": "Calendrier d'analyse de la bibliothèque en minutes",
+				"libraryScannerScheduleNotValid": "Le calendrier d'analyse de la bibliothèque n'est pas valide",
+				"followSymlinks": "Suivre les liens symboliques sur les analyses de bibliothèque",
 				"runLibraryScanOnStart": "Exécuter une analyse de bibliothèque unique au démarrage",
 				"fileMonitor": "Moniteur de fichiers de bibliothèque",
 				"enableLibraryFileMonitor": "Activer le moniteur de fichiers de bibliothèque",
 				"pendingTasks": "Tâches en attente",
 				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage",
-				"fileTesting": "Test de fichiers",
+				"fileTesting": "Test de fichier",
 				"concurrentFileTesters": "Testeurs de fichiers simultanés"
 			},
 			"workers": {
 				"workerCount": "Nombre de travailleurs",
 				"path": "Chemin du cache",
-				"schedule": "Calendrier des événements des travailleurs",
+				"schedule": "Calendrier des événements pour les travailleurs",
 				"newScheduledEvent": "Nouvel événement programmé",
 				"repetition": "Répétition",
 				"task": "Tâche",
@@ -170,7 +170,7 @@
 					"saturday": "Tout les samedi",
 					"sunday": "Chaque dimanche",
 					"count": "Définir le nombre de travailleurs",
-					"pause": "Suspendre tous les travailleurs",
+					"pause": "Mettre tous les travailleurs en pause",
 					"resume": "Reprendre tous les travailleurs"
 				}
 			},
@@ -187,9 +187,9 @@
 				"configuration": "Configuration",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
-				"enableTaskPreloading": "Précharger une tâche sur la file d'attente des tâches en attente d'installation à distance",
-				"enableDistributedWorkerCount": "Activer le nombre de travailleurs distribués pour ce lien",
-				"workerTarget": "Cible du travailleur"
+				"enableTaskPreloading": "Précharger une tâche dans la file d'attente des tâches en attente de l'installation à distance",
+				"enableDistributedWorkerCount": "Activer le nombre de nœuds de calcul distribués pour ce lien",
+				"workerTarget": "Cible de travailleur"
 			},
 			"support": {
 				"logs": "Journaux",
@@ -198,33 +198,33 @@
 				"downloadSystemLogs": "Télécharger les journaux système",
 				"configuration": "Configuration",
 				"appVersion": "Version non maniaque",
-				"pythonVersion": "Version Python",
-				"platform": "Plate-forme (Système d'exploitation)",
+				"pythonVersion": "VersionPython",
+				"platform": "Plate-forme (système d'exploitation)",
 				"configPath": "Chemin de configuration",
 				"logsPath": "Chemin des journaux",
 				"userdataPath": "Chemin des données utilisateur",
 				"docs": "Documentation",
-				"apiSpec": "Spécification API",
-				"applicationDocumentation": "Dossier de candidature",
+				"apiSpec": "Spécification de l'API",
+				"applicationDocumentation": "Documents d'application",
 				"support": "Soutien",
-				"unmanicAppSourceRequests": "Fonctionnalité de demande dans l'application Unmanic",
-				"unmanicFrontendSourceRequests": "Fonctionnalité de demande dans Unmanic Frontend",
+				"unmanicAppSourceRequests": "Fonction de demande dans l'application Unmanic",
+				"unmanicFrontendSourceRequests": "Fonction de demande dans Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Demander un plugin pour Unmanic"
 			}
 		},
 		"workers": {
-			"listEmpty": "Il n'y a pas de travailleurs en cours d'exécution actuellement. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour générer un travailleur.",
+			"listEmpty": "Il n'y a pas de travailleurs actuellement en cours d'exécution. Augmentez le nombre de travailleurs dans les paramètres d'Unmanic pour faire apparaître un travailleur.",
 			"pauseWorker": "Mettre ce travailleur en pause",
-			"workerPaused": "Le nœud de calcul a été mis en pause",
-			"workerPauseFailed": "Unmanic was unable to pause this worker for some reason",
+			"workerPaused": "Le travailleur a été mis en pause",
+			"workerPauseFailed": "Unmanic n'a pas pu mettre ce travailleur en pause pour une raison quelconque",
 			"resumeWorker": "Reprendre ce travailleur",
 			"workerResumed": "Le travailleur a repris",
 			"workerResumedFailed": "Unmanic n'a pas pu reprendre ce travailleur pour une raison quelconque",
-			"terminateWorker": "Mettre fin à ce travailleur",
-			"terminateWorkerWarning": "Êtes-vous sûr de vouloir mettre fin à ce travailleur et à sa tâche actuelle ? La tâche en cours sera marquée comme ayant échoué dans la liste des tâches terminées.",
+			"terminateWorker": "Terminer ce travailleur",
+			"terminateWorkerWarning": "Voulez-vous vraiment mettre fin à ce travailleur et à sa tâche actuelle ? La tâche en cours sera marquée comme ayant échoué dans la liste des tâches terminées.",
 			"workerTerminated": "Le travailleur a été licencié",
 			"workerTerminationFailed": "Unmanic n'a pas pu licencier ce travailleur pour une raison quelconque",
-			"pauseAllWorkers": "Suspendre tous les travailleurs",
+			"pauseAllWorkers": "Mettre tous les travailleurs en pause",
 			"resumeAllWorkers": "Reprendre tous les travailleurs",
 			"workerLog": "Journal des travailleurs",
 			"status": "Statut",
@@ -235,7 +235,7 @@
 			"state": {
 				"waiting": "En attente d'une autre tâche...",
 				"processing": "Tâche de traitement...",
-				"paused": "Le travailleur a fait une pause..."
+				"paused": "Le travailleur s'est arrêté..."
 			},
 			"currentRunner": {
 				"none": "Rien",
@@ -247,55 +247,57 @@
 			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
 			"moveToTop": "Déplacer la sélection vers le haut",
 			"moveToBottom": "Déplacer la sélection vers le bas",
-			"removeSelected": "Enlever la sélection"
+			"removeSelected": "Supprimer la sélection de la liste"
 		},
 		"completedTasks": {
 			"listEmpty": "La liste des tâches terminées est vide",
 			"details": "Des détails",
-			"errorGettingDetails": "Une erreur s'est produite lors de la récupération des détails de cette tâche"
+			"errorGettingDetails": "Une erreur s'est produite lors de la récupération des détails de cette tâche",
+			"addToPendingTasksList": "Ajouter la sélection à la liste des tâches en attente",
+			"removeSelected": "Supprimer la sélection de la liste"
 		},
 		"plugins": {
 			"updateAvailable": "mise à jour disponible",
 			"upToDate": "à jour",
 			"enablePlugins": "Activer les plugins",
 			"disablePlugins": "Désactiver les plugins",
-			"updatePlugins": "Mettre à jour le(s) plugin(s)",
-			"removePlugins": "Supprimer le(s) plugin(s)",
-			"addNew": "Ajouter un nouveau",
-			"configurePluginFow": "Configurer le flux de plugin",
+			"updatePlugins": "Mettre à jour les plugins",
+			"removePlugins": "Supprimer les plugins",
+			"addNew": "Ajouter nouveau",
+			"configurePluginFow": "Configurer le flux du plugin",
 			"listEmpty": "Il n'y a pas de plugins à afficher",
 			"categoryFilter": "Filtre de catégorie",
 			"name": "Nom",
 			"author": "Auteur",
 			"version": "Version",
 			"repo": "Dépôt",
-			"repoList": "Liste de référentiel",
+			"repoList": "Liste des référentiels",
 			"refreshRepositories": "Actualiser les référentiels",
 			"addRepository": "Ajouter un référentiel",
 			"newRepository": "Nouveau référentiel",
 			"repoName": "Nom",
 			"repoSource": "URL du référentiel",
-			"errorSavingFlow": "Une erreur s'est produite lors de l'enregistrement du Plugin Flow",
+			"errorSavingFlow": "Une erreur s'est produite lors de l'enregistrement du flux de plug-in",
 			"configurePluginFlowSection": {
 				"line1": "Configurez l'ordre dans lequel les plugins sont appelés.",
-				"line2": "Vous trouverez ci-dessous une liste des sections Type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
+				"line2": "Vous trouverez ci-dessous une liste des sections de type de plugin. Chaque section Type de plugin peut contenir une liste de plugins.",
 				"line3": "Voir la description sous chaque type de plugin pour plus de détails sur le moment où les plugins contenus seront appelés.",
-				"line4": "Un plugin peut consister en plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
+				"line4": "Un plugin peut être composé de plusieurs types de plugins. Si c'est le cas, il sera appelé par Unmanic à chacune de ces sections décrites."
 			},
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion de la bibliothèque - Test de fichier",
+					"fileTest": "Gestion de bibliothèque - Test de fichier",
 					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
 				},
 				"postprocessor": {
 					"fileMove": "Post-processeur - Mouvements de fichiers",
 					"fileMoveCaption": "Ces plugins sont appelés à la fin de la tâche pour ajouter des mouvements de fichiers supplémentaires",
-					"taskResult": "Post-processeur - Marquer le succès/l'échec de la tâche",
+					"taskResult": "Post-processeur - Marquage de la réussite/échec de la tâche",
 					"taskResultCaption": "Ces plugins sont appelés à la fin d'une tâche pour marquer le succès ou l'échec global de cette tâche"
 				},
 				"worker": {
-					"processItem": "Ouvrier - Traitement du dossier",
-					"processItemCaption": "Ces plugins sont appelés par un travailleur et produisent une commande personnalisée à exécuter et à gérer par ce travailleur"
+					"processItem": "Travailleur - Traitement du dossier",
+					"processItemCaption": "Ces plugins sont appelés par un worker et produisent une commande personnalisée à exécuter et gérer par ce worker"
 				}
 			}
 		},
