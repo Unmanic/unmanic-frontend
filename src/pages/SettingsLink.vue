@@ -49,8 +49,7 @@
 
                   <q-item
                     v-for="(installation, index) in remoteInstallations"
-                    v-bind:key="index"
-                    active-class="schedule-list-item">
+                    v-bind:key="index">
 
                     <q-item-section avatar>
                       <q-img
@@ -433,17 +432,9 @@ export default {
 }
 </script>
 <style>
-.schedule-list-group {
-  padding-left: 0;
-  padding-right: 20px;
-}
 
 .ghost {
   opacity: 0;
-}
-
-.schedule-list-item {
-  background: #F2C037;
 }
 
 div.sub-setting {
