@@ -64,6 +64,7 @@
     "failedToSaveSettings": "Failed to save settings.",
     "failedToFetchSettings": "Failed to fetch Unmanic's current settings.",
     "failedToFetchSystemConfig": "Failed to fetch Unmanic's system configuration.",
+    "failedToFetchLibraryList": "Failed to fetch Unmanic's library list.",
     "SavedPluginSettings": "Plugin settings saved.",
     "failedToSavePluginSettings": "Failed to save Plugin settings.",
     "failedToInstallPlugin": "An error was encountered while attempting to install the requested Plugin.",
@@ -79,6 +80,7 @@
     "remoteInstallationAlreadyInList": "The address you entered is already in the list of remote installations.",
     "invalidRemoteInstallationAddress": "The address you entered was not a valid Unmanic installation.",
     "incompatibleRemoteInstallation": "The remote Unmanic installation that you are trying to add is not compatible with linking. Try updating it first.",
+    "cannotRemoveDefaultLibrary": "Cannot remove the default Library",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
@@ -135,8 +137,11 @@
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "library": {
-        "pathConfiguration": "Library path configuration",
+        "pathConfiguration": "Libraries",
+        "name": "Library",
         "path": "Library path",
+        "newLibrary": "New Library",
+        "addLibraryPath": "Add library path",
         "libraryScanner": "Library scanner",
         "enableLibraryScanner": "Enable periodic library scans",
         "libraryScannerSchedule": "Library scan schedule in minutes",
