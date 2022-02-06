@@ -20,6 +20,72 @@
               <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
               <div class="q-gutter-sm">
                 <q-skeleton
+                  v-if="remoteInstallations === null"
+                  type="text"/>
+
+                <q-list
+                  bordered
+                  separator
+                  class="rounded-borders">
+
+                  <q-item
+                    v-for="(path, index) in libraryPaths"
+                    v-bind:key="index"
+                    active-class="library-path-list-item">
+                    <q-item-section avatar>
+                      <q-avatar text-color="grey-8" icon="source"/>
+                    </q-item-section>
+
+                    <q-item-section>
+                      <q-item-label>{{ path.name }}</q-item-label>
+                      <q-item-label caption lines="1">
+                        {{ path.path }}
+                      </q-item-label>
+                      <q-tooltip>
+                        {{ path.path }}
+                      </q-tooltip>
+                    </q-item-section>
+
+                    <q-separator inset vertical class="q-mx-sm"/>
+
+                    <q-item-section center side>
+                      <div class="text-grey-8 q-gutter-xs">
+                        <q-btn
+                          size="12px"
+                          flat dense round icon="tune"
+                          @click="configureLibraryPath(index)"
+                        />
+                        <q-btn
+                          size="12px"
+                          flat dense round icon="delete"
+                          @click="deleteLibrary(index)"
+                        />
+                      </div>
+                    </q-item-section>
+
+                  </q-item>
+
+                </q-list>
+
+                <q-bar class="bg-transparent">
+                  <q-space/>
+                  <q-btn
+                    round
+                    flat
+                    color="primary"
+                    icon="add"
+                    @click="addNewLibraryWithDirectoryBrowser">
+                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
+                  </q-btn>
+                </q-bar>
+
+              </div>
+              <!--END LIBRARY PATHS-->
+
+              <!--START LIBRARY PATHS-->
+              <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
                   v-if="libraryPath === null"
                   type="QInput"/>
                 <q-input
@@ -253,6 +319,8 @@ export default {
   data() {
     return {
       libraryPath: ref(null),
+      libraryPaths: ref(null),
+      newLibraryPath: ref(false),
       enableLibraryScanner: ref(null),
       libraryScanSchedule: ref(null),
       libraryScanFollowSymlinks: ref(null),
@@ -277,6 +345,51 @@ export default {
         }
       }).onDismiss(() => {
       })
+    },
+    addNewLibraryWithDirectoryBrowser: function () {
+      this.$q.dialog({
+        component: DirectoryBrowserDialog,
+        componentProps: {
+          dialogHeader: this.$t('headers.selectDirectory'),
+          initialPath: this.libraryPath,
+          listType: 'directories'
+        },
+      }).onOk((payload) => {
+        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
+          // Add to list
+          this.libraryPaths[this.libraryPaths.length] = {
+            name: this.$t('components.settings.library.newLibrary'),
+            path: payload.selectedPath,
+          }
+          // TODO: Trigger a save event
+          //this.save();
+        }
+      }).onDismiss(() => {
+      })
+    },
+    deleteLibrary: function (index) {
+      let newList = []
+      for (let i = 0; i < this.libraryPaths.length; i++) {
+        if (i === index) {
+          if (this.libraryPaths[i].id === 'default') {
+            // Do not allow removing the default path
+            // Print error message
+            // TODO: Ensure this is also done server side
+            this.$q.notify({
+              color: 'negative',
+              position: 'top',
+              message: this.$t('notifications.cannotRemoveDefaultLibrary'),
+              icon: 'report_problem',
+              actions: [{ icon: 'close', color: 'white' }]
+            })
+          } else {
+            // Ignore this item to remove it from the list
+            continue;
+          }
+        }
+        newList[newList.length] = this.libraryPaths[i];
+      }
+      this.libraryPaths = newList;
     },
     fetchSettings: function () {
       // Fetch current settings
@@ -339,10 +452,39 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
-    }
+    },
+    fetchLibraryPathsList: function () {
+      // Fetch current settings
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'settings/libraries')
+      }).then((response) => {
+        let libraryPathsList = []
+        for (let i = 0; i < response.data.libraries.length; i++) {
+          let libraryPath = response.data.libraries[i];
+          libraryPathsList[libraryPathsList.length] = {
+            id: libraryPath.id,
+            name: libraryPath.name,
+            path: libraryPath.path,
+
+            // TODO: Add other settings
+          }
+        }
+        this.libraryPaths = libraryPathsList
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToFetchLibraryList'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    },
   },
   created() {
     this.fetchSettings();
+    this.fetchLibraryPathsList();
   }
 }
 </script>
@@ -353,5 +495,9 @@ div.sub-setting {
   padding-top: 8px;
   padding-left: 8px;
   border-left: solid thin var(--q-primary);
+}
+
+.library-path-list-item {
+  background: #F2C037;
 }
 </style>
