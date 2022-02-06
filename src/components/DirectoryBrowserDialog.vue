@@ -3,10 +3,7 @@
   <q-dialog
     ref="directoryBrowserDialogRef"
     :maximized="$q.platform.is.mobile"
-    transition-show="slide-left"
-    transition-hide="slide-right"
     full-height
-    position="right"
     @hide="onDialogHide">
 
     <q-card
@@ -26,7 +23,7 @@
               dense
               round
               flat
-              icon="arrow_forward" v-close-popup>
+              icon="close_fullscreen" v-close-popup>
               <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
             </q-btn>
           </div>
