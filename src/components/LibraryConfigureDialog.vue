@@ -134,6 +134,88 @@
               </div>
             </q-card-section>
 
+            <q-separator/>
+
+            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+
+              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.plugins') }}</h5>
+
+              <div class="q-pb-sm">
+                <q-list bordered class="rounded-borders">
+                  <q-expansion-item
+                    expand-separator
+                    icon="extension"
+                    :label="$t('components.settings.library.enabledPlugins')"
+                    :caption="$t('components.settings.library.enabledPluginsCaption')"
+                  >
+                    <q-card class="q-pa-none">
+                      <q-card-section class="q-pa-none">
+                        <q-list padding>
+
+                          <q-separator spaced inset/>
+                          <div
+                            v-for="(plugin, index) in enabledPlugins"
+                            v-bind:key="index">
+                            <q-item>
+
+                              <q-item-section avatar>
+                                <q-img :src="plugin.icon"/>
+                              </q-item-section>
+
+                              <q-item-section>
+                                <q-item-label>{{ plugin.name }}</q-item-label>
+                                <q-item-label caption lines="2">{{ plugin.description }}</q-item-label>
+                              </q-item-section>
+
+                              <q-separator inset vertical class="q-mx-sm"/>
+
+                              <q-item-section center side>
+                                <div class="text-grey-8 q-gutter-xs">
+                                  <q-btn
+                                    flat dense round
+                                    size="12px"
+                                    color="grey-8"
+                                    icon="tune"
+                                    @click="displayPluginInfo(index)">
+                                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
+                                  </q-btn>
+                                  <q-btn
+                                    flat dense round
+                                    size="12px"
+                                    color="negative"
+                                    icon="remove_circle_outline"
+                                    @click="removePluginFromList(index)">
+                                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.remove') }}</q-tooltip>
+                                  </q-btn>
+                                </div>
+                              </q-item-section>
+
+                            </q-item>
+                            <q-separator spaced inset/>
+                          </div>
+
+                        </q-list>
+
+                        <q-bar class="bg-transparent q-mb-sm">
+                          <q-space/>
+                          <q-btn
+                            round
+                            flat
+                            color="primary"
+                            icon="add"
+                            @click="selectPluginFromList">
+                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
+                          </q-btn>
+                        </q-bar>
+
+                      </q-card-section>
+                    </q-card>
+                  </q-expansion-item>
+
+                </q-list>
+              </div>
+            </q-card-section>
+
           </q-card>
 
         </div>
@@ -150,6 +232,7 @@ import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
+import PluginSelectorDialog from "components/PluginSelectorDialog";
 
 export default {
   name: 'LibraryConfigureDialog',
@@ -203,11 +286,15 @@ export default {
         url: getUnmanicApiUrl('v2', 'settings/library/read'),
         data: data
       }).then((response) => {
+        // Library configuration
         let libraryConfig = response.data.library_config;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
+
+        // Plugins
+        this.enabledPlugins = response.data.plugins.enabled_plugins;
       });
     },
     saveLibraryConfig: function () {
@@ -220,6 +307,9 @@ export default {
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
         },
+        plugins: {
+          enabled_plugins: this.enabledPlugins,
+        }
       }
       axios({
         method: 'post',
@@ -259,6 +349,44 @@ export default {
       }).onDismiss(() => {
       })
     },
+    selectPluginFromList: function () {
+      let hidePlugins = []
+      for (let i = 0; i < this.enabledPlugins.length; i++) {
+        hidePlugins[hidePlugins.length] = this.enabledPlugins[i].plugin_id;
+      }
+      this.$q.dialog({
+        component: PluginSelectorDialog,
+        componentProps: {
+          dialogHeader: this.$t('headers.selectPlugin'),
+          hidePlugins: hidePlugins,
+        },
+      }).onOk((payload) => {
+        if (typeof payload.selectedPlugin !== 'undefined' && payload.selectedPlugin !== null) {
+          // Add selected plugin to library (sorting the list alphabetically)
+          let enabledPluginList = this.enabledPlugins
+          enabledPluginList.push(payload.selectedPlugin);
+          enabledPluginList.sort((a, b) => a.name.localeCompare(b.name));
+          this.enabledPlugins = enabledPluginList;
+
+          // Save the current settings
+          this.saveLibraryConfig()
+        }
+      }).onDismiss(() => {
+      })
+    },
+    removePluginFromList: function (index) {
+      let enabledPluginList = [];
+      for (let i = 0; i < this.enabledPlugins.length; i++) {
+        let plugin = this.enabledPlugins[i];
+        if (i !== index) {
+          enabledPluginList[enabledPluginList.length] = plugin
+        }
+      }
+      this.enabledPlugins = enabledPluginList;
+
+      // Save the current settings
+      this.saveLibraryConfig()
+    },
   },
   watch: {
     libraryID(value) {
@@ -275,7 +403,7 @@ export default {
       path: ref(''),
       enableScanner: ref(false),
       enableInotify: ref(false),
-      enabledPlugins: ref([1, 2]),
+      enabledPlugins: ref([]),
     }
   }
 }
