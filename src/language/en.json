@@ -117,7 +117,8 @@
     "supportFutureDevelopment": "Support future development",
     "confirm": "Confirm",
     "configureRemoteInstallationLink": "Configure remote installation link",
-    "configureLibrary": "Configure library"
+    "configureLibrary": "Configure library",
+    "selectPlugin": "Select a plugin"
   },
   "tooltips": {
     "close": "Close",
