@@ -1,16 +1,45 @@
 <template>
-  <!-- NOTE: notice the 'directoryBrowserDialogRef' here -->
+
+  <!-- START DIALOG CONFIG
+  Center full-screen pop-up
+  Note: Update template q-dialog ref="" value
+
+  All Platforms:
+   - Swipe left/right to dismiss
+  Desktop:
+   - Width 700px
+   - Minimise button top-right
+  Mobile:
+   - Full screen
+   - Back button top-left
+  -->
   <q-dialog
     ref="directoryBrowserDialogRef"
     :maximized="$q.platform.is.mobile"
+    transition-show="jump-left"
+    transition-hide="jump-right"
     full-height
     @hide="onDialogHide">
 
     <q-card
-      v-touch-swipe.touch.right="hide"
-      style="width: 700px; max-width: 90vw;">
+      v-touch-swipe.touch.left.right="hide"
+      :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
+      style="width:700px;">
+
       <q-card-section class="bg-grey-2">
         <div class="row items-center no-wrap">
+          <div class="col">
+            <q-btn
+              v-if="$q.platform.is.mobile"
+              color="grey-7"
+              dense
+              round
+              flat
+              icon="arrow_back"
+              v-close-popup>
+            </q-btn>
+          </div>
+
           <div class="col">
             <div class="text-h6 text-blue-10">
               {{ dialogHeader }}
@@ -19,16 +48,19 @@
 
           <div class="col-auto">
             <q-btn
+              v-if="!$q.platform.is.mobile"
               color="grey-7"
               dense
               round
               flat
-              icon="close_fullscreen" v-close-popup>
+              icon="close_fullscreen"
+              v-close-popup>
               <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
             </q-btn>
           </div>
         </div>
       </q-card-section>
+      <!-- END DIALOG CONFIG -->
 
       <q-card-section class="q-pt-none">
 
