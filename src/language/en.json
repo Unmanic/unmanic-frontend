@@ -116,7 +116,8 @@
     "completedTaskDetails": "Completed Task Details",
     "supportFutureDevelopment": "Support future development",
     "confirm": "Confirm",
-    "configureRemoteInstallationLink": "Configure remote installation link"
+    "configureRemoteInstallationLink": "Configure remote installation link",
+    "configureLibrary": "Configure library"
   },
   "tooltips": {
     "close": "Close",
@@ -131,14 +132,16 @@
     "moveUp": "Move up",
     "moveDown": "Move down",
     "etc": "Estimated Time of Completion",
-    "add": "Add"
+    "add": "Add",
+    "remove": "Remove",
+    "configure": "Configure"
   },
   "components": {
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "library": {
         "pathConfiguration": "Libraries",
-        "name": "Library",
+        "name": "Name",
         "path": "Library path",
         "newLibrary": "New Library",
         "addLibraryPath": "Add library path",
@@ -153,7 +156,13 @@
         "pendingTasks": "Pending tasks",
         "clearPendingTasksOnStart": "Clear all pending tasks on startup",
         "fileTesting": "File testing",
-        "concurrentFileTesters": "Concurrent file testers"
+        "concurrentFileTesters": "Concurrent file testers",
+        "configuration": "Configuration",
+        "enableScanner": "Enable library scanner for this library",
+        "enableInotify": "Enable file monitory for this library",
+        "plugins": "Plugins",
+        "enabledPlugins": "Enabled Plugins",
+        "enabledPluginsCaption": "Plugins enabled for this library"
       },
       "workers": {
         "workerCount": "Worker count",

@@ -12,6 +12,7 @@
       v-touch-swipe.touch.left="hide"
       :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
       style="width:2000px;">
+
       <q-card-section class="bg-grey-2">
         <div class="row items-center no-wrap">
           <div class="col-auto">
