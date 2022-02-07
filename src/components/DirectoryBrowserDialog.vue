@@ -28,9 +28,10 @@
 
       <q-card-section class="bg-grey-2">
         <div class="row items-center no-wrap">
-          <div class="col">
+          <div
+            v-if="$q.platform.is.mobile"
+            class="col">
             <q-btn
-              v-if="$q.platform.is.mobile"
               color="grey-7"
               dense
               round
@@ -46,9 +47,10 @@
             </div>
           </div>
 
-          <div class="col-auto">
+          <div
+            v-if="!$q.platform.is.mobile"
+            class="col-auto">
             <q-btn
-              v-if="!$q.platform.is.mobile"
               color="grey-7"
               dense
               round
