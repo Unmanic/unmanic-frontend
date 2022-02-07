@@ -283,6 +283,7 @@ import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import LibraryConfigureDialog from "components/LibraryConfigureDialog";
 
 export default {
   name: 'SettingsLibrary',
@@ -480,6 +481,20 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    configureLibraryPath: function (index) {
+      let library = this.libraryPaths[index]
+      this.$q.dialog({
+        component: LibraryConfigureDialog,
+        componentProps: {
+          dialogHeader: this.$t('headers.configureLibrary'),
+          libraryID: library.id
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+        this.fetchSettings();
+        this.fetchLibraryPathsList();
+      })
     },
   },
   created() {
