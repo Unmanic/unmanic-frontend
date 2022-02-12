@@ -20,7 +20,7 @@
               <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
               <div class="q-gutter-sm">
                 <q-skeleton
-                  v-if="remoteInstallations === null"
+                  v-if="libraryPaths === null"
                   type="text"/>
 
                 <q-list
@@ -79,31 +79,6 @@
                   </q-btn>
                 </q-bar>
 
-              </div>
-              <!--END LIBRARY PATHS-->
-
-              <!--START LIBRARY PATHS-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
-              <div class="q-gutter-sm">
-                <q-skeleton
-                  v-if="libraryPath === null"
-                  type="QInput"/>
-                <q-input
-                  v-else
-                  readonly
-                  outlined
-                  color="primary"
-                  v-model="libraryPath"
-                  :label="$t('components.settings.library.path')"
-                  :placeholder="libraryPath"
-                  @click="updateLibraryWithDirectoryBrowser">
-                  <template v-slot:append>
-                    <q-icon
-                      @click="updateLibraryWithDirectoryBrowser"
-                      class="cursor-pointer"
-                      name="folder_open"/>
-                  </template>
-                </q-input>
               </div>
               <!--END LIBRARY PATHS-->
 
@@ -332,21 +307,6 @@ export default {
     }
   },
   methods: {
-    updateLibraryWithDirectoryBrowser: function () {
-      this.$q.dialog({
-        component: DirectoryBrowserDialog,
-        componentProps: {
-          dialogHeader: this.$t('headers.selectDirectory'),
-          initialPath: this.libraryPath,
-          listType: 'directories'
-        },
-      }).onOk((payload) => {
-        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
-          this.libraryPath = payload.selectedPath
-        }
-      }).onDismiss(() => {
-      })
-    },
     addNewLibraryWithDirectoryBrowser: function () {
       this.$q.dialog({
         component: DirectoryBrowserDialog,
@@ -357,13 +317,37 @@ export default {
         },
       }).onOk((payload) => {
         if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
-          // Add to list
-          this.libraryPaths[this.libraryPaths.length] = {
-            name: this.$t('components.settings.library.newLibrary'),
-            path: payload.selectedPath,
+          // Save this data
+          let data = {
+            library_config: {
+              name: this.$t('components.settings.library.newLibrary'),
+              path: payload.selectedPath,
+            }
           }
-          // TODO: Trigger a save event
-          //this.save();
+          axios({
+            method: 'post',
+            url: getUnmanicApiUrl('v2', 'settings/library/write'),
+            data: data
+          }).then((response) => {
+            // Save success, show feedback
+            this.$q.notify({
+              color: 'positive',
+              position: 'top',
+              icon: 'cloud_done',
+              message: this.$t('notifications.saved'),
+              timeout: 200
+            })
+            // Update list
+            this.fetchLibraryPathsList();
+          }).catch(() => {
+            this.$q.notify({
+              color: 'negative',
+              position: 'top',
+              message: this.$t('notifications.failedToSaveSettings'),
+              icon: 'report_problem',
+              actions: [{ icon: 'close', color: 'white' }]
+            })
+          });
         }
       }).onDismiss(() => {
       })
