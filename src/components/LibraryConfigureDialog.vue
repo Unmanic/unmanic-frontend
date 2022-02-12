@@ -138,82 +138,84 @@
 
             <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
 
-              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.plugins') }}</h5>
+              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.enabledPlugins') }}</h5>
 
-              <div class="q-pb-sm">
-                <q-list bordered class="rounded-borders">
-                  <q-expansion-item
-                    expand-separator
-                    icon="extension"
-                    :label="$t('components.settings.library.enabledPlugins')"
-                    :caption="$t('components.settings.library.enabledPluginsCaption')"
-                  >
-                    <q-card class="q-pa-none">
-                      <q-card-section class="q-pa-none">
-                        <q-list padding>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="enabledPlugins === null"
+                  type="text"/>
 
-                          <q-separator spaced inset/>
-                          <div
-                            v-for="(plugin, index) in enabledPlugins"
-                            v-bind:key="index">
-                            <q-item>
+                <q-list
+                  bordered
+                  separator
+                  class="rounded-borders">
 
-                              <q-item-section avatar>
-                                <q-img :src="plugin.icon"/>
-                              </q-item-section>
 
-                              <q-item-section>
-                                <q-item-label>{{ plugin.name }}</q-item-label>
-                                <q-item-label caption lines="2">{{ plugin.description }}</q-item-label>
-                              </q-item-section>
+                  <div
+                    v-for="(plugin, index) in enabledPlugins"
+                    v-bind:key="index">
+                    <q-item>
 
-                              <q-separator inset vertical class="q-mx-sm"/>
+                      <q-item-section avatar>
+                        <q-img :src="plugin.icon"/>
+                      </q-item-section>
 
-                              <q-item-section center side>
-                                <div class="text-grey-8 q-gutter-xs">
-                                  <q-btn
-                                    flat dense round
-                                    size="12px"
-                                    color="grey-8"
-                                    icon="tune"
-                                    @click="showPluginInfo = plugin.plugin_id">
-                                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
-                                  </q-btn>
-                                  <q-btn
-                                    flat dense round
-                                    size="12px"
-                                    color="negative"
-                                    icon="remove_circle_outline"
-                                    @click="removePluginFromList(index)">
-                                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.remove') }}</q-tooltip>
-                                  </q-btn>
-                                </div>
-                              </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ plugin.name }}</q-item-label>
+                        <q-item-label caption lines="2">{{ plugin.description }}</q-item-label>
+                      </q-item-section>
 
-                            </q-item>
-                            <q-separator spaced inset/>
-                          </div>
+                      <q-separator inset vertical class="q-mx-sm"/>
 
-                        </q-list>
-
-                        <q-bar class="bg-transparent q-mb-sm">
-                          <q-space/>
+                      <q-item-section center side>
+                        <div class="text-grey-8 q-gutter-xs">
                           <q-btn
-                            round
-                            flat
-                            color="primary"
-                            icon="add"
-                            @click="selectPluginFromList">
-                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
+                            flat dense round
+                            size="12px"
+                            color="grey-8"
+                            icon="tune"
+                            @click="showPluginInfo = plugin.plugin_id">
+                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
                           </q-btn>
-                        </q-bar>
+                          <q-btn
+                            flat dense round
+                            size="12px"
+                            color="negative"
+                            icon="remove_circle_outline"
+                            @click="removePluginFromList(index)">
+                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.remove') }}</q-tooltip>
+                          </q-btn>
+                        </div>
+                      </q-item-section>
 
-                      </q-card-section>
-                    </q-card>
-                  </q-expansion-item>
+                    </q-item>
+                  </div>
 
                 </q-list>
+
+                <q-bar class="bg-transparent q-mb-sm">
+                  <q-space/>
+                  <q-btn
+                    round
+                    flat
+                    color="primary"
+                    icon="add"
+                    @click="selectPluginFromList">
+                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
+                  </q-btn>
+                </q-bar>
               </div>
+
+            </q-card-section>
+
+            <q-separator/>
+
+            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+
+              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.pluginFlow') }}</h5>
+
+              <LibraryConfigurePluginFlowList v-bind:libraryId="libraryId" :key="componentKey"/>
+
             </q-card-section>
 
           </q-card>
@@ -238,11 +240,11 @@ import { ref } from "vue";
 import PluginInfo from "components/PluginInfo";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import PluginSelectorDialog from "components/PluginSelectorDialog";
-import PluginInstallerManageRepos from "components/PluginInstallerManageRepos";
+import LibraryConfigurePluginFlowList from "components/LibraryConfigurePluginFlowList";
 
 export default {
   name: 'LibraryConfigureDialog',
-  components: { PluginInfo },
+  components: { LibraryConfigurePluginFlowList, PluginInfo },
   props: {
     dialogHeader: {
       type: String,
@@ -330,6 +332,7 @@ export default {
           message: this.$t('notifications.saved'),
           timeout: 200
         })
+        this.componentKey += 1;
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
@@ -414,6 +417,7 @@ export default {
       enableScanner: ref(false),
       enableInotify: ref(false),
       enabledPlugins: ref([]),
+      componentKey: 1,
     }
   }
 }
