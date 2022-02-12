@@ -33,7 +33,8 @@
     "submit": "Submit",
     "cancel": "Cancel",
     "close": "Close",
-    "back": "Back"
+    "back": "Back",
+    "yes": "Yes"
   },
   "status": {
     "enabled": "enabled",
@@ -146,6 +147,7 @@
         "path": "Library path",
         "newLibrary": "New Library",
         "addLibraryPath": "Add library path",
+        "confirmRemove": "Removing the library will also remove all settings associated with this library. Are you sure you wish to continue?",
         "libraryScanner": "Library scanner",
         "enableLibraryScanner": "Enable periodic library scans",
         "libraryScannerSchedule": "Library scan schedule in minutes",

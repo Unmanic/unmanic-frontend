@@ -305,7 +305,6 @@ export default {
       });
     },
     saveLibraryConfig: function () {
-      // Fetch from server
       let data = {
         library_config: {
           id: this.currentID,

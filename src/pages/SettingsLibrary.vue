@@ -353,28 +353,62 @@ export default {
       })
     },
     deleteLibrary: function (index) {
-      let newList = []
+      // Fetch library ID
+      let libraryId;
       for (let i = 0; i < this.libraryPaths.length; i++) {
         if (i === index) {
-          if (this.libraryPaths[i].id === 'default') {
-            // Do not allow removing the default path
-            // Print error message
-            // TODO: Ensure this is also done server side
-            this.$q.notify({
-              color: 'negative',
-              position: 'top',
-              message: this.$t('notifications.cannotRemoveDefaultLibrary'),
-              icon: 'report_problem',
-              actions: [{ icon: 'close', color: 'white' }]
-            })
-          } else {
-            // Ignore this item to remove it from the list
-            continue;
-          }
+          libraryId = this.libraryPaths[i].id;
+          break;
         }
-        newList[newList.length] = this.libraryPaths[i];
       }
-      this.libraryPaths = newList;
+      // Ensure we do not allow removing the default path
+      if (libraryId === 1) {
+        // Print error message
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.cannotRemoveDefaultLibrary'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        return;
+      }
+      this.$q.dialog({
+        title: this.$t('headers.confirm'),
+        message: this.$t('components.settings.library.confirmRemove'),
+        cancel: this.$t('navigation.cancel'),
+        ok: this.$t('navigation.yes'),
+        persistent: true
+      }).onOk(() => {
+        // Request a DELETE from server
+        let data = {
+          id: libraryId,
+        }
+        axios({
+          method: 'delete',
+          url: getUnmanicApiUrl('v2', 'settings/library/remove'),
+          data: data
+        }).then((response) => {
+          // Save success, show feedback
+          this.$q.notify({
+            color: 'positive',
+            position: 'top',
+            icon: 'cloud_done',
+            message: this.$t('notifications.saved'),
+            timeout: 200
+          })
+          // Update list
+          this.fetchLibraryPathsList();
+        }).catch(() => {
+          this.$q.notify({
+            color: 'negative',
+            position: 'top',
+            message: this.$t('notifications.failedToSaveSettings'),
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
+          })
+        });
+      })
     },
     fetchSettings: function () {
       // Fetch current settings
