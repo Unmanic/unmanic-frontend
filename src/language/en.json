@@ -165,7 +165,7 @@
         "enableInotify": "Enable file monitory for this library",
         "plugins": "Plugins",
         "enabledPlugins": "Enabled Plugins",
-        "enabledPluginsCaption": "Plugins enabled for this library"
+        "pluginFlow": "Plugin Flow"
       },
       "workers": {
         "workerCount": "Worker count",
