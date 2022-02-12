@@ -488,7 +488,7 @@ export default {
         component: LibraryConfigureDialog,
         componentProps: {
           dialogHeader: this.$t('headers.configureLibrary'),
-          libraryID: library.id
+          libraryId: library.id
         },
       }).onOk((payload) => {
       }).onDismiss(() => {

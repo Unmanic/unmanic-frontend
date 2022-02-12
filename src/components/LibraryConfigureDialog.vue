@@ -176,7 +176,7 @@
                                     size="12px"
                                     color="grey-8"
                                     icon="tune"
-                                    @click="displayPluginInfo(index)">
+                                    @click="showPluginInfo = plugin.plugin_id">
                                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
                                   </q-btn>
                                   <q-btn
@@ -224,6 +224,10 @@
 
     </q-card>
 
+    <PluginInfo v-bind:showPluginInfo="showPluginInfo"
+                v-bind:libraryId="libraryId"
+                v-on:hide="closePluginInfo"/>
+
   </q-dialog>
 </template>
 
@@ -231,17 +235,20 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
+import PluginInfo from "components/PluginInfo";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import PluginSelectorDialog from "components/PluginSelectorDialog";
+import PluginInstallerManageRepos from "components/PluginInstallerManageRepos";
 
 export default {
   name: 'LibraryConfigureDialog',
+  components: { PluginInfo },
   props: {
     dialogHeader: {
       type: String,
       default: ' --- header --- '
     },
-    libraryID: {
+    libraryId: {
       type: Number,
       default: 0
     }
@@ -255,7 +262,7 @@ export default {
     // (don't change its name --> "show")
     show() {
       this.$refs.libraryConfigureDialogRef.show();
-      this.fetchLibraryConfig(this.libraryID);
+      this.fetchLibraryConfig(this.libraryId);
     },
 
     // following method is REQUIRED
@@ -275,8 +282,8 @@ export default {
       this.saveLibraryConfig();
     },
 
-    fetchLibraryConfig: function (libraryID) {
-      this.currentID = libraryID;
+    fetchLibraryConfig: function (libraryId) {
+      this.currentID = libraryId;
       // Fetch from server
       let data = {
         id: this.currentID,
@@ -387,17 +394,21 @@ export default {
       // Save the current settings
       this.saveLibraryConfig()
     },
+    closePluginInfo: function () {
+      this.showPluginInfo = '';
+    },
   },
   watch: {
-    libraryID(value) {
+    libraryId(value) {
       if (value.length > 0) {
-        this.currentID = this.libraryID;
+        this.currentID = this.libraryId;
       }
     }
   },
   data: function () {
     return {
       maximizedToggle: true,
+      showPluginInfo: ref(''),
       currentID: ref(null),
       name: ref(''),
       path: ref(''),
