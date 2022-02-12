@@ -360,6 +360,9 @@ export default {
       if (this.viewingRemoteInfo) {
         data.prefer_local = false;
       }
+      if (this.libraryId) {
+        data.library_id = this.libraryId;
+      }
       axios({
         method: 'post',
         url: getUnmanicApiUrl('v2', 'plugins/info'),
@@ -432,6 +435,9 @@ export default {
         plugin_id: this.pluginId,
         settings: this.settings
       }
+      if (this.libraryId) {
+        data.library_id = this.libraryId;
+      }
       axios({
         method: 'post',
         url: getUnmanicApiUrl('v2', 'plugins/settings/update'),
@@ -484,6 +490,10 @@ export default {
     },
     viewingRemoteInfo: {
       type: Boolean,
+      required: false
+    },
+    libraryId: {
+      type: Number,
       required: false
     }
   },

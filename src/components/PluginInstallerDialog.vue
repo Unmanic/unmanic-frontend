@@ -259,7 +259,8 @@
       </q-card-section>
     </q-card>
 
-    <PluginInfo v-bind:showPluginInfo="showPluginInfo" v-bind:viewingRemoteInfo="viewingRemoteInfo"
+    <PluginInfo v-bind:showPluginInfo="showPluginInfo"
+                v-bind:viewingRemoteInfo="viewingRemoteInfo"
                 v-on:hide="closePluginInfo"/>
 
   </q-dialog>
