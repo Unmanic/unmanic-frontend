@@ -141,22 +141,6 @@
 
               <q-separator class="q-my-lg"/>
 
-              <!--START LIBRARY FILE MONITOR-->
-              <h5 class="q-mb-none">{{ $t('components.settings.library.fileMonitor') }}</h5>
-              <div class="q-gutter-sm">
-                <q-skeleton
-                  v-if="enableLibraryFileMonitor === null"
-                  type="QToggle"/>
-                <q-toggle
-                  v-else
-                  v-model="enableLibraryFileMonitor"
-                  :label="$t('components.settings.library.enableLibraryFileMonitor')"
-                />
-              </div>
-              <!--END LIBRARY SCANNER-->
-
-              <q-separator class="q-my-lg"/>
-
               <!--START FILE TESTING-->
               <h5 class="q-mb-none">{{ $t('components.settings.library.fileTesting') }}</h5>
               <div class="q-gutter-sm">
