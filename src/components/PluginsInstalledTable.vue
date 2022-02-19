@@ -1,99 +1,21 @@
 <template>
-  <q-table
-    title="Plugins"
-    :rows="rows"
-    :columns="columns"
-    row-key="id"
-    v-model:pagination="pagination"
-    :loading="loading"
-    :filter="filter"
-    @request="onRequest"
-    binary-state-sort
-    :selected-rows-label="getSelectedString"
-    selection="multiple"
-    v-model:selected="selected"
-  >
 
-    <template v-slot:body-cell-icon="props">
-      <q-td :props="props">
-        <div>
-          <span>
-            <q-btn
-              @click="openPluginInfo(props.row.id)">
-              <q-skeleton v-if="!props.row.icon" width="35px" height="35px"/>
-              <q-avatar v-else rounded size="35px">
-                <img :src="props.row.icon" class="plugin-list-icon">
-              </q-avatar>
-            </q-btn>
-          </span>
-        </div>
-      </q-td>
-    </template>
 
-    <template v-slot:body-cell-description="props">
-      <q-td :props="props">
-        <span v-html="props.row.description"></span>
-      </q-td>
-    </template>
-
-    <template v-slot:body-cell-status="props">
-      <q-td :props="props">
-        <div class="row">
-          <q-badge
-            v-if="props.row.status.enabled"
-            color="positive"
-            class="shadow-1">
-            {{ $t('status.enabled') }}
-          </q-badge>
-          <q-badge
-            v-else
-            color="negative"
-            class="shadow-1">
-            {{ $t('status.disabled') }}
-          </q-badge>
-        </div>
-        <div class="row">
-          <q-badge
-            v-if="props.row.status.update_available"
-            color="warning"
-            class="shadow-1">
-            {{ $t('components.plugins.updateAvailable') }}
-          </q-badge>
-          <q-badge
-            v-else
-            color="secondary"
-            class="shadow-1">
-            {{ $t('components.plugins.upToDate') }}
-          </q-badge>
-        </div>
-      </q-td>
-    </template>
-
-    <template v-slot:top-left>
-      <div class="row q-gutter-xs q-mt-xs">
+  <q-card flat>
+    <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+      <div class="row q-gutter-xs q-mt-xs justify-between">
         <div class="col-auto">
           <q-btn
             @click="openPluginInstaller"
             class=""
             color="secondary"
             icon-right="add"
-            :label="$t('components.plugins.addNew')"/>
+            :label="$t('components.plugins.installPlugins')"/>
         </div>
-        <div class="col-auto">
-          <q-btn
-            @click="openPluginFlow"
-            class=""
-            color="secondary"
-            icon-right="low_priority"
-            :label="$t('components.plugins.configurePluginFow')"/>
-        </div>
-      </div>
-      <div class="row q-gutter-xs q-mt-xs">
-        <div class="col-auto">
+        <div class="col-auto" style="max-width: 200px">
           <q-input
-            filled
+            filled dense
             class="shadow-1"
-            dense
             debounce="300"
             color="primary"
             v-model="filter"
@@ -104,65 +26,176 @@
           </q-input>
         </div>
       </div>
-    </template>
+    </q-card-section>
 
-    <template v-slot:top-right>
-      <div class="row q-gutter-xs q-mt-xs">
-        <div class="col-auto">
-          <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
-            <q-list>
-              <q-item clickable v-close-popup @click="enableSelected">
-                <q-item-section>
-                  <q-item-label>
-                    <q-icon name="radio_button_checked"/>
-                    {{ $t('components.plugins.enablePlugins') }}
-                  </q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup @click="disableSelected">
-                <q-item-section>
-                  <q-item-label>
-                    <q-icon name="radio_button_unchecked"/>
-                    {{ $t('components.plugins.disablePlugins') }}
-                  </q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item clickable v-close-popup @click="updateSelected">
-                <q-item-section>
-                  <q-item-label>
-                    <q-icon name="update"/>
-                    {{ $t('components.plugins.updatePlugins') }}
-                  </q-item-label>
-                </q-item-section>
-              </q-item>
+    <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+      <div class="q-gutter-sm">
+        <q-list
+          bordered
+          separator
+          class="rounded-borders">
 
-              <q-separator/>
+          <div
+            v-for="(plugin, index) in listedPlugins"
+            v-bind:key="index">
+            <q-item>
+              <q-item-section avatar>
+                <q-img :src="plugin.icon"/>
+              </q-item-section>
 
-              <q-item clickable v-close-popup @click="uninstallSelected">
-                <q-item-section>
-                  <q-item-label>
-                    <q-icon name="delete_outline"/>
-                    {{ $t('components.plugins.removePlugins') }}
-                  </q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-        </div>
+              <q-item-section top class="">
+                <q-item-label>{{ plugin.name }}</q-item-label>
+                <q-item-label caption lines="3">
+                  <span v-html="plugin.description"></span>
+                </q-item-label>
+              </q-item-section>
+
+              <q-item-section top class="gt-xs col-2">
+                <q-item-label lines="1">
+                  <div class="row">
+                    <div class="col-6 text-right">
+                      <span class="text-weight-medium">Author</span>
+                    </div>
+                    <div class="col-6 q-px-sm">
+                      <span class="text-grey-8">{{ plugin.author }}</span>
+                    </div>
+                  </div>
+                </q-item-label>
+                <q-item-label lines="1">
+                  <div class="row">
+                    <div class="col-6 text-right">
+                      <span class="text-weight-medium">Version</span>
+                    </div>
+                    <div class="col-6 q-px-sm">
+                      <span class="text-grey-8">{{ plugin.version }}</span>
+                    </div>
+                  </div>
+                </q-item-label>
+              </q-item-section>
+
+              <q-item-section center side>
+                <div class="text-grey-8 q-gutter-xs q-mr-lg">
+                  <q-btn
+                    v-if="plugin.status.update_available"
+                    flat dense round
+                    class="gt-xs"
+                    size="12px"
+                    color="warning"
+                    icon="update"
+                    @click="updateSinglePlugin(plugin.id)">
+                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.updateAvailable') }}</q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    v-else
+                    disable
+                    flat dense round
+                    class="gt-xs no-pointer-events"
+                    size="12px"
+                    color="positive"
+                    icon="download_done">
+                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.upToDate') }}</q-tooltip>
+                  </q-btn>
+                </div>
+              </q-item-section>
+
+              <q-separator inset vertical class="q-mx-sm"/>
+
+              <q-item-section center side>
+                <div class="text-grey-8 q-gutter-xs">
+
+                  <q-btn-dropdown
+                    flat dense rounded
+                    class="lt-sm"
+                    size="12px"
+                    no-icon-animation
+                    dropdown-icon="more_vert">
+                    <q-list>
+
+                      <q-item clickable v-close-popup @click="openPluginInfo(plugin.id)">
+                        <q-item-section avatar>
+                          <q-icon color="grey-8" name="info"/>
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>{{ $t('headers.pluginInfo') }}</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <!-- TODO: Hide this when the plugin is not configurable -->
+                      <q-item clickable v-close-popup @click="openPluginInfo(plugin.id, 'settings')"
+                              v-if="plugin.has_config">
+                        <q-item-section avatar>
+                          <q-icon color="grey-8" name="tune"/>
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>{{ $t('components.plugins.globalConfiguration') }}</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable v-close-popup @click="updateSinglePlugin(plugin.id)"
+                              v-if="plugin.status.update_available">
+                        <q-item-section avatar>
+                          <q-icon color="warning" name="update"/>
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>{{ $t('components.plugins.updatePlugin') }}</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                      <q-item clickable v-close-popup @click="removeSinglePlugin(plugin.id)">
+                        <q-item-section avatar>
+                          <q-icon color="negative" name="delete"/>
+                        </q-item-section>
+                        <q-item-section>
+                          <q-item-label>{{ $t('components.plugins.removePlugin') }}</q-item-label>
+                        </q-item-section>
+                      </q-item>
+
+                    </q-list>
+                  </q-btn-dropdown>
+
+                  <q-btn
+                    flat dense round
+                    class="gt-xs"
+                    size="12px"
+                    color="negative"
+                    icon="delete"
+                    @click="removeSinglePlugin(plugin.id)">
+                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    flat dense round
+                    class="gt-xs"
+                    size="12px"
+                    color="secondary"
+                    icon="info"
+                    @click="openPluginInfo(plugin.id)">
+                    <q-tooltip class="bg-white text-primary">{{ $t('headers.pluginInfo') }}</q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    :disable="!plugin.has_config"
+                    flat dense round
+                    class="gt-xs"
+                    size="12px"
+                    color="grey-8"
+                    icon="tune"
+                    @click="openPluginInfo(plugin.id)">
+                    <q-tooltip class="bg-white text-primary">
+                      {{ $t('components.plugins.globalConfiguration') }}
+                    </q-tooltip>
+                  </q-btn>
+                </div>
+              </q-item-section>
+            </q-item>
+          </div>
+
+        </q-list>
       </div>
-    </template>
+    </q-card-section>
+  </q-card>
 
-    <template v-slot:no-data>
-      <div class="full-width row flex-center text-accent q-gutter-sm">
-        <q-icon size="2em" name="sentiment_dissatisfied"/>
-        <q-item-label>{{ $t('components.plugins.listEmpty') }}</q-item-label>
-        <q-icon size="2em" name="priority_high"/>
-      </div>
-    </template>
-
-  </q-table>
-
-  <PluginInfo v-bind:showPluginInfo="showPluginInfo" v-on:hide="closePluginInfo"/>
+  <PluginInfo v-bind:showPluginInfo="showPluginInfo"
+              v-bind:showPluginSettings="showPluginSettings"
+              v-on:hide="closePluginInfo"/>
 
 </template>
 
@@ -173,7 +206,6 @@ import { useQuasar } from "quasar";
 import axios from "axios";
 import PluginInfo from "components/PluginInfo";
 import { bbCodeToHTML } from "src/js/markupParser";
-import PluginFlowDialog from "components/PluginFlowDialog";
 import PluginInstallerDialog from "components/PluginInstallerDialog";
 
 const columns = [
@@ -253,53 +285,19 @@ export default {
     const selected = ref([]);
     const listedPlugins = ref([]);
 
+    const itemOffset = ref(0)
+
+    function showPluginListItemMenu(index) {
+      // Move to offset
+      itemOffset.value = -205;
+    }
+
     function getSelectedString() {
       let return_value = ''
       if (selected.value.length !== 0) {
         return_value = `${selected.value.length} record${selected.value.length > 1 ? 's' : ''} selected of ${rows.value.length}`
       }
       return return_value
-    }
-
-    function enableSelected() {
-      if (selected.value.length !== 0) {
-        // Fetch the selected row IDs
-        let id_list = []
-        for (let i = 0; i < selected.value.length; i++) {
-          let row = selected.value[i];
-          id_list[id_list.length] = row.id;
-        }
-        // Send those to the backend
-        let data = {
-          id_list: id_list,
-        }
-        axios({
-          method: 'post',
-          url: getUnmanicApiUrl('v2', 'plugins/enable'),
-          data: data
-        }).then((response) => {
-          onRequest({
-            pagination: pagination.value,
-            filter: filter.value
-          })
-        }).catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'An error was encountered while requesting the selected plugins be enabled',
-            icon: 'report_problem',
-            actions: [{ icon: 'close', color: 'white' }]
-          })
-        })
-      } else {
-        $q.notify({
-          color: 'warning',
-          position: 'top',
-          message: 'Nothing selected',
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-      }
     }
 
     function disableSelected() {
@@ -343,45 +341,60 @@ export default {
       }
     }
 
-    function updateSelected() {
-      if (selected.value.length !== 0) {
-        // Fetch the selected row IDs
-        let id_list = []
-        for (let i = 0; i < selected.value.length; i++) {
-          let row = selected.value[i];
-          id_list[id_list.length] = row.id;
-        }
-        // Send those to the backend
-        let data = {
-          id_list: id_list,
-        }
-        axios({
-          method: 'post',
-          url: getUnmanicApiUrl('v2', 'plugins/update'),
-          data: data
-        }).then((response) => {
-          onRequest({
-            pagination: pagination.value,
-            filter: filter.value
-          })
-        }).catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'An error was encountered while requesting the selected plugins be updated',
-            icon: 'report_problem',
-            actions: [{ icon: 'close', color: 'white' }]
-          })
+    function updatePluginList(id_list) {
+      let data = {
+        id_list: id_list,
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'plugins/update'),
+        data: data
+      }).then((response) => {
+        onRequest({
+          pagination: pagination.value,
+          filter: filter.value
         })
-      } else {
+      }).catch(() => {
         $q.notify({
-          color: 'warning',
+          color: 'negative',
           position: 'top',
-          message: 'Nothing selected',
+          message: 'An error was encountered while requesting the selected plugins be updated',
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })
+      })
+    }
+
+    function updateSinglePlugin(tableId) {
+      updatePluginList([tableId]);
+    }
+
+    function removePluginList(id_list) {
+      let data = {
+        id_list: id_list,
       }
+      axios({
+        method: 'delete',
+        url: getUnmanicApiUrl('v2', 'plugins/remove'),
+        data: data
+      }).then((response) => {
+        onRequest({
+          pagination: pagination.value,
+          filter: filter.value
+        })
+      }).catch(() => {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while requesting the selected plugins be removed',
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    }
+
+    function removeSinglePlugin(tableId) {
+      removePluginList([tableId]);
     }
 
     function uninstallSelected() {
@@ -393,27 +406,7 @@ export default {
           id_list[id_list.length] = row.id;
         }
         // Send those to the backend
-        let data = {
-          id_list: id_list,
-        }
-        axios({
-          method: 'delete',
-          url: getUnmanicApiUrl('v2', 'plugins/remove'),
-          data: data
-        }).then((response) => {
-          onRequest({
-            pagination: pagination.value,
-            filter: filter.value
-          })
-        }).catch(() => {
-          $q.notify({
-            color: 'negative',
-            position: 'top',
-            message: 'An error was encountered while requesting the selected plugins be removed',
-            icon: 'report_problem',
-            actions: [{ icon: 'close', color: 'white' }]
-          })
-        })
+        removePluginList(id_list);
       } else {
         $q.notify({
           color: 'warning',
@@ -478,6 +471,7 @@ export default {
             author: results.author,
             version: results.version,
             status: results.status,
+            has_config: results.has_config,
           }
         }
 
@@ -504,29 +498,26 @@ export default {
     }
 
     const showPluginInfo = ref('');
+    const showPluginSettings = ref('');
 
-    function openPluginInfo(table_id) {
+    function openPluginInfo(table_id, tab) {
       showPluginInfo.value = '';
+      showPluginSettings.value = '';
       for (let i = 0; i < listedPlugins.value.length; i++) {
         let plugin = listedPlugins.value[i];
         if (plugin.id === table_id) {
-          showPluginInfo.value = plugin.plugin_id;
+          if (tab === 'settings') {
+            showPluginSettings.value = plugin.plugin_id;
+          } else {
+            showPluginInfo.value = plugin.plugin_id;
+          }
         }
       }
     }
 
     function closePluginInfo() {
       showPluginInfo.value = '';
-    }
-
-    function openPluginFlow() {
-      $q.dialog({
-        component: PluginFlowDialog,
-        // props forwarded to your custom component
-        componentProps: {},
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-      })
+      showPluginSettings.value = '';
     }
 
     function openPluginInstaller() {
@@ -559,16 +550,19 @@ export default {
       columns,
       rows,
 
+      listedPlugins,
+      itemOffset,
+      showPluginListItemMenu,
+
       getSelectedString,
       onRequest,
-      enableSelected,
       disableSelected,
-      updateSelected,
-      uninstallSelected,
+      updateSinglePlugin,
+      removeSinglePlugin,
       openPluginInfo,
       showPluginInfo,
+      showPluginSettings,
       closePluginInfo,
-      openPluginFlow,
       openPluginInstaller
     }
   }

@@ -67,8 +67,8 @@
     "failedToFetchSystemConfig": "Failed to fetch Unmanic's system configuration.",
     "failedToFetchLibraryList": "Failed to fetch Unmanic's library list.",
     "SavedPluginSettings": "Plugin settings saved.",
-    "failedToSavePluginSettings": "Failed to save Plugin settings.",
-    "failedToInstallPlugin": "An error was encountered while attempting to install the requested Plugin.",
+    "failedToSavePluginSettings": "Failed to save plugin settings.",
+    "failedToInstallPlugin": "An error was encountered while attempting to install the requested plugin.",
     "repoAlreadyExists": "Repository already exists.",
     "newRepoAddFailed": "New repository failed to save.",
     "reposRefreshSuccess": "Successfully updated all repositories.",
@@ -90,9 +90,9 @@
         "success": "Unknown message from server",
         "status": "Unknown status update from server"
       },
-      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible Plugin",
-      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many Plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than ten Plugins.",
-      "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the Plugins configuration. When you are ready, resume the workers from the dashboard.",
+      "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin enabled on one of your libraries",
+      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than ten plugins.",
+      "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the plugins configuration. When you are ready, resume the workers from the dashboard.",
       "libraryScanProgress": "Library scan running",
       "pendingTaskHaltedPostProcessorQueueFull": "The Post-processor queue reached its limit",
       "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count",
@@ -226,7 +226,7 @@
         "support": "Support",
         "unmanicAppSourceRequests": "Request feature in Unmanic Application",
         "unmanicFrontendSourceRequests": "Request feature in Unmanic Frontend",
-        "unmanicOfficialPluginRequests": "Request a Plugin for Unmanic"
+        "unmanicOfficialPluginRequests": "Request a plugin for Unmanic"
       }
     },
     "workers": {
@@ -274,15 +274,13 @@
       "removeSelected": "Remove selected from list"
     },
     "plugins": {
-      "updateAvailable": "update available",
-      "upToDate": "up-to-date",
-      "enablePlugins": "Enable Plugins(s)",
-      "disablePlugins": "Disable Plugins(s)",
-      "updatePlugins": "Update Plugins(s)",
-      "removePlugins": "Remove Plugins(s)",
-      "addNew": "Add New",
-      "configurePluginFow": "Configure Plugin Flow",
-      "listEmpty": "There are no Plugins to display",
+      "updateAvailable": "Update available",
+      "upToDate": "Up-to-date",
+      "globalConfiguration": "Global Configuration",
+      "updatePlugin": "Update Plugin",
+      "removePlugin": "Remove Plugin",
+      "installPlugins": "Install Plugin",
+      "listEmpty": "There are no plugins to display",
       "categoryFilter": "Category Filter",
       "name": "Name",
       "author": "Author",
@@ -295,31 +293,25 @@
       "repoName": "Name",
       "repoSource": "Repository URL",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-      "configurePluginFlowSection": {
-        "line1": "Configure the order in which Plugins are called.",
-        "line2": "Below is a list of Plugin Type sections. Each Plugin Type section may contain a list of Plugins.",
-        "line3": "See the description below each Plugin Type for details when the contained Plugins will be called.",
-        "line4": "A Plugin may consist of multiple Plugin Types. If so, it will be called by Unmanic at each of those described sections."
-      },
       "types": {
         "libraryManagement": {
           "fileTest": "Library Management - File test",
-          "fileTestCaption": "These Plugins are called to test if files should be added to the pending task list"
+          "fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
         },
         "postprocessor": {
           "fileMove": "Post-processor - File movements",
-          "fileMoveCaption": "These Plugins are called on completion of task to add additional file movements",
+          "fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
           "taskResult": "Post-processor - Marking task success/failure",
-          "taskResultCaption": "These Plugins are called on the completion of a task to mark the overall success or failure of that task"
+          "taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
         },
         "worker": {
           "processItem": "Worker - Processing file",
-          "processItemCaption": "These Plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+          "processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
         }
       }
     },
     "dataPanels": {
-      "noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your Plugin settings."
+      "noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
     },
     "footer": {
       "version": "Version"

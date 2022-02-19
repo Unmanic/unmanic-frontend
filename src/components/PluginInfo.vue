@@ -240,9 +240,9 @@
                           v-if="item.input_type === 'slider'">
                           <q-slider
                             v-model="item.value"
-                            :min="item.slider_options.min"
-                            :max="item.slider_options.max"
-                            :step="item.slider_options.step"
+                            :min="Number(item.slider_options.min)"
+                            :max="Number(item.slider_options.max)"
+                            :step="Number(item.slider_options.step)"
                             label
                             :label-value="item.label + ': ' + item.value + item.slider_options.suffix"
                             label-always
@@ -325,17 +325,29 @@ export default {
   watch: {
     showPluginInfo(value) {
       if (value.length > 0) {
+        this.selectedPluginId = value;
         this.fetchPluginInfo();
         this.pluginInfoShowDialog = true;
       } else {
         this.pluginInfoShowDialog = false;
         this.resetData();
-
+      }
+    },
+    showPluginSettings(value) {
+      if (value.length > 0) {
+        this.selectedPluginId = value;
+        this.tab = 'settings';
+        this.fetchPluginInfo();
+        this.pluginInfoShowDialog = true;
+      } else {
+        this.pluginInfoShowDialog = false;
+        this.resetData();
       }
     }
   },
   methods: {
     resetData() {
+      this.selectedPluginId = '';
       this.tab = 'info';
       this.id = null;
       this.pluginId = '';
@@ -351,10 +363,10 @@ export default {
       this.currentSettings = [];
     },
     fetchPluginInfo() {
-      console.debug('Fetching info for ' + this.showPluginInfo)
+      console.debug('Fetching info for ' + this.selectedPluginId)
       // Fetch from server
       let data = {
-        plugin_id: this.showPluginInfo,
+        plugin_id: this.selectedPluginId,
         prefer_local: true,
       }
       if (this.viewingRemoteInfo) {
@@ -485,6 +497,10 @@ export default {
   },
   props: {
     showPluginInfo: {
+      type: String,
+      required: true
+    },
+    showPluginSettings: {
       type: String,
       required: true
     },
