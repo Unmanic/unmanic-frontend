@@ -233,7 +233,7 @@
               <q-btn
                 icon="navigate_before"
                 flat>
-                Library
+                {{ $t('navigation.library') }}
               </q-btn>
             </q-card>
           </div>
@@ -246,7 +246,7 @@
               <q-btn
                 icon-right="navigate_next"
                 flat>
-                Plugins
+                {{ $t('navigation.plugins') }}
               </q-btn>
             </q-card>
           </div>

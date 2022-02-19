@@ -162,7 +162,7 @@
         "concurrentFileTesters": "Concurrent file testers",
         "configuration": "Configuration",
         "enableScanner": "Enable library scanner for this library",
-        "enableInotify": "Enable file monitory for this library",
+        "enableInotify": "Enable file monitor for this library",
         "plugins": "Plugins",
         "enabledPlugins": "Enabled Plugins",
         "pluginFlow": "Plugin Flow"
