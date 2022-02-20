@@ -168,8 +168,9 @@
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
         "plugins": "Plugins",
-        "enabledPlugins": "Enabled Plugins",
-        "pluginFlow": "Plugin Flow"
+        "enabledPlugins": "Plugins",
+        "pluginFlow": "Plugin Flow",
+        "cloneLibrary": "Clone library"
       },
       "workers": {
         "workerCount": "Worker count",
