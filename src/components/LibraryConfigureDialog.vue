@@ -270,6 +270,7 @@ import PluginInfo from "components/PluginInfo";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import PluginSelectorDialog from "components/PluginSelectorDialog";
 import LibraryConfigurePluginFlowList from "components/LibraryConfigurePluginFlowList";
+import JsonExportDialog from "components/JsonExportDialog";
 
 export default {
   name: 'LibraryConfigureDialog',
@@ -435,6 +436,34 @@ export default {
     },
     closePluginInfo: function () {
       this.showPluginSettings = '';
+    },
+    exportPluginConfig: function () {
+      let data = {
+        id: this.currentID,
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'settings/library/export'),
+        data: data
+      }).then((response) => {
+        // Display dialog with exported json
+        this.$q.dialog({
+          component: JsonExportDialog,
+          componentProps: {
+            dialogHeader: this.$t('components.settings.library.exportPluginConfig'),
+            jsonData: JSON.stringify(response.data, null, 2),
+          }
+        }).onDismiss(() => {
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSaveSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
     },
   },
   watch: {

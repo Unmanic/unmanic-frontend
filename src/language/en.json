@@ -58,6 +58,7 @@
   "notifications": {
     "saved": "Saved.",
     "installed": "Installed.",
+    "copied": "Copied",
     "backendConnectionWarning": "Unable to connect to Unmanic backend. Please check that it is running.",
     "failedToFetchSession": "An error was encountered while fetching the session data from Unmanic.",
     "failedToFetchLoginUrl": "Failed to get login URL.",
@@ -170,7 +171,9 @@
         "plugins": "Plugins",
         "enabledPlugins": "Plugins",
         "pluginFlow": "Plugin Flow",
-        "cloneLibrary": "Clone library"
+        "cloneLibrary": "Clone library",
+        "copy": "Copy",
+        "exportPluginConfig": "Export plugin config"
       },
       "workers": {
         "workerCount": "Worker count",
