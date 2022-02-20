@@ -73,7 +73,26 @@
           <q-card flat>
             <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
 
-              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.configuration') }}</h5>
+              <div class="row items-center no-wrap q-mb-md">
+                <div class="col">
+                  <div class="text-h5">
+                    {{ $t('components.settings.library.configuration') }}
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <q-btn
+                    round
+                    flat
+                    color="primary"
+                    icon="content_copy"
+                    @click="cloneLibrary">
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.cloneLibrary')
+                      }}
+                    </q-tooltip>
+                  </q-btn>
+                </div>
+              </div>
 
               <div class="q-pb-sm">
                 <q-skeleton
@@ -115,22 +134,35 @@
                 <q-skeleton
                   v-if="enableScanner === null"
                   type="QToggle"/>
-                <q-toggle
+                <q-item
                   v-else
-                  v-model="enableScanner"
-                  :label="$t('components.settings.library.enableScanner')"
-                />
+                  tag="label"
+                  class="border-hover"
+                  style="padding-left:12px">
+                  <q-item-section>
+                    <q-item-label>{{ $t('components.settings.library.enableScanner') }}</q-item-label>
+                  </q-item-section>
+                  <q-item-section avatar>
+                    <q-toggle v-model="enableScanner"/>
+                  </q-item-section>
+                </q-item>
               </div>
-
               <div class="q-pb-sm">
                 <q-skeleton
                   v-if="enableInotify === null"
                   type="QToggle"/>
-                <q-toggle
+                <q-item
                   v-else
-                  v-model="enableInotify"
-                  :label="$t('components.settings.library.enableInotify')"
-                />
+                  tag="label"
+                  class="border-hover"
+                  style="padding-left:12px">
+                  <q-item-section>
+                    <q-item-label>{{ $t('components.settings.library.enableInotify') }}</q-item-label>
+                  </q-item-section>
+                  <q-item-section avatar>
+                    <q-toggle v-model="enableInotify"/>
+                  </q-item-section>
+                </q-item>
               </div>
             </q-card-section>
 
@@ -207,15 +239,11 @@
                 </q-bar>
               </div>
 
-            </q-card-section>
+              <div class="text-h6">
+                {{ $t('components.settings.library.pluginFlow') }}
+              </div>
 
-            <q-separator/>
-
-            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
-
-              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.pluginFlow') }}</h5>
-
-              <LibraryConfigurePluginFlowList v-bind:libraryId="libraryId" :key="componentKey"/>
+              <LibraryConfigurePluginFlowList v-bind:libraryId="currentID" :key="componentKey"/>
 
             </q-card-section>
 
@@ -228,7 +256,7 @@
     </q-card>
 
     <PluginInfo v-bind:showPluginSettings="showPluginSettings"
-                v-bind:libraryId="libraryId"
+                v-bind:libraryId="currentID"
                 v-on:hide="closePluginInfo"/>
 
   </q-dialog>
@@ -265,7 +293,8 @@ export default {
     // (don't change its name --> "show")
     show() {
       this.$refs.libraryConfigureDialogRef.show();
-      this.fetchLibraryConfig(this.libraryId);
+      this.currentID = this.libraryId;
+      this.fetchLibraryConfig();
     },
 
     // following method is REQUIRED
@@ -285,8 +314,7 @@ export default {
       this.saveLibraryConfig();
     },
 
-    fetchLibraryConfig: function (libraryId) {
-      this.currentID = libraryId;
+    fetchLibraryConfig: function () {
       // Fetch from server
       let data = {
         id: this.currentID,
@@ -343,6 +371,14 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    cloneLibrary: function () {
+      // Setting the ID to 0 will create a new library
+      this.currentID = 0;
+      // Name the library as a clone
+      this.name = this.name + ' (clone)';
+      // Hiding the dialog will trigger a save with the above modified data
+      this.hide();
     },
     updateLibraryWithDirectoryBrowser: function () {
       this.$q.dialog({
