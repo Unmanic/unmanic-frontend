@@ -121,7 +121,8 @@
     "confirm": "Confirm",
     "configureRemoteInstallationLink": "Configure remote installation link",
     "configureLibrary": "Configure library",
-    "selectPlugin": "Select a plugin"
+    "selectPlugin": "Select a plugin",
+    "selectLibrary": "Select a library"
   },
   "tooltips": {
     "close": "Close",
@@ -274,7 +275,8 @@
       "details": "Details",
       "errorGettingDetails": "An error was encountered while fetching the details for this task",
       "addToPendingTasksList": "Add selected to Pending Tasks list",
-      "removeSelected": "Remove selected from list"
+      "removeSelected": "Remove selected from list",
+      "selectLibraryToAdd": "Select library in which to recreate this task"
     },
     "plugins": {
       "updateAvailable": "Update available",

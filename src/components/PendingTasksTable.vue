@@ -102,6 +102,14 @@ const columns = [
     field: row => row.name,
     format: val => `${val}`,
     sortable: false
+  },
+  {
+    name: 'library',
+    label: 'Library',
+    required: true,
+    align: 'left',
+    field: row => row.libraryName,
+    sortable: false
   }
 ]
 
@@ -297,6 +305,7 @@ export default {
           returnedData[i] = {
             id: results.id,
             name: results.abspath,
+            libraryName: results.library_name,
             completed: results.finish_time,
             status: results.success ? 'Success' : 'Failed'
           }

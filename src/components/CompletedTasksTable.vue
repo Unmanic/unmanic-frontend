@@ -32,7 +32,7 @@
       <template v-slot:top-right>
         <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
           <q-list>
-            <q-item clickable v-close-popup @click="addSelectedToPendingTaskList">
+            <q-item clickable v-close-popup @click="selectLibraryForRecreateTask">
               <q-item-section>
                 <q-item-label>
                   <q-icon name="add"/>
@@ -96,6 +96,32 @@
     </q-table>
   </div>
 
+  <q-dialog v-model="selectLibrary" persistent>
+    <q-card style="min-width: 350px">
+
+      <q-card-section>
+        <div class="text-h6">{{ $t('headers.selectLibrary') }}</div>
+      </q-card-section>
+
+      <q-card-section class="q-pt-none">
+        <q-select
+          filled
+          emit-value
+          map-options
+          v-model="selectedLibraryId"
+          :options="LibraryOptions"
+          :label="$t('components.completedTasks.selectLibraryToAdd')"/>
+      </q-card-section>
+
+      <q-card-actions align="right" class="text-primary">
+        <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
+        <q-btn
+          @click="addSelectedToPendingTaskList"
+          flat :label="$t('navigation.submit')" v-close-popup/>
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
+
 </template>
 
 <script>
@@ -105,6 +131,7 @@ import { useQuasar } from "quasar";
 import dateTools from "src/js/dateTools";
 import axios from "axios";
 import CompletedTaskLogDialog from "components/CompletedTaskLogDialog";
+import { useI18n } from "vue-i18n";
 
 const columns = [
   {
@@ -141,10 +168,10 @@ const columns = [
   }
 ]
 
-
 export default {
   setup() {
     const $q = useQuasar();
+    const { t: $t } = useI18n();
     const rows = ref([])
     const filter = ref('')
     const loading = ref(false)
@@ -156,6 +183,9 @@ export default {
       rowsNumber: 10
     })
     const selected = ref([]);
+    const selectLibrary = ref(false)
+    const selectedLibraryId = ref(null)
+    const LibraryOptions = ref([])
 
     function getSelectedString() {
       let return_value = ''
@@ -206,6 +236,44 @@ export default {
       }
     }
 
+    function selectLibraryForRecreateTask() {
+      // Fetch current settings
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'settings/libraries')
+      }).then((response) => {
+        let libraryPathsList = []
+        let defaultSelection;
+        for (let i = 0; i < response.data.libraries.length; i++) {
+          let libraryPath = response.data.libraries[i];
+          if (typeof defaultSelection === 'undefined') {
+            defaultSelection = libraryPath.id
+          }
+          libraryPathsList[libraryPathsList.length] = {
+            label: libraryPath.name,
+            value: libraryPath.id,
+          }
+        }
+        LibraryOptions.value = libraryPathsList;
+
+        // If the list of libraries is only one, then dont bother showing this selector
+        selectedLibraryId.value = 1;
+        if (libraryPathsList.length === 1) {
+          selectedLibraryId.value = defaultSelection;
+          addSelectedToPendingTaskList();
+        } else {
+          selectLibrary.value = true;
+        }
+      }).catch(() => {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: $t('notifications.failedToFetchLibraryList'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    }
 
     function addSelectedToPendingTaskList() {
       if (selected.value.length !== 0) {
@@ -215,9 +283,12 @@ export default {
           let row = selected.value[i];
           id_list[id_list.length] = row.id;
         }
+        // Get library ID
+        let library_id = selectedLibraryId.value
         // Send those to the backend
         let data = {
           id_list: id_list,
+          library_id: library_id,
         }
         axios({
           method: 'post',
@@ -311,7 +382,6 @@ export default {
     }
 
     function openDetailsDialog(id) {
-      console.log(id)
       $q.dialog({
         component: CompletedTaskLogDialog,
         // props forwarded to your custom component
@@ -339,9 +409,14 @@ export default {
       columns,
       rows,
 
+      selectLibrary,
+      selectedLibraryId,
+      LibraryOptions,
+
       getSelectedString,
       onRequest,
       deleteSelected,
+      selectLibraryForRecreateTask,
       addSelectedToPendingTaskList,
       openDetailsDialog
     }
