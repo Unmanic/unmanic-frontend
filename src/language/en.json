@@ -110,6 +110,8 @@
     "pluginSettings": "Plugin Settings",
     "pluginInstaller": "Plugin Installer",
     "pluginFlow": "Configure Plugin Flow",
+    "globalPluginConfig": "Global Plugin Configuration",
+    "libraryPluginConfig": "Library Plugin Configuration",
     "information": "Info",
     "selectDirectory": "Select a directory",
     "selectFile": "Select a file",
@@ -136,7 +138,8 @@
     "etc": "Estimated Time of Completion",
     "add": "Add",
     "remove": "Remove",
-    "configure": "Configure"
+    "configure": "Configure",
+    "delete": "Delete"
   },
   "components": {
     "settings": {
@@ -293,6 +296,7 @@
       "repoName": "Name",
       "repoSource": "Repository URL",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+      "resetConfiguration": "Reset configuration",
       "types": {
         "libraryManagement": {
           "fileTest": "Library Management - File test",

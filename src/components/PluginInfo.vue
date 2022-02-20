@@ -17,7 +17,7 @@
           <div class="col">
             <div class="text-h6 text-secondary">
               <q-icon name="extension"/>
-              {{ $t('headers.pluginInfo') }}
+              {{ header }}
             </div>
           </div>
 
@@ -50,9 +50,9 @@
         align="left"
         class="text-primary">
         <q-tab
-          :label="$t('navigation.info')" name="info"/>
+          :label="$t('navigation.info')" name="info" @click="setHeader('info')"/>
         <q-tab
-          :label="$t('navigation.settings')" name="settings"/>
+          :label="$t('navigation.settings')" name="settings" @click="setHeader('settings')"/>
       </q-tabs>
 
       <q-separator/>
@@ -162,21 +162,12 @@
           <div class="row">
             <div class="col col-12 q-pa-xs">
               <div>
-                <q-card style="width:100%">
-                  <q-card-section class="">
-                    <div class="row items-center no-wrap">
-                      <div class="col">
-                        <div class="text-h6 text-secondary">
-                          <q-icon name="settings"/>
-                          {{ $t('headers.pluginSettings') }}
-                        </div>
-                      </div>
-                    </div>
 
-
-                  </q-card-section>
-
-                  <q-separator/>
+                <q-card
+                  flat
+                  bordered
+                  class="q-pa-sm"
+                  style="width:100%">
 
                   <q-card-section class="q-pt-none">
 
@@ -187,6 +178,7 @@
                         v-for="item in settings"
                         :class="item.display"
                         :key="item.key_id"
+                        class="q-py-lg"
                         v-bind="item">
 
                         <!-- Text input -->
@@ -283,6 +275,16 @@
                     </q-list>
                   </q-card-section>
                 </q-card>
+
+                <div
+                  class="q-mt-md float-right"
+                  v-if="libraryId">
+                  <q-btn
+                    :label="$t('components.plugins.resetConfiguration')"
+                    color="secondary"
+                    @click="resetPluginLibraryConfig()"/>
+                </div>
+
               </div>
             </div>
           </div>
@@ -306,6 +308,7 @@ export default {
   components: {},
   data() {
     return {
+      header: ref(''),
       pluginInfoShowDialog: ref(false),
       tab: ref('info'),
       id: ref(null),
@@ -326,6 +329,7 @@ export default {
     showPluginInfo(value) {
       if (value.length > 0) {
         this.selectedPluginId = value;
+        this.setHeader('info');
         this.fetchPluginInfo();
         this.pluginInfoShowDialog = true;
       } else {
@@ -337,6 +341,7 @@ export default {
       if (value.length > 0) {
         this.selectedPluginId = value;
         this.tab = 'settings';
+        this.setHeader('settings');
         this.fetchPluginInfo();
         this.pluginInfoShowDialog = true;
       } else {
@@ -361,6 +366,53 @@ export default {
       this.status = null;
       this.settings = [];
       this.currentSettings = [];
+    },
+    setHeader(tab) {
+      if (tab === 'info') {
+        this.header = this.$t('headers.pluginInfo');
+      } else {
+        if (this.libraryId) {
+          this.header = this.$t('headers.libraryPluginConfig');
+        } else {
+          this.header = this.$t('headers.globalPluginConfig');
+        }
+      }
+    },
+    resetPluginLibraryConfig() {
+      let data = {
+        plugin_id: this.pluginId
+      }
+      if (this.libraryId) {
+        data.library_id = this.libraryId;
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'plugins/settings/reset'),
+        data: data
+      }).then((response) => {
+        // Save success
+        // Refresh plugin info
+        this.fetchPluginInfo();
+        // Show feedback
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('notifications.SavedPluginSettings'),
+          icon: 'check_circle',
+          timeout: 200,
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        // Hide dialog
+        this.$emit('hide');
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSavePluginSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
     },
     fetchPluginInfo() {
       console.debug('Fetching info for ' + this.selectedPluginId)
@@ -498,19 +550,19 @@ export default {
   props: {
     showPluginInfo: {
       type: String,
-      required: true
+      required: true,
     },
     showPluginSettings: {
       type: String,
-      required: true
+      required: true,
     },
     viewingRemoteInfo: {
       type: Boolean,
-      required: false
+      required: false,
     },
     libraryId: {
       type: Number,
-      required: false
+      required: false,
     }
   },
   setup() {
