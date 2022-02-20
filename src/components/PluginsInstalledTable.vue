@@ -200,7 +200,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, watch, ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
@@ -286,11 +286,6 @@ export default {
     const listedPlugins = ref([]);
 
     const itemOffset = ref(0)
-
-    function showPluginListItemMenu(index) {
-      // Move to offset
-      itemOffset.value = -205;
-    }
 
     function getSelectedString() {
       let return_value = ''
@@ -542,6 +537,13 @@ export default {
       })
     })
 
+    watch(filter, (currentValue, oldValue) => {
+      onRequest({
+        pagination: pagination.value,
+        filter: filter.value
+      })
+    });
+
     return {
       selected,
       filter,
@@ -552,7 +554,6 @@ export default {
 
       listedPlugins,
       itemOffset,
-      showPluginListItemMenu,
 
       getSelectedString,
       onRequest,
