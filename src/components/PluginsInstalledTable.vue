@@ -113,14 +113,13 @@
 
                       <q-item clickable v-close-popup @click="openPluginInfo(plugin.id)">
                         <q-item-section avatar>
-                          <q-icon color="grey-8" name="info"/>
+                          <q-icon color="secondary" name="info"/>
                         </q-item-section>
                         <q-item-section>
                           <q-item-label>{{ $t('headers.pluginInfo') }}</q-item-label>
                         </q-item-section>
                       </q-item>
 
-                      <!-- TODO: Hide this when the plugin is not configurable -->
                       <q-item clickable v-close-popup @click="openPluginInfo(plugin.id, 'settings')"
                               v-if="plugin.has_config">
                         <q-item-section avatar>
@@ -157,15 +156,6 @@
                     flat dense round
                     class="gt-xs"
                     size="12px"
-                    color="negative"
-                    icon="delete"
-                    @click="removeSinglePlugin(plugin.id)">
-                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
-                  </q-btn>
-                  <q-btn
-                    flat dense round
-                    class="gt-xs"
-                    size="12px"
                     color="secondary"
                     icon="info"
                     @click="openPluginInfo(plugin.id)">
@@ -178,11 +168,21 @@
                     size="12px"
                     color="grey-8"
                     icon="tune"
-                    @click="openPluginInfo(plugin.id)">
+                    @click="openPluginInfo(plugin.id, 'settings')">
                     <q-tooltip class="bg-white text-primary">
                       {{ $t('components.plugins.globalConfiguration') }}
                     </q-tooltip>
                   </q-btn>
+                  <q-btn
+                    flat dense round
+                    class="gt-xs"
+                    size="12px"
+                    color="negative"
+                    icon="delete"
+                    @click="removeSinglePlugin(plugin.id)">
+                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
+                  </q-btn>
+
                 </div>
               </q-item-section>
             </q-item>

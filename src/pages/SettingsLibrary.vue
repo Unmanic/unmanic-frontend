@@ -51,15 +51,25 @@
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
                         <q-btn
+                          flat dense round
                           size="12px"
-                          flat dense round icon="tune"
-                          @click="configureLibraryPath(index)"
-                        />
+                          color="grey-8"
+                          icon="tune"
+                          @click="configureLibraryPath(index)">
+                          <q-tooltip class="bg-white text-primary">
+                            {{ $t('tooltips.configure') }}
+                          </q-tooltip>
+                        </q-btn>
                         <q-btn
+                          flat dense round
                           size="12px"
-                          flat dense round icon="delete"
-                          @click="deleteLibrary(index)"
-                        />
+                          color="negative"
+                          icon="delete"
+                          @click="deleteLibrary(index)">
+                          <q-tooltip class="bg-white text-primary">
+                            {{ $t('tooltips.delete') }}
+                          </q-tooltip>
+                        </q-btn>
                       </div>
                     </q-item-section>
 

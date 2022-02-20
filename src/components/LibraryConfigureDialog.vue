@@ -174,7 +174,8 @@
                             size="12px"
                             color="grey-8"
                             icon="tune"
-                            @click="showPluginInfo = plugin.plugin_id">
+                            :disable="!plugin.has_config"
+                            @click="showPluginSettings = plugin.plugin_id">
                             <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
                           </q-btn>
                           <q-btn
@@ -226,7 +227,7 @@
 
     </q-card>
 
-    <PluginInfo v-bind:showPluginInfo="showPluginInfo"
+    <PluginInfo v-bind:showPluginSettings="showPluginSettings"
                 v-bind:libraryId="libraryId"
                 v-on:hide="closePluginInfo"/>
 
@@ -397,7 +398,7 @@ export default {
       this.saveLibraryConfig()
     },
     closePluginInfo: function () {
-      this.showPluginInfo = '';
+      this.showPluginSettings = '';
     },
   },
   watch: {
@@ -410,7 +411,7 @@ export default {
   data: function () {
     return {
       maximizedToggle: true,
-      showPluginInfo: ref(''),
+      showPluginSettings: ref(''),
       currentID: ref(null),
       name: ref(''),
       path: ref(''),
