@@ -550,11 +550,11 @@ export default {
   props: {
     showPluginInfo: {
       type: String,
-      required: true,
+      required: false,
     },
     showPluginSettings: {
       type: String,
-      required: true,
+      required: false,
     },
     viewingRemoteInfo: {
       type: Boolean,
