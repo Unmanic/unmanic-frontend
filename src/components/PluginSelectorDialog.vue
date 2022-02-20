@@ -64,44 +64,67 @@
       </q-card-section>
       <!-- END DIALOG CONFIG -->
 
-      <q-card-section class="q-pt-none">
-
-        <div class="q-pa-md">
-
-          <q-card flat>
-
-            <q-card-section class="q-pa-none">
-
-              <q-list bordered padding>
-
-                <q-separator spaced inset/>
-                <div
-                  v-for="(plugin, index) in plugins"
-                  v-bind:key="index">
-                  <q-item
-                    clickable v-ripple
-                    @click="selectPlugin(plugin)">
-
-                    <q-item-section avatar>
-                      <q-img :src="plugin.icon"/>
-                    </q-item-section>
-
-                    <q-item-section>
-                      <q-item-label>{{ plugin.name }}</q-item-label>
-                      <q-item-label caption lines="2">{{ plugin.description }}</q-item-label>
-                    </q-item-section>
-
-                  </q-item>
-                  <q-separator spaced inset/>
-                </div>
-
-              </q-list>
-
-            </q-card-section>
-
-          </q-card>
-
+      <q-card-section>
+        <div class="row q-gutter-xs q-mt-xs justify-between">
+          <div class="col-auto">
+            <q-btn
+              @click="openPluginInstaller"
+              class=""
+              color="secondary"
+              icon-right="add"
+              :label="$t('components.plugins.installPlugins')"/>
+          </div>
+          <div class="col-auto" style="max-width: 200px">
+            <q-input
+              filled dense
+              class="shadow-1"
+              debounce="300"
+              color="primary"
+              v-model="filter"
+              :placeholder="$t('navigation.search')"
+              @update="fetchPluginsList">
+              <template v-slot:append>
+                <q-icon name="search"/>
+              </template>
+            </q-input>
+          </div>
         </div>
+      </q-card-section>
+
+      <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+
+        <q-card flat>
+
+          <q-card-section class="q-pa-none">
+
+            <q-list bordered padding>
+
+              <q-separator spaced inset/>
+              <div
+                v-for="(plugin, index) in plugins"
+                v-bind:key="index">
+                <q-item
+                  clickable v-ripple
+                  @click="selectPlugin(plugin)">
+
+                  <q-item-section avatar>
+                    <q-img :src="plugin.icon"/>
+                  </q-item-section>
+
+                  <q-item-section>
+                    <q-item-label>{{ plugin.name }}</q-item-label>
+                    <q-item-label caption lines="2">{{ plugin.description }}</q-item-label>
+                  </q-item-section>
+
+                </q-item>
+                <q-separator spaced inset/>
+              </div>
+
+            </q-list>
+
+          </q-card-section>
+
+        </q-card>
 
       </q-card-section>
 
@@ -115,6 +138,7 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
+import PluginInstallerDialog from "components/PluginInstallerDialog";
 
 export default {
   name: 'PluginSelectorDialog',
@@ -153,11 +177,11 @@ export default {
     },
 
     fetchPluginsList: function () {
-
       // Fetch from server
       let data = {
         start: 0,
         length: 1000,
+        search_value: this.filter,
         order_by: "name",
         order_direction: "asc",
       }
@@ -193,12 +217,26 @@ export default {
       this.hide();
     },
 
+    openPluginInstaller() {
+      this.$q.dialog({
+        component: PluginInstallerDialog,
+        // props forwarded to your custom component
+        componentProps: {},
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+        this.fetchPluginsList();
+      })
+    },
+
   },
   watch: {
     initialPath(value) {
       if (value.length > 0) {
         this.currentPlugin = this.initialPath;
       }
+    },
+    filter(value) {
+      this.fetchPluginsList();
     }
   },
   data: function () {
@@ -206,6 +244,7 @@ export default {
       maximizedToggle: true,
       currentPlugin: ref(null),
       plugins: ref([]),
+      filter: ref(''),
     }
   }
 }
