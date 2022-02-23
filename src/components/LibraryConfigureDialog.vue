@@ -84,6 +84,28 @@
                     round
                     flat
                     color="primary"
+                    icon="download"
+                    @click="exportPluginConfig">
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.exportLibraryConfig')
+                      }}
+                    </q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    round
+                    flat
+                    color="primary"
+                    icon="publish"
+                    @click="importPluginConfig">
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.importLibraryConfig')
+                      }}
+                    </q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    round
+                    flat
+                    color="primary"
                     icon="content_copy"
                     @click="cloneLibrary">
                     <q-tooltip class="bg-white text-primary">{{
@@ -170,7 +192,13 @@
 
             <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
 
-              <h5 class="q-mt-none q-mb-md">{{ $t('components.settings.library.enabledPlugins') }}</h5>
+              <div class="row items-center no-wrap q-mb-md">
+                <div class="col">
+                  <div class="text-h6">
+                    {{ $t('components.settings.library.plugins') }}
+                  </div>
+                </div>
+              </div>
 
               <div class="q-gutter-sm">
                 <q-skeleton
@@ -234,7 +262,10 @@
                     color="primary"
                     icon="add"
                     @click="selectPluginFromList">
-                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.addPluginConfig')
+                      }}
+                    </q-tooltip>
                   </q-btn>
                 </q-bar>
               </div>
@@ -270,7 +301,8 @@ import PluginInfo from "components/PluginInfo";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import PluginSelectorDialog from "components/PluginSelectorDialog";
 import LibraryConfigurePluginFlowList from "components/LibraryConfigurePluginFlowList";
-import JsonExportDialog from "components/JsonExportDialog";
+import JsonImportExportDialog from "components/JsonImportExportDialog";
+import { Loading } from "quasar";
 
 export default {
   name: 'LibraryConfigureDialog',
@@ -373,14 +405,6 @@ export default {
         })
       });
     },
-    cloneLibrary: function () {
-      // Setting the ID to 0 will create a new library
-      this.currentID = 0;
-      // Name the library as a clone
-      this.name = this.name + ' (clone)';
-      // Hiding the dialog will trigger a save with the above modified data
-      this.hide();
-    },
     updateLibraryWithDirectoryBrowser: function () {
       this.$q.dialog({
         component: DirectoryBrowserDialog,
@@ -448,13 +472,122 @@ export default {
       }).then((response) => {
         // Display dialog with exported json
         this.$q.dialog({
-          component: JsonExportDialog,
+          component: JsonImportExportDialog,
           componentProps: {
             dialogHeader: this.$t('components.settings.library.exportPluginConfig'),
             jsonData: JSON.stringify(response.data, null, 2),
+            mode: 'export',
           }
         }).onDismiss(() => {
         })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSaveSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    },
+    importData: function (importString, silent) {
+      // Setup POST data
+      let data = JSON.parse(importString);
+      data.library_id = this.currentID;
+      // Show loading dialog
+      if (silent) {
+        this.showLoading = false;
+      } else {
+        this.showLoading = true;
+        Loading.show({
+          message: this.$t('components.settings.library.importPluginConfigMessage'),
+          messageColor: 'transparent',
+        });
+      }
+      // After 1 second, update loading dialog to display the message.
+      // This keeps it a simple busy dialog for most imports and it would only go for
+      // more that about a second if the import also needs to install some plugins.
+      setTimeout(() => {
+        if (this.showLoading) {
+          Loading.show({
+            message: this.$t('components.settings.library.importPluginConfigMessage'),
+            messageColor: 'white',
+          });
+        }
+      }, 1000)
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'settings/library/import'),
+        data: data
+      }).then((response) => {
+        // Save success, show feedback
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          icon: 'cloud_done',
+          message: this.$t('notifications.saved'),
+          timeout: 200
+        })
+        this.showLoading = false;
+        Loading.hide();
+        this.componentKey += 1;
+        this.fetchLibraryConfig();
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSaveSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        this.showLoading = false;
+        Loading.hide();
+      });
+    },
+    importPluginConfig: function () {
+      console.log("importPluginConfig");
+      this.$q.dialog({
+        component: JsonImportExportDialog,
+        componentProps: {
+          dialogHeader: this.$t('components.settings.library.importPluginConfig'),
+          jsonData: '',
+          mode: 'import',
+        }
+      }).onOk((payload) => {
+        if (typeof payload.importString !== 'undefined' && payload.importString !== null) {
+          this.importData(payload.importString);
+        }
+      }).onDismiss(() => {
+      })
+    },
+    cloneLibrary: function () {
+      // Fetch the current library config using the the export feature
+      let data = {
+        id: this.currentID,
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'settings/library/export'),
+        data: data
+      }).then((response) => {
+        // Modify data
+        let configData = response.data;
+        // Name the library as a clone
+        configData.library_config = {
+          name: this.name + ' (' + this.$t('components.settings.library.copy') + ')',
+          path: this.path,
+          enable_scanner: this.enableScanner,
+          enable_inotify: this.enableInotify,
+        }
+        // Create JSON string
+        let importString = JSON.stringify(configData, null, 2);
+        // Setting the ID to 0 will create a new library
+        this.currentID = 0;
+        // Import the exported data
+        this.importData(importString, true);
+        // Reset the current ID and hide dialog
+        this.currentID = this.libraryId;
+        this.hide();
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
@@ -484,6 +617,7 @@ export default {
       enableInotify: ref(false),
       enabledPlugins: ref([]),
       componentKey: 1,
+      showLoading: ref(false),
     }
   }
 }
