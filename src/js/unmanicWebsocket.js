@@ -215,13 +215,14 @@ export const UnmanicWebsocketHandler = function ($t) {
     // Add event listener to request frontend messages from server
     addWebsocketEventListener('open', 'start_frontend_messages', function (evt) {
       clearTimeout(connectionTimer);
-      connectionWarning(false)
+      connectionWarning(false);
       $unmanic.ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
     });
 
     // Add event listener to handle frontend messages from server
     addWebsocketEventListener('message', 'handle_frontend_messages', function (evt) {
       if (typeof evt.data === 'string') {
+        connectionWarning(false);
         let jsonData = JSON.parse(evt.data);
         if (jsonData.success) {
           // Ensure the server is still running the same instance...
