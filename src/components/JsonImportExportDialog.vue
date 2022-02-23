@@ -67,13 +67,18 @@
       <q-card-section>
 
         <q-card
-          flat
-          bordered
+          flat bordered
           class="q-pa-sm"
           style="width:100%">
 
           <q-card-section class="q-pt-none">
-            <pre>{{ jsonData }}</pre>
+            <pre v-if="mode === 'export'">{{ jsonData }}</pre>
+            <q-input
+              v-else
+              v-model="importString"
+              rows="30"
+              type="textarea"
+            />
           </q-card-section>
         </q-card>
 
@@ -82,9 +87,15 @@
       <q-card-section class="q-pt-none">
         <div class="q-mt-md float-right">
           <q-btn
+            v-if="mode === 'export'"
             :label="$t('components.settings.library.copy')"
             color="secondary"
             @click="copyJson"/>
+          <q-btn
+            v-else
+            :label="$t('navigation.submit')"
+            color="secondary"
+            @click="hide"/>
         </div>
       </q-card-section>
 
@@ -95,6 +106,7 @@
 
 <script>
 import { copyToClipboard } from "quasar";
+import { ref } from "vue";
 
 export default {
   props: {
@@ -106,6 +118,11 @@ export default {
     jsonData: {
       type: String,
       default: ' --- jsonData --- ',
+      required: true,
+    },
+    mode: {
+      type: String,
+      default: 'export',
       required: true,
     }
   },
@@ -131,6 +148,7 @@ export default {
     onDialogHide() {
       // required to be emitted
       // when QDialog emits "hide" event
+      this.$emit('ok', { importString: this.importString })
       this.$emit('hide')
     },
 
@@ -153,6 +171,7 @@ export default {
   data: function () {
     return {
       maximizedToggle: true,
+      importString: ref(null),
     }
   }
 }

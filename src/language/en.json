@@ -92,7 +92,7 @@
         "status": "Unknown status update from server"
       },
       "incompatiblePlugin": "Unmanic has stopped processing tasks as it has detected an incompatible plugin enabled on one of your libraries",
-      "pluginEnabledLimits": "Unmanic has stopped processing tasks as you have too many plugins enabled for a non-supporter tier. Consider sponsoring the project to enable more than ten plugins.",
+      "libraryEnabledLimits": "Unmanic has stopped processing tasks as you have too many libraries configured for a non-supporter tier. Consider sponsoring the project to enable more than 2 libraries.",
       "pluginSettingsChangeWorkersStopped": "Unmanic has stopped all workers as it has detected a change to the plugins configuration. When you are ready, resume the workers from the dashboard.",
       "libraryScanProgress": "Library scan running",
       "pendingTaskHaltedPostProcessorQueueFull": "The Post-processor queue reached its limit",
@@ -173,7 +173,10 @@
         "pluginFlow": "Plugin Flow",
         "cloneLibrary": "Clone library",
         "copy": "Copy",
-        "exportPluginConfig": "Export plugin config"
+        "exportLibraryConfig": "Export config",
+        "importLibraryConfig": "Import config",
+        "importPluginConfigMessage": "Importing library configuration. This may take some time if there are any plugins that require installation.",
+        "addPluginConfig": "Add plugin"
       },
       "workers": {
         "workerCount": "Worker count",
