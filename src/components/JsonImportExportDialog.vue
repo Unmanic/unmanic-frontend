@@ -88,7 +88,7 @@
         <div class="q-mt-md float-right">
           <q-btn
             v-if="mode === 'export'"
-            :label="$t('components.settings.library.copy')"
+            :label="$t('navigation.copy')"
             color="secondary"
             @click="copyJson"/>
           <q-btn

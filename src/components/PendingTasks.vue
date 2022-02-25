@@ -36,7 +36,7 @@
 
               <div class="full-width row flex-center text-accent q-gutter-sm">
                 <q-icon size="2em" name="sentiment_dissatisfied"/>
-                <q-item-label>{{ $t('components.pendingTasks.listEmpty') }}</q-item-label>
+                <q-item-label>{{ $t('headers.listEmpty') }}</q-item-label>
                 <q-icon size="2em" name="priority_high"/>
               </div>
             </q-item-section>
@@ -46,7 +46,7 @@
 
               <div class="full-width row flex-center text-accent q-gutter-sm">
                 <q-icon size="2em" name="sentiment_dissatisfied"/>
-                <q-item-label>{{ $t('components.pendingTasks.listEmpty') }}</q-item-label>
+                <q-item-label>{{ $t('headers.listEmpty') }}</q-item-label>
                 <q-icon size="2em" name="priority_high"/>
               </div>
             </q-item-section>
