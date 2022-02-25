@@ -1,6 +1,6 @@
 {
 	"navigation": {
-		"dashboard": "Tablero de mandos",
+		"dashboard": "Tablero",
 		"settings": "Ajustes",
 		"dataPanels": "Paneles de datos",
 		"account": "Cuenta",
@@ -12,58 +12,38 @@
 		"workers": "trabajadores",
 		"plugins": "Complementos",
 		"link": "Enlace",
-		"general": "General",
 		"helpAndSupport": "Servicio de asistencia",
-		"container": "envase",
-		"videoEncoding": "Codificación de vídeo",
-		"audioEncoding": "Codificación de audio",
-		"advancedOptions": "Opciones avanzadas",
 		"info": "Información",
-		"top": "Cima",
-		"new": "Nuevo",
 		"show": "Show",
-		"ask": "Preguntar",
-		"job": "Trabajos",
-		"recordsPerPage": "Registros por página",
 		"showMore": "Mostrar más",
 		"search": "Búsqueda",
-		"save": "Ahorrar",
+		"save": "Salvar",
 		"backToDashboard": "Volver al panel",
-		"options": "Opciones",
-		"submit": "Entregar",
+		"submit": "Enviar",
 		"cancel": "Cancelar",
-		"close": "Cerca",
-		"back": "atrás"
+		"close": "Cerrar",
+		"back": "Atrás",
+		"yes": "sí",
+		"copy": "Dupdo",
+		"loginWithPatreon": "Iniciar sesión con Patreon",
+		"loginWithGitHub": "Iniciar sesión con GitHub"
 	},
 	"status": {
-		"enabled": "activado",
-		"disabled": "discapacitado",
 		"cannotLoadImage": "No se puede cargar la imagen",
 		"success": "Éxito",
-		"failed": "Fallido"
-	},
-	"pagination": {
-		"prev": "anterior",
-		"more": "más"
-	},
-	"time": {
-		"ago": "atrás",
-		"units": {
-			"minute": "minuto | minutos",
-			"hour": "hora | horas",
-			"day": "día | días"
-		}
+		"failed": "Ha fallado"
 	},
 	"notifications": {
 		"saved": "Salvado.",
 		"installed": "Instalado.",
+		"copied": "copiado",
 		"backendConnectionWarning": "No se puede conectar al backend de Unmanic. Por favor, compruebe que se está ejecutando.",
-		"failedToFetchSession": "Se encontró un error al obtener los datos de la sesión de Unmanic.",
 		"failedToFetchLoginUrl": "No se pudo obtener la URL de inicio de sesión.",
 		"failedToFetchLogoutUrl": "No se pudo obtener la URL de cierre de sesión.",
 		"failedToSaveSettings": "No se pudo guardar la configuración.",
 		"failedToFetchSettings": "No se pudo obtener la configuración actual de Unmanic.",
 		"failedToFetchSystemConfig": "No se pudo obtener la configuración del sistema de Unmanic.",
+		"failedToFetchLibraryList": "No se pudo obtener la lista de la biblioteca de Unmanic.",
 		"SavedPluginSettings": "Configuración del complemento guardada.",
 		"failedToSavePluginSettings": "No se pudo guardar la configuración del complemento.",
 		"failedToInstallPlugin": "Se encontró un error al intentar instalar el complemento solicitado.",
@@ -79,6 +59,7 @@
 		"remoteInstallationAlreadyInList": "La dirección que ingresó ya está en la lista de instalaciones remotas.",
 		"invalidRemoteInstallationAddress": "La dirección que ingresó no era una instalación Unmanic válida.",
 		"incompatibleRemoteInstallation": "La instalación remota de Unmanic que está intentando agregar no es compatible con la vinculación. Intenta actualizarlo primero.",
+		"cannotRemoveDefaultLibrary": "No se puede eliminar la biblioteca predeterminada",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensaje desconocido del servidor",
@@ -87,8 +68,8 @@
 				"success": "Mensaje desconocido del servidor",
 				"status": "Actualización de estado desconocido del servidor"
 			},
-			"incompatiblePlugin": "Unmanic ha dejado de procesar tareas porque ha detectado un complemento incompatible",
-			"pluginEnabledLimits": "Unmanic ha dejado de procesar tareas porque tiene demasiados complementos habilitados para un nivel que no es de apoyo. Considere patrocinar el proyecto para habilitar más de diez complementos.",
+			"incompatiblePlugin": "Unmanic ha dejado de procesar tareas porque ha detectado un complemento incompatible habilitado en una de sus bibliotecas",
+			"libraryEnabledLimits": "Unmanic ha dejado de procesar tareas porque tiene demasiadas bibliotecas configuradas para un nivel que no es de soporte. Considere patrocinar el proyecto para habilitar más de 2 bibliotecas.",
 			"pluginSettingsChangeWorkersStopped": "Unmanic ha detenido a todos los trabajadores ya que ha detectado un cambio en la configuración de los complementos. Cuando esté listo, reanude a los trabajadores desde el tablero.",
 			"libraryScanProgress": "Exploración de biblioteca en ejecución",
 			"pendingTaskHaltedPostProcessorQueueFull": "La cola del posprocesador alcanzó su límite",
@@ -102,53 +83,66 @@
 		"pendingTasks": "Tareas pendientes",
 		"completedTasks": "Tareas Completadas",
 		"privacyPolicy": "Política de privacidad",
-		"plugins": "Complementos",
 		"pluginInfo": "Información del complemento",
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
-		"pluginFlow": "Configurar flujo de complemento",
+		"globalPluginConfig": "Configuración de complementos globales",
+		"libraryPluginConfig": "Configuración del complemento de biblioteca",
 		"information": "Información",
 		"selectDirectory": "Seleccione un directorio",
-		"selectFile": "Seleccione un archivo",
 		"librarySettings": "Configuración de la biblioteca",
 		"completedTaskDetails": "Detalles de la tarea completada",
 		"supportFutureDevelopment": "Apoyar el desarrollo futuro",
 		"confirm": "Confirmar",
-		"configureRemoteInstallationLink": "Configurar enlace de instalación remota"
+		"configureRemoteInstallationLink": "Configurar enlace de instalación remota",
+		"configureLibrary": "Configurar biblioteca",
+		"selectPlugin": "Seleccione un complemento",
+		"selectLibrary": "Seleccione una biblioteca",
+		"login": "Acceso",
+		"listEmpty": "Esta lista de tareas está vacía"
 	},
 	"tooltips": {
-		"close": "Cerca",
-		"back": "atrás",
-		"download": "Descargar",
+		"close": "Atrás",
 		"install": "Instalar en pc",
 		"reinstall": "Reinstalar",
 		"update": "Actualizar",
-		"information": "Información",
 		"pluginInfo": "Información del complemento",
 		"position": "Posición",
-		"moveUp": "Ascender",
-		"moveDown": "Mover hacia abajo",
 		"etc": "Tiempo estimado de finalización",
-		"add": "Agregar"
+		"add": "Agregar",
+		"remove": "Eliminar",
+		"configure": "Configurar",
+		"delete": "Borrar"
 	},
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "por favor ingrese un número valido",
 			"library": {
-				"pathConfiguration": "Configuración de la ruta de la biblioteca",
+				"pathConfiguration": "bibliotecas",
+				"name": "Nombre",
 				"path": "Ruta de la biblioteca",
+				"newLibrary": "Nueva biblioteca",
+				"confirmRemove": "Al eliminar la biblioteca, también se eliminarán todas las configuraciones asociadas con esta biblioteca. ¿Seguro que desea continuar?",
 				"libraryScanner": "escáner de biblioteca",
 				"enableLibraryScanner": "Habilitar escaneos periódicos de la biblioteca",
 				"libraryScannerSchedule": "Horario de escaneo de la biblioteca en minutos",
 				"libraryScannerScheduleNotValid": "El programa de escaneo de la biblioteca no es válido",
 				"followSymlinks": "Siga los enlaces simbólicos en los escaneos de la biblioteca",
 				"runLibraryScanOnStart": "Ejecute un escaneo de biblioteca único al inicio",
-				"fileMonitor": "Monitor de archivos de biblioteca",
-				"enableLibraryFileMonitor": "Habilitar el monitor de archivos de biblioteca",
 				"pendingTasks": "Tareas pendientes",
 				"clearPendingTasksOnStart": "Borrar todas las tareas pendientes al inicio",
 				"fileTesting": "Prueba de archivos",
-				"concurrentFileTesters": "Comprobadores de archivos simultáneos"
+				"concurrentFileTesters": "Comprobadores de archivos simultáneos",
+				"configuration": "Configuración",
+				"enableScanner": "Habilitar escáner de biblioteca para esta biblioteca",
+				"enableInotify": "Habilitar el monitor de archivos para esta biblioteca",
+				"plugins": "Complementos",
+				"pluginFlow": "Flujo de complementos",
+				"cloneLibrary": "Biblioteca de clones",
+				"exportLibraryConfig": "Exportar configuración",
+				"importLibraryConfig": "Importar configuración",
+				"importPluginConfigMessage": "Importación de la configuración de la biblioteca. Esto puede llevar algún tiempo si hay algún complemento que requiera instalación.",
+				"addPluginConfig": "Agregar complemento"
 			},
 			"workers": {
 				"workerCount": "conteo de trabajadores",
@@ -209,14 +203,14 @@
 				"support": "Apoyo",
 				"unmanicAppSourceRequests": "Solicitar función en la aplicación Unmanic",
 				"unmanicFrontendSourceRequests": "Solicitar función en Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite un complemento para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicitar un complemento para Unmanic"
 			}
 		},
 		"workers": {
 			"listEmpty": "Actualmente no hay trabajadores en ejecución. Aumente el recuento de trabajadores en la configuración de Unmanic para generar un trabajador.",
 			"pauseWorker": "Pausar a este trabajador",
 			"workerPaused": "El trabajador ha sido pausado",
-			"workerPauseFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
+			"workerPausedFailed": "Unmanic no pudo pausar a este trabajador por alguna razón",
 			"resumeWorker": "Reanudar este trabajador",
 			"workerResumed": "El trabajador ha sido reanudado",
 			"workerResumedFailed": "Unmanic no pudo reanudar este trabajador por alguna razón",
@@ -228,7 +222,7 @@
 			"resumeAllWorkers": "Reanudar todos los trabajadores",
 			"workerLog": "Registro de trabajadores",
 			"status": "Estado",
-			"stateLabel": "Expresar",
+			"stateLabel": "Estado",
 			"currentRunnerLabel": "Corredor actual",
 			"startTimeLabel": "Hora de inicio",
 			"totalProcessingTimeLabel": "Tiempo total de procesamiento",
@@ -243,31 +237,26 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "La lista de tareas pendientes está vacía",
 			"rescanLibrary": "Vuelva a escanear la biblioteca ahora",
 			"moveToTop": "Mover seleccionado al principio",
 			"moveToBottom": "Mover seleccionado al final",
 			"removeSelected": "Eliminar seleccionado de la lista"
 		},
 		"completedTasks": {
-			"listEmpty": "La lista de tareas completadas está vacía",
 			"details": "Detalles",
 			"errorGettingDetails": "Se encontró un error al obtener los detalles para esta tarea",
 			"addToPendingTasksList": "Agregar seleccionado a la lista de tareas pendientes",
-			"removeSelected": "Eliminar seleccionado de la lista"
+			"removeSelected": "Eliminar seleccionado de la lista",
+			"selectLibraryToAdd": "Seleccione la biblioteca en la que recrear esta tarea"
 		},
 		"plugins": {
-			"updateAvailable": "actualización disponible",
+			"updateAvailable": "Actualización disponible",
 			"upToDate": "A hoy",
-			"enablePlugins": "Habilitar complementos",
-			"disablePlugins": "Deshabilitar complementos",
-			"updatePlugins": "Actualizar complementos",
-			"removePlugins": "Eliminar complementos",
-			"addNew": "Agregar nuevo",
-			"configurePluginFow": "Configurar flujo de complemento",
-			"listEmpty": "No hay complementos para mostrar",
+			"globalConfiguration": "configuración global",
+			"updatePlugin": "Complemento de actualización",
+			"removePlugin": "Eliminar complemento",
+			"installPlugins": "Instalar complemento",
 			"categoryFilter": "Filtro de categoría",
-			"name": "Nombre",
 			"author": "Autor",
 			"version": "Versión",
 			"repo": "Repositorio",
@@ -278,12 +267,7 @@
 			"repoName": "Nombre",
 			"repoSource": "URL del repositorio",
 			"errorSavingFlow": "Se encontró un error al guardar el flujo del complemento",
-			"configurePluginFlowSection": {
-				"line1": "Configure el orden en que se llaman los complementos.",
-				"line2": "A continuación se muestra una lista de las secciones de tipo de complemento. Cada sección de tipo de complemento puede contener una lista de complementos.",
-				"line3": "Consulte la descripción debajo de cada tipo de complemento para obtener detalles sobre cuándo se llamarán los complementos contenidos.",
-				"line4": "Un Complemento puede constar de varios Tipos de Complemento. Si es así, será llamado por Unmanic en cada una de las secciones descritas."
-			},
+			"resetConfiguration": "Restablecer configuración",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Gestión de bibliotecas - Prueba de archivos",
@@ -291,7 +275,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Post-procesador - Movimientos de archivos",
-					"fileMoveCaption": "Estos complementos se llaman al finalizar la tarea para agregar movimientos de archivos adicionales",
+					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
 					"taskResult": "Post-procesador - Marcado de éxito/fracaso de la tarea",
 					"taskResultCaption": "Estos complementos se invocan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
