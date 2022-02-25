@@ -64,7 +64,7 @@
       <q-item
         v-else
         clickable
-        @click="loginSubmit"
+        @click="showLogin"
         v-ripple>
         <q-item-section avatar>
           <q-icon name="login"/>
@@ -134,6 +134,7 @@ import { useI18n } from "vue-i18n";
 import FooterData from "components/FooterData";
 import MarkdownDialog from "components/MarkdownDialog";
 import { markdownToHTML } from "src/js/markupParser";
+import LoginDialog from "components/LoginDialog";
 
 export default {
   name: 'DrawerMainNav',
@@ -165,15 +166,24 @@ export default {
       })
     }
 
+    function showLogin() {
+      $q.dialog({
+        component: LoginDialog,
+        componentProps: {},
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
+    }
+
+
     return {
       unmanicSession,
       showPrivacyPolicyDialog,
+
+      showLogin,
     }
   },
   methods: {
-    loginSubmit() {
-      unmanicGlobals.login(this.$t)
-    },
     logoutSubmit() {
       unmanicGlobals.logout(this.$t)
     }

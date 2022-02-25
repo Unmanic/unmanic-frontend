@@ -50,7 +50,7 @@ export default {
       if (typeof unmanicSession.value.level !== 'undefined' && unmanicSession.value.level === 0) {
         // Login first
         console.debug("Calling login before support")
-        unmanicGlobals.login($t)
+        unmanicGlobals.loginWithPatreon($t)
       } else if (typeof unmanicSession.value.level !== 'undefined' && unmanicSession.value.level > 0) {
         // Redirect to support link
         console.debug("Calling support link redirect")

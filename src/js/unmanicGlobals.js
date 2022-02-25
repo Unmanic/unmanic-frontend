@@ -81,8 +81,7 @@ export default {
       }
     })
   },
-  login($t) {
-    // TODO: Create v2 API endpoint
+  loginWithPatreon($t) {
     axios({
       method: 'get',
       url: getUnmanicApiUrl('v1', 'session/unmanic-patreon-login-url'),
@@ -109,6 +108,44 @@ export default {
       } else {
         // Our query was unsuccessful
         console.error('An error occurred while fetching the patreon sponsor page.');
+      }
+    }).catch(() => {
+      Notify.create({
+        color: 'negative',
+        position: 'top',
+        message: $t('notifications.failedToFetchLoginUrl'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      });
+    })
+  },
+  loginWithGitHub($t) {
+    axios({
+      method: 'get',
+      url: getUnmanicApiUrl('v1', 'session/unmanic-github-login-url'),
+    }).then((response) => {
+      if (response.data.success) {
+        // If query was successful...
+        // Set the action URL
+        let action = response.data.data.url;
+        // Set the UUID
+        let uuid = response.data.uuid;
+        // Set the current URI
+        let currentUri = window.location.origin + "/unmanic/ui/trigger/?session=reload";
+
+        let form = '' +
+          '<form id="loginForm" action="' + action + '" method="post" class="display:none;">' +
+          '<input type="hidden" name="uuid" value="' + uuid + '" />' +
+          '<input type="hidden" name="current_uri" value="' + currentUri + '" />' +
+          '</form>';
+
+        // Create form under body
+        document.body.innerHTML += form
+        // Submit the form
+        document.getElementById("loginForm").submit();
+      } else {
+        // Our query was unsuccessful
+        console.error('An error occurred while fetching the github sso page.');
       }
     }).catch(() => {
       Notify.create({
