@@ -17,7 +17,9 @@
             >
 
               <!--START THIS INSTALLATION-->
-              <h5 class="q-mb-none">{{ $t('components.settings.link.thisInstallation') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.link.thisInstallation') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/link_settings#name-this-installation"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="installationName === null"
@@ -36,7 +38,9 @@
               <q-separator class="q-my-lg"/>
 
               <!--START REMOTE INSTALLATIONS-->
-              <h5 class="q-mb-none">{{ $t('components.settings.link.remoteInstallations') }}</h5>
+              <h5 class="q-mb-none">{{ $t('components.settings.link.remoteInstallations') }}
+                 <a href="https://docs.unmanic.app/docs/configuration/link_settings#remote-installations"><i class="on-right material-icons q-icon">help</i></a>
+              </h5>
               <div class="q-gutter-sm">
                 <q-skeleton
                   v-if="remoteInstallations === null"
