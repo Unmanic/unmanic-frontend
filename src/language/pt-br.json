@@ -12,58 +12,38 @@
 		"workers": "Trabalhadores",
 		"plugins": "Plug-ins",
 		"link": "Link",
-		"general": "Em geral",
 		"helpAndSupport": "Ajuda e suporte",
-		"container": "recipiente",
-		"videoEncoding": "Codificação de vídeo",
-		"audioEncoding": "Codificação de áudio",
-		"advancedOptions": "Opções avançadas",
 		"info": "Informações",
-		"top": "Principal",
-		"new": "Novo",
 		"show": "Mostrar",
-		"ask": "Perguntar",
-		"job": "Empregos",
-		"recordsPerPage": "Registros por página",
 		"showMore": "Mostre mais",
 		"search": "Procurar",
-		"save": "Salve ",
+		"save": "Salvar",
 		"backToDashboard": "Voltar ao painel",
-		"options": "Opções",
 		"submit": "Enviar",
 		"cancel": "Cancelar",
 		"close": "Fechar",
-		"back": "Costas"
+		"back": "Voltar",
+		"yes": "sim",
+		"copy": "cópia de",
+		"loginWithPatreon": "Entrar com Patreon",
+		"loginWithGitHub": "Entrar com o GitHub"
 	},
 	"status": {
-		"enabled": "ativado",
-		"disabled": "Desativado",
 		"cannotLoadImage": "Não é possível carregar a imagem",
 		"success": "Sucesso",
 		"failed": "Fracassado"
 	},
-	"pagination": {
-		"prev": "anterior",
-		"more": "mais"
-	},
-	"time": {
-		"ago": "atrás",
-		"units": {
-			"minute": "minuto | minutos",
-			"hour": "hora | horas",
-			"day": "dia | dias"
-		}
-	},
 	"notifications": {
 		"saved": "Salvou.",
 		"installed": "Instalado.",
+		"copied": "Copiado",
 		"backendConnectionWarning": "Não foi possível conectar ao back-end Unmanic. Por favor, verifique se ele está em execução.",
-		"failedToFetchSession": "Foi encontrado um erro ao buscar os dados da sessão do Unmanic.",
 		"failedToFetchLoginUrl": "Falha ao obter o URL de login.",
 		"failedToFetchLogoutUrl": "Falha ao obter o URL de logout.",
 		"failedToSaveSettings": "Falha ao salvar as configurações.",
 		"failedToFetchSettings": "Falha ao buscar as configurações atuais do Unmanic.",
 		"failedToFetchSystemConfig": "Falha ao buscar a configuração do sistema do Unmanic.",
+		"failedToFetchLibraryList": "Falha ao buscar a lista de bibliotecas do Unmanic.",
 		"SavedPluginSettings": "Configurações do plug-in salvas.",
 		"failedToSavePluginSettings": "Falha ao salvar as configurações do plug-in.",
 		"failedToInstallPlugin": "Foi encontrado um erro ao tentar instalar o plug-in solicitado.",
@@ -79,6 +59,7 @@
 		"remoteInstallationAlreadyInList": "O endereço que você digitou já está na lista de instalações remotas.",
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
+		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -87,9 +68,9 @@
 				"success": "Mensagem desconhecida do servidor",
 				"status": "Atualização de status desconhecida do servidor"
 			},
-			"incompatiblePlugin": "Unmanic parou de processar tarefas porque detectou um Plugin incompatível",
-			"pluginEnabledLimits": "O Unmanic parou de processar tarefas porque você tem muitos plug-ins habilitados para uma camada sem suporte. Considere patrocinar o projeto para habilitar mais de dez Plugins.",
-			"pluginSettingsChangeWorkersStopped": "O Unmanic parou todos os trabalhadores, pois detectou uma alteração na configuração dos Plugins. Quando estiver pronto, retome os trabalhadores do painel.",
+			"incompatiblePlugin": "Unmanic parou de processar tarefas, pois detectou um plug-in incompatível ativado em uma de suas bibliotecas",
+			"libraryEnabledLimits": "Unmanic parou de processar tarefas porque você tem muitas bibliotecas configuradas para uma camada sem suporte. Considere patrocinar o projeto para habilitar mais de 2 bibliotecas.",
+			"pluginSettingsChangeWorkersStopped": "O Unmanic parou todos os trabalhadores, pois detectou uma alteração na configuração dos plugins. Quando estiver pronto, retome os trabalhadores do painel.",
 			"libraryScanProgress": "Verificação da biblioteca em execução",
 			"pendingTaskHaltedPostProcessorQueueFull": "A fila do pós-processador atingiu seu limite",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila do pós-processador caia abaixo da contagem de trabalhadores configurada atual",
@@ -102,53 +83,66 @@
 		"pendingTasks": "Tarefas Pendentes",
 		"completedTasks": "Tarefas concluídas",
 		"privacyPolicy": "Política de Privacidade",
-		"plugins": "Plug-ins",
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
-		"pluginFlow": "Configurar fluxo de plug-ins",
+		"globalPluginConfig": "Configuração Global do Plugin",
+		"libraryPluginConfig": "Configuração do plug-in da biblioteca",
 		"information": "Informações",
 		"selectDirectory": "Selecione um diretório",
-		"selectFile": "Selecione um arquivo",
 		"librarySettings": "Configurações da biblioteca",
 		"completedTaskDetails": "Detalhes da tarefa concluída",
 		"supportFutureDevelopment": "Apoie o desenvolvimento futuro",
 		"confirm": "confirme",
-		"configureRemoteInstallationLink": "Configurar link de instalação remota"
+		"configureRemoteInstallationLink": "Configurar link de instalação remota",
+		"configureLibrary": "Configurar biblioteca",
+		"selectPlugin": "Selecione um plug-in",
+		"selectLibrary": "Selecione uma biblioteca",
+		"login": "Conecte-se",
+		"listEmpty": "Esta lista de tarefas está vazia"
 	},
 	"tooltips": {
-		"close": "Fechar",
-		"back": "Costas",
-		"download": "Download",
+		"close": "Voltar",
 		"install": "Instalar",
 		"reinstall": "Reinstalar",
 		"update": "Atualizar",
-		"information": "Em formação",
 		"pluginInfo": "Informações do plug-in",
 		"position": "Posição",
-		"moveUp": "Subir",
-		"moveDown": "Mover para baixo",
 		"etc": "Tempo estimado de conclusão",
-		"add": "Adicionar"
+		"add": "Adicionar",
+		"remove": "Remover",
+		"configure": "Configurar",
+		"delete": "Excluir"
 	},
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "Por favor insira um número válido",
 			"library": {
-				"pathConfiguration": "Configuração do caminho da biblioteca",
+				"pathConfiguration": "Bibliotecas",
+				"name": "Nome",
 				"path": "Caminho da biblioteca",
+				"newLibrary": "Nova biblioteca",
+				"confirmRemove": "A remoção da biblioteca também removerá todas as configurações associadas a esta biblioteca. Tem certeza que deseja continuar?",
 				"libraryScanner": "Scanner de biblioteca",
 				"enableLibraryScanner": "Ativar verificações periódicas da biblioteca",
 				"libraryScannerSchedule": "Agendamento de verificação de biblioteca em minutos",
 				"libraryScannerScheduleNotValid": "Agenda de verificação de biblioteca inválida",
 				"followSymlinks": "Siga os links simbólicos nas verificações da biblioteca",
 				"runLibraryScanOnStart": "Execute uma verificação de biblioteca única na inicialização",
-				"fileMonitor": "Monitor de arquivos de biblioteca",
-				"enableLibraryFileMonitor": "Ativar o monitor de arquivos de biblioteca",
 				"pendingTasks": "Tarefas pendentes",
 				"clearPendingTasksOnStart": "Limpe todas as tarefas pendentes na inicialização",
 				"fileTesting": "Teste de arquivo",
-				"concurrentFileTesters": "Testadores de arquivos simultâneos"
+				"concurrentFileTesters": "Testadores de arquivos simultâneos",
+				"configuration": "Configuração",
+				"enableScanner": "Ativar o scanner de biblioteca para esta biblioteca",
+				"enableInotify": "Ativar o monitor de arquivos para esta biblioteca",
+				"plugins": "Plug-ins",
+				"pluginFlow": "Fluxo de plug-ins",
+				"cloneLibrary": "Clonar biblioteca",
+				"exportLibraryConfig": "Exportar configuração",
+				"importLibraryConfig": "Importar configuração",
+				"importPluginConfigMessage": "Importando a configuração da biblioteca. Isso pode levar algum tempo se houver algum plug-in que exija instalação.",
+				"addPluginConfig": "Adicionar plug-in"
 			},
 			"workers": {
 				"workerCount": "Contagem de trabalhadores",
@@ -163,7 +157,7 @@
 					"weekday": "Todos os dias da semana",
 					"weekend": "Todos os sábados e domingos",
 					"monday": "Toda segunda-feira",
-					"tuesday": "Toda terça",
+					"tuesday": "Toda terça-feira",
 					"wednesday": "Toda quarta-feira",
 					"thursday": "Toda quinta-feira",
 					"friday": "Toda sexta-feira",
@@ -206,17 +200,17 @@
 				"docs": "Documentação",
 				"apiSpec": "Especificação da API",
 				"applicationDocumentation": "Documentação do aplicativo",
-				"support": "Apoio, suporte",
+				"support": "Apoiar",
 				"unmanicAppSourceRequests": "Recurso de solicitação no aplicativo Unmanic",
 				"unmanicFrontendSourceRequests": "Recurso de solicitação no Unmanic Frontend",
-				"unmanicOfficialPluginRequests": "Solicite um Plugin para Unmanic"
+				"unmanicOfficialPluginRequests": "Solicite um plugin para Unmanic"
 			}
 		},
 		"workers": {
 			"listEmpty": "Não há trabalhadores em execução no momento. Aumente a contagem de trabalhadores nas configurações do Unmanic para gerar um trabalhador.",
 			"pauseWorker": "Pausar este trabalhador",
 			"workerPaused": "O trabalhador foi pausado",
-			"workerPauseFailed": "O Unmanic não conseguiu pausar este trabalhador por algum motivo",
+			"workerPausedFailed": "O Unmanic não conseguiu pausar este trabalhador por algum motivo",
 			"resumeWorker": "Retomar este trabalhador",
 			"workerResumed": "Trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
@@ -243,31 +237,26 @@
 			}
 		},
 		"pendingTasks": {
-			"listEmpty": "A lista de tarefas pendentes está vazia",
 			"rescanLibrary": "Redigitalize a biblioteca agora",
 			"moveToTop": "Mover selecionado para o topo",
 			"moveToBottom": "Mover selecionado para baixo",
 			"removeSelected": "Remover selecionado da lista"
 		},
 		"completedTasks": {
-			"listEmpty": "A lista de tarefas concluídas está vazia",
 			"details": "Detalhes",
 			"errorGettingDetails": "Foi encontrado um erro ao buscar os detalhes desta tarefa",
 			"addToPendingTasksList": "Adicionar selecionado à lista de tarefas pendentes",
-			"removeSelected": "Remover selecionado da lista"
+			"removeSelected": "Remover selecionado da lista",
+			"selectLibraryToAdd": "Selecione a biblioteca na qual recriar esta tarefa"
 		},
 		"plugins": {
-			"updateAvailable": "atualização disponível",
-			"upToDate": "atualizado",
-			"enablePlugins": "Ativar plug-ins",
-			"disablePlugins": "Desativar plug-ins",
-			"updatePlugins": "Atualizar plug-ins",
-			"removePlugins": "Remover plug-ins",
-			"addNew": "Adicionar novo",
-			"configurePluginFow": "Configurar fluxo de plug-ins",
-			"listEmpty": "Não há plugins para exibir",
+			"updateAvailable": "Atualização disponível",
+			"upToDate": "Atualizado",
+			"globalConfiguration": "Configuração global",
+			"updatePlugin": "Atualizar plug-in",
+			"removePlugin": "Remover plug-in",
+			"installPlugins": "Instalar plugin",
 			"categoryFilter": "Filtro de categoria",
-			"name": "Nome",
 			"author": "Autor",
 			"version": "Versão",
 			"repo": "Repositório",
@@ -278,31 +267,26 @@
 			"repoName": "Nome",
 			"repoSource": "URL do repositório",
 			"errorSavingFlow": "Foi encontrado um erro ao salvar o fluxo de plug-in",
-			"configurePluginFlowSection": {
-				"line1": "Configure a ordem em que os Plugins são chamados.",
-				"line2": "Abaixo está uma lista de seções de tipo de plug-in. Cada seção de tipo de plug-in pode conter uma lista de plug-ins.",
-				"line3": "Veja a descrição abaixo de cada tipo de plug-in para obter detalhes de quando os plug-ins contidos serão chamados.",
-				"line4": "Um plug-in pode consistir em vários tipos de plug-in. Se sim, ele será chamado pelo Unmanic em cada uma dessas seções descritas."
-			},
+			"resetConfiguration": "Redefinir configuração",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Gerenciamento de Biblioteca - Teste de arquivo",
-					"fileTestCaption": "Esses Plugins são chamados para testar se os arquivos devem ser adicionados à lista de tarefas pendentes"
+					"fileTestCaption": "Estes plugins são chamados para testar se os arquivos devem ser adicionados à lista de tarefas pendentes"
 				},
 				"postprocessor": {
 					"fileMove": "Pós-processador - Movimentos de arquivos",
-					"fileMoveCaption": "Esses Plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
 					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
-					"taskResultCaption": "Esses Plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
+					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},
 				"worker": {
 					"processItem": "Trabalhador - Processando arquivo",
-					"processItemCaption": "Esses Plugins são chamados por um trabalhador e produzem um comando personalizado para ser executado e gerenciado por esse trabalhador"
+					"processItemCaption": "Esses plugins são chamados por um trabalhador e produzem um comando personalizado para ser executado e gerenciado por esse trabalhador"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Você não tem nenhum Painel de Dados ativado. Instale um de suas configurações de plug-in."
+			"noDataPanelsEnabled": "Você não tem nenhum Painel de Dados ativado. Instale um de suas configurações de plugin."
 		},
 		"footer": {
 			"version": "Versão"
