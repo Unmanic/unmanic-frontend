@@ -34,7 +34,9 @@
     "cancel": "Cancel",
     "close": "Close",
     "back": "Back",
-    "yes": "Yes"
+    "yes": "Yes",
+    "loginWithPatreon": "Login with Patreon",
+    "loginWithGitHub": "Login with GitHub"
   },
   "status": {
     "enabled": "enabled",
@@ -123,7 +125,8 @@
     "configureRemoteInstallationLink": "Configure remote installation link",
     "configureLibrary": "Configure library",
     "selectPlugin": "Select a plugin",
-    "selectLibrary": "Select a library"
+    "selectLibrary": "Select a library",
+    "login": "Login"
   },
   "tooltips": {
     "close": "Close",
