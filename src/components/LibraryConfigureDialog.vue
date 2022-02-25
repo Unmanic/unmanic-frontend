@@ -574,7 +574,7 @@ export default {
         let configData = response.data;
         // Name the library as a clone
         configData.library_config = {
-          name: this.name + ' (' + this.$t('components.settings.library.copy') + ')',
+          name: this.name + ' (' + this.$t('navigation.copy') + ')',
           path: this.path,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
