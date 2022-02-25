@@ -119,7 +119,7 @@
 			"pleaseEnterAValidNumber": "var vänlig skriv in ett giltigt nummer",
 			"library": {
 				"pathConfiguration": "Bibliotek",
-				"name": "namn",
+				"name": "Namn (måste vara unikt)",
 				"path": "Bibliotekets väg",
 				"newLibrary": "Nytt bibliotek",
 				"confirmRemove": "Om du tar bort biblioteket tas också alla inställningar som är kopplade till det här biblioteket bort. Är du säker på att du vill fortsätta?",

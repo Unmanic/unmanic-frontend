@@ -119,7 +119,7 @@
 			"pleaseEnterAValidNumber": "有効な数値を入力してください",
 			"library": {
 				"pathConfiguration": "ライブラリ",
-				"name": "名前",
+				"name": "名前（一意である必要があります）",
 				"path": "ライブラリパス",
 				"newLibrary": "新しいライブラリ",
 				"confirmRemove": "ライブラリを削除すると、このライブラリに関連付けられているすべての設定も削除されます。続行してもよろしいですか？",

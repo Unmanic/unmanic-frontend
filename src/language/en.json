@@ -120,7 +120,7 @@
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "library": {
         "pathConfiguration": "Libraries",
-        "name": "Name",
+        "name": "Name (must be unique)",
         "path": "Library path",
         "newLibrary": "New Library",
         "confirmRemove": "Removing the library will also remove all settings associated with this library. Are you sure you wish to continue?",

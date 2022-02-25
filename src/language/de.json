@@ -119,7 +119,7 @@
 			"pleaseEnterAValidNumber": "Bitte geben Sie eine gültige Nummer ein",
 			"library": {
 				"pathConfiguration": "Bibliotheken",
-				"name": "Name",
+				"name": "Name (muss eindeutig sein)",
 				"path": "Bibliothekspfad",
 				"newLibrary": "Neue Bibliothek",
 				"confirmRemove": "Durch das Entfernen der Bibliothek werden auch alle dieser Bibliothek zugeordneten Einstellungen entfernt. Möchten Sie wirklich fortfahren?",

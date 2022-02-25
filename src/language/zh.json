@@ -119,7 +119,7 @@
 			"pleaseEnterAValidNumber": "请输入有效号码",
 			"library": {
 				"pathConfiguration": "图书馆",
-				"name": "姓名",
+				"name": "名称（必须是唯一的）",
 				"path": "库路径",
 				"newLibrary": "新图书馆",
 				"confirmRemove": "删除库也将删除与此库关联的所有设置。您确定要继续吗？",

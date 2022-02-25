@@ -573,8 +573,10 @@ export default {
         // Modify data
         let configData = response.data;
         // Name the library as a clone
+        let randomString = (Math.random() + 1).toString(36).substring(7);
+        let newName = this.name + ' (' + this.$t('navigation.copy') + ' - ' + randomString + ')';
         configData.library_config = {
-          name: this.name + ' (' + this.$t('navigation.copy') + ')',
+          name: newName,
           path: this.path,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,

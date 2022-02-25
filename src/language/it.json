@@ -119,7 +119,7 @@
 			"pleaseEnterAValidNumber": "Per favore, inserire un numero valido",
 			"library": {
 				"pathConfiguration": "Biblioteche",
-				"name": "Nome",
+				"name": "Nome (deve essere univoco)",
 				"path": "Percorso libreria",
 				"newLibrary": "Nuova Biblioteca",
 				"confirmRemove": "La rimozione della libreria rimuoverà anche tutte le impostazioni associate a questa libreria. Sei sicuro di voler continuare?",
