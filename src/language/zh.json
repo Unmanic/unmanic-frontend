@@ -221,6 +221,7 @@
 			"workerTerminationFailed": "Unmanic 由于某种原因无法终止该工人",
 			"pauseAllWorkers": "暂停所有工作人员",
 			"resumeAllWorkers": "恢复所有工人",
+			"terminateAllWorkers": "终止所有工人",
 			"workerLog": "工人日志",
 			"status": "状态",
 			"stateLabel": "状态",

@@ -221,6 +221,7 @@
 			"workerTerminationFailed": "Unmanicは、何らかの理由でこのワーカーを終了できませんでした",
 			"pauseAllWorkers": "すべての労働者を一時停止します",
 			"resumeAllWorkers": "すべての労働者を再開する",
+			"terminateAllWorkers": "すべての労働者を終了する",
 			"workerLog": "労働者ログ",
 			"status": "スターテス",
 			"stateLabel": "州",

@@ -87,7 +87,7 @@
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
-		"globalPluginConfig": "Configuração Global do Plugin",
+		"globalPluginConfig": "Configuração global do plug-in",
 		"libraryPluginConfig": "Configuração do plug-in da biblioteca",
 		"information": "Informações",
 		"selectDirectory": "Selecione um diretório",
@@ -213,14 +213,15 @@
 			"workerPaused": "O trabalhador foi pausado",
 			"workerPausedFailed": "O Unmanic não conseguiu pausar este trabalhador por algum motivo",
 			"resumeWorker": "Retomar este trabalhador",
-			"workerResumed": "Trabalhador foi retomado",
+			"workerResumed": "O trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
 			"terminateWorker": "Encerrar este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "O trabalhador foi demitido",
-			"workerTerminationFailed": "Unmanic não conseguiu encerrar este trabalhador por algum motivo",
+			"workerTerminationFailed": "O Unmanic não conseguiu encerrar este trabalhador por algum motivo",
 			"pauseAllWorkers": "Pausar todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
+			"terminateAllWorkers": "Encerre todos os trabalhadores",
 			"workerLog": "Registro do trabalhador",
 			"status": "Status",
 			"stateLabel": "Estado",
@@ -287,7 +288,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Você não tem nenhum Painel de Dados ativado. Instale um de suas configurações de plugin."
+			"noDataPanelsEnabled": "Você não tem nenhum painel de dados ativado. Instale um de suas configurações de plugin."
 		},
 		"footer": {
 			"version": "Versão"

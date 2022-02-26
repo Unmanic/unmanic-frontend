@@ -221,6 +221,7 @@
 			"workerTerminationFailed": "Unmanic non è stato in grado di licenziare questo lavoratore per qualche motivo",
 			"pauseAllWorkers": "Metti in pausa tutti i lavoratori",
 			"resumeAllWorkers": "Riprendi tutti i lavoratori",
+			"terminateAllWorkers": "Termina tutti i lavoratori",
 			"workerLog": "Registro dei lavoratori",
 			"status": "Stato",
 			"stateLabel": "Stato",

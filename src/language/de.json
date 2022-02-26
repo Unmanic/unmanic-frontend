@@ -221,6 +221,7 @@
 			"workerTerminationFailed": "Unmanic war aus irgendeinem Grund nicht in der Lage, diesen Arbeiter zu kündigen",
 			"pauseAllWorkers": "Alle Worker pausieren",
 			"resumeAllWorkers": "Setzen Sie alle Arbeiter fort",
+			"terminateAllWorkers": "Alle Arbeiter kündigen",
 			"workerLog": "Arbeiterprotokoll",
 			"status": "Status",
 			"stateLabel": "Bundesland",

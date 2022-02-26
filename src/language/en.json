@@ -222,6 +222,7 @@
       "workerTerminationFailed": "Unmanic was unable to terminate this worker for some reason",
       "pauseAllWorkers": "Pause all workers",
       "resumeAllWorkers": "Resume all workers",
+      "terminateAllWorkers": "Terminate all workers",
       "workerLog": "Worker Log",
       "status": "Status",
       "stateLabel": "State",
