@@ -7,6 +7,7 @@
 		"login": "Login",
 		"logout": "Disconnettersi",
 		"config": "Config",
+		"options": "Opzioni",
 		"documentation": "Documentazione",
 		"library": "Biblioteca",
 		"workers": "Lavoratori",
@@ -99,7 +100,7 @@
 		"selectPlugin": "Seleziona un plug-in",
 		"selectLibrary": "Seleziona una libreria",
 		"login": "Login",
-		"listEmpty": "Questo elenco attività è vuoto"
+		"listEmpty": "Questo elenco di attività è vuoto"
 	},
 	"tooltips": {
 		"close": "Di ritorno",

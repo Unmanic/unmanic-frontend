@@ -7,6 +7,7 @@
     "login": "Login",
     "logout": "Logout",
     "config": "Config",
+    "options": "Options",
     "documentation": "Documentation",
     "library": "Library",
     "workers": "Workers",
@@ -99,7 +100,7 @@
     "selectPlugin": "Select a plugin",
     "selectLibrary": "Select a library",
     "login": "Login",
-    "listEmpty": "This Task list is empty"
+    "listEmpty": "This task list is empty"
   },
   "tooltips": {
     "close": "Close",
