@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "L'adresse que vous avez entrée n'était pas une installation Unmanic valide.",
 		"incompatibleRemoteInstallation": "L'installation à distance d'Unmanic que vous essayez d'ajouter n'est pas compatible avec la liaison. Essayez d'abord de le mettre à jour.",
 		"cannotRemoveDefaultLibrary": "Impossible de supprimer la bibliothèque par défaut",
+		"rescanLibraryError": "Une erreur s'est produite lors de la demande d'une nouvelle analyse de la bibliothèque",
 		"serverMessages": {
 			"defaults": {
 				"info": "Message inconnu du serveur",

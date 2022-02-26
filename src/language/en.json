@@ -61,6 +61,7 @@
     "invalidRemoteInstallationAddress": "The address you entered was not a valid Unmanic installation.",
     "incompatibleRemoteInstallation": "The remote Unmanic installation that you are trying to add is not compatible with linking. Try updating it first.",
     "cannotRemoveDefaultLibrary": "Cannot remove the default Library",
+    "rescanLibraryError": "An error was encountered while requesting a library rescan",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",

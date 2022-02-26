@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
+		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação de biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -87,7 +88,7 @@
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
-		"globalPluginConfig": "Configuração global do plug-in",
+		"globalPluginConfig": "Configuração Global do Plugin",
 		"libraryPluginConfig": "Configuração do plug-in da biblioteca",
 		"information": "Informações",
 		"selectDirectory": "Selecione um diretório",
@@ -218,7 +219,7 @@
 			"terminateWorker": "Encerrar este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "O trabalhador foi demitido",
-			"workerTerminationFailed": "O Unmanic não conseguiu encerrar este trabalhador por algum motivo",
+			"workerTerminationFailed": "Unmanic não conseguiu encerrar este trabalhador por algum motivo",
 			"pauseAllWorkers": "Pausar todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"terminateAllWorkers": "Encerre todos os trabalhadores",
@@ -288,7 +289,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Você não tem nenhum painel de dados ativado. Instale um de suas configurações de plugin."
+			"noDataPanelsEnabled": "Você não tem nenhum Painel de Dados ativado. Instale um de suas configurações de plugin."
 		},
 		"footer": {
 			"version": "Versão"

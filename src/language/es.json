@@ -43,7 +43,7 @@
 		"failedToFetchLogoutUrl": "No se pudo obtener la URL de cierre de sesión.",
 		"failedToSaveSettings": "No se pudo guardar la configuración.",
 		"failedToFetchSettings": "No se pudo obtener la configuración actual de Unmanic.",
-		"failedToFetchSystemConfig": "No se pudo recuperar la configuración del sistema de Unmanic.",
+		"failedToFetchSystemConfig": "No se pudo obtener la configuración del sistema de Unmanic.",
 		"failedToFetchLibraryList": "No se pudo obtener la lista de la biblioteca de Unmanic.",
 		"SavedPluginSettings": "Configuración del complemento guardada.",
 		"failedToSavePluginSettings": "No se pudo guardar la configuración del complemento.",
@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "La dirección que ingresó no era una instalación Unmanic válida.",
 		"incompatibleRemoteInstallation": "La instalación remota de Unmanic que está intentando agregar no es compatible con la vinculación. Intenta actualizarlo primero.",
 		"cannotRemoveDefaultLibrary": "No se puede eliminar la biblioteca predeterminada",
+		"rescanLibraryError": "Se encontró un error al solicitar una nueva exploración de la biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensaje desconocido del servidor",

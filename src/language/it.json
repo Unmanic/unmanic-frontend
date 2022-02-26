@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "L'indirizzo inserito non era un'installazione Unmanic valida.",
 		"incompatibleRemoteInstallation": "L'installazione remota di Unmanic che stai cercando di aggiungere non è compatibile con il collegamento. Prova ad aggiornarlo prima.",
 		"cannotRemoveDefaultLibrary": "Impossibile rimuovere la libreria predefinita",
+		"rescanLibraryError": "Si è verificato un errore durante la richiesta di una nuova scansione della libreria",
 		"serverMessages": {
 			"defaults": {
 				"info": "Messaggio sconosciuto dal server",

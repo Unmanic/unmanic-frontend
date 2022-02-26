@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "您输入的地址不是有效的 Unmanic 安装。",
 		"incompatibleRemoteInstallation": "您尝试添加的远程 Unmanic 安装与链接不兼容。尝试先更新它。",
 		"cannotRemoveDefaultLibrary": "无法删除默认库",
+		"rescanLibraryError": "请求库重新扫描时遇到错误",
 		"serverMessages": {
 			"defaults": {
 				"info": "来自服务器的未知消息",

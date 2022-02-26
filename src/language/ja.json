@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "入力したアドレスは、有効なUnmanicインストールではありませんでした。",
 		"incompatibleRemoteInstallation": "追加しようとしているリモートのUnmanicインストールは、リンクと互換性がありません。最初に更新してみてください。",
 		"cannotRemoveDefaultLibrary": "デフォルトのライブラリを削除できません",
+		"rescanLibraryError": "ライブラリの再スキャンを要求しているときにエラーが発生しました",
 		"serverMessages": {
 			"defaults": {
 				"info": "サーバーからの不明なメッセージ",

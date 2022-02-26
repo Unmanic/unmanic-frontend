@@ -92,6 +92,7 @@ import { onMounted, ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
+import { useI18n } from "vue-i18n";
 
 const columns = [
   {
@@ -117,6 +118,7 @@ const columns = [
 export default {
   setup() {
     const $q = useQuasar();
+    const { t: $t } = useI18n();
     const rows = ref([]);
     const filter = ref('');
     const loading = ref(false);
@@ -149,7 +151,7 @@ export default {
         $q.notify({
           color: 'negative',
           position: 'top',
-          message: 'An error was encountered while requesting a library rescan',
+          message: $t('notifications.rescanLibraryError'),
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })

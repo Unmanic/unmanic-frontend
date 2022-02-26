@@ -61,6 +61,7 @@
 		"invalidRemoteInstallationAddress": "Adressen du angav var inte en giltig Unmanic-installation.",
 		"incompatibleRemoteInstallation": "Fjärrinstallationen av Unmanic som du försöker lägga till är inte kompatibel med länkning. Försök att uppdatera den först.",
 		"cannotRemoveDefaultLibrary": "Det går inte att ta bort standardbiblioteket",
+		"rescanLibraryError": "Ett fel påträffades vid begäran om en omsökning av biblioteket",
 		"serverMessages": {
 			"defaults": {
 				"info": "Okänt meddelande från servern",
