@@ -205,6 +205,7 @@ export default {
             version: results[i].version,
             icon: results[i].icon,
             tags: results[i].tags,
+            has_config: results[i].has_config,
           };
         }
         this.plugins = pluginList;
