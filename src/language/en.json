@@ -145,7 +145,9 @@
         "exportLibraryConfig": "Export config",
         "importLibraryConfig": "Import config",
         "importPluginConfigMessage": "Importing library configuration. This may take some time if there are any plugins that require installation.",
-        "addPluginConfig": "Add plugin"
+        "addPluginConfig": "Add plugin",
+        "locked": "The library cannot be deleted",
+        "unlocked": "The library is able to be deleted"
       },
       "workers": {
         "workerCount": "Worker count",

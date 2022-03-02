@@ -110,7 +110,7 @@
 		"update": "Bijwerken",
 		"pluginInfo": "Plugin-info",
 		"position": "Positie",
-		"etc": "Geschatte tijd van voltooiing",
+		"etc": "Geschatte voltooiingstijd",
 		"add": "Toevoegen",
 		"remove": "Verwijderen",
 		"configure": "Configureren",
@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Configuratie exporteren",
 				"importLibraryConfig": "Configuratie importeren",
 				"importPluginConfigMessage": "Bibliotheekconfiguratie importeren. Dit kan enige tijd duren als er plug-ins zijn die moeten worden geïnstalleerd.",
-				"addPluginConfig": "Plug-in toevoegen"
+				"addPluginConfig": "Plug-in toevoegen",
+				"locked": "De bibliotheek kan niet worden verwijderd",
+				"unlocked": "De bibliotheek kan worden verwijderd"
 			},
 			"workers": {
 				"workerCount": "Aantal werknemers",
@@ -181,7 +183,7 @@
 				"add": "Toevoegen",
 				"connection": "Verbinding",
 				"configuration": "Configuratie",
-				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werkers beschikbaar zijn",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer werknemers beschikbaar zijn",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
 				"enableTaskPreloading": "Preload een aantal taken op de externe installatie Wachtende taken wachtrij",
 				"enableDistributedWorkerCount": "Gedistribueerd aantal werknemers inschakelen voor deze link",
@@ -241,9 +243,9 @@
 		},
 		"pendingTasks": {
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
-			"moveToTop": "Verplaats geselecteerde naar boven",
+			"moveToTop": "Geselecteerde naar boven verplaatsen",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
-			"removeSelected": "Remove selected from list"
+			"removeSelected": "Geselecteerde uit lijst verwijderen"
 		},
 		"completedTasks": {
 			"details": "Details",
@@ -254,45 +256,45 @@
 		},
 		"plugins": {
 			"updateAvailable": "Update beschikbaar",
-			"upToDate": "Up-to-date",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
+			"upToDate": "Actueel",
+			"globalConfiguration": "Algemene configuratie",
+			"updatePlugin": "Update plug in",
+			"removePlugin": "Plug-in verwijderen",
+			"installPlugins": "Installeer plugin",
+			"categoryFilter": "Categoriefilter",
+			"author": "Schrijver",
 			"version": "Versie",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"repo": "Opslagplaats",
+			"repoList": "Lijst met opslagplaatsen",
+			"refreshRepositories": "Opslagplaatsen vernieuwen",
+			"addRepository": "Opslagplaats toevoegen",
+			"newRepository": "Nieuwe opslagplaats",
+			"repoName": "Naam",
+			"repoSource": "Repository-URL",
+			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de plug-instroom",
+			"resetConfiguration": "Configuratie resetten",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Bibliotheekbeheer - Bestandstest",
+					"fileTestCaption": "Deze plug-ins worden aangeroepen om te testen of bestanden moeten worden toegevoegd aan de in behandeling zijnde takenlijst"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Postprocessor - Bestandsverplaatsingen",
+					"fileMoveCaption": "Deze plug-ins worden aangeroepen na voltooiing van de taak om extra bestandsverplaatsingen toe te voegen",
+					"taskResult": "Post-processor - Taak succes/mislukking markeren",
+					"taskResultCaption": "Deze plug-ins worden aangeroepen bij het voltooien van een taak om het algehele succes of falen van die taak te markeren"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Werknemer - Bestand wordt verwerkt",
+					"processItemCaption": "Deze plug-ins worden aangeroepen door een werker en produceren een aangepast commando dat door die werker moet worden uitgevoerd en beheerd"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "U heeft geen datapanelen ingeschakeld. Installeer er een vanuit uw plug-in-instellingen."
 		},
 		"footer": {
-			"version": "Version"
+			"version": "Versie"
 		}
 	}
 }

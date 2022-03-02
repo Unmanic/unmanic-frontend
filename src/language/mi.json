@@ -48,7 +48,7 @@
 		"SavedPluginSettings": "Kua tiakina nga tautuhinga mono.",
 		"failedToSavePluginSettings": "I rahua te tiaki i nga tautuhinga mono.",
 		"failedToInstallPlugin": "I puta he hapa i te wa e ngana ana ki te whakauru i te mono i tonoa.",
-		"repoAlreadyExists": "Kei te noho kee te putunga.",
+		"repoAlreadyExists": "Kei te noho tonu te putunga.",
 		"newRepoAddFailed": "I rahua te penapena purongo hou.",
 		"reposRefreshSuccess": "I momoho te whakahou i nga putunga katoa.",
 		"reposRefreshFailure": "Kāore e taea te whakahōu i ō putunga whirihora. Akene he hapa kei tetahi o nga URL?",
@@ -65,13 +65,13 @@
 		"serverMessages": {
 			"defaults": {
 				"info": "Karere kore mohiotia mai i te tūmau",
-				"error": "I puta he hapa kore mohiotia i runga i te tūmau",
+				"error": "I puta he hapa i runga i te tūmau",
 				"warning": "Whakatūpato tē mōhiotia mai i te tūmau",
 				"success": "Karere kore mohiotia mai i te tūmau",
-				"status": "Whakahōu tūnga tē mōhiotia mai i te tūmau"
+				"status": "Whakahoutanga mana kore e mohiotia mai i te tūmau"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua kitea he mono hotokore kua whakahohea ki tetahi o o whare pukapuka",
-			"libraryEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga whare pukapuka kua whirihorahia mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 2 whare pukapuka.",
+			"libraryEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga whare pukapuka kua whirihorahia mo te taumata kore-tautoko. Whakaarohia te tautoko i te kaupapa kia kaha ake i te 2 whare pukapuka.",
 			"pluginSettingsChangeWorkersStopped": "Kua whakamutua e Unmanic nga kaimahi katoa na te mea kua kitea he huringa ki te whirihoranga mono. Ina reri koe, haere ano nga kaimahi mai i te papatohu.",
 			"libraryScanProgress": "Kei te rere te karapa whare pukapuka",
 			"pendingTaskHaltedPostProcessorQueueFull": "I tae te rarangi Pou-tukatuka ki tona rohe",
@@ -87,7 +87,7 @@
 		"privacyPolicy": "Kaupapahere Tūmataiti",
 		"pluginInfo": "Momo Moni",
 		"pluginSettings": "Tautuhinga Mono",
-		"pluginInstaller": "Kaitautoko mono",
+		"pluginInstaller": "Kaitautoko Mono",
 		"globalPluginConfig": "Whirihoranga Mono Ao",
 		"libraryPluginConfig": "Whirihoranga Mono Whare Pukapuka",
 		"information": "Nga korero",
@@ -124,7 +124,7 @@
 				"name": "Ingoa (me ahurei)",
 				"path": "Te ara whare pukapuka",
 				"newLibrary": "Whare Pukapuka Hou",
-				"confirmRemove": "Ma te tango i te whare pukapuka ka tangohia nga tautuhinga katoa e pa ana ki tenei puna. Kei te tino hiahia koe ki te haere tonu?",
+				"confirmRemove": "Ma te tango i te whare pukapuka ka tangohia nga tautuhinga katoa e hono ana ki tenei puna. Kei te tino hiahia koe ki te haere tonu?",
 				"libraryScanner": "Matawai whare pukapuka",
 				"enableLibraryScanner": "Whakahohehia te tirotiro whare pukapuka i ia wa",
 				"libraryScannerSchedule": "Te rarangi karapa whare pukapuka i roto i nga meneti",
@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Kaweake whirihora",
 				"importLibraryConfig": "Kawemai whirihora",
 				"importPluginConfigMessage": "Te kawemai i te whirihoranga whare pukapuka. Ka roa pea tenei mena he mono kei te hiahia kia whakauruhia.",
-				"addPluginConfig": "Tāpiri mono"
+				"addPluginConfig": "Tāpiri mono",
+				"locked": "Kaore e taea te muku te whare pukapuka",
+				"unlocked": "Ka taea te whakakore i te whare pukapuka"
 			},
 			"workers": {
 				"workerCount": "Te tatau kaimahi",
@@ -181,8 +183,8 @@
 				"add": "Tāpiri",
 				"connection": "Hononga",
 				"configuration": "Whirihoranga",
-				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina watea ana nga kaimahi",
-				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina e waatea ana nga kaimahi",
+				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina waatea nga kaimahi",
+				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina waatea nga kaimahi",
 				"enableTaskPreloading": "Utaa mua etahi mahi i runga i te whakaurunga mamao e tatari ana i nga mahi e tatari ana",
 				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hononga",
 				"workerTarget": "Te whainga kaimahi"
@@ -217,7 +219,7 @@
 			"workerResumed": "Kua mahi ano te kaimahi",
 			"workerResumedFailed": "Kaore i taea e Unmanic te mahi ano i tenei kaimahi mo etahi take",
 			"terminateWorker": "Whakamutua tenei kaimahi",
-			"terminateWorkerWarning": "Kei te tino hiahia koe ki te whakamutu i tenei kaimahi me tana mahi o naianei? Ko te mahi o naianei ka tohua i rahua i te rarangi mahi kua oti.",
+			"terminateWorkerWarning": "Kei te tino hiahia koe ki te whakamutu i tenei kaimahi me tana mahi o naianei? Ko te mahi o naianei ka tohua kua rahua i te rarangi mahi kua oti.",
 			"workerTerminated": "Kua whakamutua te kaimahi",
 			"workerTerminationFailed": "Kaore i taea e Unmanic te whakamutu i tenei kaimahi mo etahi take",
 			"pauseAllWorkers": "Tatari nga kaimahi katoa",
@@ -232,7 +234,7 @@
 			"state": {
 				"waiting": "E tatari ana mo tetahi atu mahi...",
 				"processing": "Tukatuka mahi...",
-				"paused": "Ka okioki te kaimahi..."
+				"paused": "I okioki te kaimahi..."
 			},
 			"currentRunner": {
 				"none": "Karekau",
@@ -243,7 +245,7 @@
 			"rescanLibrary": "Matawai ano te whare pukapuka inaianei",
 			"moveToTop": "Nuku kua tohua ki runga",
 			"moveToBottom": "Nuku kua tohua ki raro",
-			"removeSelected": "Remove selected from list"
+			"removeSelected": "Tango kua tohua mai i te rarangi"
 		},
 		"completedTasks": {
 			"details": "Nga korero",
@@ -255,44 +257,44 @@
 		"plugins": {
 			"updateAvailable": "Kei te waatea te whakahou",
 			"upToDate": "Nga mea hou",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
-			"version": "Version",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"globalConfiguration": "Whirihoranga Ao",
+			"updatePlugin": "Whakahoua te monomai",
+			"removePlugin": "Tango monomai",
+			"installPlugins": "Tāuta monomai",
+			"categoryFilter": "Tātari Kāwai",
+			"author": "Kaituhi",
+			"version": "Putanga",
+			"repo": "Putunga",
+			"repoList": "Rarangi Putunga",
+			"refreshRepositories": "Tāmata Ngā Putunga",
+			"addRepository": "Tāpiri Pupuri",
+			"newRepository": "Whare Pupuri Hou",
+			"repoName": "Ingoa",
+			"repoSource": "URL putunga",
+			"errorSavingFlow": "I puta he hapa i te tiaki i te Rere Monomai",
+			"resetConfiguration": "Tautuhi whirihoranga",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Whakahaere Whare Pukapuka - Whakamatau Kōnae",
+					"fileTestCaption": "Ka karangahia enei mono ki te whakamatautau mena me taapiri nga konae ki te rarangi mahi e tatari ana"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Tukatuka-muri - Nga nekehanga kōnae",
+					"fileMoveCaption": "Ka karangahia enei mono ki te whakaotinga o nga mahi hei taapiri atu i nga nekehanga konae",
+					"taskResult": "Pou-tukatuka - Tohu i te angitu/rahunga mahi",
+					"taskResultCaption": "Ka karangahia enei mono i runga i te otinga o tetahi mahi hei tohu i te angitu katoa, i te kore ranei o taua mahi"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Kaimahi - Tukatuka kōnae",
+					"processItemCaption": "Ko enei mono ka karangahia e tetahi kaimahi me te whakaputa i tetahi whakahau ritenga hei whakahaere me te whakahaere e taua kaimahi"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "Karekau he Paewhiri Raraunga e whakahohea ana. Tāutahia tētahi mai i ō tautuhinga mono."
 		},
 		"footer": {
-			"version": "Version"
+			"version": "Putanga"
 		}
 	}
 }

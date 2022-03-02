@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Exportar configuración",
 				"importLibraryConfig": "Importar configuración",
 				"importPluginConfigMessage": "Importación de la configuración de la biblioteca. Esto puede llevar algún tiempo si hay algún complemento que requiera instalación.",
-				"addPluginConfig": "Agregar complemento"
+				"addPluginConfig": "Agregar complemento",
+				"locked": "La biblioteca no se puede eliminar.",
+				"unlocked": "La biblioteca se puede eliminar."
 			},
 			"workers": {
 				"workerCount": "conteo de trabajadores",
@@ -182,7 +184,7 @@
 				"connection": "Conexión",
 				"configuration": "Configuración",
 				"allowReceivingTasks": "Recibir tareas de esta instalación cuando los trabajadores estén disponibles",
-				"allowSendingTasks": "Enviar tareas a esta instalación cuando los trabajadores estén disponibles",
+				"allowSendingTasks": "Enviar tareas a esta instalación cuando haya trabajadores disponibles",
 				"enableTaskPreloading": "Precargar algunas tareas en la cola de tareas pendientes de instalación remota",
 				"enableDistributedWorkerCount": "Habilitar el recuento de trabajadores distribuidos para este enlace",
 				"workerTarget": "trabajador objetivo"
@@ -242,7 +244,7 @@
 		"pendingTasks": {
 			"rescanLibrary": "Vuelva a escanear la biblioteca ahora",
 			"moveToTop": "Mover seleccionado al principio",
-			"moveToBottom": "Move selected to bottom",
+			"moveToBottom": "Mover seleccionado al final",
 			"removeSelected": "Eliminar seleccionado de la lista"
 		},
 		"completedTasks": {
@@ -255,44 +257,44 @@
 		"plugins": {
 			"updateAvailable": "Actualización disponible",
 			"upToDate": "A hoy",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
-			"version": "Version",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"globalConfiguration": "configuración global",
+			"updatePlugin": "Complemento de actualización",
+			"removePlugin": "Eliminar complemento",
+			"installPlugins": "Instalar complemento",
+			"categoryFilter": "Filtro de categoría",
+			"author": "Autor",
+			"version": "Versión",
+			"repo": "Repositorio",
+			"repoList": "Lista de repositorios",
+			"refreshRepositories": "Actualizar repositorios",
+			"addRepository": "Agregar repositorio",
+			"newRepository": "Nuevo repositorio",
+			"repoName": "Nombre",
+			"repoSource": "URL del repositorio",
+			"errorSavingFlow": "Se encontró un error al guardar el flujo del complemento",
+			"resetConfiguration": "Restablecer configuración",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Gestión de bibliotecas - Prueba de archivos",
+					"fileTestCaption": "Estos complementos se llaman para probar si los archivos deben agregarse a la lista de tareas pendientes."
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Post-procesador - Movimientos de archivos",
+					"fileMoveCaption": "Estos complementos se llaman al completar la tarea para agregar movimientos de archivos adicionales",
+					"taskResult": "Post-procesador - Marcado de éxito/fracaso de la tarea",
+					"taskResultCaption": "Estos complementos se invocan al completar una tarea para marcar el éxito o el fracaso general de esa tarea."
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Trabajador - Archivo de procesamiento",
+					"processItemCaption": "Estos complementos son llamados por un trabajador y producen un comando personalizado para ser ejecutado y administrado por ese trabajador."
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "No tienes ningún Panel de Datos habilitado. Instale uno desde la configuración de su complemento."
 		},
 		"footer": {
-			"version": "Version"
+			"version": "Versión"
 		}
 	}
 }

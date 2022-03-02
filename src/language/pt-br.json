@@ -61,7 +61,7 @@
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
-		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação de biblioteca",
+		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação da biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -88,7 +88,7 @@
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
-		"globalPluginConfig": "Configuração Global do Plugin",
+		"globalPluginConfig": "Configuração global do plug-in",
 		"libraryPluginConfig": "Configuração do plug-in da biblioteca",
 		"information": "Informações",
 		"selectDirectory": "Selecione um diretório",
@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Exportar configuração",
 				"importLibraryConfig": "Importar configuração",
 				"importPluginConfigMessage": "Importando a configuração da biblioteca. Isso pode levar algum tempo se houver algum plug-in que exija instalação.",
-				"addPluginConfig": "Adicionar plug-in"
+				"addPluginConfig": "Adicionar plug-in",
+				"locked": "A biblioteca não pode ser excluída",
+				"unlocked": "A biblioteca pode ser excluída"
 			},
 			"workers": {
 				"workerCount": "Contagem de trabalhadores",
@@ -242,7 +244,7 @@
 		"pendingTasks": {
 			"rescanLibrary": "Redigitalize a biblioteca agora",
 			"moveToTop": "Mover selecionado para o topo",
-			"moveToBottom": "Move selected to bottom",
+			"moveToBottom": "Mover selecionado para baixo",
 			"removeSelected": "Remover selecionado da lista"
 		},
 		"completedTasks": {
@@ -254,45 +256,45 @@
 		},
 		"plugins": {
 			"updateAvailable": "Atualização disponível",
-			"upToDate": "Up-to-date",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
-			"version": "Version",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"upToDate": "Atualizado",
+			"globalConfiguration": "Configuração global",
+			"updatePlugin": "Atualizar plug-in",
+			"removePlugin": "Remover plug-in",
+			"installPlugins": "Instalar plugin",
+			"categoryFilter": "Filtro de categoria",
+			"author": "Autor",
+			"version": "Versão",
+			"repo": "Repositório",
+			"repoList": "Lista de repositórios",
+			"refreshRepositories": "Atualizar repositórios",
+			"addRepository": "Adicionar repositório",
+			"newRepository": "Novo repositório",
+			"repoName": "Nome",
+			"repoSource": "URL do repositório",
+			"errorSavingFlow": "Foi encontrado um erro ao salvar o fluxo de plug-in",
+			"resetConfiguration": "Redefinir configuração",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Gerenciamento de Biblioteca - Teste de arquivo",
+					"fileTestCaption": "Estes plugins são chamados para testar se os arquivos devem ser adicionados à lista de tarefas pendentes"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Pós-processador - Movimentos de arquivos",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
+					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
+					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Trabalhador - Processando arquivo",
+					"processItemCaption": "Esses plugins são chamados por um trabalhador e produzem um comando personalizado para ser executado e gerenciado por esse trabalhador"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "Você não tem nenhum painel de dados ativado. Instale um de suas configurações de plugin."
 		},
 		"footer": {
-			"version": "Version"
+			"version": "Versão"
 		}
 	}
 }

@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Exportera konfiguration",
 				"importLibraryConfig": "Importera konfiguration",
 				"importPluginConfigMessage": "Importerar bibliotekskonfiguration. Detta kan ta lite tid om det finns några plugins som kräver installation.",
-				"addPluginConfig": "Lägg till plugin"
+				"addPluginConfig": "Lägg till plugin",
+				"locked": "Biblioteket kan inte raderas",
+				"unlocked": "Biblioteket kan raderas"
 			},
 			"workers": {
 				"workerCount": "Antal arbetare",
@@ -242,7 +244,7 @@
 		"pendingTasks": {
 			"rescanLibrary": "Skanna biblioteket igen nu",
 			"moveToTop": "Flytta markerade till toppen",
-			"moveToBottom": "Move selected to bottom",
+			"moveToBottom": "Flytta markerade till botten",
 			"removeSelected": "Ta bort markerade från listan"
 		},
 		"completedTasks": {
@@ -254,42 +256,42 @@
 		},
 		"plugins": {
 			"updateAvailable": "Uppdatering tillgänglig",
-			"upToDate": "Up-to-date",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
+			"upToDate": "Aktuellt",
+			"globalConfiguration": "Global konfiguration",
+			"updatePlugin": "Uppdatera plugin",
+			"removePlugin": "Ta bort plugin",
+			"installPlugins": "Installera plugin",
+			"categoryFilter": "Kategorifilter",
+			"author": "Författare",
 			"version": "Version",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
+			"repo": "Förvar",
+			"repoList": "Förvarslista",
+			"refreshRepositories": "Uppdatera förråd",
+			"addRepository": "Lägg till förråd",
+			"newRepository": "Nytt förråd",
+			"repoName": "namn",
 			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"errorSavingFlow": "Ett fel påträffades när pluginflödet skulle sparas",
+			"resetConfiguration": "Återställ konfigurationen",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Bibliotekshantering - Filtest",
+					"fileTestCaption": "Dessa plugins anropas för att testa om filer ska läggas till i den väntande uppgiftslistan"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Post-processor - Filrörelser",
+					"fileMoveCaption": "Dessa plugins anropas när uppgiften är klar för att lägga till ytterligare filrörelser",
+					"taskResult": "Efterbehandlare - Markera uppgiften lyckad/misslyckad",
+					"taskResultCaption": "Dessa plugins anropas vid slutförandet av en uppgift för att markera den övergripande framgången eller misslyckandet för den uppgiften"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Arbetare - Bearbetar fil",
+					"processItemCaption": "Dessa plugins anropas av en arbetare och producerar ett anpassat kommando som ska köras och hanteras av den arbetaren"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "Du har inga datapaneler aktiverade. Installera en från dina plugin-inställningar."
 		},
 		"footer": {
 			"version": "Version"

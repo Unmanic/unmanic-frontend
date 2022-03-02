@@ -113,6 +113,30 @@
                       }}
                     </q-tooltip>
                   </q-btn>
+                  <q-btn
+                    v-if="locked"
+                    round
+                    flat
+                    color="negative"
+                    icon="lock"
+                    @click="locked = false">
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.locked')
+                      }}
+                    </q-tooltip>
+                  </q-btn>
+                  <q-btn
+                    v-else
+                    round
+                    flat
+                    color="primary"
+                    icon="lock_open"
+                    @click="locked = true">
+                    <q-tooltip class="bg-white text-primary">{{
+                        $t('components.settings.library.unlocked')
+                      }}
+                    </q-tooltip>
+                  </q-btn>
                 </div>
               </div>
 
@@ -361,6 +385,7 @@ export default {
         let libraryConfig = response.data.library_config;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
+        this.locked = libraryConfig.locked;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
 
@@ -374,6 +399,7 @@ export default {
           id: this.currentID,
           name: this.name,
           path: this.path,
+          locked: this.locked,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
         },
@@ -615,6 +641,7 @@ export default {
       currentID: ref(null),
       name: ref(''),
       path: ref(''),
+      locked: ref(false),
       enableScanner: ref(false),
       enableInotify: ref(false),
       enabledPlugins: ref([]),

@@ -65,6 +65,7 @@
                           size="12px"
                           color="negative"
                           icon="delete"
+                          :disable="path.locked"
                           @click="deleteLibrary(index)">
                           <q-tooltip class="bg-white text-primary">
                             {{ $t('tooltips.delete') }}
@@ -479,8 +480,7 @@ export default {
             id: libraryPath.id,
             name: libraryPath.name,
             path: libraryPath.path,
-
-            // TODO: Add other settings
+            locked: libraryPath.locked,
           }
         }
         this.libraryPaths = libraryPathsList

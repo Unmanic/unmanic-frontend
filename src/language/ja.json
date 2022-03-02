@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "構成のエクスポート",
 				"importLibraryConfig": "設定のインポート",
 				"importPluginConfigMessage": "ライブラリ構成のインポート。インストールが必要なプラグインがある場合、これには時間がかかる場合があります。",
-				"addPluginConfig": "プラグインを追加"
+				"addPluginConfig": "プラグインを追加",
+				"locked": "ライブラリは削除できません",
+				"unlocked": "ライブラリは削除できます"
 			},
 			"workers": {
 				"workerCount": "労働者数",
@@ -231,7 +233,7 @@
 			"totalProcessingTimeLabel": "総処理時間",
 			"state": {
 				"waiting": "別のタスクを待っています...",
-				"processing": "Processing task...",
+				"processing": "処理タスク...",
 				"paused": "労働者は一時停止しました..."
 			},
 			"currentRunner": {
@@ -242,7 +244,7 @@
 		"pendingTasks": {
 			"rescanLibrary": "ライブラリを今すぐ再スキャン",
 			"moveToTop": "選択したものを上に移動",
-			"moveToBottom": "Move selected to bottom",
+			"moveToBottom": "選択したものを下に移動",
 			"removeSelected": "リストから選択したものを削除する"
 		},
 		"completedTasks": {
@@ -255,44 +257,44 @@
 		"plugins": {
 			"updateAvailable": "利用可能なアップデート",
 			"upToDate": "最新の",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
-			"categoryFilter": "Category Filter",
-			"author": "Author",
-			"version": "Version",
-			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"globalConfiguration": "グローバル構成",
+			"updatePlugin": "プラグインを更新",
+			"removePlugin": "プラグインを削除する",
+			"installPlugins": "プラグインをインストールします",
+			"categoryFilter": "カテゴリフィルター",
+			"author": "著者",
+			"version": "バージョン",
+			"repo": "リポジトリ",
+			"repoList": "リポジトリリスト",
+			"refreshRepositories": "リポジトリの更新",
+			"addRepository": "リポジトリを追加",
+			"newRepository": "新しいリポジトリ",
+			"repoName": "名前",
+			"repoSource": "リポジトリのURL",
+			"errorSavingFlow": "プラグインフローの保存中にエラーが発生しました",
+			"resetConfiguration": "構成をリセット",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "ライブラリ管理-ファイルテスト",
+					"fileTestCaption": "これらのプラグインは、ファイルを保留中のタスクリストに追加する必要があるかどうかをテストするために呼び出されます"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "ポストプロセッサ-ファイルの移動",
+					"fileMoveCaption": "これらのプラグインは、タスクの完了時に呼び出され、ファイルの移動を追加します",
+					"taskResult": "ポストプロセッサ-タスクの成功/失敗のマーキング",
+					"taskResultCaption": "これらのプラグインは、タスクの完了時に呼び出され、そのタスクの全体的な成功または失敗をマークします"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "ワーカー-処理ファイル",
+					"processItemCaption": "これらのプラグインはワーカーによって呼び出され、そのワーカーによって実行および管理されるカスタムコマンドを生成します"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "データパネルが有効になっていません。プラグイン設定からインストールします。"
 		},
 		"footer": {
-			"version": "Version"
+			"version": "バージョン"
 		}
 	}
 }

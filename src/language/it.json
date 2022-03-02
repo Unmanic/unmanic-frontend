@@ -144,7 +144,9 @@
 				"exportLibraryConfig": "Esporta config",
 				"importLibraryConfig": "Importa config",
 				"importPluginConfigMessage": "Importazione della configurazione della libreria. L'operazione potrebbe richiedere del tempo se sono presenti plug-in che richiedono l'installazione.",
-				"addPluginConfig": "Aggiungi plug-in"
+				"addPluginConfig": "Aggiungi plug-in",
+				"locked": "La libreria non può essere eliminata",
+				"unlocked": "È possibile eliminare la libreria"
 			},
 			"workers": {
 				"workerCount": "Conteggio operai",
@@ -242,8 +244,8 @@
 		"pendingTasks": {
 			"rescanLibrary": "Scansiona di nuovo la libreria ora",
 			"moveToTop": "Sposta selezionato in alto",
-			"moveToBottom": "Move selected to bottom",
-			"removeSelected": "Remove selected from list"
+			"moveToBottom": "Sposta selezionato in fondo",
+			"removeSelected": "Rimuovi selezionati dall'elenco"
 		},
 		"completedTasks": {
 			"details": "Dettagli",
@@ -255,44 +257,44 @@
 		"plugins": {
 			"updateAvailable": "Aggiornamento disponibile",
 			"upToDate": "Aggiornato",
-			"globalConfiguration": "Global Configuration",
-			"updatePlugin": "Update Plugin",
-			"removePlugin": "Remove Plugin",
-			"installPlugins": "Install Plugin",
+			"globalConfiguration": "Configurazione globale",
+			"updatePlugin": "Aggiorna plug-in",
+			"removePlugin": "Rimuovi plug-in",
+			"installPlugins": "Installa plug-in",
 			"categoryFilter": "Filtro di categoria",
-			"author": "Author",
-			"version": "Version",
+			"author": "Autore",
+			"version": "Versione",
 			"repo": "Repository",
-			"repoList": "Repository List",
-			"refreshRepositories": "Refresh Repositories",
-			"addRepository": "Add Repository",
-			"newRepository": "New Repository",
-			"repoName": "Name",
-			"repoSource": "Repository URL",
-			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
-			"resetConfiguration": "Reset configuration",
+			"repoList": "Elenco repository",
+			"refreshRepositories": "Aggiorna repository",
+			"addRepository": "Aggiungi repository",
+			"newRepository": "Nuovo archivio",
+			"repoName": "Nome",
+			"repoSource": "URL del repository",
+			"errorSavingFlow": "Si è verificato un errore durante il salvataggio del flusso di plug-in",
+			"resetConfiguration": "Ripristina configurazione",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Library Management - File test",
-					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
+					"fileTest": "Gestione della libreria - Test dei file",
+					"fileTestCaption": "Questi plug-in vengono chiamati per verificare se i file devono essere aggiunti all'elenco delle attività in sospeso"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processor - File movements",
-					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
-					"taskResult": "Post-processor - Marking task success/failure",
-					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
+					"fileMove": "Post-processore - Movimenti di file",
+					"fileMoveCaption": "Questi plug-in vengono chiamati al completamento dell'attività per aggiungere ulteriori movimenti di file",
+					"taskResult": "Post-processore - Contrassegno di successo/fallimento dell'attività",
+					"taskResultCaption": "Questi plug-in vengono chiamati al completamento di un'attività per contrassegnare il successo o il fallimento generale di tale attività"
 				},
 				"worker": {
-					"processItem": "Worker - Processing file",
-					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+					"processItem": "Lavoratore - File di elaborazione",
+					"processItemCaption": "Questi plugin vengono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
+			"noDataPanelsEnabled": "Non hai alcun pannello dati abilitato. Installarne uno dalle impostazioni del plug-in."
 		},
 		"footer": {
-			"version": "Version"
+			"version": "Versione"
 		}
 	}
 }
