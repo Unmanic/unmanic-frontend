@@ -51,7 +51,7 @@
 		"repoAlreadyExists": "Репозиторий уже существует.",
 		"newRepoAddFailed": "Не удалось сохранить новый репозиторий.",
 		"reposRefreshSuccess": "Успешно обновлены все репозитории.",
-		"reposRefreshFailure": "Не удалось обновить настроенные репозитории. Возможно, есть ошибка в одном из URL-адресов?",
+		"reposRefreshFailure": "Не удалось обновить настроенные репозитории. Возможно, в одном из URL есть ошибка?",
 		"repoRemovedSuccess": "Репозиторий успешно удален.",
 		"repoRemovedFailed": "Что-то пошло не так при попытке удалить репозиторий.",
 		"failedToFetchEnabledDataPanelPlugins": "Не удалось получить список включенных подключаемых модулей панели данных.",
@@ -75,7 +75,7 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic остановил всех рабочих, так как обнаружил изменение в конфигурации плагинов. Когда будете готовы, возобновите работу воркеров с панели управления.",
 			"libraryScanProgress": "Выполняется сканирование библиотеки",
 			"pendingTaskHaltedPostProcessorQueueFull": "Очередь постпроцессора достигла предела",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Рабочие не получат новую отложенную задачу, пока очередь постпроцессора не упадет ниже текущего настроенного количества рабочих",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Рабочие не получат новую ожидающую задачу, пока очередь постпроцессора не упадет ниже текущего настроенного количества рабочих",
 			"receivingRemoteFile": "Получение удаленного файла",
 			"linkedInstallationLimits": "Unmanic прекратил обработку задач, так как вы связали слишком много удаленных установок для уровня без поддержки. Рассмотрите возможность спонсирования проекта, чтобы связать более одной удаленной установки."
 		}
@@ -167,7 +167,7 @@
 					"sunday": "Каждое воскресенье",
 					"count": "Установить количество рабочих",
 					"pause": "Приостановить всех рабочих",
-					"resume": "Возобновить всех работников"
+					"resume": "Возобновить всех рабочих"
 				}
 			},
 			"link": {
@@ -183,8 +183,8 @@
 				"configuration": "Конфигурация",
 				"allowReceivingTasks": "Получать задачи из этой установки, когда рабочие доступны",
 				"allowSendingTasks": "Отправляйте задачи на эту установку, когда рабочие доступны",
-				"enableTaskPreloading": "Предварительно загрузить задачу в очередь ожидающих задач удаленной установки.",
-				"enableDistributedWorkerCount": "Включить счетчик распределенных рабочих для этой ссылки",
+				"enableTaskPreloading": "Предварительно загрузите некоторые задачи в очередь ожидающих задач удаленной установки.",
+				"enableDistributedWorkerCount": "Включить подсчет распределенных рабочих процессов для этой ссылки",
 				"workerTarget": "Рабочая цель"
 			},
 			"support": {
@@ -212,10 +212,10 @@
 			"listEmpty": "В настоящее время нет работающих рабочих. Увеличьте количество рабочих в настройках Unmanic, чтобы создать рабочего.",
 			"pauseWorker": "Приостановить этого работника",
 			"workerPaused": "Рабочий был приостановлен",
-			"workerPausedFailed": "Unmanic не смог приостановить этого воркера по какой-то причине",
+			"workerPausedFailed": "Unmanic не смог приостановить этого работника по какой-то причине",
 			"resumeWorker": "Возобновить этого работника",
 			"workerResumed": "Работник был возобновлен",
-			"workerResumedFailed": "Unmanic не смог возобновить работу этого работника по какой-то причине",
+			"workerResumedFailed": "Unmanic не смог возобновить работу этого воркера по какой-то причине",
 			"terminateWorker": "Уволить этого работника",
 			"terminateWorkerWarning": "Вы уверены, что хотите завершить этот рабочий процесс и его текущую задачу? Текущая задача будет помечена как невыполненная в списке выполненных задач.",
 			"workerTerminated": "Рабочий был уволен",
@@ -242,7 +242,7 @@
 		"pendingTasks": {
 			"rescanLibrary": "Пересканировать библиотеку сейчас",
 			"moveToTop": "Переместить выбранное вверх",
-			"moveToBottom": "Переместить выбранное вниз",
+			"moveToBottom": "Move selected to bottom",
 			"removeSelected": "Удалить выбранное из списка"
 		},
 		"completedTasks": {
@@ -255,44 +255,44 @@
 		"plugins": {
 			"updateAvailable": "Обновления доступны",
 			"upToDate": "До настоящего времени",
-			"globalConfiguration": "Глобальная конфигурация",
-			"updatePlugin": "Обновить плагин",
-			"removePlugin": "Удалить плагин",
-			"installPlugins": "Установить плагин",
-			"categoryFilter": "Фильтр категорий",
-			"author": "Автор",
-			"version": "Версия",
-			"repo": "Репозиторий",
-			"repoList": "Список репозиториев",
-			"refreshRepositories": "Обновить репозитории",
-			"addRepository": "Добавить репозиторий",
-			"newRepository": "Новый репозиторий",
-			"repoName": "Имя",
-			"repoSource": "URL репозитория",
-			"errorSavingFlow": "Произошла ошибка при сохранении потока плагина",
-			"resetConfiguration": "Сбросить конфигурацию",
+			"globalConfiguration": "Global Configuration",
+			"updatePlugin": "Update Plugin",
+			"removePlugin": "Remove Plugin",
+			"installPlugins": "Install Plugin",
+			"categoryFilter": "Category Filter",
+			"author": "Author",
+			"version": "Version",
+			"repo": "Repository",
+			"repoList": "Repository List",
+			"refreshRepositories": "Refresh Repositories",
+			"addRepository": "Add Repository",
+			"newRepository": "New Repository",
+			"repoName": "Name",
+			"repoSource": "Repository URL",
+			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+			"resetConfiguration": "Reset configuration",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Управление библиотекой — проверка файлов",
-					"fileTestCaption": "Эти плагины вызываются для проверки того, следует ли добавлять файлы в список ожидающих выполнения задач."
+					"fileTest": "Library Management - File test",
+					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
 				},
 				"postprocessor": {
-					"fileMove": "Постпроцессор - Перемещения файлов",
-					"fileMoveCaption": "Эти плагины вызываются по завершении задачи для добавления дополнительных перемещений файлов.",
-					"taskResult": "Постпроцессор - Маркировка успеха/неудачи задачи",
-					"taskResultCaption": "Эти плагины вызываются по завершении задачи, чтобы отметить общий успех или неудачу этой задачи."
+					"fileMove": "Post-processor - File movements",
+					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
+					"taskResult": "Post-processor - Marking task success/failure",
+					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
 				},
 				"worker": {
-					"processItem": "Рабочий - Обработка файла",
-					"processItemCaption": "Эти плагины вызываются воркером и создают пользовательскую команду, которая будет выполняться и управляться этим воркером."
+					"processItem": "Worker - Processing file",
+					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "У вас нет активных панелей данных. Установите один из настроек вашего плагина."
+			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
 		},
 		"footer": {
-			"version": "Версия"
+			"version": "Version"
 		}
 	}
 }

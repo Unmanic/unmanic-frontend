@@ -41,7 +41,7 @@
 		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchLoginUrl": "Anmelde-URL konnte nicht abgerufen werden.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
-		"failedToSaveSettings": "Fehler beim Speichern der Einstellungen.",
+		"failedToSaveSettings": "Einstellungen konnten nicht gespeichert werden.",
 		"failedToFetchSettings": "Die aktuellen Einstellungen von Unmanic konnten nicht abgerufen werden.",
 		"failedToFetchSystemConfig": "Die Systemkonfiguration von Unmanic konnte nicht abgerufen werden.",
 		"failedToFetchLibraryList": "Bibliotheksliste von Unmanic konnte nicht abgerufen werden.",
@@ -183,7 +183,7 @@
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Arbeiter verfügbar sind",
 				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeitskräfte verfügbar sind",
-				"enableTaskPreloading": "Laden Sie eine Aufgabe vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
+				"enableTaskPreloading": "Laden Sie einige Aufgaben vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
 				"enableDistributedWorkerCount": "Aktivieren Sie die Anzahl der verteilten Worker für diesen Link",
 				"workerTarget": "Arbeiter Ziel"
 			},
@@ -243,7 +243,7 @@
 			"rescanLibrary": "Bibliothek jetzt erneut scannen",
 			"moveToTop": "Ausgewählte nach oben verschieben",
 			"moveToBottom": "Ausgewählte nach unten verschieben",
-			"removeSelected": "Ausgewählte aus der Liste entfernen"
+			"removeSelected": "Remove selected from list"
 		},
 		"completedTasks": {
 			"details": "Einzelheiten",
@@ -256,43 +256,43 @@
 			"updateAvailable": "Update verfügbar",
 			"upToDate": "Auf dem Laufenden",
 			"globalConfiguration": "Globale Konfiguration",
-			"updatePlugin": "Update Stecker in",
-			"removePlugin": "Plugin entfernen",
-			"installPlugins": "PIugin installieren",
-			"categoryFilter": "Kategoriefilter",
-			"author": "Autor",
-			"version": "Ausführung",
+			"updatePlugin": "Update Plugin",
+			"removePlugin": "Remove Plugin",
+			"installPlugins": "Install Plugin",
+			"categoryFilter": "Category Filter",
+			"author": "Author",
+			"version": "Version",
 			"repo": "Repository",
-			"repoList": "Repository-Liste",
-			"refreshRepositories": "Repositorys aktualisieren",
-			"addRepository": "Repository hinzufügen",
-			"newRepository": "Neues Repository",
+			"repoList": "Repository List",
+			"refreshRepositories": "Refresh Repositories",
+			"addRepository": "Add Repository",
+			"newRepository": "New Repository",
 			"repoName": "Name",
-			"repoSource": "Repository-URL",
-			"errorSavingFlow": "Beim Speichern des Plugin-Flows ist ein Fehler aufgetreten",
-			"resetConfiguration": "Konfiguration zurücksetzen",
+			"repoSource": "Repository URL",
+			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+			"resetConfiguration": "Reset configuration",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Bibliotheksverwaltung - Dateitest",
-					"fileTestCaption": "Diese Plugins werden aufgerufen, um zu testen, ob Dateien zur Liste ausstehender Aufgaben hinzugefügt werden sollen"
+					"fileTest": "Library Management - File test",
+					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
 				},
 				"postprocessor": {
-					"fileMove": "Postprozessor - Dateibewegungen",
-					"fileMoveCaption": "Diese Plugins werden nach Abschluss der Aufgabe aufgerufen, um zusätzliche Dateibewegungen hinzuzufügen",
-					"taskResult": "Post-Prozessor – Markiert den Erfolg/Mißerfolg der Aufgabe",
-					"taskResultCaption": "Diese Plugins werden nach Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu kennzeichnen"
+					"fileMove": "Post-processor - File movements",
+					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
+					"taskResult": "Post-processor - Marking task success/failure",
+					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
 				},
 				"worker": {
-					"processItem": "Arbeiter - Datei wird verarbeitet",
-					"processItemCaption": "Diese Plugins werden von einem Worker aufgerufen und erzeugen einen benutzerdefinierten Befehl, der von diesem Worker ausgeführt und verwaltet wird"
+					"processItem": "Worker - Processing file",
+					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Sie haben keine Datenfelder aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
+			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
 		},
 		"footer": {
-			"version": "Ausführung"
+			"version": "Version"
 		}
 	}
 }

@@ -183,7 +183,7 @@
 				"configuration": "配置",
 				"allowReceivingTasks": "当工作人员可用时接收来自此安装的任务",
 				"allowSendingTasks": "当工作人员可用时将任务发送到此安装",
-				"enableTaskPreloading": "在远程安装挂起任务队列中预加载任务",
+				"enableTaskPreloading": "在远程安装挂起任务队列中预加载一些任务",
 				"enableDistributedWorkerCount": "启用此链接的分布式工作人员计数",
 				"workerTarget": "工人目标"
 			},
@@ -243,7 +243,7 @@
 			"rescanLibrary": "立即重新扫描库",
 			"moveToTop": "将所选内容移至顶部",
 			"moveToBottom": "将所选内容移至底部",
-			"removeSelected": "从列表中删除所选内容"
+			"removeSelected": "Remove selected from list"
 		},
 		"completedTasks": {
 			"details": "细节",
@@ -256,43 +256,43 @@
 			"updateAvailable": "可用更新",
 			"upToDate": "最新",
 			"globalConfiguration": "全局配置",
-			"updatePlugin": "更新插件",
-			"removePlugin": "删除插件",
-			"installPlugins": "安装插件",
-			"categoryFilter": "类别过滤器",
-			"author": "作者",
-			"version": "版本",
-			"repo": "存储库",
-			"repoList": "存储库列表",
-			"refreshRepositories": "刷新存储库",
-			"addRepository": "添加存储库",
-			"newRepository": "新存储库",
-			"repoName": "姓名",
-			"repoSource": "存储库 URL",
-			"errorSavingFlow": "保存插件流程时遇到错误",
-			"resetConfiguration": "重置配置",
+			"updatePlugin": "Update Plugin",
+			"removePlugin": "Remove Plugin",
+			"installPlugins": "Install Plugin",
+			"categoryFilter": "Category Filter",
+			"author": "Author",
+			"version": "Version",
+			"repo": "Repository",
+			"repoList": "Repository List",
+			"refreshRepositories": "Refresh Repositories",
+			"addRepository": "Add Repository",
+			"newRepository": "New Repository",
+			"repoName": "Name",
+			"repoSource": "Repository URL",
+			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+			"resetConfiguration": "Reset configuration",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "图书馆管理 - 文件测试",
-					"fileTestCaption": "调用这些插件来测试是否应将文件添加到待处理任务列表"
+					"fileTest": "Library Management - File test",
+					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
 				},
 				"postprocessor": {
-					"fileMove": "后处理器 - 文件移动",
-					"fileMoveCaption": "这些插件在任务完成时被调用以添加额外的文件移动",
-					"taskResult": "后处理器 - 标记任务成功/失败",
-					"taskResultCaption": "这些插件在任务完成时被调用，以标记该任务的整体成功或失败"
+					"fileMove": "Post-processor - File movements",
+					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
+					"taskResult": "Post-processor - Marking task success/failure",
+					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
 				},
 				"worker": {
-					"processItem": "工人 - 处理文件",
-					"processItemCaption": "这些插件由工作人员调用并生成由该工作人员执行和管理的自定义命令"
+					"processItem": "Worker - Processing file",
+					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "您没有启用任何数据面板。从您的插件设置中安装一个。"
+			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
 		},
 		"footer": {
-			"version": "版本"
+			"version": "Version"
 		}
 	}
 }

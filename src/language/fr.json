@@ -48,7 +48,7 @@
 		"SavedPluginSettings": "Paramètres du plug-in enregistrés.",
 		"failedToSavePluginSettings": "Échec de l'enregistrement des paramètres du plug-in.",
 		"failedToInstallPlugin": "Une erreur s'est produite lors de la tentative d'installation du plug-in demandé.",
-		"repoAlreadyExists": "Le référentiel existe déjà.",
+		"repoAlreadyExists": "Le dépôt existe déjà.",
 		"newRepoAddFailed": "Échec de l'enregistrement du nouveau référentiel.",
 		"reposRefreshSuccess": "Tous les référentiels ont été mis à jour avec succès.",
 		"reposRefreshFailure": "Impossible de mettre à jour vos référentiels configurés. Peut-être y a-t-il une erreur dans l'une des URL ?",
@@ -110,7 +110,7 @@
 		"update": "Mettre à jour",
 		"pluginInfo": "Informations sur le plug-in",
 		"position": "Position",
-		"etc": "Délai d'exécution estimé",
+		"etc": "Temps d'achèvement estimé",
 		"add": "Ajouter",
 		"remove": "Retirer",
 		"configure": "Configurer",
@@ -183,7 +183,7 @@
 				"configuration": "Configuration",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
-				"enableTaskPreloading": "Précharger une tâche dans la file d'attente des tâches en attente de l'installation à distance",
+				"enableTaskPreloading": "Précharger certaines tâches dans la file d'attente des tâches en attente de l'installation à distance",
 				"enableDistributedWorkerCount": "Activer le nombre de nœuds de calcul distribués pour ce lien",
 				"workerTarget": "Cible de travailleur"
 			},
@@ -243,7 +243,7 @@
 			"rescanLibrary": "Réanalyser la bibliothèque maintenant",
 			"moveToTop": "Déplacer la sélection vers le haut",
 			"moveToBottom": "Déplacer la sélection vers le bas",
-			"removeSelected": "Supprimer la sélection de la liste"
+			"removeSelected": "Remove selected from list"
 		},
 		"completedTasks": {
 			"details": "Des détails",
@@ -254,42 +254,42 @@
 		},
 		"plugins": {
 			"updateAvailable": "Mise à jour disponible",
-			"upToDate": "À jour",
-			"globalConfiguration": "Configuration globale",
-			"updatePlugin": "Mettre à jour le plug in",
-			"removePlugin": "Supprimer le plug-in",
-			"installPlugins": "Installer le plugin",
-			"categoryFilter": "Filtre de catégorie",
-			"author": "Auteur",
+			"upToDate": "Up-to-date",
+			"globalConfiguration": "Global Configuration",
+			"updatePlugin": "Update Plugin",
+			"removePlugin": "Remove Plugin",
+			"installPlugins": "Install Plugin",
+			"categoryFilter": "Category Filter",
+			"author": "Author",
 			"version": "Version",
-			"repo": "Dépôt",
-			"repoList": "Liste des référentiels",
-			"refreshRepositories": "Actualiser les référentiels",
-			"addRepository": "Ajouter un référentiel",
-			"newRepository": "Nouveau référentiel",
-			"repoName": "Nom",
-			"repoSource": "URL du référentiel",
-			"errorSavingFlow": "Une erreur s'est produite lors de l'enregistrement du flux de plug-in",
-			"resetConfiguration": "Réinitialiser la configuration",
+			"repo": "Repository",
+			"repoList": "Repository List",
+			"refreshRepositories": "Refresh Repositories",
+			"addRepository": "Add Repository",
+			"newRepository": "New Repository",
+			"repoName": "Name",
+			"repoSource": "Repository URL",
+			"errorSavingFlow": "An error was encountered while saving the Plugin Flow",
+			"resetConfiguration": "Reset configuration",
 			"types": {
 				"libraryManagement": {
-					"fileTest": "Gestion de bibliothèque - Test de fichier",
-					"fileTestCaption": "Ces plugins sont appelés pour tester si des fichiers doivent être ajoutés à la liste des tâches en attente"
+					"fileTest": "Library Management - File test",
+					"fileTestCaption": "These plugins are called to test if files should be added to the pending task list"
 				},
 				"postprocessor": {
-					"fileMove": "Post-processeur - Mouvements de fichiers",
-					"fileMoveCaption": "Ces plugins sont appelés à la fin de la tâche pour ajouter des mouvements de fichiers supplémentaires",
-					"taskResult": "Post-processeur - Marquage de la réussite/échec de la tâche",
-					"taskResultCaption": "Ces plugins sont appelés à la fin d'une tâche pour marquer le succès ou l'échec global de cette tâche"
+					"fileMove": "Post-processor - File movements",
+					"fileMoveCaption": "These plugins are called on completion of task to add additional file movements",
+					"taskResult": "Post-processor - Marking task success/failure",
+					"taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
 				},
 				"worker": {
-					"processItem": "Travailleur - Traitement du dossier",
-					"processItemCaption": "Ces plugins sont appelés par un worker et produisent une commande personnalisée à exécuter et gérer par ce worker"
+					"processItem": "Worker - Processing file",
+					"processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
 				}
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Aucun panneau de données n'est activé. Installez-en un à partir des paramètres de votre plugin."
+			"noDataPanelsEnabled": "You do not have any Data Panels enabled. Install one from your plugin settings."
 		},
 		"footer": {
 			"version": "Version"
