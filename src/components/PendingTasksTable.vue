@@ -143,8 +143,8 @@ export default {
 
     function rescanLibrary() {
       axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'pending/rescan')
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/rescan')
       }).then((response) => {
         rescanResponse.value = response.data
       }).catch(() => {

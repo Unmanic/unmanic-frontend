@@ -149,8 +149,8 @@ export default defineComponent({
   methods: {
     rescanLibrary: function () {
       axios({
-        method: 'get',
-        url: getUnmanicApiUrl('v1', 'pending/rescan')
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/rescan')
       }).then((response) => {
       }).catch(() => {
         this.$q.notify({
