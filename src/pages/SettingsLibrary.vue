@@ -216,7 +216,7 @@
               flat
               bordered
               @click="$router.push('/ui/settings-library')"
-              class="bg-grey-1 q-ma-xs">
+              class="q-ma-xs">
               <q-btn
                 icon="navigate_before"
                 flat>
@@ -229,7 +229,7 @@
               flat
               bordered
               @click="$router.push('/ui/settings-workers')"
-              class="bg-grey-1 q-ma-xs">
+              class="q-ma-xs">
               <q-btn
                 icon-right="navigate_next"
                 flat>

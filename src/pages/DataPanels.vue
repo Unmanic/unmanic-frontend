@@ -33,6 +33,7 @@
 import { ref } from "vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import { LocalStorage } from "quasar";
 
 export default {
   data() {
@@ -57,8 +58,9 @@ export default {
   methods: {
     setPageFromParams(pluginId) {
       if (typeof pluginId !== 'undefined') {
-        console.debug('setting iframe url to "/unmanic/panel/' + pluginId + '/"')
-        this.iframeSrc = '/unmanic/panel/' + pluginId + '/';
+        let theme = LocalStorage.getItem('theme');
+        console.debug('setting iframe url to "/unmanic/panel/' + pluginId + '/?theme=' + theme + '"')
+        this.iframeSrc = '/unmanic/panel/' + pluginId + '/?theme=' + theme;
       }
     },
     setPageAsFirstEnabledPanel() {

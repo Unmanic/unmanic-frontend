@@ -12,7 +12,7 @@
     <q-card
       v-touch-swipe.touch.right="hide"
       style="width: 700px; max-width: 90vw;">
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div class="col">
             <div class="text-h6 text-blue-10">

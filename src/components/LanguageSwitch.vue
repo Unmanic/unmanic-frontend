@@ -2,7 +2,7 @@
   <q-select
     v-model="locale"
     :options="localeOptions"
-    label="Language"
+    :label="$t('buttons.language')"
     dense
     borderless
     emit-value

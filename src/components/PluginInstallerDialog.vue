@@ -13,7 +13,7 @@
       :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
       style="width:2000px;">
 
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div class="col-auto">
             <q-btn
@@ -26,7 +26,7 @@
             </q-btn>
           </div>
           <div class="col">
-            <div class="text-h6 text-secondary">
+            <div class="text-h6 text-primary">
               <q-icon name="extension"/>
               {{ $t('headers.pluginInstaller') }}
             </div>

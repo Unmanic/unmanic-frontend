@@ -11,3 +11,13 @@
   border: 1px solid rgba(0, 0, 0, 0.24);
   transition: border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.header-background {
+  background: $header !important
+}
+.footer-background {
+  background: $header !important
+}
+.bg-card-head {
+  background: var(--q-card-head) !important
+}

@@ -101,10 +101,15 @@
                         <q-item-section center side>
                           <div class="text-grey-8 q-gutter-xs">
                             <q-btn
+                              flat dense round
                               size="12px"
-                              flat dense round icon="delete"
-                              @click="deleteSchedule(index)"
-                            />
+                              color="negative"
+                              icon="delete"
+                              @click="deleteSchedule(index)">
+                              <q-tooltip class="bg-white text-primary">
+                                {{ $t('tooltips.delete') }}
+                              </q-tooltip>
+                            </q-btn>
                           </div>
                         </q-item-section>
 
@@ -229,7 +234,7 @@
               flat
               bordered
               @click="$router.push('/ui/settings-library')"
-              class="bg-grey-1 q-ma-xs">
+              class="q-ma-xs">
               <q-btn
                 icon="navigate_before"
                 flat>
@@ -242,7 +247,7 @@
               flat
               bordered
               @click="$router.push('/ui/settings-plugins')"
-              class="bg-grey-1 q-ma-xs">
+              class="q-ma-xs">
               <q-btn
                 icon-right="navigate_next"
                 flat>

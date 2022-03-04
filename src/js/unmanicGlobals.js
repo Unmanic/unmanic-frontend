@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Notify } from 'quasar'
+import { Notify, setCssVar } from 'quasar'
 
 let $unmanic = {};
 
@@ -20,6 +20,18 @@ export const getUnmanicApiUrl = function (api_version, api_endpoint) {
     $unmanic.apiUrl = serverUrl + '/unmanic/api';
   }
   return $unmanic.apiUrl + '/' + api_version + '/' + api_endpoint;
+}
+
+export const setTheme = function (mode) {
+  if (mode === 'dark') {
+    setCssVar('primary', '#009fdd');
+    setCssVar('secondary', '#002e5c');
+    document.body.style.setProperty('--q-card-head', '#212121');
+  } else {
+    setCssVar('primary', '#002e5c');
+    setCssVar('secondary', '#009fdd');
+    document.body.style.setProperty('--q-card-head', '#f5f5f5');
+  }
 }
 
 export default {

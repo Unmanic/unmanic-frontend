@@ -7,11 +7,13 @@
       <div class="row">
         <div class="col q-ma-sm">
           <q-card>
-            <q-card-section class="bg-grey-2">
+            <q-card-section class="bg-card-head">
 
               <div class="row items-center no-wrap">
                 <div class="col">
-                  <div class="text-h6 text-purple-10">
+                  <div
+                    :class="$q.dark.isActive ? 'text-primary' : 'text-indigo-10'"
+                    class="text-h6">
                     <q-icon name="fas fa-spinner"/>
                     {{ $t('headers.workers') }}
                   </div>

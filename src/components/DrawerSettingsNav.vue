@@ -63,6 +63,37 @@
 
       <q-separator spaced/>
 
+      <!--START LANGUAGE SELECT-->
+      <q-item
+        clickable v-ripple>
+        <q-item-section avatar>
+          <q-icon name="language"/>
+        </q-item-section>
+        <q-item-section>
+          <LanguageSwitch/>
+        </q-item-section>
+      </q-item>
+      <!--END LANGUAGE SELECT-->
+      <!--START THEME SELECT-->
+      <q-item
+        v-if="$q.platform.is.mobile"
+        tag="label"
+        clickable
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="dark_mode"/>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ $t('buttons.darkMode') }}</q-item-label>
+        </q-item-section>
+        <q-item-section avatar>
+          <ThemeSwitch/>
+        </q-item-section>
+      </q-item>
+      <!--END THEME SELECT-->
+
+      <q-separator spaced/>
+
       <!--START SUPPORT SELECT-->
       <q-item
         clickable
@@ -83,9 +114,9 @@
 
   <q-img
     v-if="$q.platform.is.mobile"
-    class="absolute-top bg-primary"
+    class="absolute-top header-background"
     style="height: 90px;">
-    <div class="absolute-center bg-primary">
+    <div class="absolute-center header-background">
       <q-avatar
         rounded
         clickable
@@ -107,10 +138,12 @@ import { useQuasar } from "quasar";
 import { useI18n } from "vue-i18n";
 import MarkdownDialog from "components/MarkdownDialog";
 import { markdownToHTML } from "src/js/markupParser";
+import LanguageSwitch from "components/LanguageSwitch";
+import ThemeSwitch from "components/ThemeSwitch";
 
 export default {
   name: 'DrawerSettingsNav',
-  components: { },
+  components: { LanguageSwitch, ThemeSwitch },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();

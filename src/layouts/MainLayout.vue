@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    <q-header reveal elevated class="bg-primary text-white" height-hint="98">
+    <q-header reveal elevated class="header-background text-white" height-hint="98">
       <q-toolbar>
 
         <!--SHOW DRAWER MENU BUTTON-->
@@ -56,6 +56,10 @@
             <img src="~assets/unmanic-logo-white.png">
           </q-avatar>
         </q-toolbar-title>
+
+        <div>
+          <ThemeSwitch/>
+        </div>
       </q-toolbar>
 
     </q-header>
@@ -95,7 +99,7 @@
 
     <q-footer
       elevated
-      class="bg-primary text-white gt-sm">
+      class="footer-background text-white gt-sm">
       <q-toolbar>
         <q-toolbar-title>
           <FooterData/>
@@ -113,9 +117,10 @@ import FooterData from "components/FooterData";
 import DrawerSettingsNav from "components/DrawerSettingsNav";
 import { useQuasar } from "quasar";
 import DrawerDataPanelsNav from "components/DrawerDataPanelsNav";
+import ThemeSwitch from "components/ThemeSwitch";
 
 export default {
-  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerSettingsNav, FooterData },
+  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerSettingsNav, FooterData, ThemeSwitch },
   setup() {
     const $q = useQuasar();
 

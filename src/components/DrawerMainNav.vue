@@ -1,5 +1,6 @@
 <template>
-  <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
+  <q-scroll-area
+    style="height: calc(100% - 240px); margin-top: 150px; margin-bottom: 90px;">
     <q-list padding>
 
       <!--START DASHBOARD SELECT-->
@@ -89,6 +90,23 @@
         </q-item-section>
       </q-item>
       <!--END LANGUAGE SELECT-->
+      <!--START THEME SELECT-->
+      <q-item
+        v-if="$q.platform.is.mobile"
+        tag="label"
+        clickable
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="dark_mode"/>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>{{ $t('buttons.darkMode') }}</q-item-label>
+        </q-item-section>
+        <q-item-section avatar>
+          <ThemeSwitch/>
+        </q-item-section>
+      </q-item>
+      <!--END THEME SELECT-->
 
       <q-separator spaced/>
 
@@ -113,7 +131,7 @@
 
   <Avatar/>
 
-  <q-img class="absolute-bottom lt-md" src="~assets/bg-md1.jpg" style="height: 120px">
+  <q-img class="absolute-bottom lt-md" src="~assets/bg-md1.jpg" style="height: 80px">
     <div class="absolute-top bg-transparent text-white">
       <div class="q-pl-md">
         <FooterData/>
@@ -127,18 +145,18 @@
 import Avatar from "components/Avatar";
 import LanguageSwitch from "components/LanguageSwitch";
 import { ref } from "vue";
-import unmanicGlobals, { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import axios from "axios";
+import unmanicGlobals from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import { useI18n } from "vue-i18n";
 import FooterData from "components/FooterData";
 import MarkdownDialog from "components/MarkdownDialog";
 import { markdownToHTML } from "src/js/markupParser";
 import LoginDialog from "components/LoginDialog";
+import ThemeSwitch from "components/ThemeSwitch";
 
 export default {
   name: 'DrawerMainNav',
-  components: { Avatar, FooterData, LanguageSwitch },
+  components: { Avatar, FooterData, LanguageSwitch, ThemeSwitch },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
@@ -174,7 +192,6 @@ export default {
       }).onDismiss(() => {
       })
     }
-
 
     return {
       unmanicSession,

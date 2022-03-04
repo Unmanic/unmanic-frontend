@@ -28,7 +28,7 @@
       :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
       style="width:700px;">
 
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div
             v-if="$q.platform.is.mobile"
@@ -500,7 +500,7 @@ export default {
         this.$q.dialog({
           component: JsonImportExportDialog,
           componentProps: {
-            dialogHeader: this.$t('components.settings.library.exportPluginConfig'),
+            dialogHeader: this.$t('components.settings.library.exportLibraryConfig'),
             jsonData: JSON.stringify(response.data, null, 2),
             mode: 'export',
           }
@@ -575,7 +575,7 @@ export default {
       this.$q.dialog({
         component: JsonImportExportDialog,
         componentProps: {
-          dialogHeader: this.$t('components.settings.library.importPluginConfig'),
+          dialogHeader: this.$t('components.settings.library.importLibraryConfig'),
           jsonData: '',
           mode: 'import',
         }

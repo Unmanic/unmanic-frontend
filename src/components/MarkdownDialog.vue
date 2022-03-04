@@ -13,10 +13,10 @@
       v-touch-swipe.touch.right="hide"
       class="markdown-dialog"
       style="max-width:1000px;">
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div class="col">
-            <div class="text-h6 text-blue-10">
+            <div class="text-h6 text-primary">
               {{ dialogHeader }}
             </div>
           </div>

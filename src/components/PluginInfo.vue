@@ -12,7 +12,7 @@
 
     <q-card
       style="width:1200px; max-width: 95vw;">
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div class="col">
             <div class="text-h6 text-secondary">
@@ -197,7 +197,9 @@
                         <q-item-section
                           @click="item.value = !item.value"
                           v-if="item.input_type === 'checkbox'">
-                          <div class="bg-grey-2 q-pa-sm rounded-borders">
+                          <div
+                            :style="$q.dark.isActive ? 'background:rgba(255,255,255,.07)' : 'background:rgba(0, 0, 0, 0.05);'"
+                            class="q-pa-sm rounded-borders">
                             <q-checkbox
                               @update:model-value="savePluginSettings"
                               v-model="item.value"
@@ -603,8 +605,15 @@ span.plugin-description ul {
 }
 
 span.plugin-description pre {
-  background: #EEE;
   border: inset thin;
+}
+
+.body--light span.plugin-description pre {
+  background: #EEE;
+}
+
+.body--dark span.plugin-description pre {
+  background: #222;
 }
 
 span.plugin-description hr {

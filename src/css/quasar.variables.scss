@@ -12,13 +12,14 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+// NOTE: primary and secondary are modified in App.vue
 //003b68 -> 003d6b
 $primary   : #002e5c;
 $secondary : #009fdd;
 $accent    : #9C27B0;
 
 //1e1e1e -> 181818
-$dark      : #333333;
+$dark      : #181818;
 
 $positive  : #21BA45;
 $negative  : #C10015;
@@ -26,6 +27,6 @@ $info      : #31CCEC;
 $warning   : #F2C037;
 
 
-
 // Custom colours
-$dark-bg   : #32373d;
+$header: #002e5c;
+$card-head: #f5f5f5;

@@ -26,7 +26,7 @@
       :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
       style="width:700px;">
 
-      <q-card-section class="bg-grey-2">
+      <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
           <div
             v-if="$q.platform.is.mobile"

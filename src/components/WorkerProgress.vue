@@ -41,7 +41,7 @@
           size="90px"
           :thickness="0.2"
           :color="color"
-          center-color="grey-3"
+          :center-color="$q.dark.isActive ? 'grey-10' : 'grey-3'"
           track-color="grey-7"
           font-size="10px"
           class="q-ma-md"
@@ -97,7 +97,7 @@
         <q-card>
 
           <!--CARD HEAD-->
-          <q-card-section class="bg-grey-2">
+          <q-card-section class="bg-card-head">
             <div class="row items-center no-wrap">
               <div class="col">
                 <div class="text-h6 text-primary">
@@ -144,7 +144,7 @@
                   size="90px"
                   :thickness="0.2"
                   :color="color"
-                  center-color="grey-3"
+                  :center-color="$q.dark.isActive ? 'grey-10' : 'grey-3'"
                   track-color="grey-7"
                   font-size="10px"
                   class="q-ma-md"

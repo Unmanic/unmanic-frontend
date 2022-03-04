@@ -117,6 +117,10 @@
     "configure": "Configure",
     "delete": "Delete"
   },
+  "buttons": {
+    "language": "Language",
+    "darkMode": "Dark Mode"
+  },
   "components": {
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
