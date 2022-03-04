@@ -90,23 +90,6 @@
         </q-item-section>
       </q-item>
       <!--END LANGUAGE SELECT-->
-      <!--START THEME SELECT-->
-      <q-item
-        v-if="$q.platform.is.mobile"
-        tag="label"
-        clickable
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="dark_mode"/>
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>{{ $t('buttons.darkMode') }}</q-item-label>
-        </q-item-section>
-        <q-item-section avatar>
-          <ThemeSwitch/>
-        </q-item-section>
-      </q-item>
-      <!--END THEME SELECT-->
 
       <q-separator spaced/>
 
@@ -152,11 +135,10 @@ import FooterData from "components/FooterData";
 import MarkdownDialog from "components/MarkdownDialog";
 import { markdownToHTML } from "src/js/markupParser";
 import LoginDialog from "components/LoginDialog";
-import ThemeSwitch from "components/ThemeSwitch";
 
 export default {
   name: 'DrawerMainNav',
-  components: { Avatar, FooterData, LanguageSwitch, ThemeSwitch },
+  components: { Avatar, FooterData, LanguageSwitch },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
