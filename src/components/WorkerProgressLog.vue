@@ -14,7 +14,7 @@
 
     <q-separator/>
 
-    <q-card-section class="bg-grey-1 q-pa-md">
+    <q-card-section class="q-pa-md">
       <div
         v-for="(logLine, index) in workerLog"
         v-bind:key="index">
