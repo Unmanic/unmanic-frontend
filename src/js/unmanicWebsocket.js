@@ -242,16 +242,16 @@ export const UnmanicWebsocketHandler = function ($t) {
               break;
           }
         } else {
-          console.error('WebSocket Error: Received contained errors - ' + evt.data);
+          console.error('WebSocket Error: Received contained errors - ', evt.data);
         }
       } else {
-        console.error('WebSocket Error: Received data was not JSON - ' + evt.data);
+        console.error('WebSocket Error: Received data was not a string - ', evt.data);
       }
     });
 
     // Add event listener to handle an error in the websocket
     addWebsocketEventListener('error', 'websocket_error', function (evt) {
-      console.error('WebSocket Error: ' + evt);
+      console.error('WebSocket Error: ', evt);
       // Display error
       connectionWarning(true);
     });
