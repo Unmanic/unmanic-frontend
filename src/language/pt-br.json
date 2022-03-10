@@ -27,7 +27,8 @@
 		"yes": "sim",
 		"copy": "cópia de",
 		"loginWithPatreon": "Entrar com Patreon",
-		"loginWithGitHub": "Entrar com o GitHub"
+		"loginWithGitHub": "Entrar com o GitHub",
+		"loginWithDiscord": "Entrar com discórdia"
 	},
 	"status": {
 		"cannotLoadImage": "Não é possível carregar a imagem",
@@ -61,7 +62,7 @@
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
-		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação da biblioteca",
+		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação de biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -104,7 +105,8 @@
 		"listEmpty": "Esta lista de tarefas está vazia"
 	},
 	"tooltips": {
-		"close": "Voltar",
+		"close": "Fechar",
+		"back": "Voltar",
 		"install": "Instalar",
 		"reinstall": "Reinstalar",
 		"update": "Atualizar",
@@ -115,6 +117,10 @@
 		"remove": "Remover",
 		"configure": "Configurar",
 		"delete": "Excluir"
+	},
+	"buttons": {
+		"language": "Linguagem",
+		"darkMode": "Modo escuro"
 	},
 	"components": {
 		"settings": {
@@ -216,7 +222,7 @@
 			"workerPaused": "O trabalhador foi pausado",
 			"workerPausedFailed": "O Unmanic não conseguiu pausar este trabalhador por algum motivo",
 			"resumeWorker": "Retomar este trabalhador",
-			"workerResumed": "Trabalhador foi retomado",
+			"workerResumed": "O trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
 			"terminateWorker": "Encerrar este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
@@ -280,7 +286,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Pós-processador - Movimentos de arquivos",
-					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
 					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
 					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},
@@ -291,7 +297,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Você não tem nenhum painel de dados ativado. Instale um de suas configurações de plugin."
+			"noDataPanelsEnabled": "Você não tem nenhum Painel de Dados ativado. Instale um de suas configurações de plugin."
 		},
 		"footer": {
 			"version": "Versão"

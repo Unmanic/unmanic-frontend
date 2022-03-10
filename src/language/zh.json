@@ -27,7 +27,8 @@
 		"yes": "是的",
 		"copy": "复制",
 		"loginWithPatreon": "使用 Patreon 登录",
-		"loginWithGitHub": "使用 GitHub 登录"
+		"loginWithGitHub": "使用 GitHub 登录",
+		"loginWithDiscord": "使用 Discord 登录"
 	},
 	"status": {
 		"cannotLoadImage": "无法加载图片",
@@ -104,7 +105,8 @@
 		"listEmpty": "此任务列表为空"
 	},
 	"tooltips": {
-		"close": "后退",
+		"close": "关闭",
+		"back": "后退",
 		"install": "安装",
 		"reinstall": "重新安装",
 		"update": "更新",
@@ -115,6 +117,10 @@
 		"remove": "消除",
 		"configure": "配置",
 		"delete": "删除"
+	},
+	"buttons": {
+		"language": "语言",
+		"darkMode": "黑暗模式"
 	},
 	"components": {
 		"settings": {

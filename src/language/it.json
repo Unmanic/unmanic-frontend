@@ -27,7 +27,8 @@
 		"yes": "sì",
 		"copy": "copia",
 		"loginWithPatreon": "Accedi con Patreon",
-		"loginWithGitHub": "Accedi con GitHub"
+		"loginWithGitHub": "Accedi con GitHub",
+		"loginWithDiscord": "Accedi con Discord"
 	},
 	"status": {
 		"cannotLoadImage": "Impossibile caricare l'immagine",
@@ -104,7 +105,8 @@
 		"listEmpty": "Questo elenco di attività è vuoto"
 	},
 	"tooltips": {
-		"close": "Di ritorno",
+		"close": "Vicino",
+		"back": "Di ritorno",
 		"install": "Installare",
 		"reinstall": "Reinstalla",
 		"update": "Aggiornare",
@@ -115,6 +117,10 @@
 		"remove": "Rimuovere",
 		"configure": "Configura",
 		"delete": "Eliminare"
+	},
+	"buttons": {
+		"language": "Lingua",
+		"darkMode": "Modalità scura"
 	},
 	"components": {
 		"settings": {

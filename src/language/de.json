@@ -27,7 +27,8 @@
 		"yes": "Jawohl",
 		"copy": "Kopieren",
 		"loginWithPatreon": "Melden Sie sich mit Patreon an",
-		"loginWithGitHub": "Melden Sie sich mit GitHub an"
+		"loginWithGitHub": "Melden Sie sich mit GitHub an",
+		"loginWithDiscord": "Melden Sie sich mit Discord an"
 	},
 	"status": {
 		"cannotLoadImage": "Bild kann nicht geladen werden",
@@ -104,7 +105,8 @@
 		"listEmpty": "Diese Aufgabenliste ist leer"
 	},
 	"tooltips": {
-		"close": "Zurück",
+		"close": "Nah dran",
+		"back": "Zurück",
 		"install": "Installieren",
 		"reinstall": "Neu installieren",
 		"update": "Aktualisieren",
@@ -115,6 +117,10 @@
 		"remove": "Entfernen",
 		"configure": "Konfigurieren",
 		"delete": "Löschen"
+	},
+	"buttons": {
+		"language": "Sprache",
+		"darkMode": "Dunkler Modus"
 	},
 	"components": {
 		"settings": {
@@ -141,7 +147,7 @@
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
-				"exportLibraryConfig": "Konfig exportieren",
+				"exportLibraryConfig": "Konfig. exportieren",
 				"importLibraryConfig": "Konfig importieren",
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
 				"addPluginConfig": "Plugin hinzufügen",
@@ -291,7 +297,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Sie haben keine Datenfelder aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
+			"noDataPanelsEnabled": "Sie haben keine Datenbereiche aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
 		},
 		"footer": {
 			"version": "Ausführung"

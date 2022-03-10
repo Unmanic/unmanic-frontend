@@ -27,7 +27,8 @@
 		"yes": "sí",
 		"copy": "Dupdo",
 		"loginWithPatreon": "Iniciar sesión con Patreon",
-		"loginWithGitHub": "Iniciar sesión con GitHub"
+		"loginWithGitHub": "Iniciar sesión con GitHub",
+		"loginWithDiscord": "Iniciar sesión con Discord"
 	},
 	"status": {
 		"cannotLoadImage": "No se puede cargar la imagen",
@@ -104,7 +105,8 @@
 		"listEmpty": "Esta lista de tareas está vacía"
 	},
 	"tooltips": {
-		"close": "Atrás",
+		"close": "Cerrar",
+		"back": "Atrás",
 		"install": "Instalar en pc",
 		"reinstall": "Reinstalar",
 		"update": "Actualizar",
@@ -115,6 +117,10 @@
 		"remove": "Eliminar",
 		"configure": "Configurar",
 		"delete": "Borrar"
+	},
+	"buttons": {
+		"language": "Idioma",
+		"darkMode": "Modo oscuro"
 	},
 	"components": {
 		"settings": {

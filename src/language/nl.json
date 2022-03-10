@@ -27,7 +27,8 @@
 		"yes": "Ja",
 		"copy": "Kopiëren",
 		"loginWithPatreon": "Inloggen met Patreon",
-		"loginWithGitHub": "Inloggen met GitHub"
+		"loginWithGitHub": "Inloggen met GitHub",
+		"loginWithDiscord": "Inloggen met Discord"
 	},
 	"status": {
 		"cannotLoadImage": "Kan afbeelding niet laden",
@@ -57,7 +58,7 @@
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
-		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
+		"remoteInstallationAlreadyInList": "Het door u ingevoerde adres staat al in de lijst met installaties op afstand.",
 		"invalidRemoteInstallationAddress": "Het ingevoerde adres was geen geldige Unmanic-installatie.",
 		"incompatibleRemoteInstallation": "De externe Unmanic-installatie die u probeert toe te voegen, is niet compatibel met koppelen. Probeer het eerst te updaten.",
 		"cannotRemoveDefaultLibrary": "Kan de standaardbibliotheek niet verwijderen",
@@ -104,7 +105,8 @@
 		"listEmpty": "Deze takenlijst is leeg"
 	},
 	"tooltips": {
-		"close": "Rug",
+		"close": "Dichtbij",
+		"back": "Rug",
 		"install": "Installeren",
 		"reinstall": "Opnieuw installeren",
 		"update": "Bijwerken",
@@ -115,6 +117,10 @@
 		"remove": "Verwijderen",
 		"configure": "Configureren",
 		"delete": "Verwijderen"
+	},
+	"buttons": {
+		"language": "Taal",
+		"darkMode": "Donkere modus"
 	},
 	"components": {
 		"settings": {
@@ -127,9 +133,9 @@
 				"confirmRemove": "Als u de bibliotheek verwijdert, worden ook alle instellingen verwijderd die aan deze bibliotheek zijn gekoppeld. Weet je zeker dat je wilt doorgaan?",
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "Periodieke bibliotheekscans inschakelen",
-				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
+				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
-				"followSymlinks": "Symlinks volgen op bibliotheekscans",
+				"followSymlinks": "Volg symbolische links op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
 				"pendingTasks": "Taken in behandeling",
 				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten",
@@ -183,7 +189,7 @@
 				"add": "Toevoegen",
 				"connection": "Verbinding",
 				"configuration": "Configuratie",
-				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer werknemers beschikbaar zijn",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werkers beschikbaar zijn",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
 				"enableTaskPreloading": "Preload een aantal taken op de externe installatie Wachtende taken wachtrij",
 				"enableDistributedWorkerCount": "Gedistribueerd aantal werknemers inschakelen voor deze link",
@@ -243,7 +249,7 @@
 		},
 		"pendingTasks": {
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
-			"moveToTop": "Geselecteerde naar boven verplaatsen",
+			"moveToTop": "Verplaats geselecteerde naar boven",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
 			"removeSelected": "Geselecteerde uit lijst verwijderen"
 		},

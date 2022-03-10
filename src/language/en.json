@@ -27,7 +27,8 @@
     "yes": "Yes",
     "copy": "Copy",
     "loginWithPatreon": "Login with Patreon",
-    "loginWithGitHub": "Login with GitHub"
+    "loginWithGitHub": "Login with GitHub",
+    "loginWithDiscord": "Login with Discord"
   },
   "status": {
     "cannotLoadImage": "Cannot load image",
@@ -105,7 +106,7 @@
   },
   "tooltips": {
     "close": "Close",
-    "close": "Back",
+    "back": "Back",
     "install": "Install",
     "reinstall": "Reinstall",
     "update": "Update",

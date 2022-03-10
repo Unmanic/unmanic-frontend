@@ -27,7 +27,8 @@
 		"yes": "Ja",
 		"copy": "Kopiera",
 		"loginWithPatreon": "Logga in med Patreon",
-		"loginWithGitHub": "Logga in med GitHub"
+		"loginWithGitHub": "Logga in med GitHub",
+		"loginWithDiscord": "Logga in med Discord"
 	},
 	"status": {
 		"cannotLoadImage": "Det går inte att ladda bilden",
@@ -40,12 +41,12 @@
 		"copied": "Kopierade",
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
 		"failedToFetchLibraryList": "Det gick inte att hämta Unmanics bibliotekslista.",
-		"SavedPluginSettings": "Plugin-inställningarna sparade.",
+		"SavedPluginSettings": "Plugininställningarna sparade.",
 		"failedToSavePluginSettings": "Det gick inte att spara plugin-inställningarna.",
 		"failedToInstallPlugin": "Ett fel påträffades vid försök att installera det begärda pluginprogrammet.",
 		"repoAlreadyExists": "Lagret finns redan.",
@@ -104,7 +105,8 @@
 		"listEmpty": "Den här uppgiftslistan är tom"
 	},
 	"tooltips": {
-		"close": "Tillbaka",
+		"close": "Stänga",
+		"back": "Tillbaka",
 		"install": "Installera",
 		"reinstall": "Installera om",
 		"update": "Uppdatering",
@@ -115,6 +117,10 @@
 		"remove": "Ta bort",
 		"configure": "Konfigurera",
 		"delete": "Radera"
+	},
+	"buttons": {
+		"language": "Språk",
+		"darkMode": "Mörkt läge"
 	},
 	"components": {
 		"settings": {
@@ -267,7 +273,7 @@
 			"repo": "Förvar",
 			"repoList": "Förvarslista",
 			"refreshRepositories": "Uppdatera förråd",
-			"addRepository": "Lägg till förråd",
+			"addRepository": "Lägg till arkiv",
 			"newRepository": "Nytt förråd",
 			"repoName": "namn",
 			"repoSource": "Repository URL",

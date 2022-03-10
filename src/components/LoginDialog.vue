@@ -15,13 +15,6 @@
         <q-list
           clickable v-ripple
           @click="loginWithPatreon">
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon color="grey-8" name="fab fa-patreon"/>
-            </q-item-section>
-
-            <q-item-section>{{ $t('navigation.loginWithPatreon') }}</q-item-section>
-          </q-item>
 
           <q-item
             clickable v-ripple
@@ -32,6 +25,25 @@
 
             <q-item-section>{{ $t('navigation.loginWithGitHub') }}</q-item-section>
           </q-item>
+
+          <q-item
+            clickable v-ripple
+            @click="loginWithDiscord">
+            <q-item-section avatar>
+              <q-icon color="grey-8" name="fab fa-discord"/>
+            </q-item-section>
+
+            <q-item-section>{{ $t('navigation.loginWithDiscord') }}</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon color="grey-8" name="fab fa-patreon"/>
+            </q-item-section>
+
+            <q-item-section>{{ $t('navigation.loginWithPatreon') }}</q-item-section>
+          </q-item>
+
         </q-list>
       </q-card-section>
 
@@ -77,6 +89,10 @@ export default {
 
     loginWithGithub() {
       unmanicGlobals.loginWithGitHub(this.$t)
+    },
+
+    loginWithDiscord() {
+      unmanicGlobals.loginWithDiscord(this.$t)
     }
   },
   watch: {},

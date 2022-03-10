@@ -27,7 +27,8 @@
 		"yes": "はい",
 		"copy": "コピー",
 		"loginWithPatreon": "Patreonでログイン",
-		"loginWithGitHub": "GitHubでログイン"
+		"loginWithGitHub": "GitHubでログイン",
+		"loginWithDiscord": "Discordでログイン"
 	},
 	"status": {
 		"cannotLoadImage": "画像を読み込めません",
@@ -104,7 +105,8 @@
 		"listEmpty": "このタスクリストは空です"
 	},
 	"tooltips": {
-		"close": "戻る",
+		"close": "選ぶ",
+		"back": "戻る",
 		"install": "インストール",
 		"reinstall": "再インストール",
 		"update": "アップデート",
@@ -115,6 +117,10 @@
 		"remove": "削除",
 		"configure": "構成、設定",
 		"delete": "消去"
+	},
+	"buttons": {
+		"language": "言語",
+		"darkMode": "ダークモード"
 	},
 	"components": {
 		"settings": {
@@ -134,7 +140,7 @@
 				"pendingTasks": "保留中のタスク",
 				"clearPendingTasksOnStart": "起動時に保留中のタスクをすべてクリアする",
 				"fileTesting": "ファイルテスト",
-				"concurrentFileTesters": "並行ファイルテスター",
+				"concurrentFileTesters": "同時ファイルテスター",
 				"configuration": "構成",
 				"enableScanner": "このライブラリのライブラリスキャナーを有効にする",
 				"enableInotify": "このライブラリのファイルモニターを有効にする",
@@ -245,13 +251,13 @@
 			"rescanLibrary": "ライブラリを今すぐ再スキャン",
 			"moveToTop": "選択したものを上に移動",
 			"moveToBottom": "選択したものを下に移動",
-			"removeSelected": "リストから選択したものを削除する"
+			"removeSelected": "リストから選択したものを削除"
 		},
 		"completedTasks": {
 			"details": "詳細",
 			"errorGettingDetails": "このタスクの詳細を取得中にエラーが発生しました",
 			"addToPendingTasksList": "選択したものを[保留中のタスク]リストに追加",
-			"removeSelected": "リストから選択したものを削除する",
+			"removeSelected": "リストから選択したものを削除",
 			"selectLibraryToAdd": "このタスクを再作成するライブラリを選択します"
 		},
 		"plugins": {
