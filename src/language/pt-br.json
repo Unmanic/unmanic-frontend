@@ -116,7 +116,8 @@
 		"add": "Adicionar",
 		"remove": "Remover",
 		"configure": "Configurar",
-		"delete": "Excluir"
+		"delete": "Excluir",
+		"move": "Mover"
 	},
 	"buttons": {
 		"language": "Linguagem",
@@ -222,7 +223,7 @@
 			"workerPaused": "O trabalhador foi pausado",
 			"workerPausedFailed": "O Unmanic não conseguiu pausar este trabalhador por algum motivo",
 			"resumeWorker": "Retomar este trabalhador",
-			"workerResumed": "O trabalhador foi retomado",
+			"workerResumed": "Trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
 			"terminateWorker": "Encerrar este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
@@ -286,7 +287,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Pós-processador - Movimentos de arquivos",
-					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
 					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
 					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},

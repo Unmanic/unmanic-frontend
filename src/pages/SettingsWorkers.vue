@@ -73,7 +73,9 @@
 
                         <q-item-section avatar class="q-px-sm q-mx-sm">
                           <q-avatar rounded>
-                            <q-icon name="drag_handle" class="" style="max-width: 30px;"/>
+                            <q-icon name="drag_handle" class="" style="max-width: 30px;">
+                                <q-tooltip class="bg-white text-primary">{{ $t('tooltips.move') }}</q-tooltip>
+                            </q-icon>
                           </q-avatar>
                         </q-item-section>
 

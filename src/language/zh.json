@@ -116,7 +116,8 @@
 		"add": "添加",
 		"remove": "消除",
 		"configure": "配置",
-		"delete": "删除"
+		"delete": "删除",
+		"move": "移动"
 	},
 	"buttons": {
 		"language": "语言",

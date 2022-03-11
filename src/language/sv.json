@@ -46,7 +46,7 @@
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
 		"failedToFetchLibraryList": "Det gick inte att hämta Unmanics bibliotekslista.",
-		"SavedPluginSettings": "Plugininställningarna sparade.",
+		"SavedPluginSettings": "Plugin-inställningarna sparade.",
 		"failedToSavePluginSettings": "Det gick inte att spara plugin-inställningarna.",
 		"failedToInstallPlugin": "Ett fel påträffades vid försök att installera det begärda pluginprogrammet.",
 		"repoAlreadyExists": "Lagret finns redan.",
@@ -116,7 +116,8 @@
 		"add": "Lägg till",
 		"remove": "Ta bort",
 		"configure": "Konfigurera",
-		"delete": "Radera"
+		"delete": "Radera",
+		"move": "Flytta"
 	},
 	"buttons": {
 		"language": "Språk",
@@ -273,7 +274,7 @@
 			"repo": "Förvar",
 			"repoList": "Förvarslista",
 			"refreshRepositories": "Uppdatera förråd",
-			"addRepository": "Lägg till arkiv",
+			"addRepository": "Lägg till förråd",
 			"newRepository": "Nytt förråd",
 			"repoName": "namn",
 			"repoSource": "Repository URL",

@@ -49,7 +49,7 @@
 		"SavedPluginSettings": "Kua tiakina nga tautuhinga mono.",
 		"failedToSavePluginSettings": "I rahua te tiaki i nga tautuhinga mono.",
 		"failedToInstallPlugin": "I puta he hapa i te wa e ngana ana ki te whakauru i te mono i tonoa.",
-		"repoAlreadyExists": "Kei te noho kee te putunga.",
+		"repoAlreadyExists": "Kei te noho tonu te putunga.",
 		"newRepoAddFailed": "I rahua te penapena purongo hou.",
 		"reposRefreshSuccess": "I momoho te whakahou i nga putunga katoa.",
 		"reposRefreshFailure": "Kāore e taea te whakahōu i ō putunga whirihora. Akene he hapa kei tetahi o nga URL?",
@@ -72,7 +72,7 @@
 				"status": "Whakahoutanga mana kore e mohiotia mai i te tūmau"
 			},
 			"incompatiblePlugin": "Kua whakamutua e Unmanic nga mahi mahi na te mea kua kitea he mono hotokore kua whakahohea ki tetahi o o whare pukapuka",
-			"libraryEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga whare pukapuka kua whirihorahia mo te taumata-kore-tautoko. Whakaarohia te tautoko i te kaupapa kia kaha ake i te 2 whare pukapuka.",
+			"libraryEnabledLimits": "Kua whakamutua e Unmanic nga mahi mahi na te mea he maha rawa nga whare pukapuka kua whirihorahia mo te taumata kore-tautoko. Whakaarohia te tautoko i te kaupapa kia taea ai te neke atu i te 2 whare pukapuka.",
 			"pluginSettingsChangeWorkersStopped": "Kua whakamutua e Unmanic nga kaimahi katoa na te mea kua kitea he huringa ki te whirihoranga mono. Ina reri koe, haere ano nga kaimahi mai i te papatohu.",
 			"libraryScanProgress": "Kei te rere te karapa whare pukapuka",
 			"pendingTaskHaltedPostProcessorQueueFull": "I tae te rarangi Pou-tukatuka ki tona rohe",
@@ -116,7 +116,8 @@
 		"add": "Tāpiri",
 		"remove": "Tango",
 		"configure": "Whirihora",
-		"delete": "Mukua"
+		"delete": "Mukua",
+		"move": "Nuku"
 	},
 	"buttons": {
 		"language": "Reo",
@@ -189,7 +190,7 @@
 				"add": "Tāpiri",
 				"connection": "Hononga",
 				"configuration": "Whirihoranga",
-				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina waatea nga kaimahi",
+				"allowReceivingTasks": "Whiwhi mahi mai i tenei whakaurunga ina watea ana nga kaimahi",
 				"allowSendingTasks": "Tukua nga mahi ki tenei whakaurunga ina waatea nga kaimahi",
 				"enableTaskPreloading": "Utaa mua etahi mahi i runga i te whakaurunga mamao i te rarangi Mahi Tarewa",
 				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hononga",
@@ -285,7 +286,7 @@
 					"fileTestCaption": "Ka karangahia enei mono ki te whakamatautau mena me taapiri nga konae ki te rarangi mahi e tatari ana"
 				},
 				"postprocessor": {
-					"fileMove": "Pou-tukatuka - Ko nga nekehanga kōnae",
+					"fileMove": "Tukatuka-muri - Nga nekehanga kōnae",
 					"fileMoveCaption": "Ka karangahia enei mono ki te whakaotinga o nga mahi hei taapiri atu i nga nekehanga konae",
 					"taskResult": "Pou-tukatuka - Tohu i te angitu/rahunga mahi",
 					"taskResultCaption": "Ka karangahia enei mono i runga i te otinga o tetahi mahi hei tohu i te angitu katoa, i te kore ranei o taua mahi"

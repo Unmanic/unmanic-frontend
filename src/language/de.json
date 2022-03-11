@@ -42,7 +42,7 @@
 		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchLoginUrl": "Anmelde-URL konnte nicht abgerufen werden.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
-		"failedToSaveSettings": "Fehler beim Speichern der Einstellungen.",
+		"failedToSaveSettings": "Einstellungen konnten nicht gespeichert werden.",
 		"failedToFetchSettings": "Die aktuellen Einstellungen von Unmanic konnten nicht abgerufen werden.",
 		"failedToFetchSystemConfig": "Die Systemkonfiguration von Unmanic konnte nicht abgerufen werden.",
 		"failedToFetchLibraryList": "Bibliotheksliste von Unmanic konnte nicht abgerufen werden.",
@@ -77,7 +77,7 @@
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessorwarteschlange hat ihr Limit erreicht",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Worker erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Worker-Anzahl fällt",
-			"receivingRemoteFile": "Remote-Datei wird empfangen",
+			"receivingRemoteFile": "Entfernte Datei wird empfangen",
 			"linkedInstallationLimits": "Unmanic hat die Verarbeitung von Aufgaben eingestellt, da Sie zu viele Remote-Installationen für eine Nicht-Support-Stufe verknüpft haben. Erwägen Sie, das Projekt zu sponsern, um mehr als eine Remote-Installation zu verknüpfen."
 		}
 	},
@@ -116,7 +116,8 @@
 		"add": "Addieren",
 		"remove": "Entfernen",
 		"configure": "Konfigurieren",
-		"delete": "Löschen"
+		"delete": "Löschen",
+		"move": "Umzug"
 	},
 	"buttons": {
 		"language": "Sprache",
@@ -147,7 +148,7 @@
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
-				"exportLibraryConfig": "Konfig. exportieren",
+				"exportLibraryConfig": "Konfig exportieren",
 				"importLibraryConfig": "Konfig importieren",
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
 				"addPluginConfig": "Plugin hinzufügen",
@@ -297,7 +298,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Sie haben keine Datenbereiche aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
+			"noDataPanelsEnabled": "Sie haben keine Datenfelder aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
 		},
 		"footer": {
 			"version": "Ausführung"

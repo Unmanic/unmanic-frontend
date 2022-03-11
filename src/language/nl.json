@@ -58,7 +58,7 @@
 		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
-		"remoteInstallationAlreadyInList": "Het door u ingevoerde adres staat al in de lijst met installaties op afstand.",
+		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
 		"invalidRemoteInstallationAddress": "Het ingevoerde adres was geen geldige Unmanic-installatie.",
 		"incompatibleRemoteInstallation": "De externe Unmanic-installatie die u probeert toe te voegen, is niet compatibel met koppelen. Probeer het eerst te updaten.",
 		"cannotRemoveDefaultLibrary": "Kan de standaardbibliotheek niet verwijderen",
@@ -116,7 +116,8 @@
 		"add": "Toevoegen",
 		"remove": "Verwijderen",
 		"configure": "Configureren",
-		"delete": "Verwijderen"
+		"delete": "Verwijderen",
+		"move": "Beweging"
 	},
 	"buttons": {
 		"language": "Taal",
@@ -133,9 +134,9 @@
 				"confirmRemove": "Als u de bibliotheek verwijdert, worden ook alle instellingen verwijderd die aan deze bibliotheek zijn gekoppeld. Weet je zeker dat je wilt doorgaan?",
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "Periodieke bibliotheekscans inschakelen",
-				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
+				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
-				"followSymlinks": "Volg symbolische links op bibliotheekscans",
+				"followSymlinks": "Symlinks volgen op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
 				"pendingTasks": "Taken in behandeling",
 				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten",

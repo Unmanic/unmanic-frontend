@@ -116,7 +116,8 @@
 		"add": "追加",
 		"remove": "削除",
 		"configure": "構成、設定",
-		"delete": "消去"
+		"delete": "消去",
+		"move": "動く"
 	},
 	"buttons": {
 		"language": "言語",
@@ -140,7 +141,7 @@
 				"pendingTasks": "保留中のタスク",
 				"clearPendingTasksOnStart": "起動時に保留中のタスクをすべてクリアする",
 				"fileTesting": "ファイルテスト",
-				"concurrentFileTesters": "同時ファイルテスター",
+				"concurrentFileTesters": "並行ファイルテスター",
 				"configuration": "構成",
 				"enableScanner": "このライブラリのライブラリスキャナーを有効にする",
 				"enableInotify": "このライブラリのファイルモニターを有効にする",

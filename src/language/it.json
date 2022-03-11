@@ -116,7 +116,8 @@
 		"add": "Aggiungere",
 		"remove": "Rimuovere",
 		"configure": "Configura",
-		"delete": "Eliminare"
+		"delete": "Eliminare",
+		"move": "Spostare"
 	},
 	"buttons": {
 		"language": "Lingua",
