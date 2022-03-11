@@ -312,10 +312,13 @@ export default {
         },
       }).onOk((payload) => {
         if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
+          // Name the library as a clone
+          let randomString = (Math.random() + 1).toString(36).substring(7);
+          let newName = this.$t('components.settings.library.newLibrary') + ' (' + randomString + ')';
           // Save this data
           let data = {
             library_config: {
-              name: this.$t('components.settings.library.newLibrary'),
+              name: newName,
               path: payload.selectedPath,
             }
           }
