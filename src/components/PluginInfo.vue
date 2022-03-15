@@ -583,10 +583,6 @@ span.plugin-description {
   width: 100%;
 }
 
-span.plugin-description * {
-  margin-bottom: 0;
-}
-
 span.plugin-description p {
   margin-bottom: 5px;
 }
@@ -597,6 +593,7 @@ span.plugin-description h4,
 span.plugin-description h5,
 span.plugin-description h6 {
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 span.plugin-description ul {
@@ -606,6 +603,7 @@ span.plugin-description ul {
 
 span.plugin-description pre {
   border: inset thin;
+  padding: 10px;
 }
 
 .body--light span.plugin-description pre {

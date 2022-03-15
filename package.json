@@ -19,6 +19,7 @@
     "js-bbcode-parser": "^3.0.4",
     "quasar": "^2.0.0",
     "remarkable": "^2.0.1",
+    "remarkable-admonitions": "^0.2.2",
     "vue-i18n": "^9.0.0-beta.0",
     "vuedraggable": "^4.1.0",
     "vuex": "^4.0.1",
