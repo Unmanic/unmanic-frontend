@@ -115,7 +115,9 @@
     "etc": "Estimated Time of Completion",
     "add": "Add",
     "remove": "Remove",
+    "removeFromThisLibrary": "Remove from this library",
     "configure": "Configure",
+    "configureForThisLibrary": "Configure for this library",
     "delete": "Delete",
     "move": "Move"
   },
@@ -151,7 +153,7 @@
         "exportLibraryConfig": "Export config",
         "importLibraryConfig": "Import config",
         "importPluginConfigMessage": "Importing library configuration. This may take some time if there are any plugins that require installation.",
-        "addPluginConfig": "Add plugin",
+        "addPluginToThisLibrary": "Add plugin to this library",
         "locked": "The library cannot be deleted",
         "unlocked": "The library is able to be deleted"
       },

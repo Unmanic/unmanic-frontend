@@ -112,10 +112,12 @@
 		"update": "Bijwerken",
 		"pluginInfo": "Plugin-info",
 		"position": "Positie",
-		"etc": "Geschatte voltooiingstijd",
+		"etc": "Geschatte tijd van voltooiing",
 		"add": "Toevoegen",
 		"remove": "Verwijderen",
+		"removeFromThisLibrary": "Verwijderen uit deze bibliotheek",
 		"configure": "Configureren",
+		"configureForThisLibrary": "Configureren voor deze bibliotheek",
 		"delete": "Verwijderen",
 		"move": "Beweging"
 	},
@@ -151,7 +153,7 @@
 				"exportLibraryConfig": "Configuratie exporteren",
 				"importLibraryConfig": "Configuratie importeren",
 				"importPluginConfigMessage": "Bibliotheekconfiguratie importeren. Dit kan enige tijd duren als er plug-ins zijn die moeten worden geïnstalleerd.",
-				"addPluginConfig": "Plug-in toevoegen",
+				"addPluginToThisLibrary": "Voeg plug-in toe aan deze bibliotheek",
 				"locked": "De bibliotheek kan niet worden verwijderd",
 				"unlocked": "De bibliotheek kan worden verwijderd"
 			},

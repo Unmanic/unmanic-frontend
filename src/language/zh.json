@@ -115,7 +115,9 @@
 		"etc": "预计完成时间",
 		"add": "添加",
 		"remove": "消除",
+		"removeFromThisLibrary": "从此库中删除",
 		"configure": "配置",
+		"configureForThisLibrary": "为此库配置",
 		"delete": "删除",
 		"move": "移动"
 	},
@@ -151,7 +153,7 @@
 				"exportLibraryConfig": "导出配置",
 				"importLibraryConfig": "导入配置",
 				"importPluginConfigMessage": "导入库配置。如果有任何需要安装的插件，这可能需要一些时间。",
-				"addPluginConfig": "添加插件",
+				"addPluginToThisLibrary": "添加插件到这个库",
 				"locked": "无法删除库",
 				"unlocked": "该库可以被删除"
 			},

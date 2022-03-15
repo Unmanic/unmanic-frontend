@@ -260,7 +260,9 @@
                             icon="tune"
                             :disable="!plugin.has_config"
                             @click="showPluginSettings = plugin.plugin_id">
-                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.configure') }}</q-tooltip>
+                            <q-tooltip class="bg-white text-primary">
+                              {{ $t('tooltips.configureForThisLibrary') }}
+                            </q-tooltip>
                           </q-btn>
                           <q-btn
                             flat dense round
@@ -268,7 +270,9 @@
                             color="negative"
                             icon="remove_circle_outline"
                             @click="removePluginFromList(index)">
-                            <q-tooltip class="bg-white text-primary">{{ $t('tooltips.remove') }}</q-tooltip>
+                            <q-tooltip class="bg-white text-primary">
+                              {{ $t('tooltips.removeFromThisLibrary') }}
+                            </q-tooltip>
                           </q-btn>
                         </div>
                       </q-item-section>
@@ -287,7 +291,7 @@
                     icon="add"
                     @click="selectPluginFromList">
                     <q-tooltip class="bg-white text-primary">{{
-                        $t('components.settings.library.addPluginConfig')
+                        $t('components.settings.library.addPluginToThisLibrary')
                       }}
                     </q-tooltip>
                   </q-btn>

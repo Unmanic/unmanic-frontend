@@ -89,7 +89,7 @@
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
-		"globalPluginConfig": "Configuração global do plug-in",
+		"globalPluginConfig": "Configuração Global do Plugin",
 		"libraryPluginConfig": "Configuração do plug-in da biblioteca",
 		"information": "Informações",
 		"selectDirectory": "Selecione um diretório",
@@ -115,7 +115,9 @@
 		"etc": "Tempo estimado de conclusão",
 		"add": "Adicionar",
 		"remove": "Remover",
+		"removeFromThisLibrary": "Remover desta biblioteca",
 		"configure": "Configurar",
+		"configureForThisLibrary": "Configurar para esta biblioteca",
 		"delete": "Excluir",
 		"move": "Mover"
 	},
@@ -151,7 +153,7 @@
 				"exportLibraryConfig": "Exportar configuração",
 				"importLibraryConfig": "Importar configuração",
 				"importPluginConfigMessage": "Importando a configuração da biblioteca. Isso pode levar algum tempo se houver algum plug-in que exija instalação.",
-				"addPluginConfig": "Adicionar plug-in",
+				"addPluginToThisLibrary": "Adicionar plug-in a esta biblioteca",
 				"locked": "A biblioteca não pode ser excluída",
 				"unlocked": "A biblioteca pode ser excluída"
 			},

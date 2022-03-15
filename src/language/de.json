@@ -42,7 +42,7 @@
 		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchLoginUrl": "Anmelde-URL konnte nicht abgerufen werden.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
-		"failedToSaveSettings": "Einstellungen konnten nicht gespeichert werden.",
+		"failedToSaveSettings": "Fehler beim Speichern der Einstellungen.",
 		"failedToFetchSettings": "Die aktuellen Einstellungen von Unmanic konnten nicht abgerufen werden.",
 		"failedToFetchSystemConfig": "Die Systemkonfiguration von Unmanic konnte nicht abgerufen werden.",
 		"failedToFetchLibraryList": "Bibliotheksliste von Unmanic konnte nicht abgerufen werden.",
@@ -51,7 +51,7 @@
 		"failedToInstallPlugin": "Beim Versuch, das angeforderte Plug-in zu installieren, ist ein Fehler aufgetreten.",
 		"repoAlreadyExists": "Das Repository ist bereits vorhanden.",
 		"newRepoAddFailed": "Neues Repository konnte nicht gespeichert werden.",
-		"reposRefreshSuccess": "Alle Repositorys erfolgreich aktualisiert.",
+		"reposRefreshSuccess": "Alle Repositories erfolgreich aktualisiert.",
 		"reposRefreshFailure": "Ihre konfigurierten Repositorys können nicht aktualisiert werden. Vielleicht gibt es einen Fehler in einer der URLs?",
 		"repoRemovedSuccess": "Repository erfolgreich entfernt.",
 		"repoRemovedFailed": "Beim Versuch, das Repository zu entfernen, ist etwas schief gelaufen.",
@@ -77,7 +77,7 @@
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessorwarteschlange hat ihr Limit erreicht",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Worker erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Worker-Anzahl fällt",
-			"receivingRemoteFile": "Entfernte Datei wird empfangen",
+			"receivingRemoteFile": "Remote-Datei wird empfangen",
 			"linkedInstallationLimits": "Unmanic hat die Verarbeitung von Aufgaben eingestellt, da Sie zu viele Remote-Installationen für eine Nicht-Support-Stufe verknüpft haben. Erwägen Sie, das Projekt zu sponsern, um mehr als eine Remote-Installation zu verknüpfen."
 		}
 	},
@@ -115,7 +115,9 @@
 		"etc": "Voraussichtliche Fertigstellungszeit",
 		"add": "Addieren",
 		"remove": "Entfernen",
+		"removeFromThisLibrary": "Aus dieser Bibliothek entfernen",
 		"configure": "Konfigurieren",
+		"configureForThisLibrary": "Konfigurieren Sie für diese Bibliothek",
 		"delete": "Löschen",
 		"move": "Umzug"
 	},
@@ -148,10 +150,10 @@
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
-				"exportLibraryConfig": "Konfig. exportieren",
+				"exportLibraryConfig": "Konfig exportieren",
 				"importLibraryConfig": "Konfig importieren",
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
-				"addPluginConfig": "Plugin hinzufügen",
+				"addPluginToThisLibrary": "Plug-in zu dieser Bibliothek hinzufügen",
 				"locked": "Die Bibliothek kann nicht gelöscht werden",
 				"unlocked": "Die Bibliothek kann gelöscht werden"
 			},
@@ -191,7 +193,7 @@
 				"connection": "Verbindung",
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Arbeiter verfügbar sind",
-				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeiter verfügbar sind",
+				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeitskräfte verfügbar sind",
 				"enableTaskPreloading": "Laden Sie einige Aufgaben vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
 				"enableDistributedWorkerCount": "Aktivieren Sie die Anzahl der verteilten Worker für diesen Link",
 				"workerTarget": "Arbeiter Ziel"
@@ -299,7 +301,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Sie haben keine Datenfelder aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
+			"noDataPanelsEnabled": "Sie haben keine Datenbereiche aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
 		},
 		"footer": {
 			"version": "Ausführung"

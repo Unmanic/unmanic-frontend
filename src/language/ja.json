@@ -115,7 +115,9 @@
 		"etc": "完了予定時間",
 		"add": "追加",
 		"remove": "削除",
+		"removeFromThisLibrary": "このライブラリから削除する",
 		"configure": "構成、設定",
+		"configureForThisLibrary": "このライブラリ用に構成する",
 		"delete": "消去",
 		"move": "動く"
 	},
@@ -151,7 +153,7 @@
 				"exportLibraryConfig": "構成のエクスポート",
 				"importLibraryConfig": "構成のインポート",
 				"importPluginConfigMessage": "ライブラリ構成のインポート。インストールが必要なプラグインがある場合、これには時間がかかる場合があります。",
-				"addPluginConfig": "プラグインを追加",
+				"addPluginToThisLibrary": "このライブラリにプラグインを追加します",
 				"locked": "ライブラリは削除できません",
 				"unlocked": "ライブラリは削除できます"
 			},

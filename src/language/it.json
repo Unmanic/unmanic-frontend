@@ -115,7 +115,9 @@
 		"etc": "Tempo stimato di completamento",
 		"add": "Aggiungere",
 		"remove": "Rimuovere",
+		"removeFromThisLibrary": "Rimuovi da questa libreria",
 		"configure": "Configura",
+		"configureForThisLibrary": "Configura per questa libreria",
 		"delete": "Eliminare",
 		"move": "Spostare"
 	},
@@ -151,7 +153,7 @@
 				"exportLibraryConfig": "Esporta config",
 				"importLibraryConfig": "Importa config",
 				"importPluginConfigMessage": "Importazione della configurazione della libreria. L'operazione potrebbe richiedere del tempo se sono presenti plug-in che richiedono l'installazione.",
-				"addPluginConfig": "Aggiungi plug-in",
+				"addPluginToThisLibrary": "Aggiungi plugin a questa libreria",
 				"locked": "La libreria non può essere eliminata",
 				"unlocked": "È possibile eliminare la libreria"
 			},
