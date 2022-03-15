@@ -1,11 +1,25 @@
 <template>
+
+  <!-- START DIALOG CONFIG
+  Right fullscreen pop-up
+  Note: Update template q-dialog ref="" value
+
+  All Platforms:
+   - Swipe right to dismiss
+  Desktop:
+   - Width 2000px
+   - Minimise button top-right
+  Mobile:
+   - Full screen
+   - Back button top-left
+  -->
   <q-dialog
     ref="dialogRef"
     :maximized="$q.platform.is.mobile"
-    transition-show="slide-right"
-    transition-hide="slide-left"
+    :transition-show="$q.platform.is.mobile ? 'jump-left' : 'slide-left'"
+    :transition-hide="$q.platform.is.mobile ? 'jump-right' : 'slide-right'"
     full-height
-    position="left"
+    position="right"
     @hide="onDialogHide">
 
     <q-card
@@ -15,24 +29,41 @@
 
       <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
-          <div class="col-auto">
+          <div
+            v-if="$q.platform.is.mobile"
+            class="col">
             <q-btn
               color="grey-7"
               dense
               round
               flat
-              icon="arrow_back" v-close-popup>
-              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.back') }}</q-tooltip>
+              icon="arrow_back"
+              v-close-popup>
             </q-btn>
           </div>
+
           <div class="col">
-            <div class="text-h6 text-primary">
-              <q-icon name="extension"/>
+            <div class="text-h6 text-blue-10">
               {{ $t('headers.pluginInstaller') }}
             </div>
           </div>
+
+          <div
+            v-if="!$q.platform.is.mobile"
+            class="col-auto">
+            <q-btn
+              color="grey-7"
+              dense
+              round
+              flat
+              icon="arrow_forward"
+              v-close-popup>
+              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
+            </q-btn>
+          </div>
         </div>
       </q-card-section>
+      <!-- END DIALOG CONFIG -->
 
       <q-card-section class="q-pa-none">
         <div class="q-pa-md">

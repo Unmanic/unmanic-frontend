@@ -16,8 +16,8 @@
   <q-dialog
     ref="libraryConfigureDialogRef"
     :maximized="$q.platform.is.mobile"
-    transition-show="slide-left"
-    transition-hide="slide-right"
+    :transition-show="$q.platform.is.mobile ? 'jump-left' : 'slide-left'"
+    :transition-hide="$q.platform.is.mobile ? 'jump-right' : 'slide-right'"
     full-height
     position="right"
     @before-hide="beforeDialogHide"
