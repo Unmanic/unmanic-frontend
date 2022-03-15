@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Update beschikbaar",
-			"upToDate": "Actueel",
+			"clickToUpdatePlugin": "Klik om de plug-in bij te werken",
+			"pluginUpToDate": "Plug-in is up-to-date",
 			"globalConfiguration": "Algemene configuratie",
 			"updatePlugin": "Update plug in",
 			"removePlugin": "Plug-in verwijderen",

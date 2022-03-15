@@ -41,7 +41,7 @@
 		"copied": "Kopierade",
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Uppdatering tillgänglig",
-			"upToDate": "Aktuellt",
+			"clickToUpdatePlugin": "Klicka för att uppdatera plugin",
+			"pluginUpToDate": "Plugin är uppdaterad",
 			"globalConfiguration": "Global konfiguration",
 			"updatePlugin": "Uppdatera plugin",
 			"removePlugin": "Ta bort plugin",

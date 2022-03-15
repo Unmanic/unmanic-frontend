@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Atualização disponível",
-			"upToDate": "Atualizado",
+			"clickToUpdatePlugin": "Clique para atualizar o plug-in",
+			"pluginUpToDate": "O plug-in está atualizado",
 			"globalConfiguration": "Configuração global",
 			"updatePlugin": "Atualizar plug-in",
 			"removePlugin": "Remover plug-in",
@@ -287,7 +288,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Pós-processador - Movimentos de arquivos",
-					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
 					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
 					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},

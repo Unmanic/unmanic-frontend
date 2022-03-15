@@ -191,7 +191,7 @@
 				"connection": "Conexión",
 				"configuration": "Configuración",
 				"allowReceivingTasks": "Recibir tareas de esta instalación cuando los trabajadores estén disponibles",
-				"allowSendingTasks": "Enviar tareas a esta instalación cuando haya trabajadores disponibles",
+				"allowSendingTasks": "Enviar tareas a esta instalación cuando los trabajadores estén disponibles",
 				"enableTaskPreloading": "Precargar algunas tareas en la cola de tareas pendientes de instalación remota",
 				"enableDistributedWorkerCount": "Habilitar el recuento de trabajadores distribuidos para este enlace",
 				"workerTarget": "trabajador objetivo"
@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Actualización disponible",
-			"upToDate": "A hoy",
+			"clickToUpdatePlugin": "Haga clic para actualizar el complemento",
+			"pluginUpToDate": "El complemento está actualizado",
 			"globalConfiguration": "configuración global",
 			"updatePlugin": "Complemento de actualización",
 			"removePlugin": "Eliminar complemento",

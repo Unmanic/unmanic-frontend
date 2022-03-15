@@ -148,7 +148,7 @@
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
-				"exportLibraryConfig": "Konfig exportieren",
+				"exportLibraryConfig": "Konfig. exportieren",
 				"importLibraryConfig": "Konfig importieren",
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
 				"addPluginConfig": "Plugin hinzufügen",
@@ -191,7 +191,7 @@
 				"connection": "Verbindung",
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Arbeiter verfügbar sind",
-				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeitskräfte verfügbar sind",
+				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeiter verfügbar sind",
 				"enableTaskPreloading": "Laden Sie einige Aufgaben vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
 				"enableDistributedWorkerCount": "Aktivieren Sie die Anzahl der verteilten Worker für diesen Link",
 				"workerTarget": "Arbeiter Ziel"
@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Update verfügbar",
-			"upToDate": "Auf dem Laufenden",
+			"clickToUpdatePlugin": "Klicken Sie hier, um das Plugin zu aktualisieren",
+			"pluginUpToDate": "Plugin ist aktuell",
 			"globalConfiguration": "Globale Konfiguration",
 			"updatePlugin": "Update Stecker in",
 			"removePlugin": "Plugin entfernen",

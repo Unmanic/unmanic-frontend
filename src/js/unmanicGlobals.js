@@ -26,10 +26,12 @@ export const setTheme = function (mode) {
   if (mode === 'dark') {
     setCssVar('primary', '#009fdd');
     setCssVar('secondary', '#002e5c');
+    setCssVar('warning', '#b5902a');
     document.body.style.setProperty('--q-card-head', '#212121');
   } else {
     setCssVar('primary', '#002e5c');
     setCssVar('secondary', '#009fdd');
+    setCssVar('warning', '#f2c037');
     document.body.style.setProperty('--q-card-head', '#f5f5f5');
   }
 }

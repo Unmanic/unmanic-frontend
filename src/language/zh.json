@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "可用更新",
-			"upToDate": "最新",
+			"clickToUpdatePlugin": "点击更新插件",
+			"pluginUpToDate": "插件是最新的",
 			"globalConfiguration": "全局配置",
 			"updatePlugin": "更新插件",
 			"removePlugin": "删除插件",

@@ -149,7 +149,7 @@
 				"pluginFlow": "プラグインフロー",
 				"cloneLibrary": "クローンライブラリ",
 				"exportLibraryConfig": "構成のエクスポート",
-				"importLibraryConfig": "設定のインポート",
+				"importLibraryConfig": "構成のインポート",
 				"importPluginConfigMessage": "ライブラリ構成のインポート。インストールが必要なプラグインがある場合、これには時間がかかる場合があります。",
 				"addPluginConfig": "プラグインを追加",
 				"locked": "ライブラリは削除できません",
@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "利用可能なアップデート",
-			"upToDate": "最新の",
+			"clickToUpdatePlugin": "プラグインを更新するにはクリックしてください",
+			"pluginUpToDate": "プラグインは最新です",
 			"globalConfiguration": "グローバル構成",
 			"updatePlugin": "プラグインを更新",
 			"removePlugin": "プラグインを削除する",

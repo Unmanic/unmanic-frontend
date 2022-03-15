@@ -263,7 +263,8 @@
     },
     "plugins": {
       "updateAvailable": "Update available",
-      "upToDate": "Up-to-date",
+      "clickToUpdatePlugin": "Click to update plugin",
+      "pluginUpToDate": "Plugin is up-to-date",
       "globalConfiguration": "Global Configuration",
       "updatePlugin": "Update Plugin",
       "removePlugin": "Remove Plugin",

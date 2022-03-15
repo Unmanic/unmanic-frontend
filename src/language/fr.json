@@ -112,7 +112,7 @@
 		"update": "Mettre à jour",
 		"pluginInfo": "Informations sur le plug-in",
 		"position": "Position",
-		"etc": "Temps d'achèvement estimé",
+		"etc": "Délai d'exécution estimé",
 		"add": "Ajouter",
 		"remove": "Retirer",
 		"configure": "Configurer",
@@ -263,7 +263,8 @@
 		},
 		"plugins": {
 			"updateAvailable": "Mise à jour disponible",
-			"upToDate": "À jour",
+			"clickToUpdatePlugin": "Cliquez pour mettre à jour le plugin",
+			"pluginUpToDate": "Le plugin est à jour",
 			"globalConfiguration": "Configuration globale",
 			"updatePlugin": "Mettre à jour le plug in",
 			"removePlugin": "Supprimer le plug-in",

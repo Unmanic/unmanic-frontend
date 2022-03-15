@@ -38,7 +38,7 @@
           <div
             v-for="(plugin, index) in listedPlugins"
             v-bind:key="index">
-            <q-item>
+            <q-item :class="plugin.status.update_available ? 'bg-warning' : ''">
               <q-item-section avatar>
                 <q-img :src="plugin.icon"/>
               </q-item-section>
@@ -57,7 +57,10 @@
                       <span class="text-weight-medium">Author</span>
                     </div>
                     <div class="col-6 q-px-sm">
-                      <span class="text-grey-8">{{ plugin.author }}</span>
+                      <span
+                        :class="$q.dark.isActive && !plugin.status.update_available ? 'text-grey-5' : 'text-grey-8'">
+                        {{ plugin.author }}
+                      </span>
                     </div>
                   </div>
                 </q-item-label>
@@ -67,7 +70,10 @@
                       <span class="text-weight-medium">Version</span>
                     </div>
                     <div class="col-6 q-px-sm">
-                      <span class="text-grey-8">{{ plugin.version }}</span>
+                      <span
+                        :class="$q.dark.isActive && !plugin.status.update_available ? 'text-grey-5' : 'text-grey-8'">
+                        {{ plugin.version }}
+                      </span>
                     </div>
                   </div>
                 </q-item-label>
@@ -80,10 +86,9 @@
                     flat dense round
                     class="gt-xs"
                     size="12px"
-                    color="warning"
+                    color="info"
                     icon="update"
                     @click="updateSinglePlugin(plugin.id)">
-                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.updateAvailable') }}</q-tooltip>
                   </q-btn>
                   <q-btn
                     v-else
@@ -93,9 +98,18 @@
                     size="12px"
                     color="positive"
                     icon="download_done">
-                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.upToDate') }}</q-tooltip>
                   </q-btn>
                 </div>
+                <q-tooltip class="bg-white text-primary">
+                  <span
+                    v-if="plugin.status.update_available">
+                  {{ $t('components.plugins.clickToUpdatePlugin') }}
+                  </span>
+                  <span
+                    v-else>
+                  {{ $t('components.plugins.pluginUpToDate') }}
+                  </span>
+                </q-tooltip>
               </q-item-section>
 
               <q-separator inset vertical class="q-mx-sm"/>
@@ -113,7 +127,7 @@
 
                       <q-item clickable v-close-popup @click="openPluginInfo(plugin.id)">
                         <q-item-section avatar>
-                          <q-icon color="secondary" name="info"/>
+                          <q-icon color="info" name="info"/>
                         </q-item-section>
                         <q-item-section>
                           <q-item-label>{{ $t('headers.pluginInfo') }}</q-item-label>
@@ -185,6 +199,10 @@
 
                 </div>
               </q-item-section>
+              <q-tooltip
+                v-if="plugin.status.update_available"
+                class="bg-white text-primary">{{ $t('components.plugins.updateAvailable') }}
+              </q-tooltip>
             </q-item>
           </div>
 
@@ -207,66 +225,6 @@ import axios from "axios";
 import PluginInfo from "components/PluginInfo";
 import { bbCodeToHTML } from "src/js/markupParser";
 import PluginInstallerDialog from "components/PluginInstallerDialog";
-
-const columns = [
-  {
-    name: 'icon',
-    label: '',
-    required: true,
-    align: 'left',
-    field: 'icon',
-    sortable: false
-  },
-  {
-    name: 'name',
-    label: 'Plugin',
-    required: true,
-    align: 'left',
-    field: 'name',
-    sortable: true
-  },
-  {
-    name: 'description',
-    label: 'Description',
-    required: true,
-    align: 'left',
-    field: 'description',
-    sortable: true
-  },
-  {
-    name: 'tags',
-    label: 'Tags',
-    required: true,
-    align: 'left',
-    field: 'tags',
-    sortable: true
-  },
-  {
-    name: 'author',
-    label: 'Author',
-    required: true,
-    align: 'left',
-    field: 'author',
-    sortable: true
-  },
-  {
-    name: 'version',
-    label: 'Version',
-    required: true,
-    align: 'left',
-    field: 'version',
-    sortable: true
-  },
-  {
-    name: 'status',
-    label: 'Status',
-    required: true,
-    align: 'left',
-    field: 'status',
-    sortable: false
-  }
-]
-
 
 export default {
   components: { PluginInfo },
@@ -549,7 +507,6 @@ export default {
       filter,
       loading,
       pagination,
-      columns,
       rows,
 
       listedPlugins,
