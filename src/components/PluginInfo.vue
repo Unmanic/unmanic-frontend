@@ -143,10 +143,6 @@
                   <q-skeleton v-if="!description" width="100%" height="550px" class="shadow-1"/>
                   <q-card-section v-else class="q-pa-md">
 
-                    <div class="row q-mt-sm">
-                      <b>Description:</b>
-                    </div>
-
                     <div class="row q-mt-md">
                       <span class="plugin-description" v-html="description"></span>
                     </div>
