@@ -197,7 +197,7 @@
                             :style="$q.dark.isActive ? 'background:rgba(255,255,255,.07)' : 'background:rgba(0, 0, 0, 0.05);'"
                             class="q-pa-sm rounded-borders">
                             <q-checkbox
-                              @update:model-value="savePluginSettings"
+                              @update:model-value="value=>{updateAndTriggerSave(item.key_id, value)}"
                               v-model="item.value"
                               :label="item.label"/>
                           </div>
@@ -207,7 +207,7 @@
                         <q-item-section
                           v-if="item.input_type === 'select'">
                           <q-select
-                            @update:model-value="savePluginSettings"
+                            @update:model-value="value=>{updateAndTriggerSave(item.key_id, value)}"
                             filled
                             v-model="item.value"
                             emit-value
@@ -526,6 +526,15 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    updateAndTriggerSave: function (key, value) {
+      for (let i = 0; i < this.settings.length; i++) {
+        if (this.settings[i].key_id === key) {
+          this.settings[i].value = value;
+          break
+        }
+      }
+      this.savePluginSettings()
     },
     updateWithDirectoryBrowser: function (input) {
       this.$q.dialog({
