@@ -93,6 +93,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import { useI18n } from "vue-i18n";
+import { onUnmounted } from "@vue/runtime-core";
 
 const columns = [
   {
@@ -132,6 +133,7 @@ export default {
     const selected = ref([]);
 
     const rescanResponse = ref(null);
+    let reloadInterval = null;
 
     function getSelectedString() {
       let return_value = ''
@@ -341,6 +343,18 @@ export default {
         pagination: pagination.value,
         filter: undefined
       })
+      reloadInterval = setInterval(() => {
+        onRequest({
+          pagination: pagination.value,
+          filter: filter.value
+        })
+      }, 10000);
+    })
+
+    onUnmounted(() => {
+      if (reloadInterval != null) {
+        clearInterval(reloadInterval);
+      }
     })
 
     return {
