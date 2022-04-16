@@ -368,8 +368,7 @@ export default {
     // (don't change its name --> "show")
     show() {
       this.$refs.libraryConfigureDialogRef.show();
-      this.currentID = this.libraryId;
-      this.fetchLibraryConfig();
+      this.fetchLibraryConfig(this.libraryId);
     },
 
     // following method is REQUIRED
@@ -389,10 +388,10 @@ export default {
       this.saveLibraryConfig();
     },
 
-    fetchLibraryConfig: function () {
+    fetchLibraryConfig: function (libraryId) {
       // Fetch from server
       let data = {
-        id: this.currentID,
+        id: libraryId,
       }
       axios({
         method: 'post',
@@ -401,6 +400,7 @@ export default {
       }).then((response) => {
         // Library configuration
         let libraryConfig = response.data.library_config;
+        this.currentID = libraryConfig.id;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
         this.locked = libraryConfig.locked;
@@ -577,7 +577,7 @@ export default {
         this.showLoading = false;
         Loading.hide();
         this.componentKey += 1;
-        this.fetchLibraryConfig();
+        this.fetchLibraryConfig(this.currentID);
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
