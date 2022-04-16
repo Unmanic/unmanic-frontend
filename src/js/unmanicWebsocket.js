@@ -23,22 +23,26 @@ export const UnmanicWebsocketHandler = function ($t) {
    */
   const initWebsocket = function () {
 
-    function connectionWarning(show) {
-      if (show) {
-        if (clearConnectionWarning === null) {
-          clearConnectionWarning = Notify.create({
-            timeout: 0,
-            spinner: true,
-            color: 'warning',
-            position: 'top',
-            message: $t('notifications.backendConnectionWarning'),
-            icon: 'report_problem'
-          });
-        }
-      } else {
-        if (typeof clearConnectionWarning === 'function') {
-          clearConnectionWarning();
-        }
+    function showWebsocketConnectionWarning() {
+      if (clearConnectionWarning === null) {
+        clearConnectionWarning = Notify.create({
+          timeout: 0,
+          spinner: true,
+          color: 'warning',
+          position: 'top',
+          message: $t('notifications.backendConnectionWarning'),
+          icon: 'report_problem'
+        });
+        let connectionCheckInterval = setInterval(() => {
+          console.log("Checking for websocket reconnection")
+          if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
+            if ($unmanic.ws.readyState === WebSocket.OPEN) {
+              console.log("Websocket has reconnected. Clearing warning.")
+              clearConnectionWarning();
+              clearInterval(connectionCheckInterval);
+            }
+          }
+        }, 5000);
       }
     }
 
@@ -215,14 +219,12 @@ export const UnmanicWebsocketHandler = function ($t) {
     // Add event listener to request frontend messages from server
     addWebsocketEventListener('open', 'start_frontend_messages', function (evt) {
       clearTimeout(connectionTimer);
-      connectionWarning(false);
       $unmanic.ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
     });
 
     // Add event listener to handle frontend messages from server
     addWebsocketEventListener('message', 'handle_frontend_messages', function (evt) {
       if (typeof evt.data === 'string') {
-        connectionWarning(false);
         let jsonData = JSON.parse(evt.data);
         if (jsonData.success) {
           // Ensure the server is still running the same instance...
@@ -253,7 +255,7 @@ export const UnmanicWebsocketHandler = function ($t) {
     addWebsocketEventListener('error', 'websocket_error', function (evt) {
       console.error('WebSocket Error: ', evt);
       // Display error
-      connectionWarning(true);
+      showWebsocketConnectionWarning();
     });
 
     // Add event listener to auto-reconnect the websocket if the socket closes
