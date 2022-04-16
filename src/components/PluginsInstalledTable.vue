@@ -35,176 +35,175 @@
           separator
           class="rounded-borders">
 
-          <div
+          <q-item
             v-for="(plugin, index) in listedPlugins"
-            v-bind:key="index">
-            <q-item :class="plugin.status.update_available ? 'bg-warning' : ''">
-              <q-item-section avatar>
-                <q-img :src="plugin.icon"/>
-              </q-item-section>
+            v-bind:key="index"
+            :class="plugin.status.update_available ? 'bg-warning' : ''">
+            <q-item-section avatar>
+              <q-img :src="plugin.icon"/>
+            </q-item-section>
 
-              <q-item-section top class="">
-                <q-item-label>{{ plugin.name }}</q-item-label>
-                <q-item-label caption lines="3">
-                  <span v-html="plugin.description"></span>
-                </q-item-label>
-              </q-item-section>
+            <q-item-section top class="">
+              <q-item-label>{{ plugin.name }}</q-item-label>
+              <q-item-label caption lines="3">
+                <span v-html="plugin.description"></span>
+              </q-item-label>
+            </q-item-section>
 
-              <q-item-section top class="gt-xs col-2">
-                <q-item-label lines="1">
-                  <div class="row">
-                    <div class="col-6 text-right">
-                      <span class="text-weight-medium">Author</span>
-                    </div>
-                    <div class="col-6 q-px-sm">
+            <q-item-section top class="gt-xs col-2">
+              <q-item-label lines="1">
+                <div class="row">
+                  <div class="col-6 text-right">
+                    <span class="text-weight-medium">Author</span>
+                  </div>
+                  <div class="col-6 q-px-sm">
                       <span
                         :class="$q.dark.isActive && !plugin.status.update_available ? 'text-grey-5' : 'text-grey-8'">
                         {{ plugin.author }}
                       </span>
-                    </div>
                   </div>
-                </q-item-label>
-                <q-item-label lines="1">
-                  <div class="row">
-                    <div class="col-6 text-right">
-                      <span class="text-weight-medium">Version</span>
-                    </div>
-                    <div class="col-6 q-px-sm">
+                </div>
+              </q-item-label>
+              <q-item-label lines="1">
+                <div class="row">
+                  <div class="col-6 text-right">
+                    <span class="text-weight-medium">Version</span>
+                  </div>
+                  <div class="col-6 q-px-sm">
                       <span
                         :class="$q.dark.isActive && !plugin.status.update_available ? 'text-grey-5' : 'text-grey-8'">
                         {{ plugin.version }}
                       </span>
-                    </div>
                   </div>
-                </q-item-label>
-              </q-item-section>
-
-              <q-item-section center side>
-                <div class="text-grey-8 q-gutter-xs q-mr-lg">
-                  <q-btn
-                    v-if="plugin.status.update_available"
-                    flat dense round
-                    class="gt-xs"
-                    size="12px"
-                    color="info"
-                    icon="update"
-                    @click="updateSinglePlugin(plugin.id)">
-                  </q-btn>
-                  <q-btn
-                    v-else
-                    disable
-                    flat dense round
-                    class="gt-xs no-pointer-events"
-                    size="12px"
-                    color="positive"
-                    icon="download_done">
-                  </q-btn>
                 </div>
-                <q-tooltip class="bg-white text-primary">
+              </q-item-label>
+            </q-item-section>
+
+            <q-item-section center side>
+              <div class="text-grey-8 q-gutter-xs q-mr-lg">
+                <q-btn
+                  v-if="plugin.status.update_available"
+                  flat dense round
+                  class="gt-xs"
+                  size="12px"
+                  color="info"
+                  icon="update"
+                  @click="updateSinglePlugin(plugin.id)">
+                </q-btn>
+                <q-btn
+                  v-else
+                  disable
+                  flat dense round
+                  class="gt-xs no-pointer-events"
+                  size="12px"
+                  color="positive"
+                  icon="download_done">
+                </q-btn>
+              </div>
+              <q-tooltip class="bg-white text-primary">
                   <span
                     v-if="plugin.status.update_available">
                   {{ $t('components.plugins.clickToUpdatePlugin') }}
                   </span>
-                  <span
-                    v-else>
+                <span
+                  v-else>
                   {{ $t('components.plugins.pluginUpToDate') }}
                   </span>
-                </q-tooltip>
-              </q-item-section>
-
-              <q-separator inset vertical class="q-mx-sm"/>
-
-              <q-item-section center side>
-                <div class="text-grey-8 q-gutter-xs">
-
-                  <q-btn-dropdown
-                    flat dense rounded
-                    class="lt-sm"
-                    size="12px"
-                    no-icon-animation
-                    dropdown-icon="more_vert">
-                    <q-list>
-
-                      <q-item clickable v-close-popup @click="openPluginInfo(plugin.id)">
-                        <q-item-section avatar>
-                          <q-icon color="info" name="info"/>
-                        </q-item-section>
-                        <q-item-section>
-                          <q-item-label>{{ $t('headers.pluginInfo') }}</q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                      <q-item clickable v-close-popup @click="openPluginInfo(plugin.id, 'settings')"
-                              v-if="plugin.has_config">
-                        <q-item-section avatar>
-                          <q-icon color="grey-8" name="tune"/>
-                        </q-item-section>
-                        <q-item-section>
-                          <q-item-label>{{ $t('components.plugins.globalConfiguration') }}</q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                      <q-item clickable v-close-popup @click="updateSinglePlugin(plugin.id)"
-                              v-if="plugin.status.update_available">
-                        <q-item-section avatar>
-                          <q-icon color="warning" name="update"/>
-                        </q-item-section>
-                        <q-item-section>
-                          <q-item-label>{{ $t('components.plugins.updatePlugin') }}</q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                      <q-item clickable v-close-popup @click="removeSinglePlugin(plugin.id)">
-                        <q-item-section avatar>
-                          <q-icon color="negative" name="delete"/>
-                        </q-item-section>
-                        <q-item-section>
-                          <q-item-label>{{ $t('components.plugins.removePlugin') }}</q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                    </q-list>
-                  </q-btn-dropdown>
-
-                  <q-btn
-                    flat dense round
-                    class="gt-xs"
-                    size="12px"
-                    color="secondary"
-                    icon="info"
-                    @click="openPluginInfo(plugin.id)">
-                    <q-tooltip class="bg-white text-primary">{{ $t('headers.pluginInfo') }}</q-tooltip>
-                  </q-btn>
-                  <q-btn
-                    :disable="!plugin.has_config"
-                    flat dense round
-                    class="gt-xs"
-                    size="12px"
-                    color="grey-8"
-                    icon="tune"
-                    @click="openPluginInfo(plugin.id, 'settings')">
-                    <q-tooltip class="bg-white text-primary">
-                      {{ $t('components.plugins.globalConfiguration') }}
-                    </q-tooltip>
-                  </q-btn>
-                  <q-btn
-                    flat dense round
-                    class="gt-xs"
-                    size="12px"
-                    color="negative"
-                    icon="delete"
-                    @click="removeSinglePlugin(plugin.id)">
-                    <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
-                  </q-btn>
-
-                </div>
-              </q-item-section>
-              <q-tooltip
-                v-if="plugin.status.update_available"
-                class="bg-white text-primary">{{ $t('components.plugins.updateAvailable') }}
               </q-tooltip>
-            </q-item>
-          </div>
+            </q-item-section>
+
+            <q-separator inset vertical class="q-mx-sm"/>
+
+            <q-item-section center side>
+              <div class="text-grey-8 q-gutter-xs">
+
+                <q-btn-dropdown
+                  flat dense rounded
+                  class="lt-sm"
+                  size="12px"
+                  no-icon-animation
+                  dropdown-icon="more_vert">
+                  <q-list>
+
+                    <q-item clickable v-close-popup @click="openPluginInfo(plugin.id)">
+                      <q-item-section avatar>
+                        <q-icon color="info" name="info"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('headers.pluginInfo') }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                    <q-item clickable v-close-popup @click="openPluginInfo(plugin.id, 'settings')"
+                            v-if="plugin.has_config">
+                      <q-item-section avatar>
+                        <q-icon color="grey-8" name="tune"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.plugins.globalConfiguration') }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                    <q-item clickable v-close-popup @click="updateSinglePlugin(plugin.id)"
+                            v-if="plugin.status.update_available">
+                      <q-item-section avatar>
+                        <q-icon color="warning" name="update"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.plugins.updatePlugin') }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                    <q-item clickable v-close-popup @click="removeSinglePlugin(plugin.id)">
+                      <q-item-section avatar>
+                        <q-icon color="negative" name="delete"/>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>{{ $t('components.plugins.removePlugin') }}</q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                  </q-list>
+                </q-btn-dropdown>
+
+                <q-btn
+                  flat dense round
+                  class="gt-xs"
+                  size="12px"
+                  color="secondary"
+                  icon="info"
+                  @click="openPluginInfo(plugin.id)">
+                  <q-tooltip class="bg-white text-primary">{{ $t('headers.pluginInfo') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  :disable="!plugin.has_config"
+                  flat dense round
+                  class="gt-xs"
+                  size="12px"
+                  color="grey-8"
+                  icon="tune"
+                  @click="openPluginInfo(plugin.id, 'settings')">
+                  <q-tooltip class="bg-white text-primary">
+                    {{ $t('components.plugins.globalConfiguration') }}
+                  </q-tooltip>
+                </q-btn>
+                <q-btn
+                  flat dense round
+                  class="gt-xs"
+                  size="12px"
+                  color="negative"
+                  icon="delete"
+                  @click="removeSinglePlugin(plugin.id)">
+                  <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
+                </q-btn>
+
+              </div>
+            </q-item-section>
+            <q-tooltip
+              v-if="plugin.status.update_available"
+              class="bg-white text-primary">{{ $t('components.plugins.updateAvailable') }}
+            </q-tooltip>
+          </q-item>
 
         </q-list>
       </div>
