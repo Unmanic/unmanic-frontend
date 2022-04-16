@@ -147,6 +147,7 @@
         "configuration": "Configuration",
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
+        "priorityScore": "Set a priority score modifier for tasks generated for this library",
         "plugins": "Plugins",
         "pluginFlow": "Plugin Flow",
         "cloneLibrary": "Clone library",

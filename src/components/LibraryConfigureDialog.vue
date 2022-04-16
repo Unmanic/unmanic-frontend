@@ -210,6 +210,20 @@
                   </q-item-section>
                 </q-item>
               </div>
+
+              <div class="q-pb-sm">
+                <q-skeleton
+                  v-if="priorityScore === null"
+                  type="QInput"/>
+                <q-input
+                  v-if="priorityScore !== null"
+                  outlined
+                  color="primary"
+                  v-model.number="priorityScore"
+                  :label="$t('components.settings.library.priorityScore')"
+                  type="number"
+                />
+              </div>
             </q-card-section>
 
             <q-separator/>
@@ -392,6 +406,7 @@ export default {
         this.locked = libraryConfig.locked;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
+        this.priorityScore = libraryConfig.priority_score;
 
         // Plugins
         this.enabledPlugins = response.data.plugins.enabled_plugins;
@@ -406,6 +421,7 @@ export default {
           locked: this.locked,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
+          priority_score: this.priorityScore,
         },
         plugins: {
           enabled_plugins: this.enabledPlugins,
@@ -610,6 +626,7 @@ export default {
           path: this.path,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
+          priority_score: this.priorityScore,
         }
         // Create JSON string
         let importString = JSON.stringify(configData, null, 2);
@@ -648,6 +665,7 @@ export default {
       locked: ref(false),
       enableScanner: ref(false),
       enableInotify: ref(false),
+      priorityScore: ref(0),
       enabledPlugins: ref([]),
       componentKey: 1,
       showLoading: ref(false),
