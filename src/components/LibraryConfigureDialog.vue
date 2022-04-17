@@ -224,6 +224,24 @@
                   type="number"
                 />
               </div>
+
+              <div class="q-pb-sm">
+                <q-skeleton
+                  v-if="tags === null"
+                  type="QInput"/>
+                <q-select
+                  filled
+                  use-input
+                  use-chips
+                  multiple
+                  hide-dropdown-icon
+                  input-debounce="0"
+                  new-value-mode="add-unique"
+                  v-model="tags"
+                  :label="$t('components.settings.library.tags')"
+                  @keyup.tab="addTag"
+                />
+              </div>
             </q-card-section>
 
             <q-separator/>
@@ -407,6 +425,7 @@ export default {
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
         this.priorityScore = libraryConfig.priority_score;
+        this.tags = libraryConfig.tags;
 
         // Plugins
         this.enabledPlugins = response.data.plugins.enabled_plugins;
@@ -422,6 +441,7 @@ export default {
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
+          tags: this.tags,
         },
         plugins: {
           enabled_plugins: this.enabledPlugins,
@@ -450,6 +470,19 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    addTag: function () {
+      if (this.newTag) {
+        this.tags[this.tags.length] = this.newTag;
+        this.newTag = null;
+      }
+    },
+    deleteTag: function (tag) {
+      for (let i = 0; i < this.tags.length; i++) {
+        if (this.tags[i] === tag) {
+          this.tags.splice(i, 1);
+        }
+      }
     },
     updateLibraryWithDirectoryBrowser: function () {
       this.$q.dialog({
@@ -627,6 +660,7 @@ export default {
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
+          tags: this.tags,
         }
         // Create JSON string
         let importString = JSON.stringify(configData, null, 2);
@@ -666,6 +700,8 @@ export default {
       enableScanner: ref(false),
       enableInotify: ref(false),
       priorityScore: ref(0),
+      newTag: ref(''),
+      tags: ref([]),
       enabledPlugins: ref([]),
       componentKey: 1,
       showLoading: ref(false),
