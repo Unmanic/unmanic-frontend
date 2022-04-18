@@ -99,6 +99,7 @@
     "confirm": "Confirm",
     "configureRemoteInstallationLink": "Configure remote installation link",
     "configureLibrary": "Configure library",
+    "configureWorkerGroup": "Configure worker group",
     "selectPlugin": "Select a plugin",
     "selectLibrary": "Select a library",
     "login": "Login",
@@ -128,6 +129,9 @@
   "components": {
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
+      "common": {
+        "configuration": "Configuration"
+      },
       "library": {
         "pathConfiguration": "Libraries",
         "name": "Name (must be unique)",
@@ -144,7 +148,6 @@
         "clearPendingTasksOnStart": "Clear all pending tasks on startup",
         "fileTesting": "File testing",
         "concurrentFileTesters": "Concurrent file testers",
-        "configuration": "Configuration",
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
         "priorityScore": "Set a priority score modifier for tasks generated for this library",
@@ -160,6 +163,11 @@
         "unlocked": "The library is able to be deleted"
       },
       "workers": {
+        "workerGroups": "Worker groups",
+        "confirmRemove": "Removing the worker group will also remove all settings associated with the group. Are you sure you wish to continue?",
+        "locked": "The worker group cannot be deleted",
+        "unlocked": "The worker group is able to be deleted",
+        "workerGroupName": "Name",
         "workerCount": "Worker count",
         "path": "Cache path",
         "schedule": "Worker event schedule",

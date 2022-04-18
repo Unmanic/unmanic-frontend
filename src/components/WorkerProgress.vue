@@ -29,7 +29,7 @@
 
     </q-card-section>
 
-    <q-separator/>
+    <q-separator :style="'border-bottom:solid thin ' + workerGroupColour"/>
 
     <div class="row">
       <q-card-section class="q-pb-none col q-pb-none justify-center full-height full-width text-center">
@@ -94,7 +94,7 @@
         full-width
         full-height
       >
-        <q-card>
+        <q-card :style="'border:solid thin ' + workerGroupColour">
 
           <!--CARD HEAD-->
           <q-card-section class="bg-card-head">
@@ -225,6 +225,11 @@ export default defineComponent({
     color: {
       type: String,
       default: 'warning'
+    },
+
+    workerGroupColour: {
+      type: String,
+      default: '#cccccc'
     },
 
     state: {

@@ -16,41 +16,11 @@
               class="q-gutter-md"
             >
 
-              <!--START WORKER COUNT-->
-              <h5 class="q-mb-none">{{ $t('components.settings.workers.workerCount') }}</h5>
+              <!--START WORKER GROUPS-->
+              <h5 class="q-mb-none">{{ $t('components.settings.workers.workerGroups') }}</h5>
               <div class="q-gutter-sm">
                 <q-skeleton
-                  v-if="workerCount === null"
-                  type="QInput"/>
-                <q-input
-                  v-if="workerCount !== null"
-                  readonly
-                  outlined
-                  color="primary"
-                  v-model="workerCount"
-                  :label="$t('components.settings.workers.workerCount')"
-                  :placeholder="workerCount">
-                </q-input>
-                <q-skeleton
-                  v-if="workerCount === null"
-                  type="QSlider"/>
-                <q-slider
-                  v-if="workerCount !== null"
-                  v-model="workerCount"
-                  :min="0"
-                  :max="12"
-                  color="primary"
-                />
-              </div>
-              <!--END WORKER COUNT-->
-
-              <q-separator class="q-my-lg"/>
-
-              <!--START EVENT SCHEDULE-->
-              <h5 class="q-mb-none">{{ $t('components.settings.workers.schedule') }}</h5>
-              <div class="q-gutter-sm">
-                <q-skeleton
-                  v-if="cachePath === null"
+                  v-if="workerGroups === null"
                   type="text"/>
 
                 <q-list
@@ -58,67 +28,50 @@
                   separator
                   class="rounded-borders">
 
-                  <draggable
-                    class="schedule-list-group"
-                    item-key="order"
-                    tag="transition-group"
-                    :component-data="{ tag: 'ul', name: 'flip-list', type: 'transition' }"
-                    v-model="schedules"
-                    v-bind="dragOptions">
-                    <template #item="{ element, index }">
-                      <q-item
-                        :key="index"
-                        class="q-pa-none rounded-borders"
-                        active-class="schedule-list-item">
+                  <q-item
+                    v-for="(workerGroup, index) in workerGroups"
+                    v-bind:key="index"
+                    active-class="library-path-list-item">
+                    <q-item-section avatar>
+                      <q-avatar text-color="grey-8" icon="workspaces"/>
+                    </q-item-section>
 
-                        <q-item-section avatar class="q-px-sm q-mx-sm">
-                          <q-avatar rounded>
-                            <q-icon name="drag_handle" class="" style="max-width: 30px;">
-                                <q-tooltip class="bg-white text-primary">{{ $t('tooltips.move') }}</q-tooltip>
-                            </q-icon>
-                          </q-avatar>
-                        </q-item-section>
+                    <q-item-section>
+                      <q-item-label>{{ workerGroup.name }}</q-item-label>
+                      <q-item-label caption lines="1">
+                        {{ workerGroup.count }}
+                      </q-item-label>
+                    </q-item-section>
 
-                        <q-separator inset vertical class="q-mr-sm"/>
+                    <q-separator inset vertical class="q-mx-sm"/>
 
-                        <q-item-section class="q-px-sm q-mx-sm">
-                          <!-- Add stings for i18n of element.repetition value -->
-                          <q-item-label lines="1">{{ element.repetitionLabel }} @ {{ element.scheduleTime }}
-                          </q-item-label>
-                          <q-item-label
-                            v-if="element.scheduleTask === 'count'"
-                            caption lines="2">
-                            <span class="text-weight-bold">{{ element.scheduleTaskLabel }}</span>
-                            = {{ element.scheduleWorkerCount }}
-                          </q-item-label>
-                          <q-item-label
-                            v-else
-                            caption lines="2">
-                            <span class="text-weight-bold">{{ element.scheduleTaskLabel }}</span>
-                          </q-item-label>
-                        </q-item-section>
+                    <q-item-section center side>
+                      <div class="text-grey-8 q-gutter-xs">
+                        <q-btn
+                          flat dense round
+                          size="12px"
+                          color="grey-8"
+                          icon="tune"
+                          @click="configureWorkerGroup(index)">
+                          <q-tooltip class="bg-white text-primary">
+                            {{ $t('tooltips.configure') }}
+                          </q-tooltip>
+                        </q-btn>
+                        <q-btn
+                          flat dense round
+                          size="12px"
+                          color="negative"
+                          icon="delete"
+                          :disable="workerGroup.locked"
+                          @click="deleteWorkerGroup(index)">
+                          <q-tooltip class="bg-white text-primary">
+                            {{ $t('tooltips.delete') }}
+                          </q-tooltip>
+                        </q-btn>
+                      </div>
+                    </q-item-section>
 
-                        <q-separator inset vertical class="q-mx-sm"/>
-
-                        <q-item-section center side>
-                          <div class="text-grey-8 q-gutter-xs">
-                            <q-btn
-                              flat dense round
-                              size="12px"
-                              color="negative"
-                              icon="delete"
-                              @click="deleteSchedule(index)">
-                              <q-tooltip class="bg-white text-primary">
-                                {{ $t('tooltips.delete') }}
-                              </q-tooltip>
-                            </q-btn>
-                          </div>
-                        </q-item-section>
-
-                      </q-item>
-
-                    </template>
-                  </draggable>
+                  </q-item>
 
                 </q-list>
 
@@ -129,68 +82,13 @@
                     flat
                     color="primary"
                     icon="add"
-                    @click="newSchedule = true">
+                    @click="configureWorkerGroup('new')">
                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
                   </q-btn>
                 </q-bar>
 
-                <q-dialog v-model="newSchedule" persistent>
-                  <q-card style="min-width: 350px">
-
-                    <q-card-section>
-                      <div class="text-h6">{{ $t('components.settings.workers.newScheduledEvent') }}</div>
-                    </q-card-section>
-
-                    <q-card-section class="q-pt-none">
-                      <q-select filled v-model="repetition" :options="repetitionOptions"
-                                :label="$t('components.settings.workers.repetition')"/>
-                    </q-card-section>
-                    <q-card-section class="q-pt-none">
-                      <q-input filled v-model="scheduleTime" mask="time">
-                        <template v-slot:append>
-                          <q-icon name="access_time" class="cursor-pointer">
-                            <q-popup-proxy transition-show="scale" transition-hide="scale">
-                              <q-time v-model="scheduleTime">
-                                <div class="row items-center justify-end">
-                                  <q-btn v-close-popup :label="$t('navigation.close')" color="primary" flat/>
-                                </div>
-                              </q-time>
-                            </q-popup-proxy>
-                          </q-icon>
-                        </template>
-                      </q-input>
-                    </q-card-section>
-                    <q-card-section class="q-pt-none">
-                      <q-select filled v-model="scheduleTask" :options="scheduleTaskOptions"
-                                :label="$t('components.settings.workers.task')"/>
-                    </q-card-section>
-                    <q-card-section
-                      v-if="scheduleTask.value === 'count'"
-                      class="q-pt-none q-mt-md q-mx-md">
-                      <q-slider
-                        v-model="scheduleWorkerCount"
-                        :min="0"
-                        :max="12"
-                        label
-                        :label-value="'Worker count: ' + scheduleWorkerCount"
-                        label-always
-                        color="primary"
-                      />
-                    </q-card-section>
-
-                    <q-card-actions align="right" class="text-primary">
-                      <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
-                      <q-btn
-                        @click="addNewScheduledEvent"
-                        flat :label="$t('components.settings.workers.addEvent')" v-close-popup/>
-                    </q-card-actions>
-                  </q-card>
-                </q-dialog>
-
               </div>
-              <!--END EVENT SCHEDULE-->
-
-              <q-separator class="q-my-lg"/>
+              <!--END WORKER GROUPS-->
 
               <!--START CACHE PATHS-->
               <h5 class="q-mb-none">{{ $t('components.settings.workers.path') }}</h5>
@@ -206,10 +104,10 @@
                   v-model="cachePath"
                   :label="$t('components.settings.workers.path')"
                   :placeholder="cachePath"
-                  @click="updateLibraryWithDirectoryBrowser">
+                  @click="updateCacheWithDirectoryBrowser">
                   <template v-slot:append>
                     <q-icon
-                      @click="updateLibraryWithDirectoryBrowser"
+                      @click="updateCacheWithDirectoryBrowser"
                       class="cursor-pointer"
                       name="folder_open"/>
                   </template>
@@ -272,14 +170,12 @@ import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
-import draggable from "vuedraggable";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import WorkerGroupConfigureDialog from "components/WorkerGroupConfigureDialog";
 
 export default {
   name: 'SettingsWorkers',
-  components: {
-    draggable
-  },
+  components: {},
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
@@ -312,75 +208,12 @@ export default {
   },
   data() {
     return {
-      workerCount: ref(null),
+      workerGroups: ref(null),
       cachePath: ref(null),
-      // Add stings for i18n of element.scheduleWorkerCount label
-      schedules: ref([]),
-      newSchedule: ref(false),
-      repetition: ref(''),
-      repetitionOptions: [
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.daily'),
-          value: 'daily',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.weekday'),
-          value: 'weekday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.weekend'),
-          value: 'weekend',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.monday'),
-          value: 'monday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.tuesday'),
-          value: 'tuesday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.wednesday'),
-          value: 'wednesday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.thursday'),
-          value: 'thursday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.friday'),
-          value: 'friday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.saturday'),
-          value: 'saturday',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.sunday'),
-          value: 'sunday',
-        },
-      ],
-      scheduleTime: ref('00:00'),
-      scheduleTask: ref(''),
-      scheduleTaskOptions: [
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.count'),
-          value: 'count',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.pause'),
-          value: 'pause',
-        },
-        {
-          label: this.$t('components.settings.workers.scheduleLabels.resume'),
-          value: 'resume',
-        },
-      ],
-      scheduleWorkerCount: ref(1)
     }
   },
   methods: {
-    updateLibraryWithDirectoryBrowser: function () {
+    updateCacheWithDirectoryBrowser: function () {
       this.$q.dialog({
         component: DirectoryBrowserDialog,
         componentProps: {
@@ -401,22 +234,6 @@ export default {
         method: 'get',
         url: getUnmanicApiUrl('v2', 'settings/read')
       }).then((response) => {
-        // Set the worker count value
-        this.workerCount = response.data.settings.number_of_workers
-        // Set the worker schedules list
-        let workerEventSchedules = []
-        for (let i = 0; i < response.data.settings.worker_event_schedules.length; i++) {
-          let workerEventSchedule = response.data.settings.worker_event_schedules[i];
-          workerEventSchedules[workerEventSchedules.length] = {
-            repetition: workerEventSchedule.repetition,
-            repetitionLabel: this.$t('components.settings.workers.scheduleLabels.' + workerEventSchedule.repetition),
-            scheduleTime: workerEventSchedule.schedule_time,
-            scheduleTask: workerEventSchedule.schedule_task,
-            scheduleTaskLabel: this.$t('components.settings.workers.scheduleLabels.' + workerEventSchedule.schedule_task),
-            scheduleWorkerCount: workerEventSchedule.schedule_worker_count
-          }
-        }
-        this.schedules = workerEventSchedules;
         // Set the cache path value
         this.cachePath = response.data.settings.cache_path
       }).catch(() => {
@@ -428,6 +245,79 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
+    },
+    fetchWorkerGroupsList: function () {
+      // Fetch current settings
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'settings/worker_groups')
+      }).then((response) => {
+        let workerGroupsList = []
+        for (let i = 0; i < response.data.worker_groups.length; i++) {
+          let workerGroup = response.data.worker_groups[i];
+          workerGroupsList[workerGroupsList.length] = {
+            id: workerGroup.id,
+            name: workerGroup.name,
+            path: workerGroup.path,
+            locked: workerGroup.locked,
+          }
+        }
+        this.workerGroups = workerGroupsList
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToFetchLibraryList'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    },
+    deleteWorkerGroup: function (index) {
+      // Fetch worker group ID
+      let workerGroupId;
+      for (let i = 0; i < this.workerGroups.length; i++) {
+        if (i === index) {
+          workerGroupId = this.workerGroups[i].id;
+          break;
+        }
+      }
+      this.$q.dialog({
+        title: this.$t('headers.confirm'),
+        message: this.$t('components.settings.workers.confirmRemove'),
+        cancel: this.$t('navigation.cancel'),
+        ok: this.$t('navigation.yes'),
+        persistent: true
+      }).onOk(() => {
+        // Request a DELETE from server
+        let data = {
+          id: workerGroupId,
+        }
+        axios({
+          method: 'delete',
+          url: getUnmanicApiUrl('v2', 'settings/worker_group/remove'),
+          data: data
+        }).then((response) => {
+          // Save success, show feedback
+          this.$q.notify({
+            color: 'positive',
+            position: 'top',
+            icon: 'cloud_done',
+            message: this.$t('notifications.saved'),
+            timeout: 200
+          })
+          // Update list
+          this.fetchWorkerGroupsList();
+        }).catch(() => {
+          this.$q.notify({
+            color: 'negative',
+            position: 'top',
+            message: this.$t('notifications.failedToSaveSettings'),
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
+          })
+        });
+      })
     },
     save: function () {
       // Save settings
@@ -442,6 +332,7 @@ export default {
       }
       let data = {
         settings: {
+          worker_groups: this.workerGroups,
           number_of_workers: this.workerCount,
           cache_path: this.cachePath,
           worker_event_schedules: workerEventSchedule,
@@ -471,55 +362,31 @@ export default {
         })
       });
     },
-    addNewScheduledEvent: function () {
-      // validate
-      if (typeof this.repetition.value === 'undefined' || typeof this.scheduleTask.value === 'undefined') {
-        this.$q.notify({
-          color: 'negative',
-          position: 'top',
-          message: this.$t('notifications.invalidWorkerEvent'),
-          icon: 'report_problem',
-          actions: [{ icon: 'close', color: 'white' }]
-        })
-        return
+    configureWorkerGroup: function (index) {
+      let workerGroupId;
+      if (index === 'new') {
+        workerGroupId = 'new';
+      } else {
+        workerGroupId = this.workerGroups[index].id
       }
-      this.schedules[this.schedules.length] = {
-        repetition: this.repetition.value,
-        repetitionLabel: this.$t('components.settings.workers.scheduleLabels.' + this.repetition.value),
-        scheduleTime: this.scheduleTime,
-        scheduleTask: this.scheduleTask.value,
-        scheduleTaskLabel: this.$t('components.settings.workers.scheduleLabels.' + this.scheduleTask.value),
-        scheduleWorkerCount: this.scheduleWorkerCount
-      }
+      console.log(workerGroupId)
+      this.$q.dialog({
+        component: WorkerGroupConfigureDialog,
+        componentProps: {
+          dialogHeader: this.$t('headers.configureWorkerGroup'),
+          workerGroupId: workerGroupId
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+        this.fetchSettings();
+        this.fetchWorkerGroupsList();
+      })
     },
-    deleteSchedule: function (index) {
-      let newList = []
-      for (let i = 0; i < this.schedules.length; i++) {
-        if (i === index) {
-          // Ignore this item to remove it from the list
-          continue;
-        }
-        newList[newList.length] = this.schedules[i];
-      }
-      this.schedules = newList;
-    }
   },
   created() {
     this.fetchSettings();
+    this.fetchWorkerGroupsList();
   },
-  computed: {
-    dragOptions() {
-      return {
-        animation: 100,
-        group: "scheduleOrder",
-        disabled: false,
-        ghostClass: "ghost",
-        direction: "vertical",
-        delay: 200,
-        delayOnTouchOnly: true,
-      };
-    }
-  }
 }
 </script>
 <style>

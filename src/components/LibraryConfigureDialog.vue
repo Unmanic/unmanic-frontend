@@ -76,7 +76,7 @@
               <div class="row items-center no-wrap q-mb-md">
                 <div class="col">
                   <div class="text-h5">
-                    {{ $t('components.settings.library.configuration') }}
+                    {{ $t('components.settings.common.configuration') }}
                   </div>
                 </div>
                 <div class="col-auto">

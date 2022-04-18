@@ -144,15 +144,41 @@ export default {
     let ws = null;
     let unmanicWSHandler = UnmanicWebsocketHandler($t);
 
+    let workerGroupColours = {}
+
     function updateWorkerProgressCharts(data) {
       function calculateEtc(percent_completed, time_elapsed) {
         let percent_to_go = (100 - parseInt(percent_completed))
         return (parseInt(time_elapsed) / parseInt(percent_completed) * percent_to_go)
       }
 
+      // Credit:
+      //    https://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript
+      function generateBackgroundColour(name) {
+        let hash = 0;
+        for (let i = 0; i < name.length; i++) {
+          hash = name.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        let colour = '#';
+        for (let i = 0; i < 3; i++) {
+          let value = (hash >> (i * 8)) & 0xFF;
+          colour += ('00' + value.toString(16)).substr(-2);
+        }
+        return colour;
+      }
+
       let workerData = {}
       for (let i = 0; i < data.length; i++) {
         let worker = data[i];
+
+        // Set background colour
+        let workerGroupColour;
+        if (worker.name in workerGroupColours) {
+          workerGroupColour = workerGroupColours[worker.name];
+        } else {
+          workerGroupColours[worker.name] = generateBackgroundColour(worker.name);
+          workerGroupColour = workerGroupColours[worker.name];
+        }
 
         // Set 'idle' status as defaults
         workerData['worker-' + worker.id] = {
@@ -170,7 +196,8 @@ export default {
           totalProcTime: '',
           workerLog: [],
           idle: worker.idle,
-          paused: worker.paused
+          paused: worker.paused,
+          workerGroupColour: workerGroupColour,
         }
 
         // If the worker is paused, the setup initial paused style.
@@ -178,7 +205,7 @@ export default {
         //    Therefore this may be modified further below
         if (worker.paused) {
           // Set 'paused' defaults
-          workerData['worker-' + worker.id].label = '...';
+          workerData['worker-' + worker.id].label = worker.name;
           workerData['worker-' + worker.id].color = 'negative';
           workerData['worker-' + worker.id].progressText = '...';
           workerData['worker-' + worker.id].state = $t('components.workers.state.paused');
