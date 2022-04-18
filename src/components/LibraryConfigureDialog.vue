@@ -419,9 +419,9 @@ export default {
         // Library configuration
         let libraryConfig = response.data.library_config;
         this.currentID = libraryConfig.id;
+        this.locked = libraryConfig.locked;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
-        this.locked = libraryConfig.locked;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
         this.priorityScore = libraryConfig.priority_score;
@@ -435,9 +435,9 @@ export default {
       let data = {
         library_config: {
           id: this.currentID,
+          locked: this.locked,
           name: this.name,
           path: this.path,
-          locked: this.locked,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
@@ -694,9 +694,9 @@ export default {
       maximizedToggle: true,
       showPluginSettings: ref(''),
       currentID: ref(null),
+      locked: ref(false),
       name: ref(''),
       path: ref(''),
-      locked: ref(false),
       enableScanner: ref(false),
       enableInotify: ref(false),
       priorityScore: ref(0),
