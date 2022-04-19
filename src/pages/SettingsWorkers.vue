@@ -365,11 +365,10 @@ export default {
     configureWorkerGroup: function (index) {
       let workerGroupId;
       if (index === 'new') {
-        workerGroupId = 'new';
+        workerGroupId = 0;
       } else {
         workerGroupId = this.workerGroups[index].id
       }
-      console.log(workerGroupId)
       this.$q.dialog({
         component: WorkerGroupConfigureDialog,
         componentProps: {

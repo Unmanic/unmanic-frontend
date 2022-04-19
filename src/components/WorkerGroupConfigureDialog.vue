@@ -295,8 +295,8 @@ export default {
       default: ' --- header --- '
     },
     workerGroupId: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   emits: [
@@ -330,7 +330,7 @@ export default {
 
     fetchWorkerGroupConfig: function (workerGroupId) {
       // If this is for a new worker group, do not fetch the current settings
-      if (workerGroupId === 'new') {
+      if (workerGroupId === 0) {
         // Set defaults
         this.name = '';
         this.workerCount = 1;
