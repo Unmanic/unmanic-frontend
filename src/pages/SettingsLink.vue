@@ -148,6 +148,33 @@
                       </q-input>
                     </q-card-section>
 
+                    <q-card-section class="q-pt-none">
+                      <q-select
+                        outlined
+                        v-model="newRemoteInstallationAuthenticationType"
+                        :options="newRemoteInstallationAuthenticationOptions"
+                        :label="$t('components.settings.link.authentication')"
+                      />
+                    </q-card-section>
+
+                    <q-card-section v-if="newRemoteInstallationAuthenticationType !== 'None'" class="q-pt-none">
+                      <q-input
+                        outlined
+                        color="primary"
+                        v-model="newRemoteInstallationUsername"
+                        :label="$t('components.settings.link.username')">
+                      </q-input>
+                    </q-card-section>
+
+                    <q-card-section v-if="newRemoteInstallationAuthenticationType !== 'None'" class="q-pt-none">
+                      <q-input
+                        outlined
+                        color="primary"
+                        v-model="newRemoteInstallationPassword"
+                        :label="$t('components.settings.link.password')">
+                      </q-input>
+                    </q-card-section>
+
                     <q-card-actions align="right" class="text-primary">
                       <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
                       <q-btn
@@ -255,6 +282,10 @@ export default {
       remoteInstallations: ref(null),
       newRemoteInstallation: ref(false),
       newRemoteInstallationAddress: ref(''),
+      newRemoteInstallationAuthenticationType: ref('None'),
+      newRemoteInstallationAuthenticationOptions: ref(['None', 'Basic']),
+      newRemoteInstallationUsername: ref(null),
+      newRemoteInstallationPassword: ref(null),
     }
   },
   methods: {
@@ -353,6 +384,9 @@ export default {
       // Validate connection to the provided address and add to list
       let data = {
         address: this.newRemoteInstallationAddress,
+        auth: this.newRemoteInstallationAuthenticationType,
+        username: this.newRemoteInstallationUsername,
+        password: this.newRemoteInstallationPassword,
       }
       axios({
         method: 'post',
@@ -376,6 +410,9 @@ export default {
           // Add to list
           this.remoteInstallations[this.remoteInstallations.length] = {
             address: this.newRemoteInstallationAddress,
+            auth: this.newRemoteInstallationAuthenticationType,
+            username: this.newRemoteInstallationUsername,
+            password: this.newRemoteInstallationPassword,
             enable_receiving_tasks: false,
             enable_sending_tasks: false,
             name: name,

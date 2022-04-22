@@ -69,6 +69,43 @@
                   :placeholder="address"/>
               </div>
 
+              <div class="q-gutter-sm q-mt-sm">
+                <q-select
+                  outlined
+                  v-model="authType"
+                  :options="authOptions"
+                  :label="$t('components.settings.link.authentication')"
+                />
+              </div>
+
+              <div v-if="authType !== 'None'"
+                   class="sub-setting q-pt-none q-mt-sm">
+                <q-input
+                  outlined
+                  color="primary"
+                  v-model="username"
+                  :label="$t('components.settings.link.username')">
+                </q-input>
+              </div>
+
+              <div v-if="authType !== 'None'"
+                   class="sub-setting q-pt-none q-pt-sm">
+                <q-input
+                  outlined
+                  color="primary"
+                  v-model="password"
+                  :type="showPassword ? 'password' : 'text'"
+                  :label="$t('components.settings.link.password')">
+                  <template v-slot:append>
+                    <q-icon
+                      :name="showPassword ? 'visibility_off' : 'visibility'"
+                      class="cursor-pointer"
+                      @click="showPassword = !showPassword"
+                    />
+                  </template>
+                </q-input>
+              </div>
+
               <h5 class="">{{ $t('components.settings.link.configuration') }}</h5>
 
               <div class="q-gutter-sm">
@@ -218,6 +255,9 @@ export default {
       }).then((response) => {
         let link_config = response.data.link_config;
         this.address = link_config.address;
+        this.authType = link_config.auth;
+        this.username = link_config.username;
+        this.password = link_config.password;
         this.available = link_config.available;
         this.name = link_config.name;
         this.version = link_config.version;
@@ -235,6 +275,9 @@ export default {
         link_config: {
           uuid: this.currentUuid,
           address: this.address,
+          auth: this.authType,
+          username: this.username,
+          password: this.password,
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
           enable_task_preloading: this.enableTaskPreloading,
@@ -278,6 +321,11 @@ export default {
       maximizedToggle: true,
       currentUuid: ref(null),
       address: ref(''),
+      authType: ref('None'),
+      authOptions: ref(['None', 'Basic']),
+      username: ref(null),
+      password: ref(null),
+      showPassword: ref(true),
       available: ref(false),
       name: ref(''),
       version: ref(''),
