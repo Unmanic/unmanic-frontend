@@ -238,7 +238,7 @@
                   input-debounce="0"
                   new-value-mode="add-unique"
                   v-model="tags"
-                  :label="$t('components.settings.library.tags')"
+                  :label="$t('components.settings.common.tags')"
                   @keyup.tab="addTag"
                 />
               </div>

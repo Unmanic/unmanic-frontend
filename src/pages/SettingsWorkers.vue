@@ -37,10 +37,25 @@
                     </q-item-section>
 
                     <q-item-section>
-                      <q-item-label>{{ workerGroup.name }}</q-item-label>
-                      <q-item-label caption lines="1">
-                        {{ workerGroup.count }}
+                      <q-item-label>
+                        <span class="text-weight-medium">{{ $t('components.settings.workers.workerGroupName') }}:</span>
+                        {{ workerGroup.name }}
                       </q-item-label>
+                      <q-item-label caption lines="1">
+                        <span class="text-weight-bold">{{ $t('components.settings.workers.workerCount') }}:</span>
+                        {{ workerGroup.workerCount }}
+                      </q-item-label>
+                      <q-item-label caption lines="1">
+                        <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
+                        {{ workerGroup.tags.join(', ') || 'None' }}
+                      </q-item-label>
+                      <q-tooltip>
+                        <span class="text-weight-bold">{{ $t('components.settings.workers.workerCount') }}:</span>
+                        {{ workerGroup.workerCount }}
+                        <br>
+                        <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
+                        {{ workerGroup.tags.join(', ') || 'None' }}
+                      </q-tooltip>
                     </q-item-section>
 
                     <q-separator inset vertical class="q-mx-sm"/>
@@ -258,7 +273,8 @@ export default {
           workerGroupsList[workerGroupsList.length] = {
             id: workerGroup.id,
             name: workerGroup.name,
-            path: workerGroup.path,
+            workerCount: workerGroup.number_of_workers,
+            tags: workerGroup.tags,
             locked: workerGroup.locked,
           }
         }

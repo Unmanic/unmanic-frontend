@@ -130,7 +130,8 @@
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "common": {
-        "configuration": "Configuration"
+        "configuration": "Configuration",
+        "tags": "Tags"
       },
       "library": {
         "pathConfiguration": "Libraries",
@@ -151,7 +152,6 @@
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
         "priorityScore": "Set a priority score modifier for tasks generated for this library",
-        "tags": "Tags",
         "plugins": "Plugins",
         "pluginFlow": "Plugin Flow",
         "cloneLibrary": "Clone library",
@@ -167,7 +167,7 @@
         "confirmRemove": "Removing the worker group will also remove all settings associated with the group. Are you sure you wish to continue?",
         "locked": "The worker group cannot be deleted",
         "unlocked": "The worker group is able to be deleted",
-        "workerGroupName": "Name",
+        "workerGroupName": "Group name",
         "workerCount": "Worker count",
         "path": "Cache path",
         "schedule": "Worker event schedule",
