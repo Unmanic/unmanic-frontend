@@ -39,10 +39,19 @@
                     <q-item-section>
                       <q-item-label>{{ path.name }}</q-item-label>
                       <q-item-label caption lines="1">
+                        <span class="text-weight-bold">{{ $t('components.settings.library.path') }}:</span>
                         {{ path.path }}
                       </q-item-label>
+                      <q-item-label caption lines="1">
+                        <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
+                        {{ path.tags.join(', ') || 'None' }}
+                      </q-item-label>
                       <q-tooltip>
+                        <span class="text-weight-bold">{{ $t('components.settings.library.path') }}:</span>
                         {{ path.path }}
+                        <br>
+                        <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
+                        {{ path.tags.join(', ') || 'None' }}
                       </q-tooltip>
                     </q-item-section>
 
@@ -483,6 +492,7 @@ export default {
             id: libraryPath.id,
             name: libraryPath.name,
             path: libraryPath.path,
+            tags: libraryPath.tags,
             locked: libraryPath.locked,
           }
         }
