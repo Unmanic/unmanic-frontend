@@ -7,7 +7,7 @@
       row-key="id"
       v-model:pagination="pagination"
       :loading="loading"
-      :filter="filter"
+      :filter="searchValue"
       @request="onRequest"
       binary-state-sort
       :selected-rows-label="getSelectedString"
@@ -15,18 +15,29 @@
       v-model:selected="selected"
     >
       <template v-slot:top-left>
-        <q-input
-          filled
-          class="shadow-1"
-          dense
-          debounce="300"
-          color="primary"
-          v-model="filter"
-          :placeholder="$t('navigation.search')">
-          <template v-slot:append>
-            <q-icon name="search"/>
-          </template>
-        </q-input>
+        <div>
+          <q-input
+            filled
+            class="shadow-1"
+            dense
+            debounce="300"
+            color="primary"
+            v-model="searchValue"
+            :placeholder="$t('navigation.search')">
+            <template v-slot:append>
+              <q-icon name="search"/>
+            </template>
+          </q-input>
+        </div>
+
+        <div class="q-mt-sm">
+          <q-btn-toggle
+            v-model="statusFilter"
+            toggle-color="secondary"
+            :options="statusFilterOptions"
+          />
+        </div>
+
       </template>
 
       <template v-slot:top-right>
@@ -125,7 +136,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import dateTools from "src/js/dateTools";
@@ -173,7 +184,22 @@ export default {
     const $q = useQuasar();
     const { t: $t } = useI18n();
     const rows = ref([])
-    const filter = ref('')
+    const searchValue = ref('')
+    const statusFilter = ref('all')
+    const statusFilterOptions = [
+      {
+        label: $t('status.all'),
+        value: 'all'
+      },
+      {
+        label: $t('status.success'),
+        value: 'success'
+      },
+      {
+        label: $t('status.failed'),
+        value: 'failed'
+      }
+    ]
     const loading = ref(false)
     const pagination = ref({
       sortBy: 'finish_time',
@@ -214,7 +240,7 @@ export default {
         }).then((response) => {
           onRequest({
             pagination: pagination.value,
-            filter: filter.value
+            searchValue: searchValue.value
           })
         }).catch(() => {
           $q.notify({
@@ -297,7 +323,7 @@ export default {
         }).then((response) => {
           onRequest({
             pagination: pagination.value,
-            filter: filter.value
+            searchValue: searchValue.value
           })
         }).catch(() => {
           $q.notify({
@@ -321,7 +347,7 @@ export default {
 
     function onRequest(props) {
       const { page, rowsPerPage, sortBy, descending } = props.pagination;
-      const filter = props.filter;
+      const searchValue = props.filter;
 
       loading.value = true;
 
@@ -335,7 +361,8 @@ export default {
       let data = {
         start: startRow,
         length: fetchCount,
-        search_value: filter,
+        search_value: searchValue,
+        status: statusFilter.value,
         order_by: sortBy,
         order_direction: descending ? 'desc' : 'asc',
       }
@@ -397,13 +424,23 @@ export default {
       // get initial data from server (1st page)
       onRequest({
         pagination: pagination.value,
-        filter: undefined
+        searchValue: undefined
       })
     })
 
+    // Monitor the status filter for changes
+    watch(statusFilter, (currentValue, oldValue) => {
+      onRequest({
+        pagination: pagination.value,
+        searchValue: searchValue.value
+      })
+    });
+
     return {
       selected,
-      filter,
+      searchValue,
+      statusFilter,
+      statusFilterOptions,
       loading,
       pagination,
       columns,

@@ -32,6 +32,7 @@
   },
   "status": {
     "cannotLoadImage": "Cannot load image",
+    "all": "All",
     "success": "Success",
     "failed": "Failed"
   },
