@@ -275,7 +275,9 @@
       "errorGettingDetails": "An error was encountered while fetching the details for this task",
       "addToPendingTasksList": "Add selected to Pending Tasks list",
       "removeSelected": "Remove selected from list",
-      "selectLibraryToAdd": "Select library in which to recreate this task"
+      "selectLibraryToAdd": "Select library in which to recreate this task",
+      "since": "Since",
+      "before": "Before"
     },
     "plugins": {
       "updateAvailable": "Update available",

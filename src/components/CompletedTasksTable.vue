@@ -15,27 +15,100 @@
       v-model:selected="selected"
     >
       <template v-slot:top-left>
-        <div>
-          <q-input
-            filled
-            class="shadow-1"
-            dense
-            debounce="300"
-            color="primary"
-            v-model="searchValue"
-            :placeholder="$t('navigation.search')">
-            <template v-slot:append>
-              <q-icon name="search"/>
-            </template>
-          </q-input>
-        </div>
+        <div class="row">
 
-        <div class="q-mt-sm">
-          <q-btn-toggle
-            v-model="statusFilter"
-            toggle-color="secondary"
-            :options="statusFilterOptions"
-          />
+          <div class="col q-pl-md">
+            <q-btn-toggle
+              v-model="statusFilter"
+              toggle-color="secondary"
+              :options="statusFilterOptions"
+            />
+          </div>
+
+          <div class="col q-pl-md">
+            <q-input
+              filled
+              class="shadow-1"
+              dense
+              debounce="300"
+              color="primary"
+              v-model="searchValue"
+              :placeholder="$t('navigation.search')">
+              <template v-slot:append>
+                <q-icon name="search"/>
+              </template>
+            </q-input>
+          </div>
+
+          <div class="col q-pl-md" style="max-width: 300px">
+            <q-input
+              filled
+              class="shadow-1"
+              dense
+              debounce="300"
+              color="primary"
+              :label="$t('components.completedTasks.since')"
+              v-model="sinceDate">
+              <template v-slot:prepend>
+                <q-icon name="event" class="cursor-pointer">
+                  <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                    <q-date v-model="sinceDate" mask="YYYY-MM-DD HH:mm">
+                      <div class="row items-center justify-end">
+                        <q-btn v-close-popup label="Close" color="primary" flat/>
+                      </div>
+                    </q-date>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+
+              <template v-slot:append>
+                <q-icon name="access_time" class="cursor-pointer">
+                  <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                    <q-time v-model="sinceDate" mask="YYYY-MM-DD HH:mm" format24h>
+                      <div class="row items-center justify-end">
+                        <q-btn v-close-popup label="Close" color="primary" flat/>
+                      </div>
+                    </q-time>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+            </q-input>
+          </div>
+
+          <div class="col q-pl-md" style="max-width: 300px">
+            <q-input
+              filled
+              class="shadow-1"
+              dense
+              debounce="300"
+              color="primary"
+              :label="$t('components.completedTasks.before')"
+              v-model="beforeDate">
+              <template v-slot:prepend>
+                <q-icon name="event" class="cursor-pointer">
+                  <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                    <q-date v-model="beforeDate" mask="YYYY-MM-DD HH:mm">
+                      <div class="row items-center justify-end">
+                        <q-btn v-close-popup label="Close" color="primary" flat/>
+                      </div>
+                    </q-date>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+
+              <template v-slot:append>
+                <q-icon name="access_time" class="cursor-pointer">
+                  <q-popup-proxy cover transition-show="scale" transition-hide="scale">
+                    <q-time v-model="beforeDate" mask="YYYY-MM-DD HH:mm" format24h>
+                      <div class="row items-center justify-end">
+                        <q-btn v-close-popup label="Close" color="primary" flat/>
+                      </div>
+                    </q-time>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+            </q-input>
+          </div>
         </div>
 
       </template>
@@ -200,6 +273,8 @@ export default {
         value: 'failed'
       }
     ]
+    const sinceDate = ref(null)
+    const beforeDate = ref(null)
     const loading = ref(false)
     const pagination = ref({
       sortBy: 'finish_time',
@@ -363,6 +438,8 @@ export default {
         length: fetchCount,
         search_value: searchValue,
         status: statusFilter.value,
+        after: sinceDate.value,
+        before: beforeDate.value,
         order_by: sortBy,
         order_direction: descending ? 'desc' : 'asc',
       }
@@ -436,11 +513,29 @@ export default {
       })
     });
 
+    // Monitor the sinceDate date/time filter for changes
+    watch(sinceDate, (currentValue, oldValue) => {
+      onRequest({
+        pagination: pagination.value,
+        searchValue: searchValue.value
+      })
+    });
+
+    // Monitor the beforeDate date/time filter for changes
+    watch(beforeDate, (currentValue, oldValue) => {
+      onRequest({
+        pagination: pagination.value,
+        searchValue: searchValue.value
+      })
+    });
+
     return {
       selected,
       searchValue,
       statusFilter,
       statusFilterOptions,
+      sinceDate,
+      beforeDate,
       loading,
       pagination,
       columns,
