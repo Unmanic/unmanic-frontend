@@ -206,6 +206,53 @@
               </div>
               <!--END PENDING TASKS CONFIG-->
 
+              <q-separator class="q-my-lg"/>
+
+              <!--START COMPLETED TASKS CONFIG-->
+              <h5 class="q-mb-none">{{ $t('components.settings.library.completedTasks') }}</h5>
+              <div class="q-gutter-sm">
+                <q-skeleton
+                  v-if="autoManageCompletedTasks === null"
+                  type="QToggle"/>
+                <q-toggle
+                  v-else
+                  v-model="autoManageCompletedTasks"
+                  :label="$t('components.settings.library.autoManageCompletedTasks')"
+                />
+                <div
+                  v-if="autoManageCompletedTasks"
+                  class="sub-setting">
+                  <div class="q-gutter-sm">
+                    <q-skeleton
+                      v-if="maxAgeOfCompletedTasks === null"
+                      type="QInput"/>
+                    <q-input
+                      v-if="autoManageCompletedTasks && maxAgeOfCompletedTasks !== null"
+                      outlined
+                      type="number"
+                      v-model="maxAgeOfCompletedTasks"
+                      :label="$t('components.settings.library.maxAgeOfCompletedTasks')"
+                      lazy-rules
+                      :rules="[
+                  val => val !== null && val !== '' || $t('components.settings.pleaseEnterAValidNumber'),
+                  val => val > 0 || $t('components.settings.pleaseEnterAValidNumber')
+                ]"
+                    />
+                  </div>
+                  <div class="q-gutter-sm">
+                    <q-skeleton
+                      v-if="alwaysKeepFailedTasks === null"
+                      type="QInput"/>
+                    <q-toggle
+                      v-else
+                      v-model="alwaysKeepFailedTasks"
+                      :label="$t('components.settings.library.alwaysKeepFailedTasks')"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!--END COMPLETED TASKS CONFIG-->
+
               <div>
                 <q-btn :label="$t('navigation.submit')" type="submit" color="secondary"/>
               </div>
@@ -308,6 +355,9 @@ export default {
       runLibraryScanOnStart: ref(null),
       enableLibraryFileMonitor: ref(null),
       clearPendingTasksOnStart: ref(null),
+      autoManageCompletedTasks: ref(null),
+      maxAgeOfCompletedTasks: ref(null),
+      alwaysKeepFailedTasks: ref(null),
     }
   },
   methods: {
@@ -431,6 +481,9 @@ export default {
         this.runLibraryScanOnStart = response.data.settings.run_full_scan_on_start
         this.enableLibraryFileMonitor = response.data.settings.enable_inotify
         this.clearPendingTasksOnStart = response.data.settings.clear_pending_tasks_on_restart
+        this.autoManageCompletedTasks = response.data.settings.auto_manage_completed_tasks
+        this.maxAgeOfCompletedTasks = response.data.settings.max_age_of_completed_tasks
+        this.alwaysKeepFailedTasks = response.data.settings.always_keep_failed_tasks
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
@@ -452,7 +505,10 @@ export default {
           concurrent_file_testers: this.concurrentFileTesters,
           run_full_scan_on_start: this.runLibraryScanOnStart,
           enable_inotify: this.enableLibraryFileMonitor,
-          clear_pending_tasks_on_restart: this.clearPendingTasksOnStart
+          clear_pending_tasks_on_restart: this.clearPendingTasksOnStart,
+          auto_manage_completed_tasks: this.autoManageCompletedTasks,
+          max_age_of_completed_tasks: this.maxAgeOfCompletedTasks,
+          always_keep_failed_tasks: this.alwaysKeepFailedTasks,
         }
       }
       axios({
