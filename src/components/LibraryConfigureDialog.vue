@@ -334,7 +334,7 @@
                 {{ $t('components.settings.library.pluginFlow') }}
               </div>
 
-              <LibraryConfigurePluginFlowList v-bind:libraryId="currentID" :key="componentKey"/>
+              <LibraryConfigurePluginFlowList v-bind:libraryId="libraryId" :key="componentKey"/>
 
             </q-card-section>
 
@@ -347,7 +347,7 @@
     </q-card>
 
     <PluginInfo v-bind:showPluginSettings="showPluginSettings"
-                v-bind:libraryId="currentID"
+                v-bind:libraryId="libraryId"
                 v-on:hide="closePluginInfo"/>
 
   </q-dialog>
