@@ -112,6 +112,9 @@
       </div>
 
     </div>
+
+    <ReleaseNotesDialog/>
+
   </q-page>
 </template>
 
@@ -126,10 +129,11 @@ import { useI18n } from "vue-i18n";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import ReleaseNotesDialog from "components/ReleaseNotesDialog";
 
 export default {
   name: 'Dashboard',
-  components: { CompletedTasks, WorkerProgress, PendingTasks },
+  components: { ReleaseNotesDialog, CompletedTasks, WorkerProgress, PendingTasks },
   setup() {
     const { t: $t } = useI18n();
     const $q = useQuasar();
