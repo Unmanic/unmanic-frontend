@@ -24,7 +24,12 @@ export const UnmanicWebsocketHandler = function ($t) {
   const initWebsocket = function () {
 
     function showWebsocketConnectionWarning() {
+      // Ensure the websocket is actually missing
+      if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
+        return;
+      }
       if (clearConnectionWarning === null) {
+        console.debug("Display websocket disconnect warning")
         clearConnectionWarning = Notify.create({
           timeout: 0,
           spinner: true,
@@ -34,15 +39,15 @@ export const UnmanicWebsocketHandler = function ($t) {
           icon: 'report_problem'
         });
         let connectionCheckInterval = setInterval(() => {
-          console.log("Checking for websocket reconnection")
           if (typeof $unmanic.ws !== 'undefined' && $unmanic.ws !== null) {
             if ($unmanic.ws.readyState === WebSocket.OPEN) {
               console.log("Websocket has reconnected. Clearing warning.")
               clearConnectionWarning();
+              clearConnectionWarning = null;
               clearInterval(connectionCheckInterval);
             }
           }
-        }, 5000);
+        }, 500);
       }
     }
 
@@ -214,56 +219,60 @@ export const UnmanicWebsocketHandler = function ($t) {
       console.debug("Starting connection to websocket server")
       // Open WS connection
       openWS();
-    }
 
-    // Add event listener to request frontend messages from server
-    addWebsocketEventListener('open', 'start_frontend_messages', function (evt) {
-      clearTimeout(connectionTimer);
-      $unmanic.ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
-    });
+      // Add event listener to request frontend messages from server
+      addWebsocketEventListener('open', 'start_frontend_messages', function (evt) {
+        clearTimeout(connectionTimer);
+        $unmanic.ws.send(JSON.stringify({ command: 'start_frontend_messages', params: {} }));
+      });
 
-    // Add event listener to handle frontend messages from server
-    addWebsocketEventListener('message', 'handle_frontend_messages', function (evt) {
-      if (typeof evt.data === 'string') {
-        let jsonData = JSON.parse(evt.data);
-        if (jsonData.success) {
-          // Ensure the server is still running the same instance...
-          if (serverId === null) {
-            serverId = jsonData.server_id;
-          } else {
-            if (jsonData.server_id !== serverId) {
-              // Reload the whole page. Some things may have changed
-              console.debug('Unmanic server has restarted. Reloading page...');
-              location.reload();
+      // Add event listener to handle frontend messages from server
+      addWebsocketEventListener('message', 'handle_frontend_messages', function (evt) {
+        if (typeof evt.data === 'string') {
+          let jsonData = JSON.parse(evt.data);
+          if (jsonData.success) {
+            // Ensure the server is still running the same instance...
+            if (serverId === null) {
+              serverId = jsonData.server_id;
+            } else {
+              if (jsonData.server_id !== serverId) {
+                // Reload the whole page. Some things may have changed
+                console.debug('Unmanic server has restarted. Reloading page...');
+                location.reload();
+              }
             }
-          }
-          // Parse data type and update the dashboard
-          switch (jsonData.type) {
-            case 'frontend_message':
-              displayMessages(jsonData.data);
-              break;
+            // Parse data type and update the dashboard
+            switch (jsonData.type) {
+              case 'frontend_message':
+                displayMessages(jsonData.data);
+                break;
+            }
+          } else {
+            console.error('WebSocket Error: Received contained errors - ', evt.data);
           }
         } else {
-          console.error('WebSocket Error: Received contained errors - ', evt.data);
+          console.error('WebSocket Error: Received data was not a string - ', evt.data);
         }
-      } else {
-        console.error('WebSocket Error: Received data was not a string - ', evt.data);
-      }
-    });
+      });
 
-    // Add event listener to handle an error in the websocket
-    addWebsocketEventListener('error', 'websocket_error', function (evt) {
-      console.error('WebSocket Error: ', evt);
-      // Display error
-      showWebsocketConnectionWarning();
-    });
+      // Add event listener to handle an error in the websocket
+      addWebsocketEventListener('error', 'websocket_error', function (evt) {
+        console.error('WebSocket Error: ', evt);
+        // Set a timeout before displaying disconnect warning.
+        // Sometimes we get a disconnect just from a slow connection.
+        setTimeout(() => {
+          // Display error
+          showWebsocketConnectionWarning();
+        }, 5000);
+      });
 
-    // Add event listener to auto-reconnect the websocket if the socket closes
-    addWebsocketEventListener('close', 'websocket_close', function (evt) {
-      if (autoReconnectSocket) {
-        reconnectWS();
-      }
-    });
+      // Add event listener to auto-reconnect the websocket if the socket closes
+      addWebsocketEventListener('close', 'websocket_close', function (evt) {
+        if (autoReconnectSocket) {
+          reconnectWS();
+        }
+      });
+    }
 
     return $unmanic.ws;
   }
