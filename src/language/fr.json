@@ -10,19 +10,19 @@
 		"options": "Choix",
 		"documentation": "Documentation",
 		"library": "Bibliothèque",
-		"workers": "Travailleurs",
+		"workers": "Ouvriers",
 		"plugins": "Plugins",
 		"link": "Lien",
 		"helpAndSupport": "Support d'aide",
 		"info": "Info",
-		"show": "Montrer",
+		"show": "Spectacle",
 		"showMore": "Montre plus",
-		"search": "Rechercher",
-		"save": "sauvegarder",
+		"search": "Recherche",
+		"save": "Sauver",
 		"backToDashboard": "Retour au tableau de bord",
-		"submit": "Nous faire parvenir",
+		"submit": "Soumettre",
 		"cancel": "Annuler",
-		"close": "Fermer",
+		"close": "proche",
 		"back": "Arrière",
 		"yes": "Oui",
 		"copy": "Copie",
@@ -32,8 +32,9 @@
 	},
 	"status": {
 		"cannotLoadImage": "Impossible de charger l'image",
+		"all": "Tout",
 		"success": "Succès",
-		"failed": "Échoué"
+		"failed": "Manqué"
 	},
 	"notifications": {
 		"saved": "Enregistré.",
@@ -82,10 +83,11 @@
 		}
 	},
 	"headers": {
-		"workers": "Travailleurs",
+		"workers": "Ouvriers",
 		"pendingTasks": "Tâches en attente",
 		"completedTasks": "Tâches terminées",
 		"privacyPolicy": "Politique de confidentialité",
+		"releaseNotes": "Notes de version",
 		"pluginInfo": "Informations sur le plug-in",
 		"pluginSettings": "Paramètres des plugins",
 		"pluginInstaller": "Installateur de plug-ins",
@@ -99,27 +101,28 @@
 		"confirm": "Confirmer",
 		"configureRemoteInstallationLink": "Configurer le lien d'installation à distance",
 		"configureLibrary": "Configurer la bibliothèque",
+		"configureWorkerGroup": "Configurer le groupe de travailleurs",
 		"selectPlugin": "Sélectionnez un plug-in",
 		"selectLibrary": "Sélectionnez une bibliothèque",
 		"login": "Connexion",
 		"listEmpty": "Cette liste de tâches est vide"
 	},
 	"tooltips": {
-		"close": "Fermer",
+		"close": "proche",
 		"back": "Arrière",
 		"install": "Installer",
 		"reinstall": "Réinstaller",
-		"update": "Mettre à jour",
+		"update": "Mise à jour",
 		"pluginInfo": "Informations sur le plug-in",
 		"position": "Position",
 		"etc": "Délai d'exécution estimé",
 		"add": "Ajouter",
-		"remove": "Retirer",
+		"remove": "Éliminer",
 		"removeFromThisLibrary": "Supprimer de cette bibliothèque",
 		"configure": "Configurer",
 		"configureForThisLibrary": "Configurer pour cette bibliothèque",
 		"delete": "Supprimer",
-		"move": "Bouge toi"
+		"move": "Déplacer"
 	},
 	"buttons": {
 		"language": "Langue",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "S'il vous plait, entrez un nombre valide",
+			"common": {
+				"configuration": "Configuration",
+				"tags": "Mots clés"
+			},
 			"library": {
 				"pathConfiguration": "Bibliothèques",
 				"name": "Nom (doit être unique)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage",
 				"fileTesting": "Test de fichier",
 				"concurrentFileTesters": "Testeurs de fichiers simultanés",
-				"configuration": "Configuration",
 				"enableScanner": "Activer le scanner de bibliothèque pour cette bibliothèque",
 				"enableInotify": "Activer le moniteur de fichiers pour cette bibliothèque",
+				"priorityScore": "Définir un modificateur de score de priorité pour les tâches générées pour cette bibliothèque",
 				"plugins": "Plugins",
 				"pluginFlow": "Flux de plugins",
 				"cloneLibrary": "Cloner la bibliothèque",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Importation de la configuration de la bibliothèque. Cela peut prendre un certain temps s'il y a des plugins qui nécessitent une installation.",
 				"addPluginToThisLibrary": "Ajouter un plugin à cette bibliothèque",
 				"locked": "La bibliothèque ne peut pas être supprimée",
-				"unlocked": "La bibliothèque peut être supprimée"
+				"unlocked": "La bibliothèque peut être supprimée",
+				"completedTasks": "Tâches terminées",
+				"autoManageCompletedTasks": "Gérer automatiquement les tâches terminées",
+				"maxAgeOfCompletedTasks": "Nombre maximum de jours pour conserver les tâches terminées",
+				"alwaysKeepFailedTasks": "Conservez toujours les tâches ayant échoué"
 			},
 			"workers": {
+				"workerGroups": "Groupes de travailleurs",
+				"confirmRemove": "La suppression du groupe de travailleurs supprimera également tous les paramètres associés au groupe. Êtes-vous sûr de vouloir continuer?",
+				"locked": "Le groupe de travailleurs ne peut pas être supprimé",
+				"unlocked": "Le groupe de travailleurs peut être supprimé",
+				"workerGroupName": "Nom de groupe",
 				"workerCount": "Nombre de travailleurs",
 				"path": "Chemin du cache",
 				"schedule": "Calendrier des événements pour les travailleurs",
@@ -189,8 +205,11 @@
 				"version": "Version",
 				"addRemoteInstallation": "Ajouter une installation à distance",
 				"address": "Adresse",
+				"authentication": "Authentification",
+				"username": "Nom d'utilisateur",
+				"password": "Mot de passe",
 				"add": "Ajouter",
-				"connection": "Connexion",
+				"connection": "Lien",
 				"configuration": "Configuration",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
@@ -213,7 +232,7 @@
 				"docs": "Documentation",
 				"apiSpec": "Spécification de l'API",
 				"applicationDocumentation": "Documents d'application",
-				"support": "Support",
+				"support": "Soutien",
 				"unmanicAppSourceRequests": "Fonction de demande dans l'application Unmanic",
 				"unmanicFrontendSourceRequests": "Fonction de demande dans Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Demander un plugin pour Unmanic"
@@ -246,7 +265,7 @@
 				"paused": "Le travailleur s'est arrêté..."
 			},
 			"currentRunner": {
-				"none": "Aucun",
+				"none": "Rien",
 				"indeterminate": "Indéterminé"
 			}
 		},
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Une erreur s'est produite lors de la récupération des détails de cette tâche",
 			"addToPendingTasksList": "Ajouter la sélection à la liste des tâches en attente",
 			"removeSelected": "Supprimer la sélection de la liste",
-			"selectLibraryToAdd": "Sélectionnez la bibliothèque dans laquelle recréer cette tâche"
+			"selectLibraryToAdd": "Sélectionnez la bibliothèque dans laquelle recréer cette tâche",
+			"since": "Depuis",
+			"before": "Avant que"
 		},
 		"plugins": {
 			"updateAvailable": "Mise à jour disponible",

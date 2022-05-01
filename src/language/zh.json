@@ -1,6 +1,6 @@
 {
 	"navigation": {
-		"dashboard": "仪表板",
+		"dashboard": "仪表盘",
 		"settings": "设置",
 		"dataPanels": "数据面板",
 		"account": "帐户",
@@ -10,15 +10,15 @@
 		"options": "选项",
 		"documentation": "文档",
 		"library": "图书馆",
-		"workers": "工作人员",
+		"workers": "工人",
 		"plugins": "插件",
 		"link": "关联",
 		"helpAndSupport": "帮助支持",
 		"info": "信息",
 		"show": "显示",
-		"showMore": "展示更多",
+		"showMore": "显示更多",
 		"search": "搜索",
-		"save": "保存",
+		"save": "节省",
 		"backToDashboard": "返回仪表板",
 		"submit": "提交",
 		"cancel": "取消",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "无法加载图片",
+		"all": "全部",
 		"success": "成功",
 		"failed": "失败的"
 	},
@@ -82,10 +83,11 @@
 		}
 	},
 	"headers": {
-		"workers": "工作人员",
+		"workers": "工人",
 		"pendingTasks": "待处理的任务",
 		"completedTasks": "已完成的任务",
 		"privacyPolicy": "隐私政策",
+		"releaseNotes": "发行说明",
 		"pluginInfo": "插件信息",
 		"pluginSettings": "插件设置",
 		"pluginInstaller": "插件安装程序",
@@ -99,6 +101,7 @@
 		"confirm": "确认",
 		"configureRemoteInstallationLink": "配置远程安装链接",
 		"configureLibrary": "配置库",
+		"configureWorkerGroup": "配置工作组",
 		"selectPlugin": "选择一个插件",
 		"selectLibrary": "选择图书馆",
 		"login": "登录",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "请输入有效号码",
+			"common": {
+				"configuration": "配置",
+				"tags": "标签"
+			},
 			"library": {
 				"pathConfiguration": "图书馆",
 				"name": "名称（必须是唯一的）",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "启动时清除所有待处理任务",
 				"fileTesting": "文件测试",
 				"concurrentFileTesters": "并发文件测试器",
-				"configuration": "配置",
 				"enableScanner": "为此图书馆启用图书馆扫描仪",
 				"enableInotify": "为此库启用文件监视器",
+				"priorityScore": "为此库生成的任务设置优先级分数修改器",
 				"plugins": "插件",
 				"pluginFlow": "插件流程",
 				"cloneLibrary": "克隆库",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "导入库配置。如果有任何需要安装的插件，这可能需要一些时间。",
 				"addPluginToThisLibrary": "添加插件到这个库",
 				"locked": "无法删除库",
-				"unlocked": "该库可以被删除"
+				"unlocked": "该库可以被删除",
+				"completedTasks": "已完成的任务",
+				"autoManageCompletedTasks": "自动管理已完成的任务",
+				"maxAgeOfCompletedTasks": "保留已完成任务的最大天数",
+				"alwaysKeepFailedTasks": "始终保留失败的任务"
 			},
 			"workers": {
+				"workerGroups": "工人组",
+				"confirmRemove": "删除工作组也将删除与该组关联的所有设置。您确定要继续吗？",
+				"locked": "无法删除工作组",
+				"unlocked": "可以删除工作组",
+				"workerGroupName": "组的名字",
 				"workerCount": "工人数",
 				"path": "缓存路径",
 				"schedule": "工人活动日程",
@@ -166,14 +182,14 @@
 				"task": "任务",
 				"addEvent": "添加事件",
 				"scheduleLabels": {
-					"daily": "日常的",
+					"daily": "日常",
 					"weekday": "每个工作日",
 					"weekend": "每周六和周日",
 					"monday": "每逢星期一",
 					"tuesday": "每逢星期二",
 					"wednesday": "每个星期三",
 					"thursday": "每个星期四",
-					"friday": "每周五",
+					"friday": "每星期五",
 					"saturday": "每周六",
 					"sunday": "每个星期天",
 					"count": "设置工人数量",
@@ -189,6 +205,9 @@
 				"version": "版本",
 				"addRemoteInstallation": "添加远程安装",
 				"address": "地址",
+				"authentication": "验证",
+				"username": "用户名",
+				"password": "密码",
 				"add": "添加",
 				"connection": "联系",
 				"configuration": "配置",
@@ -235,7 +254,7 @@
 			"resumeAllWorkers": "恢复所有工人",
 			"terminateAllWorkers": "终止所有工人",
 			"workerLog": "工人日志",
-			"status": "状态",
+			"status": "地位",
 			"stateLabel": "状态",
 			"currentRunnerLabel": "当前亚军",
 			"startTimeLabel": "开始时间",
@@ -246,7 +265,7 @@
 				"paused": "工人停下来..."
 			},
 			"currentRunner": {
-				"none": "没有",
+				"none": "没有任何",
 				"indeterminate": "不定"
 			}
 		},
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "获取此任务的详细信息时遇到错误",
 			"addToPendingTasksList": "将所选内容添加到待处理任务列表",
 			"removeSelected": "从列表中删除所选内容",
-			"selectLibraryToAdd": "选择要在其中重新创建此任务的库"
+			"selectLibraryToAdd": "选择要在其中重新创建此任务的库",
+			"since": "自从",
+			"before": "前"
 		},
 		"plugins": {
 			"updateAvailable": "可用更新",

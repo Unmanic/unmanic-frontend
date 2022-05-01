@@ -15,16 +15,16 @@
 		"link": "Verknüpfung",
 		"helpAndSupport": "Hilfe Unterstützung",
 		"info": "Die Info",
-		"show": "Show",
+		"show": "Zeigen",
 		"showMore": "Zeig mehr",
 		"search": "Suche",
 		"save": "Speichern",
 		"backToDashboard": "Zurück zum Dashboard",
-		"submit": "einreichen",
-		"cancel": "Stornieren",
-		"close": "Nah dran",
+		"submit": "Einreichen",
+		"cancel": "Absagen",
+		"close": "Schließen",
 		"back": "Zurück",
-		"yes": "Jawohl",
+		"yes": "Ja",
 		"copy": "Kopieren",
 		"loginWithPatreon": "Melden Sie sich mit Patreon an",
 		"loginWithGitHub": "Melden Sie sich mit GitHub an",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "Bild kann nicht geladen werden",
+		"all": "Alles",
 		"success": "Erfolg",
 		"failed": "Gescheitert"
 	},
@@ -42,7 +43,7 @@
 		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchLoginUrl": "Anmelde-URL konnte nicht abgerufen werden.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
-		"failedToSaveSettings": "Fehler beim Speichern der Einstellungen.",
+		"failedToSaveSettings": "Einstellungen konnten nicht gespeichert werden.",
 		"failedToFetchSettings": "Die aktuellen Einstellungen von Unmanic konnten nicht abgerufen werden.",
 		"failedToFetchSystemConfig": "Die Systemkonfiguration von Unmanic konnte nicht abgerufen werden.",
 		"failedToFetchLibraryList": "Bibliotheksliste von Unmanic konnte nicht abgerufen werden.",
@@ -51,7 +52,7 @@
 		"failedToInstallPlugin": "Beim Versuch, das angeforderte Plug-in zu installieren, ist ein Fehler aufgetreten.",
 		"repoAlreadyExists": "Das Repository ist bereits vorhanden.",
 		"newRepoAddFailed": "Neues Repository konnte nicht gespeichert werden.",
-		"reposRefreshSuccess": "Alle Repositories erfolgreich aktualisiert.",
+		"reposRefreshSuccess": "Alle Repositorys erfolgreich aktualisiert.",
 		"reposRefreshFailure": "Ihre konfigurierten Repositorys können nicht aktualisiert werden. Vielleicht gibt es einen Fehler in einer der URLs?",
 		"repoRemovedSuccess": "Repository erfolgreich entfernt.",
 		"repoRemovedFailed": "Beim Versuch, das Repository zu entfernen, ist etwas schief gelaufen.",
@@ -86,6 +87,7 @@
 		"pendingTasks": "Ausstehende Aufgaben",
 		"completedTasks": "Abgeschlossene Aufgaben",
 		"privacyPolicy": "Datenschutz-Bestimmungen",
+		"releaseNotes": "Versionshinweise",
 		"pluginInfo": "Plugin-Info",
 		"pluginSettings": "Plugin-Einstellungen",
 		"pluginInstaller": "Plugin-Installer",
@@ -99,13 +101,14 @@
 		"confirm": "Bestätigen Sie",
 		"configureRemoteInstallationLink": "Remote-Installationslink konfigurieren",
 		"configureLibrary": "Bibliothek konfigurieren",
+		"configureWorkerGroup": "Worker-Gruppe konfigurieren",
 		"selectPlugin": "Wählen Sie ein Plugin aus",
 		"selectLibrary": "Wählen Sie eine Bibliothek aus",
 		"login": "Anmeldung",
 		"listEmpty": "Diese Aufgabenliste ist leer"
 	},
 	"tooltips": {
-		"close": "Nah dran",
+		"close": "Schließen",
 		"back": "Zurück",
 		"install": "Installieren",
 		"reinstall": "Neu installieren",
@@ -113,7 +116,7 @@
 		"pluginInfo": "Plugin-Info",
 		"position": "Position",
 		"etc": "Voraussichtliche Fertigstellungszeit",
-		"add": "Addieren",
+		"add": "Hinzufügen",
 		"remove": "Entfernen",
 		"removeFromThisLibrary": "Aus dieser Bibliothek entfernen",
 		"configure": "Konfigurieren",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "Bitte geben Sie eine gültige Nummer ein",
+			"common": {
+				"configuration": "Aufbau",
+				"tags": "Stichworte"
+			},
 			"library": {
 				"pathConfiguration": "Bibliotheken",
 				"name": "Name (muss eindeutig sein)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Löschen Sie alle ausstehenden Aufgaben beim Start",
 				"fileTesting": "Dateiprüfung",
 				"concurrentFileTesters": "Gleichzeitige Dateitester",
-				"configuration": "Aufbau",
 				"enableScanner": "Aktivieren Sie den Bibliotheksscanner für diese Bibliothek",
 				"enableInotify": "Aktivieren Sie die Dateiüberwachung für diese Bibliothek",
+				"priorityScore": "Legen Sie einen Prioritätsbewertungsmodifikator für Aufgaben fest, die für diese Bibliothek generiert wurden",
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
 				"addPluginToThisLibrary": "Plug-in zu dieser Bibliothek hinzufügen",
 				"locked": "Die Bibliothek kann nicht gelöscht werden",
-				"unlocked": "Die Bibliothek kann gelöscht werden"
+				"unlocked": "Die Bibliothek kann gelöscht werden",
+				"completedTasks": "Erledigte Aufgaben",
+				"autoManageCompletedTasks": "Erledigte Aufgaben automatisch verwalten",
+				"maxAgeOfCompletedTasks": "Maximale Anzahl von Tagen, um abgeschlossene Aufgaben aufzubewahren",
+				"alwaysKeepFailedTasks": "Fehlgeschlagene Aufgaben immer behalten"
 			},
 			"workers": {
+				"workerGroups": "Arbeitergruppen",
+				"confirmRemove": "Durch das Entfernen der Worker-Gruppe werden auch alle mit der Gruppe verknüpften Einstellungen entfernt. Möchten Sie wirklich fortfahren?",
+				"locked": "Die Worker-Gruppe kann nicht gelöscht werden",
+				"unlocked": "Die Worker-Gruppe kann gelöscht werden",
+				"workerGroupName": "Gruppenname",
 				"workerCount": "Arbeiter zählen",
 				"path": "Cache-Pfad",
 				"schedule": "Veranstaltungsplan für Arbeiter",
@@ -188,12 +204,15 @@
 				"name": "Name",
 				"version": "Ausführung",
 				"addRemoteInstallation": "Remote-Installation hinzufügen",
-				"address": "Adresse",
-				"add": "Addieren",
+				"address": "Die Anschrift",
+				"authentication": "Authentifizierung",
+				"username": "Nutzername",
+				"password": "Passwort",
+				"add": "Hinzufügen",
 				"connection": "Verbindung",
 				"configuration": "Aufbau",
 				"allowReceivingTasks": "Erhalten Sie Aufgaben von dieser Installation, wenn Arbeiter verfügbar sind",
-				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeitskräfte verfügbar sind",
+				"allowSendingTasks": "Senden Sie Aufgaben an diese Installation, wenn Arbeiter verfügbar sind",
 				"enableTaskPreloading": "Laden Sie einige Aufgaben vorab in die Warteschlange für ausstehende Aufgaben der Remote-Installation",
 				"enableDistributedWorkerCount": "Aktivieren Sie die Anzahl der verteilten Worker für diesen Link",
 				"workerTarget": "Arbeiter Ziel"
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Beim Abrufen der Details für diese Aufgabe ist ein Fehler aufgetreten",
 			"addToPendingTasksList": "Ausgewählte zur Liste der ausstehenden Aufgaben hinzufügen",
 			"removeSelected": "Ausgewählte aus der Liste entfernen",
-			"selectLibraryToAdd": "Bibliothek auswählen, in der diese Aufgabe neu erstellt werden soll"
+			"selectLibraryToAdd": "Bibliothek auswählen, in der diese Aufgabe neu erstellt werden soll",
+			"since": "Seit",
+			"before": "Vor"
 		},
 		"plugins": {
 			"updateAvailable": "Update verfügbar",
@@ -270,7 +291,7 @@
 			"globalConfiguration": "Globale Konfiguration",
 			"updatePlugin": "Update Stecker in",
 			"removePlugin": "Plugin entfernen",
-			"installPlugins": "PIugin installieren",
+			"installPlugins": "Plugin installieren",
 			"categoryFilter": "Kategoriefilter",
 			"author": "Autor",
 			"version": "Ausführung",
@@ -301,7 +322,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "Sie haben keine Datenbereiche aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
+			"noDataPanelsEnabled": "Sie haben keine Datenfelder aktiviert. Installieren Sie eines aus Ihren Plugin-Einstellungen."
 		},
 		"footer": {
 			"version": "Ausführung"

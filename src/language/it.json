@@ -22,7 +22,7 @@
 		"backToDashboard": "Torna alla dashboard",
 		"submit": "Invia",
 		"cancel": "Annulla",
-		"close": "Vicino",
+		"close": "Chiudere",
 		"back": "Di ritorno",
 		"yes": "sì",
 		"copy": "copia",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "Impossibile caricare l'immagine",
+		"all": "Tutti",
 		"success": "Successo",
 		"failed": "fallito"
 	},
@@ -86,6 +87,7 @@
 		"pendingTasks": "Compiti in sospeso",
 		"completedTasks": "Compiti completati",
 		"privacyPolicy": "politica sulla riservatezza",
+		"releaseNotes": "Note di rilascio",
 		"pluginInfo": "Informazioni sul plug-in",
 		"pluginSettings": "Impostazioni dei plug-in",
 		"pluginInstaller": "Installatore di plugin",
@@ -99,13 +101,14 @@
 		"confirm": "Confermare",
 		"configureRemoteInstallationLink": "Configura il collegamento di installazione remota",
 		"configureLibrary": "Configura libreria",
+		"configureWorkerGroup": "Configura gruppo di lavoro",
 		"selectPlugin": "Seleziona un plug-in",
 		"selectLibrary": "Seleziona una libreria",
 		"login": "Login",
 		"listEmpty": "Questo elenco di attività è vuoto"
 	},
 	"tooltips": {
-		"close": "Vicino",
+		"close": "Chiudere",
 		"back": "Di ritorno",
 		"install": "Installare",
 		"reinstall": "Reinstalla",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "Per favore, inserire un numero valido",
+			"common": {
+				"configuration": "Configurazione",
+				"tags": "Tag"
+			},
 			"library": {
 				"pathConfiguration": "Biblioteche",
 				"name": "Nome (deve essere univoco)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio",
 				"fileTesting": "Test di file",
 				"concurrentFileTesters": "Tester di file simultanei",
-				"configuration": "Configurazione",
 				"enableScanner": "Abilita scanner libreria per questa libreria",
 				"enableInotify": "Abilita il monitoraggio dei file per questa libreria",
+				"priorityScore": "Imposta un modificatore di punteggio di priorità per le attività generate per questa libreria",
 				"plugins": "Plugin",
 				"pluginFlow": "Flusso di plug-in",
 				"cloneLibrary": "Libreria dei cloni",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Importazione della configurazione della libreria. L'operazione potrebbe richiedere del tempo se sono presenti plug-in che richiedono l'installazione.",
 				"addPluginToThisLibrary": "Aggiungi plugin a questa libreria",
 				"locked": "La libreria non può essere eliminata",
-				"unlocked": "È possibile eliminare la libreria"
+				"unlocked": "È possibile eliminare la libreria",
+				"completedTasks": "Compiti completati",
+				"autoManageCompletedTasks": "Gestisci automaticamente le attività completate",
+				"maxAgeOfCompletedTasks": "Numero massimo di giorni per mantenere le attività completate",
+				"alwaysKeepFailedTasks": "Mantieni sempre le attività non riuscite"
 			},
 			"workers": {
+				"workerGroups": "Gruppi di lavoratori",
+				"confirmRemove": "La rimozione del gruppo di lavoro rimuoverà anche tutte le impostazioni associate al gruppo. Sei sicuro di voler continuare?",
+				"locked": "Il gruppo di lavoro non può essere eliminato",
+				"unlocked": "È possibile eliminare il gruppo di lavoro",
+				"workerGroupName": "Nome del gruppo",
 				"workerCount": "Conteggio operai",
 				"path": "Percorso della cache",
 				"schedule": "Programma degli eventi dei lavoratori",
@@ -189,6 +205,9 @@
 				"version": "Versione",
 				"addRemoteInstallation": "Aggiungi installazione remota",
 				"address": "Indirizzo",
+				"authentication": "Autenticazione",
+				"username": "Nome utente",
+				"password": "Parola d'ordine",
 				"add": "Aggiungere",
 				"connection": "Connessione",
 				"configuration": "Configurazione",
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Si è verificato un errore durante il recupero dei dettagli per questa attività",
 			"addToPendingTasksList": "Aggiungi selezionato all'elenco delle attività in sospeso",
 			"removeSelected": "Rimuovi selezionati dall'elenco",
-			"selectLibraryToAdd": "Seleziona la libreria in cui ricreare questa attività"
+			"selectLibraryToAdd": "Seleziona la libreria in cui ricreare questa attività",
+			"since": "Da",
+			"before": "Prima di"
 		},
 		"plugins": {
 			"updateAvailable": "Aggiornamento disponibile",

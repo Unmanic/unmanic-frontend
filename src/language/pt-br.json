@@ -1,7 +1,7 @@
 {
 	"navigation": {
 		"dashboard": "Painel",
-		"settings": "Configurações",
+		"settings": "Definições",
 		"dataPanels": "Painéis de dados",
 		"account": "Conta",
 		"login": "Conecte-se",
@@ -15,16 +15,16 @@
 		"link": "Link",
 		"helpAndSupport": "Ajuda e suporte",
 		"info": "Informações",
-		"show": "Mostrar",
+		"show": "exposição",
 		"showMore": "Mostre mais",
 		"search": "Procurar",
-		"save": "Salvar",
+		"save": "Salve ",
 		"backToDashboard": "Voltar ao painel",
 		"submit": "Enviar",
 		"cancel": "Cancelar",
-		"close": "Fechar",
-		"back": "Voltar",
-		"yes": "sim",
+		"close": "Perto",
+		"back": "Costas",
+		"yes": "Sim",
 		"copy": "cópia de",
 		"loginWithPatreon": "Entrar com Patreon",
 		"loginWithGitHub": "Entrar com o GitHub",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "Não é possível carregar a imagem",
+		"all": "Tudo",
 		"success": "Sucesso",
 		"failed": "Fracassado"
 	},
@@ -62,7 +63,7 @@
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
-		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação de biblioteca",
+		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação da biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -86,6 +87,7 @@
 		"pendingTasks": "Tarefas Pendentes",
 		"completedTasks": "Tarefas concluídas",
 		"privacyPolicy": "Política de Privacidade",
+		"releaseNotes": "Notas de lançamento",
 		"pluginInfo": "Informações do plug-in",
 		"pluginSettings": "Configurações do plug-in",
 		"pluginInstaller": "Instalador de plug-ins",
@@ -99,14 +101,15 @@
 		"confirm": "confirme",
 		"configureRemoteInstallationLink": "Configurar link de instalação remota",
 		"configureLibrary": "Configurar biblioteca",
+		"configureWorkerGroup": "Configurar grupo de trabalhadores",
 		"selectPlugin": "Selecione um plug-in",
 		"selectLibrary": "Selecione uma biblioteca",
 		"login": "Conecte-se",
 		"listEmpty": "Esta lista de tarefas está vazia"
 	},
 	"tooltips": {
-		"close": "Fechar",
-		"back": "Voltar",
+		"close": "Perto",
+		"back": "Costas",
 		"install": "Instalar",
 		"reinstall": "Reinstalar",
 		"update": "Atualizar",
@@ -119,7 +122,7 @@
 		"configure": "Configurar",
 		"configureForThisLibrary": "Configurar para esta biblioteca",
 		"delete": "Excluir",
-		"move": "Mover"
+		"move": "Jogada"
 	},
 	"buttons": {
 		"language": "Linguagem",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "Por favor insira um número válido",
+			"common": {
+				"configuration": "Configuração",
+				"tags": "Tag"
+			},
 			"library": {
 				"pathConfiguration": "Bibliotecas",
 				"name": "Nome (deve ser único)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Limpe todas as tarefas pendentes na inicialização",
 				"fileTesting": "Teste de arquivo",
 				"concurrentFileTesters": "Testadores de arquivos simultâneos",
-				"configuration": "Configuração",
 				"enableScanner": "Ativar o scanner de biblioteca para esta biblioteca",
 				"enableInotify": "Ativar o monitor de arquivos para esta biblioteca",
+				"priorityScore": "Defina um modificador de pontuação de prioridade para tarefas geradas para esta biblioteca",
 				"plugins": "Plug-ins",
 				"pluginFlow": "Fluxo de plug-ins",
 				"cloneLibrary": "Clonar biblioteca",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Importando a configuração da biblioteca. Isso pode levar algum tempo se houver algum plug-in que exija instalação.",
 				"addPluginToThisLibrary": "Adicionar plug-in a esta biblioteca",
 				"locked": "A biblioteca não pode ser excluída",
-				"unlocked": "A biblioteca pode ser excluída"
+				"unlocked": "A biblioteca pode ser excluída",
+				"completedTasks": "Tarefas concluídas",
+				"autoManageCompletedTasks": "Gerencie automaticamente as tarefas concluídas",
+				"maxAgeOfCompletedTasks": "Número máximo de dias para manter as tarefas concluídas",
+				"alwaysKeepFailedTasks": "Sempre mantenha as tarefas com falha"
 			},
 			"workers": {
+				"workerGroups": "Grupos de trabalhadores",
+				"confirmRemove": "A remoção do grupo de trabalhadores também removerá todas as configurações associadas ao grupo. Tem certeza que deseja continuar?",
+				"locked": "O grupo de trabalhadores não pode ser excluído",
+				"unlocked": "O grupo de trabalhadores pode ser excluído",
+				"workerGroupName": "Nome do grupo",
 				"workerCount": "Contagem de trabalhadores",
 				"path": "Caminho do cache",
 				"schedule": "Agenda de eventos do trabalhador",
@@ -189,6 +205,9 @@
 				"version": "Versão",
 				"addRemoteInstallation": "Adicionar instalação remota",
 				"address": "Endereço",
+				"authentication": "Autenticação",
+				"username": "Nome do usuário",
+				"password": "Senha",
 				"add": "Adicionar",
 				"connection": "Conexão",
 				"configuration": "Configuração",
@@ -213,7 +232,7 @@
 				"docs": "Documentação",
 				"apiSpec": "Especificação da API",
 				"applicationDocumentation": "Documentação do aplicativo",
-				"support": "Apoiar",
+				"support": "Apoio, suporte",
 				"unmanicAppSourceRequests": "Recurso de solicitação no aplicativo Unmanic",
 				"unmanicFrontendSourceRequests": "Recurso de solicitação no Unmanic Frontend",
 				"unmanicOfficialPluginRequests": "Solicite um plugin para Unmanic"
@@ -230,7 +249,7 @@
 			"terminateWorker": "Encerrar este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falha na lista de tarefas concluídas.",
 			"workerTerminated": "O trabalhador foi demitido",
-			"workerTerminationFailed": "Unmanic não conseguiu encerrar este trabalhador por algum motivo",
+			"workerTerminationFailed": "O Unmanic não conseguiu encerrar este trabalhador por algum motivo",
 			"pauseAllWorkers": "Pausar todos os trabalhadores",
 			"resumeAllWorkers": "Retomar todos os trabalhadores",
 			"terminateAllWorkers": "Encerre todos os trabalhadores",
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Foi encontrado um erro ao buscar os detalhes desta tarefa",
 			"addToPendingTasksList": "Adicionar selecionado à lista de tarefas pendentes",
 			"removeSelected": "Remover selecionado da lista",
-			"selectLibraryToAdd": "Selecione a biblioteca na qual recriar esta tarefa"
+			"selectLibraryToAdd": "Selecione a biblioteca na qual recriar esta tarefa",
+			"since": "Desde a",
+			"before": "Antes"
 		},
 		"plugins": {
 			"updateAvailable": "Atualização disponível",

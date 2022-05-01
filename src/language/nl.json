@@ -15,7 +15,7 @@
 		"link": "Koppeling",
 		"helpAndSupport": "Help & Ondersteuning",
 		"info": "Info",
-		"show": "Laten zien",
+		"show": "Tonen",
 		"showMore": "Laat meer zien",
 		"search": "Zoekopdracht",
 		"save": "Opslaan",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "Kan afbeelding niet laden",
+		"all": "Alle",
 		"success": "Succes",
 		"failed": "mislukt"
 	},
@@ -47,7 +48,7 @@
 		"failedToFetchSystemConfig": "Kan de systeemconfiguratie van Unmanic niet ophalen.",
 		"failedToFetchLibraryList": "Kan de bibliotheeklijst van Unmanic niet ophalen.",
 		"SavedPluginSettings": "Plugin-instellingen opgeslagen.",
-		"failedToSavePluginSettings": "Kan plug-ininstellingen niet opslaan.",
+		"failedToSavePluginSettings": "Kan de instellingen van de plug-in niet opslaan.",
 		"failedToInstallPlugin": "Er is een fout opgetreden bij het installeren van de gevraagde plug-in.",
 		"repoAlreadyExists": "Opslagplaats bestaat al.",
 		"newRepoAddFailed": "Nieuwe opslagplaats kan niet worden opgeslagen.",
@@ -86,6 +87,7 @@
 		"pendingTasks": "Taken in behandeling",
 		"completedTasks": "Voltooide taken",
 		"privacyPolicy": "Privacybeleid",
+		"releaseNotes": "Release-opmerkingen",
 		"pluginInfo": "Plugin-info",
 		"pluginSettings": "Instellingen voor plug-ins",
 		"pluginInstaller": "Installatieprogramma voor plug-ins",
@@ -99,6 +101,7 @@
 		"confirm": "Bevestigen",
 		"configureRemoteInstallationLink": "Link voor installatie op afstand configureren",
 		"configureLibrary": "Bibliotheek configureren",
+		"configureWorkerGroup": "Werkgroep configureren",
 		"selectPlugin": "Selecteer een plug-in",
 		"selectLibrary": "Selecteer een bibliotheek",
 		"login": "Log in",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "Gelieve een geldig nummer invoeren",
+			"common": {
+				"configuration": "Configuratie",
+				"tags": "Tags"
+			},
 			"library": {
 				"pathConfiguration": "bibliotheken",
 				"name": "Naam (moet uniek zijn)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Wis alle lopende taken bij het opstarten",
 				"fileTesting": "Bestand testen",
 				"concurrentFileTesters": "Gelijktijdige bestandstesters",
-				"configuration": "Configuratie",
 				"enableScanner": "Bibliotheekscanner inschakelen voor deze bibliotheek",
 				"enableInotify": "Bestandsmonitor inschakelen voor deze bibliotheek",
+				"priorityScore": "Stel een prioriteitsscore-modifier in voor taken die voor deze bibliotheek zijn gegenereerd",
 				"plugins": "Plug-ins",
 				"pluginFlow": "Plugin-stroom",
 				"cloneLibrary": "Kloon bibliotheek",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Bibliotheekconfiguratie importeren. Dit kan enige tijd duren als er plug-ins zijn die moeten worden geïnstalleerd.",
 				"addPluginToThisLibrary": "Voeg plug-in toe aan deze bibliotheek",
 				"locked": "De bibliotheek kan niet worden verwijderd",
-				"unlocked": "De bibliotheek kan worden verwijderd"
+				"unlocked": "De bibliotheek kan worden verwijderd",
+				"completedTasks": "Voltooide taken",
+				"autoManageCompletedTasks": "Beheer voltooide taken automatisch",
+				"maxAgeOfCompletedTasks": "Maximaal aantal dagen om voltooide taken te bewaren",
+				"alwaysKeepFailedTasks": "Bewaar mislukte taken altijd"
 			},
 			"workers": {
+				"workerGroups": "Werknemersgroepen",
+				"confirmRemove": "Als u de werknemersgroep verwijdert, worden ook alle instellingen verwijderd die aan de groep zijn gekoppeld. Weet je zeker dat je wilt doorgaan?",
+				"locked": "De werknemersgroep kan niet worden verwijderd",
+				"unlocked": "De werknemersgroep kan worden verwijderd",
+				"workerGroupName": "Groepsnaam",
 				"workerCount": "Aantal werknemers",
 				"path": "Cache pad",
 				"schedule": "Werkrooster voor evenementen",
@@ -189,10 +205,13 @@
 				"version": "Versie",
 				"addRemoteInstallation": "Installatie op afstand toevoegen",
 				"address": "Adres",
+				"authentication": "authenticatie",
+				"username": "gebruikersnaam",
+				"password": "Wachtwoord",
 				"add": "Toevoegen",
 				"connection": "Verbinding",
 				"configuration": "Configuratie",
-				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werkers beschikbaar zijn",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer werknemers beschikbaar zijn",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
 				"enableTaskPreloading": "Preload een aantal taken op de externe installatie Wachtende taken wachtrij",
 				"enableDistributedWorkerCount": "Gedistribueerd aantal werknemers inschakelen voor deze link",
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Er is een fout opgetreden bij het ophalen van de details voor deze taak",
 			"addToPendingTasksList": "Geselecteerde toevoegen aan lijst met lopende taken",
 			"removeSelected": "Geselecteerde uit lijst verwijderen",
-			"selectLibraryToAdd": "Selecteer bibliotheek waarin u deze taak opnieuw wilt maken"
+			"selectLibraryToAdd": "Selecteer bibliotheek waarin u deze taak opnieuw wilt maken",
+			"since": "Sinds",
+			"before": "Voordat"
 		},
 		"plugins": {
 			"updateAvailable": "Update beschikbaar",

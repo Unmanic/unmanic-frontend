@@ -1,6 +1,6 @@
 {
 	"navigation": {
-		"dashboard": "Tablero",
+		"dashboard": "Panel",
 		"settings": "Ajustes",
 		"dataPanels": "Paneles de datos",
 		"account": "Cuenta",
@@ -18,13 +18,13 @@
 		"show": "Show",
 		"showMore": "Mostrar más",
 		"search": "Búsqueda",
-		"save": "Salvar",
+		"save": "Guardar",
 		"backToDashboard": "Volver al panel",
-		"submit": "Enviar",
+		"submit": "Entregar",
 		"cancel": "Cancelar",
 		"close": "Cerrar",
 		"back": "Atrás",
-		"yes": "sí",
+		"yes": "Sí",
 		"copy": "Dupdo",
 		"loginWithPatreon": "Iniciar sesión con Patreon",
 		"loginWithGitHub": "Iniciar sesión con GitHub",
@@ -32,6 +32,7 @@
 	},
 	"status": {
 		"cannotLoadImage": "No se puede cargar la imagen",
+		"all": "Todos",
 		"success": "Éxito",
 		"failed": "Ha fallado"
 	},
@@ -86,6 +87,7 @@
 		"pendingTasks": "Tareas pendientes",
 		"completedTasks": "Tareas Completadas",
 		"privacyPolicy": "Política de privacidad",
+		"releaseNotes": "Notas de lanzamiento",
 		"pluginInfo": "Información del complemento",
 		"pluginSettings": "Configuración del complemento",
 		"pluginInstaller": "Instalador de complementos",
@@ -99,6 +101,7 @@
 		"confirm": "Confirmar",
 		"configureRemoteInstallationLink": "Configurar enlace de instalación remota",
 		"configureLibrary": "Configurar biblioteca",
+		"configureWorkerGroup": "Configurar grupo de trabajadores",
 		"selectPlugin": "Seleccione un complemento",
 		"selectLibrary": "Seleccione una biblioteca",
 		"login": "Acceso",
@@ -107,14 +110,14 @@
 	"tooltips": {
 		"close": "Cerrar",
 		"back": "Atrás",
-		"install": "Instalar en pc",
+		"install": "Instalar",
 		"reinstall": "Reinstalar",
 		"update": "Actualizar",
 		"pluginInfo": "Información del complemento",
 		"position": "Posición",
 		"etc": "Tiempo estimado de finalización",
 		"add": "Agregar",
-		"remove": "Eliminar",
+		"remove": "Remover",
 		"removeFromThisLibrary": "Eliminar de esta biblioteca",
 		"configure": "Configurar",
 		"configureForThisLibrary": "Configurar para esta biblioteca",
@@ -128,6 +131,10 @@
 	"components": {
 		"settings": {
 			"pleaseEnterAValidNumber": "por favor ingrese un número valido",
+			"common": {
+				"configuration": "Configuración",
+				"tags": "Etiquetas"
+			},
 			"library": {
 				"pathConfiguration": "bibliotecas",
 				"name": "Nombre (debe ser único)",
@@ -144,9 +151,9 @@
 				"clearPendingTasksOnStart": "Borrar todas las tareas pendientes al inicio",
 				"fileTesting": "Prueba de archivos",
 				"concurrentFileTesters": "Comprobadores de archivos simultáneos",
-				"configuration": "Configuración",
 				"enableScanner": "Habilitar escáner de biblioteca para esta biblioteca",
 				"enableInotify": "Habilitar el monitor de archivos para esta biblioteca",
+				"priorityScore": "Establecer un modificador de puntuación de prioridad para las tareas generadas para esta biblioteca",
 				"plugins": "Complementos",
 				"pluginFlow": "Flujo de complementos",
 				"cloneLibrary": "Biblioteca de clones",
@@ -155,9 +162,18 @@
 				"importPluginConfigMessage": "Importación de la configuración de la biblioteca. Esto puede llevar algún tiempo si hay algún complemento que requiera instalación.",
 				"addPluginToThisLibrary": "Agregar complemento a esta biblioteca",
 				"locked": "La biblioteca no se puede eliminar.",
-				"unlocked": "La biblioteca se puede eliminar."
+				"unlocked": "La biblioteca se puede eliminar.",
+				"completedTasks": "tareas completadas",
+				"autoManageCompletedTasks": "Administrar automáticamente las tareas completadas",
+				"maxAgeOfCompletedTasks": "Número máximo de días para mantener las tareas completadas",
+				"alwaysKeepFailedTasks": "Mantenga siempre las tareas fallidas"
 			},
 			"workers": {
+				"workerGroups": "grupos de trabajadores",
+				"confirmRemove": "Eliminar el grupo de trabajadores también eliminará todas las configuraciones asociadas con el grupo. ¿Seguro que desea continuar?",
+				"locked": "El grupo de trabajadores no se puede eliminar.",
+				"unlocked": "El grupo de trabajadores se puede eliminar",
+				"workerGroupName": "Nombre del grupo",
 				"workerCount": "conteo de trabajadores",
 				"path": "Ruta de caché",
 				"schedule": "calendario de eventos para trabajadores",
@@ -166,7 +182,7 @@
 				"task": "Tarea",
 				"addEvent": "Añadir evento",
 				"scheduleLabels": {
-					"daily": "A diario",
+					"daily": "Diario",
 					"weekday": "Todos los días de la semana",
 					"weekend": "Todos los sábados y domingos",
 					"monday": "Cada lunes",
@@ -188,7 +204,10 @@
 				"name": "Nombre",
 				"version": "Versión",
 				"addRemoteInstallation": "Agregar instalación remota",
-				"address": "Habla a",
+				"address": "Dirección",
+				"authentication": "Autenticación",
+				"username": "Nombre de usuario",
+				"password": "Clave",
 				"add": "Agregar",
 				"connection": "Conexión",
 				"configuration": "Configuración",
@@ -236,7 +255,7 @@
 			"terminateAllWorkers": "Despedir a todos los trabajadores",
 			"workerLog": "Registro de trabajadores",
 			"status": "Estado",
-			"stateLabel": "Estado",
+			"stateLabel": "Expresar",
 			"currentRunnerLabel": "Corredor actual",
 			"startTimeLabel": "Hora de inicio",
 			"totalProcessingTimeLabel": "Tiempo total de procesamiento",
@@ -261,7 +280,9 @@
 			"errorGettingDetails": "Se encontró un error al obtener los detalles para esta tarea",
 			"addToPendingTasksList": "Agregar seleccionado a la lista de tareas pendientes",
 			"removeSelected": "Eliminar seleccionado de la lista",
-			"selectLibraryToAdd": "Seleccione la biblioteca en la que recrear esta tarea"
+			"selectLibraryToAdd": "Seleccione la biblioteca en la que recrear esta tarea",
+			"since": "Ya que",
+			"before": "Antes"
 		},
 		"plugins": {
 			"updateAvailable": "Actualización disponible",
