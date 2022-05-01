@@ -12,7 +12,7 @@
 
 project_root="$(readlink -e $(dirname $(readlink -e ${BASH_SOURCE[0]}))/../)"
 
-languages_to_support="mi,zh,nl,fr,de,it,ja,ru,es,sv,pt-br"
+languages_to_support="mi,zh,nl,fr,de,it,ja,ru,es,sv,pt-br,pl"
 
 if [[ -z ${GOOGLE_TRANSLATE_API_KEY} ]]; then
     echo " Set the Google Translate API key in your bash variables before running. Exit!"
