@@ -67,7 +67,7 @@
       </q-card-section>
 
       <q-card-actions align="right" class="text-primary">
-        <q-btn flat :label="$t('navigation.cancel')"/>
+        <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
         <q-btn
           @click="addNewScheduledEvent"
           flat :label="$t('components.settings.workers.addEvent')"/>
