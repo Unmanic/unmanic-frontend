@@ -151,6 +151,8 @@
         "clearPendingTasksOnStart": "Clear all pending tasks on startup",
         "fileTesting": "File testing",
         "concurrentFileTesters": "Concurrent file testers",
+        "enableReceiveRemoteFilesOnly": "Configure Library for receiving remote files only",
+        "pathDisabledReceiveRemoteFilesOnly": "Option disabled as you have configured this library for receiving remote files only",
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
         "priorityScore": "Set a priority score modifier for tasks generated for this library",

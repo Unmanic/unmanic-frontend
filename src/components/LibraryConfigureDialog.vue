@@ -164,9 +164,15 @@
                   outlined
                   color="primary"
                   v-model="path"
-                  :label="$t('components.settings.library.path')"
+                  label-slot
                   :placeholder="path"
+                  :disable="enableReceiveRemoteFilesOnly === true"
                   @click="updateLibraryWithDirectoryBrowser">
+                  <template v-slot:label>
+                    <div class="row items-center all-pointer-events">
+                      {{ $t('components.settings.library.path') }}
+                    </div>
+                  </template>
                   <template v-slot:append>
                     <q-icon
                       @click="updateLibraryWithDirectoryBrowser"
@@ -174,8 +180,32 @@
                       name="folder_open"/>
                   </template>
                 </q-input>
+                <q-tooltip
+                  v-if="enableReceiveRemoteFilesOnly === true"
+                  class="bg-white text-primary"
+                  anchor="bottom left"
+                  self="bottom left">
+                  {{ $t('components.settings.library.pathDisabledReceiveRemoteFilesOnly') }}
+                </q-tooltip>
               </div>
 
+              <div class="q-pb-sm">
+                <q-skeleton
+                  v-if="enableReceiveRemoteFilesOnly === null"
+                  type="QToggle"/>
+                <q-item
+                  v-else
+                  tag="label"
+                  class="border-hover"
+                  style="padding-left:12px">
+                  <q-item-section>
+                    <q-item-label>{{ $t('components.settings.library.enableReceiveRemoteFilesOnly') }}</q-item-label>
+                  </q-item-section>
+                  <q-item-section avatar>
+                    <q-toggle v-model="enableReceiveRemoteFilesOnly"/>
+                  </q-item-section>
+                </q-item>
+              </div>
               <div class="q-pb-sm">
                 <q-skeleton
                   v-if="enableScanner === null"
@@ -184,14 +214,22 @@
                   v-else
                   tag="label"
                   class="border-hover"
-                  style="padding-left:12px">
+                  style="padding-left:12px"
+                  :disable="enableReceiveRemoteFilesOnly === true">
                   <q-item-section>
                     <q-item-label>{{ $t('components.settings.library.enableScanner') }}</q-item-label>
                   </q-item-section>
                   <q-item-section avatar>
-                    <q-toggle v-model="enableScanner"/>
+                    <q-toggle v-model="enableScanner" :disable="enableReceiveRemoteFilesOnly === true"/>
                   </q-item-section>
                 </q-item>
+                <q-tooltip
+                  v-if="enableReceiveRemoteFilesOnly === true"
+                  class="bg-white text-primary"
+                  anchor="bottom left"
+                  self="bottom left">
+                  {{ $t('components.settings.library.pathDisabledReceiveRemoteFilesOnly') }}
+                </q-tooltip>
               </div>
               <div class="q-pb-sm">
                 <q-skeleton
@@ -201,14 +239,22 @@
                   v-else
                   tag="label"
                   class="border-hover"
-                  style="padding-left:12px">
+                  style="padding-left:12px"
+                  :disable="enableReceiveRemoteFilesOnly === true">
                   <q-item-section>
                     <q-item-label>{{ $t('components.settings.library.enableInotify') }}</q-item-label>
                   </q-item-section>
                   <q-item-section avatar>
-                    <q-toggle v-model="enableInotify"/>
+                    <q-toggle v-model="enableInotify" :disable="enableReceiveRemoteFilesOnly === true"/>
                   </q-item-section>
                 </q-item>
+                <q-tooltip
+                  v-if="enableReceiveRemoteFilesOnly === true"
+                  class="bg-white text-primary"
+                  anchor="bottom left"
+                  self="bottom left">
+                  {{ $t('components.settings.library.pathDisabledReceiveRemoteFilesOnly') }}
+                </q-tooltip>
               </div>
 
               <div class="q-pb-sm">
@@ -422,6 +468,7 @@ export default {
         this.locked = libraryConfig.locked;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
+        this.enableReceiveRemoteFilesOnly = libraryConfig.enable_receive_remote_files_only;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
         this.priorityScore = libraryConfig.priority_score;
@@ -438,6 +485,7 @@ export default {
           locked: this.locked,
           name: this.name,
           path: this.path,
+          enable_receive_remote_files_only: this.enableReceiveRemoteFilesOnly,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
@@ -657,6 +705,7 @@ export default {
         configData.library_config = {
           name: newName,
           path: this.path,
+          enable_receive_remote_files_only: this.enableReceiveRemoteFilesOnly,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
@@ -697,6 +746,7 @@ export default {
       locked: ref(false),
       name: ref(''),
       path: ref(''),
+      enableReceiveRemoteFilesOnly: ref(false),
       enableScanner: ref(false),
       enableInotify: ref(false),
       priorityScore: ref(0),
