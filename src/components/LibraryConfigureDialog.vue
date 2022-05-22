@@ -154,7 +154,9 @@
                 </q-input>
               </div>
 
-              <div class="q-pb-sm">
+              <div
+                v-if="enableReceiveRemoteFilesOnly !== true"
+                class="q-pb-sm">
                 <q-skeleton
                   v-if="path === null"
                   type="QInput"/>
@@ -206,7 +208,9 @@
                   </q-item-section>
                 </q-item>
               </div>
-              <div class="q-pb-sm">
+              <div
+                v-if="enableReceiveRemoteFilesOnly !== true"
+                class="q-pb-sm">
                 <q-skeleton
                   v-if="enableScanner === null"
                   type="QToggle"/>
@@ -231,7 +235,9 @@
                   {{ $t('components.settings.library.pathDisabledReceiveRemoteFilesOnly') }}
                 </q-tooltip>
               </div>
-              <div class="q-pb-sm">
+              <div
+                v-if="enableReceiveRemoteFilesOnly !== true"
+                class="q-pb-sm">
                 <q-skeleton
                   v-if="enableInotify === null"
                   type="QToggle"/>
