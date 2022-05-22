@@ -216,6 +216,7 @@ import dateTools from "src/js/dateTools";
 import axios from "axios";
 import CompletedTaskLogDialog from "components/CompletedTaskLogDialog";
 import { useI18n } from "vue-i18n";
+import { onUnmounted } from "@vue/runtime-core";
 
 const columns = [
   {
@@ -287,6 +288,8 @@ export default {
     const selectLibrary = ref(false)
     const selectedLibraryId = ref(null)
     const LibraryOptions = ref([])
+
+    let reloadInterval = null;
 
     function getSelectedString() {
       let return_value = ''
@@ -503,6 +506,18 @@ export default {
         pagination: pagination.value,
         searchValue: undefined
       })
+      reloadInterval = setInterval(() => {
+        onRequest({
+          pagination: pagination.value,
+          searchValue: searchValue.value
+        })
+      }, 10000);
+    })
+
+    onUnmounted(() => {
+      if (reloadInterval != null) {
+        clearInterval(reloadInterval);
+      }
     })
 
     // Monitor the status filter for changes
