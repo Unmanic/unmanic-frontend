@@ -474,7 +474,7 @@ export default {
         this.locked = libraryConfig.locked;
         this.name = libraryConfig.name;
         this.path = libraryConfig.path;
-        this.enableReceiveRemoteFilesOnly = libraryConfig.enable_receive_remote_files_only;
+        this.enableReceiveRemoteFilesOnly = libraryConfig.enable_remote_only;
         this.enableScanner = libraryConfig.enable_scanner;
         this.enableInotify = libraryConfig.enable_inotify;
         this.priorityScore = libraryConfig.priority_score;
@@ -491,7 +491,7 @@ export default {
           locked: this.locked,
           name: this.name,
           path: this.path,
-          enable_receive_remote_files_only: this.enableReceiveRemoteFilesOnly,
+          enable_remote_only: this.enableReceiveRemoteFilesOnly,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
@@ -711,7 +711,7 @@ export default {
         configData.library_config = {
           name: newName,
           path: this.path,
-          enable_receive_remote_files_only: this.enableReceiveRemoteFilesOnly,
+          enable_remote_only: this.enableReceiveRemoteFilesOnly,
           enable_scanner: this.enableScanner,
           enable_inotify: this.enableInotify,
           priority_score: this.priorityScore,
