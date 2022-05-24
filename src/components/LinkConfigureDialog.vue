@@ -56,9 +56,15 @@
 
             <q-separator/>
 
-            <q-card-section class="q-pa-none">
+            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
 
-              <h5 class="">{{ $t('components.settings.link.connection') }}</h5>
+              <div class="row items-center no-wrap q-mb-md">
+                <div class="col">
+                  <div class="text-h6">
+                    {{ $t('components.settings.link.connection') }}
+                  </div>
+                </div>
+              </div>
 
               <div class="q-gutter-sm">
                 <q-input
@@ -89,7 +95,7 @@
               </div>
 
               <div v-if="authType !== 'None'"
-                   class="sub-setting q-pt-none q-pt-sm">
+                   class="sub-setting q-pt-none q-pb-sm">
                 <q-input
                   outlined
                   color="primary"
@@ -105,8 +111,19 @@
                   </template>
                 </q-input>
               </div>
+            </q-card-section>
 
-              <h5 class="">{{ $t('components.settings.link.configuration') }}</h5>
+            <q-separator/>
+
+            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+
+              <div class="row items-center no-wrap q-mb-md">
+                <div class="col">
+                  <div class="text-h6">
+                    {{ $t('components.settings.link.remoteTaskProcessing') }}
+                  </div>
+                </div>
+              </div>
 
               <div class="q-gutter-sm">
                 <q-skeleton
@@ -143,6 +160,34 @@
                     v-model="enableTaskPreloading"
                     :label="$t('components.settings.link.enableTaskPreloading')"
                   />
+                </div>
+              </div>
+              <div
+                v-if="enableSendingTasks"
+                class="sub-setting">
+                <div class="q-gutter-sm">
+                  <q-skeleton
+                    v-if="enableConfigMissingLibraries === null"
+                    type="QToggle"/>
+                  <q-toggle
+                    v-else
+                    v-model="enableConfigMissingLibraries"
+                    :label="$t('components.settings.link.enableConfigMissingLibraries')"
+                  />
+                </div>
+              </div>
+
+            </q-card-section>
+
+            <q-separator/>
+
+            <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+
+              <div class="row items-center no-wrap q-mb-md">
+                <div class="col">
+                  <div class="text-h6">
+                    {{ $t('components.settings.link.collectiveManagement') }}
+                  </div>
                 </div>
               </div>
 
@@ -264,6 +309,7 @@ export default {
         this.enableReceivingTasks = link_config.enable_receiving_tasks;
         this.enableSendingTasks = link_config.enable_sending_tasks;
         this.enableTaskPreloading = link_config.enable_task_preloading;
+        this.enableConfigMissingLibraries = link_config.enable_config_missing_libraries;
         this.enableDistributedWorkerCount = link_config.enable_distributed_worker_count;
         this.distributedWorkerCountTarget = response.data.distributed_worker_count_target;
       });
@@ -281,6 +327,7 @@ export default {
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
           enable_task_preloading: this.enableTaskPreloading,
+          enable_config_missing_libraries: this.enableConfigMissingLibraries,
           enable_distributed_worker_count: this.enableDistributedWorkerCount,
         },
         distributed_worker_count_target: this.distributedWorkerCountTarget,
@@ -332,6 +379,7 @@ export default {
       enableReceivingTasks: ref(null),
       enableSendingTasks: ref(null),
       enableTaskPreloading: ref(null),
+      enableConfigMissingLibraries: ref(null),
       enableDistributedWorkerCount: ref(null),
       distributedWorkerCountTarget: ref(null),
     }

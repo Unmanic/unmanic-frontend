@@ -212,10 +212,12 @@
         "password": "Password",
         "add": "Add",
         "connection": "Connection",
-        "configuration": "Configuration",
+        "remoteTaskProcessing": "Remote Task Processing",
         "allowReceivingTasks": "Receive tasks from this installation when workers are available",
         "allowSendingTasks": "Send tasks to this installation when workers are available",
         "enableTaskPreloading": "Preload some tasks on the remote installation Pending Tasks queue",
+        "enableConfigMissingLibraries": "Automatically configure missing libraries on the remote installation",
+        "collectiveManagement": "Collective Management",
         "enableDistributedWorkerCount": "Enable distributed worker count for this link",
         "workerTarget": "Worker target"
       },
