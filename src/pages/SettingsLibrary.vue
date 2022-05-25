@@ -9,7 +9,8 @@
       <div class="row">
         <div class="col q-ma-sm">
 
-          <div class="q-pa-md" style="max-width: 500px">
+          <div class="q-pa-md"
+               :style="$q.platform.is.mobile ? '' : 'max-width: 70%'">
 
             <q-form
               @submit="save"
@@ -34,25 +35,90 @@
                     active-class="library-path-list-item">
                     <q-item-section avatar>
                       <q-avatar text-color="grey-8" icon="source"/>
-                    </q-item-section>
-
-                    <q-item-section>
-                      <q-item-label>{{ path.name }}</q-item-label>
-                      <q-item-label caption lines="1">
-                        <span class="text-weight-bold">{{ $t('components.settings.library.path') }}:</span>
-                        {{ path.path }}
-                      </q-item-label>
-                      <q-item-label caption lines="1">
-                        <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
-                        {{ path.tags.join(', ') || 'None' }}
-                      </q-item-label>
                       <q-tooltip>
-                        <span class="text-weight-bold">{{ $t('components.settings.library.path') }}:</span>
-                        {{ path.path }}
+                        <!--Indicate the default library-->
+                        <span
+                          v-if="index === 0"
+                          class="text-weight-bold">
+                          ({{ $t('components.settings.library.defaultLibrary') }})
                         <br>
+                        </span>
+                        <!--Indicate library path-->
+                        <span class="text-weight-bold">{{ $t('components.settings.library.path') }}:</span>
+                        <span v-if="path.enableRemoteOnly">
+                          ({{ $t('components.settings.library.libraryRemoteOnlyStatus') }})
+                        </span>
+                        <span v-else>
+                          {{ path.path }}
+                        </span>
+                        <br>
+                        <!--Indicate library tags-->
                         <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
                         {{ path.tags.join(', ') || 'None' }}
                       </q-tooltip>
+                    </q-item-section>
+
+                    <q-item-section>
+                      <!--Library Name-->
+                      <q-item-label v-if="index === 0">
+                        {{ path.name }} *
+                      </q-item-label>
+                      <q-item-label v-else>
+                        {{ path.name }}
+                      </q-item-label>
+
+                      <!--Library Path-->
+                      <q-item-label caption lines="1">
+                        <span
+                          class="text-weight-bold">
+                          {{ $t('components.settings.library.path') }}:
+                        </span>
+                        <span v-if="path.enableRemoteOnly">
+                          ({{ $t('components.settings.library.libraryRemoteOnlyStatus') }})
+                        </span>
+                        <span v-else>
+                          {{ path.path }}
+                        </span>
+                      </q-item-label>
+
+                      <!--Library Tags-->
+                      <q-item-label caption lines="1">
+                        <span class="text-weight-bold">
+                          {{ $t('components.settings.common.tags') }}:
+                        </span>
+                        {{ path.tags.join(', ') || 'None' }}
+                      </q-item-label>
+                    </q-item-section>
+
+                    <q-item-section>
+                      <q-item-label lines="1">
+                        <div class="row">
+                          <div class="col-6 text-right">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.library.libraryScannerStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-6 q-px-sm">
+                            <span :class="path.enableScanner ? 'text-primary' : 'text-grey-8'">
+                              {{ (path.enableScanner ? 'enabled' : 'disabled') }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label lines="1">
+                        <div class="row">
+                          <div class="col-6 text-right">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.library.libraryFileMonitorStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-6 q-px-sm">
+                            <span :class="path.enableInotify ? 'text-primary' : 'text-grey-8'">
+                              {{ (path.enableInotify ? 'enabled' : 'disabled') }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
                     </q-item-section>
 
                     <q-separator inset vertical class="q-mx-sm"/>
@@ -373,7 +439,7 @@ export default {
         if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
           // Name the library as a clone
           let randomString = (Math.random() + 1).toString(36).substring(7);
-          let newName = this.$t('components.settings.library.newLibrary') + ' (' + randomString + ')';
+          let newName = '| ' + (this.libraryPaths.length + 1) + ' | ' + this.$t('components.settings.library.newLibrary') + ' (' + randomString + ')';
           // Save this data
           let data = {
             library_config: {
@@ -395,7 +461,7 @@ export default {
               timeout: 200
             })
             // Update list
-            this.fetchLibraryPathsList();
+            this.fetchLibraryList();
           }).catch(() => {
             this.$q.notify({
               color: 'negative',
@@ -455,7 +521,7 @@ export default {
             timeout: 200
           })
           // Update list
-          this.fetchLibraryPathsList();
+          this.fetchLibraryList();
         }).catch(() => {
           this.$q.notify({
             color: 'negative',
@@ -535,19 +601,23 @@ export default {
         })
       });
     },
-    fetchLibraryPathsList: function () {
+    fetchLibraryList: function () {
       // Fetch current settings
       axios({
         method: 'get',
         url: getUnmanicApiUrl('v2', 'settings/libraries')
       }).then((response) => {
         let libraryPathsList = []
+        // TODO: Rename from library path
         for (let i = 0; i < response.data.libraries.length; i++) {
           let libraryPath = response.data.libraries[i];
           libraryPathsList[libraryPathsList.length] = {
             id: libraryPath.id,
             name: libraryPath.name,
             path: libraryPath.path,
+            enableRemoteOnly: libraryPath.enable_remote_only,
+            enableScanner: libraryPath.enable_scanner,
+            enableInotify: libraryPath.enable_inotify,
             tags: libraryPath.tags,
             locked: libraryPath.locked,
           }
@@ -574,13 +644,13 @@ export default {
       }).onOk((payload) => {
       }).onDismiss(() => {
         this.fetchSettings();
-        this.fetchLibraryPathsList();
+        this.fetchLibraryList();
       })
     },
   },
   created() {
     this.fetchSettings();
-    this.fetchLibraryPathsList();
+    this.fetchLibraryList();
   }
 }
 </script>
