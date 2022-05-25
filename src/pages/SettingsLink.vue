@@ -60,10 +60,10 @@
                         v-else
                         :img-style="{ filter: 'grayscale(100%)' }"
                         src="~assets/unmanic-logo-white.png"/>
-                      <q-tooltip v-if="installation.available" class="bg-white text-primary">
+                      <q-tooltip v-if="installation.available">
                         {{ $t('tooltips.available') }}
                       </q-tooltip>
-                      <q-tooltip v-else class="bg-white text-primary">
+                      <q-tooltip v-else>
                         {{ $t('tooltips.unavailable') }}
                       </q-tooltip>
                     </q-item-section>
@@ -153,7 +153,9 @@
                           </div>
                           <div class="col-grow q-px-md">
                             <span :class="installation.enableChecksumValidation ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableChecksumValidation ? $t('status.enabled') : $t('status.disabled')) }}
+                              {{
+                                (installation.enableChecksumValidation ? $t('status.enabled') : $t('status.disabled'))
+                              }}
                             </span>
                           </div>
                         </div>
@@ -167,7 +169,9 @@
                           </div>
                           <div class="col-grow q-px-md">
                             <span :class="installation.enableConfigMissingLibraries ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableConfigMissingLibraries ? $t('status.enabled') : $t('status.disabled')) }}
+                              {{
+                                (installation.enableConfigMissingLibraries ? $t('status.enabled') : $t('status.disabled'))
+                              }}
                             </span>
                           </div>
                         </div>
@@ -181,7 +185,9 @@
                           </div>
                           <div class="col-grow q-px-md">
                             <span :class="installation.enableDistributedWorkers ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableDistributedWorkers ? $t('status.enabled') : $t('status.disabled')) }}
+                              {{
+                                (installation.enableDistributedWorkers ? $t('status.enabled') : $t('status.disabled'))
+                              }}
                             </span>
                           </div>
                         </div>
