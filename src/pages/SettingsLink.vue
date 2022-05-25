@@ -529,7 +529,42 @@ export default {
             available: true,
           }
           // Trigger a save event
-          this.save();
+          let data = {
+            link_config: {
+              uuid: uuid,
+              name: name,
+              version: version,
+              available: true,
+              address: this.newRemoteInstallationAddress,
+              auth: this.newRemoteInstallationAuthenticationType,
+              username: this.newRemoteInstallationUsername,
+              password: this.newRemoteInstallationPassword,
+              enable_receiving_tasks: false,
+              enable_sending_tasks: false,
+            },
+          }
+          axios({
+            method: 'post',
+            url: getUnmanicApiUrl('v2', 'settings/link/write'),
+            data: data
+          }).then((response) => {
+            // Save success, show feedback
+            this.$q.notify({
+              color: 'positive',
+              position: 'top',
+              icon: 'cloud_done',
+              message: this.$t('notifications.saved'),
+              timeout: 200
+            })
+          }).catch(() => {
+            this.$q.notify({
+              color: 'negative',
+              position: 'top',
+              message: this.$t('notifications.failedToSaveSettings'),
+              icon: 'report_problem',
+              actions: [{ icon: 'close', color: 'white' }]
+            })
+          });
         }
       }).catch(() => {
         this.$q.notify({
@@ -545,7 +580,35 @@ export default {
       let newList = []
       for (let i = 0; i < this.remoteInstallations.length; i++) {
         if (i === index) {
-          // Ignore this item to remove it from the list
+          // Request a DELETE from server
+          let data = {
+            uuid: this.remoteInstallations[i].uuid,
+          }
+          axios({
+            method: 'delete',
+            url: getUnmanicApiUrl('v2', 'settings/link/remove'),
+            data: data
+          }).then((response) => {
+            // Save success, show feedback
+            this.$q.notify({
+              color: 'positive',
+              position: 'top',
+              icon: 'cloud_done',
+              message: this.$t('notifications.saved'),
+              timeout: 200
+            })
+            // Update list
+            //this.fetchLibraryList();
+          }).catch(() => {
+            this.$q.notify({
+              color: 'negative',
+              position: 'top',
+              message: this.$t('notifications.failedToSaveSettings'),
+              icon: 'report_problem',
+              actions: [{ icon: 'close', color: 'white' }]
+            })
+          });
+          // Remove item from the list by skipping it this loop
           continue;
         }
         newList[newList.length] = this.remoteInstallations[i];
