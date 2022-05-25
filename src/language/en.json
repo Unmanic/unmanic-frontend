@@ -34,7 +34,10 @@
     "cannotLoadImage": "Cannot load image",
     "all": "All",
     "success": "Success",
-    "failed": "Failed"
+    "failed": "Failed",
+    "none": "None",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
   },
   "notifications": {
     "saved": "Saved.",
@@ -122,7 +125,9 @@
     "configure": "Configure",
     "configureForThisLibrary": "Configure for this library",
     "delete": "Delete",
-    "move": "Move"
+    "move": "Move",
+    "available": "Available",
+    "unavailable": "Unavailable"
   },
   "buttons": {
     "language": "Language",
@@ -218,11 +223,16 @@
         "connection": "Connection",
         "remoteTaskProcessing": "Remote Task Processing",
         "allowReceivingTasks": "Receive tasks from this installation when workers are available",
+        "linkReceivingTasksStatusLabel": "Receiving tasks",
         "allowSendingTasks": "Send tasks to this installation when workers are available",
+        "linkSendingTasksStatusLabel": "Sending tasks",
         "enableTaskPreloading": "Preload some tasks on the remote installation Pending Tasks queue",
+        "linkPreloadRemoteTasksStatusLabel": "Preload remote tasks",
         "enableConfigMissingLibraries": "Automatically configure missing libraries on the remote installation",
+        "linkConfigRemoteLibrariesStatusLabel": "Configure missing libraries",
         "collectiveManagement": "Collective Management",
         "enableDistributedWorkerCount": "Enable distributed worker count for this link",
+        "linkDistributedWorkersStatusLabel": "Distributed workers",
         "workerTarget": "Worker target"
       },
       "support": {

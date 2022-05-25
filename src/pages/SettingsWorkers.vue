@@ -9,7 +9,8 @@
       <div class="row">
         <div class="col q-ma-sm">
 
-          <div class="q-pa-md" style="max-width: 500px">
+          <div class="q-pa-md"
+               :style="$q.platform.is.mobile ? '' : 'max-width: 70%'">
 
             <q-form
               @submit="save"
@@ -47,14 +48,14 @@
                       </q-item-label>
                       <q-item-label caption lines="1">
                         <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
-                        {{ workerGroup.tags.join(', ') || 'None' }}
+                        {{ workerGroup.tags.join(', ') || $t('status.none') }}
                       </q-item-label>
                       <q-tooltip>
                         <span class="text-weight-bold">{{ $t('components.settings.workers.workerCount') }}:</span>
                         {{ workerGroup.workerCount }}
                         <br>
                         <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
-                        {{ workerGroup.tags.join(', ') || 'None' }}
+                        {{ workerGroup.tags.join(', ') || $t('status.none') }}
                       </q-tooltip>
                     </q-item-section>
 

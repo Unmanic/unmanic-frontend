@@ -9,7 +9,8 @@
       <div class="row">
         <div class="col q-ma-sm">
 
-          <div class="q-pa-md" style="max-width: 500px">
+          <div class="q-pa-md"
+               :style="$q.platform.is.mobile ? '' : 'max-width: 70%'">
 
             <q-form
               @submit="save"
@@ -59,16 +60,25 @@
                         v-else
                         :img-style="{ filter: 'grayscale(100%)' }"
                         src="~assets/unmanic-logo-white.png"/>
+                      <q-tooltip v-if="installation.available" class="bg-white text-primary">
+                        {{ $t('tooltips.available') }}
+                      </q-tooltip>
+                      <q-tooltip v-else class="bg-white text-primary">
+                        {{ $t('tooltips.unavailable') }}
+                      </q-tooltip>
                     </q-item-section>
 
                     <q-separator inset vertical class="q-mr-sm"/>
 
                     <q-item-section class="q-px-sm q-mx-sm">
-                      <q-item-label lines="1">{{ installation.address }}
+                      <!--Link Address-->
+                      <q-item-label lines="1">
+                        {{ installation.address }}
                       </q-item-label>
-                      <q-item-label
-                        caption lines="2">
-                        <div class="row">
+
+                      <!--Link Name-->
+                      <q-item-label caption lines="2">
+                        <div class="row q-mt-sm">
                           <div class="col-3">
                             <span class="text-weight-bold">{{ $t('components.settings.link.name') }}:</span>
                           </div>
@@ -77,14 +87,88 @@
                           </div>
                         </div>
                       </q-item-label>
-                      <q-item-label
-                        caption lines="2">
+
+                      <!--Link Version-->
+                      <q-item-label caption lines="2">
                         <div class="row">
                           <div class="col-3">
                             <span class="text-weight-bold">{{ $t('components.settings.link.version') }}:</span>
                           </div>
                           <div class="col-grow">
                             <span class="q-pl-none">{{ installation.version }}</span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                    </q-item-section>
+
+                    <q-item-section v-if="!$q.platform.is.mobile">
+                      <q-item-label lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkReceivingTasksStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableReceivingTasks ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableReceivingTasks ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkSendingTasksStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableSendingTasks ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableSendingTasks ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label v-if="installation.enableSendingTasks" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkPreloadRemoteTasksStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableTaskPreloading ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableTaskPreloading ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label v-if="installation.enableSendingTasks" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkConfigRemoteLibrariesStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableConfigMissingLibraries ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableConfigMissingLibraries ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkDistributedWorkersStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableDistributedWorkers ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableDistributedWorkers ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
                           </div>
                         </div>
                       </q-item-label>
@@ -305,6 +389,9 @@ export default {
             address: remoteInstallation.address,
             enableReceivingTasks: remoteInstallation.enable_receiving_tasks,
             enableSendingTasks: remoteInstallation.enable_sending_tasks,
+            enableTaskPreloading: remoteInstallation.enable_task_preloading,
+            enableConfigMissingLibraries: remoteInstallation.enable_config_missing_libraries,
+            enableDistributedWorkers: remoteInstallation.enable_distributed_worker_count,
             name: remoteInstallation.name,
             version: remoteInstallation.version,
             uuid: remoteInstallation.uuid,

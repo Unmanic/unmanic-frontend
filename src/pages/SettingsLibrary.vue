@@ -54,7 +54,7 @@
                         <br>
                         <!--Indicate library tags-->
                         <span class="text-weight-bold">{{ $t('components.settings.common.tags') }}:</span>
-                        {{ path.tags.join(', ') || 'None' }}
+                        {{ path.tags.join(', ') || $t('status.none') }}
                       </q-tooltip>
                     </q-item-section>
 
@@ -86,11 +86,11 @@
                         <span class="text-weight-bold">
                           {{ $t('components.settings.common.tags') }}:
                         </span>
-                        {{ path.tags.join(', ') || 'None' }}
+                        {{ path.tags.join(', ') || $t('status.none') }}
                       </q-item-label>
                     </q-item-section>
 
-                    <q-item-section>
+                    <q-item-section v-if="!$q.platform.is.mobile">
                       <q-item-label lines="1">
                         <div class="row">
                           <div class="col-6 text-right">
@@ -100,7 +100,7 @@
                           </div>
                           <div class="col-6 q-px-sm">
                             <span :class="path.enableScanner ? 'text-primary' : 'text-grey-8'">
-                              {{ (path.enableScanner ? 'enabled' : 'disabled') }}
+                              {{ (path.enableScanner ? $t('status.enabled') : $t('status.disabled')) }}
                             </span>
                           </div>
                         </div>
@@ -114,7 +114,7 @@
                           </div>
                           <div class="col-6 q-px-sm">
                             <span :class="path.enableInotify ? 'text-primary' : 'text-grey-8'">
-                              {{ (path.enableInotify ? 'enabled' : 'disabled') }}
+                              {{ (path.enableInotify ? $t('status.enabled') : $t('status.disabled')) }}
                             </span>
                           </div>
                         </div>
