@@ -148,6 +148,20 @@
                         <div class="row">
                           <div class="col-6 text-left">
                             <span class="text-weight-medium">
+                              {{ $t('components.settings.link.linkConfigChecksumValidationStatusLabel') }}
+                            </span>
+                          </div>
+                          <div class="col-grow q-px-md">
+                            <span :class="installation.enableChecksumValidation ? 'text-primary' : 'text-grey-8'">
+                              {{ (installation.enableChecksumValidation ? $t('status.enabled') : $t('status.disabled')) }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label v-if="installation.enableSendingTasks" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-weight-medium">
                               {{ $t('components.settings.link.linkConfigRemoteLibrariesStatusLabel') }}
                             </span>
                           </div>
@@ -390,6 +404,7 @@ export default {
             enableReceivingTasks: remoteInstallation.enable_receiving_tasks,
             enableSendingTasks: remoteInstallation.enable_sending_tasks,
             enableTaskPreloading: remoteInstallation.enable_task_preloading,
+            enableChecksumValidation: remoteInstallation.enable_checksum_validation,
             enableConfigMissingLibraries: remoteInstallation.enable_config_missing_libraries,
             enableDistributedWorkers: remoteInstallation.enable_distributed_worker_count,
             name: remoteInstallation.name,

@@ -230,6 +230,8 @@
         "linkPreloadRemoteTasksStatusLabel": "Preload remote tasks",
         "enableConfigMissingLibraries": "Automatically configure missing libraries on the remote installation",
         "linkConfigRemoteLibrariesStatusLabel": "Configure missing libraries",
+        "enableChecksumValidation": "Validate file transfers with checksums (slow)",
+        "linkConfigChecksumValidationStatusLabel": "Validate with checksums",
         "collectiveManagement": "Collective Management",
         "enableDistributedWorkerCount": "Enable distributed worker count for this link",
         "linkDistributedWorkersStatusLabel": "Distributed workers",

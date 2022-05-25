@@ -167,6 +167,20 @@
                 class="sub-setting">
                 <div class="q-gutter-sm">
                   <q-skeleton
+                    v-if="enableChecksumValidation === null"
+                    type="QToggle"/>
+                  <q-toggle
+                    v-else
+                    v-model="enableChecksumValidation"
+                    :label="$t('components.settings.link.enableChecksumValidation')"
+                  />
+                </div>
+              </div>
+              <div
+                v-if="enableSendingTasks"
+                class="sub-setting">
+                <div class="q-gutter-sm">
+                  <q-skeleton
                     v-if="enableConfigMissingLibraries === null"
                     type="QToggle"/>
                   <q-toggle
@@ -309,6 +323,7 @@ export default {
         this.enableReceivingTasks = link_config.enable_receiving_tasks;
         this.enableSendingTasks = link_config.enable_sending_tasks;
         this.enableTaskPreloading = link_config.enable_task_preloading;
+        this.enableChecksumValidation = link_config.enable_checksum_validation;
         this.enableConfigMissingLibraries = link_config.enable_config_missing_libraries;
         this.enableDistributedWorkerCount = link_config.enable_distributed_worker_count;
         this.distributedWorkerCountTarget = response.data.distributed_worker_count_target;
@@ -327,6 +342,7 @@ export default {
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
           enable_task_preloading: this.enableTaskPreloading,
+          enable_checksum_validation: this.enableChecksumValidation,
           enable_config_missing_libraries: this.enableConfigMissingLibraries,
           enable_distributed_worker_count: this.enableDistributedWorkerCount,
         },
@@ -379,6 +395,7 @@ export default {
       enableReceivingTasks: ref(null),
       enableSendingTasks: ref(null),
       enableTaskPreloading: ref(null),
+      enableChecksumValidation: ref(null),
       enableConfigMissingLibraries: ref(null),
       enableDistributedWorkerCount: ref(null),
       distributedWorkerCountTarget: ref(null),
