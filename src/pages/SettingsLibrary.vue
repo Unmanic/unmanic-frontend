@@ -99,8 +99,11 @@
                             </span>
                           </div>
                           <div class="col-6 q-px-sm">
-                            <span :class="path.enableScanner ? 'text-primary' : 'text-grey-8'">
-                              {{ (path.enableScanner ? $t('status.enabled') : $t('status.disabled')) }}
+                            <span
+                              :class="path.enableScanner && !path.enableRemoteOnly ? 'text-primary' : 'text-grey-8'">
+                              {{
+                                (path.enableScanner && !path.enableRemoteOnly) ? $t('status.enabled') : $t('status.disabled')
+                              }}
                             </span>
                           </div>
                         </div>
@@ -113,8 +116,11 @@
                             </span>
                           </div>
                           <div class="col-6 q-px-sm">
-                            <span :class="path.enableInotify ? 'text-primary' : 'text-grey-8'">
-                              {{ (path.enableInotify ? $t('status.enabled') : $t('status.disabled')) }}
+                            <span
+                              :class="path.enableInotify && !path.enableRemoteOnly ? 'text-primary' : 'text-grey-8'">
+                              {{
+                                (path.enableInotify && !path.enableRemoteOnly) ? $t('status.enabled') : $t('status.disabled')
+                              }}
                             </span>
                           </div>
                         </div>
