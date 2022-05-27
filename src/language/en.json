@@ -227,6 +227,7 @@
         "allowSendingTasks": "Send tasks to this installation when workers are available",
         "linkSendingTasksStatusLabel": "Sending tasks",
         "enableTaskPreloading": "Preload some tasks on the remote installation Pending Tasks queue",
+        "preloadingCount": "Preloaded pending task count",
         "linkPreloadRemoteTasksStatusLabel": "Preload remote tasks",
         "enableConfigMissingLibraries": "Automatically configure missing libraries on the remote installation",
         "linkConfigRemoteLibrariesStatusLabel": "Configure missing libraries",

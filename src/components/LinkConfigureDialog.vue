@@ -161,6 +161,35 @@
                     :label="$t('components.settings.link.enableTaskPreloading')"
                   />
                 </div>
+                <div
+                  v-if="enableTaskPreloading"
+                  class="sub-setting">
+                  <div class="q-gutter-sm">
+                    <q-skeleton
+                      v-if="preloadingCount === null"
+                      type="QInput"/>
+                    <q-input
+                      v-if="preloadingCount !== null"
+                      readonly
+                      outlined
+                      color="primary"
+                      v-model="preloadingCount"
+                      :label="$t('components.settings.link.preloadingCount')"
+                      :placeholder="preloadingCount">
+                    </q-input>
+                    <q-skeleton
+                      v-if="preloadingCount === null"
+                      type="QSlider"/>
+                    <q-slider
+                      v-if="preloadingCount !== null"
+                      v-model="preloadingCount"
+                      :min="0"
+                      :max="10"
+                      color="primary"
+                    />
+                  </div>
+
+                </div>
               </div>
               <div
                 v-if="enableSendingTasks"
@@ -323,6 +352,7 @@ export default {
         this.enableReceivingTasks = link_config.enable_receiving_tasks;
         this.enableSendingTasks = link_config.enable_sending_tasks;
         this.enableTaskPreloading = link_config.enable_task_preloading;
+        this.preloadingCount = link_config.preloading_count;
         this.enableChecksumValidation = link_config.enable_checksum_validation;
         this.enableConfigMissingLibraries = link_config.enable_config_missing_libraries;
         this.enableDistributedWorkerCount = link_config.enable_distributed_worker_count;
@@ -342,6 +372,7 @@ export default {
           enable_receiving_tasks: this.enableReceivingTasks,
           enable_sending_tasks: this.enableSendingTasks,
           enable_task_preloading: this.enableTaskPreloading,
+          preloading_count: this.preloadingCount,
           enable_checksum_validation: this.enableChecksumValidation,
           enable_config_missing_libraries: this.enableConfigMissingLibraries,
           enable_distributed_worker_count: this.enableDistributedWorkerCount,
@@ -395,6 +426,7 @@ export default {
       enableReceivingTasks: ref(null),
       enableSendingTasks: ref(null),
       enableTaskPreloading: ref(null),
+      preloadingCount: ref(null),
       enableChecksumValidation: ref(null),
       enableConfigMissingLibraries: ref(null),
       enableDistributedWorkerCount: ref(null),
