@@ -7,10 +7,8 @@
       <!--      <h4 class="q-ma-none">{{ $t('headers.librarySettings') }}</h4>-->
 
       <div class="row">
-        <div class="col q-ma-sm">
-
-          <div class="q-pa-md"
-               :style="$q.platform.is.mobile ? '' : 'max-width: 70%'">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+          <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
 
             <q-form
               @submit="save"
@@ -58,10 +56,13 @@
                       </q-tooltip>
                     </q-item-section>
 
-                    <q-item-section>
+                    <q-item-section class="q-px-sm q-mx-sm">
                       <!--Library Name-->
                       <q-item-label v-if="index === 0">
                         {{ path.name }} *
+                        <q-tooltip>
+                          {{ $t('tooltips.defaultLibrary') }}
+                        </q-tooltip>
                       </q-item-label>
                       <q-item-label v-else>
                         {{ path.name }}
@@ -86,41 +87,33 @@
                         <span class="text-weight-bold">
                           {{ $t('components.settings.common.tags') }}:
                         </span>
-                        {{ path.tags.join(', ') || $t('status.none') }}
+                        {{ path.tags.join(', ') || '' }}
                       </q-item-label>
                     </q-item-section>
 
                     <q-item-section v-if="!$q.platform.is.mobile">
                       <q-item-label lines="1">
                         <div class="row">
-                          <div class="col-6 text-right">
-                            <span class="text-weight-medium">
-                              {{ $t('components.settings.library.libraryScannerStatusLabel') }}
-                            </span>
-                          </div>
-                          <div class="col-6 q-px-sm">
+                          <div class="col-6 text-left">
                             <span
                               :class="path.enableScanner && !path.enableRemoteOnly ? 'text-primary' : 'text-grey-8'">
-                              {{
-                                (path.enableScanner && !path.enableRemoteOnly) ? $t('status.enabled') : $t('status.disabled')
-                              }}
+                              <q-icon v-if="path.enableScanner && !path.enableRemoteOnly" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.library.libraryScannerStatusLabel') }}
                             </span>
                           </div>
                         </div>
                       </q-item-label>
                       <q-item-label lines="1">
                         <div class="row">
-                          <div class="col-6 text-right">
-                            <span class="text-weight-medium">
-                              {{ $t('components.settings.library.libraryFileMonitorStatusLabel') }}
-                            </span>
-                          </div>
-                          <div class="col-6 q-px-sm">
+                          <div class="col-6 text-left">
                             <span
                               :class="path.enableInotify && !path.enableRemoteOnly ? 'text-primary' : 'text-grey-8'">
-                              {{
-                                (path.enableInotify && !path.enableRemoteOnly) ? $t('status.enabled') : $t('status.disabled')
-                              }}
+                              <q-icon v-if="path.enableInotify && !path.enableRemoteOnly" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.library.libraryFileMonitorStatusLabel') }}
                             </span>
                           </div>
                         </div>
@@ -335,39 +328,13 @@
         </div>
       </div>
 
-      <!--START QUICK NAV-->
-      <div v-if="$q.platform.is.mobile">
-        <q-separator class="q-mb-lg"/>
-        <div class="row">
-          <div class="col-6 text-center">
-            <!--<q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-library')"
-              class="q-ma-xs">
-              <q-btn
-                icon="navigate_before"
-                flat>
-                {{ $t('navigation.library') }}
-              </q-btn>
-            </q-card>-->
-          </div>
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-workers')"
-              class="q-ma-xs">
-              <q-btn
-                icon-right="navigate_next"
-                flat>
-                {{ $t('navigation.workers') }}
-              </q-btn>
-            </q-card>
-          </div>
-        </div>
-      </div>
-      <!--END QUICK NAV-->
+      <MobileSettingsQuickNav
+        v-bind:prevEnabled="false"
+        v-bind:prevLabel="'none'"
+        v-bind:prevPath="'/ui/settings-plugins'"
+        v-bind:nextEnabled="true"
+        v-bind:nextLabel="$t('navigation.workers')"
+        v-bind:nextPath="'/ui/settings-workers'"/>
 
     </div>
   </q-page>
@@ -382,9 +349,11 @@ import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import LibraryConfigureDialog from "components/LibraryConfigureDialog";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
   name: 'SettingsLibrary',
+  components: { MobileSettingsQuickNav },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

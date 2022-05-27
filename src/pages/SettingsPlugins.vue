@@ -10,39 +10,13 @@
         </div>
       </div>
 
-      <!--START QUICK NAV-->
-      <div v-if="$q.platform.is.mobile">
-        <q-separator class="q-mb-lg"/>
-        <div class="row">
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-workers')"
-              class="q-ma-xs">
-              <q-btn
-                icon="navigate_before"
-                flat>
-                {{ $t('navigation.workers') }}
-              </q-btn>
-            </q-card>
-          </div>
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-link')"
-              class="q-ma-xs">
-              <q-btn
-                icon-right="navigate_next"
-                flat>
-                {{ $t('navigation.link') }}
-              </q-btn>
-            </q-card>
-          </div>
-        </div>
-      </div>
-      <!--END QUICK NAV-->
+      <MobileSettingsQuickNav
+        v-bind:prevEnabled="true"
+        v-bind:prevLabel="$t('navigation.workers')"
+        v-bind:prevPath="'/ui/settings-workers'"
+        v-bind:nextEnabled="true"
+        v-bind:nextLabel="$t('navigation.link')"
+        v-bind:nextPath="'/ui/settings-link'"/>
 
     </div>
   </q-page>
@@ -53,9 +27,10 @@ import PluginsInstalledTable from "components/PluginsInstalledTable";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
-  components: { PluginsInstalledTable },
+  components: { MobileSettingsQuickNav, PluginsInstalledTable },
   setup() {
     const { t: $t } = useI18n();
 

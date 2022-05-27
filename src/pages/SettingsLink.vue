@@ -4,13 +4,9 @@
 
     <div class="q-pa-none">
 
-      <!--      <h4 class="q-ma-none">{{ $t('headers.librarySettings') }}</h4>-->
-
       <div class="row">
-        <div class="col q-ma-sm">
-
-          <div class="q-pa-md"
-               :style="$q.platform.is.mobile ? '' : 'max-width: 70%'">
+        <div class="col-sm-12 col-md-10 col-lg-8">
+          <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
 
             <q-form
               @submit="save"
@@ -105,73 +101,59 @@
                       <q-item-label lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
+                            <span :class="installation.enableReceivingTasks ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="installation.enableReceivingTasks" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
                               {{ $t('components.settings.link.linkReceivingTasksStatusLabel') }}
                             </span>
                           </div>
-                          <div class="col-grow q-px-md">
-                            <span :class="installation.enableReceivingTasks ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableReceivingTasks ? $t('status.enabled') : $t('status.disabled')) }}
-                            </span>
-                          </div>
                         </div>
                       </q-item-label>
                       <q-item-label lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
+                            <span :class="installation.enableSendingTasks ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="installation.enableSendingTasks" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
                               {{ $t('components.settings.link.linkSendingTasksStatusLabel') }}
                             </span>
                           </div>
-                          <div class="col-grow q-px-md">
-                            <span :class="installation.enableSendingTasks ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableSendingTasks ? $t('status.enabled') : $t('status.disabled')) }}
-                            </span>
-                          </div>
                         </div>
                       </q-item-label>
                       <q-item-label v-if="installation.enableSendingTasks" lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
+                            <span :class="installation.enableTaskPreloading ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="installation.enableTaskPreloading" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
                               {{ $t('components.settings.link.linkPreloadRemoteTasksStatusLabel') }}
                             </span>
                           </div>
-                          <div class="col-grow q-px-md">
-                            <span :class="installation.enableTaskPreloading ? 'text-primary' : 'text-grey-8'">
-                              {{ (installation.enableTaskPreloading ? $t('status.enabled') : $t('status.disabled')) }}
-                            </span>
-                          </div>
                         </div>
                       </q-item-label>
                       <q-item-label v-if="installation.enableSendingTasks" lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
+                            <span :class="installation.enableChecksumValidation ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="installation.enableChecksumValidation" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
                               {{ $t('components.settings.link.linkConfigChecksumValidationStatusLabel') }}
                             </span>
                           </div>
-                          <div class="col-grow q-px-md">
-                            <span :class="installation.enableChecksumValidation ? 'text-primary' : 'text-grey-8'">
-                              {{
-                                (installation.enableChecksumValidation ? $t('status.enabled') : $t('status.disabled'))
-                              }}
-                            </span>
-                          </div>
                         </div>
                       </q-item-label>
                       <q-item-label v-if="installation.enableSendingTasks" lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
-                              {{ $t('components.settings.link.linkConfigRemoteLibrariesStatusLabel') }}
-                            </span>
-                          </div>
-                          <div class="col-grow q-px-md">
                             <span :class="installation.enableConfigMissingLibraries ? 'text-primary' : 'text-grey-8'">
-                              {{
-                                (installation.enableConfigMissingLibraries ? $t('status.enabled') : $t('status.disabled'))
-                              }}
+                              <q-icon v-if="installation.enableConfigMissingLibraries" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.link.linkConfigRemoteLibrariesStatusLabel') }}
                             </span>
                           </div>
                         </div>
@@ -179,15 +161,11 @@
                       <q-item-label lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
-                            <span class="text-weight-medium">
-                              {{ $t('components.settings.link.linkDistributedWorkersStatusLabel') }}
-                            </span>
-                          </div>
-                          <div class="col-grow q-px-md">
                             <span :class="installation.enableDistributedWorkers ? 'text-primary' : 'text-grey-8'">
-                              {{
-                                (installation.enableDistributedWorkers ? $t('status.enabled') : $t('status.disabled'))
-                              }}
+                              <q-icon v-if="installation.enableDistributedWorkers" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.link.linkDistributedWorkersStatusLabel') }}
                             </span>
                           </div>
                         </div>
@@ -297,43 +275,16 @@
             </q-form>
 
           </div>
-
         </div>
       </div>
 
-      <!--START QUICK NAV-->
-      <div v-if="$q.platform.is.mobile">
-        <q-separator class="q-mb-lg"/>
-        <div class="row">
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-plugins')"
-              class="q-ma-xs">
-              <q-btn
-                icon="navigate_before"
-                flat>
-                {{ $t('navigation.plugins') }}
-              </q-btn>
-            </q-card>
-          </div>
-          <!--<div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-plugins')"
-              class="q-ma-xs">
-              <q-btn
-                icon-right="navigate_next"
-                flat>
-                {{ $t('navigation.plugins') }}
-              </q-btn>
-            </q-card>
-          </div>-->
-        </div>
-      </div>
-      <!--END QUICK NAV-->
+      <MobileSettingsQuickNav
+        v-bind:prevEnabled="true"
+        v-bind:prevLabel="$t('navigation.plugins')"
+        v-bind:prevPath="'/ui/settings-plugins'"
+        v-bind:nextEnabled="false"
+        v-bind:nextLabel="'none'"
+        v-bind:nextPath="'/ui/settings-plugins'"/>
 
     </div>
   </q-page>
@@ -347,9 +298,11 @@ import { useI18n } from "vue-i18n";
 import LinkConfigureDialog from "components/LinkConfigureDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
   name: 'SettingsLink',
+  components: { MobileSettingsQuickNav },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

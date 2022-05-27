@@ -141,39 +141,13 @@
         </div>
       </div>
 
-      <!--START QUICK NAV-->
-      <div v-if="$q.platform.is.mobile">
-        <q-separator class="q-mb-lg"/>
-        <div class="row">
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-library')"
-              class="q-ma-xs">
-              <q-btn
-                icon="navigate_before"
-                flat>
-                {{ $t('navigation.library') }}
-              </q-btn>
-            </q-card>
-          </div>
-          <div class="col-6 text-center">
-            <q-card
-              flat
-              bordered
-              @click="$router.push('/ui/settings-plugins')"
-              class="q-ma-xs">
-              <q-btn
-                icon-right="navigate_next"
-                flat>
-                {{ $t('navigation.plugins') }}
-              </q-btn>
-            </q-card>
-          </div>
-        </div>
-      </div>
-      <!--END QUICK NAV-->
+      <MobileSettingsQuickNav
+        v-bind:prevEnabled="true"
+        v-bind:prevLabel="$t('navigation.library')"
+        v-bind:prevPath="'/ui/settings-library'"
+        v-bind:nextEnabled="true"
+        v-bind:nextLabel="$t('navigation.plugins')"
+        v-bind:nextPath="'/ui/settings-plugins'"/>
 
     </div>
   </q-page>
@@ -188,10 +162,11 @@ import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import WorkerGroupConfigureDialog from "components/WorkerGroupConfigureDialog";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
   name: 'SettingsWorkers',
-  components: {},
+  components: { MobileSettingsQuickNav },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

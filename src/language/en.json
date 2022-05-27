@@ -122,6 +122,7 @@
     "add": "Add",
     "remove": "Remove",
     "removeFromThisLibrary": "Remove from this library",
+    "defaultLibrary": "This is the default library. It cannot be deleted.",
     "configure": "Configure",
     "configureForThisLibrary": "Configure for this library",
     "delete": "Delete",
