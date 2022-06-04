@@ -17,13 +17,13 @@
 		"info": "Info",
 		"show": "Spectacle",
 		"showMore": "Montre plus",
-		"search": "Recherche",
-		"save": "Sauver",
+		"search": "Chercher",
+		"save": "sauvegarder",
 		"backToDashboard": "Retour au tableau de bord",
 		"submit": "Soumettre",
 		"cancel": "Annuler",
 		"close": "proche",
-		"back": "Arrière",
+		"back": "Retour",
 		"yes": "Oui",
 		"copy": "Copie",
 		"loginWithPatreon": "Se connecter avec Patreon",
@@ -34,7 +34,10 @@
 		"cannotLoadImage": "Impossible de charger l'image",
 		"all": "Tout",
 		"success": "Succès",
-		"failed": "Manqué"
+		"failed": "Manqué",
+		"none": "Aucun",
+		"enabled": "Activé",
+		"disabled": "Handicapé"
 	},
 	"notifications": {
 		"saved": "Enregistré.",
@@ -109,7 +112,7 @@
 	},
 	"tooltips": {
 		"close": "proche",
-		"back": "Arrière",
+		"back": "Retour",
 		"install": "Installer",
 		"reinstall": "Réinstaller",
 		"update": "Mise à jour",
@@ -117,12 +120,15 @@
 		"position": "Position",
 		"etc": "Délai d'exécution estimé",
 		"add": "Ajouter",
-		"remove": "Éliminer",
+		"remove": "Retirer",
 		"removeFromThisLibrary": "Supprimer de cette bibliothèque",
+		"defaultLibrary": "C'est la bibliothèque par défaut. Il ne peut pas être supprimé.",
 		"configure": "Configurer",
 		"configureForThisLibrary": "Configurer pour cette bibliothèque",
-		"delete": "Supprimer",
-		"move": "Déplacer"
+		"delete": "Effacer",
+		"move": "Déplacer",
+		"available": "Disponible",
+		"unavailable": "Indisponible"
 	},
 	"buttons": {
 		"language": "Langue",
@@ -140,9 +146,11 @@
 				"name": "Nom (doit être unique)",
 				"path": "Chemin de la bibliothèque",
 				"newLibrary": "Nouvelle bibliothèque",
+				"defaultLibrary": "Bibliothèque par défaut",
 				"confirmRemove": "La suppression de la bibliothèque supprimera également tous les paramètres associés à cette bibliothèque. Êtes-vous sûr de vouloir continuer?",
 				"libraryScanner": "Numériseur de bibliothèque",
 				"enableLibraryScanner": "Activer les analyses périodiques de la bibliothèque",
+				"libraryScannerStatusLabel": "Numériseur de bibliothèque",
 				"libraryScannerSchedule": "Calendrier d'analyse de la bibliothèque en minutes",
 				"libraryScannerScheduleNotValid": "Le calendrier d'analyse de la bibliothèque n'est pas valide",
 				"followSymlinks": "Suivre les liens symboliques sur les analyses de bibliothèque",
@@ -151,8 +159,12 @@
 				"clearPendingTasksOnStart": "Effacer toutes les tâches en attente au démarrage",
 				"fileTesting": "Test de fichier",
 				"concurrentFileTesters": "Testeurs de fichiers simultanés",
+				"enableReceiveRemoteFilesOnly": "Configurer la bibliothèque pour recevoir des fichiers distants uniquement",
+				"pathDisabledReceiveRemoteFilesOnly": "Option désactivée car vous avez configuré cette bibliothèque pour recevoir uniquement des fichiers distants",
+				"libraryRemoteOnlyStatus": "Télécommande uniquement",
 				"enableScanner": "Activer le scanner de bibliothèque pour cette bibliothèque",
 				"enableInotify": "Activer le moniteur de fichiers pour cette bibliothèque",
+				"libraryFileMonitorStatusLabel": "Moniteur de fichiers",
 				"priorityScore": "Définir un modificateur de score de priorité pour les tâches générées pour cette bibliothèque",
 				"plugins": "Plugins",
 				"pluginFlow": "Flux de plugins",
@@ -210,11 +222,21 @@
 				"password": "Mot de passe",
 				"add": "Ajouter",
 				"connection": "Lien",
-				"configuration": "Configuration",
+				"remoteTaskProcessing": "Traitement des tâches à distance",
 				"allowReceivingTasks": "Recevoir des tâches de cette installation lorsque des travailleurs sont disponibles",
+				"linkReceivingTasksStatusLabel": "Réception de tâches",
 				"allowSendingTasks": "Envoyer des tâches à cette installation lorsque des travailleurs sont disponibles",
+				"linkSendingTasksStatusLabel": "Envoi de tâches",
 				"enableTaskPreloading": "Précharger certaines tâches dans la file d'attente des tâches en attente de l'installation à distance",
+				"preloadingCount": "Nombre de tâches en attente préchargées",
+				"linkPreloadRemoteTasksStatusLabel": "Précharger les tâches distantes",
+				"enableConfigMissingLibraries": "Configurer automatiquement les bibliothèques manquantes sur l'installation à distance",
+				"linkConfigRemoteLibrariesStatusLabel": "Configurer les bibliothèques manquantes",
+				"enableChecksumValidation": "Valider les transferts de fichiers avec des sommes de contrôle (lent)",
+				"linkConfigChecksumValidationStatusLabel": "Valider avec des sommes de contrôle",
+				"collectiveManagement": "Gestion collective",
 				"enableDistributedWorkerCount": "Activer le nombre de nœuds de calcul distribués pour ce lien",
+				"linkDistributedWorkersStatusLabel": "Travailleurs répartis",
 				"workerTarget": "Cible de travailleur"
 			},
 			"support": {
@@ -265,7 +287,7 @@
 				"paused": "Le travailleur s'est arrêté..."
 			},
 			"currentRunner": {
-				"none": "Rien",
+				"none": "Aucun",
 				"indeterminate": "Indéterminé"
 			}
 		},
@@ -276,13 +298,13 @@
 			"removeSelected": "Supprimer la sélection de la liste"
 		},
 		"completedTasks": {
-			"details": "Des détails",
+			"details": "Détails",
 			"errorGettingDetails": "Une erreur s'est produite lors de la récupération des détails de cette tâche",
 			"addToPendingTasksList": "Ajouter la sélection à la liste des tâches en attente",
 			"removeSelected": "Supprimer la sélection de la liste",
 			"selectLibraryToAdd": "Sélectionnez la bibliothèque dans laquelle recréer cette tâche",
 			"since": "Depuis",
-			"before": "Avant que"
+			"before": "Avant de"
 		},
 		"plugins": {
 			"updateAvailable": "Mise à jour disponible",

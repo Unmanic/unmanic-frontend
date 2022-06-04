@@ -1,6 +1,6 @@
 {
 	"navigation": {
-		"dashboard": "Pannello",
+		"dashboard": "Pannello di controllo",
 		"settings": "Impostazioni",
 		"dataPanels": "Pannelli Dati",
 		"account": "Account",
@@ -15,7 +15,7 @@
 		"link": "Collegamento",
 		"helpAndSupport": "Supporto",
 		"info": "Informazioni",
-		"show": "Spettacolo",
+		"show": "Mostrare",
 		"showMore": "Mostra di più",
 		"search": "Ricerca",
 		"save": "Salva",
@@ -32,9 +32,12 @@
 	},
 	"status": {
 		"cannotLoadImage": "Impossibile caricare l'immagine",
-		"all": "Tutti",
+		"all": "Tutto",
 		"success": "Successo",
-		"failed": "fallito"
+		"failed": "fallito",
+		"none": "Nessuno",
+		"enabled": "Abilitato",
+		"disabled": "Disabilitato"
 	},
 	"notifications": {
 		"saved": "Salvato.",
@@ -119,10 +122,13 @@
 		"add": "Aggiungere",
 		"remove": "Rimuovere",
 		"removeFromThisLibrary": "Rimuovi da questa libreria",
+		"defaultLibrary": "Questa è la libreria predefinita. Non può essere cancellato.",
 		"configure": "Configura",
 		"configureForThisLibrary": "Configura per questa libreria",
-		"delete": "Eliminare",
-		"move": "Spostare"
+		"delete": "Elimina",
+		"move": "Spostare",
+		"available": "A disposizione",
+		"unavailable": "Non disponibile"
 	},
 	"buttons": {
 		"language": "Lingua",
@@ -140,9 +146,11 @@
 				"name": "Nome (deve essere univoco)",
 				"path": "Percorso libreria",
 				"newLibrary": "Nuova Biblioteca",
+				"defaultLibrary": "Libreria predefinita",
 				"confirmRemove": "La rimozione della libreria rimuoverà anche tutte le impostazioni associate a questa libreria. Sei sicuro di voler continuare?",
 				"libraryScanner": "Scanner per biblioteche",
 				"enableLibraryScanner": "Abilita scansioni periodiche della libreria",
+				"libraryScannerStatusLabel": "Scanner per biblioteche",
 				"libraryScannerSchedule": "Programma di scansione della libreria in pochi minuti",
 				"libraryScannerScheduleNotValid": "Programma di scansione della libreria non valido",
 				"followSymlinks": "Segui i collegamenti simbolici sulle scansioni della libreria",
@@ -151,8 +159,12 @@
 				"clearPendingTasksOnStart": "Cancella tutte le attività in sospeso all'avvio",
 				"fileTesting": "Test di file",
 				"concurrentFileTesters": "Tester di file simultanei",
+				"enableReceiveRemoteFilesOnly": "Configura la libreria solo per la ricezione di file remoti",
+				"pathDisabledReceiveRemoteFilesOnly": "Opzione disabilitata poiché hai configurato questa libreria per la ricezione solo di file remoti",
+				"libraryRemoteOnlyStatus": "Solo telecomando",
 				"enableScanner": "Abilita scanner libreria per questa libreria",
 				"enableInotify": "Abilita il monitoraggio dei file per questa libreria",
+				"libraryFileMonitorStatusLabel": "Controllo file",
 				"priorityScore": "Imposta un modificatore di punteggio di priorità per le attività generate per questa libreria",
 				"plugins": "Plugin",
 				"pluginFlow": "Flusso di plug-in",
@@ -210,11 +222,21 @@
 				"password": "Parola d'ordine",
 				"add": "Aggiungere",
 				"connection": "Connessione",
-				"configuration": "Configurazione",
+				"remoteTaskProcessing": "Elaborazione remota delle attività",
 				"allowReceivingTasks": "Ricevi attività da questa installazione quando i lavoratori sono disponibili",
+				"linkReceivingTasksStatusLabel": "Ricezione di compiti",
 				"allowSendingTasks": "Invia attività a questa installazione quando i lavoratori sono disponibili",
+				"linkSendingTasksStatusLabel": "Invio di attività",
 				"enableTaskPreloading": "Precarica alcune attività nella coda delle attività in sospeso dell'installazione remota",
+				"preloadingCount": "Conteggio attività in sospeso precaricato",
+				"linkPreloadRemoteTasksStatusLabel": "Precarica attività remote",
+				"enableConfigMissingLibraries": "Configura automaticamente le librerie mancanti nell'installazione remota",
+				"linkConfigRemoteLibrariesStatusLabel": "Configura le librerie mancanti",
+				"enableChecksumValidation": "Convalida i trasferimenti di file con checksum (lento)",
+				"linkConfigChecksumValidationStatusLabel": "Convalida con checksum",
+				"collectiveManagement": "Gestione collettiva",
 				"enableDistributedWorkerCount": "Abilita il conteggio dei lavoratori distribuiti per questo collegamento",
+				"linkDistributedWorkersStatusLabel": "Lavoratori distribuiti",
 				"workerTarget": "Obiettivo del lavoratore"
 			},
 			"support": {
@@ -276,13 +298,13 @@
 			"removeSelected": "Rimuovi selezionati dall'elenco"
 		},
 		"completedTasks": {
-			"details": "Dettagli",
+			"details": "Particolari",
 			"errorGettingDetails": "Si è verificato un errore durante il recupero dei dettagli per questa attività",
 			"addToPendingTasksList": "Aggiungi selezionato all'elenco delle attività in sospeso",
 			"removeSelected": "Rimuovi selezionati dall'elenco",
 			"selectLibraryToAdd": "Seleziona la libreria in cui ricreare questa attività",
 			"since": "Da",
-			"before": "Prima di"
+			"before": "Prima"
 		},
 		"plugins": {
 			"updateAvailable": "Aggiornamento disponibile",
