@@ -313,21 +313,9 @@ export default {
     },
     save: function () {
       // Save settings
-      let workerEventSchedule = []
-      for (let i = 0; i < this.schedules.length; i++) {
-        workerEventSchedule[workerEventSchedule.length] = {
-          repetition: this.schedules[i].repetition,
-          schedule_time: this.schedules[i].scheduleTime,
-          schedule_task: this.schedules[i].scheduleTask,
-          schedule_worker_count: this.schedules[i].scheduleWorkerCount,
-        };
-      }
       let data = {
         settings: {
-          worker_groups: this.workerGroups,
-          number_of_workers: this.workerCount,
           cache_path: this.cachePath,
-          worker_event_schedules: workerEventSchedule,
         }
       }
       axios({
