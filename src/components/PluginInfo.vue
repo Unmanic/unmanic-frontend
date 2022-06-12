@@ -168,32 +168,51 @@
                   <q-card-section class="q-pt-none">
 
                     <q-list
-                      v-if="settings.length > 0"
-                      separator>
+                      v-if="settings.length > 0">
                       <q-item
                         v-for="item in settings"
-                        :class="item.display"
+                        :class="item.sub_setting ? item.display + ' sub-setting': item.display"
                         :key="item.key_id"
-                        class="q-py-lg"
+                        class="q-py-sm"
                         v-bind="item">
 
                         <!-- Text input -->
                         <q-item-section
                           v-if="item.input_type === 'text'">
-                          <q-input filled v-model="item.value" :label="item.label" :placeholder="item.label"/>
+                          <q-input filled v-model="item.value"
+                                   :bottom-slots="item.description.length > 0"
+                                   :label="item.label"
+                                   :placeholder="item.label">
+                            <template v-slot:hint v-if="item.description.length > 0">
+                              test {{ item.description }}
+                            </template>
+                          </q-input>
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
                         </q-item-section>
 
                         <!-- Textarea input -->
                         <q-item-section
                           v-if="item.input_type === 'textarea'">
-                          <q-input filled type="textarea" v-model="item.value" :label="item.label"/>
+                          <q-input filled v-model="item.value"
+                                   type="textarea"
+                                   :bottom-slots="item.description.length > 0"
+                                   :label="item.label">
+                            <template v-slot:hint v-if="item.description.length > 0">
+                              {{ item.description }}
+                            </template>
+                          </q-input>
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
                         </q-item-section>
 
                         <!-- Checkbox input -->
                         <q-item-section
-                          @click="item.value = !item.value"
                           v-if="item.input_type === 'checkbox'">
                           <div
+                            @click="item.value = !item.value"
                             :style="$q.dark.isActive ? 'background:rgba(255,255,255,.07)' : 'background:rgba(0, 0, 0, 0.05);'"
                             class="q-pa-sm rounded-borders">
                             <q-checkbox
@@ -201,6 +220,13 @@
                               v-model="item.value"
                               :label="item.label"/>
                           </div>
+                          <div v-if="item.description.length > 0"
+                               class="checkbox-hint">
+                            {{ item.description }}
+                          </div>
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
                         </q-item-section>
 
                         <!-- Select input -->
@@ -212,44 +238,53 @@
                             v-model="item.value"
                             emit-value
                             map-options
+                            :bottom-slots="item.description.length > 0"
                             :options="item.select_options"
                             :option-value="opt => Object(opt) === opt && 'value' in opt ? opt.value : null"
                             :option-label="opt => Object(opt) === opt && 'label' in opt ? opt.label : '- Null -'"
-                            :label="item.label"/>
+                            :label="item.label">
+                            <template v-slot:hint v-if="item.description.length > 0">
+                              {{ item.description }}
+                            </template>
+                          </q-select>
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
                         </q-item-section>
 
                         <!-- Slider input -->
                         <q-item-section
-                          :class="item.display"
-                          avatar
                           v-if="item.input_type === 'slider'">
-                          <q-icon color="primary" name="chevron_right"/>
-                        </q-item-section>
-                        <q-item-section
-                          :class="item.display"
-                          v-if="item.input_type === 'slider'">
-                          <q-slider
-                            v-model="item.value"
-                            :min="Number(item.slider_options.min)"
-                            :max="Number(item.slider_options.max)"
-                            :step="Number(item.slider_options.step)"
-                            label
-                            :label-value="item.label + ': ' + item.value + item.slider_options.suffix"
-                            label-always
-                            color="primary"
-                          />
-                        </q-item-section>
-                        <q-item-section
-                          :class="item.display"
-                          avatar
-                          v-if="item.input_type === 'slider'">
-                          <q-icon color="primary" name="chevron_left"/>
+                          <q-item class="q-pa-none q-ma-none">
+                            <q-item-section :class="item.display" avatar>
+                              <q-icon color="primary" name="chevron_right"/>
+                            </q-item-section>
+                            <q-item-section class="q-pt-lg q-pb-none" :class="item.display">
+                              <q-slider
+                                v-model="item.value"
+                                :min="Number(item.slider_options.min)"
+                                :max="Number(item.slider_options.max)"
+                                :step="Number(item.slider_options.step)"
+                                label
+                                :label-value="item.label + ': ' + item.value + item.slider_options.suffix"
+                                :hint="item.description"
+                                label-always
+                                color="primary"
+                              />
+                            </q-item-section>
+                            <q-item-section :class="item.display" avatar>
+                              <q-icon color="primary" name="chevron_left"/>
+                            </q-item-section>
+                          </q-item>
+                          <div v-if="item.description.length > 0"
+                               class="checkbox-hint">
+                            {{ item.description }}
+                          </div>
                         </q-item-section>
 
                         <!-- Directory browser input -->
                         <q-item-section
                           v-if="item.input_type === 'browse_directory'">
-
                           <q-input
                             readonly
                             filled
@@ -257,6 +292,7 @@
                             v-model="item.value"
                             :label="item.label"
                             :placeholder="item.label"
+                            :hint="item.description"
                             @click="updateWithDirectoryBrowser(item)">
                             <template v-slot:append>
                               <q-icon
@@ -265,7 +301,9 @@
                                 name="folder_open"/>
                             </template>
                           </q-input>
-
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
                         </q-item-section>
 
 
@@ -623,4 +661,26 @@ span.plugin-description hr {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.checkbox-hint {
+  line-height: 1;
+  font-size: 12px;
+  min-height: 20px;
+  color: rgba(0, 0, 0, 0.54);
+  padding: 8px 12px 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.q-list--dark .checkbox-hint {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sub-setting {
+  margin-left: 30px;
+  padding-top: 8px;
+  padding-left: 8px;
+  border-left: solid thin var(--q-primary);
+}
+
 </style>
