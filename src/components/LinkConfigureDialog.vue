@@ -331,10 +331,9 @@ export default {
     },
 
     fetchInstallationLinkConfig: function (uuid) {
-      this.currentUuid = uuid;
       // Fetch from server
       let data = {
-        uuid: this.currentUuid,
+        uuid: uuid,
       }
       axios({
         method: 'post',
@@ -342,6 +341,7 @@ export default {
         data: data
       }).then((response) => {
         let link_config = response.data.link_config;
+        this.currentUuid = uuid;
         this.address = link_config.address;
         this.authType = link_config.auth;
         this.username = link_config.username;

@@ -400,7 +400,6 @@ export default {
       let data = {
         settings: {
           installation_name: this.installationName,
-          remote_installations: remoteInstallationsList,
         }
       }
       axios({
