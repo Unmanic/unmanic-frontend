@@ -184,7 +184,7 @@
                                    :label="item.label"
                                    :placeholder="item.label">
                             <template v-slot:hint v-if="item.description.length > 0">
-                              test {{ item.description }}
+                              {{ item.description }}
                             </template>
                           </q-input>
                           <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
