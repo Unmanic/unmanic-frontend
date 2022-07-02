@@ -343,7 +343,7 @@
                             color="grey-8"
                             icon="tune"
                             :disable="!plugin.has_config"
-                            @click="showPluginSettings = plugin.plugin_id">
+                            @click="openPluginInfo(plugin.plugin_id, 'settings')">
                             <q-tooltip class="bg-white text-primary">
                               {{ $t('tooltips.configureForThisLibrary') }}
                             </q-tooltip>
@@ -398,10 +398,6 @@
 
     </q-card>
 
-    <PluginInfo v-bind:showPluginSettings="showPluginSettings"
-                v-bind:libraryId="libraryId"
-                v-on:hide="closePluginInfo"/>
-
   </q-dialog>
 </template>
 
@@ -409,16 +405,16 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
-import PluginInfo from "components/PluginInfo";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import PluginSelectorDialog from "components/PluginSelectorDialog";
 import LibraryConfigurePluginFlowList from "components/LibraryConfigurePluginFlowList";
 import JsonImportExportDialog from "components/JsonImportExportDialog";
 import { Loading } from "quasar";
+import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
 
 export default {
   name: 'LibraryConfigureDialog',
-  components: { LibraryConfigurePluginFlowList, PluginInfo },
+  components: { LibraryConfigurePluginFlowList },
   props: {
     dialogHeader: {
       type: String,
@@ -591,8 +587,30 @@ export default {
       // Save the current settings
       this.saveLibraryConfig()
     },
-    closePluginInfo: function () {
-      this.showPluginSettings = '';
+    openPluginInfo: function (pluginId, tab) {
+      // Ensure we have the info for the plugin to be displayed
+      if (pluginId === '') {
+        // Display error notification
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while attempting to open plugin info',
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        return
+      }
+      // Display the dialog
+      this.$q.dialog({
+        component: PluginInfoDialog,
+        componentProps: {
+          pluginId: pluginId,
+          startTab: (tab === 'settings') ? 'settings' : 'info',
+          libraryId: this.currentID,
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
     },
     exportPluginConfig: function () {
       let data = {
@@ -747,7 +765,6 @@ export default {
   data: function () {
     return {
       maximizedToggle: true,
-      showPluginSettings: ref(''),
       currentID: ref(null),
       locked: ref(false),
       name: ref(''),

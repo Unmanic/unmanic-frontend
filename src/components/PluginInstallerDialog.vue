@@ -253,7 +253,7 @@
 
                         <!--DISPLAY INFORMATION BUTTON-->
                         <q-btn
-                          @click="showPluginInfo = props.row.plugin_id"
+                          @click="openPluginInfo(props.row.plugin_id, 'info')"
                           color="secondary"
                           dense
                           round
@@ -290,19 +290,15 @@
       </q-card-section>
     </q-card>
 
-    <PluginInfo v-bind:showPluginInfo="showPluginInfo"
-                v-bind:viewingRemoteInfo="viewingRemoteInfo"
-                v-on:hide="closePluginInfo"/>
-
   </q-dialog>
 </template>
 
 <script>
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import { computed, onMounted, ref } from "vue";
-import PluginInfo from "components/PluginInfo";
+import { computed, ref } from "vue";
 import PluginInstallerManageRepos from "components/PluginInstallerManageRepos";
+import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
 
 const columns = [
   {
@@ -345,7 +341,7 @@ export default {
     // REQUIRED
     'ok', 'hide', 'path'
   ],
-  components: { PluginInstallerManageRepos, PluginInfo },
+  components: { PluginInstallerManageRepos },
   methods: {
     // following method is REQUIRED
     // (don't change its name --> "show")
@@ -477,8 +473,31 @@ export default {
       // Now trigger a reload of the installable plugins
       this.loadInstallablePlugins();
     },
-    closePluginInfo: function () {
-      this.showPluginInfo = '';
+    openPluginInfo: function (pluginId, tab) {
+      // Ensure we have the info for the plugin to be displayed
+      if (pluginId === '') {
+        // Display error notification
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while attempting to open plugin info',
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        return
+      }
+      // Display the dialog
+      this.$q.dialog({
+        component: PluginInfoDialog,
+        componentProps: {
+          pluginId: pluginId,
+          startTab: (tab === 'settings') ? 'settings' : 'info',
+          libraryId: this.currentID,
+          viewingRemoteInfo: true,
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
     }
   },
   created() {
@@ -504,8 +523,6 @@ export default {
       tags,
       tagFilter,
 
-      viewingRemoteInfo: ref(true),
-      showPluginInfo: ref(''),
       pluginInstalling: ref({}),
     }
   }

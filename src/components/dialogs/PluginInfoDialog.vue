@@ -1,48 +1,75 @@
 <template>
+  <!--
+    TODO:
+      - Configure mobile view such that the form elements on the settings tab are not padded
+      - Fix header wrapping on mobile view
+    -->
 
+  <!-- START DIALOG CONFIG
+  Right fullscreen pop-up
+  Note: Update template q-dialog ref="" value
+
+  All Platforms:
+   - Swipe right to dismiss
+  Desktop:
+   - Width 700px
+   - Minimise button top-right
+  Mobile:
+   - Full screen
+   - Back button top-left
+  -->
   <q-dialog
-    v-model="pluginInfoShowDialog"
-    full-height
+    ref="pluginInfoDialogRef"
     :maximized="$q.platform.is.mobile"
-    :transition-show="($q.platform.is.mobile) ? 'slide-left' : 'scale'"
-    :transition-hide="($q.platform.is.mobile) ? 'slide-right' : 'scale'"
-    :position="($q.platform.is.mobile) ? 'right' : 'standard'"
+    :transition-show="$q.platform.is.mobile ? 'jump-left' : 'slide-left'"
+    :transition-hide="$q.platform.is.mobile ? 'jump-right' : 'slide-right'"
+    full-height
+    position="right"
     @before-hide="beforeDialogHide"
     @hide="onDialogHide">
 
     <q-card
-      style="width:1200px; max-width: 95vw;">
+      v-touch-swipe.touch.right="hide"
+      :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
+      style="width:2000px;">
+
       <q-card-section class="bg-card-head">
         <div class="row items-center no-wrap">
+          <div
+            v-if="$q.platform.is.mobile"
+            class="col">
+            <q-btn
+              color="grey-7"
+              dense
+              round
+              flat
+              icon="arrow_back"
+              v-close-popup>
+            </q-btn>
+          </div>
+
           <div class="col">
-            <div class="text-h6 text-secondary">
-              <q-icon name="extension"/>
-              {{ header }}
+            <div class="text-h6 text-blue-10">
+              {{ dialogHeader }}
             </div>
           </div>
 
-          <div class="col-auto">
+          <div
+            v-if="!$q.platform.is.mobile"
+            class="col-auto">
             <q-btn
-              v-if="!$q.platform.is.mobile"
               color="grey-7"
               dense
               round
               flat
-              icon="close_fullscreen" v-close-popup>
-              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
-            </q-btn>
-            <q-btn
-              v-else
-              color="grey-7"
-              dense
-              round
-              flat
-              icon="arrow_forward" v-close-popup>
+              icon="arrow_forward"
+              v-close-popup>
               <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
             </q-btn>
           </div>
         </div>
       </q-card-section>
+      <!-- END DIALOG CONFIG -->
 
       <q-tabs
         v-if="settings.length > 0"
@@ -328,92 +355,123 @@
       </q-tab-panels>
 
     </q-card>
-  </q-dialog>
 
+  </q-dialog>
 </template>
 
 <script>
-import { ref } from "vue";
+/*
+tab          - The tab to display first ['info', 'settings']
+*/
+
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import { useI18n } from "vue-i18n";
+import { ref } from "vue";
 import { markdownToHTML } from "src/js/markupParser";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 
 export default {
-  name: 'PluginInfo',
-  components: {},
-  data() {
-    return {
-      header: ref(''),
-      pluginInfoShowDialog: ref(false),
-      tab: ref('info'),
-      id: ref(null),
-      pluginId: ref(''),
-      icon: ref(null),
-      name: ref(null),
-      description: ref(null),
-      tags: ref(null),
-      author: ref(null),
-      version: ref(null),
-      changelog: ref(null),
-      status: ref(null),
-      settings: ref([]),
-      originalSettings: ref([]),
-    }
-  },
-  watch: {
-    showPluginInfo(value) {
-      if (value.length > 0) {
-        this.selectedPluginId = value;
-        this.setHeader('info');
-        this.fetchPluginInfo();
-        this.pluginInfoShowDialog = true;
-      } else {
-        this.pluginInfoShowDialog = false;
-        this.resetData();
-      }
+  name: 'LinkConfigureDialog',
+  props: {
+    pluginId: {
+      type: String
     },
-    showPluginSettings(value) {
-      if (value.length > 0) {
-        this.selectedPluginId = value;
-        this.tab = 'settings';
-        this.setHeader('settings');
-        this.fetchPluginInfo();
-        this.pluginInfoShowDialog = true;
-      } else {
-        this.pluginInfoShowDialog = false;
-        this.resetData();
-      }
+    startTab: {
+      type: String,
+      default: 'info'
+    },
+    viewingRemoteInfo: {
+      type: Boolean,
+      required: false,
+    },
+    libraryId: {
+      type: Number,
+      required: false,
     }
   },
+  emits: [
+    // REQUIRED
+    'ok', 'hide', 'path'
+  ],
   methods: {
-    resetData() {
-      this.selectedPluginId = '';
-      this.tab = 'info';
-      this.id = null;
-      this.pluginId = '';
-      this.icon = null;
-      this.name = null;
-      this.description = null;
-      this.tags = null;
-      this.author = null;
-      this.version = null;
-      this.changelog = null;
-      this.status = null;
-      this.settings = [];
-      this.currentSettings = [];
+    // following method is REQUIRED
+    // (don't change its name --> "show")
+    show() {
+      this.$refs.pluginInfoDialogRef.show();
+      this.tab = this.startTab;
+      this.setHeader(this.startTab);
+      this.fetchPluginData();
     },
+
+    // following method is REQUIRED
+    // (don't change its name --> "hide")
+    hide() {
+      this.$refs.pluginInfoDialogRef.hide();
+    },
+
+    onDialogHide() {
+      // required to be emitted
+      // when QDialog emits "hide" event
+      this.$emit('ok', {})
+      this.$emit('hide')
+    },
+
+    beforeDialogHide: function () {
+      // Execute any functions prior to closing the dialog
+      this.ensurePluginSettingsAreSaved();
+    },
+
     setHeader(tab) {
       if (tab === 'info') {
-        this.header = this.$t('headers.pluginInfo');
+        this.dialogHeader = this.$t('headers.pluginInfo');
       } else {
         if (this.libraryId) {
-          this.header = this.$t('headers.libraryPluginConfig');
+          this.dialogHeader = this.$t('headers.libraryPluginConfig');
         } else {
-          this.header = this.$t('headers.globalPluginConfig');
+          this.dialogHeader = this.$t('headers.globalPluginConfig');
         }
       }
     },
+
+    fetchPluginData: function () {
+      // Fetch from server
+      let postData = {
+        plugin_id: this.pluginId,
+        prefer_local: true,
+      }
+      if (this.viewingRemoteInfo) {
+        postData.prefer_local = false;
+      }
+      if (this.libraryId) {
+        postData.library_id = this.libraryId;
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'plugins/info'),
+        data: postData
+      }).then((response) => {
+        this.id = response.data.id
+        this.icon = response.data.icon
+        this.name = response.data.name
+        this.tags = response.data.tags
+        this.author = response.data.author
+        this.version = response.data.version
+        this.changelog = response.data.changelog
+        this.status = response.data.status
+        if (!this.viewingRemoteInfo) {
+          this.settings = response.data.settings
+          // Create a copy of the settings object for the "current settings".
+          // We will compare this later on.
+          this.currentSettings = JSON.parse(JSON.stringify(response.data.settings))
+        }
+        // Parse the changelog
+        this.changelog = markdownToHTML(response.data.changelog);
+        // Parse the description
+        this.description = markdownToHTML(response.data.description);
+      });
+    },
+
     resetPluginLibraryConfig() {
       let data = {
         plugin_id: this.pluginId
@@ -427,8 +485,8 @@ export default {
         data: data
       }).then((response) => {
         // Save success
-        // Refresh plugin info
-        this.fetchPluginInfo();
+        // Refresh plugin data
+        this.fetchPluginData();
         // Show feedback
         this.$q.notify({
           color: 'positive',
@@ -450,51 +508,10 @@ export default {
         })
       });
     },
-    fetchPluginInfo() {
-      console.debug('Fetching info for ' + this.selectedPluginId)
-      // Fetch from server
-      let data = {
-        plugin_id: this.selectedPluginId,
-        prefer_local: true,
-      }
-      if (this.viewingRemoteInfo) {
-        data.prefer_local = false;
-      }
-      if (this.libraryId) {
-        data.library_id = this.libraryId;
-      }
-      axios({
-        method: 'post',
-        url: getUnmanicApiUrl('v2', 'plugins/info'),
-        data: data
-      }).then((response) => {
-        this.id = response.data.id
-        this.pluginId = response.data.plugin_id
-        this.icon = response.data.icon
-        this.name = response.data.name
-        this.tags = response.data.tags
-        this.author = response.data.author
-        this.version = response.data.version
-        this.changelog = response.data.changelog
-        this.status = response.data.status
-        if (!this.viewingRemoteInfo) {
-          this.settings = response.data.settings
-          // Create a copy of the settings object for the "current settings".
-          // We will compare this later on.
-          this.currentSettings = JSON.parse(JSON.stringify(response.data.settings))
-        }
-
-        // Parse the changelog
-        this.changelog = markdownToHTML(response.data.changelog);
-
-        // Parse the description
-        this.description = markdownToHTML(response.data.description);
-      });
-    },
 
     settingsHaveBeenModified() {
       // This is a little complicated than it should be. Bot lists are just arrays.
-      // Therefore we need to loop over both and ensure the key value pairs in each are still the same
+      // Therefore, we need to loop over both and ensure the key value pairs in each are still the same
       // Extract values from settings
       let newSettings = {}
       for (let i = 0; i < this.settings.length; i++) {
@@ -512,7 +529,7 @@ export default {
       return false;
     },
 
-    beforeDialogHide() {
+    ensurePluginSettingsAreSaved() {
       if (typeof this.currentSettings !== 'undefined') {
         if (this.currentSettings.length > 0) {
           // Only save if settings are different
@@ -523,11 +540,6 @@ export default {
         }
       }
     },
-
-    onDialogHide() {
-      this.$emit('hide');
-    },
-
     savePluginSettings: function () {
       console.debug('Fetching info for ' + this.pluginId)
 
@@ -544,8 +556,8 @@ export default {
         data: data
       }).then((response) => {
         // Save success
-        // Refresh plugin info
-        this.fetchPluginInfo();
+        // Refresh plugin data
+        this.fetchPluginData();
         // Show feedback
         this.$q.notify({
           color: 'positive',
@@ -565,6 +577,7 @@ export default {
         })
       });
     },
+
     updateAndTriggerSave: function (key, value) {
       for (let i = 0; i < this.settings.length; i++) {
         if (this.settings[i].key_id === key) {
@@ -574,6 +587,7 @@ export default {
       }
       this.savePluginSettings()
     },
+
     updateWithDirectoryBrowser: function (input) {
       this.$q.dialog({
         component: DirectoryBrowserDialog,
@@ -590,33 +604,36 @@ export default {
       }).onDismiss(() => {
       })
     }
-
   },
-  props: {
-    showPluginInfo: {
-      type: String,
-      required: false,
-    },
-    showPluginSettings: {
-      type: String,
-      required: false,
-    },
-    viewingRemoteInfo: {
-      type: Boolean,
-      required: false,
-    },
-    libraryId: {
-      type: Number,
-      required: false,
+  watch: {
+    uuid(value) {
+      if (value.length > 0) {
+        this.currentUuid = this.uuid;
+      }
     }
   },
-  setup() {
-    return {}
+  data: function () {
+    return {
+      dialogHeader: ref(''),
+      tab: ref('info'),
+      id: ref(null),
+      icon: ref(null),
+      name: ref(null),
+      description: ref(null),
+      tags: ref(null),
+      author: ref(null),
+      version: ref(null),
+      changelog: ref(null),
+      status: ref(null),
+      settings: ref([]),
+      originalSettings: ref([]),
+    }
   }
 }
 </script>
 
 <style>
+
 span.plugin-changelog * {
   margin-top: 0;
   margin-bottom: 0;

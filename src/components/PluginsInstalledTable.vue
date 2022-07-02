@@ -210,10 +210,6 @@
     </q-card-section>
   </q-card>
 
-  <PluginInfo v-bind:showPluginInfo="showPluginInfo"
-              v-bind:showPluginSettings="showPluginSettings"
-              v-on:hide="closePluginInfo"/>
-
 </template>
 
 <script>
@@ -221,12 +217,12 @@ import { onMounted, watch, ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
-import PluginInfo from "components/PluginInfo";
 import { bbCodeToHTML } from "src/js/markupParser";
 import PluginInstallerDialog from "components/PluginInstallerDialog";
+import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
 
 export default {
-  components: { PluginInfo },
+  components: {},
   setup() {
     const $q = useQuasar();
     const rows = ref([]);
@@ -452,19 +448,37 @@ export default {
     const showPluginInfo = ref('');
     const showPluginSettings = ref('');
 
-    function openPluginInfo(table_id, tab) {
-      showPluginInfo.value = '';
-      showPluginSettings.value = '';
+    function openPluginInfo(tableId, tab) {
+      // Fetch the details of the plugin info to be shown
+      let pluginId = '';
       for (let i = 0; i < listedPlugins.value.length; i++) {
         let plugin = listedPlugins.value[i];
-        if (plugin.id === table_id) {
-          if (tab === 'settings') {
-            showPluginSettings.value = plugin.plugin_id;
-          } else {
-            showPluginInfo.value = plugin.plugin_id;
-          }
+        if (plugin.id === tableId) {
+          pluginId = plugin.plugin_id;
         }
       }
+      // Ensure we have the info for the plugin to be displayed
+      if (pluginId === '') {
+        // Display error notification
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'An error was encountered while attempting to open plugin info',
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+        return
+      }
+      // Display the dialog
+      $q.dialog({
+        component: PluginInfoDialog,
+        componentProps: {
+          pluginId: pluginId,
+          startTab: (tab === 'settings') ? 'settings' : 'info',
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
     }
 
     function closePluginInfo() {
