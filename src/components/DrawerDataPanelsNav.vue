@@ -26,9 +26,9 @@
 
   <q-img
     v-if="$q.platform.is.mobile"
-    class="absolute-top bg-primary"
+    class="absolute-top header-background"
     style="height: 90px;">
-    <div class="absolute-center bg-primary">
+    <div class="absolute-center header-background">
       <q-avatar
         rounded
         clickable
