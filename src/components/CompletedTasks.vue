@@ -129,7 +129,7 @@
           <q-card-section class="q-pt-none">
 
             <div class="q-pa-md">
-              <CompletedTasksTable/>
+              <CompletedTasksTable :initStatusFilter="completedTasksPopupInitStatusFilter"/>
             </div>
 
           </q-card-section>
@@ -148,9 +148,20 @@ import CompletedTasksTable from "components/CompletedTasksTable";
 export default defineComponent({
   name: 'CompletedTasks',
   components: { CompletedTasksTable },
+  mounted() {
+    // Add listeners
+    this.$global.$on(
+      'completedTasksShowFailed',
+      () => {
+        this.completedTasksPopupInitStatusFilter = 'failed'
+        this.completedTasksPopup = true
+      }
+    )
+  },
   data() {
     return {
       completedTasksPopup: ref(false),
+      completedTasksPopupInitStatusFilter: ref('all'),
     }
   },
   props: {

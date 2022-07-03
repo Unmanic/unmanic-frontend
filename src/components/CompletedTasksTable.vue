@@ -8,7 +8,7 @@
       v-model:pagination="pagination"
       :loading="loading"
       :filter="searchValue"
-      @request="onRequest"
+      @request="fetchCompletedTasks"
       binary-state-sort
       :selected-rows-label="getSelectedString"
       selection="multiple"
@@ -209,102 +209,34 @@
 </template>
 
 <script>
-import { onMounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import { useQuasar } from "quasar";
 import dateTools from "src/js/dateTools";
 import axios from "axios";
 import CompletedTaskLogDialog from "components/CompletedTaskLogDialog";
-import { useI18n } from "vue-i18n";
-import { onUnmounted } from "@vue/runtime-core";
-
-const columns = [
-  {
-    name: 'task_label',
-    label: 'Name',
-    required: true,
-    align: 'left',
-    field: 'name',
-    sortable: true
-  },
-  {
-    name: 'finish_time',
-    label: 'Completed',
-    required: true,
-    align: 'left',
-    field: 'dateTimeCompleted',
-    sortable: true
-  },
-  {
-    name: 'task_success',
-    label: 'Status',
-    required: true,
-    align: 'left',
-    field: 'status',
-    sortable: true
-  },
-  {
-    name: 'details',
-    label: 'Details',
-    required: true,
-    align: 'left',
-    field: 'id',
-    sortable: false
-  }
-]
 
 export default {
-  setup() {
-    const $q = useQuasar();
-    const { t: $t } = useI18n();
-    const rows = ref([])
-    const searchValue = ref('')
-    const statusFilter = ref('all')
-    const statusFilterOptions = [
-      {
-        label: $t('status.all'),
-        value: 'all'
-      },
-      {
-        label: $t('status.success'),
-        value: 'success'
-      },
-      {
-        label: $t('status.failed'),
-        value: 'failed'
-      }
-    ]
-    const sinceDate = ref(null)
-    const beforeDate = ref(null)
-    const loading = ref(false)
-    const pagination = ref({
-      sortBy: 'finish_time',
-      descending: true,
-      page: 1,
-      rowsPerPage: 15,
-      rowsNumber: 10
-    })
-    const selected = ref([]);
-    const selectLibrary = ref(false)
-    const selectedLibraryId = ref(null)
-    const LibraryOptions = ref([])
-
-    let reloadInterval = null;
-
-    function getSelectedString() {
+  props: {
+    initStatusFilter: {
+      type: String,
+      default: 'all',
+      required: false
+    }
+  },
+  methods: {
+    getSelectedString: function () {
       let return_value = ''
-      if (selected.value.length !== 0) {
-        return_value = `${selected.value.length} record${selected.value.length > 1 ? 's' : ''} selected of ${rows.value.length}`
+      if (this.selected.length !== 0) {
+        return_value = `${this.selected.length} record${this.selected.length > 1 ? 's' : ''} selected of ${this.rows.length}`
       }
       return return_value
-    }
-
-    function deleteSelected() {
-      if (selected.value.length !== 0) {
+    },
+    deleteSelected: function () {
+      if (this.selected.length !== 0) {
         // Fetch the selected row IDs
         let id_list = []
-        for (let i = 0; i < selected.value.length; i++) {
-          let row = selected.value[i];
+        for (let i = 0; i < this.selected.length; i++) {
+          let row = this.selected[i];
           id_list[id_list.length] = row.id;
         }
         // Send those to the backend
@@ -316,12 +248,12 @@ export default {
           url: getUnmanicApiUrl('v2', 'history/tasks'),
           data: data
         }).then((response) => {
-          onRequest({
-            pagination: pagination.value,
-            searchValue: searchValue.value
+          this.fetchCompletedTasks({
+            pagination: this.pagination,
+            searchValue: this.searchValue
           })
         }).catch(() => {
-          $q.notify({
+          this.$q.notify({
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected tasks be deleted',
@@ -330,7 +262,7 @@ export default {
           })
         })
       } else {
-        $q.notify({
+        this.$q.notify({
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
@@ -338,9 +270,8 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       }
-    }
-
-    function selectLibraryForRecreateTask() {
+    },
+    selectLibraryForRecreateTask: function () {
       // Fetch current settings
       axios({
         method: 'get',
@@ -358,37 +289,36 @@ export default {
             value: libraryPath.id,
           }
         }
-        LibraryOptions.value = libraryPathsList;
+        this.LibraryOptions = libraryPathsList;
 
-        // If the list of libraries is only one, then dont bother showing this selector
-        selectedLibraryId.value = 1;
+        // If the list of libraries is only one, then don't bother showing this selector
+        this.selectedLibraryId = 1;
         if (libraryPathsList.length === 1) {
-          selectedLibraryId.value = defaultSelection;
-          addSelectedToPendingTaskList();
+          this.selectedLibraryId = defaultSelection;
+          this.addSelectedToPendingTaskList();
         } else {
-          selectLibrary.value = true;
+          this.selectLibrary = true;
         }
       }).catch(() => {
-        $q.notify({
+        this.$q.notify({
           color: 'negative',
           position: 'top',
-          message: $t('notifications.failedToFetchLibraryList'),
+          message: this.$t('notifications.failedToFetchLibraryList'),
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })
       });
-    }
-
-    function addSelectedToPendingTaskList() {
-      if (selected.value.length !== 0) {
+    },
+    addSelectedToPendingTaskList: function () {
+      if (this.selected.length !== 0) {
         // Fetch the selected row IDs
         let id_list = []
-        for (let i = 0; i < selected.value.length; i++) {
-          let row = selected.value[i];
+        for (let i = 0; i < this.selected.length; i++) {
+          let row = this.selected[i];
           id_list[id_list.length] = row.id;
         }
         // Get library ID
-        let library_id = selectedLibraryId.value
+        let library_id = this.selectedLibraryId
         // Send those to the backend
         let data = {
           id_list: id_list,
@@ -399,12 +329,12 @@ export default {
           url: getUnmanicApiUrl('v2', 'history/reprocess'),
           data: data
         }).then((response) => {
-          onRequest({
-            pagination: pagination.value,
-            searchValue: searchValue.value
+          this.fetchCompletedTasks({
+            pagination: this.pagination,
+            searchValue: this.searchValue
           })
         }).catch(() => {
-          $q.notify({
+          this.$q.notify({
             color: 'negative',
             position: 'top',
             message: 'An error was encountered while requesting the selected tasks be added to the pending tasks list',
@@ -413,7 +343,7 @@ export default {
           })
         })
       } else {
-        $q.notify({
+        this.$q.notify({
           color: 'warning',
           position: 'top',
           message: 'Nothing selected',
@@ -421,16 +351,26 @@ export default {
           actions: [{ icon: 'close', color: 'white' }]
         })
       }
-    }
-
-    function onRequest(props) {
+    },
+    openDetailsDialog: function (id) {
+      this.$q.dialog({
+        component: CompletedTaskLogDialog,
+        // props forwarded to your custom component
+        componentProps: {
+          completedTaskId: id
+        },
+      }).onOk((payload) => {
+      }).onDismiss(() => {
+      })
+    },
+    fetchCompletedTasks: function (props) {
       const { page, rowsPerPage, sortBy, descending } = props.pagination;
-      const searchValue = props.filter;
+      const searchValue = props.searchValue;
 
-      loading.value = true;
+      this.loading = true;
 
       // get all rows if "All" (0) is selected
-      const fetchCount = rowsPerPage === 0 ? pagination.value.rowsNumber : rowsPerPage;
+      const fetchCount = rowsPerPage === 0 ? this.pagination.rowsNumber : rowsPerPage;
 
       // calculate starting row of data
       const startRow = (page - 1) * rowsPerPage;
@@ -440,9 +380,9 @@ export default {
         start: startRow,
         length: fetchCount,
         search_value: searchValue,
-        status: statusFilter.value,
-        after: sinceDate.value,
-        before: beforeDate.value,
+        status: this.statusFilter,
+        after: this.sinceDate,
+        before: this.beforeDate,
         order_by: sortBy,
         order_direction: descending ? 'desc' : 'asc',
       }
@@ -452,7 +392,7 @@ export default {
         data: data
       }).then((response) => {
         // update rowsCount with appropriate value
-        pagination.value.rowsNumber = response.data.recordsFiltered;
+        this.pagination.rowsNumber = response.data.recordsFiltered;
 
         // Set returned data from server results
         const returnedData = [];
@@ -467,18 +407,18 @@ export default {
         }
 
         // clear out existing data and add new
-        rows.value.splice(0, rows.value.length, ...returnedData);
+        this.rows.splice(0, this.rows.length, ...returnedData);
 
         // don't forget to update local pagination object
-        pagination.value.page = page;
-        pagination.value.rowsPerPage = rowsPerPage;
-        pagination.value.sortBy = sortBy;
-        pagination.value.descending = descending;
+        this.pagination.page = page;
+        this.pagination.rowsPerPage = rowsPerPage;
+        this.pagination.sortBy = sortBy;
+        this.pagination.descending = descending;
 
         // ...and turn of loading indicator
-        loading.value = false;
+        this.loading = false;
       }).catch(() => {
-        $q.notify({
+        this.$q.notify({
           color: 'negative',
           position: 'top',
           message: 'An error was encountered while requesting the completed tasks list',
@@ -487,85 +427,120 @@ export default {
         })
       })
     }
-
-    function openDetailsDialog(id) {
-      $q.dialog({
-        component: CompletedTaskLogDialog,
-        // props forwarded to your custom component
-        componentProps: {
-          completedTaskId: id
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
+  },
+  watch: {
+    statusFilter(value) {
+      this.fetchCompletedTasks({
+        pagination: this.pagination,
+        searchValue: this.searchValue
       })
+    },
+    sinceDate(value) {
+      this.fetchCompletedTasks({
+        pagination: this.pagination,
+        searchValue: this.searchValue
+      })
+    },
+    beforeDate(value) {
+      this.fetchCompletedTasks({
+        pagination: this.pagination,
+        searchValue: this.searchValue
+      })
+    },
+  },
+  mounted() {
+    // Set default values
+    this.statusFilter = this.initStatusFilter;
+
+    // get initial data from server (1st page)
+    this.fetchCompletedTasks({
+      pagination: this.pagination,
+      searchValue: undefined
+    })
+
+    // TODO: Remove on unmount
+    this.reloadInterval = setInterval(() => {
+      this.fetchCompletedTasks({
+        pagination: this.pagination,
+        searchValue: this.searchValue
+      })
+    }, 10000);
+  },
+  unmounted() {
+    if (this.reloadInterval != null) {
+      clearInterval(this.reloadInterval);
     }
-
-    onMounted(() => {
-      // get initial data from server (1st page)
-      onRequest({
-        pagination: pagination.value,
-        searchValue: undefined
-      })
-      reloadInterval = setInterval(() => {
-        onRequest({
-          pagination: pagination.value,
-          searchValue: searchValue.value
-        })
-      }, 10000);
-    })
-
-    onUnmounted(() => {
-      if (reloadInterval != null) {
-        clearInterval(reloadInterval);
-      }
-    })
-
-    // Monitor the status filter for changes
-    watch(statusFilter, (currentValue, oldValue) => {
-      onRequest({
-        pagination: pagination.value,
-        searchValue: searchValue.value
-      })
-    });
-
-    // Monitor the sinceDate date/time filter for changes
-    watch(sinceDate, (currentValue, oldValue) => {
-      onRequest({
-        pagination: pagination.value,
-        searchValue: searchValue.value
-      })
-    });
-
-    // Monitor the beforeDate date/time filter for changes
-    watch(beforeDate, (currentValue, oldValue) => {
-      onRequest({
-        pagination: pagination.value,
-        searchValue: searchValue.value
-      })
-    });
-
+  },
+  data: function () {
     return {
-      selected,
-      searchValue,
-      statusFilter,
-      statusFilterOptions,
-      sinceDate,
-      beforeDate,
-      loading,
-      pagination,
-      columns,
-      rows,
+      reloadInterval: ref(null),
+      loading: ref(false),
 
-      selectLibrary,
-      selectedLibraryId,
-      LibraryOptions,
+      columns: ref([
+        {
+          name: 'task_label',
+          label: 'Name',
+          required: true,
+          align: 'left',
+          field: 'name',
+          sortable: true
+        },
+        {
+          name: 'finish_time',
+          label: 'Completed',
+          required: true,
+          align: 'left',
+          field: 'dateTimeCompleted',
+          sortable: true
+        },
+        {
+          name: 'task_success',
+          label: 'Status',
+          required: true,
+          align: 'left',
+          field: 'status',
+          sortable: true
+        },
+        {
+          name: 'details',
+          label: 'Details',
+          required: true,
+          align: 'left',
+          field: 'id',
+          sortable: false
+        }
+      ]),
 
-      getSelectedString,
-      onRequest,
-      deleteSelected,
-      selectLibraryForRecreateTask,
-      addSelectedToPendingTaskList,
-      openDetailsDialog
+      rows: ref([]),
+      searchValue: ref(''),
+      statusFilter: ref('all'),
+      statusFilterOptions: [
+        {
+          label: this.$t('status.all'),
+          value: 'all'
+        },
+        {
+          label: this.$t('status.success'),
+          value: 'success'
+        },
+        {
+          label: this.$t('status.failed'),
+          value: 'failed'
+        }
+      ],
+      sinceDate: ref(null),
+      beforeDate: ref(null),
+      pagination: ref({
+        sortBy: 'finish_time',
+        descending: true,
+        page: 1,
+        rowsPerPage: 15,
+        rowsNumber: 10
+      }),
+      selected: ref([]),
+      selectLibrary: ref(false),
+      selectedLibraryId: ref(null),
+      LibraryOptions: ref([]),
     }
   }
 }

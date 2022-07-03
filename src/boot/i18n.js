@@ -2,7 +2,7 @@ import { boot } from 'quasar/wrappers'
 import { createI18n } from 'vue-i18n'
 import { LocalStorage } from 'quasar'
 
-// Dont import messages from the directory... Read them from the JSON files in the language directory
+// Don't import messages from the directory... Read them from the JSON files in the language directory
 //import messages from 'src/i18n'
 
 function loadLocaleInfo() {
@@ -30,6 +30,7 @@ if (configuredLocale === null) {
 const i18n = createI18n({
   locale: configuredLocale,
   fallbackLocale: 'en',
+  silentTranslationWarn: true,
   messages
 })
 

@@ -256,4 +256,80 @@ export default {
       });
     })
   },
+  getUnmanicNotifications() {
+    if (typeof $unmanic.notificationsList === 'undefined') {
+      $unmanic.notificationsList = [];
+    }
+    return $unmanic.notificationsList;
+  },
+  updateUnmanicNotifications($t) {
+    return new Promise((resolve, reject) => {
+      $unmanic.notificationsList = (typeof $unmanic.notificationsList === 'undefined') ? [] : $unmanic.notificationsList
+      axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'notifications/read'),
+      }).then((response) => {
+        // Update success
+        let notifications = []
+        for (let i = 0; i < response.data.notifications.length; i++) {
+          let notification = response.data.notifications[i];
+          // Fetch label string from i18n
+          let labelStringId = 'notifications.serverNotificationLabels.' + notification.label
+          let labelString = $t(labelStringId)
+          // If i18n doesn't have this string ID, then revert to just displaying the provided label
+          if (labelString === labelStringId) {
+            labelString = notification.label;
+          }
+          // Fetch message string from i18n
+          let messageStringId = 'notifications.serverNotificationLabels.' + notification.message
+          let messageString = $t(messageStringId)
+          // If i18n doesn't have this string ID, then revert to just displaying the provided label
+          if (messageString === messageStringId) {
+            messageString = notification.message;
+          }
+          // Set the color of the notification
+          let color = 'info';
+          if (notification.type === 'error') {
+            color = 'negative';
+          } else if (notification.type === 'warning') {
+            color = 'warning';
+          } else if (notification.type === 'success') {
+            color = 'positive';
+          }
+          // Add notification to list
+          notifications[notifications.length] = {
+            uuid: notification.uuid,
+            icon: notification.icon,
+            navigation: notification.navigation,
+            label: labelString,
+            message: messageString,
+            color: color,
+          }
+        }
+        $unmanic.notificationsList = notifications;
+        resolve($unmanic.notificationsList)
+      }).catch(() => {
+        console.error("Failed to retrieve server notifications")
+        resolve($unmanic.notificationsList)
+      });
+    })
+  },
+  dismissNotifications($t, uuidList) {
+    let queryData = {
+      uuid_list: uuidList
+    }
+    return new Promise((resolve, reject) => {
+      $unmanic.notificationsList = (typeof $unmanic.notificationsList === 'undefined') ? [] : $unmanic.notificationsList
+      axios({
+        method: 'delete',
+        url: getUnmanicApiUrl('v2', 'notifications/remove'),
+        data: queryData,
+      }).then((response) => {
+        resolve()
+      }).catch(() => {
+        console.error("Failed to dismiss server notifications")
+        resolve()
+      });
+    })
+  },
 }

@@ -83,6 +83,9 @@
       "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count",
       "receivingRemoteFile": "Receiving remote file",
       "linkedInstallationLimits": "Unmanic has stopped processing tasks as you have linked too many remote installations for a non-supporter tier. Consider sponsoring the project to link more than one remote installation."
+    },
+    "serverNotificationLabels": {
+      "failedTaskLabel": "Task Failure"
     }
   },
   "headers": {
@@ -132,7 +135,8 @@
   },
   "buttons": {
     "language": "Language",
-    "darkMode": "Dark Mode"
+    "darkMode": "Dark Mode",
+    "dismissAll": "Dismiss All"
   },
   "components": {
     "settings": {

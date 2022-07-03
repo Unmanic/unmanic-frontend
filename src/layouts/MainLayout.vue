@@ -57,8 +57,29 @@
           </q-avatar>
         </q-toolbar-title>
 
+        <q-space/>
+
         <div>
           <ThemeSwitch/>
+        </div>
+
+        <!-- TODO: Enable notifications for mobile -->
+        <div
+          v-if="!$q.platform.is.mobile"
+          class="q-gutter-sm row items-center no-wrap">
+          <q-btn
+            dense
+            flat
+            round
+            icon="notifications"
+            @click="toggleNotificationsDrawer">
+            <q-badge
+              v-if="notificationsCount > 0"
+              color="red" text-color="white" floating>
+              {{ notificationsCount }}
+            </q-badge>
+            <q-tooltip>Notifications</q-tooltip>
+          </q-btn>
         </div>
       </q-toolbar>
 
@@ -78,7 +99,6 @@
       v-model="leftSettingsDrawerOpen"
       side="left"
       :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      :overlay="!!$q.platform.is.mobile"
       elevated>
       <DrawerSettingsNav/>
     </q-drawer>
@@ -88,9 +108,20 @@
       v-model="leftDataPanelsDrawerOpen"
       side="left"
       :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      :overlay="!!$q.platform.is.mobile"
       elevated>
       <DrawerDataPanelsNav/>
+    </q-drawer>
+
+    <!-- TODO: Enable notifications for mobile -->
+    <q-drawer
+      v-if="!$q.platform.is.mobile"
+      v-model="rightNotificationsDrawerOpen"
+      side="right"
+      :width="650"
+      :overlay="$route.meta.showMainNavDrawer"
+      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
+      elevated>
+      <DrawerNotifications/>
     </q-drawer>
 
     <q-page-container>
@@ -111,22 +142,29 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import DrawerMainNav from "components/DrawerMainNav";
 import FooterData from "components/FooterData";
 import DrawerSettingsNav from "components/DrawerSettingsNav";
 import { useQuasar } from "quasar";
 import DrawerDataPanelsNav from "components/DrawerDataPanelsNav";
 import ThemeSwitch from "components/ThemeSwitch";
+import DrawerNotifications from "components/DrawerNotifications";
+import unmanicGlobals from "src/js/unmanicGlobals";
 
 export default {
-  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerSettingsNav, FooterData, ThemeSwitch },
+  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerNotifications, DrawerSettingsNav, FooterData, ThemeSwitch },
   setup() {
     const $q = useQuasar();
+
+    let reloadInterval = null;
 
     const leftMainNavDrawerOpen = ref(false)
     const leftSettingsDrawerOpen = ref(false)
     const leftDataPanelsDrawerOpen = ref(false)
+    const rightNotificationsDrawerOpen = ref(false)
+
+    const notificationsCount = ref(null)
 
     if (!$q.platform.is.mobile) {
       leftSettingsDrawerOpen.value = true;
@@ -145,13 +183,42 @@ export default {
       leftDataPanelsDrawerOpen.value = !leftDataPanelsDrawerOpen.value
     }
 
+    function toggleNotificationsDrawer() {
+      rightNotificationsDrawerOpen.value = !rightNotificationsDrawerOpen.value
+    }
+
+    function getNotificationsCount() {
+      let notificationsList = unmanicGlobals.getUnmanicNotifications();
+      notificationsCount.value = notificationsList.length;
+    }
+
+    onMounted(() => {
+      // If the reloadInterval has not yet been set
+      if (reloadInterval === null) {
+        // Set the interval to refresh every second
+        reloadInterval = setInterval(() => {
+          getNotificationsCount();
+        }, 1000);
+      }
+    })
+
+    onUnmounted(() => {
+      if (reloadInterval !== null) {
+        clearInterval(reloadInterval);
+      }
+    })
+
     return {
       leftMainNavDrawerOpen,
       leftSettingsDrawerOpen,
       leftDataPanelsDrawerOpen,
+      rightNotificationsDrawerOpen,
       toggleMainNavDrawer,
       toggleSettingsDrawer,
-      toggleDataPanelsDrawer
+      toggleDataPanelsDrawer,
+      toggleNotificationsDrawer,
+
+      notificationsCount
     }
   }
 }
