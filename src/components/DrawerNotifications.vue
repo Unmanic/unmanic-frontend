@@ -69,17 +69,14 @@ export default {
   components: {},
   methods: {
     runNotificationAction: function (index) {
+      if (this.notificationActionsDisabled) {
+        console.debug('Notification actions disabled');
+        return;
+      }
+      // Disable any other actions being triggered while this one is being run
+      this.notificationActionsDisabled = true;
       // Get notification by index
       let notification = this.notificationsList[index];
-
-      /*if (notification.navigation.toLowerCase().startsWith('http')) {
-        // Handle external links
-        window.open(notification.navigation, '_blank');
-      } else if (notification.navigation.toLowerCase().startsWith('/')) {
-        // Handle simple internal routes
-        this.$router.push(notification.link)
-      }*/
-
       if (
         typeof notification.navigation === 'object' &&
         notification.navigation !== null &&
@@ -94,12 +91,22 @@ export default {
           this.$router.push(notification.navigation['push'])
         }
         if (typeof notification.navigation['events'] !== 'undefined') {
-          for (let i = 0; i < notification.navigation['events'].length; i++) {
-            let triggerEvent = notification.navigation['events'][i]
-            this.$global.$emit(triggerEvent)
+          let i = 0;
+          const loopEventsDelayed = function (emitter) {
+            if (i < notification.navigation['events'].length) {
+              setTimeout(function () {
+                let triggerEvent = notification.navigation['events'][i]
+                emitter(triggerEvent)
+                i++;
+                loopEventsDelayed(emitter)
+              }, 200)
+            }
           }
+          loopEventsDelayed(this.$global.$emit)
         }
       }
+      // Re-enable notification actions
+      this.notificationActionsDisabled = false;
     },
     dismissNotification: function (index) {
       // Get notification by index
@@ -147,6 +154,7 @@ export default {
     return {
       reloadInterval: ref(null),
       notificationsList: ref([]),
+      notificationActionsDisabled: ref(false),
     }
   }
 }
