@@ -1,4 +1,52 @@
 <template>
+
+  <div class="row q-col-gutter-none q-ma-none plugin-table-actions-bar">
+    <div class="col self-start">
+      <div class="row q-col-gutter-xs q-ma-xs">
+        <div
+          v-if="$q.platform.is.mobile"
+          class="col-auto">
+          <PluginInstallerManageRepos/>
+        </div>
+        <div class="col-auto">
+          <q-input
+            filled
+            class="shadow-1"
+            dense
+            debounce="300"
+            v-model="filter"
+            :placeholder="$t('navigation.search')">
+            <template v-slot:append>
+              <q-icon name="search"/>
+            </template>
+          </q-input>
+        </div>
+        <div class="col-auto">
+          <q-select
+            filled
+            class="shadow-1"
+            @update:model-value="loadInstallablePlugins"
+            dense
+            :label="$t('components.plugins.categoryFilter')"
+            v-model="tagFilter"
+            :options="tags"
+            style="min-width: 300px">
+            <template v-slot:append>
+              <q-icon name="style"/>
+            </template>
+          </q-select>
+        </div>
+      </div>
+    </div>
+    <div class="col self-end">
+      <div class="row q-col-gutter-xs q-ma-xs float-right">
+        <div class="col-auto">
+          <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div :class="$q.platform.is.mobile ? 'q-px-none' : ''">
 
     <q-table
@@ -11,54 +59,8 @@
       hide-header
       v-model:pagination="pagination"
       hide-pagination
+      class="plugin-table"
     >
-      <template v-slot:top-left>
-        <div class="row q-col-gutter-xs q-ma-xs">
-          <div
-            v-if="$q.platform.is.mobile"
-            class="col-auto">
-            <PluginInstallerManageRepos/>
-          </div>
-          <div class="col-auto">
-            <q-input
-              filled
-              class="shadow-1"
-              dense
-              debounce="300"
-              v-model="filter"
-              :placeholder="$t('navigation.search')">
-              <template v-slot:append>
-                <q-icon name="search"/>
-              </template>
-            </q-input>
-          </div>
-          <div class="col-auto">
-            <q-select
-              filled
-              class="shadow-1"
-              @update:model-value="loadInstallablePlugins"
-              dense
-              :label="$t('components.plugins.categoryFilter')"
-              v-model="tagFilter"
-              :options="tags"
-              style="min-width: 300px">
-              <template v-slot:append>
-                <q-icon name="style"/>
-              </template>
-            </q-select>
-          </div>
-        </div>
-      </template>
-
-      <template
-        v-if="!$q.platform.is.mobile"
-        v-slot:top-right>
-        <div class="row q-col-gutter-xs q-ma-xs">
-          <div class="col-auto">
-            <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
-          </div>
-        </div>
-      </template>
 
       <template v-slot:no-data>
         <div class="full-width row flex-center text-accent q-gutter-sm">
@@ -208,17 +210,6 @@
 
     </q-table>
 
-    <div class="row justify-center q-mt-md">
-      <q-pagination
-        v-model="pagination.page"
-        color="secondary"
-        :max="pagesNumber"
-        size="md"
-        direction-links
-        boundary-links
-      />
-    </div>
-
   </div>
 
 </template>
@@ -272,9 +263,8 @@ export default {
     const rows = ref([])
     const pagination = ref({
       page: 1,
-      rowsPerPage: 12
+      rowsPerPage: 0
     })
-    const pagesNumber = computed(() => Math.ceil(rows.value.length / pagination.value.rowsPerPage))
     const tags = ref([])
     const tagFilter = ref('All')
 
@@ -293,7 +283,6 @@ export default {
       columns,
       rows,
       pagination,
-      pagesNumber,
       tags,
       tagFilter,
     }
@@ -469,5 +458,18 @@ export default {
 </script>
 
 <style scoped>
+.plugin-table-actions-bar {
+  position: sticky;
+  top: 65px;
+  z-index: 90;
+  background: #fff;
+}
 
+.q-dark .plugin-table-actions-bar {
+  background: var(--q-dark) !important
+}
+
+.plugin-table {
+  margin-bottom: 220px;
+}
 </style>

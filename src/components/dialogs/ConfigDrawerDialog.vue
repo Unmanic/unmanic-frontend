@@ -28,7 +28,7 @@
       v-touch-swipe.touch.right="hide"
       :style="$q.platform.is.mobile ? 'max-width:100vw;' : `max-width:95vw; width:${width};`">
 
-      <q-card-section class="bg-card-head">
+      <q-card-section class="bg-card-head dialog-sticky-header">
         <div class="row items-center no-wrap">
           <div
             v-if="$q.platform.is.mobile"
@@ -216,3 +216,11 @@ export default {
 };
 
 </script>
+
+<style scoped>
+.dialog-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+</style>
