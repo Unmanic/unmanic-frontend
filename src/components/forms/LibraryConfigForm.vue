@@ -384,11 +384,13 @@ export default {
       - cancel()
     */
     hide() {
+      return true;
     },
     save() {
       return this.saveLibraryConfig();
     },
     cancel() {
+      return true;
     },
 
     fetchLibraryConfig: function (libraryId) {

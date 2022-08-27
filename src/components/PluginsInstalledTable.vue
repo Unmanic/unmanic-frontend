@@ -218,13 +218,15 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import { bbCodeToHTML } from "src/js/markupParser";
-import PluginInstallerDialog from "components/PluginInstallerDialog";
+import { useI18n } from "vue-i18n";
 import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
+import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
 
 export default {
   components: {},
   setup() {
     const $q = useQuasar();
+    const { t: $t } = useI18n();
     const rows = ref([]);
     const filter = ref('');
     const loading = ref(false);
@@ -488,9 +490,13 @@ export default {
 
     function openPluginInstaller() {
       $q.dialog({
-        component: PluginInstallerDialog,
-        // props forwarded to your custom component
-        componentProps: {},
+        component: ConfigDrawerDialog,
+        componentProps: {
+          header: $t('headers.pluginInstaller'),
+          componentName: "PluginInstallerForm",
+          width: "2000px",
+          componentProps: {},
+        },
       }).onOk((payload) => {
       }).onDismiss(() => {
         onRequest({

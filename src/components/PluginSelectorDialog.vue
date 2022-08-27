@@ -138,7 +138,7 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
-import PluginInstallerDialog from "components/PluginInstallerDialog";
+import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
 
 export default {
   name: 'PluginSelectorDialog',
@@ -220,9 +220,13 @@ export default {
 
     openPluginInstaller() {
       this.$q.dialog({
-        component: PluginInstallerDialog,
-        // props forwarded to your custom component
-        componentProps: {},
+        component: ConfigDrawerDialog,
+        componentProps: {
+          header: this.$t('headers.pluginInstaller'),
+          componentName: "PluginInstallerForm",
+          width: "2000px",
+          componentProps: {},
+        },
       }).onOk((payload) => {
       }).onDismiss(() => {
         this.fetchPluginsList();

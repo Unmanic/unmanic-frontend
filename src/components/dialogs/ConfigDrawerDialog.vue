@@ -75,6 +75,13 @@
                              @requestCancel="cancel"
                              v-bind="componentProps"/>
         </template>
+        <template v-if="componentName === 'PluginInstallerForm'">
+          <PluginInstallerForm ref="childComponent"
+                               @requestHide="hide"
+                               @requestSave="save"
+                               @requestCancel="cancel"
+                               v-bind="componentProps"/>
+        </template>
 
       </q-card-section>
 
@@ -112,10 +119,11 @@
 
 import { ref } from "vue";
 import LibraryConfigForm from "components/forms/LibraryConfigForm";
+import PluginInstallerForm from "components/forms/PluginInstallerForm";
 
 export default {
   name: "ConfigDrawerDialog",
-  components: { LibraryConfigForm },
+  components: { LibraryConfigForm, PluginInstallerForm },
   props: {
     header: {
       type: String
