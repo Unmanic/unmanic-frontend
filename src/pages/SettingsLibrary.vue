@@ -348,8 +348,8 @@ import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import LibraryConfigureDialog from "components/LibraryConfigureDialog";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
+import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
 
 export default {
   name: 'SettingsLibrary',
@@ -611,16 +611,19 @@ export default {
     configureLibraryPath: function (index) {
       let library = this.libraryPaths[index]
       this.$q.dialog({
-        component: LibraryConfigureDialog,
+        component: ConfigDrawerDialog,
         componentProps: {
-          dialogHeader: this.$t('headers.configureLibrary'),
-          libraryId: library.id
+          header: this.$t('headers.configureLibrary'),
+          componentName: "LibraryConfigForm",
+          componentProps: {
+            libraryId: library.id,
+          },
         },
       }).onOk((payload) => {
       }).onDismiss(() => {
         this.fetchSettings();
         this.fetchLibraryList();
-      })
+      });
     },
   },
   created() {
