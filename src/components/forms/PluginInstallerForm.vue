@@ -75,30 +75,11 @@
           <q-card
             style="min-height: 220px;">
             <q-card-section
-              style="min-height: 80px">
+              style="min-height: 50px">
               <div class="row">
                       <span style="overflow: hidden;white-space: nowrap;">
                         <strong>{{ props.row.name }}</strong>
                       </span>
-              </div>
-              <div class="row float-right">
-                <!--INSTALLED STATUS-->
-                <q-btn
-                  v-if="props.row.update_available"
-                  color="warning"
-                  dense
-                  round
-                  flat
-                  icon="check_circle"> Update Available
-                </q-btn>
-                <q-btn
-                  v-else-if="props.row.installed"
-                  color="positive"
-                  dense
-                  round
-                  flat
-                  icon="check_circle"> Installed
-                </q-btn>
               </div>
             </q-card-section>
 
@@ -151,9 +132,9 @@
               </div>
             </q-card-section>
 
-            <q-card-section>
+            <q-card-section class="q-pt-none">
               <div class="row">
-                <div class="col-auto items-end">
+                <div class="col self-start items-end">
                   <!--INSTALL BUTTON-->
                   <q-btn
                     v-if="props.row.update_available"
@@ -195,6 +176,27 @@
                     flat
                     icon="info">
                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.pluginInfo') }}</q-tooltip>
+                  </q-btn>
+                </div>
+                <div class="col self-end">
+                  <!--INSTALLED STATUS-->
+                  <q-btn
+                    v-if="props.row.update_available"
+                    color="warning"
+                    dense
+                    round
+                    flat
+                    class="float-right"
+                    icon="check_circle"> Update Available
+                  </q-btn>
+                  <q-btn
+                    v-else-if="props.row.installed"
+                    color="positive"
+                    dense
+                    round
+                    flat
+                    class="float-right"
+                    icon="check_circle"> Installed
                   </q-btn>
                 </div>
               </div>
