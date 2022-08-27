@@ -208,6 +208,7 @@
                           v-if="item.input_type === 'text'">
                           <q-input filled v-model="item.value"
                                    :bottom-slots="item.description.length > 0"
+                                   :disable="item.display === 'disabled'"
                                    :label="item.label"
                                    :placeholder="item.label">
                             <template v-slot:hint v-if="item.description.length > 0">
@@ -225,6 +226,7 @@
                           <q-input filled v-model="item.value"
                                    type="textarea"
                                    :bottom-slots="item.description.length > 0"
+                                   :disable="item.display === 'disabled'"
                                    :label="item.label">
                             <template v-slot:hint v-if="item.description.length > 0">
                               {{ item.description }}
@@ -245,6 +247,7 @@
                             <q-checkbox
                               @update:model-value="value=>{updateAndTriggerSave(item.key_id, value)}"
                               v-model="item.value"
+                              :disable="item.display === 'disabled'"
                               :label="item.label"/>
                           </div>
                           <div v-if="item.description.length > 0"
@@ -269,6 +272,7 @@
                             :options="item.select_options"
                             :option-value="opt => Object(opt) === opt && 'value' in opt ? opt.value : null"
                             :option-label="opt => Object(opt) === opt && 'label' in opt ? opt.label : '- Null -'"
+                            :disable="item.display === 'disabled'"
                             :label="item.label">
                             <template v-slot:hint v-if="item.description.length > 0">
                               {{ item.description }}
@@ -292,6 +296,7 @@
                                 :min="Number(item.slider_options.min)"
                                 :max="Number(item.slider_options.max)"
                                 :step="Number(item.slider_options.step)"
+                                :disable="item.display === 'disabled'"
                                 label
                                 :label-value="item.label + ': ' + item.value + item.slider_options.suffix"
                                 :hint="item.description"
@@ -317,6 +322,7 @@
                             filled
                             color="primary"
                             v-model="item.value"
+                            :disable="item.display === 'disabled'"
                             :label="item.label"
                             :placeholder="item.label"
                             :hint="item.description"
