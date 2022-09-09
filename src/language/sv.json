@@ -45,18 +45,18 @@
 		"copied": "Kopierade",
 		"backendConnectionWarning": "Det går inte att ansluta till Unmanic backend. Kontrollera att den är igång.",
 		"failedToFetchLoginUrl": "Det gick inte att hämta inloggnings-URL.",
-		"failedToFetchLogoutUrl": "Det gick inte att hämta webbadressen för utloggning.",
+		"failedToFetchLogoutUrl": "Det gick inte att hämta utloggningsadressen.",
 		"failedToSaveSettings": "Det gick inte att spara inställningarna.",
 		"failedToFetchSettings": "Det gick inte att hämta Unmanics nuvarande inställningar.",
 		"failedToFetchSystemConfig": "Det gick inte att hämta Unmanics systemkonfiguration.",
 		"failedToFetchLibraryList": "Det gick inte att hämta Unmanics bibliotekslista.",
 		"SavedPluginSettings": "Plugin-inställningarna sparade.",
-		"failedToSavePluginSettings": "Det gick inte att spara plugin-inställningarna.",
+		"failedToSavePluginSettings": "Det gick inte att spara plugininställningarna.",
 		"failedToInstallPlugin": "Ett fel påträffades vid försök att installera det begärda pluginprogrammet.",
 		"repoAlreadyExists": "Lagret finns redan.",
 		"newRepoAddFailed": "Det gick inte att spara det nya arkivet.",
-		"reposRefreshSuccess": "Alla arkiv har uppdaterats.",
-		"reposRefreshFailure": "Det går inte att uppdatera dina konfigurerade arkiv. Kanske är det ett fel i en av webbadresserna?",
+		"reposRefreshSuccess": "Uppdaterade alla arkiv.",
+		"reposRefreshFailure": "Det går inte att uppdatera dina konfigurerade förråd. Kanske är det ett fel i en av webbadresserna?",
 		"repoRemovedSuccess": "Repository har tagits bort.",
 		"repoRemovedFailed": "Något gick fel när arkivet skulle tas bort.",
 		"failedToFetchEnabledDataPanelPlugins": "Det gick inte att hämta listan över aktiverade datapanelpluginprogram",
@@ -66,7 +66,7 @@
 		"invalidRemoteInstallationAddress": "Adressen du angav var inte en giltig Unmanic-installation.",
 		"incompatibleRemoteInstallation": "Fjärrinstallationen av Unmanic som du försöker lägga till är inte kompatibel med länkning. Försök att uppdatera den först.",
 		"cannotRemoveDefaultLibrary": "Det går inte att ta bort standardbiblioteket",
-		"rescanLibraryError": "Ett fel påträffades vid begäran om en omsökning av biblioteket",
+		"rescanLibraryError": "Ett fel påträffades när en omsökning av biblioteket begärdes",
 		"serverMessages": {
 			"defaults": {
 				"info": "Okänt meddelande från servern",
@@ -83,6 +83,9 @@
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Arbetare kommer inte att få en ny väntande uppgift förrän efterbehandlarkön sjunker under det nuvarande konfigurerade antalet arbetare",
 			"receivingRemoteFile": "Tar emot fjärrfil",
 			"linkedInstallationLimits": "Unmanic har slutat bearbeta uppgifter eftersom du har länkat för många fjärrinstallationer för en icke-supporternivå. Överväg att sponsra projektet för att länka mer än en fjärrinstallation."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Uppgift misslyckande"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Språk",
-		"darkMode": "Mörkt läge"
+		"darkMode": "Mörkt läge",
+		"dismissAll": "Avfärda alla"
 	},
 	"components": {
 		"settings": {
@@ -223,7 +227,7 @@
 				"add": "Lägg till",
 				"connection": "Förbindelse",
 				"remoteTaskProcessing": "Fjärruppgiftsbearbetning",
-				"allowReceivingTasks": "Ta emot uppgifter från denna installation när arbetare är tillgängliga",
+				"allowReceivingTasks": "Ta emot uppgifter från den här installationen när arbetare är tillgängliga",
 				"linkReceivingTasksStatusLabel": "Ta emot uppgifter",
 				"allowSendingTasks": "Skicka uppgifter till den här installationen när arbetare är tillgängliga",
 				"linkSendingTasksStatusLabel": "Skickar uppgifter",
@@ -235,7 +239,7 @@
 				"enableChecksumValidation": "Validera filöverföringar med kontrollsummor (långsamma)",
 				"linkConfigChecksumValidationStatusLabel": "Validera med kontrollsummor",
 				"collectiveManagement": "Kollektiv förvaltning",
-				"enableDistributedWorkerCount": "Aktivera distribuerat antal arbetare för denna länk",
+				"enableDistributedWorkerCount": "Aktivera distribuerat antal arbetare för den här länken",
 				"linkDistributedWorkersStatusLabel": "Distribuerade arbetare",
 				"workerTarget": "Arbetarmål"
 			},
@@ -300,7 +304,7 @@
 		"completedTasks": {
 			"details": "Detaljer",
 			"errorGettingDetails": "Ett fel påträffades när detaljerna för denna uppgift skulle hämtas",
-			"addToPendingTasksList": "Lägg till markerade i listan över väntande uppgifter",
+			"addToPendingTasksList": "Lägg till valda i listan över väntande uppgifter",
 			"removeSelected": "Ta bort markerade från listan",
 			"selectLibraryToAdd": "Välj bibliotek där du vill återskapa denna uppgift",
 			"since": "Eftersom",
@@ -313,19 +317,23 @@
 			"globalConfiguration": "Global konfiguration",
 			"updatePlugin": "Uppdatera plugin",
 			"removePlugin": "Ta bort plugin",
-			"installPluginFromRepo": "Installera plugin",
+			"installPluginFromRepo": "Installera plugin från Repo",
+			"installPluginFromFile": "Installera plugin från fil",
 			"categoryFilter": "Kategorifilter",
 			"author": "Författare",
 			"version": "Version",
 			"repo": "Förvar",
 			"repoList": "Förvarslista",
 			"refreshRepositories": "Uppdatera förråd",
-			"addRepository": "Lägg till förråd",
+			"addRepository": "Lägg till arkiv",
 			"newRepository": "Nytt förråd",
 			"repoName": "namn",
 			"repoSource": "Repository URL",
 			"errorSavingFlow": "Ett fel påträffades när pluginflödet skulle sparas",
 			"resetConfiguration": "Återställ konfigurationen",
+			"invalidZipFile": "Filen är inte en giltig ZIP-fil",
+			"failedToInstallPluginFromZip": "Det gick inte att installera plugin från den uppladdade ZIP-filen",
+			"installedPluginFromZip": "Plugin installerad",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Bibliotekshantering - Filtest",

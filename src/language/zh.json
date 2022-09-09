@@ -83,6 +83,9 @@
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "在后处理器队列低于当前配置的工作人员计数之前，工作人员不会收到新的待处理任务",
 			"receivingRemoteFile": "接收远程文件",
 			"linkedInstallationLimits": "Unmanic 已停止处理任务，因为您为非支持者层链接了太多远程安装。考虑赞助该项目以链接多个远程安装。"
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "任务失败"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "语",
-		"darkMode": "黑暗模式"
+		"darkMode": "黑暗模式",
+		"dismissAll": "关闭所有"
 	},
 	"components": {
 		"settings": {
@@ -313,7 +317,8 @@
 			"globalConfiguration": "全局配置",
 			"updatePlugin": "更新插件",
 			"removePlugin": "删除插件",
-			"installPluginFromRepo": "安装插件",
+			"installPluginFromRepo": "从回购安装插件",
+			"installPluginFromFile": "从文件安装插件",
 			"categoryFilter": "类别过滤器",
 			"author": "作者",
 			"version": "版本",
@@ -326,6 +331,9 @@
 			"repoSource": "存储库 URL",
 			"errorSavingFlow": "保存插件流程时遇到错误",
 			"resetConfiguration": "重置配置",
+			"invalidZipFile": "文件不是有效的 ZIP 文件",
+			"failedToInstallPluginFromZip": "从上传的 ZIP 文件安装插件失败",
+			"installedPluginFromZip": "已安装插件",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "图书馆管理 - 文件测试",

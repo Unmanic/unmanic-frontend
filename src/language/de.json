@@ -81,8 +81,11 @@
 			"libraryScanProgress": "Bibliotheksscan läuft",
 			"pendingTaskHaltedPostProcessorQueueFull": "Die Postprozessorwarteschlange hat ihr Limit erreicht",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Worker erhalten keine neue ausstehende Aufgabe, bis die Postprozessor-Warteschlange unter die aktuell konfigurierte Worker-Anzahl fällt",
-			"receivingRemoteFile": "Remote-Datei wird empfangen",
+			"receivingRemoteFile": "Entfernte Datei wird empfangen",
 			"linkedInstallationLimits": "Unmanic hat die Verarbeitung von Aufgaben eingestellt, da Sie zu viele Remote-Installationen für eine Nicht-Support-Stufe verknüpft haben. Erwägen Sie, das Projekt zu sponsern, um mehr als eine Remote-Installation zu verknüpfen."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Aufgabenfehler"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Sprache",
-		"darkMode": "Dunkler Modus"
+		"darkMode": "Dunkler Modus",
+		"dismissAll": "Alle ablehnen"
 	},
 	"components": {
 		"settings": {
@@ -169,7 +173,7 @@
 				"plugins": "Plugins",
 				"pluginFlow": "Plugin-Flow",
 				"cloneLibrary": "Bibliothek klonen",
-				"exportLibraryConfig": "Konfig. exportieren",
+				"exportLibraryConfig": "Konfig exportieren",
 				"importLibraryConfig": "Konfig importieren",
 				"importPluginConfigMessage": "Bibliothekskonfiguration importieren. Dies kann einige Zeit dauern, wenn Plugins installiert werden müssen.",
 				"addPluginToThisLibrary": "Plug-in zu dieser Bibliothek hinzufügen",
@@ -313,7 +317,8 @@
 			"globalConfiguration": "Globale Konfiguration",
 			"updatePlugin": "Update Stecker in",
 			"removePlugin": "Plugin entfernen",
-			"installPluginFromRepo": "PIugin installieren",
+			"installPluginFromRepo": "Installieren Sie das Plugin aus dem Repo",
+			"installPluginFromFile": "Plugin aus Datei installieren",
 			"categoryFilter": "Kategoriefilter",
 			"author": "Autor",
 			"version": "Ausführung",
@@ -326,6 +331,9 @@
 			"repoSource": "Repository-URL",
 			"errorSavingFlow": "Beim Speichern des Plugin-Flows ist ein Fehler aufgetreten",
 			"resetConfiguration": "Konfiguration zurücksetzen",
+			"invalidZipFile": "Datei ist keine gültige ZIP-Datei",
+			"failedToInstallPluginFromZip": "Plug-in konnte nicht aus der hochgeladenen ZIP-Datei installiert werden",
+			"installedPluginFromZip": "Plugin installiert",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Bibliotheksverwaltung - Dateitest",

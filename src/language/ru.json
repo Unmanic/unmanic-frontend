@@ -27,7 +27,7 @@
 		"yes": "Да",
 		"copy": "Копировать",
 		"loginWithPatreon": "Войти через Патреон",
-		"loginWithGitHub": "Войти через GitHub",
+		"loginWithGitHub": "Войти с помощью GitHub",
 		"loginWithDiscord": "Войти через Дискорд"
 	},
 	"status": {
@@ -80,9 +80,12 @@
 			"pluginSettingsChangeWorkersStopped": "Unmanic остановил всех рабочих, так как обнаружил изменение в конфигурации плагинов. Когда будете готовы, возобновите работу воркеров с панели управления.",
 			"libraryScanProgress": "Выполняется сканирование библиотеки",
 			"pendingTaskHaltedPostProcessorQueueFull": "Очередь постпроцессора достигла предела",
-			"pendingTaskHaltedPostProcessorQueueFullMessage": "Рабочие не получат новую ожидающую задачу, пока очередь постпроцессора не упадет ниже текущего настроенного количества рабочих",
+			"pendingTaskHaltedPostProcessorQueueFullMessage": "Рабочие не получат новую отложенную задачу, пока очередь постпроцессора не упадет ниже текущего настроенного количества рабочих.",
 			"receivingRemoteFile": "Получение удаленного файла",
 			"linkedInstallationLimits": "Unmanic прекратил обработку задач, так как вы связали слишком много удаленных установок для уровня без поддержки. Рассмотрите возможность спонсирования проекта, чтобы связать более одной удаленной установки."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Сбой задачи"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Язык",
-		"darkMode": "Темный режим"
+		"darkMode": "Темный режим",
+		"dismissAll": "Отклонить все"
 	},
 	"components": {
 		"settings": {
@@ -154,13 +158,13 @@
 				"libraryScannerSchedule": "Расписание сканирования библиотеки в минутах",
 				"libraryScannerScheduleNotValid": "Расписание сканирования библиотеки недействительно",
 				"followSymlinks": "Следуйте символическим ссылкам при сканировании библиотеки",
-				"runLibraryScanOnStart": "Запуск однократного сканирования библиотеки при запуске",
+				"runLibraryScanOnStart": "Запуск одноразового сканирования библиотеки при запуске",
 				"pendingTasks": "Незавершенные задачи",
 				"clearPendingTasksOnStart": "Очистить все ожидающие задачи при запуске",
 				"fileTesting": "Файловое тестирование",
 				"concurrentFileTesters": "Параллельные тестеры файлов",
 				"enableReceiveRemoteFilesOnly": "Настройте библиотеку для получения только удаленных файлов",
-				"pathDisabledReceiveRemoteFilesOnly": "Опция отключена, так как вы настроили эту библиотеку для получения только удаленных файлов.",
+				"pathDisabledReceiveRemoteFilesOnly": "Опция отключена, так как вы настроили эту библиотеку только для получения удаленных файлов.",
 				"libraryRemoteOnlyStatus": "Только удаленный",
 				"enableScanner": "Включить сканер библиотек для этой библиотеки",
 				"enableInotify": "Включить файловый монитор для этой библиотеки",
@@ -264,16 +268,16 @@
 			"listEmpty": "В настоящее время нет работающих рабочих. Увеличьте количество рабочих в настройках Unmanic, чтобы создать рабочего.",
 			"pauseWorker": "Приостановить этого работника",
 			"workerPaused": "Рабочий был приостановлен",
-			"workerPausedFailed": "Unmanic не смог приостановить этого работника по какой-то причине",
+			"workerPausedFailed": "Unmanic не смог приостановить этого воркера по какой-то причине",
 			"resumeWorker": "Возобновить этого работника",
 			"workerResumed": "Работник был возобновлен",
-			"workerResumedFailed": "Unmanic не смог возобновить работу этого воркера по какой-то причине",
+			"workerResumedFailed": "Unmanic не смог возобновить работу этого работника по какой-то причине",
 			"terminateWorker": "Уволить этого работника",
 			"terminateWorkerWarning": "Вы уверены, что хотите завершить этот рабочий процесс и его текущую задачу? Текущая задача будет помечена как невыполненная в списке выполненных задач.",
 			"workerTerminated": "Рабочий был уволен",
 			"workerTerminationFailed": "Unmanic по какой-то причине не смог завершить работу этого работника",
 			"pauseAllWorkers": "Приостановить всех рабочих",
-			"resumeAllWorkers": "Возобновить всех рабочих",
+			"resumeAllWorkers": "Возобновить всех работников",
 			"terminateAllWorkers": "Уволить всех рабочих",
 			"workerLog": "Рабочий журнал",
 			"status": "Статус",
@@ -313,7 +317,8 @@
 			"globalConfiguration": "Глобальная конфигурация",
 			"updatePlugin": "Обновить плагин",
 			"removePlugin": "Удалить плагин",
-			"installPluginFromRepo": "Установить плагин",
+			"installPluginFromRepo": "Установить плагин из репозитория",
+			"installPluginFromFile": "Установить плагин из файла",
 			"categoryFilter": "Фильтр категорий",
 			"author": "Автор",
 			"version": "Версия",
@@ -326,6 +331,9 @@
 			"repoSource": "URL репозитория",
 			"errorSavingFlow": "Произошла ошибка при сохранении потока плагина",
 			"resetConfiguration": "Сбросить конфигурацию",
+			"invalidZipFile": "Файл не является допустимым ZIP-файлом",
+			"failedToInstallPluginFromZip": "Не удалось установить плагин из загруженного ZIP-файла",
+			"installedPluginFromZip": "Плагин установлен",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Управление библиотекой — проверка файлов",

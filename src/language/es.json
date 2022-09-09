@@ -83,6 +83,9 @@
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Los trabajadores no recibirán una nueva tarea pendiente hasta que la cola del posprocesador caiga por debajo del recuento de trabajadores configurado actualmente.",
 			"receivingRemoteFile": "Recibir archivo remoto",
 			"linkedInstallationLimits": "Unmanic ha dejado de procesar tareas porque ha vinculado demasiadas instalaciones remotas para un nivel que no es de soporte. Considere patrocinar el proyecto para vincular más de una instalación remota."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Error de tarea"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Idioma",
-		"darkMode": "Modo oscuro"
+		"darkMode": "Modo oscuro",
+		"dismissAll": "Descartar todo"
 	},
 	"components": {
 		"settings": {
@@ -159,7 +163,7 @@
 				"clearPendingTasksOnStart": "Borrar todas las tareas pendientes al inicio",
 				"fileTesting": "Prueba de archivos",
 				"concurrentFileTesters": "Comprobadores de archivos simultáneos",
-				"enableReceiveRemoteFilesOnly": "Configurar la biblioteca para recibir solo archivos remotos",
+				"enableReceiveRemoteFilesOnly": "Configurar la biblioteca para recibir archivos remotos únicamente",
 				"pathDisabledReceiveRemoteFilesOnly": "Opción deshabilitada ya que ha configurado esta biblioteca para recibir archivos remotos solamente",
 				"libraryRemoteOnlyStatus": "Solo remoto",
 				"enableScanner": "Habilitar escáner de biblioteca para esta biblioteca",
@@ -313,7 +317,8 @@
 			"globalConfiguration": "configuración global",
 			"updatePlugin": "Complemento de actualización",
 			"removePlugin": "Eliminar complemento",
-			"installPluginFromRepo": "Instalar complemento",
+			"installPluginFromRepo": "Instalar complemento desde repositorio",
+			"installPluginFromFile": "Instalar complemento desde archivo",
 			"categoryFilter": "Filtro de categoría",
 			"author": "Autor",
 			"version": "Versión",
@@ -326,6 +331,9 @@
 			"repoSource": "URL del repositorio",
 			"errorSavingFlow": "Se encontró un error al guardar el flujo del complemento",
 			"resetConfiguration": "Restablecer configuración",
+			"invalidZipFile": "El archivo no es un archivo ZIP válido",
+			"failedToInstallPluginFromZip": "No se pudo instalar el complemento desde el archivo ZIP cargado",
+			"installedPluginFromZip": "Complemento instalado",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Gestión de bibliotecas - Prueba de archivos",

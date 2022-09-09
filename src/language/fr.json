@@ -83,6 +83,9 @@
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Les travailleurs ne recevront pas de nouvelle tâche en attente tant que la file d'attente du post-processeur ne sera pas inférieure au nombre de travailleurs actuellement configuré",
 			"receivingRemoteFile": "Réception de fichier distant",
 			"linkedInstallationLimits": "Unmanic a arrêté de traiter les tâches car vous avez lié trop d'installations à distance pour un niveau non supporteur. Envisagez de parrainer le projet pour relier plus d'une installation à distance."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Échec de la tâche"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Langue",
-		"darkMode": "Mode sombre"
+		"darkMode": "Mode sombre",
+		"dismissAll": "Rejeter la totalité"
 	},
 	"components": {
 		"settings": {
@@ -313,7 +317,8 @@
 			"globalConfiguration": "Configuration globale",
 			"updatePlugin": "Mettre à jour le plug in",
 			"removePlugin": "Supprimer le plug-in",
-			"installPluginFromRepo": "Installer le plugin",
+			"installPluginFromRepo": "Installer le plugin à partir du référentiel",
+			"installPluginFromFile": "Installer le plugin à partir du fichier",
 			"categoryFilter": "Filtre de catégorie",
 			"author": "Auteur",
 			"version": "Version",
@@ -326,6 +331,9 @@
 			"repoSource": "URL du référentiel",
 			"errorSavingFlow": "Une erreur s'est produite lors de l'enregistrement du flux de plug-in",
 			"resetConfiguration": "Réinitialiser la configuration",
+			"invalidZipFile": "Le fichier n'est pas un fichier ZIP valide",
+			"failedToInstallPluginFromZip": "Échec de l'installation du plug-in à partir du fichier ZIP téléchargé",
+			"installedPluginFromZip": "Plugin installé",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Gestion de bibliothèque - Test de fichier",

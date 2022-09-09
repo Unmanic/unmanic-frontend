@@ -43,7 +43,7 @@
 		"saved": "Opgeslagen.",
 		"installed": "Geïnstalleerd.",
 		"copied": "gekopieerd",
-		"backendConnectionWarning": "Kan geen verbinding maken met de Unmanic-backend. Controleer of het actief is.",
+		"backendConnectionWarning": "Kan geen verbinding maken met Unmanic-backend. Controleer of het actief is.",
 		"failedToFetchLoginUrl": "Kan inlog-URL niet ophalen.",
 		"failedToFetchLogoutUrl": "Kan uitlog-URL niet ophalen.",
 		"failedToSaveSettings": "Kan instellingen niet opslaan.",
@@ -59,7 +59,7 @@
 		"reposRefreshFailure": "Kan uw geconfigureerde opslagplaatsen niet bijwerken. Misschien staat er een fout in een van de URL's?",
 		"repoRemovedSuccess": "Repository is verwijderd.",
 		"repoRemovedFailed": "Er is iets misgegaan bij het verwijderen van de repository.",
-		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins van het gegevenspaneel niet ophalen",
+		"failedToFetchEnabledDataPanelPlugins": "Kan de lijst met ingeschakelde plug-ins voor het gegevenspaneel niet ophalen",
 		"allowPopups": "Sta pop-ups voor deze website toe.",
 		"invalidWorkerEvent": "Kan ongeldige werknemergebeurtenis niet toevoegen.",
 		"remoteInstallationAlreadyInList": "Het adres dat u hebt ingevoerd, staat al in de lijst met installaties op afstand.",
@@ -82,7 +82,10 @@
 			"pendingTaskHaltedPostProcessorQueueFull": "De wachtrij van de postprocessor heeft zijn limiet bereikt",
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Werknemers ontvangen geen nieuwe taak die in behandeling is totdat de wachtrij na de processor onder het huidige geconfigureerde aantal werknemers komt",
 			"receivingRemoteFile": "Bestand op afstand ontvangen",
-			"linkedInstallationLimits": "Unmanic is gestopt met het verwerken van taken omdat u te veel externe installaties hebt gekoppeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan één installatie op afstand te koppelen."
+			"linkedInstallationLimits": "Unmanic is gestopt met het verwerken van taken omdat u te veel externe installaties hebt gekoppeld voor een niet-supporterlaag. Overweeg het project te sponsoren om meer dan één externe installatie te koppelen."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Taak mislukt"
 		}
 	},
 	"headers": {
@@ -92,7 +95,7 @@
 		"privacyPolicy": "Privacybeleid",
 		"releaseNotes": "Release-opmerkingen",
 		"pluginInfo": "Plugin-info",
-		"pluginSettings": "Instellingen voor plug-ins",
+		"pluginSettings": "Plugin-instellingen",
 		"pluginInstaller": "Installatieprogramma voor plug-ins",
 		"globalPluginConfig": "Algemene plug-inconfiguratie",
 		"libraryPluginConfig": "Configuratie van bibliotheekplug-in",
@@ -118,7 +121,7 @@
 		"update": "Update",
 		"pluginInfo": "Plugin-info",
 		"position": "Positie",
-		"etc": "Geschatte voltooiingstijd",
+		"etc": "Geschatte tijd van voltooiing",
 		"add": "Toevoegen",
 		"remove": "Verwijderen",
 		"removeFromThisLibrary": "Verwijderen uit deze bibliotheek",
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Taal",
-		"darkMode": "Donkere modus"
+		"darkMode": "Donkere modus",
+		"dismissAll": "Alles afkeuren"
 	},
 	"components": {
 		"settings": {
@@ -142,7 +146,7 @@
 				"tags": "Tags"
 			},
 			"library": {
-				"pathConfiguration": "bibliotheken",
+				"pathConfiguration": "Bibliotheken",
 				"name": "Naam (moet uniek zijn)",
 				"path": "Bibliotheekpad",
 				"newLibrary": "Nieuwe bibliotheek",
@@ -151,7 +155,7 @@
 				"libraryScanner": "Bibliotheekscanner",
 				"enableLibraryScanner": "Periodieke bibliotheekscans inschakelen",
 				"libraryScannerStatusLabel": "Bibliotheekscanner",
-				"libraryScannerSchedule": "Bibliotheekscanschema in minuten",
+				"libraryScannerSchedule": "Scanschema bibliotheek in minuten",
 				"libraryScannerScheduleNotValid": "Scanschema bibliotheek niet geldig",
 				"followSymlinks": "Symlinks volgen op bibliotheekscans",
 				"runLibraryScanOnStart": "Voer een eenmalige bibliotheekscan uit bij het opstarten",
@@ -168,10 +172,10 @@
 				"priorityScore": "Stel een prioriteitsscore-modifier in voor taken die voor deze bibliotheek zijn gegenereerd",
 				"plugins": "Plug-ins",
 				"pluginFlow": "Plugin-stroom",
-				"cloneLibrary": "Kloon bibliotheek",
+				"cloneLibrary": "Bibliotheek klonen",
 				"exportLibraryConfig": "Configuratie exporteren",
 				"importLibraryConfig": "Configuratie importeren",
-				"importPluginConfigMessage": "Bibliotheekconfiguratie importeren. Dit kan enige tijd duren als er plug-ins zijn die moeten worden geïnstalleerd.",
+				"importPluginConfigMessage": "Bibliotheekconfiguratie importeren. Dit kan even duren als er plug-ins zijn die moeten worden geïnstalleerd.",
 				"addPluginToThisLibrary": "Voeg plug-in toe aan deze bibliotheek",
 				"locked": "De bibliotheek kan niet worden verwijderd",
 				"unlocked": "De bibliotheek kan worden verwijderd",
@@ -205,7 +209,7 @@
 					"saturday": "Elke zaterdag",
 					"sunday": "Elke zondag",
 					"count": "Aantal werknemers instellen",
-					"pause": "Pauzeer alle werkers",
+					"pause": "Alle werkers pauzeren",
 					"resume": "Alle werknemers hervatten"
 				}
 			},
@@ -223,11 +227,11 @@
 				"add": "Toevoegen",
 				"connection": "Verbinding",
 				"remoteTaskProcessing": "Taakverwerking op afstand",
-				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer werknemers beschikbaar zijn",
+				"allowReceivingTasks": "Taken van deze installatie ontvangen wanneer er werknemers beschikbaar zijn",
 				"linkReceivingTasksStatusLabel": "Taken ontvangen",
 				"allowSendingTasks": "Stuur taken naar deze installatie wanneer er werkers beschikbaar zijn",
 				"linkSendingTasksStatusLabel": "Taken verzenden",
-				"enableTaskPreloading": "Preload een aantal taken op de externe installatie Wachtende taken wachtrij",
+				"enableTaskPreloading": "Laad enkele taken vooraf in de wachtrij voor in behandeling zijnde taken op afstand",
 				"preloadingCount": "Vooraf geladen aantal taken in behandeling",
 				"linkPreloadRemoteTasksStatusLabel": "Taken op afstand vooraf laden",
 				"enableConfigMissingLibraries": "Configureer automatisch ontbrekende bibliotheken op de externe installatie",
@@ -272,7 +276,7 @@
 			"terminateWorkerWarning": "Weet u zeker dat u deze werknemer en zijn huidige taak wilt beëindigen? De huidige taak wordt gemarkeerd als mislukt in de lijst met voltooide taken.",
 			"workerTerminated": "Werknemer is beëindigd",
 			"workerTerminationFailed": "Unmanic kon deze werknemer om de een of andere reden niet beëindigen",
-			"pauseAllWorkers": "Pauzeer alle werkers",
+			"pauseAllWorkers": "Alle werkers pauzeren",
 			"resumeAllWorkers": "Alle werknemers hervatten",
 			"terminateAllWorkers": "Alle werknemers beëindigen",
 			"workerLog": "Werknemerslogboek",
@@ -293,7 +297,7 @@
 		},
 		"pendingTasks": {
 			"rescanLibrary": "Bibliotheek nu opnieuw scannen",
-			"moveToTop": "Verplaats geselecteerde naar boven",
+			"moveToTop": "Geselecteerde naar boven verplaatsen",
 			"moveToBottom": "Geselecteerde naar beneden verplaatsen",
 			"removeSelected": "Geselecteerde uit lijst verwijderen"
 		},
@@ -313,7 +317,8 @@
 			"globalConfiguration": "Algemene configuratie",
 			"updatePlugin": "Update plug in",
 			"removePlugin": "Plug-in verwijderen",
-			"installPluginFromRepo": "Installeer plugin",
+			"installPluginFromRepo": "Installeer plug-in van repo",
+			"installPluginFromFile": "Plug-in installeren vanuit bestand",
 			"categoryFilter": "Categoriefilter",
 			"author": "Auteur",
 			"version": "Versie",
@@ -324,12 +329,15 @@
 			"newRepository": "Nieuwe opslagplaats",
 			"repoName": "Naam",
 			"repoSource": "Repository-URL",
-			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de plug-instroom",
+			"errorSavingFlow": "Er is een fout opgetreden tijdens het opslaan van de Plugin Flow",
 			"resetConfiguration": "Configuratie resetten",
+			"invalidZipFile": "Bestand is geen geldig ZIP-bestand",
+			"failedToInstallPluginFromZip": "Kan plug-in niet installeren vanuit het geüploade ZIP-bestand",
+			"installedPluginFromZip": "Plug-in geïnstalleerd",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Bibliotheekbeheer - Bestandstest",
-					"fileTestCaption": "Deze plug-ins worden aangeroepen om te testen of bestanden moeten worden toegevoegd aan de in behandeling zijnde takenlijst"
+					"fileTestCaption": "Deze plug-ins worden aangeroepen om te testen of bestanden moeten worden toegevoegd aan de takenlijst in behandeling"
 				},
 				"postprocessor": {
 					"fileMove": "Postprocessor - Bestandsverplaatsingen",
@@ -344,7 +352,7 @@
 			}
 		},
 		"dataPanels": {
-			"noDataPanelsEnabled": "U heeft geen datapanelen ingeschakeld. Installeer er een vanuit uw plug-in-instellingen."
+			"noDataPanelsEnabled": "U hebt geen datapanelen ingeschakeld. Installeer er een vanuit uw plug-in-instellingen."
 		},
 		"footer": {
 			"version": "Versie"

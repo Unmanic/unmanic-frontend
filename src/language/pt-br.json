@@ -66,7 +66,7 @@
 		"invalidRemoteInstallationAddress": "O endereço que você digitou não era uma instalação válida do Unmanic.",
 		"incompatibleRemoteInstallation": "A instalação remota do Unmanic que você está tentando adicionar não é compatível com a vinculação. Tente atualizá-lo primeiro.",
 		"cannotRemoveDefaultLibrary": "Não é possível remover a biblioteca padrão",
-		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação de biblioteca",
+		"rescanLibraryError": "Foi encontrado um erro ao solicitar uma nova verificação da biblioteca",
 		"serverMessages": {
 			"defaults": {
 				"info": "Mensagem desconhecida do servidor",
@@ -83,6 +83,9 @@
 			"pendingTaskHaltedPostProcessorQueueFullMessage": "Os trabalhadores não receberão uma nova tarefa pendente até que a fila do pós-processador caia abaixo da contagem de trabalhadores configurada atual",
 			"receivingRemoteFile": "Recebendo arquivo remoto",
 			"linkedInstallationLimits": "O Unmanic parou de processar tarefas porque você vinculou muitas instalações remotas para uma camada sem suporte. Considere patrocinar o projeto para vincular mais de uma instalação remota."
+		},
+		"serverNotificationLabels": {
+			"failedTaskLabel": "Falha na tarefa"
 		}
 	},
 	"headers": {
@@ -132,7 +135,8 @@
 	},
 	"buttons": {
 		"language": "Linguagem",
-		"darkMode": "Modo escuro"
+		"darkMode": "Modo escuro",
+		"dismissAll": "Recusar tudo"
 	},
 	"components": {
 		"settings": {
@@ -313,7 +317,8 @@
 			"globalConfiguration": "Configuração global",
 			"updatePlugin": "Atualizar plug-in",
 			"removePlugin": "Remover plug-in",
-			"installPluginFromRepo": "Instalar plugin",
+			"installPluginFromRepo": "Instalar plug-in do repositório",
+			"installPluginFromFile": "Instalar plug-in do arquivo",
 			"categoryFilter": "Filtro de categoria",
 			"author": "Autor",
 			"version": "Versão",
@@ -326,6 +331,9 @@
 			"repoSource": "URL do repositório",
 			"errorSavingFlow": "Foi encontrado um erro ao salvar o fluxo de plug-in",
 			"resetConfiguration": "Redefinir configuração",
+			"invalidZipFile": "O arquivo não é um arquivo ZIP válido",
+			"failedToInstallPluginFromZip": "Falha ao instalar o plug-in do arquivo ZIP carregado",
+			"installedPluginFromZip": "Plugin instalado",
 			"types": {
 				"libraryManagement": {
 					"fileTest": "Gerenciamento de Biblioteca - Teste de arquivo",
@@ -333,7 +341,7 @@
 				},
 				"postprocessor": {
 					"fileMove": "Pós-processador - Movimentos de arquivos",
-					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivos adicionais",
+					"fileMoveCaption": "Esses plugins são chamados na conclusão da tarefa para adicionar movimentos de arquivo adicionais",
 					"taskResult": "Pós-processador - Marcando o sucesso/falha da tarefa",
 					"taskResultCaption": "Esses plugins são chamados na conclusão de uma tarefa para marcar o sucesso ou falha geral dessa tarefa"
 				},
