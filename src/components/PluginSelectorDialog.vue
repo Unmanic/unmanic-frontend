@@ -72,7 +72,7 @@
               class=""
               color="secondary"
               icon-right="add"
-              :label="$t('components.plugins.installPlugins')"/>
+              :label="$t('components.plugins.installPluginFromRepo')"/>
           </div>
           <div class="col-auto" style="max-width: 200px">
             <q-input

@@ -313,7 +313,7 @@
 			"globalConfiguration": "Глобальная конфигурация",
 			"updatePlugin": "Обновить плагин",
 			"removePlugin": "Удалить плагин",
-			"installPlugins": "Установить плагин",
+			"installPluginFromRepo": "Установить плагин",
 			"categoryFilter": "Фильтр категорий",
 			"author": "Автор",
 			"version": "Версия",

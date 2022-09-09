@@ -313,7 +313,7 @@
 			"globalConfiguration": "Globale Konfiguration",
 			"updatePlugin": "Update Stecker in",
 			"removePlugin": "Plugin entfernen",
-			"installPlugins": "PIugin installieren",
+			"installPluginFromRepo": "PIugin installieren",
 			"categoryFilter": "Kategoriefilter",
 			"author": "Autor",
 			"version": "Ausführung",

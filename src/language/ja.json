@@ -313,7 +313,7 @@
 			"globalConfiguration": "グローバル構成",
 			"updatePlugin": "プラグインを更新",
 			"removePlugin": "プラグインを削除する",
-			"installPlugins": "プラグインをインストールします",
+			"installPluginFromRepo": "プラグインをインストールします",
 			"categoryFilter": "カテゴリフィルター",
 			"author": "著者",
 			"version": "バージョン",

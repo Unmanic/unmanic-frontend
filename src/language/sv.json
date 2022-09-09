@@ -313,7 +313,7 @@
 			"globalConfiguration": "Global konfiguration",
 			"updatePlugin": "Uppdatera plugin",
 			"removePlugin": "Ta bort plugin",
-			"installPlugins": "Installera plugin",
+			"installPluginFromRepo": "Installera plugin",
 			"categoryFilter": "Kategorifilter",
 			"author": "Författare",
 			"version": "Version",

@@ -317,7 +317,8 @@
       "globalConfiguration": "Global Configuration",
       "updatePlugin": "Update Plugin",
       "removePlugin": "Remove Plugin",
-      "installPlugins": "Install Plugin",
+      "installPluginFromRepo": "Install Plugin From Repo",
+      "installPluginFromFile": "Install Plugin From File",
       "categoryFilter": "Category Filter",
       "author": "Author",
       "version": "Version",
@@ -330,6 +331,9 @@
       "repoSource": "Repository URL",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
       "resetConfiguration": "Reset configuration",
+      "invalidZipFile": "File is not a valid ZIP file",
+      "failedToInstallPluginFromZip": "Failed to install plugin from the uploaded ZIP file",
+      "installedPluginFromZip": "Plugin installed",
       "types": {
         "libraryManagement": {
           "fileTest": "Library Management - File test",

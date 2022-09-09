@@ -313,7 +313,7 @@
 			"globalConfiguration": "Whirihoranga Ao",
 			"updatePlugin": "Whakahōu Monomai",
 			"removePlugin": "Tango monomai",
-			"installPlugins": "Tāuta monomai",
+			"installPluginFromRepo": "Tāuta monomai",
 			"categoryFilter": "Tātari Kāwai",
 			"author": "Kaituhi",
 			"version": "Putanga",

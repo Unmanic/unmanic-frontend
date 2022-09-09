@@ -313,7 +313,7 @@
 			"globalConfiguration": "Configurazione globale",
 			"updatePlugin": "Aggiorna plug-in",
 			"removePlugin": "Rimuovi plug-in",
-			"installPlugins": "Installa plug-in",
+			"installPluginFromReporomRepo": "Installa plug-in",
 			"categoryFilter": "Filtro di categoria",
 			"author": "Autore",
 			"version": "Versione",

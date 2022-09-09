@@ -313,7 +313,7 @@
 			"globalConfiguration": "全局配置",
 			"updatePlugin": "更新插件",
 			"removePlugin": "删除插件",
-			"installPlugins": "安装插件",
+			"installPluginFromRepo": "安装插件",
 			"categoryFilter": "类别过滤器",
 			"author": "作者",
 			"version": "版本",

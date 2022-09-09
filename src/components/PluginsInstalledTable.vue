@@ -5,12 +5,36 @@
     <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
       <div class="row q-gutter-xs q-mt-xs justify-between">
         <div class="col-auto">
-          <q-btn
-            @click="openPluginInstaller"
-            class=""
-            color="secondary"
-            icon-right="add"
-            :label="$t('components.plugins.installPlugins')"/>
+          <q-btn-group>
+            <q-btn
+              @click="openPluginInstaller"
+              class=""
+              color="secondary"
+              icon-right="add"
+              :label="$t('components.plugins.installPluginFromRepo')"/>
+
+            <q-btn-dropdown
+              color="secondary"
+              :label="$t('components.plugins.installPluginFromFile')">
+              <div>
+                <div class="row no-wrap q-pa-md">
+                  <div class="column">
+                    <q-uploader
+                      style="max-width: 300px"
+                      :url="getUploadUrl()"
+                      label="Upload ZIP file..."
+                      color="secondary"
+                      accept=".zip, application/zip"
+                      auto-upload
+                      @rejected="onRejectedPluginUpload"
+                      @failed="onFailedPluginUploadAndInstall"
+                      @uploaded="onSuccessfulPluginUploadAndInstall"
+                    />
+                  </div>
+                </div>
+              </div>
+            </q-btn-dropdown>
+          </q-btn-group>
         </div>
         <div class="col-auto" style="max-width: 200px">
           <q-input
@@ -506,6 +530,48 @@ export default {
       })
     }
 
+    function getUploadUrl() {
+      return getUnmanicApiUrl('v2', 'upload/plugin/file')
+    }
+
+    function onRejectedPluginUpload(rejectedEntries) {
+      $q.notify({
+        color: 'negative',
+        position: 'top',
+        message: $t('components.plugins.invalidZipFile'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      })
+    }
+
+    function onFailedPluginUploadAndInstall() {
+      $q.notify({
+        color: 'negative',
+        position: 'top',
+        message: $t('components.plugins.failedToInstallPluginFromZip'),
+        icon: 'check_circle',
+        actions: [{ icon: 'close', color: 'white' }]
+      })
+      onRequest({
+        pagination: pagination.value,
+        filter: undefined
+      })
+    }
+
+    function onSuccessfulPluginUploadAndInstall() {
+      $q.notify({
+        color: 'positive',
+        position: 'top',
+        message: $t('components.plugins.installedPluginFromZip'),
+        icon: 'check_circle',
+        actions: [{ icon: 'close', color: 'white' }]
+      })
+      onRequest({
+        pagination: pagination.value,
+        filter: undefined
+      })
+    }
+
     onMounted(() => {
       // get initial data from server (1st page)
       onRequest({
@@ -540,7 +606,11 @@ export default {
       showPluginInfo,
       showPluginSettings,
       closePluginInfo,
-      openPluginInstaller
+      openPluginInstaller,
+      getUploadUrl,
+      onRejectedPluginUpload,
+      onFailedPluginUploadAndInstall,
+      onSuccessfulPluginUploadAndInstall
     }
   }
 }

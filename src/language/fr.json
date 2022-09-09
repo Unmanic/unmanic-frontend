@@ -313,7 +313,7 @@
 			"globalConfiguration": "Configuration globale",
 			"updatePlugin": "Mettre à jour le plug in",
 			"removePlugin": "Supprimer le plug-in",
-			"installPlugins": "Installer le plugin",
+			"installPluginFromRepo": "Installer le plugin",
 			"categoryFilter": "Filtre de catégorie",
 			"author": "Auteur",
 			"version": "Version",
