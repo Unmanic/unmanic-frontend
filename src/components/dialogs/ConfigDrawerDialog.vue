@@ -21,6 +21,7 @@
     :transition-hide="$q.platform.is.mobile ? 'jump-left' : 'slide-right'"
     full-height
     position="right"
+    persistent
     @before-hide="beforeDialogHide"
     @hide="onDialogHide">
 
@@ -170,6 +171,8 @@ export default {
       const saved = await this.$refs.childComponent.save();
       // Wait for save to complete before hiding. Show busy dialog while waiting
       if (saved) {
+        // Execute a hide function on the child component
+        this.$refs.childComponent.hide();
         // Execute hide function on this component
         this.hide();
       }
