@@ -12,9 +12,7 @@
       <q-separator/>
 
       <q-card-section style="max-height: 50vh" class="scroll">
-        <q-list
-          clickable v-ripple
-          @click="loginWithPatreon">
+        <q-list>
 
           <q-item
             clickable v-ripple
@@ -36,7 +34,9 @@
             <q-item-section>{{ $t('navigation.loginWithDiscord') }}</q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item
+            clickable v-ripple
+            @click="loginWithPatreon">
             <q-item-section avatar>
               <q-icon color="grey-8" name="fab fa-patreon"/>
             </q-item-section>
