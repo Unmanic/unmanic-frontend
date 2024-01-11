@@ -13,7 +13,12 @@ export default {
     minutes = minutes - (days * 24 * 60) - (hours * 60);
     seconds = seconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
 
-    return "Days: " + days + " Hours: " + hours + " Minutes: " + minutes + " Seconds: " + seconds;
+    const dDisplay = days > 0 ? days + (days == 1 ? " day, " : " days, ") : "";
+    const hDisplay = hours > 0 ? hours + (hours == 1 ? " hour, " : " hours, ") : "";
+    const mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minute, " : " minutes, ") : "";
+    const sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " second" : " seconds") : "";
+
+    return dDisplay + hDisplay + mDisplay + sDisplay;
   },
   printTimeAsHoursMinsSeconds(timestamp) {
     timestamp = Number(timestamp);
