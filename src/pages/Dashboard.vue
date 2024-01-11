@@ -234,9 +234,9 @@ export default {
           workerData['worker-' + worker.id].currentRunner = currentRunner;
 
           // Set the start and total processing time
-          let startTime = new Date(worker.start_time * 1000);
+          const processingDuration = (new Date() - new Date(worker.start_time * 1000)) / 1000;
           workerData['worker-' + worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
-          workerData['worker-' + worker.id].totalProcTime = dateTools.printTimeSinceDate(startTime);
+          workerData['worker-' + worker.id].totalProcTime = dateTools.printSecondsAsDuration(processingDuration);
 
           // Set the worker log file
           workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
@@ -249,8 +249,8 @@ export default {
             workerData['worker-' + worker.id].progressText = worker.subprocess.percent + '%';
 
             // Set the ETC
-            workerData['worker-' + worker.id].etc = dateTools.printTimeAsHoursMinsSeconds(calculateEtc(worker.subprocess.percent, worker.subprocess.elapsed));
-
+            const etcDuration = calculateEtc(worker.subprocess.percent, worker.subprocess.elapsed)
+            workerData['worker-' + worker.id].etc = dateTools.printSecondsAsDuration(etcDuration);
           } else {
             // Set progress as 'indeterminate' if no progress is given
             workerData['worker-' + worker.id].indeterminate = true;
