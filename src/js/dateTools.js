@@ -14,7 +14,9 @@ export default {
     const mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minute, " : " minutes, ") : "";
     const sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " second" : " seconds") : "";
 
-    return dDisplay + hDisplay + mDisplay + sDisplay;
+    duration = dDisplay + hDisplay + mDisplay + sDisplay;
+
+    return duration.replace(/, $/, '');
   },
   printDateTimeString(dateTime) {
     let d = new Date(0);
