@@ -63,6 +63,7 @@
 
       <q-separator spaced/>
 
+      <q-item-label header>{{ $t('navigation.interface') }}:</q-item-label>
       <!--START LANGUAGE SELECT-->
       <q-item
         clickable v-ripple>
@@ -77,19 +78,35 @@
 
       <q-separator spaced/>
 
+
+      <q-item-label header>{{ $t('navigation.documentation') }}:</q-item-label>
       <!--START SUPPORT SELECT-->
       <q-item
         clickable
         to="/ui/settings-support"
         v-ripple>
         <q-item-section avatar>
-          <q-icon name="help_outline"/>
+          <q-icon name="fa-regular fa-life-ring"/>
         </q-item-section>
         <q-item-section>
           {{ $t('navigation.helpAndSupport') }}
         </q-item-section>
       </q-item>
       <!--END SUPPORT SELECT-->
+
+      <!--START PRIVACY POLICY-->
+      <q-item
+        clickable
+        @click="showPrivacyPolicyDialog"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="o_shield"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('headers.privacyPolicy') }}
+        </q-item-section>
+      </q-item>
+      <!--END PRIVACY POLICY-->
 
 
     </q-list>

@@ -6,7 +6,7 @@
 		"account": "Pūkete",
 		"login": "Takiuru",
 		"logout": "Takiputa",
-		"config": "Whirihora",
+		"interface": "Atanga",
 		"options": "Kōwhiringa",
 		"documentation": "Tuhinga",
 		"library": "Whare Pukapuka",
@@ -71,7 +71,7 @@
 		"serverMessages": {
 			"defaults": {
 				"info": "Karere kore mohiotia mai i te tūmau",
-				"error": "I puta he hapa kore mohiotia i runga i te tūmau",
+				"error": "I puta he hapa tēmohiotia i runga i te tūmau",
 				"warning": "whakatūpato tē mōhiotia mai i te tūmau",
 				"success": "Karere kore mohiotia mai i te tūmau",
 				"status": "Whakahōu tūnga tē mōhiotia mai i te tūmau"
@@ -237,10 +237,10 @@
 				"linkPreloadRemoteTasksStatusLabel": "Uta mua i nga mahi mamao",
 				"enableConfigMissingLibraries": "Whirihora aunoa i nga whare pukapuka ngaro i runga i te whakaurunga mamao",
 				"linkConfigRemoteLibrariesStatusLabel": "Whirihorahia nga whare pukapuka e ngaro ana",
-				"enableChecksumValidation": "Whakamana i nga whakawhitinga konae me nga arowhai (puturi)",
+				"enableChecksumValidation": "Whakamana i nga whakawhitinga kōnae me nga arowhai (puturi)",
 				"linkConfigChecksumValidationStatusLabel": "Whakamanahia me nga arowhai",
 				"collectiveManagement": "Whakahaere Huihuinga",
-				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hononga",
+				"enableDistributedWorkerCount": "Whakahohehia te tatau kaimahi toha mo tenei hono",
 				"linkDistributedWorkersStatusLabel": "Nga kaimahi kua tohatohahia",
 				"workerTarget": "Te whainga kaimahi"
 			},
@@ -316,10 +316,10 @@
 			"clickToUpdatePlugin": "Pāwhiri ki te whakahou i te mono",
 			"pluginUpToDate": "Kei te hou te monomai",
 			"globalConfiguration": "Whirihoranga Ao",
-			"updatePlugin": "Whakahōu monomai",
+			"updatePlugin": "Whakahoua te monomai",
 			"removePlugin": "Tango monomai",
 			"installPluginFromRepo": "Tāuta monomai Mai Repo",
-			"installPluginFromFile": "Tāuta Mono Mai i te Kōnae",
+			"installPluginFromFile": "Tāuta Monomai Mai i te Kōnae",
 			"categoryFilter": "Tātari Kāwai",
 			"author": "Kaituhi",
 			"version": "Putanga",
@@ -332,7 +332,7 @@
 			"repoSource": "URL putunga",
 			"errorSavingFlow": "I puta he hapa i te wa e tiaki ana i te Rere Monomai",
 			"resetConfiguration": "Tautuhi whirihoranga",
-			"invalidZipFile": "Ehara te kōnae i te konae ZIP whaimana",
+			"invalidZipFile": "Ehara te kōnae i te kōnae ZIP whaimana",
 			"failedToInstallPluginFromZip": "I rahua te whakauru monomai i te konae ZIP kua tuku ake",
 			"installedPluginFromZip": "Kua whakauruhia te mono",
 			"types": {

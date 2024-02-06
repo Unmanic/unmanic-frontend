@@ -6,7 +6,7 @@
 		"account": "Cuenta",
 		"login": "Acceso",
 		"logout": "Cerrar sesión",
-		"config": "configuración",
+		"interface": "Interfaz",
 		"options": "Opciones",
 		"documentation": "Documentación",
 		"library": "Biblioteca",
@@ -356,7 +356,7 @@
 			"noDataPanelsEnabled": "No tienes ningún Panel de Datos habilitado. Instale uno desde la configuración de su complemento."
 		},
 		"footer": {
-			"version": "Versión"
+			"version": "Version"
 		}
 	}
 }

@@ -6,7 +6,7 @@
 		"account": "帐户",
 		"login": "登录",
 		"logout": "登出",
-		"config": "配置",
+		"interface": "界面",
 		"options": "选项",
 		"documentation": "文档",
 		"library": "图书馆",
@@ -297,7 +297,7 @@
 			}
 		},
 		"pendingTasks": {
-			"rescanLibrary": "立即重新扫描图书馆",
+			"rescanLibrary": "立即重新扫描库",
 			"moveToTop": "将所选内容移至顶部",
 			"moveToBottom": "将所选内容移至底部",
 			"removeSelected": "从列表中删除所选内容"

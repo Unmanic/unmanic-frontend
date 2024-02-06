@@ -6,7 +6,7 @@
 		"account": "Conta",
 		"login": "Conecte-se",
 		"logout": "Sair",
-		"config": "Configuração",
+		"interface": "Interface",
 		"options": "Opções",
 		"documentation": "Documentação",
 		"library": "Biblioteca",
@@ -158,7 +158,7 @@
 				"libraryScannerStatusLabel": "Scanner de biblioteca",
 				"libraryScannerSchedule": "Programação de verificação da biblioteca em minutos",
 				"libraryScannerScheduleNotValid": "A programação de verificação da biblioteca não é válida",
-				"followSymlinks": "Siga links simbólicos em varreduras de biblioteca",
+				"followSymlinks": "Siga links simbólicos em varreduras de bibliotecas",
 				"runLibraryScanOnStart": "Execute uma verificação única da biblioteca na inicialização",
 				"pendingTasks": "Tarefas pendentes",
 				"clearPendingTasksOnStart": "Limpe todas as tarefas pendentes na inicialização",
@@ -175,7 +175,7 @@
 				"pluginFlow": "Fluxo de plug-ins",
 				"cloneLibrary": "Clonar biblioteca",
 				"exportLibraryConfig": "Exportar configuração",
-				"importLibraryConfig": "Importar configuração",
+				"importLibraryConfig": "Configuração de importação",
 				"importPluginConfigMessage": "Importando configuração da biblioteca. Isso pode levar algum tempo se houver algum plug-in que exija instalação.",
 				"addPluginToThisLibrary": "Adicionar plugin a esta biblioteca",
 				"locked": "A biblioteca não pode ser excluída",
@@ -273,7 +273,7 @@
 			"resumeWorker": "Retomar este trabalhador",
 			"workerResumed": "Trabalhador foi retomado",
 			"workerResumedFailed": "Unmanic não conseguiu retomar este trabalhador por algum motivo",
-			"terminateWorker": "Demitir este funcionário",
+			"terminateWorker": "Demitir este trabalhador",
 			"terminateWorkerWarning": "Tem certeza de que deseja encerrar este trabalhador e sua tarefa atual? A tarefa atual será marcada como falhada na lista de tarefas concluídas.",
 			"workerTerminated": "O trabalhador foi demitido",
 			"workerTerminationFailed": "A Unmanic não conseguiu demitir este trabalhador por algum motivo",
@@ -356,7 +356,7 @@
 			"noDataPanelsEnabled": "Você não tem nenhum painel de dados ativado. Instale um nas configurações do plugin."
 		},
 		"footer": {
-			"version": "Versão"
+			"version": "Version"
 		}
 	}
 }

@@ -6,7 +6,7 @@
 		"account": "Konto",
 		"login": "Anmeldung",
 		"logout": "Ausloggen",
-		"config": "Konfig",
+		"interface": "Schnittstelle",
 		"options": "Optionen",
 		"documentation": "Dokumentation",
 		"library": "Bibliothek",
@@ -56,7 +56,7 @@
 		"failedToInstallPlugin": "Beim Versuch, das angeforderte Plugin zu installieren, ist ein Fehler aufgetreten.",
 		"repoAlreadyExists": "Das Repository existiert bereits.",
 		"newRepoAddFailed": "Das Speichern des neuen Repositorys ist fehlgeschlagen.",
-		"reposRefreshSuccess": "Alle Repositorys wurden erfolgreich aktualisiert.",
+		"reposRefreshSuccess": "Alle Repositorys erfolgreich aktualisiert.",
 		"reposRefreshFailure": "Ihre konfigurierten Repositorys können nicht aktualisiert werden. Möglicherweise liegt in einer der URLs ein Fehler vor?",
 		"repoRemovedSuccess": "Repository erfolgreich entfernt.",
 		"repoRemovedFailed": "Beim Versuch, das Repository zu entfernen, ist ein Fehler aufgetreten.",
@@ -211,7 +211,7 @@
 					"sunday": "Jeden Sonntag",
 					"count": "Anzahl der Arbeiter festlegen",
 					"pause": "Alle Arbeiter pausieren",
-					"resume": "Setzen Sie alle Arbeiter fort"
+					"resume": "Nehmen Sie alle Arbeiter wieder auf"
 				}
 			},
 			"link": {

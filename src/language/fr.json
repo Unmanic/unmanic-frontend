@@ -6,7 +6,7 @@
 		"account": "Compte",
 		"login": "Se connecter",
 		"logout": "Se déconnecter",
-		"config": "Configuration",
+		"interface": "Interface",
 		"options": "Possibilités",
 		"documentation": "Documentation",
 		"library": "Bibliothèque",
@@ -287,7 +287,7 @@
 			"startTimeLabel": "Heure de début",
 			"totalProcessingTimeLabel": "Temps de traitement total",
 			"state": {
-				"waiting": "En attendant une autre tâche...",
+				"waiting": "En attente d'une autre tâche...",
 				"processing": "Tâche de traitement...",
 				"paused": "Le travailleur a fait une pause..."
 			},
