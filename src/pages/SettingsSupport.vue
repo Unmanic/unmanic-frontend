@@ -109,6 +109,9 @@
                         <q-item-label>{{ $t('components.settings.support.apiSpec') }}</q-item-label>
                         <q-item-label caption></q-item-label>
                       </q-item-section>
+                      <q-item-section side top>
+                        <q-icon name="open_in_new" color="primary" />
+                      </q-item-section>
                     </q-item>
 
                     <q-item
@@ -120,6 +123,9 @@
                       <q-item-section>
                         <q-item-label>{{ $t('components.settings.support.applicationDocumentation') }}</q-item-label>
                         <q-item-label caption></q-item-label>
+                      </q-item-section>
+                      <q-item-section side top>
+                        <q-icon name="open_in_new" color="primary" />
                       </q-item-section>
                     </q-item>
 
@@ -152,6 +158,9 @@
                         </q-item-label>
                         <q-item-label caption></q-item-label>
                       </q-item-section>
+                      <q-item-section side top>
+                        <q-icon name="open_in_new" color="primary" />
+                      </q-item-section>
                     </q-item>
                     <q-item
                       @click="openExternalURL('https://github.com/Unmanic/unmanic-frontend/issues')"
@@ -166,6 +175,9 @@
                         </q-item-label>
                         <q-item-label caption></q-item-label>
                       </q-item-section>
+                      <q-item-section side top>
+                        <q-icon name="open_in_new" color="primary" />
+                      </q-item-section>
                     </q-item>
                     <q-item
                       @click="openExternalURL('https://github.com/Unmanic/unmanic-plugins/issues')"
@@ -179,6 +191,9 @@
                           }}
                         </q-item-label>
                         <q-item-label caption></q-item-label>
+                      </q-item-section>
+                      <q-item-section side top>
+                        <q-icon name="open_in_new" color="primary" />
                       </q-item-section>
                     </q-item>
 
