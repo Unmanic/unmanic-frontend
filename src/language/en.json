@@ -46,6 +46,7 @@
     "backendConnectionWarning": "Unable to connect to Unmanic backend. Please check that it is running.",
     "failedToFetchLoginUrl": "Failed to get login URL.",
     "failedToFetchLogoutUrl": "Failed to get logout URL.",
+    "failedToLogout": "Failed to log current user out of installation.",
     "failedToSaveSettings": "Failed to save settings.",
     "failedToFetchSettings": "Failed to fetch Unmanic's current settings.",
     "failedToFetchSystemConfig": "Failed to fetch Unmanic's system configuration.",

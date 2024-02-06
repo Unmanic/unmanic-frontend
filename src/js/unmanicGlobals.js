@@ -181,39 +181,21 @@ export default {
     })
   },
   logout($t) {
-    // TODO: Create v2 API endpoint
     axios({
       method: 'get',
-      url: getUnmanicApiUrl('v1', 'session/unmanic-sign-out-url'),
+      url: getUnmanicApiUrl('v2', 'session/logout'),
     }).then((response) => {
       if (response.data.success) {
-        // If query was successful...
-        // Set the action URL
-        let action = response.data.data.url;
-        // Set the UUID
-        let uuid = response.data.uuid;
-        // Set the current URI
-        let currentUri = window.location.origin + "/unmanic/ui/trigger/?session=reload";
-
-        let form = '' +
-          '<form id="loginForm" action="' + action + '" method="post" class="display:none;">' +
-          '<input type="hidden" name="uuid" value="' + uuid + '" />' +
-          '<input type="hidden" name="current_uri" value="' + currentUri + '" />' +
-          '</form>';
-
-        // Create form under body
-        document.body.innerHTML += form
-        // Submit the form
-        document.getElementById("loginForm").submit();
+        location.reload();
       } else {
         // Our query was unsuccessful
-        console.error('An error occurred while fetching the patreon sponsor page.');
+        console.error('An error occurred while logging out.');
       }
     }).catch(() => {
       Notify.create({
         color: 'negative',
         position: 'top',
-        message: $t('notifications.failedToFetchLogoutUrl'),
+        message: $t('notifications.failedToLogout'),
         icon: 'report_problem',
         actions: [{ icon: 'close', color: 'white' }]
       });
