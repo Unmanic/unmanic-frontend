@@ -89,8 +89,9 @@
       v-if="$route.meta.showMainNavDrawer"
       v-model="leftMainNavDrawerOpen"
       side="left"
-      behavior="mobile"
-      overlay elevated>
+      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
+      :overlay="$q.platform.is.mobile ? true : false"
+       elevated>
       <DrawerMainNav/>
     </q-drawer>
 
