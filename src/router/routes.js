@@ -1,9 +1,10 @@
+
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Dashboard.vue') }
+      { path: '', component: () => import('pages/MainDashboard.vue') }
     ],
     beforeEnter() {
       location.href = '/ui/dashboard'
@@ -14,7 +15,7 @@ const routes = [
     path: '/ui/trigger',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Trigger.vue') }
+      { path: '', component: () => import('pages/ActionTrigger.vue') }
     ]
   },
   {
@@ -22,7 +23,7 @@ const routes = [
     path: '/ui/dashboard',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Dashboard.vue') }
+      { path: '', component: () => import('pages/MainDashboard.vue') }
     ],
     meta: {
       showHome: false,
@@ -102,7 +103,7 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/ErrorNotFound.vue')
   }
 ]
 

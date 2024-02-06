@@ -6,19 +6,19 @@ module.exports = {
 
   parserOptions: {
     parser: '@babel/eslint-parser',
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2021, // Allows for the parsing of modern ECMAScript features
     sourceType: 'module' // Allows for the use of imports
   },
 
   env: {
-    browser: true
+    browser: true,
+    'vue/setup-compiler-macros': true
   },
 
   // Rules order is important, please avoid shuffling them
   extends: [
     // Base ESLint recommended rules
     // 'eslint:recommended',
-
 
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
@@ -33,13 +33,14 @@ module.exports = {
   ],
 
   plugins: [
-    // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
+    // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-files
     // required to lint *.vue files
     'vue',
-
+    
     // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-509292674
     // Prettier has not been included as plugin to avoid performance impact
     // add it as an extension for your IDE
+    
   ],
 
   globals: {
@@ -57,8 +58,8 @@ module.exports = {
 
   // add your custom rules here
   rules: {
+    
     'prefer-promise-reject-errors': 'off',
-
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

@@ -132,7 +132,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import ReleaseNotesDialog from "components/ReleaseNotesDialog";
 
 export default {
-  name: 'Dashboard',
+  name: 'MainDashboard',
   components: { ReleaseNotesDialog, CompletedTasks, WorkerProgress, PendingTasks },
   setup() {
     const { t: $t } = useI18n();

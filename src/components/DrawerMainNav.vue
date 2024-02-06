@@ -112,7 +112,7 @@
     </q-list>
   </q-scroll-area>
 
-  <Avatar/>
+  <DrawerAvatar/>
 
   <q-img class="absolute-bottom lt-md" src="~assets/bg-md1.jpg" style="height: 80px">
     <div class="absolute-top bg-transparent text-white">
@@ -125,7 +125,7 @@
 
 <script>
 
-import Avatar from "components/Avatar";
+import DrawerAvatar from "components/DrawerAvatar.vue";
 import LanguageSwitch from "components/LanguageSwitch";
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
@@ -138,7 +138,7 @@ import LoginDialog from "components/LoginDialog";
 
 export default {
   name: 'DrawerMainNav',
-  components: { Avatar, FooterData, LanguageSwitch },
+  components: { DrawerAvatar, FooterData, LanguageSwitch },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();

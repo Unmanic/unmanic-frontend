@@ -88,12 +88,11 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import { useI18n } from "vue-i18n";
-import { onUnmounted } from "@vue/runtime-core";
 
 const columns = [
   {
