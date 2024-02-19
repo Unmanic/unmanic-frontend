@@ -14,7 +14,7 @@ export default {
     const mDisplay = minutes > 0 ? minutes + (minutes == 1 ? " minute, " : " minutes, ") : "";
     const sDisplay = seconds > 0 ? seconds + (seconds == 1 ? " second" : " seconds") : "";
 
-    duration = dDisplay + hDisplay + mDisplay + sDisplay;
+    let duration = dDisplay + hDisplay + mDisplay + sDisplay;
 
     return duration.replace(/, $/, '');
   },
