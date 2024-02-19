@@ -106,41 +106,119 @@
             <!--INFO-->
             <div class="col col-md-grow col-12 q-pa-xs">
               <q-skeleton v-if="!name" width="100%" max-height="350px" class="shadow-1"/>
+              <!--META-->
               <q-card
                 v-else
                 :style="($q.platform.is.mobile && changelog.length === 0) ? 'height: 128px;' : ''">
-                <q-card-section style="max-height: 128px;">
-                  <!--META-->
-                  <q-list>
-                    <q-item dense>
-                      <q-item-section>
-                        <b>Name:</b>
-                      </q-item-section>
-                      <q-item-section side>
-                        {{ name }}
-                      </q-item-section>
-                    </q-item>
+                <div class="row">
+                  <div class="col col-sm-12 col-md-5 col-lg-3 q-pa-xs">
+                    <q-card-section style="max-height: 128px;">
+                      <q-list class="plugin-meta">
+                        <q-item dense>
+                          <q-item-section side>
+                            <span class="title">Name:</span>
+                          </q-item-section>
+                          <q-item-section>
+                            {{ name }}
+                          </q-item-section>
+                        </q-item>
 
-                    <q-item dense>
-                      <q-item-section>
-                        <b>Author:</b>
-                      </q-item-section>
-                      <q-item-section side>
-                        {{ author }}
-                      </q-item-section>
-                    </q-item>
+                        <q-item dense>
+                          <q-item-section side>
+                            <span class="title">Author:</span>
+                          </q-item-section>
+                          <q-item-section>
+                            {{ author }}
+                          </q-item-section>
+                        </q-item>
 
-                    <q-item dense>
-                      <q-item-section>
-                        <b>Version:</b>
-                      </q-item-section>
-                      <q-item-section side>
-                        {{ version }}
-                      </q-item-section>
-                    </q-item>
+                        <q-item dense>
+                          <q-item-section side>
+                            <span class="title">Version:</span>
+                          </q-item-section>
+                          <q-item-section>
+                            {{ version }}
+                          </q-item-section>
+                        </q-item>
 
-                  </q-list>
-                </q-card-section>
+                      </q-list>
+                    </q-card-section>
+                  </div>
+                  <div class="col col-sm-12 col-md-5 col-lg-3 q-pa-xs">
+                    <q-card-section style="max-height: 128px;">
+                      <q-list class="plugin-meta">
+                        <q-item dense
+                                @click="openExternalURL('https://github.com/Unmanic/plugin.video_transcoder')"
+                                clickable v-ripple>
+                          <q-item-section avatar>
+                            <q-icon color="primary" name="fab fa-github"/>
+                          </q-item-section>
+                          <q-item-section>
+                            Source
+                          </q-item-section>
+                        </q-item>
+
+                        <q-item dense
+                                @click="openExternalURL('https://github.com/Unmanic/plugin.video_transcoder')"
+                                clickable v-ripple>
+                          <q-item-section avatar>
+                            <q-icon color="primary" name="fab fa-github"/>
+                          </q-item-section>
+                          <q-item-section>
+                            Report Issue
+                          </q-item-section>
+                        </q-item>
+
+                        <q-item dense
+                                @click="openExternalURL('https://github.com/Unmanic/plugin.video_transcoder')"
+                                clickable v-ripple>
+                          <q-item-section avatar>
+                            <q-icon color="primary" name="fab fa-github"/>
+                          </q-item-section>
+                          <q-item-section>
+                            Donate to plugin developer
+                          </q-item-section>
+                        </q-item>
+
+                      </q-list>
+                    </q-card-section>
+                  </div>
+                </div>
+
+                <!--                <q-card-section class="gt-sm" style="max-height: 128px;">
+                                  <div class="row">
+                                    <div class="col col-sm-12 col-md-5 col-lg-3 q-pa-xs">
+                                      &lt;!&ndash; Plugin Details &ndash;&gt;
+                                      <div class="plugin-details">
+                                        <div><span class="title">Name:</span> {{ name }}</div>
+                                        <div><span class="title">Author:</span> {{ author }}</div>
+                                        <div><span class="title">Version:</span> {{ version }}</div>
+                                      </div>
+                                    </div>
+                                    <div class="col col-md-grow col-7 q-pa-xs gt-sm">
+                                      &lt;!&ndash; Links &ndash;&gt;
+                                      <div class="link-details">
+                                        <q-item dense
+                                                @click="openExternalURL('https://github.com/Unmanic/unmanic-frontend/issues')"
+                                                clickable v-ripple>
+                                          <q-item-section avatar>
+                                            <q-icon color="primary" name="fab fa-github"/>
+                                          </q-item-section>
+                                          <q-item-section>
+                                            Source
+                                          </q-item-section>
+                                        </q-item>
+
+                                        <div><b>Source:</b> <a href="https://github.com/Unmanic/plugin.video_transcoder">https://github.com/Unmanic/plugin.video_transcoder</a>
+                                        </div>
+                                        <div><b>Report Issue:</b> <a href="https://github.com/Unmanic/plugin.video_transcoder/issues">https://github.com/Unmanic/plugin.video_transcoder/issues</a>
+                                        </div>
+                                        <div><b>Donate:</b> <a href="https://ko-fi.com/josh5coffee">https://ko-fi.com/josh5coffee</a>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </q-card-section>-->
 
                 <q-separator/>
 
@@ -159,6 +237,22 @@
                   </q-scroll-area>
                 </q-card-section>
               </q-card>
+            </div>
+          </div>
+
+          <!--LINKS-->
+          <div class="row">
+            <div class="col col-12 q-pa-xs">
+              <q-card style="width:100%">
+                  <q-skeleton v-if="!description" width="100%" height="150px" class="shadow-1"/>
+                  <q-card-section v-else class="q-pa-md">
+
+                    <div class="row q-mt-md">
+
+                    </div>
+
+                  </q-card-section>
+                </q-card>
             </div>
           </div>
 
@@ -376,6 +470,7 @@ import { useI18n } from "vue-i18n";
 import { ref } from "vue";
 import { markdownToHTML } from "src/js/markupParser";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
+import { openURL } from "quasar";
 
 export default {
   name: 'LinkConfigureDialog',
@@ -609,7 +704,11 @@ export default {
         }
       }).onDismiss(() => {
       })
-    }
+    },
+
+    openExternalURL: function (url) {
+      openURL(url)
+    },
   },
   watch: {
     uuid(value) {
@@ -633,6 +732,25 @@ export default {
       status: ref(null),
       settings: ref([]),
       originalSettings: ref([]),
+
+      pluginDetails: [
+        { label: 'Name', value: this.name },
+        { label: 'Author', value: this.author },
+        { label: 'Version', value: this.version },
+      ],
+      detailsColumns: [
+        { name: 'label', align: 'left', label: 'Label', field: 'label' },
+        { name: 'value', align: 'left', label: 'Value', field: 'value' },
+      ],
+      linkDetails: [
+        { label: 'Source', value: 'http://github.com/Unmanic' },
+        { label: 'Report Issue', value: 'http://github.com/Unmanic' },
+        { label: 'Donate', value: 'http://github.com/Unmanic' },
+      ],
+      linksColumns: [
+        { name: 'label', align: 'left', label: 'Label', field: 'label' },
+        { name: 'value', align: 'left', label: 'Value', field: 'value' },
+      ],
     }
   }
 }
@@ -705,5 +823,39 @@ span.plugin-description hr {
   padding-left: 8px;
   border-left: solid thin var(--q-primary);
 }
+
+.plugin-details, .link-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.plugin-details div, .link-details div {
+  display: contents;
+}
+
+.plugin-meta .title {
+  color: #181818;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.body--dark .plugin-meta .title {
+  color: #fff;
+}
+
+.plugin-details a {
+  color: #027be3;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .plugin-details, .link-details {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 </style>
