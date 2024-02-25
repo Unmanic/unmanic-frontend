@@ -86,7 +86,8 @@
       "linkedInstallationLimits": "Unmanic has stopped processing tasks as you have linked too many remote installations for a non-supporter tier. Consider sponsoring the project to link more than one remote installation."
     },
     "serverNotificationLabels": {
-      "failedTaskLabel": "Task Failure"
+      "failedTaskLabel": "Task Failure",
+      "pausedWorkersLabel": "Workers Paused"
     }
   },
   "headers": {
