@@ -113,7 +113,7 @@ export default {
           if (version === 'UNKNOWN') {
             return;
           }
-          this.symVer = version.split("~")[0];
+          this.symVer = version.replace(/(~|\+).*/, '');
 
           if (releaseNotesViewed === this.symVer) {
             // This release notation was the last one viewed
