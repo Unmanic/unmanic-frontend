@@ -26,7 +26,7 @@
     @hide="onDialogHide">
 
     <q-card
-      v-touch-swipe.touch.right="hide"
+      v-touch-swipe.touch.right="cancel"
       :style="$q.platform.is.mobile ? 'max-width:100vw;' : `max-width:95vw; width:${width};`">
 
       <q-card-section class="bg-card-head dialog-sticky-header">
@@ -40,7 +40,8 @@
               round
               flat
               icon="arrow_back"
-              v-close-popup>
+              v-close-popup
+              @click="cancel">
             </q-btn>
           </div>
 
