@@ -40,7 +40,6 @@
               round
               flat
               icon="arrow_back"
-              v-close-popup
               @click="cancel">
             </q-btn>
           </div>
