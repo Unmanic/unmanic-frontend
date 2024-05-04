@@ -49,7 +49,7 @@
       <q-item-label header>{{ $t('navigation.account') }}:</q-item-label>
       <!--START LOGOUT-->
       <q-item
-        v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0"
+        v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0 && unmanicSession.level !== 9"
         clickable
         @click="logoutSubmit"
         v-ripple>
@@ -74,7 +74,7 @@
           {{ $t('navigation.login') }}
         </q-item-section>
       </q-item>
-      <!--END LOGOUT-->
+      <!--END LOGIN-->
 
       <q-separator spaced/>
 
