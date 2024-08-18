@@ -1,27 +1,27 @@
 {
 	"navigation": {
-		"dashboard": "Armaturenbrett",
+		"dashboard": "Dashboard",
 		"settings": "Einstellungen",
 		"dataPanels": "Datenpanels",
-		"account": "Konto",
-		"login": "Anmeldung",
-		"logout": "Ausloggen",
-		"interface": "Schnittstelle",
+		"account": "Account",
+		"login": "Login",
+		"logout": "Logout",
+		"interface": "Benutzeroberfläche",
 		"options": "Optionen",
 		"documentation": "Dokumentation",
 		"library": "Bibliothek",
-		"workers": "Arbeitskräfte",
+		"workers": "Worker",
 		"plugins": "Plugins",
 		"link": "Verknüpfung",
-		"helpAndSupport": "Hilfe Unterstützung",
-		"info": "Die Info",
+		"helpAndSupport": "Hilfe & Unterstützung",
+		"info": "Info",
 		"show": "Zeigen",
 		"showMore": "Zeig mehr",
 		"search": "Suchen",
 		"save": "Speichern",
 		"backToDashboard": "Zurück zum Dashboard",
-		"submit": "Einreichen",
-		"cancel": "Stornieren",
+		"submit": "Speichern",
+		"cancel": "Abbrechen",
 		"close": "Schließen",
 		"back": "Zurück",
 		"yes": "Ja",
@@ -40,13 +40,13 @@
 		"disabled": "Deaktiviert"
 	},
 	"notifications": {
-		"saved": "Gerettet.",
-		"installed": "Eingerichtet.",
+		"saved": "Gespeichert.",
+		"installed": "Installiert.",
 		"copied": "Kopiert",
 		"backendConnectionWarning": "Es kann keine Verbindung zum Unmanic-Backend hergestellt werden. Bitte überprüfen Sie, ob es läuft.",
 		"failedToFetchLoginUrl": "Anmelde-URL konnte nicht abgerufen werden.",
 		"failedToFetchLogoutUrl": "Abmelde-URL konnte nicht abgerufen werden.",
-		"failedToLogout": "Der aktuelle Benutzer konnte nicht von der Installation abgemeldet werden.",
+		"failedToLogout": "Der aktuelle Benutzer konnte abgemeldet werden.",
 		"failedToSaveSettings": "Einstellungen konnten nicht gespeichert werden.",
 		"failedToFetchSettings": "Die aktuellen Einstellungen von Unmanic konnten nicht abgerufen werden.",
 		"failedToFetchSystemConfig": "Die Systemkonfiguration von Unmanic konnte nicht abgerufen werden.",
@@ -86,11 +86,11 @@
 			"linkedInstallationLimits": "Unmanic hat die Verarbeitung von Aufgaben eingestellt, da Sie zu viele Remote-Installationen für eine Nicht-Supporter-Stufe verknüpft haben. Erwägen Sie, das Projekt zu sponsern, um mehr als eine Remote-Installation zu verknüpfen."
 		},
 		"serverNotificationLabels": {
-			"failedTaskLabel": "Aufgabenfehler"
+			"failedTaskLabel": "Fehler bei einer Aufgabe"
 		}
 	},
 	"headers": {
-		"workers": "Arbeitskräfte",
+		"workers": "Worker",
 		"pendingTasks": "Ausstehende Aufgaben",
 		"completedTasks": "Abgeschlossene Aufgaben",
 		"privacyPolicy": "Datenschutzrichtlinie",
@@ -100,7 +100,7 @@
 		"pluginInstaller": "Plugin-Installer",
 		"globalPluginConfig": "Globale Plugin-Konfiguration",
 		"libraryPluginConfig": "Konfiguration des Bibliotheks-Plugins",
-		"information": "Die Info",
+		"information": "Info",
 		"selectDirectory": "Wählen Sie ein Verzeichnis aus",
 		"librarySettings": "Bibliothekseinstellungen",
 		"completedTaskDetails": "Details zur abgeschlossenen Aufgabe",
@@ -111,7 +111,7 @@
 		"configureWorkerGroup": "Konfigurieren Sie die Worker-Gruppe",
 		"selectPlugin": "Wählen Sie ein Plugin aus",
 		"selectLibrary": "Wählen Sie eine Bibliothek aus",
-		"login": "Anmeldung",
+		"login": "Login",
 		"listEmpty": "Diese Aufgabenliste ist leer"
 	},
 	"tooltips": {
