@@ -1,7 +1,5 @@
 <template>
-  <q-dialog
-    ref="loginDialogRef"
-    v-model="showDialog">
+  <q-dialog ref="loginDialogRef" v-model="showDialog">
     <q-card>
       <q-card-section class="row items-center q-pb-sm">
         <div class="text-h6">{{ $t('headers.login') }}</div>
@@ -11,40 +9,55 @@
 
       <q-separator/>
 
-      <q-card-section style="max-height: 50vh" class="scroll">
-        <q-list>
-
-          <q-item
-            clickable v-ripple
-            @click="loginWithGithub">
-            <q-item-section avatar>
-              <q-icon color="grey-8" name="fab fa-github"/>
-            </q-item-section>
-
-            <q-item-section>{{ $t('navigation.loginWithGitHub') }}</q-item-section>
-          </q-item>
-
-          <q-item
-            clickable v-ripple
-            @click="loginWithDiscord">
-            <q-item-section avatar>
-              <q-icon color="grey-8" name="fab fa-discord"/>
-            </q-item-section>
-
-            <q-item-section>{{ $t('navigation.loginWithDiscord') }}</q-item-section>
-          </q-item>
-
-          <q-item
-            clickable v-ripple
-            @click="loginWithPatreon">
-            <q-item-section avatar>
-              <q-icon color="grey-8" name="fab fa-patreon"/>
-            </q-item-section>
-
-            <q-item-section>{{ $t('navigation.loginWithPatreon') }}</q-item-section>
-          </q-item>
-
-        </q-list>
+      <q-card-section>
+        <div>
+          <p>
+            Unmanic is a free and open‑source product brought to you by Streaming Tech.
+            While basic features can be used without logging in, signing in unlocks additional features if you support
+            any of the Streaming Tech open‑source projects.
+          </p>
+          <p>
+            Supporting these projects is simple:
+          </p>
+          <ul>
+            <li>
+              <strong>GitHub:</strong> Contributing—even a small documentation fix—on our repositories
+              (github.com/Unmanic, github.com/Steam-Headless, or github.com/DeckSetting) bumps your account to a
+              supporter tier for a month.
+            </li>
+            <li>
+              <strong>Discord:</strong> Being active and helpful in our Discord server earns reputation points and
+              upgrades your account to a supporter tier.
+            </li>
+            <li>
+              <strong>Patreon:</strong> Financially backing the project on Patreon unlocks exclusive channels in Discord
+              for discussing future developments and elevates your account to a supporter tier.
+            </li>
+          </ul>
+          <p>
+            Your unique login code has been generated below. Please click the button to open a new window where you can
+            enter this code to authenticate and link this installation to your account.
+          </p>
+          <div class="row justify-center">
+            <q-spinner v-if="!userCode" class="text-h3 q-mt-md q-mb-md"/>
+            <div v-else class="text-h3 q-mt-md q-mb-md">{{ userCode }}</div>
+          </div>
+          <q-btn
+            :disabled="!verificationUri"
+            dense
+            class="full-width q-mt-sm q-ml-lg"
+            color="primary"
+            label="Login with Streaming Tech"
+            icon-right="open_in_new"
+            @click="loginRemotely"
+          />
+          <div class="q-mt-md">
+            <q-linear-progress :value="timerProgress" color="primary" size="10px" :class="userCode ? '' : 'disabled' "/>
+            <div class="text-center q-mt-sm" :class="userCode ? '' : 'invisible' ">
+              Time remaining: {{ formattedTime }}
+            </div>
+          </div>
+        </div>
       </q-card-section>
 
       <q-separator/>
@@ -52,54 +65,97 @@
   </q-dialog>
 </template>
 
-<script>
-import { ref } from 'vue'
-import unmanicGlobals from "src/js/unmanicGlobals";
+<script setup>
+import { onMounted, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import unmanicGlobals, { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
+import { useRouter } from "vue-router";
+import axios from "axios";
 
-export default {
-  name: 'LoginDialog',
-  props: {},
-  emits: [
-    // REQUIRED
-    'ok', 'hide', 'path'
-  ],
-  methods: {
-    // following method is REQUIRED
-    // (don't change its name --> "show")
-    show() {
-      this.$refs.loginDialogRef.show();
-    },
+const router = useRouter()
+const { t } = useI18n()
 
-    // following method is REQUIRED
-    // (don't change its name --> "hide")
-    hide() {
-      this.$refs.loginDialogRef.hide();
-    },
+const props = defineProps({})
 
-    onDialogHide() {
-      // required to be emitted
-      // when QDialog emits "hide" event
-      this.$emit('ok', {})
-      this.$emit('hide')
-    },
+const emit = defineEmits(['ok', 'hide', 'path'])
 
-    loginWithPatreon() {
-      unmanicGlobals.loginWithPatreon(this.$t)
-    },
+// Reactive references
+const showDialog = ref(false)
+const userCode = ref('')
+const verificationUri = ref('')
+const loginDialogRef = ref(null)
+const remainingTime = ref(1)
+const totalTime = ref(1)
+let timerInterval = null
 
-    loginWithGithub() {
-      unmanicGlobals.loginWithGitHub(this.$t)
-    },
+// Computed properties for progress bar and timer text
+const timerProgress = computed(() =>
+  totalTime.value > 0 ? remainingTime.value / totalTime.value : 0
+)
+const formattedTime = computed(() => {
+  const minutes = Math.floor(remainingTime.value / 60)
+  const seconds = remainingTime.value % 60
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+})
 
-    loginWithDiscord() {
-      unmanicGlobals.loginWithDiscord(this.$t)
+function show() {
+  loginDialogRef.value.show()
+}
+
+function hide() {
+  loginDialogRef.value.hide()
+}
+
+function onDialogHide() {
+  emit('ok', {})
+  emit('hide')
+}
+
+function startCountdown(expiresIn) {
+  totalTime.value = expiresIn
+  remainingTime.value = expiresIn
+  if (timerInterval) clearInterval(timerInterval)
+  timerInterval = setInterval(() => {
+    if (remainingTime.value > 0) {
+      remainingTime.value--
+      // Check session every 5 seconds
+      if (remainingTime.value % 5 === 0) {
+        axios({
+          method: 'get',
+          url: getUnmanicApiUrl('v2', 'session/state')
+        }).then((response) => {
+          console.log(response.data.level)
+          if (response.data && response.data.level && response.data.level > 0) {
+            location.reload();
+          }
+        }).catch(() => {
+          console.error("Failed to get session state.")
+        })
+      }
+    } else {
+      clearInterval(timerInterval)
+      hide()
     }
-  },
-  watch: {},
-  data: function () {
-    return {
-      showDialog: ref(false),
-    }
+  }, 1000)
+}
+
+function setAuthCodeFromData(data) {
+  userCode.value = data.user_code
+  verificationUri.value = data.verification_uri
+  startCountdown(data.expires_in)
+}
+
+function getAppAuthCode() {
+  unmanicGlobals.loginGetAppAuthCode(t, setAuthCodeFromData)
+}
+
+function loginRemotely() {
+  if (verificationUri.value) {
+    window.open(verificationUri.value, '_blank')
   }
 }
+
+onMounted(() => {
+  getAppAuthCode()
+})
 </script>

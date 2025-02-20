@@ -114,6 +114,28 @@ export default {
     // Submit the form
     document.getElementById("loginForm").submit();
   },
+  loginGetAppAuthCode($t, callback) {
+    axios({
+      method: 'get',
+      url: getUnmanicApiUrl('v2', 'session/get_app_auth_code'),
+    }).then((response) => {
+      if (response.data.verification_uri) {
+        // If query was successful...
+        callback(response.data)
+      } else {
+        // Our query was unsuccessful
+        console.error('An error occurred while fetching the patreon sponsor page.');
+      }
+    }).catch(() => {
+      Notify.create({
+        color: 'negative',
+        position: 'top',
+        message: $t('notifications.failedToFetchLoginUrl'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      });
+    })
+  },
   loginWithPatreon($t) {
     axios({
       method: 'get',

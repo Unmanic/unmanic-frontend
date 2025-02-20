@@ -33,7 +33,6 @@ export default {
     onMounted(() => {
       if (typeof route.query !== 'undefined') {
         if (route.query.session === 'reload') {
-          console.log("HERE")
           reloadSession()
         }
       }
