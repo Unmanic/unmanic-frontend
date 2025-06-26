@@ -57,6 +57,13 @@
               Time remaining: {{ formattedTime }}
             </div>
           </div>
+          <p class="q-pt-lg text-caption">
+            <strong>Note:</strong> Streaming Tech is the umbrella organisation for all open-source GitHub projects by
+            Josh Sunnex (Josh.5).
+            <br> Sponsorship funds (e.g., via Patreon) are used to hire or contract outside help, maintain
+            infrastructure, and fuel my coffee addiction.
+            <br> Supporting Unmanic also sustains our wider free and open-source development.
+          </p>
         </div>
       </q-card-section>
 

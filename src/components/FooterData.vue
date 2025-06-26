@@ -1,8 +1,8 @@
 <template>
   <div v-if="$q.platform.is.mobile">
     <p class="text-subtitle1 q-mb-none">
-      &copy; 2018-{{ new Date().getFullYear() }} by <a class="footer-link" target="_blank"
-                                                       href="https://github.com/Josh5">Josh Sunnex</a>
+      &copy; 2018-{{ new Date().getFullYear() }} by
+      <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
     </p>
     <p class="text-subtitle1">
       {{ $t('components.footer.version') }}:
@@ -15,8 +15,8 @@
     <div class="row q-mt-lg">
       <div class="col q-ml-lg">
         <p class="text-subtitle1">
-          &copy; 2018-{{ new Date().getFullYear() }} by <a class="footer-link" target="_blank"
-                                                           href="https://github.com/Josh5">Josh Sunnex</a>
+          &copy; 2018-{{ new Date().getFullYear() }} by
+          <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
         </p>
       </div>
       <div
