@@ -133,7 +133,11 @@ function startCountdown(expiresIn) {
         }).then((response) => {
           console.log(response.data.level)
           if (response.data && response.data.level && response.data.level > 0) {
-            location.reload();
+            if (response.data.level !== 9) {
+              location.reload();
+            } else {
+              console.log("Detected Trial Session. Ignoring.")
+            }
           }
         }).catch(() => {
           console.error("Failed to get session state.")
