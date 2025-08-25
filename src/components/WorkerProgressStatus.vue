@@ -61,43 +61,87 @@
 
     <q-separator/>
 
-    <q-list bordered padding>
-      <q-item>
-        <q-item-section>
-          <q-item-label>{{ $t('components.workers.stateLabel') }}</q-item-label>
-          <q-item-label caption>
-            {{ state }}
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+    <div class="column">
+      <!-- Two side-by-side lists -->
+      <div class="row q-col-gutter-md items-stretch">
 
-      <q-item>
-        <q-item-section>
-          <q-item-label>{{ $t('components.workers.currentRunnerLabel') }}</q-item-label>
-          <q-item-label caption>
-            {{ currentRunner }}
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+        <!-- Left list -->
+        <div class="col-12 col-sm-6">
+          <q-list padding class="fit">
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.stateLabel') }}</q-item-label>
+                <q-item-label caption>
+                  {{ state }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
 
-      <q-item class="worker-progress-card-state-t-start">
-        <q-item-section>
-          <q-item-label>{{ $t('components.workers.startTimeLabel') }}</q-item-label>
-          <q-item-label caption>
-            {{ startTime }}
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.currentRunnerLabel') }}</q-item-label>
+                <q-item-label caption>
+                  {{ currentRunner }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
 
-      <q-item class="worker-progress-card-state-t-total">
-        <q-item-section>
-          <q-item-label>{{ $t('components.workers.totalProcessingTimeLabel') }}</q-item-label>
-          <q-item-label caption>
-            {{ totalProcTime }}
-          </q-item-label>
-        </q-item-section>
-      </q-item>
-    </q-list>
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.startTimeLabel') }}</q-item-label>
+                <q-item-label caption>
+                  {{ startTime }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </div>
+
+        <!-- Right list -->
+        <div class="col-12 col-sm-6">
+          <q-list padding class="fit">
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.totalTimeSinceStartLabel') }}</q-item-label>
+                <q-item-label caption>
+                  {{ timeSinceStart }}
+                </q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.elapsedProcessingTimeLabel') }}</q-item-label>
+                <q-item-label caption>{{ elapsed }}</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <q-item>
+              <q-item-section>
+                <q-item-label>{{ $t('components.workers.estimatedCompletionTimeLabel') }}</q-item-label>
+                <q-item-label caption>{{ etc }}</q-item-label>
+              </q-item-section>
+            </q-item>
+
+            <!-- (room for more right-hand stats later) -->
+          </q-list>
+        </div>
+      </div>
+
+      <!-- Full-width bottom row -->
+      <div class="q-mt-md">
+        <q-list padding>
+          <q-item>
+            <q-item-section>
+              <q-item-label>{{ $t('components.workers.currentCommandLabel') }}</q-item-label>
+              <q-item-label caption class="monospace wrap-anywhere">
+                {{ currentCommand || '—' }}
+              </q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+    </div>
   </q-card>
 </template>
 
@@ -130,7 +174,22 @@ export default {
       default: ''
     },
 
-    totalProcTime: {
+    timeSinceStart: {
+      type: String,
+      default: ''
+    },
+
+    elapsed: {
+      type: String,
+      default: ''
+    },
+
+    etc: {
+      type: String,
+      default: ''
+    },
+
+    currentCommand: {
       type: String,
       default: ''
     },
@@ -241,3 +300,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+.monospace { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.wrap-anywhere { overflow-wrap: anywhere; }
+</style>
+

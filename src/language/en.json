@@ -286,7 +286,10 @@
       "stateLabel": "State",
       "currentRunnerLabel": "Current Runner",
       "startTimeLabel": "Start Time",
-      "totalProcessingTimeLabel": "Total Processing Time",
+      "totalTimeSinceStartLabel": "Total Time Since Start",
+      "elapsedProcessingTimeLabel": "Elapsed Processing Time",
+      "estimatedCompletionTimeLabel": "Estimated Time of Completion",
+      "currentCommandLabel": "Current Command",
       "state": {
         "waiting": "Waiting for another task...",
         "processing": "Processing task...",

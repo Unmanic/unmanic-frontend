@@ -129,7 +129,10 @@
                   v-bind:state="state"
                   v-bind:currentRunner="currentRunner"
                   v-bind:startTime="startTime"
-                  v-bind:totalProcTime="totalProcTime"
+                  v-bind:timeSinceStart="timeSinceStart"
+                  v-bind:elapsed="elapsed"
+                  v-bind:etc="etc"
+                  v-bind:currentCommand="currentCommand"
                   v-bind:paused="paused"
                   v-bind:idle="idle"/>
               </q-card-section>
@@ -217,6 +220,11 @@ export default defineComponent({
       default: ''
     },
 
+    elapsed: {
+      type: String,
+      default: ''
+    },
+
     etc: {
       type: String,
       default: ''
@@ -247,7 +255,7 @@ export default defineComponent({
       default: ''
     },
 
-    totalProcTime: {
+    timeSinceStart: {
       type: String,
       default: ''
     },
@@ -255,6 +263,11 @@ export default defineComponent({
     indeterminate: {
       type: Boolean,
       default: false
+    },
+
+    currentCommand: {
+      type: String,
+      default: ''
     },
 
     workerLog: {

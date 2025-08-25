@@ -193,20 +193,22 @@ export default {
           color: 'warning',
           progress: 100,
           progressText: '-',
+          elapsed: '',
           etc: '...',
           state: $t('components.workers.state.waiting'),
           currentRunner: $t('components.workers.currentRunner.none'),
           startTime: '',
-          totalProcTime: '',
+          timeSinceStart: '',
+          currentCommand: '',
           workerLog: [],
           idle: worker.idle,
           paused: worker.paused,
           workerGroupColour: workerGroupColour,
         }
 
-        // If the worker is paused, the setup initial paused style.
+        // If the worker is paused, the setup initially paused style.
         // NOTE: It is possible to have a worker that is 'paused' but not 'idle'.
-        //    Therefore this may be modified further below
+        //    Therefore, this may be modified further below
         if (worker.paused) {
           // Set 'paused' defaults
           workerData['worker-' + worker.id].label = worker.name;
@@ -236,7 +238,10 @@ export default {
           // Set the start and total processing time
           const processingDuration = (new Date() - new Date(worker.start_time * 1000)) / 1000;
           workerData['worker-' + worker.id].startTime = dateTools.printDateTimeString(worker.start_time);
-          workerData['worker-' + worker.id].totalProcTime = dateTools.printSecondsAsDuration(processingDuration);
+          workerData['worker-' + worker.id].timeSinceStart = dateTools.printSecondsAsDuration(processingDuration);
+
+          // Set the current command
+          workerData['worker-' + worker.id].currentCommand = worker.current_command;
 
           // Set the worker log file
           workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
@@ -248,7 +253,8 @@ export default {
             workerData['worker-' + worker.id].progress = Number(worker.subprocess.percent);
             workerData['worker-' + worker.id].progressText = worker.subprocess.percent + '%';
 
-            // Set the ETC
+            // Set the elapsed and ETC
+            workerData['worker-' + worker.id].elapsed = dateTools.printSecondsAsDuration(worker.subprocess.elapsed);
             const etcDuration = calculateEtc(worker.subprocess.percent, worker.subprocess.elapsed)
             workerData['worker-' + worker.id].etc = dateTools.printSecondsAsDuration(etcDuration);
           } else {
