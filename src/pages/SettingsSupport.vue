@@ -110,7 +110,7 @@
                         <q-item-label caption></q-item-label>
                       </q-item-section>
                       <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary" />
+                        <q-icon name="open_in_new" color="primary"/>
                       </q-item-section>
                     </q-item>
 
@@ -125,7 +125,7 @@
                         <q-item-label caption></q-item-label>
                       </q-item-section>
                       <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary" />
+                        <q-icon name="open_in_new" color="primary"/>
                       </q-item-section>
                     </q-item>
 
@@ -159,7 +159,7 @@
                         <q-item-label caption></q-item-label>
                       </q-item-section>
                       <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary" />
+                        <q-icon name="open_in_new" color="primary"/>
                       </q-item-section>
                     </q-item>
                     <q-item
@@ -176,7 +176,7 @@
                         <q-item-label caption></q-item-label>
                       </q-item-section>
                       <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary" />
+                        <q-icon name="open_in_new" color="primary"/>
                       </q-item-section>
                     </q-item>
                     <q-item
@@ -193,7 +193,7 @@
                         <q-item-label caption></q-item-label>
                       </q-item-section>
                       <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary" />
+                        <q-icon name="open_in_new" color="primary"/>
                       </q-item-section>
                     </q-item>
 
@@ -207,22 +207,51 @@
 
           <q-separator/>
 
-          <div class="q-pa-md" style="max-width: 400px">
-
-            <!--START DEBUGGING ENABLE-->
+          <div class="q-pa-md" style="max-width: 600px">
             <h5 class="q-mb-none q-mt-sm">{{ $t('components.settings.support.logs') }}</h5>
-            <div class="q-gutter-sm">
-              <q-skeleton
-                v-if="debugging === null"
-                type="QToggle"/>
-              <q-toggle
-                v-else
-                v-model="debugging"
-                @update:model-value="toggleDebugging(debugging)"
-                :label="$t('components.settings.support.enableDebugging')"/>
-            </div>
-            <!--END DEBUGGING ENABLE-->
+            <div class="column">
+              <!--START DEBUGGING ENABLE-->
+              <div class="row q-gutter-sm items-stretch">
+                <div class="col-5">
+                  <q-skeleton
+                    v-if="debugging === null"
+                    type="QToggle"/>
+                  <q-toggle
+                    v-else
+                    v-model="debugging"
+                    @update:model-value="toggleDebugging(debugging)"
+                    :label="$t('components.settings.support.enableDebugging')"/>
+                </div>
+                <!--END DEBUGGING ENABLE-->
 
+                <!--START BUFFER RETENTION-->
+                <div class="col-5">
+                  <q-btn-dropdown
+                    color="primary"
+                    :label="$t('components.settings.support.confLogBufferRetentionLabel')"
+                  >
+                    <q-list>
+                      <q-item
+                        v-for="(val, label) in retentionOptions"
+                        :key="val"
+                        clickable
+                        v-close-popup
+                        @click="setLogRetention(val)"
+                      >
+                        <q-item-section>
+                          <q-item-label>{{ label }}</q-item-label>
+                        </q-item-section>
+                        <!-- Optional checkmark if you have the current value available -->
+                        <q-item-section side v-if="settings?.log_buffer_retention === val">
+                          <q-icon name="check"/>
+                        </q-item-section>
+                      </q-item>
+                    </q-list>
+                  </q-btn-dropdown>
+                  <!--END BUFFER RETENTION-->
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -394,6 +423,13 @@ export default {
   data() {
     return {
       debugging: ref(null),
+      retentionOptions: {
+        '1 day': 1,
+        '3 days': 3,
+        '5 days': 5,
+        '7 days': 7,
+        '14 days': 14
+      }
     }
   },
   methods: {
@@ -459,6 +495,47 @@ export default {
       let data = {
         settings: {
           debugging: value,
+        }
+      }
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'settings/write'),
+        data: data
+      }).then((response) => {
+        // Save success, show feedback
+        this.fetchSettings();
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          icon: 'cloud_done',
+          message: this.$t('notifications.saved'),
+          timeout: 200
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSaveSettings'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      });
+    },
+    setLogRetention(value) {
+      const retention = parseInt(value, 10);
+      if (Number.isNaN(retention)) {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.failedToSaveSettings'),
+          icon: 'report_problem'
+        });
+        return;
+      }
+
+      let data = {
+        settings: {
+          log_buffer_retention: value,
         }
       }
       axios({

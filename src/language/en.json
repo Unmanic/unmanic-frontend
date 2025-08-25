@@ -247,7 +247,8 @@
       },
       "support": {
         "logs": "Logs",
-        "enableDebugging": "EnableDebugging",
+        "enableDebugging": "Enable Debugging",
+        "confLogBufferRetentionLabel": "Log Buffer Retention",
         "currentSystemLogs": "Current System Logs",
         "downloadSystemLogs": "Download System Logs",
         "configuration": "Configuration",
