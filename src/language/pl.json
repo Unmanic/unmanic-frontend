@@ -347,8 +347,8 @@
 					"taskResultCaption": "Wtyczki te są wywoływane po zakończeniu zadania w celu oznaczenia ogólnego sukcesu lub niepowodzenia tego zadania"
 				},
 				"worker": {
-					"processItem": "Worker — plik przetwarzający",
-					"processItemCaption": "Wtyczki te są wywoływane przez proces roboczy i generują niestandardowe polecenie, które ma zostać wykonane i zarządzane przez tego pracownika"
+					"process": "Worker — plik przetwarzający",
+					"processCaption": "Wtyczki te są wywoływane przez proces roboczy i generują niestandardowe polecenie, które ma zostać wykonane i zarządzane przez tego pracownika"
 				}
 			}
 		},
