@@ -347,8 +347,8 @@
 					"taskResultCaption": "Deze plug-ins worden opgeroepen bij de voltooiing van een taak om het algehele succes of falen van die taak aan te geven"
 				},
 				"worker": {
-					"processItem": "Werknemer - Bestand verwerken",
-					"processItemCaption": "Deze plug-ins worden aangeroepen door een werknemer en produceren een aangepaste opdracht die door die werknemer moet worden uitgevoerd en beheerd"
+					"process": "Werknemer - Bestand verwerken",
+					"processCaption": "Deze plug-ins worden aangeroepen door een werknemer en produceren een aangepaste opdracht die door die werknemer moet worden uitgevoerd en beheerd"
 				}
 			}
 		},

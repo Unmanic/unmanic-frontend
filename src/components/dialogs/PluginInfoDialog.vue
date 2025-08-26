@@ -33,7 +33,7 @@
       :style="$q.platform.is.mobile ? 'max-width: 100vw;' : 'max-width: 95vw;'"
       style="width:2000px;">
 
-      <q-card-section class="bg-card-head">
+      <q-card-section class="bg-card-head dialog-sticky-header">
         <div class="row items-center no-wrap">
           <div
             v-if="$q.platform.is.mobile"
@@ -706,4 +706,12 @@ span.plugin-description hr {
   border-left: solid thin var(--q-primary);
 }
 
+</style>
+
+<style scoped>
+.dialog-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 </style>

@@ -347,8 +347,8 @@
 					"taskResultCaption": "这些插件在任务完成时被调用，以标记该任务的总体成功或失败"
 				},
 				"worker": {
-					"processItem": "工人-处理文件",
-					"processItemCaption": "这些插件由工作人员调用，并生成由该工作人员执行和管理的自定义命令"
+					"process": "工人-处理文件",
+					"processCaption": "这些插件由工作人员调用，并生成由该工作人员执行和管理的自定义命令"
 				}
 			}
 		},

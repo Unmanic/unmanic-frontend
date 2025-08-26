@@ -347,8 +347,8 @@
 					"taskResultCaption": "Ces plugins sont appelés à la fin d'une tâche pour marquer le succès ou l'échec global de cette tâche."
 				},
 				"worker": {
-					"processItem": "Travailleur - Traitement du dossier",
-					"processItemCaption": "Ces plugins sont appelés par un travailleur et produisent une commande personnalisée qui doit être exécutée et gérée par ce travailleur."
+					"process": "Travailleur - Traitement du dossier",
+					"processCaption": "Ces plugins sont appelés par un travailleur et produisent une commande personnalisée qui doit être exécutée et gérée par ce travailleur."
 				}
 			}
 		},

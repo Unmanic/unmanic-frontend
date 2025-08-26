@@ -347,8 +347,8 @@
 					"taskResultCaption": "Ka karangahia enei mono i te otinga o tetahi mahi hei tohu i te angitu katoa, i te kore ranei o taua mahi"
 				},
 				"worker": {
-					"processItem": "Kaimahi - Tukatuka kōnae",
-					"processItemCaption": "Ko enei mono ka karangahia e tetahi kaimahi me te whakaputa i tetahi whakahau ritenga hei whakahaere me te whakahaere e taua kaimahi"
+					"process": "Kaimahi - Tukatuka kōnae",
+					"processCaption": "Ko enei mono ka karangahia e tetahi kaimahi me te whakaputa i tetahi whakahau ritenga hei whakahaere me te whakahaere e taua kaimahi"
 				}
 			}
 		},

@@ -347,8 +347,8 @@
 					"taskResultCaption": "Esses plug-ins são chamados na conclusão de uma tarefa para marcar o sucesso ou fracasso geral dessa tarefa"
 				},
 				"worker": {
-					"processItem": "Trabalhador - Processando arquivo",
-					"processItemCaption": "Esses plugins são chamados por um trabalhador e produzem um comando personalizado para ser executado e gerenciado por esse trabalhador"
+					"process": "Trabalhador - Processando arquivo",
+					"processCaption": "Esses plugins são chamados por um trabalhador e produzem um comando personalizado para ser executado e gerenciado por esse trabalhador"
 				}
 			}
 		},

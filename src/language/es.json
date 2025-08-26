@@ -347,8 +347,8 @@
 					"taskResultCaption": "Estos complementos se solicitan al finalizar una tarea para marcar el éxito o fracaso general de esa tarea."
 				},
 				"worker": {
-					"processItem": "Trabajador - Archivo de procesamiento",
-					"processItemCaption": "Estos complementos son llamados por un trabajador y producen un comando personalizado que ese trabajador ejecutará y administrará."
+					"process": "Trabajador - Archivo de procesamiento",
+					"processCaption": "Estos complementos son llamados por un trabajador y producen un comando personalizado que ese trabajador ejecutará y administrará."
 				}
 			}
 		},
