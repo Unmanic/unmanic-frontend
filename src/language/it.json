@@ -347,8 +347,8 @@
 					"taskResultCaption": "Questi plugin vengono richiamati al completamento di un'attività per contrassegnare il successo o il fallimento complessivo di tale attività"
 				},
 				"worker": {
-					"processItem": "Lavoratore: elaborazione del file",
-					"processItemCaption": "Questi plugin vengono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
+					"process": "Lavoratore: elaborazione del file",
+					"processCaption": "Questi plugin vengono chiamati da un lavoratore e producono un comando personalizzato che deve essere eseguito e gestito da quel lavoratore"
 				}
 			}
 		},
