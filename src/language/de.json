@@ -347,8 +347,8 @@
 					"taskResultCaption": "Diese Plugins werden beim Abschluss einer Aufgabe aufgerufen, um den Gesamterfolg oder Misserfolg dieser Aufgabe zu markieren"
 				},
 				"worker": {
-					"processItem": "Arbeiter – Datei wird verarbeitet",
-					"processItemCaption": "Diese Plugins werden von einem Worker aufgerufen und erzeugen einen benutzerdefinierten Befehl, der von diesem Worker ausgeführt und verwaltet wird"
+					"process": "Arbeiter – Datei wird verarbeitet",
+					"processCaption": "Diese Plugins werden von einem Worker aufgerufen und erzeugen einen benutzerdefinierten Befehl, der von diesem Worker ausgeführt und verwaltet wird"
 				}
 			}
 		},
