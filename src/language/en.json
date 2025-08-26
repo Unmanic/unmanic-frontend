@@ -352,8 +352,8 @@
           "taskResultCaption": "These plugins are called on the completion of a task to mark the overall success or failure of that task"
         },
         "worker": {
-          "processItem": "Worker - Processing file",
-          "processItemCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
+          "process": "Worker - Processing file",
+          "processCaption": "These plugins are called by a worker and produce a custom command to be executed and managed by that worker"
         }
       }
     },
