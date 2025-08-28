@@ -23,7 +23,8 @@
     position="right"
     persistent
     @before-hide="beforeDialogHide"
-    @hide="onDialogHide">
+    @hide="onDialogHide"
+    @keydown.esc="cancel">
 
     <q-card
       v-touch-swipe.touch.right="cancel"
