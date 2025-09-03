@@ -11,6 +11,8 @@
 
 const ESLintPlugin = require('eslint-webpack-plugin')
 
+// Load .env variables for devserver proxy configuration
+require('dotenv').config()
 
 const { configure } = require('quasar/wrappers');
 
@@ -91,21 +93,29 @@ module.exports = configure(function (ctx) {
         type: 'http'
       },
       port: 8889,
-      proxy: {
-        '/unmanic/api': {
-          target: 'http://localhost:8888'
-        },
-        '/unmanic/panel': {
-          target: 'http://localhost:8888'
-        },
-        '/unmanic/swagger': {
-          target: 'http://localhost:8888'
-        },
-        '/unmanic/websocket': {
-            target: 'ws://localhost:8888',
-            ws: true
+      proxy: (() => {
+        // Allow configuring the backend target via .env
+        // Example: UNMANIC_BACKEND_URL=http://localhost:8888
+        const httpTarget = process.env.UNMANIC_BACKEND_URL || 'http://localhost:8888'
+        // Derive ws target from http target (http -> ws, https -> wss)
+        const wsTarget = httpTarget.replace(/^http(s?):/i, (m, s) => (s ? 'wss:' : 'ws:'))
+
+        return {
+          '/unmanic/api': {
+            target: httpTarget
+          },
+          '/unmanic/panel': {
+            target: httpTarget
+          },
+          '/unmanic/swagger': {
+            target: httpTarget
+          },
+          '/unmanic/websocket': {
+              target: wsTarget,
+              ws: true
+          }
         }
-      },
+      })(),
       open: false // opens browser window automatically
     },
 
