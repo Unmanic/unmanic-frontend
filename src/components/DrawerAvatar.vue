@@ -47,15 +47,9 @@ export default {
     })
 
     const supportProject = function () {
-      if (typeof unmanicSession.value.level !== 'undefined' && unmanicSession.value.level === 0) {
-        // Login first
-        console.debug("Calling login before support")
-        unmanicGlobals.loginWithPatreon($t)
-      } else if (typeof unmanicSession.value.level !== 'undefined' && unmanicSession.value.level > 0) {
-        // Redirect to support link
-        console.debug("Calling support link redirect")
-        unmanicGlobals.sponsorProject($t)
-      }
+      const url = 'https://api.unmanic.app/support-auth-api/support'
+      console.debug('Opening support link in new window:', url)
+      window.open(url, '_blank')
     }
 
     return {
