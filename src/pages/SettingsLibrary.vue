@@ -14,10 +14,23 @@
               @submit="save"
               class="q-gutter-md"
             >
-
               <!--START LIBRARY PATHS-->
               <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
               <div class="q-gutter-sm">
+                
+                <!-- LIBRARY SEARCH BAR -->
+                <q-input
+                  filled dense
+                  class="shadow-1"
+                  debounce="300"
+                  color="primary"
+                  v-model="filter"
+                  :placeholder="$t('navigation.search')">
+                  <template v-slot:append>
+                    <q-icon name="search"/>
+                  </template>
+                </q-input>
+                
                 <q-skeleton
                   v-if="libraryPaths === null"
                   type="text"/>
@@ -28,7 +41,7 @@
                   class="rounded-borders">
 
                   <q-item
-                    v-for="(path, index) in libraryPaths"
+                    v-for="(path, index) in filteredLibraryPaths"
                     v-bind:key="index"
                     active-class="library-path-list-item">
                     <q-item-section avatar>
@@ -342,7 +355,7 @@
 
 <script>
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, computed, getCurrentInstance } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
@@ -357,6 +370,22 @@ export default {
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
+
+    const {proxy} = getCurrentInstance(); // To get access to libraryPaths from data
+    const filter = ref("");
+
+    const filteredLibraryPaths = computed(() => {
+      if (!filter.value) return proxy.libraryPaths; // Don't filter when search is empty
+
+      const search = filter.value.toLowerCase();
+      // Return filtered library paths
+      return proxy.libraryPaths?.filter(path => (
+          path.name.toLowerCase().includes(search) ||
+          path.path.toLowerCase().includes(search) ||
+          path.tags.join(",").toLowerCase().includes(search)
+      ));
+    });
+
 
     /**
      * Unmanic WS handle
@@ -383,6 +412,10 @@ export default {
       // Close the websocket
       closeUnmanicWebsocket();
     })
+
+    return {
+      filter, filteredLibraryPaths
+    };
   },
   data() {
     return {
