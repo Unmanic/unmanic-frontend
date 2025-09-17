@@ -96,11 +96,12 @@
                       </q-item-label>
 
                       <!--Library Tags-->
-                      <q-item-label caption lines="1">
-                        <span class="text-weight-bold">
-                          {{ $t('components.settings.common.tags') }}:
-                        </span>
-                        {{ path.tags.join(', ') || '' }}
+                      <q-item-label caption lines="1" class="tags-container">
+                        <q-chip v-for="(tag, index) in path.tags" 
+                          :key="index" dense class="chip">
+                          {{ tag }}
+                        </q-chip>
+                        
                       </q-item-label>
                     </q-item-section>
 
@@ -676,5 +677,14 @@ div.sub-setting {
 
 .library-path-list-item {
   background: #F2C037;
+}
+
+.chip {
+  border: 1px solid #00000050;
+  background-color: #00000010;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 2px 6px 2px 0;
+  color: #0000008A;
 }
 </style>
