@@ -7,7 +7,7 @@
       <!--      <h4 class="q-ma-none">{{ $t('headers.librarySettings') }}</h4>-->
 
       <div class="row">
-        <div class="col-sm-12 col-md-10 col-lg-8">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
 
             <q-form
@@ -21,7 +21,7 @@
                 <!-- LIBRARY SEARCH BAR -->
                 <q-input
                   filled dense
-                  class="shadow-1"
+                  class="shadow-1 library-list"
                   debounce="300"
                   color="primary"
                   v-model="filter"
@@ -38,14 +38,14 @@
                 <q-list
                   bordered
                   separator
-                  class="rounded-borders">
+                  class="rounded-borders library-list">
 
                   <q-item
                     v-for="(path, index) in filteredLibraryPaths"
                     v-bind:key="index"
                     active-class="library-path-list-item">
-                    <q-item-section avatar>
-                      <q-avatar text-color="grey-8" icon="source"/>
+                    <q-item-section avatar class="avatar-size">
+                      <q-avatar text-color="grey-8" icon="source" />
                       <q-tooltip>
                         <!--Indicate the default library-->
                         <span
@@ -675,6 +675,10 @@ div.sub-setting {
   border-left: solid thin var(--q-primary);
 }
 
+.library-list {
+  margin-left: 0;
+}
+
 .library-path-list-item {
   background: #F2C037;
 }
@@ -686,5 +690,14 @@ div.sub-setting {
   font-size: 12px;
   margin: 2px 6px 2px 0;
   color: #0000008A;
+}
+
+.avatar-size {}
+
+@media (max-width: 600px) {
+  .avatar-size {
+    padding: 0 !important;
+    min-width: 40px;
+  }
 }
 </style>
