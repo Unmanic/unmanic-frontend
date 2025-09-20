@@ -7,17 +7,30 @@
       <!--      <h4 class="q-ma-none">{{ $t('headers.librarySettings') }}</h4>-->
 
       <div class="row">
-        <div class="col-sm-12 col-md-10 col-lg-8">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-8">
           <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
 
             <q-form
               @submit="save"
               class="q-gutter-md"
             >
-
               <!--START LIBRARY PATHS-->
               <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
               <div class="q-gutter-sm">
+                
+                <!-- LIBRARY SEARCH BAR -->
+                <q-input
+                  filled dense
+                  class="shadow-1 library-list"
+                  debounce="300"
+                  color="primary"
+                  v-model="filter"
+                  :placeholder="$t('navigation.search')">
+                  <template v-slot:append>
+                    <q-icon name="search"/>
+                  </template>
+                </q-input>
+                
                 <q-skeleton
                   v-if="libraryPaths === null"
                   type="text"/>
@@ -25,14 +38,14 @@
                 <q-list
                   bordered
                   separator
-                  class="rounded-borders">
+                  class="rounded-borders library-list">
 
                   <q-item
-                    v-for="(path, index) in libraryPaths"
+                    v-for="(path, index) in filteredLibraryPaths"
                     v-bind:key="index"
                     active-class="library-path-list-item">
-                    <q-item-section avatar>
-                      <q-avatar text-color="grey-8" icon="source"/>
+                    <q-item-section avatar class="avatar-size">
+                      <q-avatar text-color="grey-8" icon="source" />
                       <q-tooltip>
                         <!--Indicate the default library-->
                         <span
@@ -83,11 +96,12 @@
                       </q-item-label>
 
                       <!--Library Tags-->
-                      <q-item-label caption lines="1">
-                        <span class="text-weight-bold">
-                          {{ $t('components.settings.common.tags') }}:
-                        </span>
-                        {{ path.tags.join(', ') || '' }}
+                      <q-item-label caption lines="1" class="tags-container">
+                        <q-chip v-for="(tag, index) in path.tags" 
+                          :key="index" dense class="chip">
+                          {{ tag }}
+                        </q-chip>
+                        
                       </q-item-label>
                     </q-item-section>
 
@@ -342,7 +356,7 @@
 
 <script>
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
-import { onMounted, onUnmounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, computed, getCurrentInstance } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
@@ -357,6 +371,22 @@ export default {
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
+
+    const {proxy} = getCurrentInstance(); // To get access to libraryPaths from data
+    const filter = ref("");
+
+    const filteredLibraryPaths = computed(() => {
+      if (!filter.value) return proxy.libraryPaths; // Don't filter when search is empty
+
+      const search = filter.value.toLowerCase();
+      // Return filtered library paths
+      return proxy.libraryPaths?.filter(path => (
+          path.name.toLowerCase().includes(search) ||
+          path.path.toLowerCase().includes(search) ||
+          path.tags.join(",").toLowerCase().includes(search)
+      ));
+    });
+
 
     /**
      * Unmanic WS handle
@@ -383,6 +413,10 @@ export default {
       // Close the websocket
       closeUnmanicWebsocket();
     })
+
+    return {
+      filter, filteredLibraryPaths
+    };
   },
   data() {
     return {
@@ -641,7 +675,29 @@ div.sub-setting {
   border-left: solid thin var(--q-primary);
 }
 
+.library-list {
+  margin-left: 0;
+}
+
 .library-path-list-item {
   background: #F2C037;
+}
+
+.chip {
+  border: 1px solid #00000050;
+  background-color: #00000010;
+  font-weight: 600;
+  font-size: 12px;
+  margin: 2px 6px 2px 0;
+  color: #0000008A;
+}
+
+.avatar-size {}
+
+@media (max-width: 600px) {
+  .avatar-size {
+    padding: 0 !important;
+    min-width: 40px;
+  }
 }
 </style>
