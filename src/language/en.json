@@ -317,6 +317,7 @@
       "before": "Before"
     },
     "plugins": {
+      "pathConfiguration": "Plugins",
       "updateAvailable": "Update available",
       "clickToUpdatePlugin": "Click to update plugin",
       "pluginUpToDate": "Plugin is up-to-date",

@@ -2,10 +2,10 @@
 
 
   <q-card flat>
-    <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+    <q-card-section class="q-pa-none">
       <div class="row q-gutter-xs q-mt-xs justify-between">
         <div class="col-auto">
-          <q-btn-group>
+          <div :class="$q.platform.is.mobile ? 'col' : 'q-btn-group row no-wrap inline'">
             <q-btn
               @click="openPluginInstaller"
               class=""
@@ -14,13 +14,14 @@
               :label="$t('components.plugins.installPluginFromRepo')"/>
 
             <q-btn-dropdown
+              :class="$q.platform.is.mobile ? 'q-my-sm' : ''"
               color="secondary"
               :label="$t('components.plugins.installPluginFromFile')">
               <div>
                 <div class="row no-wrap q-pa-md">
                   <div class="column">
                     <q-uploader
-                      style="max-width: 300px"
+                      :style="$q.platform.is.mobile ?  'max-width: 210px' : 'max-width: 300px'"
                       :url="getUploadUrl()"
                       label="Upload ZIP file..."
                       color="secondary"
@@ -34,7 +35,7 @@
                 </div>
               </div>
             </q-btn-dropdown>
-          </q-btn-group>
+          </div>
         </div>
         <div class="col-auto" style="max-width: 200px">
           <q-input
@@ -52,7 +53,7 @@
       </div>
     </q-card-section>
 
-    <q-card-section :class="$q.platform.is.mobile ? 'q-px-none' : ''">
+    <q-card-section class="q-px-none">
       <div class="q-gutter-sm">
         <q-list
           bordered
