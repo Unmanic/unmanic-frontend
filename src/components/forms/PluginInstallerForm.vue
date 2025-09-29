@@ -1,12 +1,11 @@
 <template>
-
   <div class="row q-col-gutter-none q-ma-none plugin-table-actions-bar">
     <div class="col self-start">
       <div class="row q-col-gutter-xs q-ma-xs">
         <div
           v-if="$q.platform.is.mobile"
           class="col-auto">
-          <PluginInstallerManageRepos/>
+          <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
         </div>
         <div class="col-auto">
           <q-input
@@ -40,7 +39,7 @@
     </div>
     <div class="col self-end">
       <div class="row q-col-gutter-xs q-ma-xs float-right">
-        <div class="col-auto">
+        <div class="col-auto"  v-if="!$q.platform.is.mobile">
           <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
         </div>
       </div>
