@@ -312,6 +312,7 @@
 			"before": "前"
 		},
 		"plugins": {
+			"pathConfiguration": "插件",
 			"updateAvailable": "可用更新",
 			"clickToUpdatePlugin": "点击更新插件",
 			"pluginUpToDate": "插件已经是最新的了",

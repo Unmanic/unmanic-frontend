@@ -312,6 +312,7 @@
 			"before": "Avant"
 		},
 		"plugins": {
+			"pathConfiguration": "Plugins",
 			"updateAvailable": "Mise à jour disponible",
 			"clickToUpdatePlugin": "Cliquez pour mettre à jour le plugin",
 			"pluginUpToDate": "Le plugin est à jour",

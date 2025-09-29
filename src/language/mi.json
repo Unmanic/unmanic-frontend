@@ -312,6 +312,7 @@
 			"before": "I mua"
 		},
 		"plugins": {
+			"pathConfiguration": "Monomai",
 			"updateAvailable": "Kei te waatea te whakahou",
 			"clickToUpdatePlugin": "Pāwhiri ki te whakahou i te mono",
 			"pluginUpToDate": "Kei te hou te monomai",

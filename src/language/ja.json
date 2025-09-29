@@ -312,6 +312,7 @@
 			"before": "前に"
 		},
 		"plugins": {
+			"pathConfiguration": "プラグイン",
 			"updateAvailable": "利用可能なアップデート",
 			"clickToUpdatePlugin": "クリックしてプラグインを更新します",
 			"pluginUpToDate": "プラグインは最新です",

@@ -312,6 +312,7 @@
 			"before": "Zanim"
 		},
 		"plugins": {
+			"pathConfiguration": "Wtyczki",
 			"updateAvailable": "Dostępna aktualizacja",
 			"clickToUpdatePlugin": "Kliknij, aby zaktualizować wtyczkę",
 			"pluginUpToDate": "Wtyczka jest aktualna",

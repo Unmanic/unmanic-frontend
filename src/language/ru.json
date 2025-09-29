@@ -312,6 +312,7 @@
 			"before": "До"
 		},
 		"plugins": {
+			"pathConfiguration": "Плагины",
 			"updateAvailable": "Доступно обновление",
 			"clickToUpdatePlugin": "Нажмите, чтобы обновить плагин",
 			"pluginUpToDate": "Плагин обновлен",
