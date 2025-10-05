@@ -83,11 +83,13 @@
       "pendingTaskHaltedPostProcessorQueueFull": "The Post-processor queue reached its limit",
       "pendingTaskHaltedPostProcessorQueueFullMessage": "Workers will not receive a new pending task until the Post-processor queue drops below the current configured worker count",
       "receivingRemoteFile": "Receiving remote file",
-      "linkedInstallationLimits": "Unmanic has stopped processing tasks as you have linked too many remote installations for a non-supporter tier. Consider sponsoring the project to link more than one remote installation."
+      "linkedInstallationLimits": "Unmanic has stopped processing tasks as you have linked too many remote installations for a non-supporter tier. Consider sponsoring the project to link more than one remote installation.",
+      "forwardLogHandlerError": "Error Forwarding Logs"
     },
     "serverNotificationLabels": {
       "failedTaskLabel": "Task Failure",
-      "pausedWorkersLabel": "Workers Paused"
+      "pausedWorkersLabel": "Workers Paused",
+      "forwardLogHandlerErrorLabel": "Error Forwarding Logs"
     }
   },
   "headers": {
