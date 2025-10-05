@@ -424,6 +424,7 @@ export default {
     return {
       debugging: ref(null),
       retentionOptions: {
+        'Disabled': 0,
         '1 day': 1,
         '3 days': 3,
         '5 days': 5,
@@ -533,9 +534,9 @@ export default {
         return;
       }
 
-      let data = {
+      const data = {
         settings: {
-          log_buffer_retention: value,
+          log_buffer_retention: retention,
         }
       }
       axios({
