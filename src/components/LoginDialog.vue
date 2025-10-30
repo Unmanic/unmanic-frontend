@@ -22,7 +22,7 @@
           <ul>
             <li>
               <strong>GitHub:</strong> Contributing—even a small documentation fix—on our repositories
-              (github.com/Unmanic, github.com/Steam-Headless, or github.com/DeckSetting) bumps your account to a
+              (github.com/Unmanic, github.com/Steam-Headless, or github.com/DeckSettings) bumps your account to a
               supporter tier for a month.
             </li>
             <li>
