@@ -1,11 +1,15 @@
 <template>
-  <q-btn
-    @click="reloadAllReposData()"
-    v-if="$q.platform.is.mobile"
-    class="q-mb-xs"
-    color="secondary"
-    :label="$t('components.plugins.refreshRepositories')"/>
-  <q-btn-group>
+  <component
+    :is="$q.platform.is.mobile ? 'div' : 'q-btn-group'"
+    :class="$q.platform.is.mobile ? 'column q-gutter-xs full-width' : ''"
+  >
+    <q-btn
+      @click="reloadAllReposData()"
+      v-if="$q.platform.is.mobile"
+      class="full-width"
+      color="secondary"
+      :label="$t('components.plugins.refreshRepositories')"/>
+
     <q-btn
       @click="reloadAllReposData()"
       v-if="!$q.platform.is.mobile"
@@ -14,15 +18,15 @@
 
     <q-btn-dropdown
       color="secondary"
-      :label="$t('components.plugins.addRepository')">
+      :label="$t('components.plugins.addRepository')"
+      :class="$q.platform.is.mobile ? 'full-width' : ''">
 
       <div>
         <!--REPO DATA-->
         <div class="row no-wrap q-pa-md">
-          <div class="column">
+          <div class="column" :style="$q.platform.is.mobile ? 'width: 100%' : 'min-width:400px'">
 
             <q-input
-              style="min-width:400px"
               filled
               type="textarea"
               v-model="newRepo"
@@ -42,7 +46,8 @@
     <q-btn-dropdown
       auto-close
       color="secondary"
-      :label="$t('components.plugins.repoList')">
+      :label="$t('components.plugins.repoList')"
+      :class="$q.platform.is.mobile ? 'full-width' : ''">
 
       <div
         v-for="repo in repoList"
@@ -101,7 +106,7 @@
       </div>
 
     </q-btn-dropdown>
-  </q-btn-group>
+  </component>
 </template>
 
 <script>

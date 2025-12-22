@@ -1,48 +1,38 @@
 <template>
-  <div class="row q-col-gutter-none q-ma-none plugin-table-actions-bar">
-    <div class="col self-start">
-      <div class="row q-col-gutter-xs q-ma-xs">
-        <div
-          v-if="$q.platform.is.mobile"
-          class="col-auto">
-          <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
-        </div>
-        <div class="col-auto">
-          <q-input
-            filled
-            class="shadow-1"
-            dense
-            debounce="300"
-            v-model="filter"
-            :placeholder="$t('navigation.search')">
-            <template v-slot:append>
-              <q-icon name="search"/>
-            </template>
-          </q-input>
-        </div>
-        <div class="col-auto">
-          <q-select
-            filled
-            class="shadow-1"
-            @update:model-value="loadInstallablePlugins"
-            dense
-            :label="$t('components.plugins.categoryFilter')"
-            v-model="tagFilter"
-            :options="tags"
-            style="min-width: 300px">
-            <template v-slot:append>
-              <q-icon name="style"/>
-            </template>
-          </q-select>
-        </div>
-      </div>
+  <div class="row q-col-gutter-sm q-pa-sm plugin-table-actions-bar">
+    <div class="col-12 col-sm-auto">
+      <q-input
+        filled
+        class="shadow-1"
+        dense
+        debounce="300"
+        v-model="filter"
+        :placeholder="$t('navigation.search')">
+        <template v-slot:append>
+          <q-icon name="search"/>
+        </template>
+      </q-input>
     </div>
-    <div class="col self-end">
-      <div class="row q-col-gutter-xs q-ma-xs float-right">
-        <div class="col-auto"  v-if="!$q.platform.is.mobile">
-          <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
-        </div>
-      </div>
+    <div class="col-12 col-sm-auto">
+      <q-select
+        filled
+        class="shadow-1"
+        @update:model-value="loadInstallablePlugins"
+        dense
+        :label="$t('components.plugins.categoryFilter')"
+        v-model="tagFilter"
+        :options="tags"
+        :style="$q.platform.is.mobile ? '' : 'min-width: 300px'">
+        <template v-slot:append>
+          <q-icon name="style"/>
+        </template>
+      </q-select>
+    </div>
+
+    <q-space v-if="!$q.platform.is.mobile"/>
+
+    <div class="col-12 col-sm-auto text-right">
+      <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
     </div>
   </div>
 
