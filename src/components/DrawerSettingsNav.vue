@@ -127,49 +127,34 @@
     </div>
   </q-img>
 
+  <PrivacyPolicyDialog ref="privacyPolicyDialogRef"/>
 </template>
 
 <script>
 
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
-import { useQuasar } from "quasar";
-import { useI18n } from "vue-i18n";
-import MarkdownDialog from "components/MarkdownDialog";
-import { markdownToHTML } from "src/js/markupParser";
 import LanguageSwitch from "components/LanguageSwitch";
+import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
 
 export default {
   name: 'DrawerSettingsNav',
-  components: { LanguageSwitch },
+  components: { LanguageSwitch, PrivacyPolicyDialog },
   setup() {
-    const $q = useQuasar();
-    const { t: $t } = useI18n();
     const unmanicSession = ref(null);
     const formAction = ref(null)
     const uuid = ref(null)
     const currentUri = ref(null)
+    const privacyPolicyDialogRef = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
       unmanicSession.value = session;
     })
 
     function showPrivacyPolicyDialog() {
-
-      unmanicGlobals.getUnmanicPrivacyPolicy().then((privacyPolicy) => {
-        console.log(privacyPolicy)
-        let privacyPolicyHtml = markdownToHTML(privacyPolicy);
-        console.log(privacyPolicyHtml)
-        $q.dialog({
-          component: MarkdownDialog,
-          // props forwarded to your custom component
-          componentProps: {
-            dialogHeader: $t('headers.privacyPolicy'),
-            dialogContent: privacyPolicyHtml
-          }
-        }).onDismiss(() => {
-        })
-      })
+      if (privacyPolicyDialogRef.value) {
+        privacyPolicyDialogRef.value.show()
+      }
     }
 
     return {
@@ -178,6 +163,7 @@ export default {
       uuid,
       currentUri,
       showPrivacyPolicyDialog,
+      privacyPolicyDialogRef,
     }
   }
 }
