@@ -178,14 +178,16 @@
                       <div class="text-grey-8 q-gutter-xs">
                         <q-btn
                           size="12px"
-                          flat dense round icon="tune"
+                          outline dense round
+                          color="secondary"
+                          icon="tune"
                           @click="configureRemoteInstallation(index)">
                           <q-tooltip class="bg-white text-primary">
                             {{ $t('tooltips.configure') }}
                           </q-tooltip>
                         </q-btn>
                         <q-btn
-                          flat dense round
+                          outline dense round
                           size="12px"
                           color="negative"
                           icon="delete"
@@ -204,9 +206,10 @@
                 <q-bar class="bg-transparent">
                   <q-space/>
                   <q-btn
+                    outline
+                    dense
                     round
-                    flat
-                    color="primary"
+                    color="secondary"
                     icon="add"
                     @click="newRemoteInstallation = true">
                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
@@ -258,10 +261,13 @@
                     </q-card-section>
 
                     <q-card-actions align="right" class="text-primary">
-                      <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
+                      <q-btn outline color="secondary" :label="$t('navigation.cancel')" v-close-popup/>
                       <q-btn
                         @click="addNewRemoteInstallation"
-                        flat :label="$t('components.settings.link.add')" v-close-popup/>
+                        outline
+                        color="secondary"
+                        :label="$t('components.settings.link.add')"
+                        v-close-popup/>
                     </q-card-actions>
                   </q-card>
                 </q-dialog>
@@ -283,6 +289,13 @@
         </div>
       </div>
 
+      <RemoteInstallLinkDialog
+        ref="remoteInstallDialogRef"
+        :uuid="activeRemoteInstallationUuid"
+        @saved="onRemoteInstallSaved"
+        @hide="onRemoteInstallHide"
+      />
+
       <MobileSettingsQuickNav
         v-bind:prevEnabled="true"
         v-bind:prevLabel="$t('navigation.plugins')"
@@ -298,18 +311,16 @@
 <script>
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted, ref } from "vue";
-import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
-import LinkConfigureDialog from "components/LinkConfigureDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
+import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
   name: 'SettingsLink',
-  components: { MobileSettingsQuickNav },
+  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav },
   setup() {
-    const $q = useQuasar()
     const { t: $t } = useI18n();
 
     /**
@@ -348,6 +359,7 @@ export default {
       newRemoteInstallationAuthenticationOptions: ref(['None', 'Basic']),
       newRemoteInstallationUsername: ref(null),
       newRemoteInstallationPassword: ref(null),
+      activeRemoteInstallationUuid: ref(''),
     }
   },
   methods: {
@@ -574,16 +586,18 @@ export default {
     },
     configureRemoteInstallation: function (index) {
       let installation = this.remoteInstallations[index]
-      this.$q.dialog({
-        component: LinkConfigureDialog,
-        componentProps: {
-          dialogHeader: this.$t('headers.configureRemoteInstallationLink'),
-          uuid: installation.uuid
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-        this.fetchSettings()
+      this.activeRemoteInstallationUuid = installation.uuid
+      this.$nextTick(() => {
+        if (this.$refs.remoteInstallDialogRef) {
+          this.$refs.remoteInstallDialogRef.show()
+        }
       })
+    },
+    onRemoteInstallSaved: function () {
+      this.fetchSettings()
+    },
+    onRemoteInstallHide: function () {
+      this.activeRemoteInstallationUuid = ''
     }
   },
   created() {
