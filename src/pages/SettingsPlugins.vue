@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import PluginsInstalledTable from "components/PluginsInstalledTable";
+import PluginsInstalledTable from "components/settings/plugins/partials/PluginsInstalledTable";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted } from "vue";
 import { useI18n } from "vue-i18n";
