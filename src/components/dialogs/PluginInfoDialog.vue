@@ -363,6 +363,13 @@
     </q-card>
 
   </q-dialog>
+
+  <SelectDirectoryDialog
+    ref="selectDirectoryDialogRef"
+    :initialPath="selectDirectoryInitialPath"
+    :listType="selectDirectoryListType"
+    @selected="onDirectorySelected"
+  />
 </template>
 
 <script>
@@ -375,10 +382,11 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useI18n } from "vue-i18n";
 import { ref } from "vue";
 import { markdownToHTML } from "src/js/markupParser";
-import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
+import SelectDirectoryDialog from "components/dialogs/SelectDirectoryDialog.vue";
 
 export default {
   name: 'LinkConfigureDialog',
+  components: { SelectDirectoryDialog },
   props: {
     pluginId: {
       type: String
@@ -595,20 +603,18 @@ export default {
     },
 
     updateWithDirectoryBrowser: function (input) {
-      this.$q.dialog({
-        component: DirectoryBrowserDialog,
-        // props forwarded to your custom component
-        componentProps: {
-          dialogHeader: this.$t('headers.selectDirectory'),
-          initialPath: input.value,
-          listType: 'directories'
-        },
-      }).onOk((payload) => {
-        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
-          input.value = payload.selectedPath
-        }
-      }).onDismiss(() => {
-      })
+      this.directoryInputTarget = input
+      this.selectDirectoryInitialPath = input.value
+      this.selectDirectoryListType = 'directories'
+      if (this.$refs.selectDirectoryDialogRef) {
+        this.$refs.selectDirectoryDialogRef.show()
+      }
+    },
+
+    onDirectorySelected: function (payload) {
+      if (this.directoryInputTarget && payload && payload.selectedPath) {
+        this.directoryInputTarget.value = payload.selectedPath
+      }
     }
   },
   watch: {
@@ -633,6 +639,9 @@ export default {
       status: ref(null),
       settings: ref([]),
       originalSettings: ref([]),
+      directoryInputTarget: ref(null),
+      selectDirectoryInitialPath: ref(''),
+      selectDirectoryListType: ref('directories'),
     }
   }
 }

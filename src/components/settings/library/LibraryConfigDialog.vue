@@ -328,6 +328,13 @@
         </q-card>
       </div>
     </div>
+
+    <SelectDirectoryDialog
+      ref="selectDirectoryDialogRef"
+      :initialPath="selectDirectoryInitialPath"
+      :listType="selectDirectoryListType"
+      @selected="onDirectorySelected"
+    />
   </UnmanicDialogMenu>
 </template>
 
@@ -339,7 +346,7 @@ import { useI18n } from 'vue-i18n'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
-import DirectoryBrowserDialog from 'components/DirectoryBrowserDialog'
+import SelectDirectoryDialog from 'components/dialogs/SelectDirectoryDialog.vue'
 import PluginSelectorDialog from 'components/PluginSelectorDialog'
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
@@ -373,6 +380,9 @@ const enabledPlugins = ref(null)
 const componentKey = ref(1)
 const showLoading = ref(false)
 const originalSnapshot = ref(null)
+const selectDirectoryDialogRef = ref(null)
+const selectDirectoryInitialPath = ref('')
+const selectDirectoryListType = ref('directories')
 
 const saveAction = computed(() => ({
   label: t('navigation.save'),
@@ -500,18 +510,17 @@ const saveLibraryConfig = async ({ hideOnSuccess = false } = {}) => {
 const save = async () => saveLibraryConfig({ hideOnSuccess: true })
 
 const updateLibraryWithDirectoryBrowser = () => {
-  $q.dialog({
-    component: DirectoryBrowserDialog,
-    componentProps: {
-      dialogHeader: t('headers.selectDirectory'),
-      initialPath: path.value,
-      listType: 'directories'
-    },
-  }).onOk((payload) => {
-    if (payload.selectedPath !== undefined && payload.selectedPath !== null) {
-      path.value = payload.selectedPath
-    }
-  })
+  selectDirectoryInitialPath.value = path.value
+  selectDirectoryListType.value = 'directories'
+  if (selectDirectoryDialogRef.value) {
+    selectDirectoryDialogRef.value.show()
+  }
+}
+
+const onDirectorySelected = (payload) => {
+  if (payload && payload.selectedPath) {
+    path.value = payload.selectedPath
+  }
 }
 
 const selectPluginFromList = () => {

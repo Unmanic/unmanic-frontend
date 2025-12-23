@@ -361,6 +361,13 @@
         @saved="onLibraryConfigSaved"
         @hide="onLibraryConfigDialogHide"
       />
+
+      <SelectDirectoryDialog
+        ref="selectDirectoryDialogRef"
+        :initialPath="selectDirectoryInitialPath"
+        :listType="selectDirectoryListType"
+        @selected="onDirectorySelected"
+      />
     </div>
   </q-page>
 </template>
@@ -370,15 +377,15 @@ import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted, ref, computed, getCurrentInstance } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
-import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog.vue";
+import SelectDirectoryDialog from "components/dialogs/SelectDirectoryDialog.vue";
 
 export default {
   name: 'SettingsLibrary',
-  components: { MobileSettingsQuickNav, LibraryConfigDialog },
+  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
@@ -435,6 +442,9 @@ export default {
       libraryPaths: ref(null),
       newLibraryPath: ref(false),
       libraryConfigLibraryId: ref(0),
+      selectDirectoryInitialPath: ref(''),
+      selectDirectoryListType: ref('directories'),
+      selectDirectoryMode: ref(''),
       enableLibraryScanner: ref(null),
       libraryScanSchedule: ref(null),
       libraryScanFollowSymlinks: ref(null),
@@ -449,52 +459,56 @@ export default {
   },
   methods: {
     addNewLibraryWithDirectoryBrowser: function () {
-      this.$q.dialog({
-        component: DirectoryBrowserDialog,
-        componentProps: {
-          dialogHeader: this.$t('headers.selectDirectory'),
-          initialPath: this.libraryPath,
-          listType: 'directories'
-        },
-      }).onOk((payload) => {
-        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
-          // Name the library as a clone
-          let randomString = (Math.random() + 1).toString(36).substring(7);
-          let newName = '| ' + (this.libraryPaths.length + 1) + ' | ' + this.$t('components.settings.library.newLibrary') + ' (' + randomString + ')';
-          // Save this data
-          let data = {
-            library_config: {
-              name: newName,
-              path: payload.selectedPath,
-            }
-          }
-          axios({
-            method: 'post',
-            url: getUnmanicApiUrl('v2', 'settings/library/write'),
-            data: data
-          }).then((response) => {
-            // Save success, show feedback
-            this.$q.notify({
-              color: 'positive',
-              position: 'top',
-              icon: 'cloud_done',
-              message: this.$t('notifications.saved'),
-              timeout: 200
-            })
-            // Update list
-            this.fetchLibraryList();
-          }).catch(() => {
-            this.$q.notify({
-              color: 'negative',
-              position: 'top',
-              message: this.$t('notifications.failedToSaveSettings'),
-              icon: 'report_problem',
-              actions: [{ icon: 'close', color: 'white' }]
-            })
-          });
+      this.selectDirectoryMode = 'newLibrary'
+      this.selectDirectoryInitialPath = this.libraryPath
+      this.selectDirectoryListType = 'directories'
+      this.$nextTick(() => {
+        if (this.$refs.selectDirectoryDialogRef) {
+          this.$refs.selectDirectoryDialogRef.show()
         }
-      }).onDismiss(() => {
       })
+    },
+    onDirectorySelected: function (payload) {
+      if (!payload || typeof payload.selectedPath === 'undefined' || payload.selectedPath === null) {
+        return
+      }
+      if (this.selectDirectoryMode === 'newLibrary') {
+        // Name the library as a clone
+        let randomString = (Math.random() + 1).toString(36).substring(7);
+        let newName = '| ' + (this.libraryPaths.length + 1) + ' | ' + this.$t('components.settings.library.newLibrary') + ' (' + randomString + ')';
+        // Save this data
+        let data = {
+          library_config: {
+            name: newName,
+            path: payload.selectedPath,
+          }
+        }
+        axios({
+          method: 'post',
+          url: getUnmanicApiUrl('v2', 'settings/library/write'),
+          data: data
+        }).then((response) => {
+          // Save success, show feedback
+          this.$q.notify({
+            color: 'positive',
+            position: 'top',
+            icon: 'cloud_done',
+            message: this.$t('notifications.saved'),
+            timeout: 200
+          })
+          // Update list
+          this.fetchLibraryList();
+        }).catch(() => {
+          this.$q.notify({
+            color: 'negative',
+            position: 'top',
+            message: this.$t('notifications.failedToSaveSettings'),
+            icon: 'report_problem',
+            actions: [{ icon: 'close', color: 'white' }]
+          })
+        });
+      }
+      this.selectDirectoryMode = ''
     },
     deleteLibrary: function (index) {
       // Fetch library ID

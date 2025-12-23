@@ -129,6 +129,7 @@ defineExpose({
 .dialog-card {
   width: var(--dialog-width);
   max-width: 95vw;
+  height: calc(100vh - 48px);
 }
 
 /* Mobile view (XS and SM: < 1024px) */

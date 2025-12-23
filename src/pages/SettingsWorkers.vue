@@ -166,6 +166,13 @@
         @hide="onWorkerGroupHide"
       />
 
+      <SelectDirectoryDialog
+        ref="selectDirectoryDialogRef"
+        :initialPath="selectDirectoryInitialPath"
+        :listType="selectDirectoryListType"
+        @selected="onDirectorySelected"
+      />
+
     </div>
   </q-page>
 </template>
@@ -175,15 +182,15 @@ import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import { onMounted, onUnmounted, ref } from "vue";
 import { useQuasar } from 'quasar'
 import { useI18n } from "vue-i18n";
-import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
+import SelectDirectoryDialog from "components/dialogs/SelectDirectoryDialog.vue";
 
 export default {
   name: 'SettingsWorkers',
-  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog },
+  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
@@ -219,23 +226,24 @@ export default {
       workerGroups: ref(null),
       cachePath: ref(null),
       activeWorkerGroupId: ref(0),
+      selectDirectoryInitialPath: ref(''),
+      selectDirectoryListType: ref('directories'),
     }
   },
   methods: {
     updateCacheWithDirectoryBrowser: function () {
-      this.$q.dialog({
-        component: DirectoryBrowserDialog,
-        componentProps: {
-          dialogHeader: this.$t('headers.selectDirectory'),
-          initialPath: this.cachePath,
-          listType: 'directories'
-        },
-      }).onOk((payload) => {
-        if (typeof payload.selectedPath !== 'undefined' && payload.selectedPath !== null) {
-          this.cachePath = payload.selectedPath
+      this.selectDirectoryInitialPath = this.cachePath
+      this.selectDirectoryListType = 'directories'
+      this.$nextTick(() => {
+        if (this.$refs.selectDirectoryDialogRef) {
+          this.$refs.selectDirectoryDialogRef.show()
         }
-      }).onDismiss(() => {
       })
+    },
+    onDirectorySelected: function (payload) {
+      if (payload && payload.selectedPath) {
+        this.cachePath = payload.selectedPath
+      }
     },
     fetchSettings: function () {
       // Fetch current settings
