@@ -45,35 +45,113 @@ The project follows the standard Quasar directory structure:
 - **`quasar.conf.js`**: The main configuration file for the Quasar framework. It defines boot files, plugins, build settings, and the development server proxy.
 - **`package.json`**: Dependency definitions and script commands.
 
+## Component Standards
+
+### File Structure
+
+- **Ordering**: Components must strictly follow this order:
+  1. `<template>`
+  2. `<script setup>` (or `<script>`)
+  3. `<style scoped>`
+
+### API Style
+
+- **Composition API**: For **all new components** and **major refactors**, use the Vue 3 Composition API with the `<script setup>` syntax.
+
+- **Legacy Support**: Existing components using the Options API can remain as-is for minor edits, but consider refactoring to `<script setup>` if significant changes are required.
+
+### Styling
+
+- **CSS Classes**: Prefer standard CSS classes (including Quasar's utility classes) and `<style scoped>` blocks.
+
+- **Responsiveness**: Use CSS Media Queries (`@media`) within the `<style>` block for responsive logic instead of JavaScript computed properties or inline styles.
+
+- **Dynamic Values**: When component props must affect styling (e.g., a dynamic width), pass them as CSS variables via the `:style` attribute (e.g., `:style="{ '--my-var': props.value }"`) and consume them in CSS (`var(--my-var)`). Avoid direct inline style manipulation for layout logic.
+
+## Composables
+
+### `useMobile`
+
+- **Location**: `src/composables/useMobile.js`
+
+- **Purpose**: Provides a centralized, reactive `isMobile` property.
+
+- **Logic**: Returns `true` if the screen width is less than 1024px (`$q.screen.lt.md`) OR if the platform is detected as a mobile device (`$q.platform.is.mobile`).
+
+- **Usage**:
+
+  ```javascript
+  import { useMobile } from "src/composables/useMobile";
+
+  const { isMobile } = useMobile();
+  ```
+
 ## UI/UX Standards & Best Practices
 
 ### Dialogs
 
 - **Location**: New dialog components must be created in `src/components/dialogs/`.
-- **Styling**:
+- **Standard Wrappers**: **PREFERRED**. Use the pre-built wrappers in `src/components/dialogs/standard/` to ensure consistent behavior across desktop and mobile.
+  - **`UnmanicDialogMenu`**: For side-menus. Slides from right (desktop) or left (mobile). Supports an `action` prop for a header button (e.g., Save).
+  - **`UnmanicDialogPopup`**: For standard modals/forms. Centered (desktop) or left-slide full-width (mobile).
+  - **`UnmanicDialogWindow`**: For large floating windows. Slides from right with buffer (desktop) or left-slide full-width (mobile).
+- **Usage Example**:
+  ```html
+  <UnmanicDialogPopup title="My Dialog" @hide="onHide">
+    <!-- Your Content Here -->
+  </UnmanicDialogPopup>
+  ```
+- **Styling (Manual Implementation)**:
+  - If you cannot use the wrappers:
   - Header background: `bg-card-head` (do not use `bg-primary`).
   - Header text: `text-blue-10`.
   - Close/Back buttons: `color="grey-7"`.
   - Header container: Use class `dialog-sticky-header` with `position: sticky; top: 0; z-index: 100;`.
-- **Responsiveness**:
-  - **Desktop**: Fixed width (e.g., `700px`), standard modal behavior. Transitions: `slide-left`/`slide-right`.
-  - **Mobile**: Fullscreen (`maximized`), `width: 100vw`. Transitions: `jump-right`/`jump-left`. Implement `v-touch-swipe.touch.right="hide"` for swipe-to-dismiss.
+- **Responsiveness (Manual Implementation)**:
+  - **Desktop**: Fixed width (e.g., `700px`), standard modal behavior. Transitions: `slide-left` (show) / `slide-right` (hide).
+  - **Mobile**: Fullscreen (`maximized`), `width: 100vw`. Transitions: `slide-right` (show) / `slide-left` (hide) (Slides in from left). Implement `v-touch-swipe.touch.left="hide"` for swipe-to-dismiss.
 
 ### Mobile Responsiveness
 
 - **Layouts**: Avoid fixed widths (e.g., `min-width: 400px`). Use `full-width` classes and flex columns on mobile.
+- **Breakpoints**: Use **`$q.screen.lt.md`** (approx <1024px) as the standard breakpoint for switching to mobile views (e.g., full-width dialogs).
+- **Visibility Classes**: **STRICT RULE**: Prefer Quasar's visibility classes (e.g., `lt-md`, `gt-sm`, `lt-sm`) to switch between distinct mobile and desktop layouts. Avoid using `$q.platform.is.mobile` for this purpose.
+- **JavaScript Breakpoints**: If JavaScript logic is absolutely required for a layout change (e.g., toggling a component type), use `$q.screen` properties (e.g., `$q.screen.lt.md`) instead of `$q.platform.is.mobile`.
 - **Example**:
   ```html
   <component
-    :is="$q.platform.is.mobile ? 'div' : 'q-btn-group'"
-    :class="$q.platform.is.mobile ? 'column q-gutter-xs full-width' : ''"
-  ></component>
+    :is="$q.screen.lt.md ? 'div' : 'q-btn-group'"
+    :class="$q.screen.lt.md ? 'column q-gutter-xs full-width' : ''"
+  >
+  </component>
   ```
 - **Loading States**: Ensure loading skeletons or cards force `width: 100vw` on mobile to prevent the UI from appearing "narrow" before content loads.
 
 ### Buttons
 
 - **Color**: Use `color="secondary"` for standard action buttons. Avoid `primary` unless specifically required by a major call-to-action that demands emphasis over standard UI elements.
+
+## Quasar Framework Patterns
+
+### Dialog Custom Events
+
+- **Problem**: The Quasar Dialog plugin chain (`.onOk()`, `.onDismiss()`) does **not** support listening to arbitrary component events (e.g., `.on('custom-event')`).
+- **Solution**: Pass event listeners via `componentProps` using the `onEventName` convention.
+  ```javascript
+  this.$q.dialog({
+    component: MyDialog,
+    componentProps: {
+      onCustomEvent: (payload) => this.handleEvent(payload),
+    },
+  });
+  ```
+
+## Coding Best Practices
+
+### Template Verification
+
+- **Strict Rule**: When modifying Vue templates, especially when copy-pasting blocks, **verify tag nesting**. Ensure every opening tag has a matching closing tag and that `v-for`/`v-if` blocks are correctly scoped.
+- **Tools**: Run `npm run build` locally to catch template compilation errors that linter might miss.
 
 ## Localization
 

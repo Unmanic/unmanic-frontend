@@ -34,7 +34,7 @@
               @click="openCommunityDialog"
             />
 
-            <q-separator class="q-mb-md" />
+            <q-separator class="q-mb-md"/>
 
             <q-input
               filled
@@ -97,7 +97,7 @@
               </q-btn>
             </q-item-section>
           </q-item>
-          <q-separator class="q-mt-sm" />
+          <q-separator class="q-mt-sm"/>
         </div>
 
         <!-- Desktop View (gt-sm) -->
@@ -152,6 +152,11 @@
       </div>
 
     </q-btn-dropdown>
+
+    <CommunityRepos
+      ref="communityRepos"
+      @add-repo="saveNewRepo"
+    />
   </component>
 </template>
 
@@ -160,10 +165,10 @@ import { ref } from "vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { openURL, useQuasar } from "quasar";
-import CommunityReposDialog from "components/dialogs/CommunityReposDialog";
+import CommunityRepos from "components/plugins/CommunityRepos";
 
 export default {
-  components: { CommunityReposDialog },
+  components: { CommunityRepos },
   data() {
     return {
       repoList: [],
@@ -349,16 +354,7 @@ export default {
         })
     },
     openCommunityDialog() {
-      this.$q.dialog({
-        component: CommunityReposDialog,
-        componentProps: {
-          onAddRepo: (repoUrl) => this.saveNewRepo(repoUrl)
-        }
-      }).onOk((payload) => {
-        // onOk handler if needed
-      }).onDismiss(() => {
-        // onDismiss handler if needed
-      })
+      this.$refs.communityRepos.show()
     }
   },
   created() {
