@@ -83,9 +83,9 @@ The project follows the standard Quasar directory structure:
 
 - **Location**: `src/composables/useMobile.js`
 
-- **Purpose**: Provides a centralized, reactive `isMobile` property.
+- **Purpose**: Provides a centralized, reactive `isMobile` property for switching to mobile-friendly layouts.
 
-- **Logic**: Returns `true` if the screen width is less than 1024px (`$q.screen.lt.md`) OR if the platform is detected as a mobile device (`$q.platform.is.mobile`).
+- **Logic**: Returns `true` if the screen width is less than 1024px (`$q.screen.lt.md`) OR if the platform is detected as a mobile device (`$q.platform.is.mobile`). Use this to ensure mobile views apply for both small screens and mobile devices.
 
 - **Usage**:
 
@@ -124,8 +124,8 @@ The project follows the standard Quasar directory structure:
 
 - **Layouts**: Avoid fixed widths (e.g., `min-width: 400px`). Use `full-width` classes and flex columns on mobile.
 - **Breakpoints**: Use **`$q.screen.lt.md`** (approx <1024px) as the standard breakpoint for switching to mobile views (e.g., full-width dialogs).
-- **Visibility Classes**: **STRICT RULE**: Prefer Quasar's visibility classes (e.g., `lt-md`, `gt-sm`, `lt-sm`) to switch between distinct mobile and desktop layouts. Avoid using `$q.platform.is.mobile` for this purpose.
-- **JavaScript Breakpoints**: If JavaScript logic is absolutely required for a layout change (e.g., toggling a component type), use `$q.screen` properties (e.g., `$q.screen.lt.md`) instead of `$q.platform.is.mobile`.
+- **Visibility Classes**: **STRICT RULE**: Prefer Quasar's visibility classes (e.g., `lt-md`, `gt-sm`, `lt-sm`) to switch between distinct mobile and desktop layouts. Avoid using `$q.platform.is.mobile` directly in components for this purpose.
+- **JavaScript Breakpoints**: If JavaScript logic is absolutely required for a layout change (e.g., toggling a component type), use `$q.screen` properties (e.g., `$q.screen.lt.md`) or the `useMobile` composable instead of `$q.platform.is.mobile` directly.
 - **Example**:
   ```html
   <component

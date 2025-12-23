@@ -41,7 +41,7 @@
               :icon="action.icon"
               :label="action.label"
               flat dense
-              color="primary"
+              color="secondary"
               @click="triggerAction"
             />
             <!-- Spacer if no action, to center title if needed, or just let it flex -->
@@ -56,7 +56,7 @@
               :icon="action.icon"
               :label="action.label"
               flat dense
-              color="primary"
+              color="secondary"
               class="q-mr-sm"
               @click="triggerAction"
             />
