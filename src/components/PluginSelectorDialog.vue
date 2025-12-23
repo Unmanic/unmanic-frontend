@@ -131,6 +131,11 @@
     </q-card>
 
   </q-dialog>
+
+  <PluginInstallerDialog
+    ref="pluginInstallerDialog"
+    @hide="onPluginInstallerHide"
+  />
 </template>
 
 <script>
@@ -138,10 +143,11 @@
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { ref } from "vue";
-import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
+import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
 
 export default {
   name: 'PluginSelectorDialog',
+  components: { PluginInstallerDialog },
   props: {
     dialogHeader: {
       type: String,
@@ -219,18 +225,13 @@ export default {
     },
 
     openPluginInstaller() {
-      this.$q.dialog({
-        component: ConfigDrawerDialog,
-        componentProps: {
-          header: this.$t('headers.pluginInstaller'),
-          componentName: "PluginInstallerForm",
-          width: "2000px",
-          componentProps: {},
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-        this.fetchPluginsList();
-      })
+      if (this.$refs.pluginInstallerDialog) {
+        this.$refs.pluginInstallerDialog.show();
+      }
+    },
+
+    onPluginInstallerHide() {
+      this.fetchPluginsList();
     },
 
   },

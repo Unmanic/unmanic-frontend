@@ -326,6 +326,9 @@
     "plugins": {
       "pathConfiguration": "Plugins",
       "updateAvailable": "Update available",
+      "installed": "Installed",
+      "name": "Name",
+      "failedToOpenPluginInfo": "An error was encountered while attempting to open plugin info",
       "clickToUpdatePlugin": "Click to update plugin",
       "pluginUpToDate": "Plugin is up-to-date",
       "globalConfiguration": "Global Configuration",

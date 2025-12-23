@@ -233,6 +233,10 @@
         </q-list>
       </div>
     </q-card-section>
+    <PluginInstallerDialog
+      ref="pluginInstallerDialog"
+      @hide="onPluginInstallerHide"
+    />
   </q-card>
 
 </template>
@@ -245,10 +249,10 @@ import axios from "axios";
 import { bbCodeToHTML } from "src/js/markupParser";
 import { useI18n } from "vue-i18n";
 import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
-import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
+import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
 
 export default {
-  components: {},
+  components: { PluginInstallerDialog },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
@@ -266,6 +270,7 @@ export default {
     const listedPlugins = ref([]);
 
     const itemOffset = ref(0)
+    const pluginInstallerDialog = ref(null)
 
     function getSelectedString() {
       let return_value = ''
@@ -514,20 +519,15 @@ export default {
     }
 
     function openPluginInstaller() {
-      $q.dialog({
-        component: ConfigDrawerDialog,
-        componentProps: {
-          header: $t('headers.pluginInstaller'),
-          componentName: "PluginInstallerForm",
-          width: "2000px",
-          componentProps: {},
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-        onRequest({
-          pagination: pagination.value,
-          filter: filter.value
-        })
+      if (pluginInstallerDialog.value) {
+        pluginInstallerDialog.value.show()
+      }
+    }
+
+    function onPluginInstallerHide() {
+      onRequest({
+        pagination: pagination.value,
+        filter: filter.value
       })
     }
 
@@ -608,6 +608,8 @@ export default {
       showPluginSettings,
       closePluginInfo,
       openPluginInstaller,
+      onPluginInstallerHide,
+      pluginInstallerDialog,
       getUploadUrl,
       onRejectedPluginUpload,
       onFailedPluginUploadAndInstall,
