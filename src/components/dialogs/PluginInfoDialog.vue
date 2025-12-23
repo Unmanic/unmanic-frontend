@@ -622,6 +622,7 @@ defineExpose({
   margin-bottom: 5px;
 }
 
+:deep(span.plugin-description h1),
 :deep(span.plugin-description h2),
 :deep(span.plugin-description h3),
 :deep(span.plugin-description h4),
@@ -629,6 +630,34 @@ defineExpose({
 :deep(span.plugin-description h6) {
   margin-top: 10px;
   margin-bottom: 0;
+}
+
+:deep(span.plugin-description h1) {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  letter-spacing: 0.00735em;
+}
+
+:deep(span.plugin-description h2) {
+  font-size: 1.95rem;
+  font-weight: 400;
+  line-height: 2.3rem;
+  letter-spacing: 0.00735em;
+}
+
+:deep(span.plugin-description h3) {
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 2.1rem;
+  letter-spacing: 0.00735em;
+}
+
+:deep(span.plugin-description h4) {
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.8rem;
+  letter-spacing: 0.00735em;
 }
 
 :deep(span.plugin-description ul) {
