@@ -41,7 +41,7 @@
               {{ title }}
             </div>
             <q-btn
-              flat dense round
+              outline dense round
               icon="close"
               color="grey-7"
               @click="hide"
@@ -136,14 +136,14 @@ defineExpose({
 @media (max-width: 1023px) {
   .dialog-card {
     width: 100vw;
-    max-width: 100vw;
+    max-width: 92vw;
     height: 100%;
   }
 }
 
 .mobile-layout {
   width: 100vw !important;
-  max-width: 100vw !important;
+  max-width: 92vw !important;
   height: 100% !important;
 }
 </style>
