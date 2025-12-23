@@ -31,8 +31,10 @@ The project follows the standard Quasar directory structure:
     - **`forms/`**: Input form components.
     - **`settings/`**: Components specific to the Settings pages.
       - **`library/`**: Components specific to the Libraries settings page.
+        - **`partials/`**: Smaller library-specific subcomponents (e.g., lists, panels).
       - **`link/`**: Components specific to the Link settings page.
       - **`plugins/`**: Components specific to the Plugins settings page.
+        - **`partials/`**: Smaller plugin-specific subcomponents (e.g., inline managers).
       - **`workers/`**: Components specific to the Workers settings page.
     - (etc.)
   - **`composables/`**: Vue 3 Composition API composables (e.g., `useMobile`).
@@ -115,12 +117,13 @@ The project follows the standard Quasar directory structure:
 - **Styling (Manual Implementation)**:
   - If you cannot use the wrappers:
   - Header background: `bg-card-head` (do not use `bg-primary`).
-  - Header text: `text-blue-10`.
-  - Close/Back buttons: `color="grey-7"`.
+  - Header text: `text-primary`.
+  - Close/Back buttons: `outline dense round` with `color="grey-7"`.
   - Header container: Use class `dialog-sticky-header` with `position: sticky; top: 0; z-index: 100;`.
 - **Responsiveness (Manual Implementation)**:
   - **Desktop**: Fixed width (e.g., `700px`), standard modal behavior. Transitions: `slide-left` (show) / `slide-right` (hide).
   - **Mobile**: Fullscreen (`maximized`), `width: 100vw`. Transitions: `slide-right` (show) / `slide-left` (hide) (Slides in from left). Implement `v-touch-swipe.touch.left="hide"` for swipe-to-dismiss.
+- **Persistent Dialogs**: Use the `persistent` prop on standard dialogs to disable outside-click and swipe-to-close.
 
 ### Mobile Responsiveness
 

@@ -335,7 +335,7 @@ import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
 import DirectoryBrowserDialog from 'components/DirectoryBrowserDialog'
 import PluginSelectorDialog from 'components/PluginSelectorDialog'
-import LibraryConfigurePluginFlowList from 'components/LibraryConfigurePluginFlowList'
+import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
 import PluginInfoDialog from 'components/dialogs/PluginInfoDialog'
 

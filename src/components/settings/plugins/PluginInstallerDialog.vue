@@ -220,7 +220,7 @@ import { useQuasar } from 'quasar'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
-import PluginInstallerManageRepos from 'components/PluginInstallerManageRepos'
+import PluginInstallerManageRepos from 'components/settings/plugins/partials/PluginInstallerManageRepos'
 import PluginInfoDialog from 'components/dialogs/PluginInfoDialog'
 
 const emit = defineEmits(['hide'])
