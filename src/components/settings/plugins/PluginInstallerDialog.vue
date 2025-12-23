@@ -428,20 +428,23 @@ defineExpose({
 
 <style scoped>
 .plugin-installer-dialog {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 
 .plugin-table-actions-bar {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: #fff;
+  background: var(--q-card-head);
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .q-dark .plugin-table-actions-bar {
-  background: var(--q-dark) !important;
+  background: var(--q-card-head) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -452,6 +455,9 @@ defineExpose({
 .plugin-table-wrapper {
   display: block;
   width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
 }
 
 .plugin-card {

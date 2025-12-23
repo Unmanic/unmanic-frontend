@@ -4,7 +4,11 @@
     :title="label"
     @hide="onDialogHide"
   >
-    <div class="worker-details-body column full-height" :style="{ '--worker-border': workerGroupColour }">
+    <div
+      class="worker-details-body column full-height"
+      :class="{ 'scroll-enabled': isMobile || $q.screen.lt.md }"
+      :style="{ '--worker-border': workerGroupColour }"
+    >
       <div class="row worker-top-row">
         <!--START GAUGES-->
         <q-card-section class="col-12 worker-progress-section">
@@ -88,11 +92,13 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useQuasar } from 'quasar'
+import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
 import WorkerProgressStatusCard from 'components/dashboard/workers/partials/WorkerProgressStatusCard.vue'
 import WorkerProgressLogCard from 'components/dashboard/workers/partials/WorkerProgressLogCard.vue'
 
 const $q = useQuasar()
+const { isMobile } = useMobile()
 
 const props = defineProps({
   id: {
@@ -260,7 +266,17 @@ defineExpose({
 
 <style scoped>
 .worker-details-body {
-  border: solid thin var(--worker-border);
+  border-top: solid thin var(--worker-border);
+  height: 100%;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.worker-details-body.scroll-enabled {
+  overflow: visible;
+  height: auto;
+  display: block;
 }
 
 .worker-top-row {
@@ -321,12 +337,21 @@ defineExpose({
 .worker-log-row {
   flex: 1;
   min-height: 0;
+  overflow: hidden;
+}
+
+.worker-details-body.scroll-enabled .worker-log-row {
+  flex: none;
+  overflow: visible;
+  height: auto;
 }
 
 .worker-log-section {
   display: flex;
   flex: 1;
+  flex-direction: column;
   min-height: 0;
+  height: 100%;
 }
 
 :deep(.worker-log-card) {

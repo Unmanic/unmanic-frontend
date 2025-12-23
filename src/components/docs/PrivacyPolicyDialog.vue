@@ -8,7 +8,7 @@
       <q-inner-loading :showing="isLoading">
         <q-spinner color="secondary" size="32px"/>
       </q-inner-loading>
-      <div class="q-pa-md markdown-dialog-content" v-html="privacyPolicyHtml"></div>
+      <div class="q-pa-md markdown-dialog-content privacy-dialog-body" v-html="privacyPolicyHtml"></div>
     </div>
   </UnmanicDialogWindow>
 </template>
@@ -61,6 +61,15 @@ defineExpose({
 .privacy-dialog-content {
   position: relative;
   min-height: 160px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.privacy-dialog-body {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .markdown-dialog-content :deep(h1) {

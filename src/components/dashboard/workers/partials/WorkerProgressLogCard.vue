@@ -14,7 +14,7 @@
 
     <q-separator/>
 
-    <q-card-section class="q-pa-md">
+    <q-card-section class="q-pa-md worker-log-scroll">
       <div
         v-for="(logLine, index) in workerLog"
         v-bind:key="index">
@@ -37,3 +37,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.worker-log-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.worker-log-scroll {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+</style>
