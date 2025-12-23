@@ -7,6 +7,7 @@
     :transition-hide="isMobile ? 'slide-left' : 'slide-right'"
     full-height
     :persistent="persistent"
+    @shake="onShake"
     @hide="onDialogHide"
   >
     <q-card
@@ -25,26 +26,66 @@
               outline dense round
               icon="arrow_back"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
               <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
                 {{ closeTooltip || $t('tooltips.close') }}
               </q-tooltip>
             </q-btn>
-            <div class="text-h6 text-primary q-px-sm ellipsis col">
+
+            <q-btn
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
+              outline
+              :icon="action.icon"
+              :label="action.label"
+              :color="action.color || 'secondary'"
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index > 0 ? 'q-ml-xs' : 'q-ml-sm']"
+              @click="triggerAction(action)"
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
+            <q-space/>
+
+            <div class="text-h6 text-primary q-px-sm ellipsis">
               {{ title }}
             </div>
+
+            <q-space/>
           </template>
 
           <!-- DESKTOP (md+ AND desktop platform): Title Left, Arrow Close Right -->
           <template v-else>
-            <div class="text-h6 text-primary col ellipsis">
+            <div class="text-h6 text-primary q-mr-auto ellipsis">
               {{ title }}
             </div>
+
+            <q-btn
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
+              outline
+              :icon="action.icon"
+              :label="action.label"
+              :color="action.color || 'secondary'"
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index === 0 ? 'q-mr-sm' : 'q-ml-xs']"
+              @click="triggerAction(action)"
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
             <q-btn
               outline dense round
               icon="arrow_forward"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
               <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
@@ -84,13 +125,19 @@ const props = defineProps({
   persistent: {
     type: Boolean,
     default: false
+  },
+  actions: {
+    type: Array,
+    default: () => []
   }
 })
 
-const emit = defineEmits(['ok', 'hide'])
+const emit = defineEmits(['ok', 'hide', 'action', 'save', 'reset'])
 
 const { isMobile } = useMobile()
 const dialogRef = ref(null)
+const attentionActive = ref(false)
+let attentionTimer = null
 
 const show = () => {
   dialogRef.value.show()
@@ -107,6 +154,27 @@ const onDialogHide = () => {
 const onSwipeLeft = () => {
   if (isMobile.value && !props.persistent) {
     hide()
+  }
+}
+
+const onShake = () => {
+  if (!props.persistent) {
+    return
+  }
+  attentionActive.value = true
+  if (attentionTimer) {
+    clearTimeout(attentionTimer)
+  }
+  attentionTimer = setTimeout(() => {
+    attentionActive.value = false
+    attentionTimer = null
+  }, 2400)
+}
+
+const triggerAction = (action) => {
+  if (action) {
+    const eventName = action.emit || 'action'
+    emit(eventName)
   }
 }
 
@@ -149,5 +217,21 @@ defineExpose({
   max-width: 100vw !important;
   height: 100% !important;
   margin: 0 !important;
+}
+
+.dialog-attention {
+  animation: dialog-attention-flash 0.8s ease-in-out 3;
+}
+
+@keyframes dialog-attention-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(25, 118, 210, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
+  }
 }
 </style>

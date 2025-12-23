@@ -4,7 +4,7 @@
     :title="$t('headers.configureRemoteInstallationLink')"
     :persistent="isDirty"
     :closeTooltip="$t('components.settings.common.closeWithoutSaving')"
-    :action="saveAction"
+    :actions="saveActions"
     @save="save"
     @hide="onDialogHide"
   >
@@ -261,13 +261,21 @@ const enableConfigMissingLibraries = ref(null)
 const enableDistributedWorkerCount = ref(null)
 const distributedWorkerCountTarget = ref(null)
 
-const saveAction = computed(() => ({
-  label: t('navigation.save'),
-  icon: 'save',
-  color: 'positive',
-  tooltip: t('components.settings.link.saveLinkConfig'),
-  emit: 'save'
-}))
+const saveAction = computed(() => {
+  const hasChanges = isDirty.value
+  return {
+    label: t('navigation.save'),
+    icon: 'save',
+    color: hasChanges ? 'positive' : 'grey-6',
+    tooltip: hasChanges
+      ? t('components.settings.link.saveLinkConfig')
+      : t('components.settings.common.noChangesToSave'),
+    emit: 'save',
+    disabled: !hasChanges
+  }
+})
+
+const saveActions = computed(() => [saveAction.value])
 
 const currentSnapshot = computed(() => {
   if (

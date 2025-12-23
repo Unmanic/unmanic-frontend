@@ -153,8 +153,9 @@
         "configuration": "Configuration",
         "updated": "Updated",
         "tags": "Tags",
-        "unsavedChanges": "Unsaved changes",
-        "closeWithoutSaving": "Close without saving"
+        "unsavedChanges": "(Unsaved changes)",
+        "closeWithoutSaving": "Close without saving",
+        "noChangesToSave": "No changes to save"
       },
       "library": {
         "pathConfiguration": "Libraries",
@@ -345,6 +346,7 @@
       "author": "Author",
       "version": "Version",
       "repo": "Repository",
+      "savePluginConfig": "Save plugin config",
       "repoList": "Repository List",
       "refreshRepositories": "Refresh Repositories",
       "addRepository": "Add Repository",

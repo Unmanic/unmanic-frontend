@@ -113,6 +113,8 @@ The project follows the standard Quasar directory structure:
   </UnmanicDialogPopup>
   ```
 - **Header Styling**: Dialog headers in `src/components/dialogs/standard/` should use `text-primary` for title text.
+- **Header Actions**: `UnmanicDialogMenu` and `UnmanicDialogWindow` use an `actions` array prop (objects with `label`, `icon`, `color`, `emit`, `tooltip`, `disabled`). Place actions adjacent to the close arrow.
+- **Close Tooltip**: Use the `closeTooltip` prop when the close action should warn about unsaved changes.
 - **Integration Pattern**: Embed the dialog component in the parent template and open it via a `ref` (no `$q.dialog`). Expose `show()` / `hide()` from the dialog using `defineExpose`, and call `this.$refs.myDialog.show()` (Options API) or `dialogRef.value.show()` (Composition API), mirroring `src/components/PluginInstallerManageRepos.vue` → `src/components/settings/plugins/CommunityRepos.vue`.
 - **Styling (Manual Implementation)**:
   - If you cannot use the wrappers:

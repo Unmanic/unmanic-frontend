@@ -4,7 +4,7 @@
     :title="$t('headers.configureLibrary')"
     :persistent="isDirty"
     :closeTooltip="$t('components.settings.common.closeWithoutSaving')"
-    :action="saveAction"
+    :actions="saveActions"
     @save="save"
     @hide="onDialogHide"
   >
@@ -393,13 +393,21 @@ const selectDirectoryListType = ref('directories')
 const pluginSelectorDialogRef = ref(null)
 const pluginSelectorHidePlugins = ref([])
 
-const saveAction = computed(() => ({
-  label: t('navigation.save'),
-  icon: 'save',
-  color: 'positive',
-  tooltip: t('components.settings.library.saveLibraryConfig'),
-  emit: 'save'
-}))
+const saveAction = computed(() => {
+  const hasChanges = isDirty.value
+  return {
+    label: t('navigation.save'),
+    icon: 'save',
+    color: hasChanges ? 'positive' : 'grey-6',
+    tooltip: hasChanges
+      ? t('components.settings.library.saveLibraryConfig')
+      : t('components.settings.common.noChangesToSave'),
+    emit: 'save',
+    disabled: !hasChanges
+  }
+})
+
+const saveActions = computed(() => [saveAction.value])
 
 const currentSnapshot = computed(() => {
   if (

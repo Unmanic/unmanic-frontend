@@ -35,13 +35,15 @@
             </q-btn>
 
             <q-btn
-              v-if="action"
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
               :icon="action.icon"
               :label="action.label"
-              :color="actionColor"
+              :color="action.color || 'secondary'"
               outline
-              :class="{ 'dialog-attention': attentionActive }"
-              @click="triggerAction"
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index > 0 ? 'q-ml-xs' : '']"
+              @click="triggerAction(action)"
             >
               <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
                 {{ action.tooltip }}
@@ -65,14 +67,15 @@
 
             <!-- Action Button (Desktop) -->
             <q-btn
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
               outline
-              v-if="action"
               :icon="action.icon"
               :label="action.label"
-              :color="actionColor"
-              :class="{ 'dialog-attention': attentionActive }"
-              class="q-mr-sm"
-              @click="triggerAction"
+              :color="action.color || 'secondary'"
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index === 0 ? 'q-mr-sm' : 'q-ml-xs']"
+              @click="triggerAction(action)"
             >
               <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
                 {{ action.tooltip }}
@@ -124,13 +127,13 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  action: {
-    type: Object,
-    default: null
+  actions: {
+    type: Array,
+    default: () => []
   }
 })
 
-const emit = defineEmits(['ok', 'hide', 'action'])
+const emit = defineEmits(['ok', 'hide', 'action', 'save', 'reset'])
 
 const { isMobile } = useMobile()
 const dialogRef = ref(null)
@@ -169,11 +172,9 @@ const onSwipeLeft = () => {
   }
 }
 
-const actionColor = computed(() => props.action?.color || 'secondary')
-
-const triggerAction = () => {
-  if (props.action) {
-    const eventName = props.action.emit || 'action'
+const triggerAction = (action) => {
+  if (action) {
+    const eventName = action.emit || 'action'
     emit(eventName)
   }
 }
