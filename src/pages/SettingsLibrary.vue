@@ -1,5 +1,5 @@
 <template>
-  <q-page padding>
+  <q-page padding class="page-with-mobile-quick-nav">
     <!-- content -->
 
     <div class="q-pa-none">
@@ -711,6 +711,16 @@ div.sub-setting {
   .avatar-size {
     padding: 0 !important;
     min-width: 40px;
+  }
+}
+
+.page-with-mobile-quick-nav {
+  padding-bottom: 24px;
+}
+
+@media (max-width: 1023px) {
+  .page-with-mobile-quick-nav {
+    padding-bottom: 96px;
   }
 }
 </style>

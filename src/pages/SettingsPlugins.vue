@@ -1,18 +1,16 @@
 <template>
-  <q-page padding>
+  <q-page padding class="page-with-mobile-quick-nav">
     <!-- content -->
 
     <div class="q-pa-none">
 
-    <div class="col-12 col-sm-12 col-md-10 col-lg-8">
-      <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-8">
+        <div :class="$q.platform.is.mobile ? 'q-ma-sm' : 'q-ma-sm q-pa-md'">
 
-      <q-form
-        class="q-gutter-md"
-      >
-          <h5 class="q-mb-none">{{ $t('components.plugins.pathConfiguration') }}</h5>
-          <PluginsInstalledTable/>
-        </q-form>
+          <q-form class="q-gutter-md">
+            <h5 class="q-mb-none">{{ $t('components.plugins.pathConfiguration') }}</h5>
+            <PluginsInstalledTable/>
+          </q-form>
         </div>
       </div>
 
@@ -68,3 +66,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.page-with-mobile-quick-nav {
+  padding-bottom: 24px;
+}
+
+@media (max-width: 1023px) {
+  .page-with-mobile-quick-nav {
+    padding-bottom: 96px;
+  }
+}
+</style>

@@ -1,35 +1,29 @@
 <template>
   <!--START QUICK NAV-->
-  <div v-if="$q.platform.is.mobile">
-    <q-separator class="q-my-lg"/>
-    <div class="row">
-      <div class="col-6 text-center">
-        <q-card
+  <div v-if="$q.platform.is.mobile" class="mobile-quick-nav">
+    <q-separator/>
+    <div class="row q-pa-sm">
+      <div class="col-6 q-pr-xs">
+        <q-btn
           v-if="prevEnabled"
-          flat
-          bordered
-          @click="$router.push(prevPath)"
-          class="q-ma-xs">
-          <q-btn
-            icon="navigate_before"
-            flat>
-            {{ prevLabel }}
-          </q-btn>
-        </q-card>
+          outline
+          color="secondary"
+          icon="navigate_before"
+          class="full-width"
+          @click="$router.push(prevPath)">
+          {{ prevLabel }}
+        </q-btn>
       </div>
-      <div class="col-6 text-center">
-        <q-card
+      <div class="col-6 q-pl-xs">
+        <q-btn
           v-if="nextEnabled"
-          flat
-          bordered
-          @click="$router.push(nextPath)"
-          class="q-ma-xs">
-          <q-btn
-            icon-right="navigate_next"
-            flat>
-            {{ nextLabel }}
-          </q-btn>
-        </q-card>
+          outline
+          color="secondary"
+          icon-right="navigate_next"
+          class="full-width"
+          @click="$router.push(nextPath)">
+          {{ nextLabel }}
+        </q-btn>
       </div>
     </div>
   </div>
@@ -64,3 +58,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.mobile-quick-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #fff;
+}
+</style>
