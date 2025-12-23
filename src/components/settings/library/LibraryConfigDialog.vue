@@ -307,8 +307,8 @@
                 <q-space/>
                 <q-btn
                   round
-                  flat
-                  color="primary"
+                  outline
+                  color="secondary"
                   icon="add"
                   @click="selectPluginFromList">
                   <q-tooltip class="bg-white text-primary">{{
@@ -335,6 +335,13 @@
       :listType="selectDirectoryListType"
       @selected="onDirectorySelected"
     />
+
+    <PluginSelectorDialog
+      ref="pluginSelectorDialogRef"
+      :title="$t('headers.selectPlugin')"
+      :hidePlugins="pluginSelectorHidePlugins"
+      @selected="onPluginSelected"
+    />
   </UnmanicDialogMenu>
 </template>
 
@@ -347,7 +354,7 @@ import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
 import SelectDirectoryDialog from 'components/dialogs/SelectDirectoryDialog.vue'
-import PluginSelectorDialog from 'components/PluginSelectorDialog'
+import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDialog.vue'
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
 import PluginInfoDialog from 'components/dialogs/PluginInfoDialog'
@@ -383,6 +390,8 @@ const originalSnapshot = ref(null)
 const selectDirectoryDialogRef = ref(null)
 const selectDirectoryInitialPath = ref('')
 const selectDirectoryListType = ref('directories')
+const pluginSelectorDialogRef = ref(null)
+const pluginSelectorHidePlugins = ref([])
 
 const saveAction = computed(() => ({
   label: t('navigation.save'),
@@ -524,22 +533,21 @@ const onDirectorySelected = (payload) => {
 }
 
 const selectPluginFromList = () => {
-  const hidePlugins = enabledPlugins.value.map(p => p.plugin_id)
-  $q.dialog({
-    component: PluginSelectorDialog,
-    componentProps: {
-      dialogHeader: t('headers.selectPlugin'),
-      hidePlugins: hidePlugins,
-    },
-  }).onOk((payload) => {
-    if (payload.selectedPlugin !== undefined && payload.selectedPlugin !== null) {
-      const list = [...enabledPlugins.value]
-      list.push(payload.selectedPlugin)
-      list.sort((a, b) => a.name.localeCompare(b.name))
-      enabledPlugins.value = list
-      saveLibraryConfig()
-    }
-  })
+  pluginSelectorHidePlugins.value = enabledPlugins.value.map(p => p.plugin_id)
+  if (pluginSelectorDialogRef.value) {
+    pluginSelectorDialogRef.value.show()
+  }
+}
+
+const onPluginSelected = (plugin) => {
+  if (!plugin) {
+    return
+  }
+  const list = [...enabledPlugins.value]
+  list.push(plugin)
+  list.sort((a, b) => a.name.localeCompare(b.name))
+  enabledPlugins.value = list
+  saveLibraryConfig()
 }
 
 const removePluginFromList = (index) => {
