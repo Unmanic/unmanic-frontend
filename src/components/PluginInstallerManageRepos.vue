@@ -25,6 +25,16 @@
         <!--REPO DATA-->
         <div class="row no-wrap q-pa-md">
           <div class="column" :style="$q.platform.is.mobile ? 'width: 100%' : 'min-width:400px'">
+            
+            <q-btn
+              color="secondary"
+              icon="travel_explore"
+              :label="$t('components.plugins.browseCommunityRepos')"
+              class="q-mb-md"
+              @click="openCommunityDialog"
+            />
+            
+            <q-separator class="q-mb-md" />
 
             <q-input
               filled
@@ -114,8 +124,10 @@ import { ref } from "vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { openURL, useQuasar } from "quasar";
+import CommunityReposDialog from "components/dialogs/CommunityReposDialog";
 
 export default {
+  components: { CommunityReposDialog },
   data() {
     return {
       repoList: [],
@@ -199,18 +211,20 @@ export default {
         })
       })
     },
-    saveNewRepo: function () {
-      if (this.newRepo.length > 0) {
+    saveNewRepo: function (repoUrl = null) {
+      const urlToAdd = (typeof repoUrl === 'string') ? repoUrl : this.newRepo;
+
+      if (urlToAdd.length > 0) {
         let updatedReposList = []
 
-        // Check if this.newRepo already exists in repo list
+        // Check if urlToAdd already exists in repo list
         for (let i = 0; i < this.repoList.length; i++) {
           let repoPath = this.repoList[i].path;
-          if (this.newRepo.trim() === repoPath) {
+          if (urlToAdd.trim() === repoPath) {
             this.$q.notify({
               color: 'negative',
               position: 'top',
-              message: this.$t('notifications.repoAlreadyExists') + ' "' + this.newRepo.trim() + '"',
+              message: this.$t('notifications.repoAlreadyExists') + ' "' + urlToAdd.trim() + '"',
               icon: 'report_problem',
               actions: [{ icon: 'close', color: 'white' }]
             })
@@ -222,7 +236,7 @@ export default {
         }
         // Repo does not yet exist...
         // Add new repo to current repo list
-        updatedReposList[updatedReposList.length] = this.newRepo.trim()
+        updatedReposList[updatedReposList.length] = urlToAdd.trim()
 
         // POST that list to the API
         this.updateRepoList(updatedReposList)
@@ -236,8 +250,10 @@ export default {
               actions: [{ icon: 'close', color: 'white' }]
             })
 
-            // Remove value from input field
-            this.newRepo = '';
+            // Remove value from input field if it was used
+            if (!repoUrl) {
+              this.newRepo = '';
+            }
 
             // Reload all repos
             this.reloadAllReposData()
@@ -295,6 +311,18 @@ export default {
             actions: [{ icon: 'close', color: 'white' }]
           })
         })
+    },
+    openCommunityDialog() {
+      this.$q.dialog({
+        component: CommunityReposDialog,
+        componentProps: {
+          onAddRepo: (repoUrl) => this.saveNewRepo(repoUrl)
+        }
+      }).onOk((payload) => {
+        // onOk handler if needed
+      }).onDismiss(() => {
+        // onDismiss handler if needed
+      })
     }
   },
   created() {

@@ -37,7 +37,8 @@
     "failed": "Failed",
     "none": "None",
     "enabled": "Enabled",
-    "disabled": "Disabled"
+    "disabled": "Disabled",
+    "noDescription": "No description provided."
   },
   "notifications": {
     "saved": "Saved.",
@@ -127,9 +128,11 @@
     "position": "Position",
     "etc": "Estimated Time of Completion",
     "add": "Add",
+    "addRepository": "Add Repository",
     "remove": "Remove",
     "removeFromThisLibrary": "Remove from this library",
     "defaultLibrary": "This is the default library. It cannot be deleted.",
+    "viewOnGithub": "View on GitHub",
     "configure": "Configure",
     "configureForThisLibrary": "Configure for this library",
     "delete": "Delete",
@@ -140,13 +143,15 @@
   "buttons": {
     "language": "Language",
     "darkMode": "Dark Mode",
-    "dismissAll": "Dismiss All"
+    "dismissAll": "Dismiss All",
+    "retry": "Retry"
   },
   "components": {
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "common": {
         "configuration": "Configuration",
+        "updated": "Updated",
         "tags": "Tags"
       },
       "library": {
@@ -338,6 +343,11 @@
       "newRepository": "New Repository",
       "repoName": "Name",
       "repoSource": "Repository URL",
+      "communityRepos": "Community Repositories",
+      "browseCommunityRepos": "Browse Community Repos",
+      "noCommunityReposFound": "No community repositories found.",
+      "rateLimitExceeded": "GitHub API rate limit exceeded. Please try again later.",
+      "failedToLoadCommunityRepos": "Failed to load community repositories.",
       "errorSavingFlow": "An error was encountered while saving the Plugin Flow",
       "resetConfiguration": "Reset configuration",
       "invalidZipFile": "File is not a valid ZIP file",
