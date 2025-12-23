@@ -26,7 +26,11 @@
               icon="arrow_back"
               color="grey-7"
               @click="hide"
-            />
+            >
+              <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
+                {{ closeTooltip || $t('tooltips.close') }}
+              </q-tooltip>
+            </q-btn>
             <div class="text-h6 text-primary q-px-sm ellipsis col">
               {{ title }}
             </div>
@@ -43,7 +47,9 @@
               color="grey-7"
               @click="hide"
             >
-              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
+              <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
+                {{ closeTooltip || $t('tooltips.close') }}
+              </q-tooltip>
             </q-btn>
           </template>
 
@@ -70,6 +76,10 @@ const props = defineProps({
   width: {
     type: String,
     default: '95vw'
+  },
+  closeTooltip: {
+    type: String,
+    default: ''
   },
   persistent: {
     type: Boolean,

@@ -2,11 +2,18 @@
   <UnmanicDialogMenu
     ref="dialogRef"
     :title="$t('headers.configureRemoteInstallationLink')"
+    :persistent="isDirty"
+    :closeTooltip="$t('components.settings.common.closeWithoutSaving')"
     :action="saveAction"
     @save="save"
     @hide="onDialogHide"
   >
     <div class="q-pa-md">
+      <div
+        v-if="isDirty"
+        :class="isMobile ? 'unsaved-indicator-mobile' : 'unsaved-indicator'">
+        {{ $t('components.settings.common.unsavedChanges') }}
+      </div>
       <q-card flat>
         <q-card-section>
           <div class="row">
@@ -233,6 +240,7 @@ const { isMobile } = useMobile()
 
 const dialogRef = ref(null)
 const isOpen = ref(false)
+const originalSnapshot = ref(null)
 
 const currentUuid = ref(null)
 const address = ref('')
@@ -256,8 +264,54 @@ const distributedWorkerCountTarget = ref(null)
 const saveAction = computed(() => ({
   label: t('navigation.save'),
   icon: 'save',
+  color: 'positive',
+  tooltip: t('components.settings.link.saveLinkConfig'),
   emit: 'save'
 }))
+
+const currentSnapshot = computed(() => {
+  if (
+    address.value === '' ||
+    authType.value === null ||
+    enableReceivingTasks.value === null ||
+    enableSendingTasks.value === null ||
+    enableTaskPreloading.value === null ||
+    preloadingCount.value === null ||
+    enableChecksumValidation.value === null ||
+    enableConfigMissingLibraries.value === null ||
+    enableDistributedWorkerCount.value === null ||
+    distributedWorkerCountTarget.value === null
+  ) {
+    return null
+  }
+  return JSON.stringify({
+    address: address.value,
+    authType: authType.value,
+    username: username.value,
+    password: password.value,
+    enableReceivingTasks: enableReceivingTasks.value,
+    enableSendingTasks: enableSendingTasks.value,
+    enableTaskPreloading: enableTaskPreloading.value,
+    preloadingCount: preloadingCount.value,
+    enableChecksumValidation: enableChecksumValidation.value,
+    enableConfigMissingLibraries: enableConfigMissingLibraries.value,
+    enableDistributedWorkerCount: enableDistributedWorkerCount.value,
+    distributedWorkerCountTarget: distributedWorkerCountTarget.value
+  })
+})
+
+const isDirty = computed(() => {
+  if (!originalSnapshot.value || !currentSnapshot.value) {
+    return false
+  }
+  return originalSnapshot.value !== currentSnapshot.value
+})
+
+const updateSnapshot = () => {
+  if (currentSnapshot.value) {
+    originalSnapshot.value = currentSnapshot.value
+  }
+}
 
 const resetState = () => {
   currentUuid.value = null
@@ -277,6 +331,7 @@ const resetState = () => {
   enableConfigMissingLibraries.value = null
   enableDistributedWorkerCount.value = null
   distributedWorkerCountTarget.value = null
+  originalSnapshot.value = null
 }
 
 const fetchInstallationLinkConfig = (uuid) => {
@@ -303,6 +358,7 @@ const fetchInstallationLinkConfig = (uuid) => {
     enableConfigMissingLibraries.value = linkConfig.enable_config_missing_libraries
     enableDistributedWorkerCount.value = linkConfig.enable_distributed_worker_count
     distributedWorkerCountTarget.value = response.data.distributed_worker_count_target
+    updateSnapshot()
   })
 }
 
@@ -337,6 +393,7 @@ const saveInstallationLinkConfig = async () => {
       message: t('notifications.saved'),
       timeout: 200
     })
+    updateSnapshot()
     return true
   } catch (error) {
     $q.notify({
@@ -403,5 +460,23 @@ defineExpose({
   padding-top: 8px;
   padding-left: 8px;
   border-left: solid thin var(--q-primary);
+}
+
+.unsaved-indicator {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--q-warning);
+}
+
+.unsaved-indicator-mobile {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--q-warning);
 }
 </style>

@@ -152,7 +152,9 @@
       "common": {
         "configuration": "Configuration",
         "updated": "Updated",
-        "tags": "Tags"
+        "tags": "Tags",
+        "unsavedChanges": "Unsaved changes",
+        "closeWithoutSaving": "Close without saving"
       },
       "library": {
         "pathConfiguration": "Libraries",
@@ -204,6 +206,7 @@
         "path": "Cache path",
         "schedule": "Worker event schedule",
         "newScheduledEvent": "New scheduled event",
+        "saveWorkerConfig": "Save worker config",
         "repetition": "Repetition",
         "task": "Task",
         "addEvent": "Add Event",
@@ -227,6 +230,7 @@
         "thisInstallation": "Local",
         "nameThisInstall": "Name this installation",
         "remoteInstallations": "Remote installations",
+        "saveLinkConfig": "Save link config",
         "name": "Name",
         "version": "Version",
         "addRemoteInstallation": "Add remote installation",

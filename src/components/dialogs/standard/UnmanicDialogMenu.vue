@@ -28,7 +28,11 @@
               color="grey-7"
               :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
-            />
+            >
+              <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
+                {{ closeTooltip || $t('tooltips.close') }}
+              </q-tooltip>
+            </q-btn>
 
             <q-btn
               v-if="action"
@@ -82,7 +86,9 @@
               :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
-              <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
+              <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
+                {{ closeTooltip || $t('tooltips.close') }}
+              </q-tooltip>
             </q-btn>
           </template>
 
@@ -113,6 +119,10 @@ const props = defineProps({
   persistent: {
     type: Boolean,
     default: false
+  },
+  closeTooltip: {
+    type: String,
+    default: ''
   },
   action: {
     type: Object,

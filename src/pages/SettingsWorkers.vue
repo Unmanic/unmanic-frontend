@@ -64,9 +64,11 @@
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
                         <q-btn
-                          flat dense round
+                          outline
+                          dense
+                          round
                           size="12px"
-                          color="grey-8"
+                          color="secondary"
                           icon="tune"
                           @click="configureWorkerGroup(index)">
                           <q-tooltip class="bg-white text-primary">
@@ -74,7 +76,9 @@
                           </q-tooltip>
                         </q-btn>
                         <q-btn
-                          flat dense round
+                          outline
+                          dense
+                          round
                           size="12px"
                           color="negative"
                           icon="delete"
@@ -94,9 +98,10 @@
                 <q-bar class="bg-transparent">
                   <q-space/>
                   <q-btn
+                    outline
+                    dense
                     round
-                    flat
-                    color="primary"
+                    color="secondary"
                     icon="add"
                     @click="configureWorkerGroup('new')">
                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
@@ -154,6 +159,13 @@
         v-bind:nextLabel="$t('navigation.plugins')"
         v-bind:nextPath="'/ui/settings-plugins'"/>
 
+      <WorkerGroupConfigDialog
+        ref="workerGroupDialogRef"
+        :workerGroupId="activeWorkerGroupId"
+        @saved="onWorkerGroupSaved"
+        @hide="onWorkerGroupHide"
+      />
+
     </div>
   </q-page>
 </template>
@@ -166,12 +178,12 @@ import { useI18n } from "vue-i18n";
 import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import WorkerGroupConfigureDialog from "components/WorkerGroupConfigureDialog";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
+import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
 
 export default {
   name: 'SettingsWorkers',
-  components: { MobileSettingsQuickNav },
+  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
@@ -206,6 +218,7 @@ export default {
     return {
       workerGroups: ref(null),
       cachePath: ref(null),
+      activeWorkerGroupId: ref(0),
     }
   },
   methods: {
@@ -348,23 +361,23 @@ export default {
       });
     },
     configureWorkerGroup: function (index) {
-      let workerGroupId;
       if (index === 'new') {
-        workerGroupId = 0;
+        this.activeWorkerGroupId = 0;
       } else {
-        workerGroupId = this.workerGroups[index].id
+        this.activeWorkerGroupId = this.workerGroups[index].id
       }
-      this.$q.dialog({
-        component: WorkerGroupConfigureDialog,
-        componentProps: {
-          dialogHeader: this.$t('headers.configureWorkerGroup'),
-          workerGroupId: workerGroupId
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-        this.fetchSettings();
-        this.fetchWorkerGroupsList();
+      this.$nextTick(() => {
+        if (this.$refs.workerGroupDialogRef) {
+          this.$refs.workerGroupDialogRef.show()
+        }
       })
+    },
+    onWorkerGroupSaved: function () {
+      this.fetchSettings();
+      this.fetchWorkerGroupsList();
+    },
+    onWorkerGroupHide: function () {
+      this.activeWorkerGroupId = 0
     },
   },
   created() {

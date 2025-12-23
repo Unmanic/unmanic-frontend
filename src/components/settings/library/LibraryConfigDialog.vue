@@ -2,12 +2,18 @@
   <UnmanicDialogMenu
     ref="dialogRef"
     :title="$t('headers.configureLibrary')"
-    :persistent="true"
+    :persistent="isDirty"
+    :closeTooltip="$t('components.settings.common.closeWithoutSaving')"
     :action="saveAction"
     @save="save"
     @hide="onDialogHide"
   >
     <div class="q-pa-md">
+      <div
+        v-if="isDirty"
+        :class="isMobile ? 'unsaved-indicator-mobile' : 'unsaved-indicator'">
+        {{ $t('components.settings.common.unsavedChanges') }}
+      </div>
       <div :class="isMobile ? 'q-px-none' : ''">
         <q-card flat>
           <q-card-section :class="isMobile ? 'q-px-none' : ''">
@@ -366,6 +372,7 @@ const tags = ref(null)
 const enabledPlugins = ref(null)
 const componentKey = ref(1)
 const showLoading = ref(false)
+const originalSnapshot = ref(null)
 
 const saveAction = computed(() => ({
   label: t('navigation.save'),
@@ -374,6 +381,50 @@ const saveAction = computed(() => ({
   tooltip: t('components.settings.library.saveLibraryConfig'),
   emit: 'save'
 }))
+
+const currentSnapshot = computed(() => {
+  if (
+    name.value === null ||
+    path.value === null ||
+    enableReceiveRemoteFilesOnly.value === null ||
+    enableScanner.value === null ||
+    enableInotify.value === null ||
+    priorityScore.value === null ||
+    tags.value === null ||
+    enabledPlugins.value === null
+  ) {
+    return null
+  }
+  const pluginSnapshot = enabledPlugins.value.map((plugin) => ({
+    plugin_id: plugin.plugin_id,
+    name: plugin.name,
+    has_config: plugin.has_config
+  }))
+  return JSON.stringify({
+    locked: locked.value,
+    name: name.value,
+    path: path.value,
+    enableReceiveRemoteFilesOnly: enableReceiveRemoteFilesOnly.value,
+    enableScanner: enableScanner.value,
+    enableInotify: enableInotify.value,
+    priorityScore: priorityScore.value,
+    tags: [...tags.value],
+    enabledPlugins: pluginSnapshot
+  })
+})
+
+const isDirty = computed(() => {
+  if (!originalSnapshot.value || !currentSnapshot.value) {
+    return false
+  }
+  return originalSnapshot.value !== currentSnapshot.value
+})
+
+const updateSnapshot = () => {
+  if (currentSnapshot.value) {
+    originalSnapshot.value = currentSnapshot.value
+  }
+}
 
 const fetchLibraryConfig = (libraryId) => {
   const data = { id: libraryId }
@@ -393,6 +444,7 @@ const fetchLibraryConfig = (libraryId) => {
     priorityScore.value = libraryConfig.priority_score
     tags.value = libraryConfig.tags
     enabledPlugins.value = response.data.plugins.enabled_plugins
+    updateSnapshot()
   })
 }
 
@@ -427,6 +479,7 @@ const saveLibraryConfig = async ({ hideOnSuccess = false } = {}) => {
       timeout: 200
     })
     componentKey.value += 1
+    updateSnapshot()
     if (hideOnSuccess) {
       emit('saved')
       hide()
@@ -657,6 +710,7 @@ const resetLibraryConfig = () => {
   priorityScore.value = null
   tags.value = null
   enabledPlugins.value = null
+  originalSnapshot.value = null
 }
 
 watch(() => props.libraryId, (value) => {
@@ -674,4 +728,21 @@ defineExpose({
 </script>
 
 <style scoped>
+.unsaved-indicator {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--q-warning);
+}
+
+.unsaved-indicator-mobile {
+  position: absolute;
+  top: 6px;
+  left: 12px;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--q-warning);
+}
 </style>
