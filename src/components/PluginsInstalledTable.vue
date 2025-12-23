@@ -7,15 +7,17 @@
         <div class="col-auto">
           <div :class="$q.platform.is.mobile ? 'col' : 'q-btn-group row no-wrap inline'">
             <q-btn
+              outline
+              color="secondary"
               @click="openPluginInstaller"
               class=""
-              color="secondary"
               icon-right="add"
               :label="$t('components.plugins.installPluginFromRepo')"/>
 
             <q-btn-dropdown
-              :class="$q.platform.is.mobile ? 'q-my-sm' : ''"
+              outline
               color="secondary"
+              :class="$q.platform.is.mobile ? 'q-my-sm' : ''"
               :label="$t('components.plugins.installPluginFromFile')">
               <div>
                 <div class="row no-wrap q-pa-md">
@@ -39,10 +41,10 @@
         </div>
         <div class="col-auto" style="max-width: 200px">
           <q-input
-            filled dense
+            outlined dense
+            color="secondary"
             class="shadow-1"
             debounce="300"
-            color="primary"
             v-model="filter"
             :placeholder="$t('navigation.search')">
             <template v-slot:append>

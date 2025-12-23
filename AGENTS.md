@@ -110,6 +110,8 @@ The project follows the standard Quasar directory structure:
     <!-- Your Content Here -->
   </UnmanicDialogPopup>
   ```
+- **Header Styling**: Dialog headers in `src/components/dialogs/standard/` should use `text-primary` for title text.
+- **Integration Pattern**: Embed the dialog component in the parent template and open it via a `ref` (no `$q.dialog`). Expose `show()` / `hide()` from the dialog using `defineExpose`, and call `this.$refs.myDialog.show()` (Options API) or `dialogRef.value.show()` (Composition API), mirroring `src/components/PluginInstallerManageRepos.vue` → `src/components/settings/plugins/CommunityRepos.vue`.
 - **Styling (Manual Implementation)**:
   - If you cannot use the wrappers:
   - Header background: `bg-card-head` (do not use `bg-primary`).
@@ -138,7 +140,15 @@ The project follows the standard Quasar directory structure:
 
 ### Buttons
 
-- **Color**: Use `color="secondary"` for standard action buttons. Avoid `primary` unless specifically required by a major call-to-action that demands emphasis over standard UI elements.
+- **Color**: Use `color="secondary"` for standard action buttons.
+- **Small Icon/Toggles**: Use `outline dense round` with `color="secondary"` for small icon-only buttons or toggle-style actions.
+- **Text-Only Actions**: Use `outline` with `color="secondary"` for buttons that only display text (e.g., Submit).
+- **Submit Actions**: Submit buttons at the bottom of a form should be standard (not outline), `color="secondary"`, and full width of the form using the class `full-width`.
+- **Full-Width Actions**: Standalone buttons at the bottom of a form should stretch to full width when possible.
+
+### Search & Filter Inputs
+
+- **Style**: Use `outlined dense` with `color="secondary"` for search and filter inputs.
 
 ## Quasar Framework Patterns
 

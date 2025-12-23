@@ -17,7 +17,7 @@
               <!--START LIBRARY PATHS-->
               <h5 class="q-mb-none">{{ $t('components.settings.library.pathConfiguration') }}</h5>
               <div class="q-gutter-sm">
-                
+
                 <!-- LIBRARY SEARCH BAR -->
                 <q-input
                   filled dense
@@ -30,7 +30,7 @@
                     <q-icon name="search"/>
                   </template>
                 </q-input>
-                
+
                 <q-skeleton
                   v-if="libraryPaths === null"
                   type="text"/>
@@ -45,7 +45,7 @@
                     v-bind:key="index"
                     active-class="library-path-list-item">
                     <q-item-section avatar class="avatar-size">
-                      <q-avatar text-color="grey-8" icon="source" />
+                      <q-avatar text-color="grey-8" icon="source"/>
                       <q-tooltip>
                         <!--Indicate the default library-->
                         <span
@@ -97,11 +97,11 @@
 
                       <!--Library Tags-->
                       <q-item-label caption lines="1" class="tags-container">
-                        <q-chip v-for="(tag, index) in path.tags" 
-                          :key="index" dense class="chip">
+                        <q-chip v-for="(tag, index) in path.tags"
+                                :key="index" dense class="chip">
                           {{ tag }}
                         </q-chip>
-                        
+
                       </q-item-label>
                     </q-item-section>
 
@@ -332,8 +332,13 @@
               </div>
               <!--END COMPLETED TASKS CONFIG-->
 
+              <q-separator class="q-my-lg"/>
+
               <div>
-                <q-btn :label="$t('navigation.submit')" type="submit" color="secondary"/>
+                <q-btn
+                  color="secondary"
+                  class="full-width"
+                  :label="$t('navigation.submit')" type="submit"/>
               </div>
             </q-form>
 
@@ -350,6 +355,12 @@
         v-bind:nextLabel="$t('navigation.workers')"
         v-bind:nextPath="'/ui/settings-workers'"/>
 
+      <LibraryConfigDialog
+        ref="libraryConfigDialog"
+        :libraryId="libraryConfigLibraryId"
+        @saved="onLibraryConfigSaved"
+        @hide="onLibraryConfigDialogHide"
+      />
     </div>
   </q-page>
 </template>
@@ -363,16 +374,16 @@ import DirectoryBrowserDialog from "components/DirectoryBrowserDialog";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
-import ConfigDrawerDialog from "components/dialogs/ConfigDrawerDialog";
+import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog.vue";
 
 export default {
   name: 'SettingsLibrary',
-  components: { MobileSettingsQuickNav },
+  components: { MobileSettingsQuickNav, LibraryConfigDialog },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();
 
-    const {proxy} = getCurrentInstance(); // To get access to libraryPaths from data
+    const { proxy } = getCurrentInstance(); // To get access to libraryPaths from data
     const filter = ref("");
 
     const filteredLibraryPaths = computed(() => {
@@ -381,9 +392,9 @@ export default {
       const search = filter.value.toLowerCase();
       // Return filtered library paths
       return proxy.libraryPaths?.filter(path => (
-          path.name.toLowerCase().includes(search) ||
-          path.path.toLowerCase().includes(search) ||
-          path.tags.join(",").toLowerCase().includes(search)
+        path.name.toLowerCase().includes(search) ||
+        path.path.toLowerCase().includes(search) ||
+        path.tags.join(",").toLowerCase().includes(search)
       ));
     });
 
@@ -423,6 +434,7 @@ export default {
       libraryPath: ref(null),
       libraryPaths: ref(null),
       newLibraryPath: ref(false),
+      libraryConfigLibraryId: ref(0),
       enableLibraryScanner: ref(null),
       libraryScanSchedule: ref(null),
       libraryScanFollowSymlinks: ref(null),
@@ -644,20 +656,20 @@ export default {
     },
     configureLibraryPath: function (index) {
       let library = this.libraryPaths[index]
-      this.$q.dialog({
-        component: ConfigDrawerDialog,
-        componentProps: {
-          header: this.$t('headers.configureLibrary'),
-          componentName: "LibraryConfigForm",
-          componentProps: {
-            libraryId: library.id,
-          },
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-        this.fetchSettings();
-        this.fetchLibraryList();
-      });
+      this.libraryConfigLibraryId = 0
+      this.$nextTick(() => {
+        this.libraryConfigLibraryId = library.id
+        this.$nextTick(() => {
+          this.$refs.libraryConfigDialog.show()
+        })
+      })
+    },
+    onLibraryConfigSaved: function () {
+      this.fetchSettings();
+      this.fetchLibraryList();
+    },
+    onLibraryConfigDialogHide: function () {
+      this.libraryConfigLibraryId = 0
     },
   },
   created() {
@@ -692,7 +704,8 @@ div.sub-setting {
   color: #0000008A;
 }
 
-.avatar-size {}
+.avatar-size {
+}
 
 @media (max-width: 600px) {
   .avatar-size {

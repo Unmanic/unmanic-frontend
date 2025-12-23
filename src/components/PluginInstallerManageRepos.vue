@@ -4,19 +4,22 @@
     :class="$q.platform.is.mobile ? 'column q-gutter-xs full-width' : ''"
   >
     <q-btn
+      outline
+      color="secondary"
       @click="reloadAllReposData()"
       v-if="$q.platform.is.mobile"
       class="full-width"
-      color="secondary"
       :label="$t('components.plugins.refreshRepositories')"/>
 
     <q-btn
+      outline
+      color="secondary"
       @click="reloadAllReposData()"
       v-if="!$q.platform.is.mobile"
-      color="secondary"
       :label="$t('components.plugins.refreshRepositories')"/>
 
     <q-btn-dropdown
+      outline
       color="secondary"
       :label="$t('components.plugins.addRepository')"
       :class="$q.platform.is.mobile ? 'full-width' : ''">
@@ -43,8 +46,8 @@
               :label="$t('components.plugins.newRepository')"/>
 
             <q-btn
-              @click="saveNewRepo()"
               color="secondary"
+              @click="saveNewRepo()"
               :label="$t('navigation.save')"/>
 
 
@@ -55,6 +58,7 @@
 
     <q-btn-dropdown
       auto-close
+      outline
       color="secondary"
       :label="$t('components.plugins.repoList')"
       :class="$q.platform.is.mobile ? 'full-width' : ''"
@@ -88,7 +92,7 @@
               <q-btn
                 color="negative"
                 icon="delete"
-                flat
+                outline
                 round
                 dense
                 @click="removeRepo(repo.path)"
@@ -102,7 +106,7 @@
 
         <!-- Desktop View (gt-sm) -->
         <div class="gt-sm row no-wrap q-pa-md">
-          <div class="column">
+          <div class="column repo-info">
             <div class="text-h6 q-mb-md">{{ $t('headers.information') }}:</div>
 
             <q-list>
@@ -139,10 +143,11 @@
             </q-avatar>
 
             <q-btn
+              outline
+              icon="delete"
               class="q-ma-xs"
               color="negative"
               :label="$t('tooltips.remove')"
-              push
               size="sm"
               @click="removeRepo(repo.path)"
             />
@@ -363,3 +368,10 @@ export default {
   emits: ['repoReloaded']
 }
 </script>
+
+<style scoped>
+.repo-info {
+  flex: 1;
+  min-width: 0;
+}
+</style>

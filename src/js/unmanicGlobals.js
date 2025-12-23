@@ -24,8 +24,8 @@ export const getUnmanicApiUrl = function (api_version, api_endpoint) {
 
 export const setTheme = function (mode) {
   if (mode === 'dark') {
-    setCssVar('primary', '#009fdd');
-    setCssVar('secondary', '#002e5c');
+    setCssVar('primary', '#007eb4');
+    setCssVar('secondary', '#0080b7');
     setCssVar('warning', '#b5902a');
     document.body.style.setProperty('--q-card-head', '#212121');
   } else {

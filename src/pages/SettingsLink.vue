@@ -269,8 +269,13 @@
               </div>
               <!--END REMOTE INSTALLATIONS-->
 
+              <q-separator class="q-my-lg"/>
+
               <div>
-                <q-btn :label="$t('navigation.submit')" type="submit" color="secondary"/>
+                <q-btn
+                  color="secondary"
+                  class="full-width"
+                  :label="$t('navigation.submit')" type="submit"/>
               </div>
             </q-form>
 

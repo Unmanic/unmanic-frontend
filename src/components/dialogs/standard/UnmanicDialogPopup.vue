@@ -5,6 +5,7 @@
     :maximized="isMobile"
     :transition-show="isMobile ? 'slide-right' : 'scale'"
     :transition-hide="isMobile ? 'slide-left' : 'scale'"
+    :persistent="persistent"
     @hide="onDialogHide"
   >
     <q-card
@@ -20,19 +21,19 @@
           <!-- MOBILE/TABLET (lt-md OR mobile platform): Back/Close Left -->
           <template v-if="isMobile">
             <q-btn
-              flat dense round
+              outline dense round
               icon="arrow_back"
               color="grey-7"
               @click="hide"
             />
-            <div class="text-h6 text-blue-10 q-px-sm ellipsis col">
+            <div class="text-h6 text-primary q-px-sm ellipsis col">
               {{ title }}
             </div>
           </template>
 
           <!-- DESKTOP (md+ AND desktop platform): Title Left, Close Right -->
           <template v-else>
-            <div class="text-h6 text-blue-10 col ellipsis">
+            <div class="text-h6 text-primary col ellipsis">
               {{ title }}
             </div>
             <q-btn
@@ -68,6 +69,10 @@ const props = defineProps({
   width: {
     type: String,
     default: '700px'
+  },
+  persistent: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -89,7 +94,7 @@ const onDialogHide = () => {
 }
 
 const onSwipeLeft = () => {
-  if (isMobile.value) {
+  if (isMobile.value && !props.persistent) {
     hide()
   }
 }

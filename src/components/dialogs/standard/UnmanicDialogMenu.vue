@@ -6,6 +6,8 @@
     :transition-show="isMobile ? 'slide-right' : 'slide-left'"
     :transition-hide="isMobile ? 'slide-left' : 'slide-right'"
     full-height
+    :persistent="persistent"
+    @shake="onShake"
     @hide="onDialogHide"
   >
     <q-card
@@ -21,54 +23,63 @@
           <!-- MOBILE HEADER (lt-md OR mobile platform): Left Close Button -->
           <template v-if="isMobile">
             <q-btn
-              flat dense round
+              outline dense round
               icon="arrow_back"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             />
 
-            <q-space/>
-
-            <div class="text-h6 text-blue-10 q-px-sm ellipsis">
-              {{ title }}
-            </div>
-
-            <q-space/>
-
-            <!-- Action Button (Mobile) -->
             <q-btn
               v-if="action"
               :icon="action.icon"
               :label="action.label"
-              flat dense
-              color="secondary"
+              :color="actionColor"
+              outline
+              :class="{ 'dialog-attention': attentionActive }"
               @click="triggerAction"
-            />
-            <!-- Spacer if no action, to center title if needed, or just let it flex -->
-            <div v-else style="width: 28px;"></div>
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
+            <q-space/>
+
+            <div class="text-h6 text-primary q-px-sm ellipsis">
+              {{ title }}
+            </div>
+
+            <q-space/>
           </template>
 
           <!-- DESKTOP HEADER (md+ AND desktop platform): Right Close Button -->
           <template v-else>
-            <!-- Action Button (Desktop) -->
-            <q-btn
-              v-if="action"
-              :icon="action.icon"
-              :label="action.label"
-              flat dense
-              color="secondary"
-              class="q-mr-sm"
-              @click="triggerAction"
-            />
-
-            <div class="text-h6 text-blue-10 q-mr-auto ellipsis">
+            <div class="text-h6 text-primary q-mr-auto ellipsis">
               {{ title }}
             </div>
 
+            <!-- Action Button (Desktop) -->
             <q-btn
-              flat dense round
+              outline
+              v-if="action"
+              :icon="action.icon"
+              :label="action.label"
+              :color="actionColor"
+              :class="{ 'dialog-attention': attentionActive }"
+              class="q-mr-sm"
+              @click="triggerAction"
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
+            <q-btn
+              outline dense round
               icon="arrow_forward"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
               <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
@@ -97,7 +108,11 @@ const props = defineProps({
   },
   width: {
     type: String,
-    default: '900px'
+    default: '1000px'
+  },
+  persistent: {
+    type: Boolean,
+    default: false
   },
   action: {
     type: Object,
@@ -109,6 +124,8 @@ const emit = defineEmits(['ok', 'hide', 'action'])
 
 const { isMobile } = useMobile()
 const dialogRef = ref(null)
+const attentionActive = ref(false)
+let attentionTimer = null
 
 const show = () => {
   dialogRef.value.show()
@@ -122,11 +139,27 @@ const onDialogHide = () => {
   emit('hide')
 }
 
+const onShake = () => {
+  if (!props.persistent) {
+    return
+  }
+  attentionActive.value = true
+  if (attentionTimer) {
+    clearTimeout(attentionTimer)
+  }
+  attentionTimer = setTimeout(() => {
+    attentionActive.value = false
+    attentionTimer = null
+  }, 2400)
+}
+
 const onSwipeLeft = () => {
-  if (isMobile.value) {
+  if (isMobile.value && !props.persistent) {
     hide()
   }
 }
+
+const actionColor = computed(() => props.action?.color || 'secondary')
 
 const triggerAction = () => {
   if (props.action) {
@@ -157,14 +190,6 @@ defineExpose({
   max-width: 100vw;
 }
 
-/* Intermediate size for Medium screens (1024px - 1439px) */
-/* Only apply if NOT in forced mobile layout */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .dialog-card:not(.mobile-layout) {
-    width: 750px;
-  }
-}
-
 /* Mobile view (XS and SM: < 1024px) OR forced mobile layout */
 @media (max-width: 1023px) {
   .dialog-card {
@@ -174,5 +199,21 @@ defineExpose({
 
 .mobile-layout {
   width: 100vw !important;
+}
+
+.dialog-attention {
+  animation: dialog-attention-flash 0.8s ease-in-out 3;
+}
+
+@keyframes dialog-attention-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(25, 118, 210, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
+  }
 }
 </style>

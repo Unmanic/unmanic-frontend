@@ -10,9 +10,9 @@
         <div class="row q-col-gutter-sm items-center">
           <div class="col-12 col-md-auto">
             <q-input
-              filled
+              outlined dense
+              color="secondary"
               class="shadow-1"
-              dense
               debounce="300"
               v-model="filter"
               :placeholder="t('navigation.search')"
@@ -24,10 +24,10 @@
           </div>
           <div class="col-12 col-md-auto">
             <q-select
-              filled
+              outlined dense
+              color="secondary"
               class="shadow-1"
               @update:model-value="loadInstallablePlugins"
-              dense
               :label="t('components.plugins.categoryFilter')"
               v-model="tagFilter"
               :options="tags"

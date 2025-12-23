@@ -184,6 +184,7 @@
         "cloneLibrary": "Clone library",
         "exportLibraryConfig": "Export config",
         "importLibraryConfig": "Import config",
+        "saveLibraryConfig": "Save library config",
         "importPluginConfigMessage": "Importing library configuration. This may take some time if there are any plugins that require installation.",
         "addPluginToThisLibrary": "Add plugin to this library",
         "locked": "The library cannot be deleted",
