@@ -178,8 +178,8 @@
                       <div class="text-grey-8 q-gutter-xs">
                         <q-btn
                           size="12px"
-                          outline dense round
-                          color="secondary"
+                          flat dense round
+                          color="grey-8"
                           icon="tune"
                           @click="configureRemoteInstallation(index)">
                           <q-tooltip class="bg-white text-primary">
@@ -187,7 +187,7 @@
                           </q-tooltip>
                         </q-btn>
                         <q-btn
-                          outline dense round
+                          flat dense round
                           size="12px"
                           color="negative"
                           icon="delete"

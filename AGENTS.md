@@ -146,7 +146,13 @@ The project follows the standard Quasar directory structure:
 ### Buttons
 
 - **Color**: Use `color="secondary"` for standard action buttons.
-- **Small Icon/Toggles**: Use `outline dense round` with `color="secondary"` for small icon-only buttons or toggle-style actions.
+- **Small Icon/Toggles**: Use `flat dense round` for small icon-only buttons or toggle-style actions, defaulting to `color="secondary"`.
+- **Dropdown Buttons**: `q-btn-dropdown` uses `rounded` (not `round`) when following small icon button styling.
+- **List Icon Actions**: For inline list actions (like plugin/library rows), use `flat dense round` and match color/icon to function:
+  - **Info**: `icon="info"`, `color="info"`.
+  - **Settings/Config**: `icon="tune"`, `color="grey-8"`.
+  - **Delete**: `icon="delete"`, `color="negative"`; if disabled, use `color="grey-6"`.
+- **List Add Actions**: For list add buttons (e.g., “Add” in list headers/bars), use `outline dense round` with `color="secondary"`.
 - **Text-Only Actions**: Use `outline` with `color="secondary"` for buttons that only display text (e.g., Submit).
 - **Submit Actions**: Submit buttons at the bottom of a form should be standard (not outline), `color="secondary"`, and full width of the form using the class `full-width`.
 - **Full-Width Actions**: Standalone buttons at the bottom of a form should stretch to full width when possible.

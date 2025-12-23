@@ -93,39 +93,41 @@
                 <q-skeleton
                   v-if="debugging === null"
                   type="QToggle"/>
-                <div class="q-pa-md" style="max-width: 350px">
+                <div class="q-pa-md" style="max-width: 550px">
                   <q-list
                     dense
                     padding
                     class="rounded-borders">
 
-                    <q-item
-                      @click="openExternalURL('/unmanic/swagger')"
-                      clickable v-ripple>
-                      <q-item-section avatar>
-                        <q-icon color="primary" name="article"/>
-                      </q-item-section>
+                    <q-item>
                       <q-item-section>
-                        <q-item-label>{{ $t('components.settings.support.apiSpec') }}</q-item-label>
-                        <q-item-label caption></q-item-label>
-                      </q-item-section>
-                      <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary"/>
+                        <q-btn
+                          outline
+                          color="secondary"
+                          class="full-width support-link-button"
+                          @click="openExternalURL('/unmanic/swagger')">
+                          <div class="row items-center full-width no-wrap">
+                            <q-icon color="primary" name="article" class="q-mr-sm"/>
+                            <div class="col">{{ $t('components.settings.support.apiSpec') }}</div>
+                            <q-icon name="open_in_new" color="secondary"/>
+                          </div>
+                        </q-btn>
                       </q-item-section>
                     </q-item>
 
-                    <q-item
-                      @click="openExternalURL('https://docs.unmanic.app/docs/')"
-                      clickable v-ripple>
-                      <q-item-section avatar>
-                        <q-icon color="primary" name="article"/>
-                      </q-item-section>
+                    <q-item>
                       <q-item-section>
-                        <q-item-label>{{ $t('components.settings.support.applicationDocumentation') }}</q-item-label>
-                        <q-item-label caption></q-item-label>
-                      </q-item-section>
-                      <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary"/>
+                        <q-btn
+                          outline
+                          color="secondary"
+                          class="full-width support-link-button"
+                          @click="openExternalURL('https://docs.unmanic.app/docs/')">
+                          <div class="row items-center full-width no-wrap">
+                            <q-icon color="primary" name="article" class="q-mr-sm"/>
+                            <div class="col">{{ $t('components.settings.support.applicationDocumentation') }}</div>
+                            <q-icon name="open_in_new" color="secondary"/>
+                          </div>
+                        </q-btn>
                       </q-item-section>
                     </q-item>
 
@@ -140,60 +142,55 @@
                 <q-skeleton
                   v-if="debugging === null"
                   type="QToggle"/>
-                <div class="q-pa-md" style="max-width: 350px">
+                <div class="q-pa-md" style="max-width: 550px">
                   <q-list
                     dense
                     padding
                     class="rounded-borders">
 
-                    <q-item
-                      @click="openExternalURL('https://github.com/Unmanic/unmanic/issues')"
-                      clickable v-ripple>
-                      <q-item-section avatar>
-                        <q-icon color="primary" name="fab fa-github"/>
-                      </q-item-section>
+                    <q-item>
                       <q-item-section>
-                        <q-item-label>
-                          {{ $t('components.settings.support.unmanicAppSourceRequests') }}
-                        </q-item-label>
-                        <q-item-label caption></q-item-label>
-                      </q-item-section>
-                      <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary"/>
+                        <q-btn
+                          outline
+                          color="secondary"
+                          class="full-width support-link-button"
+                          @click="openExternalURL('https://github.com/Unmanic/unmanic/issues')">
+                          <div class="row items-center full-width no-wrap">
+                            <q-icon color="primary" name="fab fa-github" class="q-mr-sm"/>
+                            <div class="col">{{ $t('components.settings.support.unmanicAppSourceRequests') }}</div>
+                            <q-icon name="open_in_new" color="secondary"/>
+                          </div>
+                        </q-btn>
                       </q-item-section>
                     </q-item>
-                    <q-item
-                      @click="openExternalURL('https://github.com/Unmanic/unmanic-frontend/issues')"
-                      clickable v-ripple>
-                      <q-item-section avatar>
-                        <q-icon color="primary" name="fab fa-github"/>
-                      </q-item-section>
+                    <q-item>
                       <q-item-section>
-                        <q-item-label>{{
-                            $t('components.settings.support.unmanicFrontendSourceRequests')
-                          }}
-                        </q-item-label>
-                        <q-item-label caption></q-item-label>
-                      </q-item-section>
-                      <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary"/>
+                        <q-btn
+                          outline
+                          color="secondary"
+                          class="full-width support-link-button"
+                          @click="openExternalURL('https://github.com/Unmanic/unmanic-frontend/issues')">
+                          <div class="row items-center full-width no-wrap">
+                            <q-icon color="primary" name="fab fa-github" class="q-mr-sm"/>
+                            <div class="col">{{ $t('components.settings.support.unmanicFrontendSourceRequests') }}</div>
+                            <q-icon name="open_in_new" color="secondary"/>
+                          </div>
+                        </q-btn>
                       </q-item-section>
                     </q-item>
-                    <q-item
-                      @click="openExternalURL('https://github.com/Unmanic/unmanic-plugins/issues')"
-                      clickable v-ripple>
-                      <q-item-section avatar>
-                        <q-icon color="primary" name="fab fa-github"/>
-                      </q-item-section>
+                    <q-item>
                       <q-item-section>
-                        <q-item-label>{{
-                            $t('components.settings.support.unmanicOfficialPluginRequests')
-                          }}
-                        </q-item-label>
-                        <q-item-label caption></q-item-label>
-                      </q-item-section>
-                      <q-item-section side top>
-                        <q-icon name="open_in_new" color="primary"/>
+                        <q-btn
+                          outline
+                          color="secondary"
+                          class="full-width support-link-button"
+                          @click="openExternalURL('https://github.com/Unmanic/unmanic-plugins/issues')">
+                          <div class="row items-center full-width no-wrap">
+                            <q-icon color="primary" name="fab fa-github" class="q-mr-sm"/>
+                            <div class="col">{{ $t('components.settings.support.unmanicOfficialPluginRequests') }}</div>
+                            <q-icon name="open_in_new" color="secondary"/>
+                          </div>
+                        </q-btn>
                       </q-item-section>
                     </q-item>
 
@@ -212,7 +209,7 @@
             <div class="column">
               <!--START DEBUGGING ENABLE-->
               <div class="row q-gutter-sm items-stretch">
-                <div class="col-5">
+                <div class="col-12">
                   <q-skeleton
                     v-if="debugging === null"
                     type="QToggle"/>
@@ -225,9 +222,10 @@
                 <!--END DEBUGGING ENABLE-->
 
                 <!--START BUFFER RETENTION-->
-                <div class="col-5">
+                <div class="col-12">
                   <q-btn-dropdown
-                    color="primary"
+                    outline
+                    color="secondary"
                     :label="$t('components.settings.support.confLogBufferRetentionLabel')"
                   >
                     <q-list>
@@ -273,9 +271,12 @@
                   <div class="text-subtitle2">{{ logsPath }}</div>
                 </div>
 
-                <div class="col-auto">
+                <q-space class="gt-xs"/>
+
+                <div class="col-12 col-sm-auto q-mt-sm q-mt-sm-none">
                   <q-btn
                     @click="downloadLogs"
+                    outline
                     color="secondary"
                     icon-right="file_download"
                     :label="$t('components.settings.support.downloadSystemLogs')"/>
@@ -599,5 +600,17 @@ export default {
 .system-log-content p {
   margin: 0 0;
   white-space: pre-wrap;
+}
+
+.support-link-button {
+  text-align: left;
+}
+
+.support-link-button .q-btn__content {
+  min-height: 56px;
+}
+
+.support-link-button + .support-link-button {
+  margin-top: 8px;
 }
 </style>

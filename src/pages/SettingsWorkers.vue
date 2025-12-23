@@ -64,11 +64,11 @@
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
                         <q-btn
-                          outline
+                          flat
                           dense
                           round
                           size="12px"
-                          color="secondary"
+                          color="grey-8"
                           icon="tune"
                           @click="configureWorkerGroup(index)">
                           <q-tooltip class="bg-white text-primary">
@@ -76,11 +76,11 @@
                           </q-tooltip>
                         </q-btn>
                         <q-btn
-                          outline
+                          flat
                           dense
                           round
                           size="12px"
-                          color="negative"
+                          :color="workerGroup.locked ? 'grey-6' : 'negative'"
                           icon="delete"
                           :disable="workerGroup.locked"
                           @click="deleteWorkerGroup(index)">

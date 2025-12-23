@@ -148,6 +148,7 @@
                   flat dense rounded
                   class="lt-sm"
                   size="12px"
+                  color="secondary"
                   no-icon-animation
                   dropdown-icon="more_vert">
                   <q-list>
@@ -197,7 +198,7 @@
                   flat dense round
                   class="gt-xs"
                   size="12px"
-                  color="secondary"
+                  color="info"
                   icon="info"
                   @click="openPluginInfo(plugin.id)">
                   <q-tooltip class="bg-white text-primary">{{ $t('headers.pluginInfo') }}</q-tooltip>

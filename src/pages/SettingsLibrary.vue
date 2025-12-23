@@ -151,7 +151,7 @@
                         <q-btn
                           flat dense round
                           size="12px"
-                          color="negative"
+                          :color="path.locked ? 'grey-6' : 'negative'"
                           icon="delete"
                           :disable="path.locked"
                           @click="deleteLibrary(index)">
@@ -170,8 +170,8 @@
                   <q-space/>
                   <q-btn
                     round
-                    flat
-                    color="primary"
+                    outline
+                    color="secondary"
                     icon="add"
                     @click="addNewLibraryWithDirectoryBrowser">
                     <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
