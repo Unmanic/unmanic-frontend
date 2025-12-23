@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card class="worker-log-card">
     <q-card-section class="bg-card-head q-pa-sm">
 
       <div class="row items-center no-wrap">

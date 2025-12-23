@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import WorkerProgress from 'components/WorkerProgress.vue'
+import WorkerProgress from 'components/dashboard/workers/WorkerProgress.vue'
 import PendingTasks from 'components/PendingTasks.vue'
 import CompletedTasks from "components/CompletedTasks";
 import dateTools from "src/js/dateTools";
@@ -204,7 +204,15 @@ export default {
           idle: worker.idle,
           paused: worker.paused,
           workerGroupColour: workerGroupColour,
+          currentFile: '',
+          currentTask: null,
+          runnersInfo: {},
+          subprocess: {},
         }
+        workerData['worker-' + worker.id].currentFile = worker.current_file || '';
+        workerData['worker-' + worker.id].currentTask = worker.current_task ?? null;
+        workerData['worker-' + worker.id].runnersInfo = worker.runners_info || {};
+        workerData['worker-' + worker.id].subprocess = worker.subprocess || {};
 
         // If the worker is paused, the setup initially paused style.
         // NOTE: It is possible to have a worker that is 'paused' but not 'idle'.
@@ -246,21 +254,31 @@ export default {
           // Set the worker log file
           workerData['worker-' + worker.id].workerLog = worker.worker_log_tail;
 
+          const percentValue = Number(worker.subprocess?.percent);
+          const elapsedValue = Number(worker.subprocess?.elapsed);
+          const hasPercent = Number.isFinite(percentValue) && worker.subprocess?.percent !== '';
+          const hasElapsed = Number.isFinite(elapsedValue) && elapsedValue >= 0;
+          const canEstimate = hasPercent && percentValue > 0 && hasElapsed;
+
           // Set progress if progress is given
-          if (typeof worker.subprocess.percent !== 'undefined' && worker.subprocess.percent !== '') {
-
+          if (hasPercent) {
             // Set the progress graph
-            workerData['worker-' + worker.id].progress = Number(worker.subprocess.percent);
+            workerData['worker-' + worker.id].progress = percentValue;
             workerData['worker-' + worker.id].progressText = worker.subprocess.percent + '%';
-
-            // Set the elapsed and ETC
-            workerData['worker-' + worker.id].elapsed = dateTools.printSecondsAsDuration(worker.subprocess.elapsed);
-            const etcDuration = calculateEtc(worker.subprocess.percent, worker.subprocess.elapsed)
-            workerData['worker-' + worker.id].etc = dateTools.printSecondsAsDuration(etcDuration);
           } else {
             // Set progress as 'indeterminate' if no progress is given
             workerData['worker-' + worker.id].indeterminate = true;
             workerData['worker-' + worker.id].progressText = '...';
+          }
+
+          // Set the elapsed and ETC only when values are valid
+          if (canEstimate) {
+            workerData['worker-' + worker.id].elapsed = dateTools.printSecondsAsDuration(elapsedValue);
+            const etcDuration = calculateEtc(percentValue, elapsedValue);
+            workerData['worker-' + worker.id].etc = dateTools.printSecondsAsDuration(etcDuration);
+          } else {
+            workerData['worker-' + worker.id].elapsed = '';
+            workerData['worker-' + worker.id].etc = '...';
           }
 
           // If the worker is paused mid task, then flick it over to paused statue formatting

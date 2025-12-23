@@ -304,6 +304,8 @@
       "elapsedProcessingTimeLabel": "Elapsed Processing Time",
       "estimatedCompletionTimeLabel": "Estimated Time of Completion",
       "currentCommandLabel": "Current Command",
+      "cpuUsage": "CPU Usage",
+      "memoryUsage": "Memory Usage",
       "state": {
         "waiting": "Waiting for another task...",
         "processing": "Processing task...",

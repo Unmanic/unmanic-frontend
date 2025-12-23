@@ -10,7 +10,12 @@
         </div>
 
         <div class="col-auto">
-          <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
+          <q-btn-dropdown
+            class="q-ml-sm"
+            outline
+            color="secondary"
+            :label="$t('navigation.options')"
+          >
             <q-list>
 
               <q-item
@@ -302,7 +307,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.monospace { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-.wrap-anywhere { overflow-wrap: anywhere; }
-</style>
+.monospace {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
+.wrap-anywhere {
+  overflow-wrap: anywhere;
+}
+</style>
