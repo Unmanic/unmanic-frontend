@@ -8,11 +8,17 @@
     <div class="plugin-installer-dialog">
       <div class="plugin-table-actions-bar q-pa-sm">
         <div class="row q-col-gutter-sm items-center">
+          <div class="col-12 col-md-auto text-right">
+            <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
+          </div>
+
+          <q-space v-if="$q.screen.gt.sm"/>
+
           <div class="col-12 col-md-auto">
             <q-input
               outlined dense
               color="secondary"
-              class="shadow-1"
+              class="shadow-1 full-width"
               debounce="300"
               v-model="filter"
               :placeholder="t('navigation.search')"
@@ -26,7 +32,7 @@
             <q-select
               outlined dense
               color="secondary"
-              class="shadow-1"
+              class="shadow-1 full-width"
               @update:model-value="loadInstallablePlugins"
               :label="t('components.plugins.categoryFilter')"
               v-model="tagFilter"
@@ -37,12 +43,6 @@
                 <q-icon name="style"/>
               </template>
             </q-select>
-          </div>
-
-          <q-space v-if="$q.screen.gt.sm"/>
-
-          <div class="col-12 col-md-auto text-right">
-            <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
           </div>
         </div>
       </div>
