@@ -10,7 +10,7 @@
       <!-- LOADING SKELETON -->
       <div v-if="loading" class="q-pa-md">
         <div v-for="n in 5" :key="n" class="q-mb-md">
-          <q-item class="bg-white shadow-1 rounded-borders">
+          <q-item class="shadow-1 rounded-borders">
             <q-item-section avatar>
               <q-skeleton type="QAvatar"/>
             </q-item-section>
@@ -45,7 +45,7 @@
         <q-item
           v-for="repo in repos"
           :key="repo.id"
-          class="bg-white shadow-1 rounded-borders q-mb-sm"
+          class="shadow-1 rounded-borders q-mb-sm"
         >
           <!-- ICON -->
           <q-item-section avatar top class="q-mt-sm">
@@ -78,6 +78,7 @@
             <q-btn
               round
               flat
+              dense
               color="secondary"
               icon="add_circle"
               @click="addRepo(repo)"
@@ -87,6 +88,7 @@
             <q-btn
               round
               flat
+              dense
               color="grey"
               icon="open_in_new"
               type="a"

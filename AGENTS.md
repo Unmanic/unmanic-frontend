@@ -74,6 +74,7 @@ The project follows the standard Quasar directory structure:
 ### Styling
 
 - **CSS Classes**: Prefer standard CSS classes (including Quasar's utility classes) and `<style scoped>` blocks.
+- **Theme Compatibility**: Do not hardcode light-only colors (e.g., `#fff`). Use theme variables (`bg-card-head`, `--q-card-head`, `text-primary`, `text-secondary`) or CSS variables that respect `.body--dark`. `text-grey-*` is allowed since the greys are theme-aware in `src/css/app.scss`.
 
 - **Responsiveness**: Use CSS Media Queries (`@media`) within the `<style>` block for responsive logic instead of JavaScript computed properties or inline styles.
 
