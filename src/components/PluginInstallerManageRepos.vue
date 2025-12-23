@@ -25,7 +25,7 @@
         <!--REPO DATA-->
         <div class="row no-wrap q-pa-md">
           <div class="column" :style="$q.platform.is.mobile ? 'width: 100%' : 'min-width:400px'">
-            
+
             <q-btn
               color="secondary"
               icon="travel_explore"
@@ -33,7 +33,7 @@
               class="q-mb-md"
               @click="openCommunityDialog"
             />
-            
+
             <q-separator class="q-mb-md" />
 
             <q-input
@@ -57,15 +57,51 @@
       auto-close
       color="secondary"
       :label="$t('components.plugins.repoList')"
-      :class="$q.platform.is.mobile ? 'full-width' : ''">
+      :class="$q.platform.is.mobile ? 'full-width' : ''"
+      :fit="$q.platform.is.mobile"
+    >
 
       <div
         v-for="repo in repoList"
-        :key="repo.id"
-        v-bind="repo">
+        :key="repo.id">
 
-        <!--REPO DATA-->
-        <div class="row no-wrap q-pa-md">
+        <!-- Mobile View (lt-md) -->
+        <div class="lt-md q-pa-sm">
+          <q-item class="q-pa-none">
+            <q-item-section avatar>
+              <q-skeleton v-if="!repo.icon" type="QAvatar"/>
+              <q-avatar v-else rounded>
+                <img :src="repo.icon">
+              </q-avatar>
+            </q-item-section>
+
+            <q-item-section style="overflow: hidden;">
+              <q-item-label class="text-weight-bold">{{ repo.name }}</q-item-label>
+              <q-item-label caption class="ellipsis" style="max-width: 200px;">
+                 <span class="cursor-pointer clickable" @click="goToRepoSource(repo.path)">
+                    {{ repo.path }}
+                 </span>
+              </q-item-label>
+            </q-item-section>
+
+            <q-item-section side>
+              <q-btn
+                color="negative"
+                icon="delete"
+                flat
+                round
+                dense
+                @click="removeRepo(repo.path)"
+              >
+                <q-tooltip>{{ $t('tooltips.remove') }}</q-tooltip>
+              </q-btn>
+            </q-item-section>
+          </q-item>
+          <q-separator class="q-mt-sm" />
+        </div>
+
+        <!-- Desktop View (gt-sm) -->
+        <div class="gt-sm row no-wrap q-pa-md">
           <div class="column">
             <div class="text-h6 q-mb-md">{{ $t('headers.information') }}:</div>
 
@@ -105,7 +141,7 @@
             <q-btn
               class="q-ma-xs"
               color="negative"
-              label="Remove"
+              :label="$t('tooltips.remove')"
               push
               size="sm"
               @click="removeRepo(repo.path)"

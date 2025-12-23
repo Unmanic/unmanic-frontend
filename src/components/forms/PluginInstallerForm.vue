@@ -1,6 +1,6 @@
 <template>
   <div class="row q-col-gutter-sm q-pa-sm plugin-table-actions-bar">
-    <div class="col-12 col-sm-auto">
+    <div class="col-12 col-md-auto">
       <q-input
         filled
         class="shadow-1"
@@ -13,7 +13,7 @@
         </template>
       </q-input>
     </div>
-    <div class="col-12 col-sm-auto">
+    <div class="col-12 col-md-auto">
       <q-select
         filled
         class="shadow-1"
@@ -22,16 +22,16 @@
         :label="$t('components.plugins.categoryFilter')"
         v-model="tagFilter"
         :options="tags"
-        :style="$q.platform.is.mobile ? '' : 'min-width: 300px'">
+        :style="$q.screen.gt.sm ? 'min-width: 300px' : ''">
         <template v-slot:append>
           <q-icon name="style"/>
         </template>
       </q-select>
     </div>
 
-    <q-space v-if="!$q.platform.is.mobile"/>
+    <q-space v-if="$q.screen.gt.sm"/>
 
-    <div class="col-12 col-sm-auto text-right">
+    <div class="col-12 col-md-auto text-right">
       <PluginInstallerManageRepos v-on:repoReloaded="reloadPluginsPostRepoReloaded"/>
     </div>
   </div>
