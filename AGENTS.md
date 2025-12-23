@@ -154,7 +154,7 @@ The project follows the standard Quasar directory structure:
   - **Delete**: `icon="delete"`, `color="negative"`; if disabled, use `color="grey-6"`.
 - **List Add Actions**: For list add buttons (e.g., “Add” in list headers/bars), use `outline dense round` with `color="secondary"`.
 - **Text-Only Actions**: Use `outline` with `color="secondary"` for buttons that only display text (e.g., Submit).
-- **Submit Actions**: Submit buttons at the bottom of a form should be standard (not outline), `color="secondary"`, and full width of the form using the class `full-width`.
+- **Submit Actions**: Submit buttons at the bottom of a form should be `outline`, `color="secondary"`, and full width of the form using the class `full-width`.
 - **Full-Width Actions**: Standalone buttons at the bottom of a form should stretch to full width when possible.
 
 ### Search & Filter Inputs

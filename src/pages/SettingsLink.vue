@@ -279,6 +279,7 @@
 
               <div>
                 <q-btn
+                  outline
                   color="secondary"
                   class="full-width"
                   :label="$t('navigation.submit')" type="submit"/>
