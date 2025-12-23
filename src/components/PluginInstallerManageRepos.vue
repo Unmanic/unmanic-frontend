@@ -165,7 +165,7 @@ import { ref } from "vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { openURL, useQuasar } from "quasar";
-import CommunityRepos from "components/plugins/CommunityRepos";
+import CommunityRepos from "components/settings/plugins/CommunityRepos";
 
 export default {
   components: { CommunityRepos },

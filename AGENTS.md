@@ -24,9 +24,18 @@ The project follows the standard Quasar directory structure:
 - **`src/`**: Source code root.
   - **`assets/`**: Static assets like images and logos.
   - **`boot/`**: Initialization scripts (Axios, i18n, Global Event Bus).
-  - **`components/`**: Reusable Vue components.
-    - **`dialogs/`**: Components for modal dialogs.
-    - **`forms/`**: Components for input forms.
+  - **`components/`**: Reusable Vue components. Organized by purpose/UI section:
+    - **`standard/`**: Generic, reusable components that provide slots (wrappers, templates).
+    - **`dialogs/`**: Specific dialog content components.
+      - **`standard/`**: Standardized dialog wrapper templates (`UnmanicDialogMenu`, etc.).
+    - **`forms/`**: Input form components.
+    - **`settings/`**: Components specific to the Settings pages.
+      - **`library/`**: Components specific to the Libraries settings page.
+      - **`link/`**: Components specific to the Link settings page.
+      - **`plugins/`**: Components specific to the Plugins settings page.
+      - **`workers/`**: Components specific to the Workers settings page.
+    - (etc.)
+  - **`composables/`**: Vue 3 Composition API composables (e.g., `useMobile`).
   - **`css/`**: Global styles (SCSS).
   - **`js/`**: Utility scripts and global logic.
     - **`unmanicGlobals.js`**: Core logic for API interaction, session management, and theming.
