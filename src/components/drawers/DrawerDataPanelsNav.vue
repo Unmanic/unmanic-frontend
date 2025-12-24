@@ -1,29 +1,29 @@
 <template>
-  <q-scroll-area
-    style="height: 100%;"
-    :style="$q.platform.is.mobile ? 'height: calc(100% - 90px); margin-top: 90px; border-right: 1px solid #ddd' : ''">
-    <q-list padding>
+  <div class="column fit">
+    <div :class="{'q-mt-xl' : !$q.screen.gt.sm}"></div>
+    <q-scroll-area class="col">
+      <q-list padding>
 
-      <q-item-label header>{{ $t('navigation.dataPanels') }}:</q-item-label>
+        <q-item-label header>{{ $t('navigation.dataPanels') }}:</q-item-label>
 
-      <q-item
-        v-for="(item, index) in availableDataPanels"
-        v-bind:key="index"
-        clickable
-        @click="$router.push('/ui/data-panels?pluginId=' + item.id)"
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="insights"/>
-        </q-item-section>
-        <q-item-section>
-          {{ item.label }}
-        </q-item-section>
-      </q-item>
+        <q-item
+          v-for="(item, index) in availableDataPanels"
+          v-bind:key="index"
+          clickable
+          @click="$router.push('/ui/data-panels?pluginId=' + item.id)"
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="insights"/>
+          </q-item-section>
+          <q-item-section>
+            {{ item.label }}
+          </q-item-section>
+        </q-item>
 
 
-    </q-list>
-  </q-scroll-area>
-
+      </q-list>
+    </q-scroll-area>
+  </div>
 </template>
 
 <script>

@@ -147,6 +147,7 @@ defineExpose({
   border-radius: 4px;
   overflow: auto;
 }
+
 .completed-task-details-dialog-content span.terminated {
   color: $negative;
 }

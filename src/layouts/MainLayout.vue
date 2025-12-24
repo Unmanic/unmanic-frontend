@@ -15,7 +15,7 @@
 
         <!--SHOW SETTINGS MENU BUTTON-->
         <q-btn
-          v-if="$route.meta.showSettingsDrawer && $q.platform.is.mobile"
+          v-if="$route.meta.showSettingsDrawer"
           dense
           flat
           round
@@ -24,7 +24,7 @@
 
         <!--SHOW DATA PANELS MENU BUTTON-->
         <q-btn
-          v-if="$route.meta.showDataPanelsDrawer && $q.platform.is.mobile"
+          v-if="$route.meta.showDataPanelsDrawer"
           dense
           flat
           round
@@ -79,6 +79,7 @@
       v-if="$route.meta.showMainNavDrawer"
       v-model="leftMainNavDrawerOpen"
       side="left"
+      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerMainNav/>
     </q-drawer>
@@ -87,6 +88,7 @@
       v-if="$route.meta.showSettingsDrawer"
       v-model="leftSettingsDrawerOpen"
       side="left"
+      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerSettingsNav/>
     </q-drawer>
@@ -95,6 +97,7 @@
       v-if="$route.meta.showDataPanelsDrawer"
       v-model="leftDataPanelsDrawerOpen"
       side="left"
+      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerDataPanelsNav/>
     </q-drawer>
@@ -106,6 +109,7 @@
       side="right"
       :width="650"
       :overlay="$route.meta.showMainNavDrawer"
+      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerNotifications/>
     </q-drawer>
