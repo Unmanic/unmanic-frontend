@@ -1,87 +1,72 @@
 <template>
   <q-scroll-area
-    style="height: calc(100% - 240px); margin-top: 150px; margin-bottom: 90px;">
+    style="height: 100%;"
+    :style="$q.platform.is.mobile ? 'height: calc(100% - 90px); margin-top: 90px; border-right: 1px solid #ddd' : ''">
     <q-list padding>
 
-      <!--START DASHBOARD SELECT-->
-      <q-item
-        clickable
-        to="/ui/dashboard"
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="dashboard"/>
-        </q-item-section>
-        <q-item-section>
-          {{ $t('navigation.dashboard') }}
-        </q-item-section>
-      </q-item>
-      <!--END DASHBOARD SELECT-->
-      <!--START SETTINGS SELECT-->
+      <q-item-label header>{{ $t('navigation.settings') }}:</q-item-label>
+      <!--START LIBRARY SELECT-->
       <q-item
         clickable
         to="/ui/settings-library"
         v-ripple>
         <q-item-section avatar>
-          <q-icon name="settings"/>
+          <q-icon name="account_tree"/>
         </q-item-section>
         <q-item-section>
-          {{ $t('navigation.settings') }}
+          {{ $t('navigation.library') }}
         </q-item-section>
       </q-item>
-      <!--END SETTINGS SELECT-->
-      <!--START DATA PANELS SELECT-->
+      <!--END LIBRARY SELECT-->
+
+      <!--START WORKERS SELECT-->
       <q-item
         clickable
-        to="/ui/data-panels"
+        to="/ui/settings-workers"
         v-ripple>
         <q-item-section avatar>
-          <q-icon name="insights"/>
+          <q-icon name="engineering"/>
         </q-item-section>
         <q-item-section>
-          {{ $t('navigation.dataPanels') }}
+          {{ $t('navigation.workers') }}
         </q-item-section>
       </q-item>
-      <!--END DATA PANELS SELECT-->
+      <!--END WORKERS SELECT-->
+
+      <!--START PLUGINS SELECT-->
+      <q-item
+        clickable
+        to="/ui/settings-plugins"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="extension"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.plugins') }}
+        </q-item-section>
+      </q-item>
+      <!--END PLUGINS SELECT-->
+
+      <!--START PLUGINS SELECT-->
+      <q-item
+        clickable
+        to="/ui/settings-link"
+        v-ripple>
+        <q-item-section avatar>
+          <q-icon name="link"/>
+        </q-item-section>
+        <q-item-section>
+          {{ $t('navigation.link') }}
+        </q-item-section>
+      </q-item>
+      <!--END PLUGINS SELECT-->
 
       <q-separator spaced/>
-
-
-      <q-item-label header>{{ $t('navigation.account') }}:</q-item-label>
-      <!--START LOGOUT-->
-      <q-item
-        v-if="unmanicSession && unmanicSession.level && unmanicSession.level > 0 && unmanicSession.level !== 9"
-        clickable
-        @click="logoutSubmit"
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="logout"/>
-        </q-item-section>
-        <q-item-section>
-          {{ $t('navigation.logout') }}
-        </q-item-section>
-      </q-item>
-      <!--END LOGOUT-->
-      <!--START LOGIN-->
-      <q-item
-        v-else
-        clickable
-        @click="showLogin"
-        v-ripple>
-        <q-item-section avatar>
-          <q-icon name="login"/>
-        </q-item-section>
-        <q-item-section>
-          {{ $t('navigation.login') }}
-        </q-item-section>
-      </q-item>
-      <!--END LOGIN-->
-
-      <q-separator spaced/>
-
 
       <q-item-label header>{{ $t('navigation.interface') }}:</q-item-label>
       <!--START LANGUAGE SELECT-->
-      <q-item clickable v-ripple>
+      <q-item
+        clickable v-ripple>
         <q-item-section avatar>
           <q-icon name="language"/>
         </q-item-section>
@@ -123,39 +108,28 @@
       </q-item>
       <!--END PRIVACY POLICY-->
 
+
     </q-list>
   </q-scroll-area>
-
-  <DrawerAvatar/>
-
-  <q-img class="absolute-bottom lt-md" src="~assets/bg-md1.jpg" style="height: 80px">
-    <div class="absolute-top bg-transparent text-white">
-      <div class="q-pl-md">
-        <FooterData/>
-      </div>
-    </div>
-  </q-img>
 
   <PrivacyPolicyDialog ref="privacyPolicyDialogRef"/>
 </template>
 
 <script>
 
-import DrawerAvatar from "components/DrawerAvatar.vue";
-import LanguageSwitch from "components/LanguageSwitch";
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
-import { useQuasar } from "quasar";
-import FooterData from "components/FooterData";
-import LoginDialog from "components/LoginDialog";
+import LanguageSwitch from "components/LanguageSwitch";
 import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
 
 export default {
-  name: 'DrawerMainNav',
-  components: { DrawerAvatar, FooterData, LanguageSwitch, PrivacyPolicyDialog },
+  name: 'DrawerSettingsNav',
+  components: { LanguageSwitch, PrivacyPolicyDialog },
   setup() {
-    const $q = useQuasar();
     const unmanicSession = ref(null);
+    const formAction = ref(null)
+    const uuid = ref(null)
+    const currentUri = ref(null)
     const privacyPolicyDialogRef = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
@@ -168,26 +142,13 @@ export default {
       }
     }
 
-    function showLogin() {
-      $q.dialog({
-        component: LoginDialog,
-        componentProps: {},
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-      })
-    }
-
     return {
       unmanicSession,
+      formAction,
+      uuid,
+      currentUri,
       showPrivacyPolicyDialog,
       privacyPolicyDialogRef,
-
-      showLogin,
-    }
-  },
-  methods: {
-    logoutSubmit() {
-      unmanicGlobals.logout(this.$t)
     }
   }
 }

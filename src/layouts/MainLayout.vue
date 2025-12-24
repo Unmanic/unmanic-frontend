@@ -1,7 +1,7 @@
 <template>
-  <q-layout view="hHh lpR fFf">
+  <q-layout view="hHh lpR lFf">
 
-    <q-header reveal elevated class="header-background text-white" height-hint="98">
+    <q-header reveal class="header-background text-white" height-hint="98" style="z-index: 6001">
       <q-toolbar>
 
         <!--SHOW DRAWER MENU BUTTON-->
@@ -10,28 +10,8 @@
           dense
           flat
           round
-          icon="menu"
+          :icon="leftMainNavDrawerOpen ? 'menu_open' : 'menu'"
           @click="toggleMainNavDrawer"/>
-
-        <!--SHOW BACK BUTTON-->
-        <q-btn
-          v-if="!$route.meta.showMainNavDrawer"
-          dense
-          flat
-          round
-          @click="$router.go(-1)"
-          icon="arrow_back">
-        </q-btn>
-
-        <!--SHOW HOME BUTTON-->
-        <q-btn
-          v-if="$route.meta.showHome"
-          dense
-          flat
-          round
-          @click="$router.push('/ui/dashboard')"
-          icon="home">
-        </q-btn>
 
         <!--SHOW SETTINGS MENU BUTTON-->
         <q-btn
@@ -39,17 +19,27 @@
           dense
           flat
           round
-          icon="menu_open"
+          :icon="leftSettingsDrawerOpen ? 'menu_open' : 'menu'"
           @click="toggleSettingsDrawer"/>
 
-        <!--SHOW SETTINGS MENU BUTTON-->
+        <!--SHOW DATA PANELS MENU BUTTON-->
         <q-btn
           v-if="$route.meta.showDataPanelsDrawer && $q.platform.is.mobile"
           dense
           flat
           round
-          icon="menu_open"
+          :icon="leftDataPanelsDrawerOpen ? 'menu_open' : 'menu'"
           @click="toggleDataPanelsDrawer"/>
+
+        <!--SHOW HOME BUTTON-->
+        <q-btn
+          v-if="$route.meta.showHome"
+          dense
+          flat
+          round
+          @click="$router.push('/ui/dashboard'); leftMainNavDrawerOpen = false"
+          icon="home">
+        </q-btn>
 
         <q-toolbar-title>
           <q-avatar rounded size="2rem" font-size="82px">
@@ -89,9 +79,7 @@
       v-if="$route.meta.showMainNavDrawer"
       v-model="leftMainNavDrawerOpen"
       side="left"
-      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      :overlay="$q.platform.is.mobile ? true : false"
-       elevated>
+      :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerMainNav/>
     </q-drawer>
 
@@ -99,8 +87,7 @@
       v-if="$route.meta.showSettingsDrawer"
       v-model="leftSettingsDrawerOpen"
       side="left"
-      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      elevated>
+      :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerSettingsNav/>
     </q-drawer>
 
@@ -108,8 +95,7 @@
       v-if="$route.meta.showDataPanelsDrawer"
       v-model="leftDataPanelsDrawerOpen"
       side="left"
-      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      elevated>
+      :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerDataPanelsNav/>
     </q-drawer>
 
@@ -120,8 +106,7 @@
       side="right"
       :width="650"
       :overlay="$route.meta.showMainNavDrawer"
-      :behavior="$q.platform.is.mobile ? 'mobile' : 'desktop'"
-      elevated>
+      :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerNotifications/>
     </q-drawer>
 
@@ -130,7 +115,6 @@
     </q-page-container>
 
     <q-footer
-      elevated
       class="footer-background text-white gt-sm">
       <q-toolbar>
         <q-toolbar-title>
@@ -144,13 +128,13 @@
 
 <script>
 import { onMounted, onUnmounted, ref } from 'vue';
-import DrawerMainNav from "components/DrawerMainNav";
+import DrawerMainNav from "components/drawers/DrawerMainNav";
 import FooterData from "components/FooterData";
-import DrawerSettingsNav from "components/DrawerSettingsNav";
+import DrawerSettingsNav from "components/drawers/DrawerSettingsNav";
 import { useQuasar } from "quasar";
-import DrawerDataPanelsNav from "components/DrawerDataPanelsNav";
+import DrawerDataPanelsNav from "components/drawers/DrawerDataPanelsNav";
 import ThemeSwitch from "components/ThemeSwitch";
-import DrawerNotifications from "components/DrawerNotifications";
+import DrawerNotifications from "components/drawers/DrawerNotifications";
 import unmanicGlobals from "src/js/unmanicGlobals";
 
 export default {
@@ -167,7 +151,7 @@ export default {
 
     const notificationsCount = ref(null)
 
-    if (!$q.platform.is.mobile) {
+    if (!$q.screen.lt.md) {
       leftSettingsDrawerOpen.value = true;
       leftDataPanelsDrawerOpen.value = true;
     }

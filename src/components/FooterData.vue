@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$q.platform.is.mobile">
+  <div class="lt-md">
     <p class="text-subtitle1 q-mb-none">
       &copy; 2018-{{ new Date().getFullYear() }} by
       <a class="footer-link" target="_blank" href="https://github.com/Josh5">Josh Sunnex</a>
@@ -11,7 +11,7 @@
          href="https://github.com/unmanic/unmanic/releases">{{ unmanicVersion }}</a>
     </p>
   </div>
-  <div v-else>
+  <div class="gt-sm">
     <div class="row q-mt-lg">
       <div class="col q-ml-lg">
         <p class="text-subtitle1">

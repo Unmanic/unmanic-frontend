@@ -24,21 +24,6 @@
     </q-list>
   </q-scroll-area>
 
-  <q-img
-    v-if="$q.platform.is.mobile"
-    class="absolute-top header-background"
-    style="height: 90px;">
-    <div class="absolute-center header-background">
-      <q-avatar
-        rounded
-        clickable
-        @click="$router.push('/ui/dashboard')"
-        size="56px" class="q-mb-sm cursor-pointer">
-        <q-img src="~assets/unmanic-logo-white.png"/>
-      </q-avatar>
-    </div>
-  </q-img>
-
 </template>
 
 <script>
