@@ -2,7 +2,7 @@
   <div class="column fit drawer-background">
     <!-- Profile Section -->
     <div :class="{'q-pt-xl' : !$q.screen.gt.sm}">
-      <DrawerAvatar/>
+      <DrawerUserProfileHeader/>
     </div>
 
     <!-- Scrollable Navigation -->
@@ -149,7 +149,7 @@
 
 <script>
 
-import DrawerAvatar from "components/drawers/DrawerAvatar.vue";
+import DrawerUserProfileHeader from "components/drawers/partials/DrawerUserProfileHeader.vue";
 import LanguageSwitch from "components/LanguageSwitch";
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
@@ -160,7 +160,7 @@ import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
 
 export default {
   name: 'DrawerMainNav',
-  components: { DrawerAvatar, FooterData, LanguageSwitch, PrivacyPolicyDialog },
+  components: { DrawerUserProfileHeader, FooterData, LanguageSwitch, PrivacyPolicyDialog },
   setup() {
     const $q = useQuasar();
     const unmanicSession = ref(null);

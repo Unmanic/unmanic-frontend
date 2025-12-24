@@ -45,14 +45,13 @@ import unmanicGlobals from "src/js/unmanicGlobals";
 import { useI18n } from "vue-i18n";
 
 export default {
-  name: 'DrawerAvatar',
+  name: 'DrawerUserProfileHeader',
   setup() {
     const { t: $t } = useI18n();
 
     const unmanicSession = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
-      session.level = 1
       unmanicSession.value = session;
     })
 

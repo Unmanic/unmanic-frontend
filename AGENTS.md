@@ -154,6 +154,7 @@ The project follows the standard Quasar directory structure:
   - Do not use `flat` or `bordered` props on these nested cards, as the `.nested-card` class handles the border and shadow consistently across themes.
 - **Side Drawers**:
   - Always use `behavior="desktop"` and `bordered` for all side drawers. Avoid `behavior="mobile"`.
+  - **Do not** set an `outline` on drawers.
   - **Layering**: The `<q-header>` must remain visible above side drawers. Apply `style="z-index: 6001"` to the header if it overlaps drawers.
 - **Grid & Spacing**:
   - Prefer Quasar's gutter classes (e.g., `q-col-gutter-md`) on `.row` containers for spacing between columns.
