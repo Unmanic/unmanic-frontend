@@ -96,44 +96,44 @@ export default {
 
 .support-btn-img {
   display: initial;
-  animation: coffee-wiggle 3s infinite;
+  animation: coffee-wiggle 13s infinite;
 }
 
 @keyframes coffee-wiggle {
   0% {
     transform: rotate(0) scale(1)
   }
-  2%, 6%, 10%, 14%, 18% {
+  0.5%, 1.5%, 2.5%, 3.5%, 4.5% {
     transform: translate3d(-2px, 0, 0);
   }
-  4%, 8%, 12%, 16% {
+  1%, 2%, 3%, 4% {
     transform: translate3d(2px, 0, 0);
   }
-  20% {
+  5% {
     transform: translate3d(0px, 0, 0);
   }
-  60% {
+  14% {
     transform: rotate(0) scale(1);
   }
-  75% {
+  17% {
     transform: rotate(0) scale(1.12);
   }
-  80% {
+  18.5% {
     transform: rotate(0) scale(1.1);
   }
-  84% {
+  19.5% {
     transform: rotate(-10deg) scale(1.3);
   }
-  88% {
+  20.5% {
     transform: rotate(10deg) scale(1.3);
   }
-  92% {
+  21.5% {
     transform: rotate(-10deg) scale(1.3);
   }
-  96% {
+  22.5% {
     transform: rotate(10deg) scale(1.3);
   }
-  100% {
+  23%, 100% {
     transform: rotate(0) scale(1);
   }
 }
