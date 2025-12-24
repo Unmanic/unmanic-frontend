@@ -12,7 +12,7 @@
 
         <div class="col-auto">
           <q-btn
-            @click="completedTasksPopup = true"
+            @click="openDetails"
             color="secondary"
             dense
             round
@@ -94,78 +94,52 @@
     </q-card-section>
 
     <!--FULL SCREEN-->
-    <q-card-section>
-
-      <q-dialog
-        v-model="completedTasksPopup"
-        full-width
-        full-height
-      >
-        <q-card>
-          <q-card-section class="bg-card-head">
-            <div class="row items-center no-wrap">
-              <div class="col">
-                <div class="text-h6 text-primary">
-                  <q-icon name="fas fa-list-ul"/>
-                  {{ $t('headers.completedTasks') }}
-                </div>
-              </div>
-
-              <div class="col-auto">
-                <q-btn
-                  color="secondary"
-                  dense
-                  round
-                  flat
-                  icon="close_fullscreen" v-close-popup>
-                  <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
-                </q-btn>
-              </div>
-            </div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-
-            <div class="q-pa-md">
-              <CompletedTasksTable :initStatusFilter="completedTasksPopupInitStatusFilter"/>
-            </div>
-
-          </q-card-section>
-
-        </q-card>
-      </q-dialog>
-    </q-card-section>
+    <CompletedTasksMoreDetailsDialog
+      ref="completedTasksDetailsDialogRef"
+      :initStatusFilter="completedTasksPopupInitStatusFilter"
+    />
 
   </q-card>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-import CompletedTasksTable from "components/CompletedTasksTable";
+import CompletedTasksMoreDetailsDialog from "components/dashboard/completed/CompletedTasksMoreDetailsDialog.vue";
 
 export default defineComponent({
   name: 'CompletedTasks',
-  components: { CompletedTasksTable },
+  components: { CompletedTasksMoreDetailsDialog },
+  setup() {
+    const completedTasksDetailsDialogRef = ref(null);
+
+    return {
+      completedTasksDetailsDialogRef
+    }
+  },
   mounted() {
     // Add listeners
     this.$global.$on(
       'completedTasksShowFailed',
       () => {
         this.completedTasksPopupInitStatusFilter = 'failed'
-        this.completedTasksPopup = true
+        this.openDetails()
       }
     )
   },
   data() {
     return {
-      completedTasksPopup: ref(false),
-      completedTasksPopupInitStatusFilter: ref('all'),
+      completedTasksPopupInitStatusFilter: 'all',
     }
   },
   props: {
     taskList: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    openDetails() {
+      this.completedTasksDetailsDialogRef.show();
     }
   }
 });

@@ -27,11 +27,10 @@
 
           <div class="col q-pl-md">
             <q-input
-              filled
-              class="shadow-1"
+              outlined
               dense
               debounce="300"
-              color="primary"
+              color="secondary"
               v-model="searchValue"
               :placeholder="$t('navigation.search')">
               <template v-slot:append>
@@ -42,11 +41,10 @@
 
           <div class="col q-pl-md" style="max-width: 300px">
             <q-input
-              filled
-              class="shadow-1"
+              outlined
               dense
               debounce="300"
-              color="primary"
+              color="secondary"
               :label="$t('components.completedTasks.since')"
               v-model="sinceDate">
               <template v-slot:prepend>
@@ -77,11 +75,10 @@
 
           <div class="col q-pl-md" style="max-width: 300px">
             <q-input
-              filled
-              class="shadow-1"
+              outlined
               dense
               debounce="300"
-              color="primary"
+              color="secondary"
               :label="$t('components.completedTasks.before')"
               v-model="beforeDate">
               <template v-slot:prepend>
@@ -114,7 +111,12 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
+        <q-btn-dropdown
+          class="q-ml-sm"
+          outline
+          content-class="unmanic-dropdown-menu"
+          color="secondary"
+          :label="$t('navigation.options')">
           <q-list>
             <q-item clickable v-close-popup @click="selectLibraryForRecreateTask">
               <q-item-section>
@@ -144,14 +146,12 @@
           <div class="row">
             <q-badge
               v-if="props.row.status"
-              color="positive"
-              class="shadow-1">
+              color="positive">
               {{ $t('status.success') }}
             </q-badge>
             <q-badge
               v-else
-              color="negative"
-              class="shadow-1">
+              color="negative">
               {{ $t('status.failed') }}
             </q-badge>
           </div>
@@ -164,6 +164,7 @@
             <q-btn
               @click="openDetailsDialog(props.row.id)"
               color="secondary"
+              outline
               :label="$t('components.completedTasks.details')"/>
           </div>
         </q-td>
@@ -184,12 +185,14 @@
     <q-card style="min-width: 350px">
 
       <q-card-section>
-        <div class="text-h6">{{ $t('headers.selectLibrary') }}</div>
+        <div class="text-h6 text-primary">{{ $t('headers.selectLibrary') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
         <q-select
-          filled
+          outlined
+          dense
+          color="secondary"
           emit-value
           map-options
           v-model="selectedLibraryId"
@@ -197,11 +200,11 @@
           :label="$t('components.completedTasks.selectLibraryToAdd')"/>
       </q-card-section>
 
-      <q-card-actions align="right" class="text-primary">
-        <q-btn flat :label="$t('navigation.cancel')" v-close-popup/>
+      <q-card-actions align="right">
+        <q-btn flat color="secondary" :label="$t('navigation.cancel')" v-close-popup/>
         <q-btn
           @click="addSelectedToPendingTaskList"
-          flat :label="$t('navigation.submit')" v-close-popup/>
+          flat color="secondary" :label="$t('navigation.submit')" v-close-popup/>
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -213,7 +216,7 @@ import { ref } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import dateTools from "src/js/dateTools";
 import axios from "axios";
-import CompletedTaskLogDialog from "components/CompletedTaskLogDialog";
+import CompletedTaskLogDialog from "components/dashboard/completed/partials/CompletedTaskLogDialog.vue";
 
 export default {
   props: {

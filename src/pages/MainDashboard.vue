@@ -110,7 +110,7 @@
 <script>
 import WorkerProgressCard from 'components/dashboard/workers/WorkerProgressCard.vue'
 import PendingTasks from 'components/dashboard/pending/PendingTasksSection.vue'
-import CompletedTasks from "components/CompletedTasks";
+import CompletedTasks from "components/dashboard/completed/CompletedTasksSection.vue";
 import dateTools from "src/js/dateTools";
 import { useQuasar } from "quasar";
 import { onMounted, onUnmounted, ref } from 'vue';
