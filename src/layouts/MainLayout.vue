@@ -84,7 +84,6 @@
       v-if="$route.meta.showMainNavDrawer"
       v-model="leftMainNavDrawerOpen"
       side="left"
-      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerMainNav/>
     </q-drawer>
@@ -93,7 +92,6 @@
       v-if="$route.meta.showSettingsDrawer"
       v-model="leftSettingsDrawerOpen"
       side="left"
-      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerSettingsNav/>
     </q-drawer>
@@ -102,7 +100,6 @@
       v-if="$route.meta.showDataPanelsDrawer"
       v-model="leftDataPanelsDrawerOpen"
       side="left"
-      bordered
       :behavior="$q.screen.lt.md ? 'mobile' : 'desktop'">
       <DrawerDataPanelsNav/>
     </q-drawer>

@@ -1,7 +1,7 @@
 <template>
-  <div class="column fit">
+  <div class="column fit drawer-background">
     <!-- Profile Section -->
-    <div :class="{'q-mt-xl' : !$q.screen.gt.sm}">
+    <div :class="{'q-pt-xl' : !$q.screen.gt.sm}">
       <DrawerAvatar/>
     </div>
 
