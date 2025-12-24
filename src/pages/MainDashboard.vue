@@ -9,9 +9,7 @@
 
             <div class="row items-center no-wrap">
               <div class="col">
-                <div
-                  :class="$q.dark.isActive ? 'text-primary' : 'text-indigo-10'"
-                  class="text-h6">
+                <div class="text-h6 text-primary">
                   <q-icon name="fas fa-spinner"/>
                   {{ $t('headers.workers') }}
                 </div>

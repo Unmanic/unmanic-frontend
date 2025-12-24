@@ -4,9 +4,7 @@
 
       <div class="row items-center no-wrap">
         <div class="col">
-          <div
-            :class="$q.dark.isActive ? 'text-amber-8' : 'text-amber-10'"
-            class="text-h6">
+          <div class="text-h6 text-primary">
             <q-icon name="fas fa-list-ul"/>
             {{ $t('headers.pendingTasks') }}
           </div>
@@ -14,7 +12,7 @@
 
         <div class="col-auto">
           <q-btn
-            @click="pendingTasksPopup = true"
+            @click="openDetails"
             color="secondary"
             dense
             round
@@ -88,59 +86,24 @@
     </q-card-section>
 
     <!--FULL SCREEN-->
-    <q-dialog
-      v-model="pendingTasksPopup"
-      full-width
-      full-height
-    >
-      <q-card>
-        <q-card-section class="bg-card-head">
-          <div class="row items-center no-wrap">
-            <div class="col">
-              <div class="text-h6 text-amber-10">
-                <q-icon name="fas fa-list-ul"/>
-                Pending Tasks
-              </div>
-            </div>
-
-            <div class="col-auto">
-              <q-btn
-                color="secondary"
-                dense
-                round
-                flat
-                icon="close_fullscreen" v-close-popup>
-                <q-tooltip class="bg-white text-primary">{{ $t('tooltips.close') }}</q-tooltip>
-              </q-btn>
-            </div>
-          </div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-
-          <div class="q-pa-md">
-            <PendingTasksTable/>
-          </div>
-
-        </q-card-section>
-
-      </q-card>
-    </q-dialog>
+    <PendingTasksMoreDetailsDialog ref="pendingTasksDetailsDialogRef"/>
   </q-card>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-import PendingTasksTable from "components/dashboard/pending/PendingTasksTable";
+import PendingTasksMoreDetailsDialog from "components/dashboard/pending/PendingTasksMoreDetailsDialog.vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default defineComponent({
   name: 'PendingTasks',
-  components: { PendingTasksTable },
-  data() {
+  components: { PendingTasksMoreDetailsDialog },
+  setup() {
+    const pendingTasksDetailsDialogRef = ref(null);
+
     return {
-      pendingTasksPopup: ref(false)
+      pendingTasksDetailsDialogRef
     }
   },
   props: {
@@ -150,6 +113,9 @@ export default defineComponent({
     }
   },
   methods: {
+    openDetails() {
+      this.pendingTasksDetailsDialogRef.show();
+    },
     rescanLibrary: function () {
       axios({
         method: 'post',

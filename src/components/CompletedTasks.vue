@@ -4,9 +4,7 @@
 
       <div class="row items-center no-wrap">
         <div class="col">
-          <div
-            :class="$q.dark.isActive ? 'text-cyan-8' : 'text-cyan-10'"
-            class="text-h6">
+          <div class="text-h6 text-primary">
             <q-icon name="fas fa-list-ul"/>
             {{ $t('headers.completedTasks') }}
           </div>
@@ -15,7 +13,7 @@
         <div class="col-auto">
           <q-btn
             @click="completedTasksPopup = true"
-            color="grey-7"
+            color="secondary"
             dense
             round
             flat
@@ -107,7 +105,7 @@
           <q-card-section class="bg-card-head">
             <div class="row items-center no-wrap">
               <div class="col">
-                <div class="text-h6 text-blue-10">
+                <div class="text-h6 text-primary">
                   <q-icon name="fas fa-list-ul"/>
                   {{ $t('headers.completedTasks') }}
                 </div>
@@ -115,7 +113,7 @@
 
               <div class="col-auto">
                 <q-btn
-                  color="grey-7"
+                  color="secondary"
                   dense
                   round
                   flat
