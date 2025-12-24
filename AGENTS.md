@@ -144,11 +144,30 @@ The project follows the standard Quasar directory structure:
   ```
 - **Loading States**: Ensure loading skeletons or cards force `width: 100vw` on mobile to prevent the UI from appearing "narrow" before content loads.
 
+### Flat Design Standards
+
+- **Shadows & Elevation**: **STRICT RULE**: Do not use `elevated` props or drop shadows. This project uses a flat aesthetic.
+  - Avoid `elevated` on `<q-header>`, `<q-footer>`, and `<q-drawer>`.
+  - Use `flat bordered` for all primary `<q-card>` components.
+- **Nested Cards**:
+  - For cards that are items in a list nested within a primary card (e.g., Worker cards on the Dashboard, Plugin items in `PluginInstallerDialog.vue`), use the `.nested-card` CSS class.
+  - Do not use `flat` or `bordered` props on these nested cards, as the `.nested-card` class handles the border and shadow consistently across themes.
+- **Side Drawers**:
+  - Always use `behavior="desktop"` and `bordered` for all side drawers. Avoid `behavior="mobile"`.
+  - **Layering**: The `<q-header>` must remain visible above side drawers. Apply `style="z-index: 6001"` to the header if it overlaps drawers.
+- **Grid & Spacing**:
+  - Prefer Quasar's gutter classes (e.g., `q-col-gutter-md`) on `.row` containers for spacing between columns.
+  - Avoid wrapping internal column content in manual margin divs (e.g., `<div class="q-ma-sm">`) whenever the grid system can handle the spacing.
+
 ### Buttons
 
 - **Color**: Use `color="secondary"` for standard action buttons.
+- **Capitalization**: **STRICT RULE**: Do not use the `no-caps` prop. All button text should remain capitalized (Quasar default).
 - **Small Icon/Toggles**: Use `flat dense round` for small icon-only buttons or toggle-style actions, defaulting to `color="secondary"`.
-- **Dropdown Buttons**: `q-btn-dropdown` uses `rounded` (not `round`) when following small icon button styling.
+- **Dropdown Buttons**:
+  - Use `outline` and `color="secondary"` for standard labelled dropdowns.
+  - Use `rounded` (not `round`) when following small icon button styling.
+  - **Always** apply `content-class="unmanic-dropdown-menu"` to ensure consistent menu styling (borders, shadows).
 - **List Icon Actions**: For inline list actions (like plugin/library rows), use `flat dense round` and match color/icon to function:
   - **Info**: `icon="info"`, `color="info"`.
   - **Settings/Config**: `icon="tune"`, `color="grey-8"`.

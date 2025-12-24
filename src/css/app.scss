@@ -58,3 +58,24 @@
 .bg-card-head {
   background: var(--q-card-head) !important
 }
+
+.unmanic-dropdown-menu {
+  min-width: 100px;
+  border: 1px solid color-mix(in srgb, var(--q-secondary), transparent 30%);
+  border-radius: 0 0 3px 3px;
+  box-shadow: 2px 2px 10px rgba(189, 189, 189, 0.9);
+}
+
+.body--dark .unmanic-dropdown-menu {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.nested-card {
+  border: 1px solid color-mix(in srgb, var(--unmanic-grey-2), transparent 60%);
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(189, 189, 189, 0.3);
+}
+
+.body--dark .nested-card {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}

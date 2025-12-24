@@ -1,5 +1,5 @@
 <template>
-  <q-card inline style="width: 370px" class="worker-progress-card">
+  <q-card class="worker-progress-card nested-card">
     <q-card-section maxlength="2">
       <div class="row items-center no-wrap">
         <div class="col">
@@ -11,7 +11,7 @@
         <div class="col-auto">
           <q-btn
             @click="openDetails"
-            color="grey-7"
+            color="secondary"
             dense
             round
             flat

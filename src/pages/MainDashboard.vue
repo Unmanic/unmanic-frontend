@@ -2,113 +2,104 @@
   <q-page padding>
     <!-- content -->
 
-    <div class="q-pa-none">
+    <div class="row q-col-gutter-md">
+      <div class="col-12">
+        <q-card flat bordered>
+          <q-card-section class="bg-card-head">
 
-      <div class="row">
-        <div class="col q-ma-sm">
-          <q-card>
-            <q-card-section class="bg-card-head">
-
-              <div class="row items-center no-wrap">
-                <div class="col">
-                  <div
-                    :class="$q.dark.isActive ? 'text-primary' : 'text-indigo-10'"
-                    class="text-h6">
-                    <q-icon name="fas fa-spinner"/>
-                    {{ $t('headers.workers') }}
-                  </div>
-                </div>
-
-                <div class="col-auto">
-                  <q-btn-dropdown
-                    class="q-ml-sm"
-                    :color="Object.keys(workerProgressList).length === 0 ? 'grey-7' : 'secondary'"
-                    :disable-main-btn="Object.keys(workerProgressList).length === 0"
-                    :label="$t('navigation.options')">
-                    <q-list>
-
-                      <q-item
-                        clickable
-                        @click="pauseAllWorkers()"
-                        v-close-popup>
-                        <q-item-section>
-                          <q-item-label>
-                            <q-icon name="pause"/>
-                            {{ $t('components.workers.pauseAllWorkers') }}
-                          </q-item-label>
-                        </q-item-section>
-                      </q-item>
-                      <q-item
-                        clickable
-                        @click="resumeAllWorkers()"
-                        v-close-popup>
-                        <q-item-section>
-                          <q-item-label>
-                            <q-icon name="play_arrow"/>
-                            {{ $t('components.workers.resumeAllWorkers') }}
-                          </q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                      <q-separator/>
-
-                      <q-item
-                        clickable
-                        @click="terminateAllWorkers()"
-                        v-close-popup>
-                        <q-item-section>
-                          <q-item-label>
-                            <q-icon name="fas fa-skull-crossbones"/>
-                            {{ $t('components.workers.terminateAllWorkers') }}
-                          </q-item-label>
-                        </q-item-section>
-                      </q-item>
-
-                    </q-list>
-                  </q-btn-dropdown>
-                </div>
-              </div>
-            </q-card-section>
-
-            <q-card-section>
-
-              <!-- START WORKERS PROGRESS-->
-              <div class="row">
-
+            <div class="row items-center no-wrap">
+              <div class="col">
                 <div
-                  v-if="Object.keys(workerProgressList).length === 0"
-                  class="full-width row flex-center text-accent q-gutter-sm">
-                  <q-item-label>{{ $t('components.workers.listEmpty') }}</q-item-label>
+                  :class="$q.dark.isActive ? 'text-primary' : 'text-indigo-10'"
+                  class="text-h6">
+                  <q-icon name="fas fa-spinner"/>
+                  {{ $t('headers.workers') }}
                 </div>
-                <WorkerProgress
-                  v-for="(workerProgress, index) in workerProgressList"
-                  :key="index"
-                  v-bind="workerProgress"
-                />
-
               </div>
-              <!-- END WORKERS PROGRESS-->
 
-            </q-card-section>
+              <div class="col-auto">
+                <q-btn-dropdown
+                  class="q-ml-sm"
+                  outline
+                  content-class="unmanic-dropdown-menu"
+                  :color="Object.keys(workerProgressList).length === 0 ? 'grey-7' : 'secondary'"
+                  :disable-main-btn="Object.keys(workerProgressList).length === 0"
+                  :label="$t('navigation.options')">
+                  <q-list>
 
-          </q-card>
-        </div>
+                    <q-item
+                      clickable
+                      @click="pauseAllWorkers()"
+                      v-close-popup>
+                      <q-item-section>
+                        <q-item-label>
+                          <q-icon name="pause"/>
+                          {{ $t('components.workers.pauseAllWorkers') }}
+                        </q-item-label>
+                      </q-item-section>
+                    </q-item>
+                    <q-item
+                      clickable
+                      @click="resumeAllWorkers()"
+                      v-close-popup>
+                      <q-item-section>
+                        <q-item-label>
+                          <q-icon name="play_arrow"/>
+                          {{ $t('components.workers.resumeAllWorkers') }}
+                        </q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                    <q-separator/>
+
+                    <q-item
+                      clickable
+                      @click="terminateAllWorkers()"
+                      v-close-popup>
+                      <q-item-section>
+                        <q-item-label>
+                          <q-icon name="fas fa-skull-crossbones"/>
+                          {{ $t('components.workers.terminateAllWorkers') }}
+                        </q-item-label>
+                      </q-item-section>
+                    </q-item>
+
+                  </q-list>
+                </q-btn-dropdown>
+              </div>
+            </div>
+          </q-card-section>
+
+          <q-card-section>
+
+            <!-- START WORKERS PROGRESS-->
+            <div class="row">
+
+              <div
+                v-if="Object.keys(workerProgressList).length === 0"
+                class="full-width row flex-center text-accent q-gutter-sm">
+                <q-item-label>{{ $t('components.workers.listEmpty') }}</q-item-label>
+              </div>
+              <WorkerProgressCard
+                v-for="(workerProgress, index) in workerProgressList"
+                :key="index"
+                v-bind="workerProgress"
+              />
+
+            </div>
+            <!-- END WORKERS PROGRESS-->
+
+          </q-card-section>
+
+        </q-card>
       </div>
 
-      <div class="row">
+      <div class="col-12 col-md-6">
+        <PendingTasks v-bind="pendingTasksData"/>
+      </div>
 
-        <div class="col-12 col-md-6">
-          <div class="q-ma-sm">
-            <PendingTasks v-bind="pendingTasksData"/>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="q-ma-sm">
-            <CompletedTasks v-bind="completedTasksData"/>
-          </div>
-        </div>
-
+      <div class="col-12 col-md-6">
+        <CompletedTasks v-bind="completedTasksData"/>
       </div>
 
     </div>
@@ -119,8 +110,8 @@
 </template>
 
 <script>
-import WorkerProgress from 'components/dashboard/workers/WorkerProgress.vue'
-import PendingTasks from 'components/PendingTasks.vue'
+import WorkerProgressCard from 'components/dashboard/workers/WorkerProgressCard.vue'
+import PendingTasks from 'components/dashboard/pending/PendingTasksSection.vue'
 import CompletedTasks from "components/CompletedTasks";
 import dateTools from "src/js/dateTools";
 import { useQuasar } from "quasar";
@@ -133,8 +124,7 @@ import ReleaseNotesDialog from "components/ReleaseNotesDialog";
 
 export default {
   name: 'MainDashboard',
-  components: { ReleaseNotesDialog, CompletedTasks, WorkerProgress, PendingTasks },
-  setup() {
+  components: { ReleaseNotesDialog, CompletedTasks, WorkerProgressCard, PendingTasks }, setup() {
     const { t: $t } = useI18n();
     const $q = useQuasar();
     const workerProgressList = ref([]);

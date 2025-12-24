@@ -16,11 +16,10 @@
     >
       <template v-slot:top-left>
         <q-input
-          filled
-          class="shadow-1"
+          outlined
           dense
           debounce="300"
-          color="primary"
+          color="secondary"
           v-model="filter"
           :placeholder="$t('navigation.search')">
           <template v-slot:append>
@@ -30,7 +29,12 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown class="q-ml-sm" color="secondary" :label="$t('navigation.options')">
+        <q-btn-dropdown
+          class="q-ml-sm"
+          outline
+          content-class="unmanic-dropdown-menu"
+          color="secondary"
+          :label="$t('navigation.options')">
           <q-list>
             <q-item clickable v-close-popup @click="rescanLibrary">
               <q-item-section>

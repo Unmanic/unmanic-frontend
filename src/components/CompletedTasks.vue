@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card flat bordered>
     <q-card-section class="bg-card-head">
 
       <div class="row items-center no-wrap">

@@ -1,5 +1,5 @@
 <template>
-  <q-card>
+  <q-card flat bordered>
     <q-card-section class="bg-card-head">
 
       <div class="row items-center no-wrap">
@@ -15,7 +15,7 @@
         <div class="col-auto">
           <q-btn
             @click="pendingTasksPopup = true"
-            color="grey-7"
+            color="secondary"
             dense
             round
             flat
@@ -80,6 +80,7 @@
             class="float-right"
             :label="$t('components.pendingTasks.rescanLibrary')"
             color="secondary"
+            outline
             @click="rescanLibrary()"/>
         </div>
       </div>
@@ -104,7 +105,7 @@
 
             <div class="col-auto">
               <q-btn
-                color="grey-7"
+                color="secondary"
                 dense
                 round
                 flat
@@ -130,7 +131,7 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import PendingTasksTable from "components/PendingTasksTable";
+import PendingTasksTable from "components/dashboard/pending/PendingTasksTable";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
