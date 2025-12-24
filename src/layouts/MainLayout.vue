@@ -1,7 +1,12 @@
 <template>
   <q-layout view="hHh lpR lFf">
 
-    <q-header reveal class="header-background text-white" height-hint="98" style="z-index: 6001">
+    <q-header
+      reveal
+      class="header-background text-white"
+      height-hint="98"
+      :style="leftMainNavDrawerOpen ? 'z-index: 6001' : ''"
+    >
       <q-toolbar>
 
         <!--SHOW DRAWER MENU BUTTON-->
