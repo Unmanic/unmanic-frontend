@@ -469,6 +469,7 @@ const resetPluginLibraryConfig = () => {
       timeout: 200,
       actions: [{ icon: 'close', color: 'white' }]
     })
+    hide()
   }).catch(() => {
     $q.notify({
       color: 'negative',
@@ -505,6 +506,7 @@ const savePluginSettings = () => {
       timeout: 200,
       actions: [{ icon: 'close', color: 'white' }]
     })
+    hide()
   }).catch(() => {
     $q.notify({
       color: 'negative',

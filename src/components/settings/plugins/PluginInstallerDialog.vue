@@ -228,7 +228,7 @@ import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import PluginInstallerManageRepos from 'components/settings/plugins/partials/PluginInstallerManageRepos'
-import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
+import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog.vue'
 import UnmanicListActionButton from 'components/ui/buttons/UnmanicListActionButton.vue'
 
 const emit = defineEmits(['hide'])

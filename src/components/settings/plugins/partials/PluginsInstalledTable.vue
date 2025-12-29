@@ -233,20 +233,26 @@
 </template>
 
 <script>
-import { onMounted, watch, ref } from 'vue';
+import { onMounted, watch, ref, nextTick } from 'vue';
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import { bbCodeToHTML } from "src/js/markupParser";
 import { useI18n } from "vue-i18n";
-import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog";
+import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog.vue";
 import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
 import UnmanicStandardButtonDropdown from "components/ui/buttons/UnmanicStandardButtonDropdown.vue";
 
 export default {
-  components: { PluginInstallerDialog, UnmanicListActionButton, UnmanicStandardButton, UnmanicStandardButtonDropdown },
+  components: {
+    PluginInfoDialog,
+    PluginInstallerDialog,
+    UnmanicListActionButton,
+    UnmanicStandardButton,
+    UnmanicStandardButtonDropdown
+  },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
@@ -501,9 +507,11 @@ export default {
 
       selectedPluginId.value = pluginId
       pluginInfoTab.value = (tab === 'settings') ? 'settings' : 'info'
-      if (pluginInfoDialogRef.value) {
-        pluginInfoDialogRef.value.show()
-      }
+      nextTick(() => {
+        if (pluginInfoDialogRef.value) {
+          pluginInfoDialogRef.value.show()
+        }
+      })
     }
 
     function closePluginInfo() {
