@@ -139,11 +139,7 @@
               <q-separator class="q-my-lg"/>
 
               <div>
-                <q-btn
-                  outline
-                  color="secondary"
-                  class="full-width"
-                  :label="$t('navigation.submit')" type="submit"/>
+                <SettingsSubmitButton/>
               </div>
             </q-form>
 
@@ -188,10 +184,11 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
+import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
 
 export default {
   name: 'SettingsWorkers',
-  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog },
+  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog, SettingsSubmitButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

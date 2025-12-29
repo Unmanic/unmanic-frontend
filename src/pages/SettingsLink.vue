@@ -278,11 +278,7 @@
               <q-separator class="q-my-lg"/>
 
               <div>
-                <q-btn
-                  outline
-                  color="secondary"
-                  class="full-width"
-                  :label="$t('navigation.submit')" type="submit"/>
+                <SettingsSubmitButton/>
               </div>
             </q-form>
 
@@ -316,11 +312,12 @@ import { useI18n } from "vue-i18n";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
+import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 
 export default {
   name: 'SettingsLink',
-  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav },
+  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, SettingsSubmitButton },
   setup() {
     const { t: $t } = useI18n();
 
