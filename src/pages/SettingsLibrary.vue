@@ -160,14 +160,10 @@
 
                 <q-bar class="bg-transparent">
                   <q-space/>
-                  <q-btn
-                    round
-                    outline
-                    color="secondary"
-                    icon="add"
-                    @click="addNewLibraryWithDirectoryBrowser">
-                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
-                  </q-btn>
+                  <ListAddButton
+                    :tooltip="$t('tooltips.add')"
+                    @click="addNewLibraryWithDirectoryBrowser"
+                  />
                 </q-bar>
 
               </div>
@@ -373,10 +369,11 @@ import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
 import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
 import ListActionButton from "components/ui/buttons/ListActionButton.vue";
+import ListAddButton from "components/ui/buttons/ListAddButton.vue";
 
 export default {
   name: 'SettingsLibrary',
-  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListActionButton },
+  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListActionButton, ListAddButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

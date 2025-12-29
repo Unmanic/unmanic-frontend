@@ -97,15 +97,10 @@
 
                 <q-bar class="bg-transparent">
                   <q-space/>
-                  <q-btn
-                    outline
-                    dense
-                    round
-                    color="secondary"
-                    icon="add"
-                    @click="configureWorkerGroup('new')">
-                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
-                  </q-btn>
+                  <ListAddButton
+                    :tooltip="$t('tooltips.add')"
+                    @click="configureWorkerGroup('new')"
+                  />
                 </q-bar>
 
               </div>
@@ -185,10 +180,11 @@ import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
 import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
+import ListAddButton from "components/ui/buttons/ListAddButton.vue";
 
 export default {
   name: 'SettingsWorkers',
-  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog, SettingsSubmitButton },
+  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListAddButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

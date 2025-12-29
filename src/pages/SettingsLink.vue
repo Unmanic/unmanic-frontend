@@ -197,15 +197,10 @@
 
                 <q-bar class="bg-transparent">
                   <q-space/>
-                  <q-btn
-                    outline
-                    dense
-                    round
-                    color="secondary"
-                    icon="add"
-                    @click="newRemoteInstallation = true">
-                    <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
-                  </q-btn>
+                  <ListAddButton
+                    :tooltip="$t('tooltips.add')"
+                    @click="newRemoteInstallation = true"
+                  />
                 </q-bar>
 
                 <q-dialog v-model="newRemoteInstallation" persistent>
@@ -306,11 +301,12 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
 import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
 import ListActionButton from "components/ui/buttons/ListActionButton.vue";
+import ListAddButton from "components/ui/buttons/ListAddButton.vue";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav.vue";
 
 export default {
   name: 'SettingsLink',
-  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, SettingsSubmitButton, ListActionButton },
+  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, SettingsSubmitButton, ListActionButton, ListAddButton },
   setup() {
     const { t: $t } = useI18n();
 

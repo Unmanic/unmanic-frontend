@@ -179,15 +179,10 @@
 
               <q-bar class="bg-transparent">
                 <q-space/>
-                <q-btn
-                  outline
-                  dense
-                  round
-                  color="secondary"
-                  icon="add"
-                  @click="addNewScheduledEvent">
-                  <q-tooltip class="bg-white text-primary">{{ $t('tooltips.add') }}</q-tooltip>
-                </q-btn>
+                <ListAddButton
+                  :tooltip="$t('tooltips.add')"
+                  @click="addNewScheduledEvent"
+                />
               </q-bar>
             </div>
           </q-card-section>
@@ -207,6 +202,7 @@ import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 import WorkerEventCreateDialog from 'components/WorkerEventCreateDialog'
+import ListAddButton from "components/ui/buttons/ListAddButton.vue";
 
 const props = defineProps({
   workerGroupId: {

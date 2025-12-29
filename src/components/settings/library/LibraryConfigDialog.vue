@@ -297,17 +297,10 @@
 
               <q-bar class="bg-transparent q-mb-sm">
                 <q-space/>
-                <q-btn
-                  round
-                  outline
-                  color="secondary"
-                  icon="add"
-                  @click="selectPluginFromList">
-                  <q-tooltip class="bg-white text-primary">{{
-                      $t('components.settings.library.addPluginToThisLibrary')
-                    }}
-                  </q-tooltip>
-                </q-btn>
+                <ListAddButton
+                  :tooltip="$t('components.settings.library.addPluginToThisLibrary')"
+                  @click="selectPluginFromList"
+                />
               </q-bar>
             </div>
 
@@ -351,6 +344,7 @@ import LibraryConfigurePluginFlowList from 'components/settings/library/partials
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
 import ListActionButton from "components/ui/buttons/ListActionButton.vue"
+import ListAddButton from "components/ui/buttons/ListAddButton.vue"
 
 const props = defineProps({
   libraryId: {
