@@ -176,26 +176,18 @@
 
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
-                        <q-btn
-                          size="12px"
-                          flat dense round
-                          color="grey-8"
+                        <ListActionButton
                           icon="tune"
-                          @click="configureRemoteInstallation(index)">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.configure') }}
-                          </q-tooltip>
-                        </q-btn>
-                        <q-btn
-                          flat dense round
-                          size="12px"
-                          color="negative"
+                          color="grey-8"
+                          :tooltip="$t('tooltips.configure')"
+                          @click="configureRemoteInstallation(index)"
+                        />
+                        <ListActionButton
                           icon="delete"
-                          @click="deleteRemoteInstallation(index)">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.delete') }}
-                          </q-tooltip>
-                        </q-btn>
+                          color="negative"
+                          :tooltip="$t('tooltips.delete')"
+                          @click="deleteRemoteInstallation(index)"
+                        />
                       </div>
                     </q-item-section>
 
@@ -313,11 +305,12 @@ import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
 import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
-import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
+import ListActionButton from "components/ui/buttons/ListActionButton.vue";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav.vue";
 
 export default {
   name: 'SettingsLink',
-  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, SettingsSubmitButton },
+  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, SettingsSubmitButton, ListActionButton },
   setup() {
     const { t: $t } = useI18n();
 

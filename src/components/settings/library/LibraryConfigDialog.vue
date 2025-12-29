@@ -276,27 +276,19 @@
 
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
-                        <q-btn
-                          flat dense round
-                          size="12px"
-                          color="grey-8"
+                        <ListActionButton
                           icon="tune"
+                          color="grey-8"
                           :disable="!plugin.has_config"
-                          @click="openPluginInfo(plugin.plugin_id, 'settings')">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.configureForThisLibrary') }}
-                          </q-tooltip>
-                        </q-btn>
-                        <q-btn
-                          flat dense round
-                          size="12px"
-                          color="negative"
+                          :tooltip="$t('tooltips.configureForThisLibrary')"
+                          @click="openPluginInfo(plugin.plugin_id, 'settings')"
+                        />
+                        <ListActionButton
                           icon="remove_circle_outline"
-                          @click="removePluginFromList(index)">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.removeFromThisLibrary') }}
-                          </q-tooltip>
-                        </q-btn>
+                          color="negative"
+                          :tooltip="$t('tooltips.removeFromThisLibrary')"
+                          @click="removePluginFromList(index)"
+                        />
                       </div>
                     </q-item-section>
                   </q-item>
@@ -358,6 +350,7 @@ import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDial
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
+import ListActionButton from "components/ui/buttons/ListActionButton.vue"
 
 const props = defineProps({
   libraryId: {

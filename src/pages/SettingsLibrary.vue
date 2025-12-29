@@ -138,27 +138,19 @@
 
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
-                        <q-btn
-                          flat dense round
-                          size="12px"
-                          color="grey-8"
+                        <ListActionButton
                           icon="tune"
-                          @click="configureLibraryPath(index)">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.configure') }}
-                          </q-tooltip>
-                        </q-btn>
-                        <q-btn
-                          flat dense round
-                          size="12px"
-                          :color="path.locked ? 'grey-6' : 'negative'"
+                          color="grey-8"
+                          :tooltip="$t('tooltips.configure')"
+                          @click="configureLibraryPath(index)"
+                        />
+                        <ListActionButton
                           icon="delete"
+                          :color="path.locked ? 'grey-6' : 'negative'"
                           :disable="path.locked"
-                          @click="deleteLibrary(index)">
-                          <q-tooltip class="bg-white text-primary">
-                            {{ $t('tooltips.delete') }}
-                          </q-tooltip>
-                        </q-btn>
+                          :tooltip="$t('tooltips.delete')"
+                          @click="deleteLibrary(index)"
+                        />
                       </div>
                     </q-item-section>
 
@@ -380,10 +372,11 @@ import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog.vue";
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
 import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
+import ListActionButton from "components/ui/buttons/ListActionButton.vue";
 
 export default {
   name: 'SettingsLibrary',
-  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, SettingsSubmitButton },
+  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListActionButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

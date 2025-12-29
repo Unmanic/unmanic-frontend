@@ -108,24 +108,20 @@
 
             <q-item-section center side>
               <div class="text-grey-8 q-gutter-xs q-mr-lg">
-                <q-btn
+                <ListActionButton
                   v-if="plugin.status.update_available"
-                  flat dense round
                   class="gt-xs"
-                  size="12px"
                   color="info"
                   icon="update"
-                  @click="updateSinglePlugin(plugin.id)">
-                </q-btn>
-                <q-btn
+                  @click="updateSinglePlugin(plugin.id)"
+                />
+                <ListActionButton
                   v-else
                   disable
-                  flat dense round
                   class="gt-xs no-pointer-events"
-                  size="12px"
                   color="positive"
-                  icon="download_done">
-                </q-btn>
+                  icon="download_done"
+                />
               </div>
               <q-tooltip class="bg-white text-primary">
                   <span
@@ -194,36 +190,28 @@
                   </q-list>
                 </q-btn-dropdown>
 
-                <q-btn
-                  flat dense round
+                <ListActionButton
                   class="gt-xs"
-                  size="12px"
                   color="info"
                   icon="info"
-                  @click="openPluginInfo(plugin.id)">
-                  <q-tooltip class="bg-white text-primary">{{ $t('headers.pluginInfo') }}</q-tooltip>
-                </q-btn>
-                <q-btn
+                  :tooltip="$t('headers.pluginInfo')"
+                  @click="openPluginInfo(plugin.id)"
+                />
+                <ListActionButton
                   :disable="!plugin.has_config"
-                  flat dense round
                   class="gt-xs"
-                  size="12px"
                   color="grey-8"
                   icon="tune"
-                  @click="openPluginInfo(plugin.id, 'settings')">
-                  <q-tooltip class="bg-white text-primary">
-                    {{ $t('components.plugins.globalConfiguration') }}
-                  </q-tooltip>
-                </q-btn>
-                <q-btn
-                  flat dense round
+                  :tooltip="$t('components.plugins.globalConfiguration')"
+                  @click="openPluginInfo(plugin.id, 'settings')"
+                />
+                <ListActionButton
                   class="gt-xs"
-                  size="12px"
                   color="negative"
                   icon="delete"
-                  @click="removeSinglePlugin(plugin.id)">
-                  <q-tooltip class="bg-white text-primary">{{ $t('components.plugins.removePlugin') }}</q-tooltip>
-                </q-btn>
+                  :tooltip="$t('components.plugins.removePlugin')"
+                  @click="removeSinglePlugin(plugin.id)"
+                />
 
               </div>
             </q-item-section>
@@ -253,9 +241,10 @@ import { bbCodeToHTML } from "src/js/markupParser";
 import { useI18n } from "vue-i18n";
 import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog";
 import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
+import ListActionButton from "components/ui/buttons/ListActionButton.vue";
 
 export default {
-  components: { PluginInstallerDialog },
+  components: { PluginInstallerDialog, ListActionButton },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();
