@@ -192,14 +192,13 @@ defineExpose({
 .dialog-sticky-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 4001;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .dialog-card {
   width: var(--dialog-width);
   max-width: 98vw;
-  height: calc(100vh - 48px);
   /* Apply custom drop-shadow */
   border: 1px solid color-mix(in srgb, var(--unmanic-grey-5), transparent 60%);
   border-radius: 4px;

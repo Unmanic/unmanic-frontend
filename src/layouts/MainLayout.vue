@@ -5,7 +5,7 @@
       reveal
       class="header-background text-white"
       height-hint="98"
-      :style="leftMainNavDrawerOpen ? 'z-index: 6001' : ''"
+      :style="leftMainNavDrawerOpen ? 'z-index: 3001' : ''"
     >
       <q-toolbar>
 
