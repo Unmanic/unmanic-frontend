@@ -27,9 +27,9 @@ The project follows the standard Quasar directory structure:
   - **`components/`**: Reusable Vue components. Organized by purpose/UI section:
     - **`ui/`**: Generic, reusable design components.
       - **`buttons/`**: Reusable button components.
-      - **`dialogs/`**: Standardized dialog wrapper templates (`UnmanicDialogMenu`, etc.) and specific reusable dialogs.
-        - **`docs/`**: Documentation-related dialogs (e.g., Privacy Policy).
+      - **`dialogs/`**: Standardized dialog wrapper templates (`UnmanicDialogMenu`, etc.).
       - **`pickers/`**: Reusable selection tools (e.g., `SelectDirectoryDialog`).
+    - **`docs/`**: Documentation-related dialogs (e.g., Privacy Policy, Release Notes).
     - **`forms/`**: Input form components.
     - **`settings/`**: Components specific to the Settings pages.
       - **`library/`**: Components specific to the Libraries settings page.

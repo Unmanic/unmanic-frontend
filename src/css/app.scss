@@ -79,3 +79,36 @@
 .body--dark .nested-card {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--unmanic-grey-4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--unmanic-grey-5);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.body--dark {
+  ::-webkit-scrollbar-thumb {
+    background: var(--unmanic-grey-8);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--unmanic-grey-7);
+  }
+}
