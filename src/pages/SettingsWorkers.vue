@@ -97,7 +97,7 @@
 
                 <q-bar class="bg-transparent">
                   <q-space/>
-                  <ListAddButton
+                  <UnmanicListAddButton
                     :tooltip="$t('tooltips.add')"
                     @click="configureWorkerGroup('new')"
                   />
@@ -134,7 +134,7 @@
               <q-separator class="q-my-lg"/>
 
               <div>
-                <SettingsSubmitButton/>
+                <UnmanicSettingsSubmitButton/>
               </div>
             </q-form>
 
@@ -179,12 +179,12 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
-import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
-import ListAddButton from "components/ui/buttons/ListAddButton.vue";
+import UnmanicSettingsSubmitButton from "components/ui/buttons/UnmanicSettingsSubmitButton.vue";
+import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
 
 export default {
   name: 'SettingsWorkers',
-  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListAddButton },
+  components: { MobileSettingsQuickNav, WorkerGroupConfigDialog, SelectDirectoryDialog, UnmanicSettingsSubmitButton, UnmanicListAddButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

@@ -276,14 +276,14 @@
 
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
-                        <ListActionButton
+                        <UnmanicListActionButton
                           icon="tune"
                           color="grey-8"
                           :disable="!plugin.has_config"
                           :tooltip="$t('tooltips.configureForThisLibrary')"
                           @click="openPluginInfo(plugin.plugin_id, 'settings')"
                         />
-                        <ListActionButton
+                        <UnmanicListActionButton
                           icon="remove_circle_outline"
                           color="negative"
                           :tooltip="$t('tooltips.removeFromThisLibrary')"
@@ -297,7 +297,7 @@
 
               <q-bar class="bg-transparent q-mb-sm">
                 <q-space/>
-                <ListAddButton
+                <UnmanicListAddButton
                   :tooltip="$t('components.settings.library.addPluginToThisLibrary')"
                   @click="selectPluginFromList"
                 />
@@ -343,8 +343,8 @@ import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDial
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
-import ListActionButton from "components/ui/buttons/ListActionButton.vue"
-import ListAddButton from "components/ui/buttons/ListAddButton.vue"
+import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue"
+import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue"
 
 const props = defineProps({
   libraryId: {

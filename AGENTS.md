@@ -164,18 +164,22 @@ The project follows the standard Quasar directory structure:
 
 - **Color**: Use `color="secondary"` for standard action buttons.
 - **Capitalization**: **STRICT RULE**: Do not use the `no-caps` prop. All button text should remain capitalized (Quasar default).
+- **Standard Components**: **PREFERRED**. Use the pre-built buttons in `src/components/ui/buttons/` to ensure consistent styling.
+  - **`UnmanicListActionButton`**: For inline list actions (e.g., Edit, Delete). Replaces `flat dense round`.
+  - **`UnmanicListAddButton`**: For "Add" actions in list headers. Replaces `outline dense round` with `icon="add"`.
+  - **`UnmanicSettingsSubmitButton`**: For form submit buttons. Replaces `outline full-width` submit buttons.
 - **Small Icon/Toggles**: Use `flat dense round` for small icon-only buttons or toggle-style actions, defaulting to `color="secondary"`.
 - **Dropdown Buttons**:
   - Use `outline` and `color="secondary"` for standard labelled dropdowns.
   - Use `rounded` (not `round`) when following small icon button styling.
   - **Always** apply `content-class="unmanic-dropdown-menu"` to ensure consistent menu styling (borders, shadows).
-- **List Icon Actions**: For inline list actions (like plugin/library rows), use `flat dense round` and match color/icon to function:
+- **List Icon Actions**: (Use `UnmanicListActionButton`)
   - **Info**: `icon="info"`, `color="info"`.
   - **Settings/Config**: `icon="tune"`, `color="grey-8"`.
   - **Delete**: `icon="delete"`, `color="negative"`; if disabled, use `color="grey-6"`.
-- **List Add Actions**: For list add buttons (e.g., “Add” in list headers/bars), use `outline dense round` with `color="secondary"`.
-- **Text-Only Actions**: Use `outline` with `color="secondary"` for buttons that only display text (e.g., Submit).
-- **Submit Actions**: Submit buttons at the bottom of a form should be `outline`, `color="secondary"`, and full width of the form using the class `full-width`.
+- **List Add Actions**: (Use `UnmanicListAddButton`)
+- **Text-Only Actions**: Use `outline` with `color="secondary"` for buttons that only display text (e.g., Cancel).
+- **Submit Actions**: (Use `UnmanicSettingsSubmitButton`)
 - **Full-Width Actions**: Standalone buttons at the bottom of a form should stretch to full width when possible.
 
 ### Search & Filter Inputs

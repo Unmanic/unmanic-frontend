@@ -179,7 +179,7 @@
 
               <q-bar class="bg-transparent">
                 <q-space/>
-                <ListAddButton
+                <UnmanicListAddButton
                   :tooltip="$t('tooltips.add')"
                   @click="addNewScheduledEvent"
                 />
@@ -202,7 +202,7 @@ import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 import WorkerEventCreateDialog from 'components/WorkerEventCreateDialog'
-import ListAddButton from "components/ui/buttons/ListAddButton.vue";
+import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
 
 const props = defineProps({
   workerGroupId: {

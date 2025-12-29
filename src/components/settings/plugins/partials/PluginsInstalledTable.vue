@@ -108,14 +108,14 @@
 
             <q-item-section center side>
               <div class="text-grey-8 q-gutter-xs q-mr-lg">
-                <ListActionButton
+                <UnmanicListActionButton
                   v-if="plugin.status.update_available"
                   class="gt-xs"
                   color="info"
                   icon="update"
                   @click="updateSinglePlugin(plugin.id)"
                 />
-                <ListActionButton
+                <UnmanicListActionButton
                   v-else
                   disable
                   class="gt-xs no-pointer-events"
@@ -190,14 +190,14 @@
                   </q-list>
                 </q-btn-dropdown>
 
-                <ListActionButton
+                <UnmanicListActionButton
                   class="gt-xs"
                   color="info"
                   icon="info"
                   :tooltip="$t('headers.pluginInfo')"
                   @click="openPluginInfo(plugin.id)"
                 />
-                <ListActionButton
+                <UnmanicListActionButton
                   :disable="!plugin.has_config"
                   class="gt-xs"
                   color="grey-8"
@@ -205,7 +205,7 @@
                   :tooltip="$t('components.plugins.globalConfiguration')"
                   @click="openPluginInfo(plugin.id, 'settings')"
                 />
-                <ListActionButton
+                <UnmanicListActionButton
                   class="gt-xs"
                   color="negative"
                   icon="delete"
@@ -241,10 +241,10 @@ import { bbCodeToHTML } from "src/js/markupParser";
 import { useI18n } from "vue-i18n";
 import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog";
 import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
-import ListActionButton from "components/ui/buttons/ListActionButton.vue";
+import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 
 export default {
-  components: { PluginInstallerDialog, ListActionButton },
+  components: { PluginInstallerDialog, UnmanicListActionButton },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();

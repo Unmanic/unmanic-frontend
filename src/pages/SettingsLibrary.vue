@@ -138,13 +138,13 @@
 
                     <q-item-section center side>
                       <div class="text-grey-8 q-gutter-xs">
-                        <ListActionButton
+                        <UnmanicListActionButton
                           icon="tune"
                           color="grey-8"
                           :tooltip="$t('tooltips.configure')"
                           @click="configureLibraryPath(index)"
                         />
-                        <ListActionButton
+                        <UnmanicListActionButton
                           icon="delete"
                           :color="path.locked ? 'grey-6' : 'negative'"
                           :disable="path.locked"
@@ -160,7 +160,7 @@
 
                 <q-bar class="bg-transparent">
                   <q-space/>
-                  <ListAddButton
+                  <UnmanicListAddButton
                     :tooltip="$t('tooltips.add')"
                     @click="addNewLibraryWithDirectoryBrowser"
                   />
@@ -323,7 +323,7 @@
               <q-separator class="q-my-lg"/>
 
               <div>
-                <SettingsSubmitButton/>
+                <UnmanicSettingsSubmitButton/>
               </div>
             </q-form>
 
@@ -367,13 +367,13 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog.vue";
 import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
-import SettingsSubmitButton from "components/ui/buttons/SettingsSubmitButton.vue";
-import ListActionButton from "components/ui/buttons/ListActionButton.vue";
-import ListAddButton from "components/ui/buttons/ListAddButton.vue";
+import UnmanicSettingsSubmitButton from "components/ui/buttons/UnmanicSettingsSubmitButton.vue";
+import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
+import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
 
 export default {
   name: 'SettingsLibrary',
-  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, SettingsSubmitButton, ListActionButton, ListAddButton },
+  components: { MobileSettingsQuickNav, LibraryConfigDialog, SelectDirectoryDialog, UnmanicSettingsSubmitButton, UnmanicListActionButton, UnmanicListAddButton },
   setup() {
     const $q = useQuasar()
     const { t: $t } = useI18n();

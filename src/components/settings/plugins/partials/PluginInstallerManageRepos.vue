@@ -23,8 +23,7 @@
       color="secondary"
       :label="$t('components.plugins.addRepository')"
       :class="$q.platform.is.mobile ? 'full-width' : ''"
-      content-class="unmanic-dropdown-menu"
-      menu-class="unmanic-dialog-menu">
+      content-class="unmanic-dropdown-menu">
 
       <div>
         <!--REPO DATA-->
@@ -66,7 +65,6 @@
       :class="$q.platform.is.mobile ? 'full-width' : ''"
       :fit="$q.platform.is.mobile"
       content-class="unmanic-dropdown-menu"
-      menu-class="unmanic-dialog-menu"
     >
 
       <div

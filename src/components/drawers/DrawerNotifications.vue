@@ -46,7 +46,7 @@
 
       <q-item-section top side>
         <div class="text-grey-8 q-gutter-xs">
-          <ListActionButton
+          <UnmanicListActionButton
             class="gt-xs"
             icon="close"
             color="grey-8"
@@ -65,11 +65,11 @@
 
 import { ref } from 'vue';
 import unmanicGlobals from "src/js/unmanicGlobals";
-import ListActionButton from "components/ui/buttons/ListActionButton.vue";
+import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 
 export default {
   name: 'DrawerNotifications',
-  components: { ListActionButton },
+  components: { UnmanicListActionButton },
   methods: {
     runNotificationAction: function (index) {
       if (this.notificationActionsDisabled) {
