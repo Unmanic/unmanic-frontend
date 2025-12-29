@@ -294,8 +294,8 @@ import axios from 'axios'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { markdownToHTML } from 'src/js/markupParser'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
-import SelectDirectoryDialog from 'components/dialogs/SelectDirectoryDialog.vue'
+import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
+import SelectDirectoryDialog from 'components/ui/pickers/SelectDirectoryDialog.vue'
 
 const props = defineProps({
   pluginId: {

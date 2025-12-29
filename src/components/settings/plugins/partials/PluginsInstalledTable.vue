@@ -251,7 +251,7 @@ import { useQuasar } from "quasar";
 import axios from "axios";
 import { bbCodeToHTML } from "src/js/markupParser";
 import { useI18n } from "vue-i18n";
-import PluginInfoDialog from "components/dialogs/PluginInfoDialog";
+import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog";
 import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
 
 export default {

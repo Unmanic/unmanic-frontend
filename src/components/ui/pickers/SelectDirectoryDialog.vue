@@ -47,7 +47,7 @@ import { ref, computed, watch } from 'vue'
 import axios from 'axios'
 import { useI18n } from 'vue-i18n'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
-import UnmanicDialogPopup from 'components/dialogs/standard/UnmanicDialogPopup.vue'
+import UnmanicDialogPopup from 'components/ui/dialogs/UnmanicDialogPopup.vue'
 
 const props = defineProps({
   title: {

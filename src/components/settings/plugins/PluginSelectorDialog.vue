@@ -78,7 +78,7 @@ import { useI18n } from 'vue-i18n'
 import axios from 'axios'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogPopup from 'components/dialogs/standard/UnmanicDialogPopup.vue'
+import UnmanicDialogPopup from 'components/ui/dialogs/UnmanicDialogPopup.vue'
 import PluginInstallerDialog from 'components/settings/plugins/PluginInstallerDialog.vue'
 
 const props = defineProps({

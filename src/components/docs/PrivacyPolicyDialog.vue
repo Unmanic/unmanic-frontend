@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
+import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import unmanicGlobals from 'src/js/unmanicGlobals'
 import { markdownToHTML } from 'src/js/markupParser'
 

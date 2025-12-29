@@ -110,7 +110,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import { date } from 'quasar'
 import { useI18n } from 'vue-i18n'
-import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
+import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 
 const emit = defineEmits(['hide', 'add-repo'])
 

@@ -93,7 +93,7 @@
 import { ref, computed } from 'vue'
 import { useQuasar } from 'quasar'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
+import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import WorkerProgressStatusCard from 'components/dashboard/workers/partials/WorkerProgressStatusCard.vue'
 import WorkerProgressLogCard from 'components/dashboard/workers/partials/WorkerProgressLogCard.vue'
 

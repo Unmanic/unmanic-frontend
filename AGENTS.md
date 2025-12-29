@@ -25,9 +25,9 @@ The project follows the standard Quasar directory structure:
   - **`assets/`**: Static assets like images and logos.
   - **`boot/`**: Initialization scripts (Axios, i18n, Global Event Bus).
   - **`components/`**: Reusable Vue components. Organized by purpose/UI section:
-    - **`standard/`**: Generic, reusable components that provide slots (wrappers, templates).
-    - **`dialogs/`**: Specific dialog content components.
-      - **`standard/`**: Standardized dialog wrapper templates (`UnmanicDialogMenu`, etc.).
+    - **`ui/`**: Generic, reusable design components.
+      - **`dialogs/`**: Standardized dialog wrapper templates (`UnmanicDialogMenu`, etc.).
+      - **`pickers/`**: Reusable selection tools (e.g., `SelectDirectoryDialog`).
     - **`forms/`**: Input form components.
     - **`settings/`**: Components specific to the Settings pages.
       - **`library/`**: Components specific to the Libraries settings page.
@@ -103,7 +103,7 @@ The project follows the standard Quasar directory structure:
 ### Dialogs
 
 - **Location**: New dialog components must be created in `src/components/dialogs/`.
-- **Standard Wrappers**: **PREFERRED**. Use the pre-built wrappers in `src/components/dialogs/standard/` to ensure consistent behavior across desktop and mobile.
+- **Standard Wrappers**: **PREFERRED**. Use the pre-built wrappers in `src/components/ui/dialogs/` to ensure consistent behavior across desktop and mobile.
   - **`UnmanicDialogMenu`**: For side-menus. Slides from right (desktop) or left (mobile). Supports an `action` prop for a header button (e.g., Save).
   - **`UnmanicDialogPopup`**: For standard modals/forms. Centered (desktop) or left-slide full-width (mobile).
   - **`UnmanicDialogWindow`**: For large floating windows. Slides from right with buffer (desktop) or left-slide full-width (mobile).
@@ -113,7 +113,7 @@ The project follows the standard Quasar directory structure:
     <!-- Your Content Here -->
   </UnmanicDialogPopup>
   ```
-- **Header Styling**: Dialog headers in `src/components/dialogs/standard/` should use `text-primary` for title text.
+- **Header Styling**: Dialog headers in `src/components/ui/dialogs/` should use `text-primary` for title text.
 - **Header Actions**: `UnmanicDialogMenu` and `UnmanicDialogWindow` use an `actions` array prop (objects with `label`, `icon`, `color`, `emit`, `tooltip`, `disabled`). Place actions adjacent to the close arrow.
 - **Close Tooltip**: Use the `closeTooltip` prop when the close action should warn about unsaved changes.
 - **Integration Pattern**: Embed the dialog component in the parent template and open it via a `ref` (no `$q.dialog`). Expose `show()` / `hide()` from the dialog using `defineExpose`, and call `this.$refs.myDialog.show()` (Options API) or `dialogRef.value.show()` (Composition API), mirroring `src/components/PluginInstallerManageRepos.vue` → `src/components/settings/plugins/CommunityRepos.vue`.

@@ -219,9 +219,9 @@ import { useI18n } from 'vue-i18n'
 import { useQuasar } from 'quasar'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
+import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import PluginInstallerManageRepos from 'components/settings/plugins/partials/PluginInstallerManageRepos'
-import PluginInfoDialog from 'components/dialogs/PluginInfoDialog'
+import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
 
 const emit = defineEmits(['hide'])
 

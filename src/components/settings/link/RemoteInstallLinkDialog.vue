@@ -223,7 +223,7 @@ import { useQuasar } from 'quasar'
 import { useI18n } from 'vue-i18n'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
+import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 
 const props = defineProps({
   uuid: {

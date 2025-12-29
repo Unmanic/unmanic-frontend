@@ -382,7 +382,7 @@ import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import LibraryConfigDialog from "components/settings/library/LibraryConfigDialog.vue";
-import SelectDirectoryDialog from "components/dialogs/SelectDirectoryDialog.vue";
+import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
 
 export default {
   name: 'SettingsLibrary',

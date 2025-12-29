@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import UnmanicDialogWindow from 'components/dialogs/standard/UnmanicDialogWindow.vue'
+import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import PendingTasksTable from 'components/dashboard/pending/partials/PendingTasksTable.vue'
 
 const emit = defineEmits(['hide'])

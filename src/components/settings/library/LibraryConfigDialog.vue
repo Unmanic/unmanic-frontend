@@ -352,12 +352,12 @@ import { useQuasar, Loading } from 'quasar'
 import { useI18n } from 'vue-i18n'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
-import UnmanicDialogMenu from 'components/dialogs/standard/UnmanicDialogMenu.vue'
-import SelectDirectoryDialog from 'components/dialogs/SelectDirectoryDialog.vue'
+import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
+import SelectDirectoryDialog from 'components/ui/pickers/SelectDirectoryDialog.vue'
 import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDialog.vue'
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/JsonImportExportDialog'
-import PluginInfoDialog from 'components/dialogs/PluginInfoDialog'
+import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
 
 const props = defineProps({
   libraryId: {

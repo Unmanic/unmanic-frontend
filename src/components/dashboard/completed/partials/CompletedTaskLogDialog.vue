@@ -22,7 +22,7 @@
 import { ref, onMounted } from 'vue'
 import axios from "axios"
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals"
-import UnmanicDialogWindow from "components/dialogs/standard/UnmanicDialogWindow.vue"
+import UnmanicDialogWindow from "components/ui/dialogs/UnmanicDialogWindow.vue"
 import { useQuasar } from 'quasar'
 import { useI18n } from 'vue-i18n'
 

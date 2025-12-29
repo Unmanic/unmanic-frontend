@@ -187,7 +187,7 @@ import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
 import WorkerGroupConfigDialog from "components/settings/workers/WorkerGroupConfigDialog.vue";
-import SelectDirectoryDialog from "components/dialogs/SelectDirectoryDialog.vue";
+import SelectDirectoryDialog from "components/ui/pickers/SelectDirectoryDialog.vue";
 
 export default {
   name: 'SettingsWorkers',
