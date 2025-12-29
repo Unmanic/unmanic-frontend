@@ -189,6 +189,10 @@
         </q-card>
       </div>
     </div>
+    <WorkerEventCreateDialog
+      ref="workerEventCreateDialogRef"
+      @ok="onWorkerEventCreated"
+    />
   </UnmanicDialogMenu>
 </template>
 
@@ -201,7 +205,7 @@ import { useI18n } from 'vue-i18n'
 import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
-import WorkerEventCreateDialog from 'components/WorkerEventCreateDialog'
+import WorkerEventCreateDialog from 'components/settings/workers/WorkerEventCreateDialog.vue'
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
 
 const props = defineProps({
@@ -390,26 +394,29 @@ const addTag = () => {
   }
 }
 
+const workerEventCreateDialogRef = ref(null)
+
 const addNewScheduledEvent = () => {
-  $q.dialog({
-    component: WorkerEventCreateDialog,
-    componentProps: {},
-  }).onOk((payload) => {
-    if (payload.repetition === null || payload.scheduleTask === null) {
-      return
+  if (workerEventCreateDialogRef.value) {
+    workerEventCreateDialogRef.value.show()
+  }
+}
+
+const onWorkerEventCreated = (payload) => {
+  if (payload.repetition === null || payload.scheduleTask === null) {
+    return
+  }
+  schedules.value = [
+    ...schedules.value,
+    {
+      repetition: payload.repetition,
+      repetitionLabel: t(`components.settings.workers.scheduleLabels.${payload.repetition}`),
+      scheduleTime: payload.scheduleTime,
+      scheduleTask: payload.scheduleTask,
+      scheduleTaskLabel: t(`components.settings.workers.scheduleLabels.${payload.scheduleTask}`),
+      scheduleWorkerCount: payload.scheduleWorkerCount
     }
-    schedules.value = [
-      ...schedules.value,
-      {
-        repetition: payload.repetition,
-        repetitionLabel: t(`components.settings.workers.scheduleLabels.${payload.repetition}`),
-        scheduleTime: payload.scheduleTime,
-        scheduleTask: payload.scheduleTask,
-        scheduleTaskLabel: t(`components.settings.workers.scheduleLabels.${payload.scheduleTask}`),
-        scheduleWorkerCount: payload.scheduleWorkerCount
-      }
-    ]
-  })
+  ]
 }
 
 const deleteSchedule = (index) => {

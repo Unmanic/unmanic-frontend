@@ -1,6 +1,7 @@
 <template>
   <q-dialog
     ref="dialogRef"
+    backdrop-filter="grayscale(80%) blur(1px)"
     :position="mini ? 'standard' : (isMobile ? 'left' : 'standard')"
     :maximized="mini ? false : isMobile"
     :transition-show="mini ? 'scale' : (isMobile ? 'slide-right' : 'scale')"
