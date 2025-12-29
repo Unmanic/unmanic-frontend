@@ -1,16 +1,17 @@
 <template>
   <q-dialog
     ref="dialogRef"
-    :position="isMobile ? 'left' : 'standard'"
-    :maximized="isMobile"
-    :transition-show="isMobile ? 'slide-right' : 'scale'"
-    :transition-hide="isMobile ? 'slide-left' : 'scale'"
-    :persistent="persistent"
+    :position="mini ? 'standard' : (isMobile ? 'left' : 'standard')"
+    :maximized="mini ? false : isMobile"
+    :transition-show="mini ? 'scale' : (isMobile ? 'slide-right' : 'scale')"
+    :transition-hide="mini ? 'scale' : (isMobile ? 'slide-left' : 'scale')"
+    :persistent="mini || persistent"
+    @shake="onShake"
     @hide="onDialogHide"
   >
     <q-card
       class="column no-wrap dialog-card"
-      :class="{ 'mobile-layout': isMobile }"
+      :class="{ 'mobile-layout': !mini && isMobile, 'mini-layout': mini }"
       :style="{ '--dialog-width': desktopWidth }"
       v-touch-swipe.touch.left="onSwipeLeft"
     >
@@ -19,17 +20,35 @@
         <div class="row items-center no-wrap">
 
           <!-- MOBILE/TABLET (lt-md OR mobile platform): Back/Close Left -->
-          <template v-if="isMobile">
+          <template v-if="!mini && isMobile">
             <q-btn
               outline dense round
               icon="arrow_back"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
               <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
                 {{ closeTooltip || $t('tooltips.close') }}
               </q-tooltip>
             </q-btn>
+
+            <q-btn
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
+              :icon="action.icon"
+              :label="action.label"
+              :color="action.color || 'secondary'"
+              outline
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index > 0 ? 'q-ml-xs' : 'q-ml-sm']"
+              @click="triggerAction(action)"
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
             <div class="text-h6 text-primary q-px-sm ellipsis col">
               {{ title }}
             </div>
@@ -40,10 +59,28 @@
             <div class="text-h6 text-primary col ellipsis">
               {{ title }}
             </div>
+
+            <q-btn
+              v-for="(action, index) in actions"
+              :key="action.emit || action.label || index"
+              outline
+              :icon="action.icon"
+              :label="action.label"
+              :color="action.color || 'secondary'"
+              :disable="action.disabled"
+              :class="[{ 'dialog-attention': attentionActive }, index === 0 ? 'q-mr-sm' : 'q-ml-xs']"
+              @click="triggerAction(action)"
+            >
+              <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
+                {{ action.tooltip }}
+              </q-tooltip>
+            </q-btn>
+
             <q-btn
               outline dense round
               icon="close"
               color="grey-7"
+              :class="{ 'dialog-attention': attentionActive }"
               @click="hide"
             >
               <q-tooltip class="bg-white text-primary no-wrap" style="max-width: none;">
@@ -83,13 +120,23 @@ const props = defineProps({
   persistent: {
     type: Boolean,
     default: false
+  },
+  mini: {
+    type: Boolean,
+    default: false
+  },
+  actions: {
+    type: Array,
+    default: () => []
   }
 })
 
-const emit = defineEmits(['ok', 'hide'])
+const emit = defineEmits(['ok', 'hide', 'action'])
 
 const { isMobile } = useMobile()
 const dialogRef = ref(null)
+const attentionActive = ref(false)
+let attentionTimer = null
 
 const show = () => {
   dialogRef.value.show()
@@ -103,9 +150,30 @@ const onDialogHide = () => {
   emit('hide')
 }
 
+const onShake = () => {
+  if (!props.persistent && !props.mini) {
+    return
+  }
+  attentionActive.value = true
+  if (attentionTimer) {
+    clearTimeout(attentionTimer)
+  }
+  attentionTimer = setTimeout(() => {
+    attentionActive.value = false
+    attentionTimer = null
+  }, 2400)
+}
+
 const onSwipeLeft = () => {
-  if (isMobile.value && !props.persistent) {
+  if (isMobile.value && !props.persistent && !props.mini) {
     hide()
+  }
+}
+
+const triggerAction = (action) => {
+  if (action) {
+    const eventName = action.emit || 'action'
+    emit(eventName)
   }
 }
 
@@ -132,6 +200,11 @@ defineExpose({
   height: calc(100vh - 48px);
 }
 
+.mini-layout {
+  height: auto !important;
+  max-height: 90vh;
+}
+
 /* Mobile view (XS and SM: < 1024px) */
 @media (max-width: 1023px) {
   .dialog-card {
@@ -145,5 +218,21 @@ defineExpose({
   width: 100vw !important;
   max-width: 92vw !important;
   height: 100% !important;
+}
+
+.dialog-attention {
+  animation: dialog-attention-flash 0.8s ease-in-out 3;
+}
+
+@keyframes dialog-attention-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.65);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(25, 118, 210, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
+  }
 }
 </style>

@@ -199,63 +199,53 @@
                   <q-space/>
                   <UnmanicListAddButton
                     :tooltip="$t('tooltips.add')"
-                    @click="newRemoteInstallation = true"
+                    @click="openNewRemoteInstallationDialog"
                   />
                 </q-bar>
 
-                <q-dialog v-model="newRemoteInstallation" persistent>
-                  <q-card style="min-width: 350px">
+                <UnmanicDialogPopup
+                  ref="addRemoteDialogRef"
+                  :title="$t('components.settings.link.addRemoteInstallation')"
+                  :mini="true"
+                  :actions="addRemoteDialogActions"
+                  @add="addNewRemoteInstallation"
+                >
+                  <div class="q-pa-md">
+                    <q-input
+                      outlined
+                      color="primary"
+                      v-model="newRemoteInstallationAddress"
+                      :label="$t('components.settings.link.address')"
+                      placeholder="192.168.1.2:8888"
+                      class="q-mb-md"
+                    />
 
-                    <q-card-section>
-                      <div class="text-h6">{{ $t('components.settings.link.addRemoteInstallation') }}</div>
-                    </q-card-section>
+                    <q-select
+                      outlined
+                      v-model="newRemoteInstallationAuthenticationType"
+                      :options="newRemoteInstallationAuthenticationOptions"
+                      :label="$t('components.settings.link.authentication')"
+                      class="q-mb-md"
+                    />
 
-                    <q-card-section class="q-pt-none">
-                      <q-input
-                        outlined
-                        color="primary"
-                        v-model="newRemoteInstallationAddress"
-                        :label="$t('components.settings.link.address')"
-                        placeholder="192.168.1.2:8888">
-                      </q-input>
-                    </q-card-section>
-
-                    <q-card-section class="q-pt-none">
-                      <q-select
-                        outlined
-                        v-model="newRemoteInstallationAuthenticationType"
-                        :options="newRemoteInstallationAuthenticationOptions"
-                        :label="$t('components.settings.link.authentication')"
-                      />
-                    </q-card-section>
-
-                    <q-card-section v-if="newRemoteInstallationAuthenticationType !== 'None'" class="q-pt-none">
+                    <template v-if="newRemoteInstallationAuthenticationType !== 'None'">
                       <q-input
                         outlined
                         color="primary"
                         v-model="newRemoteInstallationUsername"
-                        :label="$t('components.settings.link.username')">
-                      </q-input>
-                    </q-card-section>
+                        :label="$t('components.settings.link.username')"
+                        class="q-mb-md"
+                      />
 
-                    <q-card-section v-if="newRemoteInstallationAuthenticationType !== 'None'" class="q-pt-none">
                       <q-input
                         outlined
                         color="primary"
                         v-model="newRemoteInstallationPassword"
-                        :label="$t('components.settings.link.password')">
-                      </q-input>
-                    </q-card-section>
-
-                    <q-card-actions align="right" class="text-primary">
-                      <UnmanicStandardButton :label="$t('navigation.cancel')" v-close-popup/>
-                      <UnmanicStandardButton
-                        @click="addNewRemoteInstallation"
-                        :label="$t('components.settings.link.add')"
-                        v-close-popup/>
-                    </q-card-actions>
-                  </q-card>
-                </q-dialog>
+                        :label="$t('components.settings.link.password')"
+                      />
+                    </template>
+                  </div>
+                </UnmanicDialogPopup>
 
               </div>
               <!--END REMOTE INSTALLATIONS-->
@@ -297,17 +287,26 @@ import { useI18n } from "vue-i18n";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
+import UnmanicDialogPopup from "components/ui/dialogs/UnmanicDialogPopup.vue";
 import UnmanicSettingsSubmitButton from "components/ui/buttons/UnmanicSettingsSubmitButton.vue";
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
-import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav.vue";
 
 export default {
   name: 'SettingsLink',
-  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, UnmanicSettingsSubmitButton, UnmanicListActionButton, UnmanicListAddButton, UnmanicStandardButton },
+  components: {
+    RemoteInstallLinkDialog,
+    UnmanicDialogPopup,
+    MobileSettingsQuickNav,
+    UnmanicSettingsSubmitButton,
+    UnmanicListActionButton,
+    UnmanicListAddButton
+  },
   setup() {
     const { t: $t } = useI18n();
+
+    const addRemoteDialogRef = ref(null);
 
     /**
      * Unmanic WS handle
@@ -334,6 +333,10 @@ export default {
       // Close the websocket
       closeUnmanicWebsocket();
     })
+
+    return {
+      addRemoteDialogRef
+    }
   },
   data() {
     return {
@@ -511,6 +514,8 @@ export default {
               message: this.$t('notifications.saved'),
               timeout: 200
             })
+            // Close dialog
+            this.addRemoteDialogRef.hide()
           }).catch(() => {
             this.$q.notify({
               color: 'negative',
@@ -579,6 +584,9 @@ export default {
         }
       })
     },
+    openNewRemoteInstallationDialog: function () {
+      this.addRemoteDialogRef.show()
+    },
     onRemoteInstallSaved: function () {
       this.fetchSettings()
     },
@@ -590,6 +598,16 @@ export default {
     this.fetchSettings();
   },
   computed: {
+    addRemoteDialogActions() {
+      return [
+        {
+          label: this.$t('components.settings.link.add'),
+          icon: 'add',
+          color: 'positive',
+          emit: 'add'
+        }
+      ]
+    },
     dragOptions() {
       return {
         animation: 100,
