@@ -66,6 +66,7 @@
     "invalidWorkerEvent": "Unable to add invalid worker event.",
     "remoteInstallationAlreadyInList": "The address you entered is already in the list of remote installations.",
     "invalidRemoteInstallationAddress": "The address you entered was not a valid Unmanic installation.",
+    "invalidJson": "The provided JSON is invalid.",
     "incompatibleRemoteInstallation": "The remote Unmanic installation that you are trying to add is not compatible with linking. Try updating it first.",
     "cannotRemoveDefaultLibrary": "Cannot remove the default Library",
     "rescanLibraryError": "An error was encountered while requesting a library rescan",

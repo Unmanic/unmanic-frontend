@@ -341,7 +341,7 @@ import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 import SelectDirectoryDialog from 'components/ui/pickers/SelectDirectoryDialog.vue'
 import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDialog.vue'
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
-import JsonImportExportDialog from 'components/JsonImportExportDialog'
+import JsonImportExportDialog from 'components/settings/library/JsonImportExportDialog.vue'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue"
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue"
@@ -600,7 +600,13 @@ const exportPluginConfig = () => {
 }
 
 const importData = (importString, silent) => {
-  const data = JSON.parse(importString)
+  let data
+  try {
+    data = JSON.parse(importString)
+  } catch (e) {
+    console.error('Failed to parse import string', e)
+    return
+  }
   data.library_id = currentID.value
   if (silent) {
     showLoading.value = false
