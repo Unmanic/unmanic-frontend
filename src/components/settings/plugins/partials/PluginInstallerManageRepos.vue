@@ -3,27 +3,20 @@
     :is="$q.platform.is.mobile ? 'div' : 'q-btn-group'"
     :class="$q.platform.is.mobile ? 'column q-gutter-xs full-width' : ''"
   >
-    <q-btn
-      outline
-      color="secondary"
+    <UnmanicStandardButton
       @click="reloadAllReposData()"
       v-if="$q.platform.is.mobile"
       class="full-width"
       :label="$t('components.plugins.refreshRepositories')"/>
 
-    <q-btn
-      outline
-      color="secondary"
+    <UnmanicStandardButton
       @click="reloadAllReposData()"
       v-if="!$q.platform.is.mobile"
       :label="$t('components.plugins.refreshRepositories')"/>
 
-    <q-btn-dropdown
-      outline
-      color="secondary"
+    <UnmanicStandardButtonDropdown
       :label="$t('components.plugins.addRepository')"
-      :class="$q.platform.is.mobile ? 'full-width' : ''"
-      content-class="unmanic-dropdown-menu">
+      :class="$q.platform.is.mobile ? 'full-width' : ''">
 
       <div>
         <!--REPO DATA-->
@@ -55,16 +48,13 @@
           </div>
         </div>
       </div>
-    </q-btn-dropdown>
+    </UnmanicStandardButtonDropdown>
 
-    <q-btn-dropdown
+    <UnmanicStandardButtonDropdown
       auto-close
-      outline
-      color="secondary"
       :label="$t('components.plugins.repoList')"
       :class="$q.platform.is.mobile ? 'full-width' : ''"
       :fit="$q.platform.is.mobile"
-      content-class="unmanic-dropdown-menu"
     >
 
       <div
@@ -158,7 +148,7 @@
 
       </div>
 
-    </q-btn-dropdown>
+    </UnmanicStandardButtonDropdown>
 
     <CommunityRepos
       ref="communityRepos"
@@ -173,9 +163,11 @@ import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { openURL, useQuasar } from "quasar";
 import CommunityRepos from "components/settings/plugins/CommunityRepos";
+import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
+import UnmanicStandardButtonDropdown from "components/ui/buttons/UnmanicStandardButtonDropdown.vue";
 
 export default {
-  components: { CommunityRepos },
+  components: { CommunityRepos, UnmanicStandardButton, UnmanicStandardButtonDropdown },
   data() {
     return {
       repoList: [],

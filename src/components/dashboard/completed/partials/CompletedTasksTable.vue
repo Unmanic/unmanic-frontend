@@ -111,11 +111,8 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown
+        <UnmanicStandardButtonDropdown
           class="q-ml-sm"
-          outline
-          content-class="unmanic-dropdown-menu"
-          color="secondary"
           :label="$t('navigation.options')">
           <q-list>
             <q-item clickable v-close-popup @click="selectLibraryForRecreateTask">
@@ -138,7 +135,7 @@
               </q-item-section>
             </q-item>
           </q-list>
-        </q-btn-dropdown>
+        </UnmanicStandardButtonDropdown>
       </template>
 
       <template v-slot:body-cell-task_success="props">
@@ -161,10 +158,8 @@
       <template v-slot:body-cell-details="props">
         <q-td :props="props">
           <div class="row">
-            <q-btn
+            <UnmanicStandardButton
               @click="openDetailsDialog(props.row.id)"
-              color="secondary"
-              outline
               :label="$t('components.completedTasks.details')"/>
           </div>
         </q-td>
@@ -217,8 +212,11 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import dateTools from "src/js/dateTools";
 import axios from "axios";
 import CompletedTaskLogDialog from "components/dashboard/completed/partials/CompletedTaskLogDialog.vue";
+import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
+import UnmanicStandardButtonDropdown from "components/ui/buttons/UnmanicStandardButtonDropdown.vue";
 
 export default {
+  components: { UnmanicStandardButton, UnmanicStandardButtonDropdown },
   props: {
     initStatusFilter: {
       type: String,

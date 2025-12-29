@@ -6,17 +6,12 @@
       <div class="row q-gutter-xs q-mt-xs justify-between">
         <div class="col-auto">
           <div :class="$q.platform.is.mobile ? 'col' : 'q-btn-group row no-wrap inline'">
-            <q-btn
-              outline
-              color="secondary"
+            <UnmanicStandardButton
               @click="openPluginInstaller"
-              class=""
               icon-right="add"
               :label="$t('components.plugins.installPluginFromRepo')"/>
 
-            <q-btn-dropdown
-              outline
-              color="secondary"
+            <UnmanicStandardButtonDropdown
               :class="$q.platform.is.mobile ? 'q-my-sm' : ''"
               :label="$t('components.plugins.installPluginFromFile')">
               <div>
@@ -36,7 +31,7 @@
                   </div>
                 </div>
               </div>
-            </q-btn-dropdown>
+            </UnmanicStandardButtonDropdown>
           </div>
         </div>
         <div class="col-auto" style="max-width: 200px">
@@ -242,9 +237,11 @@ import { useI18n } from "vue-i18n";
 import PluginInfoDialog from "components/settings/plugins/PluginInfoDialog";
 import PluginInstallerDialog from "components/settings/plugins/PluginInstallerDialog";
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
+import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
+import UnmanicStandardButtonDropdown from "components/ui/buttons/UnmanicStandardButtonDropdown.vue";
 
 export default {
-  components: { PluginInstallerDialog, UnmanicListActionButton },
+  components: { PluginInstallerDialog, UnmanicListActionButton, UnmanicStandardButton, UnmanicStandardButtonDropdown },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();

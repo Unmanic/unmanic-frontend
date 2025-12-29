@@ -4,26 +4,22 @@
     <q-separator/>
     <div class="row q-pa-sm">
       <div class="col-6 q-pr-xs">
-        <q-btn
+        <UnmanicStandardButton
           v-if="prevEnabled"
-          outline
-          color="secondary"
           icon="navigate_before"
           class="full-width"
-          @click="$router.push(prevPath)">
-          {{ prevLabel }}
-        </q-btn>
+          @click="$router.push(prevPath)"
+          :label="prevLabel"
+        />
       </div>
       <div class="col-6 q-pl-xs">
-        <q-btn
+        <UnmanicStandardButton
           v-if="nextEnabled"
-          outline
-          color="secondary"
           icon-right="navigate_next"
           class="full-width"
-          @click="$router.push(nextPath)">
-          {{ nextLabel }}
-        </q-btn>
+          @click="$router.push(nextPath)"
+          :label="nextLabel"
+        />
       </div>
     </div>
   </div>
@@ -31,8 +27,11 @@
 </template>
 
 <script>
+import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
+
 export default {
   name: 'MobileSettingsQuickNav',
+  components: { UnmanicStandardButton },
   props: {
     prevEnabled: {
       type: Boolean

@@ -29,11 +29,8 @@
       </template>
 
       <template v-slot:top-right>
-        <q-btn-dropdown
+        <UnmanicStandardButtonDropdown
           class="q-ml-sm"
-          outline
-          content-class="unmanic-dropdown-menu"
-          color="secondary"
           :label="$t('navigation.options')">
           <q-list>
             <q-item clickable v-close-popup @click="rescanLibrary">
@@ -76,7 +73,7 @@
               </q-item-section>
             </q-item>
           </q-list>
-        </q-btn-dropdown>
+        </UnmanicStandardButtonDropdown>
       </template>
 
       <template v-slot:no-data>
@@ -97,6 +94,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import { useQuasar } from "quasar";
 import axios from "axios";
 import { useI18n } from "vue-i18n";
+import UnmanicStandardButtonDropdown from "components/ui/buttons/UnmanicStandardButtonDropdown.vue";
 
 const columns = [
   {
@@ -120,6 +118,7 @@ const columns = [
 
 
 export default {
+  components: { UnmanicStandardButtonDropdown },
   setup() {
     const $q = useQuasar();
     const { t: $t } = useI18n();

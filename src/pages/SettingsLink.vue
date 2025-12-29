@@ -248,11 +248,9 @@
                     </q-card-section>
 
                     <q-card-actions align="right" class="text-primary">
-                      <q-btn outline color="secondary" :label="$t('navigation.cancel')" v-close-popup/>
-                      <q-btn
+                      <UnmanicStandardButton :label="$t('navigation.cancel')" v-close-popup/>
+                      <UnmanicStandardButton
                         @click="addNewRemoteInstallation"
-                        outline
-                        color="secondary"
                         :label="$t('components.settings.link.add')"
                         v-close-popup/>
                     </q-card-actions>
@@ -302,11 +300,12 @@ import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkD
 import UnmanicSettingsSubmitButton from "components/ui/buttons/UnmanicSettingsSubmitButton.vue";
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
+import UnmanicStandardButton from "components/ui/buttons/UnmanicStandardButton.vue";
 import MobileSettingsQuickNav from "components/MobileSettingsQuickNav.vue";
 
 export default {
   name: 'SettingsLink',
-  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, UnmanicSettingsSubmitButton, UnmanicListActionButton, UnmanicListAddButton },
+  components: { RemoteInstallLinkDialog, MobileSettingsQuickNav, UnmanicSettingsSubmitButton, UnmanicListActionButton, UnmanicListAddButton, UnmanicStandardButton },
   setup() {
     const { t: $t } = useI18n();
 
