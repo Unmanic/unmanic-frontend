@@ -70,7 +70,7 @@
 
           <template v-slot:item="props">
             <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-              <q-card class="plugin-card">
+              <q-card class="plugin-card nested-card">
                 <q-card-section class="plugin-card-header">
                   <div class="row items-center no-wrap">
                     <div class="plugin-title text-weight-bold ellipsis">
