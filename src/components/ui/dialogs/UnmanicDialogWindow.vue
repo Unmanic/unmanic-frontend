@@ -200,7 +200,6 @@ defineExpose({
   width: var(--dialog-width);
   max-width: 98vw;
   height: calc(100vh - 48px);
-  margin: 24px 0;
   /* Apply custom drop-shadow */
   border: 1px solid color-mix(in srgb, var(--unmanic-grey-5), transparent 60%);
   border-radius: 4px;

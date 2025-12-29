@@ -209,6 +209,13 @@
         </q-table>
       </div>
     </div>
+
+    <PluginInfoDialog
+      ref="pluginInfoDialogRef"
+      :pluginId="selectedPluginId"
+      :startTab="pluginInfoTab"
+      :viewingRemoteInfo="true"
+    />
   </UnmanicDialogWindow>
 </template>
 
@@ -222,6 +229,7 @@ import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import PluginInstallerManageRepos from 'components/settings/plugins/partials/PluginInstallerManageRepos'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
+import UnmanicListActionButton from 'components/ui/buttons/UnmanicListActionButton.vue'
 
 const emit = defineEmits(['hide'])
 
@@ -230,6 +238,11 @@ const $q = useQuasar()
 const { isMobile } = useMobile()
 
 const dialogRef = ref(null)
+const pluginInfoDialogRef = ref(null)
+const selectedPluginId = ref('')
+const pluginInfoTab = ref('info')
+
+const isOpen = ref(false)
 const filter = ref('')
 const rows = ref([])
 const pagination = ref({
@@ -404,16 +417,11 @@ const openPluginInfo = (pluginId, tab) => {
     return
   }
 
-  $q.dialog({
-    component: PluginInfoDialog,
-    componentProps: {
-      pluginId: pluginId,
-      startTab: (tab === 'settings') ? 'settings' : 'info',
-      viewingRemoteInfo: true,
-    },
-  }).onOk(() => {
-  }).onDismiss(() => {
-  })
+  selectedPluginId.value = pluginId
+  pluginInfoTab.value = (tab === 'settings') ? 'settings' : 'info'
+  if (pluginInfoDialogRef.value) {
+    pluginInfoDialogRef.value.show()
+  }
 }
 
 onMounted(() => {

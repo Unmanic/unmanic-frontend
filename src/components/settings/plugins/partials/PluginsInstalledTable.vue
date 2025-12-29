@@ -223,6 +223,11 @@
       ref="pluginInstallerDialog"
       @hide="onPluginInstallerHide"
     />
+    <PluginInfoDialog
+      ref="pluginInfoDialogRef"
+      :pluginId="selectedPluginId"
+      :startTab="pluginInfoTab"
+    />
   </q-card>
 
 </template>
@@ -260,6 +265,9 @@ export default {
 
     const itemOffset = ref(0)
     const pluginInstallerDialog = ref(null)
+    const pluginInfoDialogRef = ref(null)
+    const selectedPluginId = ref('')
+    const pluginInfoTab = ref('info')
 
     function getSelectedString() {
       let return_value = ''
@@ -490,16 +498,12 @@ export default {
         })
         return
       }
-      // Display the dialog
-      $q.dialog({
-        component: PluginInfoDialog,
-        componentProps: {
-          pluginId: pluginId,
-          startTab: (tab === 'settings') ? 'settings' : 'info',
-        },
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-      })
+
+      selectedPluginId.value = pluginId
+      pluginInfoTab.value = (tab === 'settings') ? 'settings' : 'info'
+      if (pluginInfoDialogRef.value) {
+        pluginInfoDialogRef.value.show()
+      }
     }
 
     function closePluginInfo() {
@@ -586,6 +590,9 @@ export default {
 
       listedPlugins,
       itemOffset,
+      pluginInfoDialogRef,
+      selectedPluginId,
+      pluginInfoTab,
 
       getSelectedString,
       onRequest,
