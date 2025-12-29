@@ -118,7 +118,7 @@ import { useI18n } from "vue-i18n";
 import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
-import ReleaseNotesDialog from "components/ReleaseNotesDialog";
+import ReleaseNotesDialog from "components/docs/ReleaseNotesDialog.vue";
 
 export default {
   name: 'MainDashboard',
