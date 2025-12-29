@@ -1,7 +1,7 @@
 <template>
   <q-dialog
     ref="dialogRef"
-    backdrop-filter="grayscale(80%) blur(4px)"
+    backdrop-filter="grayscale(80%) blur(1px)"
     :position="isMobile ? 'left' : 'right'"
     :maximized="isMobile"
     :transition-show="isMobile ? 'slide-right' : 'slide-left'"
@@ -201,6 +201,14 @@ defineExpose({
   max-width: 98vw;
   height: calc(100vh - 48px);
   margin: 24px 0;
+  /* Apply custom drop-shadow */
+  border: 1px solid color-mix(in srgb, var(--unmanic-grey-5), transparent 60%);
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(189, 189, 189, 0.3);
+}
+
+.body--dark .dialog-card {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile view (XS and SM: < 1024px) */
@@ -210,6 +218,10 @@ defineExpose({
     max-width: 100vw;
     height: 100%;
     margin: 0;
+    /* Remove custom drop-shadow */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 

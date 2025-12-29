@@ -198,6 +198,14 @@ defineExpose({
   width: var(--dialog-width);
   max-width: 95vw;
   height: calc(100vh - 48px);
+  /* Apply custom drop-shadow */
+  border: 1px solid color-mix(in srgb, var(--unmanic-grey-5), transparent 60%);
+  border-radius: 4px;
+  box-shadow: 2px 2px 10px rgba(189, 189, 189, 0.3);
+}
+
+.body--dark .dialog-card {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .mini-layout {
@@ -211,6 +219,10 @@ defineExpose({
     width: 100vw;
     max-width: 92vw;
     height: 100%;
+    /* Remove custom drop-shadow */
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 
