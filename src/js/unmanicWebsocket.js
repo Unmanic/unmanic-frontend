@@ -63,6 +63,12 @@ export const UnmanicWebsocketHandler = function ($t) {
         }
         new_uri += '//' + loc.host + '/unmanic/websocket';
 
+        // Check for Shared Link Target
+        const target = localStorage.getItem('unmanic-installation-target');
+        if (target && target !== 'local') {
+          new_uri += '?target_id=' + encodeURIComponent(target);
+        }
+
         // Open WS connection
         $unmanic.ws = new WebSocket(new_uri);
       }

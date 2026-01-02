@@ -149,6 +149,11 @@
     "retry": "Retry"
   },
   "components": {
+    "sharedLinkDropdown": {
+      "local": "Local",
+      "unknownRemote": "Unknown Remote",
+      "thisInstallation": "This installation"
+    },
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",
       "common": {

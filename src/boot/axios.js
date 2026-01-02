@@ -1,5 +1,24 @@
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
+import { sharedLinksStore } from 'src/js/sharedLinksStore'
+
+// Add interceptor to safely attach the proxy header only to internal requests
+axios.interceptors.request.use((config) => {
+  const target = sharedLinksStore.target
+  if (target && target !== 'local' && !config.skipProxy) {
+    // Determine if the request is destined for this Unmanic instance (Internal)
+    // Relative URLs are internal. Absolute URLs must match the current origin.
+    const isAbsolute = config.url.startsWith('http://') || config.url.startsWith('https://');
+    const isInternal = !isAbsolute || config.url.startsWith(window.location.origin);
+
+    if (isInternal) {
+      config.headers['X-Unmanic-Target-Installation'] = target
+    }
+  }
+  return config
+}, (error) => {
+  return Promise.reject(error)
+})
 
 // Be careful when using SSR for cross-request state pollution
 // due to creating a Singleton instance here;

@@ -47,9 +47,10 @@
         </q-btn>
 
         <q-toolbar-title>
-          <q-avatar rounded size="2rem" font-size="82px">
+          <q-avatar rounded size="2rem" font-size="82px" class="q-mr-lg">
             <img src="~assets/unmanic-logo-white.png">
           </q-avatar>
+          <SharedLinkDropdown/>
         </q-toolbar-title>
 
         <q-space/>
@@ -141,10 +142,19 @@ import { useQuasar } from "quasar";
 import DrawerDataPanelsNav from "components/drawers/DrawerDataPanelsNav";
 import ThemeSwitch from "components/ThemeSwitch";
 import DrawerNotifications from "components/drawers/DrawerNotifications";
+import SharedLinkDropdown from "components/SharedLinkDropdown";
 import unmanicGlobals from "src/js/unmanicGlobals";
 
 export default {
-  components: { DrawerDataPanelsNav, DrawerMainNav, DrawerNotifications, DrawerSettingsNav, FooterData, ThemeSwitch },
+  components: {
+    DrawerDataPanelsNav,
+    DrawerMainNav,
+    DrawerNotifications,
+    DrawerSettingsNav,
+    FooterData,
+    ThemeSwitch,
+    SharedLinkDropdown
+  },
   setup() {
     const $q = useQuasar();
 
