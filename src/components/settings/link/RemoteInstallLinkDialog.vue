@@ -47,7 +47,11 @@
               color="primary"
               v-model="address"
               :label="$t('components.settings.link.address')"
-              :placeholder="address"/>
+              :placeholder="address"
+              :rules="[
+                val => validateAddress(val) || 'Address must start with http:// or https://'
+              ]"
+            />
           </div>
 
           <div class="q-gutter-sm q-mt-sm">
@@ -261,17 +265,26 @@ const enableConfigMissingLibraries = ref(null)
 const enableDistributedWorkerCount = ref(null)
 const distributedWorkerCountTarget = ref(null)
 
+const validateAddress = (val) => {
+  if (!val) return true
+  if (val === '???') return true
+  return val.toLowerCase().startsWith('http')
+}
+
+const isValid = computed(() => validateAddress(address.value))
+
 const saveAction = computed(() => {
   const hasChanges = isDirty.value
+  const valid = isValid.value
   return {
     label: t('navigation.save'),
     icon: 'save',
-    color: hasChanges ? 'positive' : 'grey-6',
+    color: hasChanges && valid ? 'positive' : 'grey-6',
     tooltip: hasChanges
       ? t('components.settings.link.saveLinkConfig')
       : t('components.settings.common.noChangesToSave'),
     emit: 'save',
-    disabled: !hasChanges
+    disabled: !hasChanges || !valid
   }
 })
 

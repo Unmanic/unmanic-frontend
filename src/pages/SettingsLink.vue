@@ -27,6 +27,21 @@
                   :label="$t('components.settings.link.nameThisInstall')"
                   :placeholder="installationName">
                 </q-input>
+                <q-skeleton
+                  v-if="installationPublicAddress === null"
+                  type="QInput"/>
+                <q-input
+                  v-if="installationPublicAddress !== null"
+                  outlined
+                  color="primary"
+                  v-model="installationPublicAddress"
+                  :label="$t('components.settings.link.installationPublicAddress')"
+                  :placeholder="installationPublicAddress"
+                  :rules="[
+                    val => !val || val.toLowerCase().startsWith('http') || 'Address must start with http:// or https://'
+                  ]"
+                >
+                </q-input>
               </div>
               <!--END THIS INSTALLATION-->
 
@@ -341,6 +356,7 @@ export default {
   data() {
     return {
       installationName: ref(null),
+      installationPublicAddress: ref(null),
       remoteInstallations: ref(null),
       newRemoteInstallation: ref(false),
       newRemoteInstallationAddress: ref(''),
@@ -352,6 +368,10 @@ export default {
     }
   },
   methods: {
+    validatePublicAddress(val) {
+      if (!val) return true
+      return val.toLowerCase().startsWith('http')
+    },
     fetchSettings: function () {
       // Fetch current settings
       axios({
@@ -360,6 +380,7 @@ export default {
       }).then((response) => {
         // Set the installation name
         this.installationName = response.data.settings.installation_name
+        this.installationPublicAddress = response.data.settings.installation_public_address
         // Set the list of remote installations
         let remoteInstallationsList = []
         for (let i = 0; i < response.data.settings.remote_installations.length; i++) {
@@ -390,6 +411,16 @@ export default {
       });
     },
     save: function () {
+      if (!this.validatePublicAddress(this.installationPublicAddress)) {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: 'Invalid public address. Must start with http:// or https://',
+          icon: 'report_problem'
+        })
+        return
+      }
+
       // Save settings
       let remoteInstallationsList = []
       for (let i = 0; i < this.remoteInstallations.length; i++) {
@@ -406,6 +437,7 @@ export default {
       let data = {
         settings: {
           installation_name: this.installationName,
+          installation_public_address: this.installationPublicAddress,
         }
       }
       axios({
@@ -421,6 +453,14 @@ export default {
           icon: 'cloud_done',
           message: this.$t('notifications.saved'),
           timeout: 200
+        })
+
+        // Force reload of session to register the name change
+        axios({
+          method: 'post',
+          url: getUnmanicApiUrl('v2', 'session/reload'),
+        }).catch(() => {
+          // Ignore error
         })
       }).catch(() => {
         this.$q.notify({
