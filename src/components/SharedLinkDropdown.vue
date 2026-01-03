@@ -1,54 +1,56 @@
 <template>
-  <q-btn-dropdown
-    v-if="canShow"
-    flat
-    dense
-    no-caps
-    content-class="unmanic-dropdown-menu"
-    :label="currentLabel"
-    :icon="currentIcon"
-    color="white"
-    content-style="z-index: 6002"
-  >
-    <q-list>
-      <!-- Local Option -->
-      <q-item clickable v-close-popup @click="setTarget('local')">
-        <q-item-section avatar>
-          <q-icon name="computer"/>
-        </q-item-section>
-        <q-item-section>
-          <q-item-label>{{ localLabel }}</q-item-label>
-          <q-item-label caption>{{ $t('components.sharedLinkDropdown.thisInstallation') }}</q-item-label>
-        </q-item-section>
-        <q-item-section side v-if="!isRemote">
-          <q-icon name="check" color="primary"/>
-        </q-item-section>
-      </q-item>
+  <div v-if="canShow" class="row items-center no-wrap q-gutter-sm">
+    <q-btn-dropdown
+      v-if="canShow"
+      flat
+      dense
+      no-caps
+      content-class="unmanic-dropdown-menu"
+      :label="currentLabel"
+      :icon="currentIcon"
+      color="white"
+      content-style="z-index: 6002"
+    >
+      <q-list>
+        <!-- Local Option -->
+        <q-item clickable v-close-popup @click="setTarget('local')">
+          <q-item-section avatar>
+            <q-icon name="computer"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ localLabel }}</q-item-label>
+            <q-item-label caption>{{ $t('components.sharedLinkDropdown.thisInstallation') }}</q-item-label>
+          </q-item-section>
+          <q-item-section side v-if="!isRemote">
+            <q-icon name="check" color="primary"/>
+          </q-item-section>
+        </q-item>
 
-      <q-separator/>
+        <q-separator/>
 
-      <!-- Remote Options -->
-      <q-item
-        v-for="link in availableLinks"
-        :key="link.uuid"
-        clickable
-        v-close-popup
-        :disable="!link.available"
-        @click="setTarget(link.uuid)"
-      >
-        <q-item-section avatar>
-          <q-icon name="cloud" :color="link.available ? 'primary' : 'grey'"/>
-        </q-item-section>
-        <q-item-section>
-          <q-item-label :class="!link.available ? 'text-grey' : ''">{{ link.name }}</q-item-label>
-          <q-item-label caption v-if="link.address">{{ link.address }}</q-item-label>
-        </q-item-section>
-        <q-item-section side v-if="currentTarget === link.uuid">
-          <q-icon name="check" color="primary"/>
-        </q-item-section>
-      </q-item>
-    </q-list>
-  </q-btn-dropdown>
+        <!-- Remote Options -->
+        <q-item
+          v-for="link in availableLinks"
+          :key="link.uuid"
+          clickable
+          v-close-popup
+          :disable="!link.available"
+          @click="setTarget(link.uuid)"
+        >
+          <q-item-section avatar>
+            <q-icon name="cloud" :color="link.available ? 'primary' : 'grey'"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label :class="!link.available ? 'text-grey' : ''">{{ link.name }}</q-item-label>
+            <q-item-label caption v-if="link.address">{{ link.address }}</q-item-label>
+          </q-item-section>
+          <q-item-section side v-if="currentTarget === link.uuid">
+            <q-icon name="check" color="primary"/>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
+  </div>
 </template>
 
 <script setup>
@@ -58,6 +60,7 @@ import { sharedLinksStore } from 'src/js/sharedLinksStore'
 import unmanicGlobals from 'src/js/unmanicGlobals'
 
 const { t } = useI18n()
+
 const canShow = ref(false)
 
 const currentTarget = computed(() => sharedLinksStore.target)

@@ -48,6 +48,23 @@
           </q-item-section>
         </q-item>
         <!--END DATA PANELS SELECT-->
+        <!--START CENTRAL LINK (MOBILE ONLY)-->
+        <q-item
+          v-if="unmanicSession && unmanicSession.level > 1 && unmanicSession.level !== 9"
+          clickable
+          tag="a"
+          href="https://central.unmanic.app/"
+          target="_blank"
+          rel="noopener"
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="launch"/>
+          </q-item-section>
+          <q-item-section>
+            {{ $t('components.sharedLinkDropdown.centralLink') }}
+          </q-item-section>
+        </q-item>
+        <!--END CENTRAL LINK (MOBILE ONLY)-->
 
         <q-separator spaced/>
 
@@ -96,8 +113,31 @@
           </q-item-section>
         </q-item>
         <!--END LANGUAGE SELECT-->
+        <!--START THEME SELECT (MOBILE ONLY)-->
+        <q-item v-if="$q.screen.lt.sm">
+          <q-item-section avatar>
+            <q-icon name="palette"/>
+          </q-item-section>
+          <q-item-section>
+            {{ $t('navigation.theme') }}
+          </q-item-section>
+          <q-item-section side>
+            <ThemeSwitch/>
+          </q-item-section>
+        </q-item>
+        <!--END THEME SELECT (MOBILE ONLY)-->
 
         <q-separator spaced/>
+
+        <div v-if="$q.screen.lt.sm && unmanicSession && unmanicSession.level > 1 && unmanicSession.level !== 9">
+          <q-item-label header>{{ $t('navigation.installations') }}:</q-item-label>
+          <q-item>
+            <q-item-section>
+              <SharedLinkDropdown/>
+            </q-item-section>
+          </q-item>
+          <q-separator spaced/>
+        </div>
 
 
         <q-item-label header>{{ $t('navigation.documentation') }}:</q-item-label>
@@ -152,6 +192,8 @@
 
 import DrawerUserProfileHeader from "components/drawers/partials/DrawerUserProfileHeader.vue";
 import LanguageSwitch from "components/LanguageSwitch";
+import ThemeSwitch from "components/ThemeSwitch";
+import SharedLinkDropdown from "components/SharedLinkDropdown";
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
 import FooterData from "components/FooterData";
@@ -160,7 +202,15 @@ import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
 
 export default {
   name: 'DrawerMainNav',
-  components: { DrawerUserProfileHeader, FooterData, LanguageSwitch, PrivacyPolicyDialog, LoginDialog },
+  components: {
+    DrawerUserProfileHeader,
+    FooterData,
+    LanguageSwitch,
+    ThemeSwitch,
+    SharedLinkDropdown,
+    PrivacyPolicyDialog,
+    LoginDialog
+  },
   setup() {
     const unmanicSession = ref(null);
     const privacyPolicyDialogRef = ref(null);

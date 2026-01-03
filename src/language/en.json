@@ -7,6 +7,8 @@
     "login": "Login",
     "logout": "Logout",
     "interface": "Interface",
+    "theme": "Theme",
+    "installations": "Installations",
     "options": "Options",
     "documentation": "Documentation",
     "library": "Library",
@@ -159,7 +161,8 @@
     "sharedLinkDropdown": {
       "local": "Local",
       "unknownRemote": "Unknown Remote",
-      "thisInstallation": "This installation"
+      "thisInstallation": "This installation",
+      "centralLink": "Unmanic Central"
     },
     "settings": {
       "pleaseEnterAValidNumber": "Please enter a valid number",

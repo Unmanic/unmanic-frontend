@@ -46,16 +46,19 @@
           icon="home">
         </q-btn>
 
-        <q-toolbar-title>
+        <q-toolbar-title shrink>
           <q-avatar rounded size="2rem" font-size="82px" class="q-mr-lg">
             <img src="~assets/unmanic-logo-white.png">
           </q-avatar>
-          <SharedLinkDropdown/>
         </q-toolbar-title>
+
+        <div class="gt-xs">
+          <SharedLinkDropdown/>
+        </div>
 
         <q-space/>
 
-        <div>
+        <div class="gt-xs">
           <ThemeSwitch/>
         </div>
 
