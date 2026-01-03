@@ -11,15 +11,18 @@
 }
 
 .admonition h5 {
-  margin-top: 0;
-  margin-bottom: 8px;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
 .admonition-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5em;
 }
 
 .admonition-icon svg {

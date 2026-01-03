@@ -43,6 +43,10 @@
                 >
                 </q-input>
               </div>
+
+              <AdmonitionBanner type="note" class="q-mt-md">
+                <p>{{ $t('components.settings.link.syncTipBody') }}</p>
+              </AdmonitionBanner>
               <!--END THIS INSTALLATION-->
 
               <q-separator class="q-my-lg"/>
@@ -302,21 +306,23 @@ import { useI18n } from "vue-i18n";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import RemoteInstallLinkDialog from "components/settings/link/RemoteInstallLinkDialog.vue";
-import UnmanicDialogPopup from "components/ui/dialogs/UnmanicDialogPopup.vue";
+import MobileSettingsQuickNav from "components/MobileSettingsQuickNav";
+import AdmonitionBanner from "components/ui/AdmonitionBanner.vue";
 import UnmanicSettingsSubmitButton from "components/ui/buttons/UnmanicSettingsSubmitButton.vue";
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue";
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue";
-import MobileSettingsQuickNav from "components/MobileSettingsQuickNav.vue";
+import UnmanicDialogPopup from "components/ui/dialogs/UnmanicDialogPopup.vue";
 
 export default {
   name: 'SettingsLink',
   components: {
     RemoteInstallLinkDialog,
-    UnmanicDialogPopup,
     MobileSettingsQuickNav,
+    AdmonitionBanner,
     UnmanicSettingsSubmitButton,
     UnmanicListActionButton,
-    UnmanicListAddButton
+    UnmanicListAddButton,
+    UnmanicDialogPopup
   },
   setup() {
     const { t: $t } = useI18n();

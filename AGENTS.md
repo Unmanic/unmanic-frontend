@@ -188,6 +188,27 @@ The project follows the standard Quasar directory structure:
 
 - **Style**: Use `outlined dense` with `color="secondary"` for search and filter inputs.
 
+### Forms & Input Validation
+
+- **Input Styling**: Use `outlined` and `color="primary"` for standard form inputs (`q-input`, `q-select`, etc.).
+- **Validation**:
+  - **Shared Logic**: Extract validation logic into reusable functions (e.g., `validateAddress(val)`) so it can be shared between the UI feedback (via `:rules`) and the submission handler (e.g., disabling the submit button or blocking the function).
+  - **Submission Blocking**: Ensure invalid forms cannot be submitted.
+    - For `q-form`: The submit event is automatically blocked if any rule fails.
+    - For custom dialogs/actions: Use a computed property (e.g., `isValid`) that reuses the validation logic to disable the save button (`:disabled="!isValid"`).
+
+### Admonitions & Alerts
+
+- **Component**: Use **`AdmonitionBanner`** (`src/components/ui/AdmonitionBanner.vue`) for displaying tips, warnings, and notes within the UI.
+- **Usage**:
+  ```html
+  <AdmonitionBanner type="tip" :title="$t('path.to.title')">
+    {{ $t('path.to.body') }}
+  </AdmonitionBanner>
+  ```
+- **Types**: `note` (default, blue), `tip` (green), `warning` (orange), `caution` (red), `important` (yellow).
+- **Styling**: Relies on `src/css/admonitions.css`. Do not manually implement the HTML structure/classes unless absolutely necessary.
+
 ## Quasar Framework Patterns
 
 ### Dialog Custom Events
