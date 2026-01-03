@@ -103,6 +103,7 @@
     </div>
 
     <ReleaseNotesDialog/>
+    <TrialWelcomeDialog/>
 
   </q-page>
 </template>
@@ -119,10 +120,11 @@ import { UnmanicWebsocketHandler } from "src/js/unmanicWebsocket";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 import ReleaseNotesDialog from "components/docs/ReleaseNotesDialog.vue";
+import TrialWelcomeDialog from "components/docs/TrialWelcomeDialog.vue";
 
 export default {
   name: 'MainDashboard',
-  components: { ReleaseNotesDialog, CompletedTasks, WorkerProgressCard, PendingTasks }, setup() {
+  components: { ReleaseNotesDialog, TrialWelcomeDialog, CompletedTasks, WorkerProgressCard, PendingTasks }, setup() {
     const { t: $t } = useI18n();
     const $q = useQuasar();
     const workerProgressList = ref([]);

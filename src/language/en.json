@@ -117,7 +117,8 @@
     "selectPlugin": "Select a plugin",
     "selectLibrary": "Select a library",
     "login": "Login",
-    "listEmpty": "This task list is empty"
+    "listEmpty": "This task list is empty",
+    "welcomeToUnmanic": "Welcome to Unmanic"
   },
   "tooltips": {
     "close": "Close",
@@ -388,6 +389,30 @@
     },
     "footer": {
       "version": "Version"
+    },
+    "docs": {
+      "trialWelcome": {
+        "kicker": "Getting Started",
+        "heroTitle": "Thanks for trying Unmanic",
+        "welcomeMessage": "You are currently running a full-featured trial version of this application.",
+        "trialInfo": "For the next 14 days, you have unlimited access to all features.",
+        "centralTitle": "Connect to Unmanic Central",
+        "centralBody": "Unmanic Central is the official platform for collecting logs and metrics from all your Unmanic installations. Features include:",
+        "centralPoints": {
+          "logs": "Aggregate logs across servers in one place",
+          "grafana": "Present metrics in Grafana with ready-to-use data sources",
+          "dashboards": "Use the built-in dashboards for a simple overview"
+        },
+        "centralLinkLabel": "Open Unmanic Central",
+        "supportTitle": "Need a hand?",
+        "supportBody": "Check the docs for setup guides or join the community for help and tips.",
+        "docsLinkLabel": "Read the docs",
+        "discordLinkLabel": "Join the support Discord",
+        "limitationsTitle": "After the trial ends, some features are limited for non-supporters.",
+        "limitationsBody": "Unmanic is free and open source, and supporters help keep the project healthy. Supporter status can be earned by contributing in many ways, including documentation or helping others in Discord. Financial support is not required. See the feature comparison for what supporter access unlocks.",
+        "limitationsLinkLabel": "View feature comparison",
+        "enjoy": "We hope you enjoy using Unmanic!"
+      }
     }
   }
 }
