@@ -53,14 +53,20 @@ export default {
       }
     })
   },
-  getUnmanicSession() {
+  getUnmanicSession(options = {}) {
     return new Promise((resolve, reject) => {
-      if (typeof $unmanic.session === 'undefined') {
+      let cacheKey = 'session';
+      if (options.skipProxy) {
+        cacheKey = 'localSession';
+      }
+
+      if (typeof $unmanic[cacheKey] === 'undefined') {
         axios({
           method: 'get',
-          url: getUnmanicApiUrl('v2', 'session/state')
+          url: getUnmanicApiUrl('v2', 'session/state'),
+          ...options
         }).then((response) => {
-          $unmanic.session = {
+          $unmanic[cacheKey] = {
             created: response.data.created,
             email: response.data.email,
             level: response.data.level,
@@ -68,12 +74,12 @@ export default {
             picture_uri: response.data.picture_uri,
             uuid: response.data.uuid,
           }
-          resolve($unmanic.session)
+          resolve($unmanic[cacheKey])
         }).catch(() => {
           reject()
         })
       } else {
-        resolve($unmanic.session);
+        resolve($unmanic[cacheKey]);
       }
     })
   },

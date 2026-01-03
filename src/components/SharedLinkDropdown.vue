@@ -86,7 +86,7 @@ const setTarget = (target) => {
 
 onMounted(async () => {
   try {
-    const session = await unmanicGlobals.getUnmanicSession()
+    const session = await unmanicGlobals.getUnmanicSession({ skipProxy: true })
     if (session.level > 1) {
       await sharedLinksStore.fetchLinks()
       if (sharedLinksStore.availableLinks.length > 0) {
