@@ -427,6 +427,31 @@
         "limitationsLinkLabel": "View feature comparison",
         "enjoy": "We hope you enjoy using Unmanic!"
       }
+    },
+    "loginDialog": {
+      "intro": "Unmanic is a free and open-source product brought to you by Streaming Tech. While basic features can be used without logging in, signing in unlocks additional features if you support any of the Streaming Tech open-source projects.",
+      "supportIntro": "Supporting these projects is simple:",
+      "support": {
+        "github": {
+          "title": "GitHub:",
+          "body": "Contributing, even a small documentation fix, on our repositories (github.com/Unmanic, github.com/Steam-Headless, or github.com/DeckSettings) bumps your account to a supporter tier for a month."
+        },
+        "discord": {
+          "title": "Discord:",
+          "body": "Being active and helpful in our Discord server earns reputation points and upgrades your account to a supporter tier."
+        },
+        "patreon": {
+          "title": "Patreon:",
+          "body": "Financially backing the project on Patreon unlocks exclusive channels in Discord for discussing future developments and elevates your account to a supporter tier."
+        }
+      },
+      "codePrompt": "Your unique login code has been generated below. Please click the button to open a new window where you can enter this code to authenticate and link this installation to your account.",
+      "loginButton": "Login with Streaming Tech",
+      "timeRemaining": "Time remaining: {time}",
+      "noteTitle": "Note:",
+      "noteLineOne": "Streaming Tech is the umbrella organisation for all open-source GitHub projects by Josh Sunnex (Josh.5).",
+      "noteLineTwo": "Sponsorship funds (e.g., via Patreon) are used to hire or contract outside help, maintain infrastructure, and fuel my coffee addiction.",
+      "noteLineThree": "Supporting Unmanic also sustains our wider free and open-source development."
     }
   }
 }

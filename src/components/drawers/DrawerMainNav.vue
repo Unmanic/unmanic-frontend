@@ -144,6 +144,7 @@
 
     <!-- Dialogs -->
     <PrivacyPolicyDialog ref="privacyPolicyDialogRef"/>
+    <LoginDialog ref="loginDialogRef"/>
   </div>
 </template>
 
@@ -153,18 +154,17 @@ import DrawerUserProfileHeader from "components/drawers/partials/DrawerUserProfi
 import LanguageSwitch from "components/LanguageSwitch";
 import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
-import { useQuasar } from "quasar";
 import FooterData from "components/FooterData";
-import LoginDialog from "components/LoginDialog";
+import LoginDialog from "components/drawers/partials/LoginDialog.vue";
 import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
 
 export default {
   name: 'DrawerMainNav',
-  components: { DrawerUserProfileHeader, FooterData, LanguageSwitch, PrivacyPolicyDialog },
+  components: { DrawerUserProfileHeader, FooterData, LanguageSwitch, PrivacyPolicyDialog, LoginDialog },
   setup() {
-    const $q = useQuasar();
     const unmanicSession = ref(null);
     const privacyPolicyDialogRef = ref(null);
+    const loginDialogRef = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
       unmanicSession.value = session;
@@ -177,18 +177,16 @@ export default {
     }
 
     function showLogin() {
-      $q.dialog({
-        component: LoginDialog,
-        componentProps: {},
-      }).onOk((payload) => {
-      }).onDismiss(() => {
-      })
+      if (loginDialogRef.value) {
+        loginDialogRef.value.show()
+      }
     }
 
     return {
       unmanicSession,
       showPrivacyPolicyDialog,
       privacyPolicyDialogRef,
+      loginDialogRef,
 
       showLogin,
     }
