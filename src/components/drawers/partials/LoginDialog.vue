@@ -32,7 +32,16 @@
       </p>
       <div class="row justify-center">
         <q-spinner v-if="!userCode" class="text-h3 q-mt-md q-mb-md"/>
-        <div v-else class="text-h3 q-mt-md q-mb-md">{{ userCode }}</div>
+        <span
+          v-else
+          class="text-h3 q-mt-md q-mb-md login-code-text"
+          @click="copyUserCode"
+        >
+          {{ userCode }}
+          <q-tooltip class="bg-white text-primary no-wrap">
+            {{ $t('navigation.copy') }}
+          </q-tooltip>
+        </span>
       </div>
       <q-btn
         :disabled="!verificationUri"
@@ -62,13 +71,15 @@
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import unmanicGlobals, { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import axios from "axios"
+import { copyToClipboard, useQuasar } from 'quasar'
 import UnmanicDialogPopup from 'components/ui/dialogs/UnmanicDialogPopup.vue'
 
 const { t } = useI18n()
+const $q = useQuasar()
 
 const emit = defineEmits(['ok', 'hide', 'path'])
 
@@ -154,6 +165,24 @@ function loginRemotely() {
   if (verificationUri.value) {
     window.open(verificationUri.value, '_blank')
   }
+}
+
+function copyUserCode() {
+  if (!userCode.value) {
+    return
+  }
+  copyToClipboard(userCode.value)
+    .then(() => {
+      $q.notify({
+        color: 'secondary',
+        position: 'top',
+        message: t('notifications.copied'),
+        timeout: 200
+      })
+    })
+    .catch(() => {
+      // fail
+    })
 }
 
 defineExpose({
