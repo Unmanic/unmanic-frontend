@@ -3,17 +3,11 @@
     ref="dialogRef"
     :title="dialogTitle"
     width="2000px"
-    :persistent="isDirty"
     :actions="headerActions"
-    :closeTooltip="closeTooltip"
-    @save="savePluginSettings"
     @reset="resetPluginLibraryConfig"
     @hide="onDialogHide"
   >
     <div class="plugin-info-dialog">
-      <div v-if="isDirty" class="unsaved-indicator">
-        {{ t('components.settings.common.unsavedChanges') }}
-      </div>
       <div class="plugin-info-tabs bg-card-head q-px-md">
         <q-tabs
           v-if="showSettingsTab"
@@ -266,6 +260,31 @@
                             {{ item.tooltip }}
                           </q-tooltip>
                         </q-item-section>
+
+                        <q-item-section v-if="item.input_type === 'section_header'">
+                          <div class="text-h6 q-pt-md text-primary">{{ item.label }}</div>
+                          <q-separator class="q-mb-sm" />
+                          <div v-if="item.description.length > 0" class="text-caption q-pb-sm">
+                            {{ item.description }}
+                          </div>
+                        </q-item-section>
+
+                        <q-item-section v-if="item.input_type === 'section_subheader'">
+                          <div class="text-subtitle1 q-pt-sm text-secondary">{{ item.label }}</div>
+                          <div v-if="item.description.length > 0" class="text-caption q-pb-sm">
+                            {{ item.description }}
+                          </div>
+                        </q-item-section>
+
+                        <q-item-section v-if="item.input_type === 'section_details'">
+                          <p class="q-ma-none text-body2">{{ item.description }}</p>
+                        </q-item-section>
+
+                        <q-item-section v-if="item.input_type === 'section_admonition'">
+                          <AdmonitionBanner :type="item.label.toLowerCase()" :title="item.label">
+                            <span v-html="item.description"></span>
+                          </AdmonitionBanner>
+                        </q-item-section>
                       </q-item>
                     </q-list>
                   </q-card-section>
@@ -287,7 +306,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useQuasar } from 'quasar'
 import axios from 'axios'
@@ -296,6 +315,7 @@ import { markdownToHTML } from 'src/js/markupParser'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import SelectDirectoryDialog from 'components/ui/pickers/SelectDirectoryDialog.vue'
+import AdmonitionBanner from 'components/ui/AdmonitionBanner.vue'
 
 const props = defineProps({
   pluginId: {
@@ -337,6 +357,8 @@ const changelog = ref('')
 const status = ref(null)
 const settings = ref([])
 const originalSettings = ref([])
+const isHydratingSettings = ref(false)
+const isSavingSettings = ref(false)
 
 const directoryInputTarget = ref(null)
 const selectDirectoryInitialPath = ref('')
@@ -360,13 +382,6 @@ const settingsHaveBeenModified = () => {
   return false
 }
 
-const hasChanges = computed(() => settingsHaveBeenModified())
-const isDirty = computed(() => showSettingsTab.value && hasChanges.value)
-const closeTooltip = computed(() => isDirty.value
-  ? t('components.settings.common.closeWithoutSaving')
-  : ''
-)
-
 const dialogTitle = computed(() => {
   if (tab.value === 'info') {
     return t('headers.pluginInfo')
@@ -375,20 +390,6 @@ const dialogTitle = computed(() => {
     return t('headers.libraryPluginConfig')
   }
   return t('headers.globalPluginConfig')
-})
-
-const saveAction = computed(() => {
-  const hasChangesValue = hasChanges.value
-  return {
-    label: t('navigation.save'),
-    icon: 'save',
-    color: hasChangesValue ? 'positive' : 'grey-6',
-    tooltip: hasChangesValue
-      ? t('components.plugins.savePluginConfig')
-      : t('components.settings.common.noChangesToSave'),
-    emit: 'save',
-    disabled: !hasChangesValue
-  }
 })
 
 const resetAction = computed(() => ({
@@ -403,11 +404,7 @@ const headerActions = computed(() => {
   if (!showSettingsTab.value) {
     return []
   }
-  const actions = [saveAction.value]
-  if (props.libraryId) {
-    actions.push(resetAction.value)
-  }
-  return actions
+  return props.libraryId ? [resetAction.value] : []
 })
 
 const fetchPluginData = () => {
@@ -434,8 +431,12 @@ const fetchPluginData = () => {
     description.value = markdownToHTML(response.data.description)
 
     if (!props.viewingRemoteInfo) {
+      isHydratingSettings.value = true
       settings.value = response.data.settings || []
       originalSettings.value = JSON.parse(JSON.stringify(response.data.settings || []))
+      nextTick(() => {
+        isHydratingSettings.value = false
+      })
     } else {
       settings.value = []
       originalSettings.value = []
@@ -485,6 +486,10 @@ const savePluginSettings = () => {
   if (!settings.value.length) {
     return
   }
+  if (isSavingSettings.value) {
+    return
+  }
+  isSavingSettings.value = true
   const data = {
     plugin_id: props.pluginId,
     settings: settings.value
@@ -497,16 +502,8 @@ const savePluginSettings = () => {
     url: getUnmanicApiUrl('v2', 'plugins/settings/update'),
     data: data
   }).then(() => {
+    originalSettings.value = JSON.parse(JSON.stringify(settings.value))
     fetchPluginData()
-    $q.notify({
-      color: 'positive',
-      position: 'top',
-      message: t('notifications.SavedPluginSettings'),
-      icon: 'check_circle',
-      timeout: 200,
-      actions: [{ icon: 'close', color: 'white' }]
-    })
-    hide()
   }).catch(() => {
     $q.notify({
       color: 'negative',
@@ -515,6 +512,8 @@ const savePluginSettings = () => {
       icon: 'report_problem',
       actions: [{ icon: 'close', color: 'white' }]
     })
+  }).finally(() => {
+    isSavingSettings.value = false
   })
 }
 
@@ -568,6 +567,16 @@ watch(() => props.startTab, (value) => {
   tab.value = value
 })
 
+watch(settings, () => {
+  if (isHydratingSettings.value || isSavingSettings.value) {
+    return
+  }
+  if (!settingsHaveBeenModified()) {
+    return
+  }
+  savePluginSettings()
+}, { deep: true })
+
 const selectDirectoryDialogRef = ref(null)
 
 defineExpose({
@@ -600,16 +609,6 @@ defineExpose({
 :deep(.q-card-section.col.scroll) {
   overflow: hidden;
 }
-
-.unsaved-indicator {
-  position: absolute;
-  top: 6px;
-  right: 12px;
-  z-index: 3;
-  font-size: 0.75rem;
-  color: var(--q-warning);
-}
-
 
 :deep(span.plugin-changelog *) {
   margin-top: 0;
