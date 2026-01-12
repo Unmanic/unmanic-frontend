@@ -288,7 +288,17 @@
                 />
                 <div
                   v-if="autoManageCompletedTasks"
-                  class="sub-setting">
+                  class="sub-setting q-gutter-sm">
+                  <div class="q-gutter-sm q-mb-lg">
+                    <q-skeleton
+                      v-if="compressCompletedTasksLogs === null"
+                      type="QInput"/>
+                    <q-toggle
+                      v-else
+                      v-model="compressCompletedTasksLogs"
+                      :label="$t('components.settings.library.compressCompletedTasksLogs')"
+                    />
+                  </div>
                   <div class="q-gutter-sm">
                     <q-skeleton
                       v-if="maxAgeOfCompletedTasks === null"
@@ -298,7 +308,7 @@
                       outlined
                       type="number"
                       v-model="maxAgeOfCompletedTasks"
-                      :label="$t('components.settings.library.maxAgeOfCompletedTasks')"
+                      :label="compressCompletedTasksLogs ? $t('components.settings.library.maxAgeOfCompletedTasksCompress') : $t('components.settings.library.maxAgeOfCompletedTasks')"
                       lazy-rules
                       :rules="[
                   val => val !== null && val !== '' || $t('components.settings.pleaseEnterAValidNumber'),
@@ -313,7 +323,7 @@
                     <q-toggle
                       v-else
                       v-model="alwaysKeepFailedTasks"
-                      :label="$t('components.settings.library.alwaysKeepFailedTasks')"
+                      :label="compressCompletedTasksLogs ? $t('components.settings.library.dontCompressFailedTasks') : $t('components.settings.library.alwaysKeepFailedTasks')"
                     />
                   </div>
                 </div>
@@ -441,6 +451,7 @@ export default {
       enableLibraryFileMonitor: ref(null),
       clearPendingTasksOnStart: ref(null),
       autoManageCompletedTasks: ref(null),
+      compressCompletedTasksLogs: ref(null),
       maxAgeOfCompletedTasks: ref(null),
       alwaysKeepFailedTasks: ref(null),
     }
@@ -571,6 +582,7 @@ export default {
         this.enableLibraryFileMonitor = response.data.settings.enable_inotify
         this.clearPendingTasksOnStart = response.data.settings.clear_pending_tasks_on_restart
         this.autoManageCompletedTasks = response.data.settings.auto_manage_completed_tasks
+        this.compressCompletedTasksLogs = response.data.settings.compress_completed_tasks_logs
         this.maxAgeOfCompletedTasks = response.data.settings.max_age_of_completed_tasks
         this.alwaysKeepFailedTasks = response.data.settings.always_keep_failed_tasks
       }).catch(() => {
@@ -596,6 +608,7 @@ export default {
           enable_inotify: this.enableLibraryFileMonitor,
           clear_pending_tasks_on_restart: this.clearPendingTasksOnStart,
           auto_manage_completed_tasks: this.autoManageCompletedTasks,
+          compress_completed_tasks_logs: this.compressCompletedTasksLogs,
           max_age_of_completed_tasks: this.maxAgeOfCompletedTasks,
           always_keep_failed_tasks: this.alwaysKeepFailedTasks,
         }

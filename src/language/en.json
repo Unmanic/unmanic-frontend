@@ -211,8 +211,11 @@
         "unlocked": "The library is able to be deleted",
         "completedTasks": "Completed tasks",
         "autoManageCompletedTasks": "Automatically manage completed tasks",
-        "maxAgeOfCompletedTasks": "Maximum number of days to keep completed tasks",
-        "alwaysKeepFailedTasks": "Always keep failed tasks"
+        "compressCompletedTasksLogs": "Compress historic tasks (remove worker logs)",
+        "maxAgeOfCompletedTasksCompress": "Maximum number of days before completed tasks are compressed",
+        "maxAgeOfCompletedTasks": "Maximum number of days before completed task cleanup",
+        "alwaysKeepFailedTasks": "Always keep failed tasks",
+        "dontCompressFailedTasks": "Don't compress failed tasks"
       },
       "workers": {
         "workerGroups": "Worker groups",
