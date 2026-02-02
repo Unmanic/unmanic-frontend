@@ -342,7 +342,39 @@
       "rescanLibrary": "Rescan library now",
       "moveToTop": "Move selected to top",
       "moveToBottom": "Move selected to bottom",
-      "removeSelected": "Remove selected from list"
+      "removeSelected": "Remove selected from list",
+      "filters": "Filters",
+      "filtersTitle": "Filters",
+      "apply": "Apply",
+      "clear": "Clear",
+      "filtersActive": "Filters active",
+      "filterLibrariesLabel": "Libraries",
+      "allLibraries": "All libraries",
+      "filterLibrariesHint": "Select one or more libraries to filter the pending tasks list.",
+      "filterLibraryChip": "Library: {library}",
+      "columns": {
+        "name": "Name",
+        "library": "Library"
+      },
+      "selectPage": "Select page",
+      "loadMore": "Load more",
+      "scrollToTop": "Scroll to top",
+      "showActions": "Show search and filters",
+      "hideActions": "Hide search and filters",
+      "nothingSelected": "Nothing selected.",
+      "errorDeleteSelected": "An error was encountered while requesting the selected tasks be deleted.",
+      "errorReorder": "An error was encountered while requesting a task reorder.",
+      "errorFetchingList": "An error was encountered while requesting the pending tasks list.",
+      "selectionBanner": {
+        "pageSelected": "All {count} tasks on this page are selected.",
+        "selectAll": "Select all {count} tasks",
+        "selectAllMatchingSearch": "Select all {count} tasks that match this search",
+        "selectAllMatchingFilters": "Select all {count} tasks that match these filters",
+        "allSelected": "All {count} tasks are selected.",
+        "allSelectedSearch": "All {count} tasks that match this search are selected.",
+        "allSelectedFilters": "All {count} tasks that match these filters are selected.",
+        "clearSelection": "Clear selection"
+      }
     },
     "completedTasks": {
       "details": "Details",
