@@ -257,7 +257,7 @@
 
             <template v-slot:loading>
               <div class="row flex-center q-my-md">
-                <q-spinner size="32px" color="secondary"/>
+                <q-spinner-dots size="32px" color="secondary"/>
               </div>
             </template>
           </q-infinite-scroll>
@@ -265,14 +265,13 @@
           <div class="row justify-center q-mt-md" v-if="!allLoaded && rows.length > 0">
             <UnmanicStandardButton
               color="secondary"
-              :loading="loadingMore"
               :label="t('components.completedTasks.loadMore')"
               @click="manualLoadMore"
             />
           </div>
 
           <q-inner-loading :showing="loading && rows.length === 0">
-            <q-spinner size="42px" color="secondary"/>
+            <q-spinner-dots size="42px" color="secondary"/>
           </q-inner-loading>
         </div>
       </div>
