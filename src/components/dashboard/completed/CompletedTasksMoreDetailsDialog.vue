@@ -273,6 +273,18 @@
           <q-inner-loading :showing="loading && rows.length === 0">
             <q-spinner-dots size="42px" color="secondary"/>
           </q-inner-loading>
+
+          <div v-show="showScrollTop" class="completed-tasks-scroll-top">
+            <UnmanicStandardButton
+              round
+              dense
+              icon="keyboard_arrow_up"
+              :label="''"
+              :aria-label="t('components.completedTasks.scrollToTop')"
+              :title="t('components.completedTasks.scrollToTop')"
+              @click="scrollToTop"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -537,6 +549,8 @@ const { isMobile } = useMobile()
 
 const dialogRef = ref(null)
 const infiniteScrollRef = ref(null)
+const tableWrapperRef = ref(null)
+const showScrollTop = ref(false)
 
 const loading = ref(false)
 const loadingMore = ref(false)
@@ -754,6 +768,7 @@ let reloadInterval = null
 
 const show = () => {
   dialogRef.value.show()
+  showScrollTop.value = false
 }
 
 const hide = () => {
@@ -762,6 +777,7 @@ const hide = () => {
 
 const onDialogHide = () => {
   emit('hide')
+  showScrollTop.value = false
 }
 
 const toggleActionsExpanded = () => {
@@ -769,16 +785,23 @@ const toggleActionsExpanded = () => {
 }
 
 const handleTableScroll = (event) => {
-  if (!showActionsToggle.value || !actionsExpanded.value) {
-    return
-  }
   const wrapper = event?.target || tableWrapperRef.value
   if (!wrapper) {
     return
   }
-  if (wrapper.scrollTop > 4) {
+  showScrollTop.value = wrapper.scrollTop > 120
+  if (showActionsToggle.value && actionsExpanded.value && wrapper.scrollTop > 4) {
     actionsExpanded.value = false
   }
+}
+
+const scrollToTop = () => {
+  const wrapper = tableWrapperRef.value
+  if (!wrapper) {
+    return
+  }
+  wrapper.scrollTo({ top: 0, behavior: 'smooth' })
+  showScrollTop.value = false
 }
 
 const resetSelection = () => {
@@ -1323,7 +1346,7 @@ defineExpose({
   position: sticky;
   bottom: 18px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   pointer-events: none;
   padding: 0 18px 12px;
 }
