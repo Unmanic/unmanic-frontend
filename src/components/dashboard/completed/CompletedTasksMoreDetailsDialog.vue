@@ -7,158 +7,174 @@
     <div class="completed-tasks-dialog">
       <div class="completed-tasks-table-actions-bar q-pa-sm">
         <div class="row q-col-gutter-sm items-center completed-tasks-toolbar">
-          <div class="col-12">
-            <q-input
-              outlined
-              dense
-              debounce="300"
-              :color="searchLabelColor"
-              :label-color="searchLabelColor"
-              v-model="searchValue"
-              :placeholder="t('navigation.search')"
-            >
-              <template v-slot:append>
-                <q-icon name="search" :color="searchLabelColor"/>
-              </template>
-            </q-input>
+          <div v-if="showActionsToggle" class="col-12 row items-center justify-end">
+            <UnmanicListActionButton
+              :icon="actionsExpanded ? 'expand_less' : 'expand_more'"
+              :tooltip="actionsExpanded ? t('components.completedTasks.hideActions') : t('components.completedTasks.showActions')"
+              @click="toggleActionsExpanded"
+            />
           </div>
-
-          <div class="col-12">
-            <div class="row items-center q-col-gutter-sm completed-tasks-action-row">
-              <div class="col-auto">
-                <UnmanicStandardButton
-                  :color="filterButtonColor"
-                  icon="filter_list"
-                  :label="t('components.completedTasks.filters')"
-                  :size="filterSortButtonSize"
-                  @click="openFilterDialog"
-                />
-              </div>
-
-              <div class="col-auto">
-                <UnmanicStandardButton
-                  :color="sortButtonColor"
-                  icon="sort"
-                  :icon-right="sortDirectionIcon"
-                  :label="sortButtonLabel"
-                  :size="filterSortButtonSize"
-                  @click="openSortDialog"
-                />
-              </div>
-
-              <q-space/>
-
-              <div class="col-auto">
-                <UnmanicStandardButtonDropdown
-                  class="completed-tasks-options-button"
-                  :label="t('navigation.options')"
-                  :size="filterSortButtonSize"
-                >
-                  <q-list>
-                    <q-item clickable v-close-popup @click="selectLibraryForRecreateTask">
-                      <q-item-section>
-                        <q-item-label>
-                          <q-icon name="add"/>
-                          {{ t('components.completedTasks.addToPendingTasksList') }}
-                        </q-item-label>
-                      </q-item-section>
-                    </q-item>
-
-                    <q-separator/>
-
-                    <q-item clickable v-close-popup @click="deleteSelected">
-                      <q-item-section>
-                        <q-item-label>
-                          <q-icon name="delete_outline"/>
-                          {{ t('components.completedTasks.removeSelected') }}
-                        </q-item-label>
-                      </q-item-section>
-                    </q-item>
-                  </q-list>
-                </UnmanicStandardButtonDropdown>
-              </div>
-            </div>
-          </div>
-
-          <div v-if="activeFilterChips.length" class="col-12">
-            <div class="row items-center q-col-gutter-sm completed-tasks-filter-indicator">
-              <div class="col-auto text-secondary completed-tasks-filter-indicator__label">
-                <q-icon name="filter_list" class="q-mr-xs"/>
-                {{ t('components.completedTasks.filtersActive') }}
-              </div>
-              <div class="col">
-                <div class="row items-center">
-                  <q-chip
-                    v-for="chip in activeFilterChips"
-                    :key="chip.key"
+          <q-slide-transition>
+            <div v-show="actionsExpanded" class="col-12">
+              <div class="row q-col-gutter-sm completed-tasks-actions-panel">
+                <div class="col-12">
+                  <q-input
+                    outlined
                     dense
-                    outline
-                    color="secondary"
-                    class="completed-tasks-filter-chip"
+                    debounce="300"
+                    :color="searchLabelColor"
+                    :label-color="searchLabelColor"
+                    v-model="searchValue"
+                    :placeholder="t('navigation.search')"
                   >
-                    {{ chip.label }}
-                  </q-chip>
+                    <template v-slot:append>
+                      <q-icon name="search" :color="searchLabelColor"/>
+                    </template>
+                  </q-input>
+                </div>
+
+                <div class="col-12">
+                  <div class="row items-center q-col-gutter-sm completed-tasks-action-row">
+                    <div class="col-auto">
+                      <UnmanicStandardButton
+                        :color="filterButtonColor"
+                        icon="filter_list"
+                        :label="t('components.completedTasks.filters')"
+                        :size="filterSortButtonSize"
+                        @click="openFilterDialog"
+                      />
+                    </div>
+
+                    <div class="col-auto">
+                      <UnmanicStandardButton
+                        :color="sortButtonColor"
+                        icon="sort"
+                        :icon-right="sortDirectionIcon"
+                        :label="sortButtonLabel"
+                        :size="filterSortButtonSize"
+                        @click="openSortDialog"
+                      />
+                    </div>
+
+                    <q-space/>
+
+                    <div class="col-auto">
+                      <UnmanicStandardButtonDropdown
+                        class="completed-tasks-options-button"
+                        :label="t('navigation.options')"
+                        :size="filterSortButtonSize"
+                      >
+                        <q-list>
+                          <q-item clickable v-close-popup @click="selectLibraryForRecreateTask">
+                            <q-item-section>
+                              <q-item-label>
+                                <q-icon name="add"/>
+                                {{ t('components.completedTasks.addToPendingTasksList') }}
+                              </q-item-label>
+                            </q-item-section>
+                          </q-item>
+
+                          <q-separator/>
+
+                          <q-item clickable v-close-popup @click="deleteSelected">
+                            <q-item-section>
+                              <q-item-label>
+                                <q-icon name="delete_outline"/>
+                                {{ t('components.completedTasks.removeSelected') }}
+                              </q-item-label>
+                            </q-item-section>
+                          </q-item>
+                        </q-list>
+                      </UnmanicStandardButtonDropdown>
+                    </div>
+                  </div>
+                </div>
+
+                <div v-if="activeFilterChips.length" class="col-12">
+                  <div class="row items-center q-col-gutter-sm completed-tasks-filter-indicator">
+                    <div class="col-auto text-secondary completed-tasks-filter-indicator__label">
+                      <q-icon name="filter_list" class="q-mr-xs"/>
+                      {{ t('components.completedTasks.filtersActive') }}
+                    </div>
+                    <div class="col">
+                      <div class="row items-center">
+                        <q-chip
+                          v-for="chip in activeFilterChips"
+                          :key="chip.key"
+                          dense
+                          outline
+                          color="secondary"
+                          class="completed-tasks-filter-chip"
+                        >
+                          {{ chip.label }}
+                        </q-chip>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="row items-center q-col-gutter-sm completed-tasks-selection">
+                    <div class="col-auto">
+                      <q-checkbox
+                        :model-value="allPageSelected"
+                        @update:model-value="toggleSelectPage"
+                        color="secondary"
+                        :label="t('components.completedTasks.selectPage')"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-12">
-            <div class="row items-center q-col-gutter-sm q-mt-sm completed-tasks-selection">
-              <div class="col-auto">
-                <q-checkbox
-                  :model-value="allPageSelected"
-                  @update:model-value="toggleSelectPage"
-                  color="secondary"
-                  :label="t('components.completedTasks.selectPage')"
-                />
-              </div>
-            </div>
-          </div>
+          </q-slide-transition>
         </div>
 
         <q-separator class="q-mt-sm"/>
       </div>
 
       <!-- SELECTION BANNER -->
-      <div
-        v-if="allPageSelected || selectAllMatching"
-        class="row items-center q-pa-sm completed-tasks-selection-banner"
-      >
-        <div class="completed-tasks-selection-banner__center">
-          <div class="completed-tasks-selection-banner__content">
-            <template v-if="showSelectAllMatchingPrompt">
-              {{ selectionBannerPageText }}
-            </template>
-            <template v-else-if="selectAllMatching">
-              {{ selectionBannerAllSelectedText }}
-            </template>
-          </div>
-          <div
-            v-if="showSelectAllMatchingPrompt || selectAllMatching"
-            class="completed-tasks-selection-banner__actions"
-          >
-            <UnmanicStandardButton
-              v-if="showSelectAllMatchingPrompt"
-              dense
-              :label="selectionBannerSelectAllLabel"
-              @click="selectAllMatchingResults"
-            />
-            <UnmanicStandardButton
-              v-else
-              dense
-              :label="t('components.completedTasks.selectionBanner.clearSelection')"
-              @click="clearSelection"
-            />
+      <q-slide-transition>
+        <div
+          v-show="(allPageSelected || selectAllMatching) && actionsExpanded"
+          class="row items-center q-pa-sm completed-tasks-selection-banner"
+        >
+          <div class="completed-tasks-selection-banner__center">
+            <div class="completed-tasks-selection-banner__content">
+              <template v-if="showSelectAllMatchingPrompt">
+                {{ selectionBannerPageText }}
+              </template>
+              <template v-else-if="selectAllMatching">
+                {{ selectionBannerAllSelectedText }}
+              </template>
+            </div>
+            <div
+              v-if="showSelectAllMatchingPrompt || selectAllMatching"
+              class="completed-tasks-selection-banner__actions"
+            >
+              <UnmanicStandardButton
+                v-if="showSelectAllMatchingPrompt"
+                dense
+                :label="selectionBannerSelectAllLabel"
+                @click="selectAllMatchingResults"
+              />
+              <UnmanicStandardButton
+                v-else
+                dense
+                :label="t('components.completedTasks.selectionBanner.clearSelection')"
+                @click="clearSelection"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </q-slide-transition>
       <!-- END SELECTION BANNER -->
 
       <div
         id="completed-tasks-scroller"
         ref="tableWrapperRef"
         class="completed-tasks-table-wrapper"
+        @scroll.passive="handleTableScroll"
       >
         <div :class="[isMobile ? 'q-px-none' : 'q-px-sm', 'completed-tasks-body q-pa-sm']">
           <q-infinite-scroll
@@ -546,6 +562,8 @@ const draftDescending = ref(true)
 const filterDialogOpen = ref(false)
 const sortDialogOpen = ref(false)
 
+const actionsExpanded = ref(true)
+
 const selectedIds = ref([])
 const selectAllMatching = ref(false)
 const excludedIds = ref([])
@@ -607,6 +625,11 @@ const filterSortButtonSize = computed(() => ($q.screen.width < 450 ? 'sm' : 'md'
 const filterSortActiveColor = 'warning'
 
 const searchLabelColor = computed(() => (searchValue.value.trim().length > 0 ? filterSortActiveColor : 'secondary'))
+
+const showActionsToggle = computed(() => (
+  $q.screen.width < 1024 ||
+  ($q.screen.width >= 1024 && $q.screen.height < 800)
+))
 
 const sincePopupActionLabel = computed(() => (
   draftSinceDate.value ? t('components.completedTasks.apply') : t('navigation.close')
@@ -740,6 +763,23 @@ const hide = () => {
 
 const onDialogHide = () => {
   emit('hide')
+}
+
+const toggleActionsExpanded = () => {
+  actionsExpanded.value = !actionsExpanded.value
+}
+
+const handleTableScroll = (event) => {
+  if (!showActionsToggle.value || !actionsExpanded.value) {
+    return
+  }
+  const wrapper = event?.target || tableWrapperRef.value
+  if (!wrapper) {
+    return
+  }
+  if (wrapper.scrollTop > 4) {
+    actionsExpanded.value = false
+  }
 }
 
 const resetSelection = () => {
@@ -1098,6 +1138,8 @@ watch(descending, () => {
 onMounted(() => {
   statusFilter.value = props.initStatusFilter
 
+  actionsExpanded.value = true
+
   fetchCompletedTasks({ reset: true })
 
   reloadInterval = setInterval(() => {
@@ -1173,6 +1215,12 @@ defineExpose({
 
 .completed-tasks-selection {
   padding-left: 17px;
+}
+
+@media (min-width: 601px) {
+  .completed-tasks-selection {
+    margin-top: 8px;
+  }
 }
 
 .completed-tasks-filter-indicator {

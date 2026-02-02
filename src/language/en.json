@@ -371,6 +371,8 @@
       "sortHint": "Click a field to sort. Click it again to change the direction.",
       "clearSinceFilter": "Clear since date filter",
       "clearBeforeFilter": "Clear before date filter",
+      "showActions": "Show search and filters",
+      "hideActions": "Hide search and filters",
       "filtersActive": "Filters active",
       "filterStatus": "Status: {status}",
       "filterSince": "Since: {date}",
