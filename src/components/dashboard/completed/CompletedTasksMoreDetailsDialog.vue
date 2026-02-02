@@ -4,8 +4,8 @@
     :title="$t('headers.completedTasks')"
     @hide="onDialogHide"
   >
-    <div class="completed-tasks-details-body column full-height">
-      <q-card-section class="col full-height q-pa-none">
+    <div class="completed-tasks-details-body column">
+      <q-card-section class="col q-pa-none completed-tasks-dialog-body">
         <CompletedTasksTable :initStatusFilter="initStatusFilter"/>
       </q-card-section>
     </div>
@@ -47,9 +47,11 @@ defineExpose({
 
 <style scoped>
 .completed-tasks-details-body {
-  height: 100%;
+  min-height: 0;
+}
+
+.completed-tasks-dialog-body {
   overflow: hidden;
-  flex: 1;
   min-height: 0;
 }
 </style>
