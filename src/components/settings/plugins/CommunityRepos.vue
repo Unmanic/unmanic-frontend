@@ -106,10 +106,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import axios from 'axios'
 import { date } from 'quasar'
 import { useI18n } from 'vue-i18n'
+import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import UnmanicDialogMenu from 'components/ui/dialogs/UnmanicDialogMenu.vue'
 
 const emit = defineEmits(['hide', 'add-repo'])
@@ -121,139 +122,35 @@ const loading = ref(false)
 const error = ref(null)
 const repos = ref([])
 
-// Initialize cache from localStorage
-let repoCache = new Map()
-try {
-  const stored = localStorage.getItem('community_repo_cache')
-  if (stored) {
-    repoCache = new Map(JSON.parse(stored))
-  }
-} catch (e) {
-  console.warn('Failed to load community repo cache', e)
-}
-
-const saveCacheToStorage = () => {
-  try {
-    const cacheArray = Array.from(repoCache.entries())
-    localStorage.setItem('community_repo_cache', JSON.stringify(cacheArray))
-  } catch (e) {
-    console.warn('Failed to save community repo cache', e)
-  }
-}
-
 const fetchForks = async () => {
   loading.value = true
   error.value = null
   repos.value = []
 
   try {
-    let forks = []
-    const now = Date.now()
-    const forksCacheDuration = 10 * 60 * 1000 // 10 minutes
-    const repoCacheDuration = 60 * 60 * 1000 // 1 hour
-
-    const cachedForks = localStorage.getItem('community_forks_list_cache')
-    let useCache = false
-    if (cachedForks) {
-      try {
-        const cacheEntry = JSON.parse(cachedForks)
-        if (now - cacheEntry.timestamp < forksCacheDuration) {
-          forks = cacheEntry.data
-          useCache = true
-        }
-      } catch (e) {
-        console.warn('Failed to parse cached forks list', e)
-      }
-    }
-
-    if (!useCache) {
-      const response = await axios.get('https://api.github.com/repos/Unmanic/unmanic-plugins/forks', {
-        params: {
-          sort: 'stargazers',
-          per_page: 100
-        }
-      })
-      forks = response.data
-      localStorage.setItem('community_forks_list_cache', JSON.stringify({
-        data: forks,
-        timestamp: now
-      }))
-    }
-
-    forks.sort((a, b) => {
-      if (b.stargazers_count !== a.stargazers_count) {
-        return b.stargazers_count - a.stargazers_count
-      }
-      return new Date(b.pushed_at) - new Date(a.pushed_at)
-    })
-
-    const topForks = forks.slice(0, 50)
-
-    const promises = topForks.map(async (fork) => {
-      if (fork.full_name === 'Unmanic/unmanic-plugins') return null
-
-      const rawBaseUrl = `https://raw.githubusercontent.com/${fork.owner.login}/${fork.name}/repo`
-      const repoJsonUrl = `${rawBaseUrl}/repo.json`
-
-      let repoData = {}
-      const cacheKey = repoJsonUrl
-      const cachedEntry = repoCache.get(cacheKey)
-
-      if (cachedEntry && (now - cachedEntry.timestamp < repoCacheDuration)) {
-        repoData = cachedEntry.data
-      } else {
-        try {
-          const repoResponse = await axios.get(repoJsonUrl, { timeout: 5000 })
-          repoData = repoResponse.data
-          repoCache.set(cacheKey, {
-            data: repoData,
-            timestamp: now
-          })
-          saveCacheToStorage()
-        } catch (e) {
-          repoCache.set(cacheKey, {
-            data: null,
-            timestamp: now
-          })
-          saveCacheToStorage()
-          return null
-        }
-      }
-
-      if (!repoData) return null
-
-      const config = repoData.repo || {}
-      const pushedDate = new Date(fork.pushed_at)
-      const formattedDate = date.formatDate(pushedDate, 'MMM D, YYYY')
-
-      let description = config.description || fork.description || t('status.noDescription')
-      if (description.trim() === 'Official plugins for the Unmanic application') {
-        description = fork.description !== 'Official plugins for the Unmanic application' && fork.description
-          ? fork.description
-          : 'Community fork of unmanic-plugins'
-      }
-
+    const response = await axios.get(getUnmanicApiUrl('v2', 'plugins/repos/community'))
+    const items = response.data.repos || []
+    repos.value = items.map((repo) => {
+      const pushedDate = repo.pushed_at ? new Date(repo.pushed_at) : null
+      const formattedDate = pushedDate ? date.formatDate(pushedDate, 'MMM D, YYYY') : ''
       return {
-        id: config.id || fork.id,
-        name: config.name || fork.full_name,
-        author: fork.owner.login,
-        owner_avatar: fork.owner.avatar_url,
-        icon: config.icon,
-        description: description,
-        stars: fork.stargazers_count,
-        pushed_at: fork.pushed_at,
+        id: repo.repo_id,
+        name: repo.repo_name,
+        author: repo.repo_author,
+        owner_avatar: repo.repo_icon,
+        icon: repo.repo_icon,
+        description: repo.repo_description || t('status.noDescription'),
+        stars: repo.repo_stars || 0,
+        pushed_at: repo.repo_pushed_at,
         pushed_at_formatted: formattedDate,
-        html_url: fork.html_url,
-        repo_json_url: repoJsonUrl
+        html_url: repo.repo_html_url,
+        repo_token: repo.repo_token,
+        repo_json_url: repo.repo_json_url || repo.repo_url
       }
     })
-
-    const results = await Promise.all(promises)
-    repos.value = results.filter(r => r !== null)
-
   } catch (err) {
     console.error(err)
-    if (err.response && err.response.status === 403) {
+    if (err.response && err.response.status === 429) {
       error.value = t('components.plugins.rateLimitExceeded')
     } else {
       error.value = t('components.plugins.failedToLoadCommunityRepos')
@@ -277,7 +174,7 @@ const onDialogHide = () => {
 }
 
 const addRepo = (repo) => {
-  emit('add-repo', repo.repo_json_url)
+  emit('add-repo', repo.repo_token || repo.repo_json_url)
   hide()
 }
 

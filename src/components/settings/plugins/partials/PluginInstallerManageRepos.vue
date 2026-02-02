@@ -74,8 +74,10 @@
             <q-item-section style="overflow: hidden;">
               <q-item-label class="text-weight-bold">{{ repo.name }}</q-item-label>
               <q-item-label caption class="ellipsis" style="max-width: 200px;">
-                 <span class="cursor-pointer clickable" @click="goToRepoSource(repo.path)">
-                    {{ repo.path }}
+                 <span
+                   class="cursor-pointer clickable"
+                   @click="goToRepoSource(getRepoDisplayUrl(repo))">
+                    {{ getRepoDisplayUrl(repo) }}
                  </span>
               </q-item-label>
             </q-item-section>
@@ -115,8 +117,8 @@
                   <q-item-label caption>
                     <span
                       class="cursor-pointer clickable"
-                      @click="goToRepoSource(repo.path)">
-                      {{ repo.path }}
+                      @click="goToRepoSource(getRepoDisplayUrl(repo))">
+                      {{ getRepoDisplayUrl(repo) }}
                     </span>
                   </q-item-label>
                 </q-item-section>
@@ -196,6 +198,7 @@ export default {
             name: repo.name,
             icon: repo.icon,
             path: repo.path,
+            repo_html_url: repo.repo_html_url,
           }
         }
 
@@ -311,6 +314,15 @@ export default {
             })
           })
       }
+    },
+    getRepoDisplayUrl: function (repo) {
+      if (repo.repo_html_url) {
+        return repo.repo_html_url;
+      }
+      if (repo.path && repo.path.startsWith('http')) {
+        return repo.path;
+      }
+      return '';
     },
     removeRepo: function (repoPath) {
       let updatedReposList = []
