@@ -1,8 +1,8 @@
 <template>
   <q-card flat bordered>
-    <q-card-section class="bg-card-head">
+    <q-card-section class="bg-card-head completed-tasks-card-head">
 
-      <div class="row items-center no-wrap">
+      <div class="row items-center no-wrap completed-tasks-header">
         <div class="col">
           <div class="text-h6 text-primary">
             <q-icon name="fas fa-list-ul"/>
@@ -25,8 +25,8 @@
     </q-card-section>
 
     <!--MINIMAL SCREEN-->
-    <q-card-section>
-      <div class="q-pa-md">
+    <q-card-section class="completed-tasks-card-body">
+      <div class="completed-tasks-list-wrap">
         <q-list
           separator>
 
@@ -144,3 +144,40 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.completed-tasks-card-head {
+  padding: 12px 16px;
+}
+
+.completed-tasks-card-body {
+  padding: 8px 12px;
+}
+
+.completed-tasks-list-wrap {
+  padding: 12px 8px;
+}
+
+@media (max-width: 600px) {
+  .completed-tasks-card-head {
+    padding: 10px 12px;
+  }
+
+  .completed-tasks-card-body {
+    padding: 6px 8px;
+  }
+
+  .completed-tasks-list-wrap {
+    padding: 8px 4px;
+  }
+
+  .completed-tasks-header {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .completed-tasks-card-body :deep(.q-item) {
+    padding: 8px 6px;
+  }
+}
+</style>

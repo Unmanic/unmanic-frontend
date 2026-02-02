@@ -1,8 +1,8 @@
 <template>
   <q-card flat bordered>
-    <q-card-section class="bg-card-head">
+    <q-card-section class="bg-card-head pending-tasks-card-head">
 
-      <div class="row items-center no-wrap">
+      <div class="row items-center no-wrap pending-tasks-header">
         <div class="col">
           <div class="text-h6 text-primary">
             <q-icon name="fas fa-list-ul"/>
@@ -26,10 +26,9 @@
     </q-card-section>
 
     <!--MINIMAL SCREEN-->
-    <q-card-section class="q-pb-none">
-      <div class="q-pa-md">
-        <q-list
-          separator>
+    <q-card-section class="q-pb-none pending-tasks-card-body">
+      <div class="pending-tasks-list-wrap">
+        <q-list separator>
 
           <q-item v-if="!taskList">
             <q-item-section>
@@ -70,16 +69,15 @@
     </q-card-section>
 
     <q-card-section class="q-pt-none">
-      <div class="row">
-        <div class="col">
-        </div>
-        <div class="col">
+      <div class="row items-center pending-tasks-footer">
+        <div class="col"/>
+        <div class="col-auto">
           <q-btn
-            class="float-right"
             :label="$t('components.pendingTasks.rescanLibrary')"
             color="secondary"
             outline
-            @click="rescanLibrary()"/>
+            @click="rescanLibrary()"
+          />
         </div>
       </div>
       <q-space/>
@@ -134,3 +132,54 @@ export default defineComponent({
   }
 });
 </script>
+
+<style scoped>
+.pending-tasks-card-head {
+  padding: 12px 16px;
+}
+
+.pending-tasks-card-body {
+  padding: 8px 12px 0;
+}
+
+.pending-tasks-list-wrap {
+  padding: 12px 8px;
+}
+
+.pending-tasks-footer {
+  padding: 0 4px;
+}
+
+@media (max-width: 600px) {
+  .pending-tasks-card-head {
+    padding: 10px 12px;
+  }
+
+  .pending-tasks-card-body {
+    padding: 6px 8px 0;
+  }
+
+  .pending-tasks-list-wrap {
+    padding: 8px 4px;
+  }
+
+  .pending-tasks-header {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .pending-tasks-footer {
+    justify-content: flex-end;
+  }
+
+  .pending-tasks-card-body :deep(.q-item) {
+    padding: 8px 6px;
+  }
+}
+
+.pending-tasks-card-body :deep(.q-item__label) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+</style>
