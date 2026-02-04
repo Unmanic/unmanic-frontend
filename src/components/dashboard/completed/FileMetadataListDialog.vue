@@ -454,6 +454,59 @@ defineExpose({ show, hide })
   flex-direction: column;
 }
 
+.completed-tasks-table-wrapper {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+
+.completed-tasks-body {
+  position: relative;
+  min-width: 0;
+}
+
+.completed-tasks-table {
+  width: 100%;
+  min-width: 0;
+}
+
+.completed-tasks-table :deep(table) {
+  width: 100%;
+  min-width: 0;
+}
+
+.completed-tasks-table :deep(.q-td) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.completed-task-row :deep(.q-td) {
+  vertical-align: top;
+}
+
+.completed-task-select,
+.completed-task-actions {
+  vertical-align: middle;
+}
+
+.completed-task-cell-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+.completed-task-actions {
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.completed-task-name {
+  font-weight: 500;
+}
+
 .completed-tasks-selection {
   padding-left: 17px;
 }
