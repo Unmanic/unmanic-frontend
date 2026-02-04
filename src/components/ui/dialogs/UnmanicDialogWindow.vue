@@ -21,7 +21,7 @@
       <q-card-section class="bg-card-head col-auto dialog-sticky-header q-py-sm">
         <div class="row items-center no-wrap">
 
-          <!-- MOBILE/TABLET (lt-md OR mobile platform): Back/Close Left -->
+          <!-- MOBILE HEADER (lt-md OR mobile platform): Left Close Button -->
           <template v-if="isMobile">
             <q-btn
               outline dense round
@@ -60,12 +60,13 @@
             <q-space/>
           </template>
 
-          <!-- DESKTOP (md+ AND desktop platform): Title Left, Arrow Close Right -->
+          <!-- DESKTOP HEADER (md+ AND desktop platform): Right Close Button -->
           <template v-else>
             <div class="text-h6 text-primary q-mr-auto ellipsis">
               {{ title }}
             </div>
 
+            <!-- Action Button (Desktop) -->
             <q-btn
               v-for="(action, index) in actions"
               :key="action.emit || action.label || index"
@@ -74,7 +75,11 @@
               :label="action.label"
               :color="action.color || 'secondary'"
               :disable="action.disabled"
-              :class="[{ 'dialog-attention': attentionActive }, index === 0 ? 'q-mr-sm' : 'q-ml-xs']"
+              :class="[
+                { 'dialog-attention': attentionActive },
+                index === 0 ? 'q-mr-sm' : 'q-ml-xs',
+                index === actions.length - 1 ? 'q-mr-sm' : ''
+              ]"
               @click="triggerAction(action)"
             >
               <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">

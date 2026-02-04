@@ -94,7 +94,7 @@
     </q-card-section>
 
     <!--FULL SCREEN-->
-    <CompletedTasksMoreDetailsDialog
+    <CompletedTasksListDialog
       ref="completedTasksDetailsDialogRef"
       :initStatusFilter="completedTasksPopupInitStatusFilter"
     />
@@ -104,11 +104,11 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import CompletedTasksMoreDetailsDialog from "components/dashboard/completed/CompletedTasksMoreDetailsDialog.vue";
+import CompletedTasksListDialog from "components/dashboard/completed/CompletedTasksListDialog.vue";
 
 export default defineComponent({
   name: 'CompletedTasks',
-  components: { CompletedTasksMoreDetailsDialog },
+  components: { CompletedTasksListDialog },
   setup() {
     const completedTasksDetailsDialogRef = ref(null);
 

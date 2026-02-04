@@ -642,6 +642,14 @@ const rescanLibrary = () => {
   axios({
     method: 'post',
     url: getUnmanicApiUrl('v2', 'pending/rescan')
+  }).then(() => {
+    $q.notify({
+      color: 'positive',
+      position: 'top',
+      message: t('notifications.rescanLibraryScheduled'),
+      icon: 'check_circle',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
   }).catch(() => {
     $q.notify({
       color: 'negative',

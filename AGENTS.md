@@ -119,6 +119,7 @@ The project follows the standard Quasar directory structure:
 - **Header Actions**: `UnmanicDialogMenu` and `UnmanicDialogWindow` use an `actions` array prop (objects with `label`, `icon`, `color`, `emit`, `tooltip`, `disabled`). Place actions adjacent to the close arrow.
 - **Close Tooltip**: Use the `closeTooltip` prop when the close action should warn about unsaved changes.
 - **Integration Pattern**: Embed the dialog component in the parent template and open it via a `ref` (no `$q.dialog`). Expose `show()` / `hide()` from the dialog using `defineExpose`, and call `this.$refs.myDialog.show()` (Options API) or `dialogRef.value.show()` (Composition API), mirroring `src/components/PluginInstallerManageRepos.vue` → `src/components/settings/plugins/CommunityRepos.vue`.
+- **Confirm Dialogs**: Use `src/components/ui/dialogs/UnmanicDialogConfirm.vue` for confirmation prompts instead of `$q.dialog`. Pass `title`, `message`, `okLabel`, `okColor`, and `cancelColor` props as needed, then call `confirmDialogRef.show()` via a `ref`.
 - **Styling (Manual Implementation)**:
   - If you cannot use the wrappers:
   - Header background: `bg-card-head` (do not use `bg-primary`).

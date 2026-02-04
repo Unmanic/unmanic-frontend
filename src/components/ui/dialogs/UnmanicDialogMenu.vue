@@ -38,12 +38,16 @@
             <q-btn
               v-for="(action, index) in actions"
               :key="action.emit || action.label || index"
+              outline
               :icon="action.icon"
               :label="action.label"
               :color="action.color || 'secondary'"
-              outline
               :disable="action.disabled"
-              :class="[{ 'dialog-attention': attentionActive }, index > 0 ? 'q-ml-xs' : '']"
+              :class="[
+                { 'dialog-attention': attentionActive },
+                index > 0 ? 'q-ml-xs' : 'q-ml-sm',
+                index === actions.length - 1 ? 'q-mr-sm' : ''
+              ]"
               @click="triggerAction(action)"
             >
               <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">
@@ -75,7 +79,11 @@
               :label="action.label"
               :color="action.color || 'secondary'"
               :disable="action.disabled"
-              :class="[{ 'dialog-attention': attentionActive }, index === 0 ? 'q-mr-sm' : 'q-ml-xs']"
+              :class="[
+                { 'dialog-attention': attentionActive },
+                index === 0 ? 'q-mr-sm' : 'q-ml-xs',
+                index === actions.length - 1 ? 'q-mr-sm' : ''
+              ]"
               @click="triggerAction(action)"
             >
               <q-tooltip v-if="typeof action.tooltip === 'string'" class="bg-white text-primary">

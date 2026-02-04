@@ -56,6 +56,16 @@
                       />
                     </div>
 
+                    <div class="col-auto">
+                      <UnmanicStandardButton
+                        color="secondary"
+                        icon="data_object"
+                        :label="t('components.completedTasks.metadataBrowserTitle')"
+                        :size="filterSortButtonSize"
+                        @click="openMetadataBrowser"
+                      />
+                    </div>
+
                     <q-space/>
 
                     <div class="col-auto">
@@ -229,18 +239,33 @@
 
                   <q-td auto-width class="completed-task-actions">
                     <div class="completed-task-cell-center">
-                      <UnmanicStandardButton
-                        v-if="$q.screen.gt.xs"
-                        @click="openDetailsDialog(props.row.id)"
-                        :label="t('components.completedTasks.details')"
-                        style="min-width: 100px;"
-                      />
-                      <UnmanicListActionButton
-                        v-else
-                        @click="openDetailsDialog(props.row.id)"
-                        icon="info"
-                        :tooltip="t('components.completedTasks.details')"
-                      />
+                      <div class="completed-task-action-group">
+                        <UnmanicStandardButton
+                          v-if="$q.screen.gt.xs"
+                          @click="openDetailsDialog(props.row.id)"
+                          :label="t('components.completedTasks.details')"
+                          style="min-width: 100px;"
+                        />
+                        <UnmanicListActionButton
+                          v-else
+                          @click="openDetailsDialog(props.row.id)"
+                          icon="info"
+                          :tooltip="t('components.completedTasks.details')"
+                        />
+
+                        <UnmanicStandardButton
+                          v-if="$q.screen.gt.xs && props.row.hasMetadata"
+                          @click="openMetadataDialog(props.row.id)"
+                          :label="t('components.completedTasks.metadata')"
+                          style="min-width: 120px;"
+                        />
+                        <UnmanicListActionButton
+                          v-else-if="props.row.hasMetadata"
+                          @click="openMetadataDialog(props.row.id)"
+                          icon="data_object"
+                          :tooltip="t('components.completedTasks.metadata')"
+                        />
+                      </div>
                     </div>
                   </q-td>
                 </q-tr>
@@ -487,6 +512,42 @@
       </q-card>
     </q-dialog>
 
+    <q-dialog v-model="deleteDialogOpen" backdrop-filter="blur(2px)">
+      <q-card class="completed-tasks-dialog-card" flat bordered>
+        <q-card-section class="bg-card-head completed-tasks-dialog-header row items-center justify-between no-wrap">
+          <div class="text-h6 text-primary">
+            {{ t('components.completedTasks.metadataDeleteTitle') }}
+          </div>
+        </q-card-section>
+
+        <q-separator/>
+
+        <q-card-section class="completed-tasks-dialog-body q-pa-lg q-gutter-md">
+          <div>{{ t('components.completedTasks.metadataDeletePrompt') }}</div>
+          <div v-if="selectAllMatching" class="text-secondary">
+            {{ t('components.completedTasks.metadataDeleteAllFilteredNotice') }}
+          </div>
+        </q-card-section>
+
+        <q-card-actions align="between">
+          <UnmanicStandardButton color="secondary" :label="t('navigation.cancel')" @click="deleteDialogOpen = false"/>
+          <div class="row items-center q-gutter-sm">
+            <UnmanicStandardButton
+              color="secondary"
+              :label="t('components.completedTasks.metadataDeleteTasksOnly')"
+              @click="confirmDeleteSelected(false)"
+            />
+            <UnmanicStandardButton
+              color="secondary"
+              :label="t('components.completedTasks.metadataDeleteTasksAndMetadata')"
+              :disable="selectAllMatching"
+              @click="confirmDeleteSelected(true)"
+            />
+          </div>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     <q-dialog v-model="selectLibrary" persistent>
       <q-card class="select-library-card" flat bordered>
         <q-card-section>
@@ -518,6 +579,15 @@
       </q-card>
     </q-dialog>
   </UnmanicDialogWindow>
+
+  <FileMetadataDetailsDialog
+    ref="metadataDialogRef"
+    :completedTaskId="metadataDialogTaskId"
+  />
+
+  <FileMetadataListDialog
+    ref="metadataBrowserRef"
+  />
 </template>
 
 <script setup>
@@ -529,7 +599,9 @@ import { getUnmanicApiUrl } from 'src/js/unmanicGlobals'
 import dateTools from 'src/js/dateTools'
 import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
-import CompletedTaskLogDialog from 'components/dashboard/completed/partials/CompletedTaskLogDialog.vue'
+import CompletedTaskLogDialog from 'components/dashboard/completed/CompletedTaskLogDialog.vue'
+import FileMetadataDetailsDialog from 'components/dashboard/completed/FileMetadataDetailsDialog.vue'
+import FileMetadataListDialog from 'components/dashboard/completed/FileMetadataListDialog.vue'
 import UnmanicStandardButton from 'components/ui/buttons/UnmanicStandardButton.vue'
 import UnmanicListActionButton from 'components/ui/buttons/UnmanicListActionButton.vue'
 import UnmanicStandardButtonDropdown from 'components/ui/buttons/UnmanicStandardButtonDropdown.vue'
@@ -548,6 +620,9 @@ const $q = useQuasar()
 const { isMobile } = useMobile()
 
 const dialogRef = ref(null)
+const metadataDialogRef = ref(null)
+const metadataDialogTaskId = ref('')
+const metadataBrowserRef = ref(null)
 const infiniteScrollRef = ref(null)
 const tableWrapperRef = ref(null)
 const showScrollTop = ref(false)
@@ -574,6 +649,7 @@ const draftDescending = ref(true)
 
 const filterDialogOpen = ref(false)
 const sortDialogOpen = ref(false)
+const deleteDialogOpen = ref(false)
 
 const actionsExpanded = ref(true)
 
@@ -936,23 +1012,100 @@ const deleteSelected = () => {
     return
   }
 
+  const selectionHasMetadata = selectAllMatching.value
+    || rows.value.some((row) => selectedIds.value.includes(row.id) && row.hasMetadata)
+
+  if (selectionHasMetadata) {
+    deleteDialogOpen.value = true
+    return
+  }
+
+  performDeleteSelected(false)
+}
+
+const performDeleteSelected = (deleteMetadata) => {
   const data = getSelectionPayload()
-  axios({
+
+  const deleteTasks = () => axios({
     method: 'delete',
     url: getUnmanicApiUrl('v2', 'history/tasks'),
     data
-  }).then(() => {
-    resetSelection()
-    fetchCompletedTasks({ reset: true })
-  }).catch(() => {
-    $q.notify({
-      color: 'negative',
-      position: 'top',
-      message: t('components.completedTasks.errorDeleteSelected'),
-      icon: 'report_problem',
-      actions: [{ icon: 'close', color: 'white' }]
-    })
   })
+
+  const deleteMetadataForSelection = async () => {
+    if (selectAllMatching.value) {
+      return false
+    }
+
+    const fingerprints = new Set()
+    const requests = selectedIds.value.map((id) => (
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'metadata/by-task'),
+        data: {
+          task_id: Number(id),
+        }
+      })
+    ))
+
+    const responses = await Promise.all(requests)
+    responses.forEach((response) => {
+      (response.data.results || []).forEach((entry) => {
+        if (entry.fingerprint) {
+          fingerprints.add(entry.fingerprint)
+        }
+      })
+    })
+
+    const deleteRequests = Array.from(fingerprints).map((fingerprint) => (
+      axios({
+        method: 'delete',
+        url: getUnmanicApiUrl('v2', 'metadata'),
+        data: {
+          fingerprint,
+        }
+      })
+    ))
+
+    await Promise.all(deleteRequests)
+    return true
+  }
+
+  const run = async () => {
+    if (deleteMetadata) {
+      try {
+        await deleteMetadataForSelection()
+      } catch (error) {
+        $q.notify({
+          color: 'negative',
+          position: 'top',
+          message: t('components.completedTasks.metadataErrorDelete'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }
+    }
+
+    deleteTasks().then(() => {
+      resetSelection()
+      fetchCompletedTasks({ reset: true })
+    }).catch(() => {
+      $q.notify({
+        color: 'negative',
+        position: 'top',
+        message: t('components.completedTasks.errorDeleteSelected'),
+        icon: 'report_problem',
+        actions: [{ icon: 'close', color: 'white' }]
+      })
+    })
+  }
+
+  run()
+}
+
+const confirmDeleteSelected = (deleteMetadata) => {
+  deleteDialogOpen.value = false
+  performDeleteSelected(deleteMetadata)
 }
 
 const selectLibraryForRecreateTask = () => {
@@ -1036,6 +1189,23 @@ const openDetailsDialog = (id) => {
   })
 }
 
+const openMetadataDialog = (id) => {
+  metadataDialogTaskId.value = String(id)
+  nextTick(() => {
+    if (metadataDialogRef.value) {
+      metadataDialogRef.value.show()
+    }
+  })
+}
+
+const openMetadataBrowser = () => {
+  nextTick(() => {
+    if (metadataBrowserRef.value) {
+      metadataBrowserRef.value.show()
+    }
+  })
+}
+
 const fetchCompletedTasks = ({ reset = false, silent = false, refreshTop = false } = {}) => {
   if (reset) {
     offset.value = 0
@@ -1069,7 +1239,8 @@ const fetchCompletedTasks = ({ reset = false, silent = false, refreshTop = false
       id: results.id,
       name: results.task_label,
       dateTimeCompleted: dateTools.printDateTimeString(results.finish_time),
-      status: results.task_success
+      status: results.task_success,
+      hasMetadata: results.has_metadata
     }))
 
     if (refreshTop) {
@@ -1312,6 +1483,12 @@ defineExpose({
   min-height: 100%;
 }
 
+.completed-task-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .completed-task-name {
   font-weight: 500;
 }
@@ -1320,6 +1497,13 @@ defineExpose({
   align-items: center;
   min-width: 0;
   max-width: 100%;
+}
+
+@media (max-width: 1023px) {
+  .completed-task-action-group {
+    flex-direction: row;
+    gap: 6px;
+  }
 }
 
 .select-library-card {

@@ -84,19 +84,19 @@
     </q-card-section>
 
     <!--FULL SCREEN-->
-    <PendingTasksMoreDetailsDialog ref="pendingTasksDetailsDialogRef"/>
+    <PendingTasksListDialog ref="pendingTasksDetailsDialogRef"/>
   </q-card>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-import PendingTasksMoreDetailsDialog from "components/dashboard/pending/PendingTasksMoreDetailsDialog.vue";
+import PendingTasksListDialog from "components/dashboard/pending/PendingTasksListDialog.vue";
 import axios from "axios";
 import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default defineComponent({
   name: 'PendingTasks',
-  components: { PendingTasksMoreDetailsDialog },
+  components: { PendingTasksListDialog },
   setup() {
     const pendingTasksDetailsDialogRef = ref(null);
 
@@ -119,6 +119,13 @@ export default defineComponent({
         method: 'post',
         url: getUnmanicApiUrl('v2', 'pending/rescan')
       }).then((response) => {
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('notifications.rescanLibraryScheduled'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
       }).catch(() => {
         this.$q.notify({
           color: 'negative',
