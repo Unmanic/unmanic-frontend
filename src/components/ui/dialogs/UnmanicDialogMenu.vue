@@ -35,7 +35,34 @@
               </q-tooltip>
             </q-btn>
 
+            <UnmanicStandardButtonDropdown
+              v-if="useActionMenu"
+              dense
+              :label="$t('navigation.options')"
+              icon="menu"
+              auto-close
+              :class="[{ 'dialog-attention': attentionActive }, 'q-ml-sm']"
+            >
+              <q-list dense>
+                <q-item
+                  v-for="(action, index) in actions"
+                  :key="action.emit || action.label || index"
+                  clickable
+                  :disable="action.disabled"
+                  @click="triggerAction(action)"
+                >
+                  <q-item-section v-if="action.icon" avatar>
+                    <q-icon :name="action.icon" :color="action.color || 'secondary'"/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>{{ action.label }}</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </UnmanicStandardButtonDropdown>
+
             <q-btn
+              v-else
               v-for="(action, index) in actions"
               :key="action.emit || action.label || index"
               outline
@@ -70,8 +97,35 @@
               {{ title }}
             </div>
 
+            <UnmanicStandardButtonDropdown
+              v-if="useActionMenu"
+              dense
+              :label="$t('navigation.options')"
+              icon="menu"
+              auto-close
+              :class="[{ 'dialog-attention': attentionActive }, 'q-mr-sm']"
+            >
+              <q-list dense>
+                <q-item
+                  v-for="(action, index) in actions"
+                  :key="action.emit || action.label || index"
+                  clickable
+                  :disable="action.disabled"
+                  @click="triggerAction(action)"
+                >
+                  <q-item-section v-if="action.icon" avatar>
+                    <q-icon :name="action.icon" :color="action.color || 'secondary'"/>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>{{ action.label }}</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </UnmanicStandardButtonDropdown>
+
             <!-- Action Button (Desktop) -->
             <q-btn
+              v-else
               v-for="(action, index) in actions"
               :key="action.emit || action.label || index"
               outline
@@ -117,7 +171,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useQuasar } from 'quasar'
 import { useMobile } from 'src/composables/useMobile'
+import UnmanicStandardButtonDropdown from 'components/ui/buttons/UnmanicStandardButtonDropdown.vue'
 
 const props = defineProps({
   title: {
@@ -144,6 +200,7 @@ const props = defineProps({
 
 const emit = defineEmits(['ok', 'hide', 'action', 'save', 'reset'])
 
+const $q = useQuasar()
 const { isMobile } = useMobile()
 const dialogRef = ref(null)
 const attentionActive = ref(false)
@@ -190,6 +247,7 @@ const triggerAction = (action) => {
 
 // Bind the prop to CSS
 const requestedWidth = computed(() => props.width)
+const useActionMenu = computed(() => $q.screen.lt.sm && props.actions.length > 1)
 
 defineExpose({
   show,
