@@ -309,7 +309,7 @@
         "creditPortalLinkLabel": "Open Credit Portal",
         "fundingProposalsOpen": "View Feature Funding Proposals",
         "fundingProposalsTitle": "Feature Funding Proposals",
-        "fundingProposalsBody": "Feature funding proposals let the community support and vote on selected future development. Financial supporters automatically earn credits they can assign toward these proposals to fund and prioritize what gets built next. Not all upcoming work requires funding, and core roadmap improvements and bug fixes continue as normal. Some optional features are listed here and may require funding before implementation begins, with different funding goals based on scope and priority.",
+        "fundingProposalsBody": "Feature funding proposals let the community support and vote on selected future development. Financial supporters automatically earn credits they can assign toward these proposals to fund and prioritize what gets built next. Not all upcoming work requires funding, and standard improvements and bug fixes continue as normal. Some optional features are listed here and may require funding before implementation begins, with different funding goals based on scope and priority.",
         "fundingProposalsPortalLinkLabel": "Read More About Feature Funding",
         "fundingProposalsRefresh": "Refresh proposals",
         "fundingProposalsEmpty": "No active funding proposals are available right now.",
