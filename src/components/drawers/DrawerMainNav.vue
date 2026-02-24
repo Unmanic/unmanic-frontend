@@ -144,7 +144,7 @@
         <!--START SUPPORT SELECT-->
         <q-item
           clickable
-          to="/ui/settings-support"
+          @click="showHelpSupportDialog"
           v-ripple>
           <q-item-section avatar>
             <q-icon name="fa-regular fa-life-ring"/>
@@ -154,6 +154,20 @@
           </q-item-section>
         </q-item>
         <!--END SUPPORT SELECT-->
+
+        <!--START APPLICATION LOGS-->
+        <q-item
+          clickable
+          @click="showApplicationLogsDialog"
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="article"/>
+          </q-item-section>
+          <q-item-section>
+            {{ $t('navigation.applicationLogs') }}
+          </q-item-section>
+        </q-item>
+        <!--END APPLICATION LOGS-->
 
         <!--START PRIVACY POLICY-->
         <q-item
@@ -183,6 +197,8 @@
     </div>
 
     <!-- Dialogs -->
+    <HelpSupportDialog ref="helpSupportDialogRef"/>
+    <ApplicationLogsDialog ref="applicationLogsDialogRef"/>
     <PrivacyPolicyDialog ref="privacyPolicyDialogRef"/>
     <LoginDialog ref="loginDialogRef"/>
   </div>
@@ -199,6 +215,8 @@ import unmanicGlobals from "src/js/unmanicGlobals";
 import FooterData from "components/FooterData";
 import LoginDialog from "components/drawers/partials/LoginDialog.vue";
 import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
+import HelpSupportDialog from "components/docs/HelpSupportDialog.vue";
+import ApplicationLogsDialog from "components/docs/ApplicationLogsDialog.vue";
 
 export default {
   name: 'DrawerMainNav',
@@ -208,12 +226,16 @@ export default {
     LanguageSwitch,
     ThemeSwitch,
     SharedLinkDropdown,
+    HelpSupportDialog,
+    ApplicationLogsDialog,
     PrivacyPolicyDialog,
     LoginDialog
   },
   setup() {
     const unmanicSession = ref(null);
     const privacyPolicyDialogRef = ref(null);
+    const helpSupportDialogRef = ref(null);
+    const applicationLogsDialogRef = ref(null);
     const loginDialogRef = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
@@ -226,6 +248,18 @@ export default {
       }
     }
 
+    function showHelpSupportDialog() {
+      if (helpSupportDialogRef.value) {
+        helpSupportDialogRef.value.show()
+      }
+    }
+
+    function showApplicationLogsDialog() {
+      if (applicationLogsDialogRef.value) {
+        applicationLogsDialogRef.value.show()
+      }
+    }
+
     function showLogin() {
       if (loginDialogRef.value) {
         loginDialogRef.value.show()
@@ -235,7 +269,11 @@ export default {
     return {
       unmanicSession,
       showPrivacyPolicyDialog,
+      showHelpSupportDialog,
+      showApplicationLogsDialog,
       privacyPolicyDialogRef,
+      helpSupportDialogRef,
+      applicationLogsDialogRef,
       loginDialogRef,
 
       showLogin,

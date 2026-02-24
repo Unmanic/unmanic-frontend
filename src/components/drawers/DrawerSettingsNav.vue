@@ -83,7 +83,7 @@
         <!--START SUPPORT SELECT-->
         <q-item
           clickable
-          to="/ui/settings-support"
+          @click="showHelpSupportDialog"
           v-ripple>
           <q-item-section avatar>
             <q-icon name="fa-regular fa-life-ring"/>
@@ -93,6 +93,20 @@
           </q-item-section>
         </q-item>
         <!--END SUPPORT SELECT-->
+
+        <!--START APPLICATION LOGS-->
+        <q-item
+          clickable
+          @click="showApplicationLogsDialog"
+          v-ripple>
+          <q-item-section avatar>
+            <q-icon name="article"/>
+          </q-item-section>
+          <q-item-section>
+            {{ $t('navigation.applicationLogs') }}
+          </q-item-section>
+        </q-item>
+        <!--END APPLICATION LOGS-->
 
         <!--START PRIVACY POLICY-->
         <q-item
@@ -112,6 +126,8 @@
       </q-list>
     </q-scroll-area>
 
+    <HelpSupportDialog ref="helpSupportDialogRef"/>
+    <ApplicationLogsDialog ref="applicationLogsDialogRef"/>
     <PrivacyPolicyDialog ref="privacyPolicyDialogRef"/>
   </div>
 </template>
@@ -122,16 +138,20 @@ import { ref } from "vue";
 import unmanicGlobals from "src/js/unmanicGlobals";
 import LanguageSwitch from "components/LanguageSwitch";
 import PrivacyPolicyDialog from "components/docs/PrivacyPolicyDialog.vue";
+import HelpSupportDialog from "components/docs/HelpSupportDialog.vue";
+import ApplicationLogsDialog from "components/docs/ApplicationLogsDialog.vue";
 
 export default {
   name: 'DrawerSettingsNav',
-  components: { LanguageSwitch, PrivacyPolicyDialog },
+  components: { LanguageSwitch, PrivacyPolicyDialog, HelpSupportDialog, ApplicationLogsDialog },
   setup() {
     const unmanicSession = ref(null);
     const formAction = ref(null)
     const uuid = ref(null)
     const currentUri = ref(null)
     const privacyPolicyDialogRef = ref(null);
+    const helpSupportDialogRef = ref(null);
+    const applicationLogsDialogRef = ref(null);
 
     unmanicGlobals.getUnmanicSession().then((session) => {
       unmanicSession.value = session;
@@ -143,13 +163,29 @@ export default {
       }
     }
 
+    function showHelpSupportDialog() {
+      if (helpSupportDialogRef.value) {
+        helpSupportDialogRef.value.show()
+      }
+    }
+
+    function showApplicationLogsDialog() {
+      if (applicationLogsDialogRef.value) {
+        applicationLogsDialogRef.value.show()
+      }
+    }
+
     return {
       unmanicSession,
       formAction,
       uuid,
       currentUri,
       showPrivacyPolicyDialog,
+      showHelpSupportDialog,
+      showApplicationLogsDialog,
       privacyPolicyDialogRef,
+      helpSupportDialogRef,
+      applicationLogsDialogRef,
     }
   }
 }
