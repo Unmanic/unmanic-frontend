@@ -134,6 +134,7 @@
                           <q-input
                             filled
                             v-model="item.value"
+                            debounce="500"
                             :bottom-slots="item.description.length > 0"
                             :disable="item.display === 'disabled'"
                             :label="item.label"
@@ -152,6 +153,7 @@
                           <q-input
                             filled
                             v-model="item.value"
+                            debounce="500"
                             type="textarea"
                             :bottom-slots="item.description.length > 0"
                             :disable="item.display === 'disabled'"
