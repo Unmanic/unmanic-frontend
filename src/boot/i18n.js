@@ -18,11 +18,11 @@ function loadLocaleInfo() {
   return { id: locales.id, messages }
 }
 
-const { id, messages } = loadLocaleInfo()
+const { messages } = loadLocaleInfo()
 
 // Read configured local from localStorage
 let configuredLocale = LocalStorage.getItem('locale')
-if (configuredLocale === null) {
+if (configuredLocale === null || !messages[configuredLocale]) {
   // Default to English
   configuredLocale = 'en';
 }
@@ -31,7 +31,7 @@ if (configuredLocale === null) {
 export default boot(({ app }) => {
   const i18n = createI18n({
     legacy: false,
-    locale: 'en',
+    locale: configuredLocale,
     fallbackLocale: 'en',
     silentTranslationWarn: true,
     messages
