@@ -133,6 +133,10 @@
                         :label="t('components.completedTasks.selectPage')"
                       />
                     </div>
+                    <q-space/>
+                    <div class="col-auto text-caption text-secondary completed-tasks-selection__count">
+                      {{ t('components.completedTasks.totalItems', { count: totalCount }) }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1408,6 +1412,11 @@ defineExpose({
 
 .completed-tasks-selection {
   padding-left: 17px;
+}
+
+.completed-tasks-selection__count {
+  text-align: right;
+  white-space: nowrap;
 }
 
 @media (min-width: 601px) {

@@ -391,6 +391,7 @@
         "library": "Library"
       },
       "selectPage": "Select page",
+      "totalItems": "{count} total",
       "loadMore": "Load more",
       "scrollToTop": "Scroll to top",
       "showActions": "Show search and filters",

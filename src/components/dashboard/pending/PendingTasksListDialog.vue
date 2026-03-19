@@ -132,6 +132,10 @@
                         :label="t('components.pendingTasks.selectPage')"
                       />
                     </div>
+                    <q-space/>
+                    <div class="col-auto text-caption text-secondary pending-tasks-selection__count">
+                      {{ t('components.pendingTasks.totalItems', { count: totalCount }) }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -926,6 +930,11 @@ defineExpose({
 
 .pending-tasks-selection {
   padding-left: 17px;
+}
+
+.pending-tasks-selection__count {
+  text-align: right;
+  white-space: nowrap;
 }
 
 @media (min-width: 601px) {
