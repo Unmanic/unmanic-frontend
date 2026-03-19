@@ -139,6 +139,8 @@
                             :disable="item.display === 'disabled'"
                             :label="item.label"
                             :placeholder="item.label"
+                            @focus="handleTextSettingFocus(item.key_id)"
+                            @blur="handleTextSettingBlur(item.key_id)"
                           >
                             <template v-slot:hint v-if="item.description.length > 0">
                               {{ item.description }}
@@ -158,6 +160,8 @@
                             :bottom-slots="item.description.length > 0"
                             :disable="item.display === 'disabled'"
                             :label="item.label"
+                            @focus="handleTextSettingFocus(item.key_id)"
+                            @blur="handleTextSettingBlur(item.key_id)"
                           >
                             <template v-slot:hint v-if="item.description.length > 0">
                               {{ item.description }}
@@ -361,12 +365,60 @@ const settings = ref([])
 const originalSettings = ref([])
 const isHydratingSettings = ref(false)
 const isSavingSettings = ref(false)
+const focusedTextSettingKey = ref(null)
+const pendingBlurSaveSettingKey = ref(null)
 
 const directoryInputTarget = ref(null)
 const selectDirectoryInitialPath = ref('')
 const selectDirectoryListType = ref('directories')
 
 const showSettingsTab = computed(() => settings.value.length > 0)
+
+const cloneSettings = (settingsList) => JSON.parse(JSON.stringify(settingsList || []))
+
+const mergeSettingsWithFocusedInput = (incomingSettings) => {
+  const hydratedSettings = cloneSettings(incomingSettings)
+
+  if (!focusedTextSettingKey.value) {
+    pendingBlurSaveSettingKey.value = null
+    return hydratedSettings
+  }
+
+  const currentSettingsByKey = new Map(settings.value.map((setting) => [setting.key_id, setting]))
+  let preservedFocusedSettingKey = null
+  const mergedSettings = hydratedSettings.map((setting) => {
+    if (setting.key_id !== focusedTextSettingKey.value) {
+      return setting
+    }
+
+    const currentSetting = currentSettingsByKey.get(setting.key_id)
+    if (!currentSetting || !['text', 'textarea'].includes(currentSetting.input_type)) {
+      return setting
+    }
+
+    if (currentSetting.value !== setting.value) {
+      preservedFocusedSettingKey = setting.key_id
+    }
+
+    return {
+      ...setting,
+      value: currentSetting.value,
+    }
+  })
+
+  pendingBlurSaveSettingKey.value = preservedFocusedSettingKey
+  return mergedSettings
+}
+
+const handleTextSettingFocus = (keyId) => {
+  focusedTextSettingKey.value = keyId
+}
+
+const handleTextSettingBlur = (keyId) => {
+  if (focusedTextSettingKey.value === keyId) {
+    focusedTextSettingKey.value = null
+  }
+}
 
 const settingsHaveBeenModified = () => {
   if (!originalSettings.value.length || !settings.value.length) {
@@ -434,8 +486,9 @@ const fetchPluginData = () => {
 
     if (!props.viewingRemoteInfo) {
       isHydratingSettings.value = true
-      settings.value = response.data.settings || []
-      originalSettings.value = JSON.parse(JSON.stringify(response.data.settings || []))
+      const hydratedSettings = mergeSettingsWithFocusedInput(response.data.settings)
+      settings.value = hydratedSettings
+      originalSettings.value = cloneSettings(hydratedSettings)
       nextTick(() => {
         isHydratingSettings.value = false
       })
@@ -504,7 +557,7 @@ const savePluginSettings = () => {
     url: getUnmanicApiUrl('v2', 'plugins/settings/update'),
     data: data
   }).then(() => {
-    originalSettings.value = JSON.parse(JSON.stringify(settings.value))
+    originalSettings.value = cloneSettings(settings.value)
     fetchPluginData()
   }).catch(() => {
     $q.notify({
@@ -578,6 +631,15 @@ watch(settings, () => {
   }
   savePluginSettings()
 }, { deep: true })
+
+watch([focusedTextSettingKey, isHydratingSettings, isSavingSettings], ([focusedKey, isHydrating, isSaving]) => {
+  if (focusedKey || isHydrating || isSaving || !pendingBlurSaveSettingKey.value) {
+    return
+  }
+
+  pendingBlurSaveSettingKey.value = null
+  savePluginSettings()
+})
 
 const selectDirectoryDialogRef = ref(null)
 
