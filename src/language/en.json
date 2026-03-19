@@ -326,6 +326,7 @@
         "fundingTabFundedLabel": "Funded",
         "fundingTabInProgressLabel": "In Progress",
         "fundingTabCompleteLabel": "Complete",
+        "fundingCreditsValue": "{value} credits",
         "fundingCardFunded": "{value} funded",
         "fundingCardGoal": "Goal: {value}",
         "fundingProposalUntitled": "Proposal {number}",

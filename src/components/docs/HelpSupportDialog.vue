@@ -269,12 +269,12 @@
                       <div class="row justify-between q-mt-xs">
                         <div class="text-caption">
                           {{
-                            $t('components.settings.support.fundingCardFunded', { value: formatFundingCurrency(proposalCurrentCredits(proposal)) })
+                            $t('components.settings.support.fundingCardFunded', { value: formatFundingCredits(proposalCurrentCredits(proposal)) })
                           }}
                         </div>
                         <div class="text-caption text-secondary">
                           {{
-                            $t('components.settings.support.fundingCardGoal', { value: formatFundingCurrency(proposalTargetCredits(proposal)) })
+                            $t('components.settings.support.fundingCardGoal', { value: formatFundingCredits(proposalTargetCredits(proposal)) })
                           }}
                         </div>
                       </div>
@@ -540,12 +540,14 @@ export default {
       }
       return new Intl.NumberFormat().format(num);
     },
-    formatFundingCurrency(value) {
+    formatFundingCredits(value) {
       const num = Number(value);
       if (Number.isNaN(num)) {
         return value;
       }
-      return `$${new Intl.NumberFormat().format(num)}`;
+      return this.$t('components.settings.support.fundingCreditsValue', {
+        value: new Intl.NumberFormat().format(num)
+      });
     },
     isUnmanicProposal(proposal) {
       const keys = [
