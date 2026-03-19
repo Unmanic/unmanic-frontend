@@ -460,6 +460,7 @@
       "clear": "Clear",
       "columns": {
         "name": "Name",
+        "started": "Started",
         "completed": "Completed",
         "status": "Status",
         "details": "Details"

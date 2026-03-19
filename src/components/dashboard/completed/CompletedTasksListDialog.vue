@@ -227,6 +227,12 @@
                     </div>
                     <div class="text-caption">
                       <span class="text-weight-medium">
+                        {{ t('components.completedTasks.columns.started') }}:
+                      </span>
+                      {{ props.row.dateTimeStarted }}
+                    </div>
+                    <div class="text-caption">
+                      <span class="text-weight-medium">
                         {{ t('components.completedTasks.columns.completed') }}:
                       </span>
                       {{ props.row.dateTimeCompleted }}
@@ -1242,6 +1248,7 @@ const fetchCompletedTasks = ({ reset = false, silent = false, refreshTop = false
     const returnedData = response.data.results.map((results) => ({
       id: results.id,
       name: results.task_label,
+      dateTimeStarted: dateTools.printDateTimeString(results.start_time),
       dateTimeCompleted: dateTools.printDateTimeString(results.finish_time),
       status: results.task_success,
       hasMetadata: results.has_metadata
