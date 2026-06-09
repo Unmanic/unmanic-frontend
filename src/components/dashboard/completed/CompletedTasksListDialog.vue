@@ -992,8 +992,8 @@ const clearSelection = () => {
 const buildFiltersPayload = () => ({
   search_value: searchValue.value,
   status: statusFilter.value,
-  after: sinceDate.value,
-  before: beforeDate.value,
+  after: dateTools.convertLocalDateTimeStringToUtcTimestamp(sinceDate.value),
+  before: dateTools.convertLocalDateTimeStringToUtcTimestamp(beforeDate.value),
 })
 
 const getSelectionPayload = () => {

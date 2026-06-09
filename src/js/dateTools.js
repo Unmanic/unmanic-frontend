@@ -22,5 +22,35 @@ export default {
     let d = new Date(0);
     d.setUTCSeconds(dateTime);
     return date.formatDate(d, 'YYYY-MM-DD HH:mm:ss')
+  },
+  convertLocalDateTimeStringToUtcTimestamp(dateTimeString) {
+    if (!dateTimeString) {
+      return null
+    }
+
+    const match = String(dateTimeString).match(
+      /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})$/
+    )
+    if (!match) {
+      return null
+    }
+
+    const [, year, month, day, hour, minute] = match
+
+    const localDate = new Date(
+      Number(year),
+      Number(month) - 1,
+      Number(day),
+      Number(hour),
+      Number(minute),
+      0,
+      0
+    )
+
+    if (Number.isNaN(localDate.getTime())) {
+      return null
+    }
+
+    return localDate.getTime() / 1000
   }
 }
