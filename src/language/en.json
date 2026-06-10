@@ -281,6 +281,8 @@
         "linkPreloadRemoteTasksStatusLabel": "Preload remote tasks",
         "enableConfigMissingLibraries": "Automatically configure missing libraries on the remote installation",
         "linkConfigRemoteLibrariesStatusLabel": "Configure missing libraries",
+        "enableUpdateLibraryConfig": "Keep remote library and plugin configuration up to date for every sent file",
+        "linkUpdateRemoteLibrariesStatusLabel": "Keep remote libraries updated",
         "enableChecksumValidation": "Validate file transfers with checksums (slow)",
         "linkConfigChecksumValidationStatusLabel": "Validate with checksums",
         "collectiveManagement": "Collective Management",

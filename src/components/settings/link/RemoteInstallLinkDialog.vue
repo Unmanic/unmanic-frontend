@@ -175,6 +175,17 @@
               />
             </div>
           </div>
+
+          <div v-if="enableSendingTasks && enableConfigMissingLibraries" class="sub-setting deeper-sub-setting">
+            <div class="q-gutter-sm">
+              <q-skeleton v-if="enableUpdateLibraryConfig === null" type="QToggle"/>
+              <q-toggle
+                v-else
+                v-model="enableUpdateLibraryConfig"
+                :label="$t('components.settings.link.enableUpdateLibraryConfig')"
+              />
+            </div>
+          </div>
         </q-card-section>
 
         <q-separator/>
@@ -262,6 +273,7 @@ const enableTaskPreloading = ref(null)
 const preloadingCount = ref(null)
 const enableChecksumValidation = ref(null)
 const enableConfigMissingLibraries = ref(null)
+const enableUpdateLibraryConfig = ref(null)
 const enableDistributedWorkerCount = ref(null)
 const distributedWorkerCountTarget = ref(null)
 
@@ -300,6 +312,7 @@ const currentSnapshot = computed(() => {
     preloadingCount.value === null ||
     enableChecksumValidation.value === null ||
     enableConfigMissingLibraries.value === null ||
+    enableUpdateLibraryConfig.value === null ||
     enableDistributedWorkerCount.value === null ||
     distributedWorkerCountTarget.value === null
   ) {
@@ -316,6 +329,7 @@ const currentSnapshot = computed(() => {
     preloadingCount: preloadingCount.value,
     enableChecksumValidation: enableChecksumValidation.value,
     enableConfigMissingLibraries: enableConfigMissingLibraries.value,
+    enableUpdateLibraryConfig: enableUpdateLibraryConfig.value,
     enableDistributedWorkerCount: enableDistributedWorkerCount.value,
     distributedWorkerCountTarget: distributedWorkerCountTarget.value
   })
@@ -350,6 +364,7 @@ const resetState = () => {
   preloadingCount.value = null
   enableChecksumValidation.value = null
   enableConfigMissingLibraries.value = null
+  enableUpdateLibraryConfig.value = null
   enableDistributedWorkerCount.value = null
   distributedWorkerCountTarget.value = null
   originalSnapshot.value = null
@@ -377,6 +392,7 @@ const fetchInstallationLinkConfig = (uuid) => {
     preloadingCount.value = linkConfig.preloading_count
     enableChecksumValidation.value = linkConfig.enable_checksum_validation
     enableConfigMissingLibraries.value = linkConfig.enable_config_missing_libraries
+    enableUpdateLibraryConfig.value = linkConfig.enable_update_library_config ?? false
     enableDistributedWorkerCount.value = linkConfig.enable_distributed_worker_count
     distributedWorkerCountTarget.value = response.data.distributed_worker_count_target
     updateSnapshot()
@@ -397,6 +413,7 @@ const saveInstallationLinkConfig = async () => {
       preloading_count: preloadingCount.value,
       enable_checksum_validation: enableChecksumValidation.value,
       enable_config_missing_libraries: enableConfigMissingLibraries.value,
+      enable_update_library_config: enableUpdateLibraryConfig.value,
       enable_distributed_worker_count: enableDistributedWorkerCount.value,
     },
     distributed_worker_count_target: distributedWorkerCountTarget.value,
@@ -469,6 +486,12 @@ watch(() => props.uuid, (value) => {
   }
 })
 
+watch(enableConfigMissingLibraries, (value) => {
+  if (!value) {
+    enableUpdateLibraryConfig.value = false
+  }
+})
+
 defineExpose({
   show,
   hide
@@ -481,6 +504,10 @@ defineExpose({
   padding-top: 8px;
   padding-left: 8px;
   border-left: solid thin var(--q-primary);
+}
+
+.deeper-sub-setting {
+  margin-left: 52px;
 }
 
 .unsaved-indicator {

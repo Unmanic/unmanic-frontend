@@ -177,6 +177,18 @@
                           </div>
                         </div>
                       </q-item-label>
+                      <q-item-label v-if="installation.enableSendingTasks && installation.enableConfigMissingLibraries" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span :class="installation.enableUpdateLibraryConfig ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="installation.enableUpdateLibraryConfig" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.link.linkUpdateRemoteLibrariesStatusLabel') }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
                       <q-item-label lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
@@ -398,6 +410,7 @@ export default {
             enableTaskPreloading: remoteInstallation.enable_task_preloading,
             enableChecksumValidation: remoteInstallation.enable_checksum_validation,
             enableConfigMissingLibraries: remoteInstallation.enable_config_missing_libraries,
+            enableUpdateLibraryConfig: remoteInstallation.enable_update_library_config,
             enableDistributedWorkers: remoteInstallation.enable_distributed_worker_count,
             name: remoteInstallation.name,
             version: remoteInstallation.version,
