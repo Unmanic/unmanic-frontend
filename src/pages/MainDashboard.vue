@@ -93,7 +93,7 @@
       </div>
 
       <div class="col-12 col-md-6">
-        <PendingTasks v-bind="pendingTasksData"/>
+        <PendingTasks v-bind="pendingTasksData" @refresh-scan-state="fetchLibraryScanStatus"/>
       </div>
 
       <div class="col-12 col-md-6">
@@ -129,7 +129,14 @@ export default {
     const $q = useQuasar();
     const workerProgressList = ref([]);
     const pendingTasksData = ref({
-      taskList: []
+      taskList: [],
+      scanState: {
+        state: 'idle',
+        can_rescan: true,
+        can_pause: false,
+        can_resume: false,
+        can_cancel: false,
+      }
     });
     const completedTasksData = ref({
       taskList: []
@@ -137,6 +144,7 @@ export default {
 
     let ws = null;
     let unmanicWSHandler = UnmanicWebsocketHandler($t);
+    let libraryScanStatusTimer = null;
 
     let workerGroupColours = {}
 
@@ -358,6 +366,17 @@ export default {
       });
     }
 
+    function fetchLibraryScanStatus() {
+      return axios({
+        method: 'get',
+        url: getUnmanicApiUrl('v2', 'pending/rescan/status')
+      }).then((response) => {
+        pendingTasksData.value.scanState = response.data;
+      }).catch(() => {
+        // Avoid spamming dashboard notifications if the status poll fails transiently.
+      })
+    }
+
     function closeDashboardWebsocket() {
       unmanicWSHandler.close();
     }
@@ -365,17 +384,23 @@ export default {
     onMounted(() => {
       // Start the websocket
       initDashboardWebsocket();
+      fetchLibraryScanStatus();
+      libraryScanStatusTimer = window.setInterval(fetchLibraryScanStatus, 2000);
     })
 
     onUnmounted(() => {
       // Close the websocket
       closeDashboardWebsocket();
+      if (libraryScanStatusTimer !== null) {
+        window.clearInterval(libraryScanStatusTimer);
+      }
     })
 
     return {
       workerProgressList,
       pendingTasksData,
-      completedTasksData
+      completedTasksData,
+      fetchLibraryScanStatus,
     }
   },
   methods: {

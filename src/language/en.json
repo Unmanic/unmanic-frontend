@@ -74,6 +74,12 @@
     "cannotRemoveDefaultLibrary": "Cannot remove the default Library",
     "rescanLibraryError": "An error was encountered while requesting a library rescan",
     "rescanLibraryScheduled": "Library scan scheduled. It will start shortly.",
+    "libraryScanPauseRequested": "Library scan paused.",
+    "libraryScanPauseFailed": "Unable to pause the library scan.",
+    "libraryScanResumeRequested": "Library scan resumed.",
+    "libraryScanResumeFailed": "Unable to resume the library scan.",
+    "libraryScanCancelRequested": "Library scan cancelled.",
+    "libraryScanCancelFailed": "Unable to cancel the library scan.",
     "serverMessages": {
       "defaults": {
         "info": "Unknown message from server",
@@ -374,6 +380,9 @@
     },
     "pendingTasks": {
       "rescanLibrary": "Rescan library now",
+      "pauseLibraryScan": "Pause library scan",
+      "resumeLibraryScan": "Resume library scan",
+      "cancelLibraryScan": "Cancel library scan",
       "moveToTop": "Move selected to top",
       "moveToBottom": "Move selected to bottom",
       "removeSelected": "Remove selected from list",

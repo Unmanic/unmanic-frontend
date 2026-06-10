@@ -71,12 +71,34 @@
     <q-card-section class="q-pt-none">
       <div class="row items-center pending-tasks-footer">
         <div class="col"/>
-        <div class="col-auto">
+        <div class="col-auto row q-gutter-sm">
           <q-btn
+            v-if="scanState.can_rescan"
             :label="$t('components.pendingTasks.rescanLibrary')"
             color="secondary"
             outline
             @click="rescanLibrary()"
+          />
+          <q-btn
+            v-if="scanState.can_pause"
+            :label="$t('components.pendingTasks.pauseLibraryScan')"
+            color="secondary"
+            outline
+            @click="pauseLibraryScan()"
+          />
+          <q-btn
+            v-if="scanState.can_resume"
+            :label="$t('components.pendingTasks.resumeLibraryScan')"
+            color="secondary"
+            outline
+            @click="resumeLibraryScan()"
+          />
+          <q-btn
+            v-if="scanState.can_cancel"
+            :label="$t('components.pendingTasks.cancelLibraryScan')"
+            color="negative"
+            outline
+            @click="cancelLibraryScan()"
           />
         </div>
       </div>
@@ -84,7 +106,11 @@
     </q-card-section>
 
     <!--FULL SCREEN-->
-    <PendingTasksListDialog ref="pendingTasksDetailsDialogRef"/>
+    <PendingTasksListDialog
+      ref="pendingTasksDetailsDialogRef"
+      :scan-state="scanState"
+      @refresh-scan-state="$emit('refresh-scan-state')"
+    />
   </q-card>
 </template>
 
@@ -96,6 +122,7 @@ import { getUnmanicApiUrl } from "src/js/unmanicGlobals";
 
 export default defineComponent({
   name: 'PendingTasks',
+  emits: ['refresh-scan-state'],
   components: { PendingTasksListDialog },
   setup() {
     const pendingTasksDetailsDialogRef = ref(null);
@@ -108,6 +135,10 @@ export default defineComponent({
     taskList: {
       type: Array,
       required: true
+    },
+    scanState: {
+      type: Object,
+      required: true,
     }
   },
   methods: {
@@ -118,7 +149,8 @@ export default defineComponent({
       axios({
         method: 'post',
         url: getUnmanicApiUrl('v2', 'pending/rescan')
-      }).then((response) => {
+      }).then(() => {
+        this.$emit('refresh-scan-state');
         this.$q.notify({
           color: 'positive',
           position: 'top',
@@ -131,6 +163,75 @@ export default defineComponent({
           color: 'negative',
           position: 'top',
           message: this.$t('notifications.rescanLibraryError'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    pauseLibraryScan: function () {
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/rescan/pause')
+      }).then(() => {
+        this.$emit('refresh-scan-state');
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('notifications.libraryScanPauseRequested'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.libraryScanPauseFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    resumeLibraryScan: function () {
+      axios({
+        method: 'post',
+        url: getUnmanicApiUrl('v2', 'pending/rescan/resume')
+      }).then(() => {
+        this.$emit('refresh-scan-state');
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('notifications.libraryScanResumeRequested'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.libraryScanResumeFailed'),
+          icon: 'report_problem',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      })
+    },
+    cancelLibraryScan: function () {
+      axios({
+        method: 'delete',
+        url: getUnmanicApiUrl('v2', 'pending/rescan')
+      }).then(() => {
+        this.$emit('refresh-scan-state');
+        this.$q.notify({
+          color: 'positive',
+          position: 'top',
+          message: this.$t('notifications.libraryScanCancelRequested'),
+          icon: 'check_circle',
+          actions: [{ icon: 'close', color: 'white' }]
+        })
+      }).catch(() => {
+        this.$q.notify({
+          color: 'negative',
+          position: 'top',
+          message: this.$t('notifications.libraryScanCancelFailed'),
           icon: 'report_problem',
           actions: [{ icon: 'close', color: 'white' }]
         })

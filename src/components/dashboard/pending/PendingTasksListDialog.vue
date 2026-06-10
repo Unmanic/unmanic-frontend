@@ -54,11 +54,38 @@
                         :size="filterButtonSize"
                       >
                         <q-list>
-                          <q-item clickable v-close-popup @click="rescanLibrary">
+                          <q-item v-if="scanState.can_rescan" clickable v-close-popup @click="rescanLibrary">
                             <q-item-section>
                               <q-item-label>
                                 <q-icon name="search"/>
                                 {{ t('components.pendingTasks.rescanLibrary') }}
+                              </q-item-label>
+                            </q-item-section>
+                          </q-item>
+
+                          <q-item v-if="scanState.can_pause" clickable v-close-popup @click="pauseLibraryScan">
+                            <q-item-section>
+                              <q-item-label>
+                                <q-icon name="pause"/>
+                                {{ t('components.pendingTasks.pauseLibraryScan') }}
+                              </q-item-label>
+                            </q-item-section>
+                          </q-item>
+
+                          <q-item v-if="scanState.can_resume" clickable v-close-popup @click="resumeLibraryScan">
+                            <q-item-section>
+                              <q-item-label>
+                                <q-icon name="play_arrow"/>
+                                {{ t('components.pendingTasks.resumeLibraryScan') }}
+                              </q-item-label>
+                            </q-item-section>
+                          </q-item>
+
+                          <q-item v-if="scanState.can_cancel" clickable v-close-popup @click="cancelLibraryScan">
+                            <q-item-section>
+                              <q-item-label>
+                                <q-icon name="cancel"/>
+                                {{ t('components.pendingTasks.cancelLibraryScan') }}
                               </q-item-label>
                             </q-item-section>
                           </q-item>
@@ -348,7 +375,14 @@ import UnmanicStandardButton from 'components/ui/buttons/UnmanicStandardButton.v
 import UnmanicStandardButtonDropdown from 'components/ui/buttons/UnmanicStandardButtonDropdown.vue'
 import UnmanicListActionButton from 'components/ui/buttons/UnmanicListActionButton.vue'
 
-const emit = defineEmits(['hide'])
+defineProps({
+  scanState: {
+    type: Object,
+    required: true,
+  }
+})
+
+const emit = defineEmits(['hide', 'refresh-scan-state'])
 
 const { t } = useI18n()
 const $q = useQuasar()
@@ -647,6 +681,7 @@ const rescanLibrary = () => {
     method: 'post',
     url: getUnmanicApiUrl('v2', 'pending/rescan')
   }).then(() => {
+    emit('refresh-scan-state')
     $q.notify({
       color: 'positive',
       position: 'top',
@@ -659,6 +694,78 @@ const rescanLibrary = () => {
       color: 'negative',
       position: 'top',
       message: t('notifications.rescanLibraryError'),
+      icon: 'report_problem',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  })
+}
+
+const pauseLibraryScan = () => {
+  axios({
+    method: 'post',
+    url: getUnmanicApiUrl('v2', 'pending/rescan/pause')
+  }).then(() => {
+    emit('refresh-scan-state')
+    $q.notify({
+      color: 'positive',
+      position: 'top',
+      message: t('notifications.libraryScanPauseRequested'),
+      icon: 'check_circle',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  }).catch(() => {
+    $q.notify({
+      color: 'negative',
+      position: 'top',
+      message: t('notifications.libraryScanPauseFailed'),
+      icon: 'report_problem',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  })
+}
+
+const resumeLibraryScan = () => {
+  axios({
+    method: 'post',
+    url: getUnmanicApiUrl('v2', 'pending/rescan/resume')
+  }).then(() => {
+    emit('refresh-scan-state')
+    $q.notify({
+      color: 'positive',
+      position: 'top',
+      message: t('notifications.libraryScanResumeRequested'),
+      icon: 'check_circle',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  }).catch(() => {
+    $q.notify({
+      color: 'negative',
+      position: 'top',
+      message: t('notifications.libraryScanResumeFailed'),
+      icon: 'report_problem',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  })
+}
+
+const cancelLibraryScan = () => {
+  axios({
+    method: 'delete',
+    url: getUnmanicApiUrl('v2', 'pending/rescan')
+  }).then(() => {
+    emit('refresh-scan-state')
+    $q.notify({
+      color: 'positive',
+      position: 'top',
+      message: t('notifications.libraryScanCancelRequested'),
+      icon: 'check_circle',
+      actions: [{ icon: 'close', color: 'white' }]
+    })
+  }).catch(() => {
+    $q.notify({
+      color: 'negative',
+      position: 'top',
+      message: t('notifications.libraryScanCancelFailed'),
       icon: 'report_problem',
       actions: [{ icon: 'close', color: 'white' }]
     })
