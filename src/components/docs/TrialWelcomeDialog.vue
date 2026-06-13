@@ -30,14 +30,16 @@
           <div class="trial-welcome-section-title text-primary">
             {{ $t('components.docs.trialWelcome.centralTitle') }}
           </div>
-          <p class="text-body2 q-mt-xs">
-            {{ $t('components.docs.trialWelcome.centralBody') }}
+          <div class="text-body2 q-mt-xs">
+            <p>
+              {{ $t('components.docs.trialWelcome.centralBody') }}
+            </p>
             <ul class="trial-welcome-list">
-                <li>{{ $t('components.docs.trialWelcome.centralPoints.logs') }}</li>
-                <li>{{ $t('components.docs.trialWelcome.centralPoints.grafana') }}</li>
-                <li>{{ $t('components.docs.trialWelcome.centralPoints.dashboards') }}</li>
+              <li>{{ $t('components.docs.trialWelcome.centralPoints.logs') }}</li>
+              <li>{{ $t('components.docs.trialWelcome.centralPoints.grafana') }}</li>
+              <li>{{ $t('components.docs.trialWelcome.centralPoints.dashboards') }}</li>
             </ul>
-          </p>
+          </div>
           <UnmanicStandardButton
             class="q-mt-sm"
             :label="$t('components.docs.trialWelcome.centralLinkLabel')"

@@ -503,10 +503,10 @@ export default {
       if (status === 'in-progress' || status === 'in_progress' || status === 'in progress') {
         return 'in_progress';
       }
-      if (status === 'complete' || status === 'completed') {
+      if (status === 'complete' || status === 'completed' || status === 'done') {
         return 'complete';
       }
-      if (status === 'active' || status === 'funding' || status === '') {
+      if (status === 'active' || status === 'proposed' || status === 'funding' || status === '') {
         return 'active';
       }
       return 'active';
