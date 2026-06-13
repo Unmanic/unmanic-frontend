@@ -15,11 +15,11 @@
     "build:publish": "quasar build --publish"
   },
   "dependencies": {
-    "@quasar/extras": "^1.17.0",
+    "@quasar/extras": "^1.18.0",
     "axios": "^1.2.1",
     "core-js": "^3.31.1",
     "js-bbcode-parser": "^3.0.4",
-    "quasar": "^2.8.0",
+    "quasar": "^2.20.0",
     "remarkable": "^2.0.1",
     "remarkable-admonitions": "^0.2.2",
     "tiny-emitter": "^2.1.0",
