@@ -88,7 +88,7 @@
                     </q-item>
                   </q-list>
                   <q-scroll-area style="height: 150px; max-width: 100%;">
-                    <span class="plugin-changelog" v-html="changelog"></span>
+                    <div class="plugin-changelog plugin-markdown" v-html="changelog"></div>
                   </q-scroll-area>
                 </q-card-section>
               </q-card>
@@ -102,7 +102,7 @@
                   <q-skeleton v-if="!description" width="100%" height="550px" class="shadow-1"/>
                   <q-card-section v-else class="q-pa-md">
                     <div class="row q-mt-md">
-                      <span class="plugin-description" v-html="description"></span>
+                      <div class="plugin-description plugin-markdown" v-html="description"></div>
                     </div>
                   </q-card-section>
                 </q-card>
@@ -674,78 +674,221 @@ defineExpose({
   overflow: hidden;
 }
 
-:deep(span.plugin-changelog *) {
+:deep(.plugin-changelog *) {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-:deep(span.plugin-description) {
+:deep(.plugin-description) {
   width: 100%;
 }
 
-:deep(span.plugin-description p) {
-  margin-bottom: 5px;
+:deep(.plugin-markdown) {
+  width: 100%;
+  color: inherit;
+  line-height: 1.65;
+  font-size: 0.98rem;
 }
 
-:deep(span.plugin-description h1),
-:deep(span.plugin-description h2),
-:deep(span.plugin-description h3),
-:deep(span.plugin-description h4),
-:deep(span.plugin-description h5),
-:deep(span.plugin-description h6) {
-  margin-top: 10px;
-  margin-bottom: 0;
+:deep(.plugin-markdown > :first-child) {
+  margin-top: 0 !important;
 }
 
-:deep(span.plugin-description h1) {
-  font-size: 2.25rem;
-  font-weight: 400;
-  line-height: 2.6rem;
-  letter-spacing: 0.00735em;
+:deep(.plugin-markdown p) {
+  margin: 0 0 12px;
 }
 
-:deep(span.plugin-description h2) {
-  font-size: 1.95rem;
-  font-weight: 400;
-  line-height: 2.3rem;
-  letter-spacing: 0.00735em;
+:deep(.plugin-markdown h1),
+:deep(.plugin-markdown h2),
+:deep(.plugin-markdown h3),
+:deep(.plugin-markdown h4),
+:deep(.plugin-markdown h5),
+:deep(.plugin-markdown h6) {
+  margin: 24px 0 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
-:deep(span.plugin-description h3) {
-  font-size: 1.65rem;
-  font-weight: 400;
-  line-height: 2.1rem;
-  letter-spacing: 0.00735em;
+:deep(.plugin-markdown h1) {
+  font-size: 2rem;
 }
 
-:deep(span.plugin-description h4) {
-  font-size: 1.35rem;
-  font-weight: 400;
-  line-height: 1.8rem;
-  letter-spacing: 0.00735em;
+:deep(.plugin-markdown h2) {
+  font-size: 1.7rem;
 }
 
-:deep(span.plugin-description ul) {
-  margin-top: 10px;
-  margin-bottom: 10px;
+:deep(.plugin-markdown h3) {
+  font-size: 1.4rem;
 }
 
-:deep(span.plugin-description pre) {
-  border: inset thin;
-  padding: 10px;
+:deep(.plugin-markdown h4) {
+  font-size: 1.2rem;
 }
 
-:deep(.body--light span.plugin-description pre) {
-  background: #EEE;
+:deep(.plugin-markdown h5),
+:deep(.plugin-markdown h6) {
+  font-size: 1rem;
 }
 
-:deep(.body--dark span.plugin-description pre) {
-  background: #222;
+:deep(.plugin-markdown ul),
+:deep(.plugin-markdown ol) {
+  margin: 12px 0 16px;
+  padding-left: 22px;
 }
 
-:deep(span.plugin-description hr) {
-  margin-top: 10px;
-  margin-bottom: 10px;
+:deep(.plugin-markdown li) {
+  margin: 6px 0;
+}
+
+:deep(.plugin-markdown li > .markdown-link),
+:deep(.plugin-markdown li > p > .markdown-link) {
+  margin-top: 6px;
+}
+
+:deep(.plugin-markdown code) {
+  padding: 0.12rem 0.38rem;
+  border-radius: 6px;
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--unmanic-grey-4), transparent 45%);
+}
+
+:deep(.plugin-markdown pre) {
+  overflow-x: auto;
+  margin: 16px 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--unmanic-grey-4), transparent 45%);
+  background: color-mix(in srgb, var(--unmanic-grey-2), transparent 10%);
+}
+
+:deep(.plugin-markdown pre code) {
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+
+:deep(.body--dark .plugin-markdown pre) {
+  background: color-mix(in srgb, var(--unmanic-grey-2), transparent 12%);
+}
+
+:deep(.plugin-markdown hr) {
+  margin: 22px 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--unmanic-grey-5), transparent 35%);
+}
+
+:deep(.plugin-markdown blockquote) {
+  margin: 16px 0;
+  padding: 10px 14px;
+  border-left: 4px solid var(--q-primary);
+  background: color-mix(in srgb, var(--q-primary), transparent 94%);
+  border-radius: 0 4px 4px 0;
+}
+
+:deep(.plugin-markdown .markdown-table-wrap) {
+  width: 100%;
+  overflow-x: auto;
+  margin: 18px 0;
+  border: 1px solid color-mix(in srgb, var(--unmanic-grey-4), transparent 35%);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--unmanic-grey-1), transparent 3%);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white, transparent 55%);
+}
+
+:deep(.body--dark .plugin-markdown .markdown-table-wrap) {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white, transparent 92%);
+}
+
+:deep(.plugin-markdown table.markdown-table) {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+:deep(.plugin-markdown table.markdown-table th),
+:deep(.plugin-markdown table.markdown-table td) {
+  padding: 12px 14px;
+  border-bottom: 1px solid color-mix(in srgb, var(--unmanic-grey-4), transparent 42%);
+  border-right: 1px solid color-mix(in srgb, var(--unmanic-grey-4), transparent 52%);
+  vertical-align: top;
+  text-align: left;
+  white-space: normal;
+}
+
+:deep(.plugin-markdown table.markdown-table th:last-child),
+:deep(.plugin-markdown table.markdown-table td:last-child) {
+  border-right: 0;
+}
+
+:deep(.plugin-markdown table.markdown-table thead th) {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--q-secondary);
+  background: color-mix(in srgb, var(--q-secondary), transparent 92%);
+}
+
+:deep(.plugin-markdown table.markdown-table tbody tr:nth-child(even)) {
+  background: color-mix(in srgb, var(--unmanic-grey-2), transparent 20%);
+}
+
+:deep(.plugin-markdown table.markdown-table tbody tr:last-child td) {
+  border-bottom: 0;
+}
+
+:deep(.plugin-markdown .markdown-link) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 4px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--q-primary), transparent 72%);
+  background: color-mix(in srgb, var(--q-primary), transparent 92%);
+  color: var(--q-primary);
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.35;
+  vertical-align: middle;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+:deep(.plugin-markdown .markdown-link:hover) {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--q-primary), transparent 88%);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--q-primary), transparent 86%);
+}
+
+:deep(.plugin-markdown .markdown-link__icon) {
+  flex: 0 0 auto;
+  font-size: 16px;
+}
+
+:deep(.plugin-markdown .markdown-link__label) {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  :deep(.plugin-markdown) {
+    font-size: 0.95rem;
+  }
+
+  :deep(.plugin-markdown h1) {
+    font-size: 1.7rem;
+  }
+
+  :deep(.plugin-markdown h2) {
+    font-size: 1.45rem;
+  }
+
+  :deep(.plugin-markdown table.markdown-table) {
+    min-width: 480px;
+  }
 }
 
 .checkbox-hint {

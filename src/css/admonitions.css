@@ -5,104 +5,154 @@
  */
 
 .admonition {
-  margin-bottom: 5px;
-  border-radius:4px;
-  padding:2px 10px;
+  margin: 14px 0;
+  border-radius: 6px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-left-width: 6px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.admonition-heading {
+  padding: 10px 14px 8px;
+}
+
+.admonition h5,
+.admonition-title {
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .admonition h5 {
-  margin-top: 8px !important;
-  margin-bottom: 8px !important;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
+  flex-wrap: nowrap;
 }
 
 .admonition-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.5em;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: color-mix(in srgb, currentColor, transparent 88%);
+  flex: 0 0 auto;
 }
 
-.admonition-icon svg {
+.admonition-icon svg,
+.admonition-icon .q-icon {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
   stroke-width: 0;
 }
 
+.admonition-content {
+  padding: 0 14px 12px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.admonition-content p,
+.admonition-content ul,
+.admonition-content ol {
+  margin: 0 0 8px;
+}
+
+.admonition-content ul,
+.admonition-content ol {
+  padding-left: 20px;
+}
+
 .admonition-content > :last-child {
-  margin-bottom: 5px;
+  margin-bottom: 0;
 }
 
 /** Customization */
 .admonition-warning {
-  background-color: rgba(230, 126, 34, 0.1);
-  border-left: 8px solid #e67e22;
+  background: color-mix(in srgb, #e67e22, transparent 93%);
+  border-color: color-mix(in srgb, #e67e22, transparent 72%);
+  border-left-color: #c76a18;
 }
 
-.admonition-warning h5 {
+.admonition-warning .admonition-title {
   color: #e67e22;
 }
 
-.admonition-warning .admonition-icon svg {
+.admonition-warning .admonition-icon svg,
+.admonition-warning .admonition-icon .q-icon {
   stroke: #e67e22;
   fill: #e67e22;
 }
 
 .admonition-tip {
-  background-color: rgba(46, 204, 113, 0.1);
-  border-left: 8px solid #2ecc71;
+  background: color-mix(in srgb, #2ecc71, transparent 93%);
+  border-color: color-mix(in srgb, #2ecc71, transparent 72%);
+  border-left-color: #23a95d;
 }
 
-.admonition-tip h5 {
+.admonition-tip .admonition-title {
   color: #2ecc71;
 }
 
-.admonition-tip .admonition-icon svg {
+.admonition-tip .admonition-icon svg,
+.admonition-tip .admonition-icon .q-icon {
   stroke: #2ecc71;
   fill: #2ecc71;
 }
 
 .admonition-caution {
-  background-color: rgba(231, 76, 60, 0.1);
-  border-left: 8px solid #e74c3c;
+  background: color-mix(in srgb, #e74c3c, transparent 93%);
+  border-color: color-mix(in srgb, #e74c3c, transparent 72%);
+  border-left-color: #bf3a2c;
 }
 
-.admonition-caution h5 {
+.admonition-caution .admonition-title {
   color: #e74c3c;
 }
 
-.admonition-caution .admonition-icon svg {
+.admonition-caution .admonition-icon svg,
+.admonition-caution .admonition-icon .q-icon {
   stroke: #e74c3c;
   fill: #e74c3c;
 }
 
 .admonition-note {
-  background-color: rgba(52, 152, 219, 0.1);
-  border-left: 8px solid #3498db;
+  background: color-mix(in srgb, #3498db, transparent 93%);
+  border-color: color-mix(in srgb, #3498db, transparent 72%);
+  border-left-color: #277fba;
 }
 
-.admonition-note h5 {
+.admonition-note .admonition-title {
   color: #3498db;
 }
 
-.admonition-note .admonition-icon svg {
+.admonition-note .admonition-icon svg,
+.admonition-note .admonition-icon .q-icon {
   stroke: #3498db;
   fill: #3498db;
 }
 
 .admonition-important {
-  background-color: rgba(241, 196, 15, 0.1);
-  border-left: 8px solid #f1c40f;
+  background: color-mix(in srgb, #f1c40f, transparent 93%);
+  border-color: color-mix(in srgb, #f1c40f, transparent 72%);
+  border-left-color: #c8a20a;
 }
 
-.admonition-important h5 {
+.admonition-important .admonition-title {
   color: #f1c40f;
 }
 
-.admonition-important .admonition-icon svg {
+.admonition-important .admonition-icon svg,
+.admonition-important .admonition-icon .q-icon {
   stroke: #f1c40f;
   fill: #f1c40f;
 }

@@ -1,12 +1,12 @@
 <template>
   <div :class="['admonition', `admonition-${type}`]">
     <div class="admonition-heading">
-      <h5>
+      <div class="admonition-title">
         <div class="admonition-icon">
           <q-icon :name="iconName" />
         </div>
-        {{ displayTitle }}
-      </h5>
+        <span>{{ displayTitle }}</span>
+      </div>
     </div>
     <div class="admonition-content">
       <slot></slot>
