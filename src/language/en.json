@@ -465,6 +465,11 @@
       "removeSelected": "Remove selected from list",
       "selectLibraryToAdd": "Select library in which to recreate this task",
       "filters": "Filters",
+      "loglines": {
+        "name": "Log lines",
+        "head": "Head",
+        "tail": "Tail"
+      },
       "filtersTitle": "Filters",
       "sortTitle": "Sort",
       "apply": "Apply",

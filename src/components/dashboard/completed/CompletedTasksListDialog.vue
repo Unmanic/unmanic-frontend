@@ -46,6 +46,16 @@
                     </div>
 
                     <div class="col-auto">
+                      <UnmanicStandardButton 
+                        :color="logLinesColor" 
+                        icon="segment"
+                        :label="t('components.completedTasks.loglines.name')" 
+                        :size="filterSortButtonSize"
+                        @click="openLogLinesDialog" 
+                      />
+                    </div>
+
+                    <div class="col-auto">
                       <UnmanicStandardButton
                         :color="sortButtonColor"
                         icon="sort"
@@ -461,6 +471,64 @@
       </q-card>
     </q-dialog>
 
+    <q-dialog v-model="loglinesDialogOpen" backdrop-filter="blur(2px)">
+      <q-card class="completed-tasks-dialog-card" flat bordered>
+        <q-card-section class="bg-card-head completed-tasks-dialog-header row items-center justify-between no-wrap">
+          <div class="text-h6 text-primary">
+            {{ t("components.completedTasks.loglines.name") }}
+          </div>
+        </q-card-section>
+
+        <q-separator />
+
+        <q-card-section class="completed-tasks-dialog-body scroll q-pa-lg q-gutter-md">
+          <div class="q-gutter-sm">
+            <q-input readonly outlined 
+              color="primary" 
+              v-model="draftLoglinesHead"
+              :label="$t('components.completedTasks.loglines.head')" 
+              :placeholder="draftLoglinesHead" 
+            />
+            <q-slider 
+              v-model="draftLoglinesHead" 
+              :min="0" 
+              :max="2000" 
+              color="primary" 
+            />
+          </div>
+          <div class="q-gutter-sm">
+            <q-input readonly outlined
+              color="primary" 
+              v-model="draftLoglinesTail"
+              :label="$t('components.completedTasks.loglines.tail')" 
+              :placeholder="draftLoglinesTail" 
+            />
+            <q-slider 
+              v-model="draftLoglinesTail" 
+              :min="0" 
+              :max="2000" 
+              color="primary" 
+            />
+          </div>
+        </q-card-section>
+
+        <q-card-actions align="between">
+          <UnmanicStandardButton 
+            color="secondary" 
+            :label="t('components.completedTasks.clear')"
+            @click="clearLoglineDrafts" 
+          />
+          <UnmanicStandardButton 
+            color="secondary" 
+            :label="t('components.completedTasks.apply')" 
+            v-close-popup
+            @click="applyLoglineDrafts" 
+          />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
+
     <q-dialog v-model="sortDialogOpen" backdrop-filter="blur(2px)">
       <q-card class="completed-tasks-dialog-card" flat bordered>
         <q-card-section class="bg-card-head completed-tasks-dialog-header row items-center justify-between no-wrap">
@@ -656,10 +724,15 @@ const sortBy = ref('finish_time')
 const draftSortBy = ref('finish_time')
 const descending = ref(true)
 const draftDescending = ref(true)
+const loglinesHead = ref(null);
+const loglinesTail = ref(null);
+const draftLoglinesHead = ref(null);
+const draftLoglinesTail = ref(null);
 
 const filterDialogOpen = ref(false)
 const sortDialogOpen = ref(false)
 const deleteDialogOpen = ref(false)
+const loglinesDialogOpen = ref(false);
 
 const actionsExpanded = ref(true)
 
@@ -774,6 +847,10 @@ const hasFilters = computed(() => (
 ))
 
 const filterButtonColor = computed(() => (hasFilters.value ? filterSortActiveColor : 'secondary'))
+
+const hasLogLines = computed(() => (loglinesHead.value || loglinesTail.value));
+
+const logLinesColor = computed(() => (hasLogLines.value ? filterSortActiveColor : 'secondary'))
 
 const isDefaultSort = computed(() => (
   sortBy.value === 'finish_time' && descending.value === true
@@ -909,6 +986,12 @@ const openSortDialog = () => {
   sortDialogOpen.value = true
 }
 
+const openLogLinesDialog = () => {
+  draftLoglinesHead.value = loglinesHead.value;
+  draftLoglinesTail.value = loglinesTail.value;
+  loglinesDialogOpen.value = true;
+};
+
 const clearFilterDrafts = () => {
   draftStatusFilter.value = 'all'
   draftSinceDate.value = null
@@ -920,6 +1003,16 @@ const applyFilterDrafts = () => {
   sinceDate.value = draftSinceDate.value
   beforeDate.value = draftBeforeDate.value
 }
+
+const clearLoglineDrafts = () => {
+  draftLoglinesHead.value = null;
+  draftLoglinesTail.value = null;
+};
+
+const applyLoglineDrafts = () => {
+  loglinesHead.value = draftLoglinesHead.value;
+  loglinesTail.value = draftLoglinesTail.value;
+};
 
 const clearSortDrafts = () => {
   draftSortBy.value = 'finish_time'
@@ -1194,7 +1287,9 @@ const openDetailsDialog = (id) => {
   $q.dialog({
     component: CompletedTaskLogDialog,
     componentProps: {
-      completedTaskId: id
+      completedTaskId: id,
+      head: loglinesHead.value,
+      tail: loglinesTail.value,
     },
   })
 }
