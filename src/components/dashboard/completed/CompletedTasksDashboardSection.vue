@@ -180,4 +180,10 @@ export default defineComponent({
     padding: 8px 6px;
   }
 }
+
+.completed-tasks-card-body :deep(.q-item__label) {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
 </style>
