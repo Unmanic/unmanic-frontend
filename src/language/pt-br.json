@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Adicionar selecionado à lista de tarefas pendentes",
 			"removeSelected": "Remover selecionado da lista",
 			"selectLibraryToAdd": "Selecione a biblioteca na qual deseja recriar esta tarefa",
+			"loglines": {
+				"name": "Cabeçalho",
+				"head": "Fim",
+				"tail": "Classificar"
+			},
 			"since": "Desde",
 			"before": "Antes"
 		},

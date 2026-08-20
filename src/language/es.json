@@ -308,7 +308,12 @@
 			"addToPendingTasksList": "Agregar seleccionados a la lista de Tareas Pendientes",
 			"removeSelected": "Eliminar seleccionados de la lista",
 			"selectLibraryToAdd": "Seleccione la biblioteca en la que recrear esta tarea.",
-			"since": "Desde",
+			"loglines": {
+				"name": "Aplicar",
+				"head": "Borrar",
+				"tail": "Nombre"
+			},
+q			"since": "Desde",
 			"before": "Antes"
 		},
 		"plugins": {

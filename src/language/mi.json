@@ -300,7 +300,9 @@
 			"rescanLibrary": "Matawai ano te whare pukapuka inaianei",
 			"moveToTop": "Nuku kua tohua ki runga",
 			"moveToBottom": "Nuku kua tohua ki raro",
-			"removeSelected": "Tango kua tohua mai i te rarangi"
+			"removeSelected": "Tango kua tohua mai i te rarangi",
+			"columns": {},
+			"selectionBanner": {}
 		},
 		"completedTasks": {
 			"details": "Nga korero",
@@ -308,6 +310,11 @@
 			"addToPendingTasksList": "Tāpirihia i tīpakohia ki te rārangi Tūmahi Tārewa",
 			"removeSelected": "Tango kua tohua mai i te rarangi",
 			"selectLibraryToAdd": "Tīpakohia te whare pukapuka hei waihanga anō i tēnei mahi",
+			"loglines": {
+				"name": "Ngā rārangi takiuru",
+				"head": "Upoko",
+				"tail": "Hiku"
+			},
 			"since": "Mai",
 			"before": "I mua"
 		},

@@ -466,6 +466,11 @@
       "selectLibraryToAdd": "Select library in which to recreate this task",
       "filters": "Filters",
       "filtersTitle": "Filters",
+      "loglines": {
+        "name": "Log lines",
+        "head": "Head",
+        "tail": "Tail"
+      },
       "sortTitle": "Sort",
       "apply": "Apply",
       "clear": "Clear",

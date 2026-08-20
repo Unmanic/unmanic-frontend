@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Aggiungi selezionato all'elenco Attività in sospeso",
 			"removeSelected": "Rimuovi selezionato dall'elenco",
 			"selectLibraryToAdd": "Seleziona la libreria in cui ricreare questa attività",
+			"loglines": {
+				"name": "Righe di registro",
+				"head": "Intestazione",
+				"tail": "Coda"
+			},
 			"since": "Da",
 			"before": "Prima"
 		},

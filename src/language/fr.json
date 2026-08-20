@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Ajouter la sélection à la liste des tâches en attente",
 			"removeSelected": "Supprimer la sélection de la liste",
 			"selectLibraryToAdd": "Sélectionnez la bibliothèque dans laquelle recréer cette tâche",
+			"loglines": {
+				"name": "Effacer",
+				"head": "Nom",
+				"tail": "Débuté"
+			},
 			"since": "Depuis",
 			"before": "Avant"
 		},

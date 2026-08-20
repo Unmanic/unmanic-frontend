@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Lägg till markerade i listan över väntande uppgifter",
 			"removeSelected": "Ta bort markerade från listan",
 			"selectLibraryToAdd": "Välj bibliotek där du vill återskapa denna uppgift",
+			"loglines": {
+				"name": "Loggrader",
+				"head": "Rubrik",
+				"tail": "Svans"
+			},
 			"since": "Eftersom",
 			"before": "Innan"
 		},

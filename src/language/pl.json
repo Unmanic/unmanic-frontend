@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Dodaj wybrane do listy Zadań oczekujących",
 			"removeSelected": "Usuń wybrane z listy",
 			"selectLibraryToAdd": "Wybierz bibliotekę, w której chcesz odtworzyć to zadanie",
+			"loglines": {
+				"name": "Koniec",
+				"head": "Sortuj",
+				"tail": "Zastosuj"
+			},
 			"since": "Od",
 			"before": "Zanim"
 		},

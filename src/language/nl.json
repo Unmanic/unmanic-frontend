@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Voeg de geselecteerde toe aan de lijst met openstaande taken",
 			"removeSelected": "Geselecteerde uit lijst verwijderen",
 			"selectLibraryToAdd": "Selecteer de bibliotheek waarin u deze taak opnieuw wilt maken",
+			"loglines": {
+				"name": "Kop",
+				"head": "Staart",
+				"tail": "Sorteren"
+			},
 			"since": "Sinds",
 			"before": "Voor"
 		},

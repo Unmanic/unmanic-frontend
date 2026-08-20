@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "将选定的任务添加到待处理任务列表",
 			"removeSelected": "从列表中删除所选内容",
 			"selectLibraryToAdd": "选择要在其中重新创建此任务的库",
+			"loglines": {
+				"name": "标题",
+				"head": "尾部",
+				"tail": "排序"
+			},
 			"since": "自从",
 			"before": "前"
 		},

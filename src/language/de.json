@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "Ausgewählte zur Liste „Ausstehende Aufgaben“ hinzufügen",
 			"removeSelected": "Ausgewählte aus der Liste entfernen",
 			"selectLibraryToAdd": "Wählen Sie die Bibliothek aus, in der diese Aufgabe neu erstellt werden soll",
+			"loglines": {
+				"name": "Datumsfilter löschen",
+				"head": "Suche und Filter anzeigen",
+				"tail": "Suche und Filter ausblenden"
+			},
 			"since": "Seit",
 			"before": "Vor"
 		},

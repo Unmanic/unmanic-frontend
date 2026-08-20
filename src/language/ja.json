@@ -308,6 +308,11 @@
 			"addToPendingTasksList": "選択したものを保留中のタスクのリストに追加します",
 			"removeSelected": "選択したものをリストから削除",
 			"selectLibraryToAdd": "このタスクを再作成するライブラリを選択してください",
+			"loglines": {
+				"name": "ログ行",
+				"head": "先頭",
+				"tail": "末尾"
+			},
 			"since": "以来",
 			"before": "前に"
 		},

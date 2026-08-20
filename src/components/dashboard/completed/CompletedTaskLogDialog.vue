@@ -31,6 +31,15 @@ const props = defineProps({
     type: String,
     required: true
   },
+  head: {
+    type: String,
+    required: false,
+  },
+  tail: {
+    type: String,
+    required: false,
+  }
+
 })
 
 const emit = defineEmits(['hide', 'ok'])
@@ -54,6 +63,8 @@ const onDialogHide = () => {
 const fetchCompletedTaskLog = () => {
   let data = {
     task_id: props.completedTaskId,
+    head: props.head ? props.head : undefined,
+    tail: props.tail ? props.tail : undefined,
   }
   axios({
     method: 'post',
