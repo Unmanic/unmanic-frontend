@@ -56,16 +56,17 @@
             :key="task.id"
             v-bind="task">
             <q-item-section avatar>
-              <q-icon
-                v-if="task.success"
-                name="check_circle"
-                class="text-secondary"
-                style="opacity: 0.8;"/>
-              <q-icon
-                v-else
-                name="cancel"
-                class="text-negative"
-                style="opacity: 0.8;"/>
+              <q-btn
+                @click.stop="openTaskDetails(task.id)"
+                :icon="task.success ? 'check_circle' : 'cancel'"
+                :color="task.success ? 'secondary' : 'negative'"
+                :aria-label="$t('components.completedTasks.details') + ': ' + task.label"
+                dense
+                round
+                flat
+                style="opacity: 0.8;">
+                <q-tooltip>{{ $t('components.completedTasks.details') }}</q-tooltip>
+              </q-btn>
             </q-item-section>
             <q-item-section>
               <q-item-label>{{ task.label }}</q-item-label>
@@ -93,6 +94,14 @@
       </div>
     </q-card-section>
 
+    <CompletedTaskLogDialog
+      v-if="selectedTaskId !== null"
+      :key="selectedTaskId"
+      ref="taskDetailsDialogRef"
+      :completedTaskId="selectedTaskId"
+      @hide="selectedTaskId = null"
+    />
+
     <!--FULL SCREEN-->
     <CompletedTasksListDialog
       ref="completedTasksDetailsDialogRef"
@@ -104,11 +113,12 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import CompletedTaskLogDialog from "components/dashboard/completed/CompletedTaskLogDialog.vue";
 import CompletedTasksListDialog from "components/dashboard/completed/CompletedTasksListDialog.vue";
 
 export default defineComponent({
   name: 'CompletedTasks',
-  components: { CompletedTasksListDialog },
+  components: { CompletedTasksListDialog, CompletedTaskLogDialog },
   setup() {
     const completedTasksDetailsDialogRef = ref(null);
 
@@ -129,6 +139,7 @@ export default defineComponent({
   data() {
     return {
       completedTasksPopupInitStatusFilter: 'all',
+      selectedTaskId: null,
     }
   },
   props: {
@@ -138,6 +149,12 @@ export default defineComponent({
     }
   },
   methods: {
+    openTaskDetails(id) {
+      this.selectedTaskId = String(id);
+      this.$nextTick(() => {
+        this.$refs.taskDetailsDialogRef.show();
+      });
+    },
     openDetails() {
       this.completedTasksDetailsDialogRef.show();
     }
