@@ -105,8 +105,19 @@
                       </q-item-label>
                     </q-item-section>
 
-                    <q-item-section v-if="!$q.platform.is.mobile">
-                      <q-item-label lines="1">
+                    <q-item-section v-if="!$q.platform.is.mobile" class="library-scanner-statuses">
+                      <q-item-label v-if="path.enableRemoteOnly" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span class="text-primary">
+                              <q-icon color="check" name="check"/>
+                              |
+                              {{ $t('components.settings.library.libraryApiOnlyStatusLabel') }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label v-if="!path.enableRemoteOnly" lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
                             <span
@@ -119,7 +130,7 @@
                           </div>
                         </div>
                       </q-item-label>
-                      <q-item-label lines="1">
+                      <q-item-label v-if="!path.enableRemoteOnly" lines="1">
                         <div class="row">
                           <div class="col-6 text-left">
                             <span
@@ -128,6 +139,19 @@
                               <q-icon v-else color="close" name="close"/>
                               |
                               {{ $t('components.settings.library.libraryFileMonitorStatusLabel') }}
+                            </span>
+                          </div>
+                        </div>
+                      </q-item-label>
+                      <q-item-label v-if="!path.enableRemoteOnly" lines="1">
+                        <div class="row">
+                          <div class="col-6 text-left">
+                            <span
+                              :class="path.enableWebScanner && !path.enableRemoteOnly ? 'text-primary' : 'text-grey-8'">
+                              <q-icon v-if="path.enableWebScanner && !path.enableRemoteOnly" color="check" name="check"/>
+                              <q-icon v-else color="close" name="close"/>
+                              |
+                              {{ $t('components.settings.library.libraryWebScannerStatusLabel') }}
                             </span>
                           </div>
                         </div>
@@ -654,6 +678,7 @@ export default {
             enableRemoteOnly: libraryPath.enable_remote_only,
             enableScanner: libraryPath.enable_scanner,
             enableInotify: libraryPath.enable_inotify,
+            enableWebScanner: libraryPath.enable_web_scanner,
             tags: libraryPath.tags,
             locked: libraryPath.locked,
           }
@@ -704,6 +729,15 @@ div.sub-setting {
 
 .library-list {
   margin-left: 0;
+}
+
+.library-scanner-statuses .text-grey-8 {
+  opacity: 0.4;
+}
+
+.library-scanner-statuses .text-primary {
+  opacity: 1;
+  font-weight: 600;
 }
 
 .library-path-list-item {

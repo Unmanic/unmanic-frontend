@@ -207,6 +207,121 @@
               </q-tooltip>
             </div>
 
+            <div
+              v-if="enableReceiveRemoteFilesOnly !== true"
+              class="q-pb-sm">
+              <q-skeleton
+                v-if="enableWebScanner === null"
+                type="QToggle"/>
+              <q-item
+                v-else
+                tag="label"
+                class="border-hover"
+                style="padding-left:12px"
+                :disable="enableReceiveRemoteFilesOnly === true">
+                <q-item-section>
+                  <q-item-label>{{ $t('components.settings.library.enableWebScanner') }}</q-item-label>
+                </q-item-section>
+                <q-item-section avatar>
+                  <q-toggle v-model="enableWebScanner" :disable="enableReceiveRemoteFilesOnly === true"/>
+                </q-item-section>
+              </q-item>
+              <q-tooltip
+                v-if="enableReceiveRemoteFilesOnly === true"
+                class="bg-white text-primary"
+                anchor="bottom left"
+                self="bottom left">
+                {{ $t('components.settings.library.pathDisabledReceiveRemoteFilesOnly') }}
+              </q-tooltip>
+            </div>
+
+            <div v-if="enableWebScanner === true" class="q-pb-sm">
+              <q-input
+                outlined
+                color="primary"
+                v-model="webUrl"
+                type="url"
+                :label="$t('components.settings.library.webScannerUrl')"
+                :hint="$t('components.settings.library.webScannerUrlHint')"
+                autocomplete="url"
+              />
+            </div>
+            <div v-if="enableWebScanner === true" class="q-pb-sm">
+              <q-input
+                outlined
+                color="primary"
+                v-model="webUsername"
+                :label="$t('components.settings.library.webScannerUsername')"
+                autocomplete="username"
+              />
+            </div>
+            <div v-if="enableWebScanner === true" class="q-pb-sm">
+              <q-input
+                outlined
+                color="primary"
+                v-model="webPassword"
+                type="password"
+                :label="$t('components.settings.library.webScannerPassword')"
+                :hint="webPasswordSet ? $t('components.settings.library.webScannerPasswordKeepHint') : undefined"
+                autocomplete="current-password"
+                @update:model-value="clearWebPassword = false"
+              />
+            </div>
+            <div v-if="enableWebScanner === true && webPasswordSet" class="q-pb-sm">
+              <q-checkbox
+                v-model="clearWebPassword"
+                :label="$t('components.settings.library.clearWebScannerPassword')"
+              />
+            </div>
+
+            <div v-if="enableWebScanner === true" class="q-pt-md q-pb-sm">
+              <div class="text-subtitle2 q-mb-sm">
+                {{ $t('components.settings.library.webWriteConnection') }}
+              </div>
+              <q-input
+                outlined
+                color="primary"
+                v-model="webWriteUrl"
+                type="url"
+                :label="$t('components.settings.library.webWriteUrl')"
+                :hint="$t('components.settings.library.webWriteUrlHint')"
+                autocomplete="url"
+              />
+            </div>
+            <div v-if="enableWebScanner === true" class="q-pb-sm">
+              <q-checkbox
+                v-model="webWriteUseSeparateCredentials"
+                :label="$t('components.settings.library.webWriteUseSeparateCredentials')"
+              />
+            </div>
+            <div v-if="enableWebScanner === true && webWriteUseSeparateCredentials" class="q-pb-sm">
+              <q-input
+                outlined
+                color="primary"
+                v-model="webWriteUsername"
+                :label="$t('components.settings.library.webWriteUsername')"
+                autocomplete="username"
+              />
+            </div>
+            <div v-if="enableWebScanner === true && webWriteUseSeparateCredentials" class="q-pb-sm">
+              <q-input
+                outlined
+                color="primary"
+                v-model="webWritePassword"
+                type="password"
+                :label="$t('components.settings.library.webWritePassword')"
+                :hint="webWritePasswordSet ? $t('components.settings.library.webWritePasswordKeepHint') : undefined"
+                autocomplete="current-password"
+                @update:model-value="clearWebWritePassword = false"
+              />
+            </div>
+            <div v-if="enableWebScanner === true && webWriteUseSeparateCredentials && webWritePasswordSet" class="q-pb-sm">
+              <q-checkbox
+                v-model="clearWebWritePassword"
+                :label="$t('components.settings.library.clearWebWritePassword')"
+              />
+            </div>
+
             <div class="q-pb-sm">
               <q-skeleton
                 v-if="priorityScore === null"
@@ -368,6 +483,18 @@ const path = ref(null)
 const enableReceiveRemoteFilesOnly = ref(null)
 const enableScanner = ref(null)
 const enableInotify = ref(null)
+const enableWebScanner = ref(null)
+const webUrl = ref('')
+const webUsername = ref('')
+const webPassword = ref('')
+const webPasswordSet = ref(false)
+const clearWebPassword = ref(false)
+const webWriteUrl = ref('')
+const webWriteUseSeparateCredentials = ref(false)
+const webWriteUsername = ref('')
+const webWritePassword = ref('')
+const webWritePasswordSet = ref(false)
+const clearWebWritePassword = ref(false)
 const priorityScore = ref(null)
 const tags = ref(null)
 const enabledPlugins = ref(null)
@@ -403,6 +530,7 @@ const currentSnapshot = computed(() => {
     enableReceiveRemoteFilesOnly.value === null ||
     enableScanner.value === null ||
     enableInotify.value === null ||
+    enableWebScanner.value === null ||
     priorityScore.value === null ||
     tags.value === null ||
     enabledPlugins.value === null
@@ -421,6 +549,18 @@ const currentSnapshot = computed(() => {
     enableReceiveRemoteFilesOnly: enableReceiveRemoteFilesOnly.value,
     enableScanner: enableScanner.value,
     enableInotify: enableInotify.value,
+    enableWebScanner: enableWebScanner.value,
+    webUrl: webUrl.value,
+    webUsername: webUsername.value,
+    webPasswordSet: webPasswordSet.value,
+    webPasswordChanged: Boolean(webPassword.value),
+    clearWebPassword: clearWebPassword.value,
+    webWriteUrl: webWriteUrl.value,
+    webWriteUseSeparateCredentials: webWriteUseSeparateCredentials.value,
+    webWriteUsername: webWriteUsername.value,
+    webWritePasswordSet: webWritePasswordSet.value,
+    webWritePasswordChanged: Boolean(webWritePassword.value),
+    clearWebWritePassword: clearWebWritePassword.value,
     priorityScore: priorityScore.value,
     tags: [...tags.value],
     enabledPlugins: pluginSnapshot
@@ -455,6 +595,18 @@ const fetchLibraryConfig = (libraryId) => {
     enableReceiveRemoteFilesOnly.value = libraryConfig.enable_remote_only
     enableScanner.value = libraryConfig.enable_scanner
     enableInotify.value = libraryConfig.enable_inotify
+    enableWebScanner.value = libraryConfig.enable_web_scanner
+    webUrl.value = libraryConfig.web_url || ''
+    webUsername.value = libraryConfig.web_username || ''
+    webPassword.value = ''
+    webPasswordSet.value = libraryConfig.web_password_set === true
+    clearWebPassword.value = false
+    webWriteUrl.value = libraryConfig.web_write_url || ''
+    webWriteUseSeparateCredentials.value = libraryConfig.web_write_credentials_same_as_read === false
+    webWriteUsername.value = libraryConfig.web_write_username || ''
+    webWritePassword.value = ''
+    webWritePasswordSet.value = libraryConfig.web_write_password_set === true
+    clearWebWritePassword.value = false
     priorityScore.value = libraryConfig.priority_score
     tags.value = libraryConfig.tags
     enabledPlugins.value = response.data.plugins.enabled_plugins
@@ -472,12 +624,28 @@ const saveLibraryConfig = async ({ hideOnSuccess = false } = {}) => {
       enable_remote_only: enableReceiveRemoteFilesOnly.value,
       enable_scanner: enableScanner.value,
       enable_inotify: enableInotify.value,
+      enable_web_scanner: enableWebScanner.value,
+      web_url: webUrl.value,
+      web_username: webUsername.value,
+      web_write_url: webWriteUrl.value,
+      web_write_username: webWriteUsername.value,
+      web_write_credentials_same_as_read: !webWriteUseSeparateCredentials.value,
       priority_score: priorityScore.value,
       tags: tags.value,
     },
     plugins: {
       enabled_plugins: enabledPlugins.value,
     }
+  }
+  if (clearWebPassword.value) {
+    data.library_config.clear_web_password = true
+  } else if (webPassword.value) {
+    data.library_config.web_password = webPassword.value
+  }
+  if (clearWebWritePassword.value) {
+    data.library_config.clear_web_write_password = true
+  } else if (webWritePassword.value) {
+    data.library_config.web_write_password = webWritePassword.value
   }
   try {
     await axios({
@@ -492,6 +660,20 @@ const saveLibraryConfig = async ({ hideOnSuccess = false } = {}) => {
       message: t('notifications.saved'),
       timeout: 200
     })
+    if (clearWebPassword.value) {
+      webPasswordSet.value = false
+    } else if (webPassword.value) {
+      webPasswordSet.value = true
+    }
+    webPassword.value = ''
+    clearWebPassword.value = false
+    if (clearWebWritePassword.value) {
+      webWritePasswordSet.value = false
+    } else if (webWritePassword.value) {
+      webWritePasswordSet.value = true
+    }
+    webWritePassword.value = ''
+    clearWebWritePassword.value = false
     componentKey.value += 1
     updateSnapshot()
     if (hideOnSuccess) {
@@ -686,8 +868,20 @@ const cloneLibrary = () => {
       enable_remote_only: enableReceiveRemoteFilesOnly.value,
       enable_scanner: enableScanner.value,
       enable_inotify: enableInotify.value,
+      enable_web_scanner: enableWebScanner.value,
+      web_url: webUrl.value,
+      web_username: webUsername.value,
+      web_write_url: webWriteUrl.value,
+      web_write_username: webWriteUsername.value,
+      web_write_credentials_same_as_read: !webWriteUseSeparateCredentials.value,
       priority_score: priorityScore.value,
       tags: tags.value,
+    }
+    if (webPassword.value) {
+      configData.library_config.web_password = webPassword.value
+    }
+    if (webWritePassword.value) {
+      configData.library_config.web_write_password = webWritePassword.value
     }
     const importString = JSON.stringify(configData, null, 2)
     currentID.value = 0
@@ -725,6 +919,18 @@ const resetLibraryConfig = () => {
   enableReceiveRemoteFilesOnly.value = null
   enableScanner.value = null
   enableInotify.value = null
+  enableWebScanner.value = null
+  webUrl.value = ''
+  webUsername.value = ''
+  webPassword.value = ''
+  webPasswordSet.value = false
+  clearWebPassword.value = false
+  webWriteUrl.value = ''
+  webWriteUseSeparateCredentials.value = false
+  webWriteUsername.value = ''
+  webWritePassword.value = ''
+  webWritePasswordSet.value = false
+  clearWebWritePassword.value = false
   priorityScore.value = null
   tags.value = null
   enabledPlugins.value = null
