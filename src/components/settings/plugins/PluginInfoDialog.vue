@@ -192,6 +192,18 @@
                           </q-tooltip>
                         </q-item-section>
 
+                        <q-item-section v-if="item.input_type === 'library_select'">
+                          <LibrarySelect
+                            v-model="item.value"
+                            :library-id="libraryId"
+                            :label="item.label"
+                            :hint="item.description"
+                            :disabled="item.display === 'disabled'"/>
+                          <q-tooltip v-if="item.tooltip" anchor="bottom start" self="top start">
+                            {{ item.tooltip }}
+                          </q-tooltip>
+                        </q-item-section>
+
                         <q-item-section v-if="item.input_type === 'select'">
                           <q-select
                             filled
@@ -322,6 +334,7 @@ import { useMobile } from 'src/composables/useMobile'
 import UnmanicDialogWindow from 'components/ui/dialogs/UnmanicDialogWindow.vue'
 import SelectDirectoryDialog from 'components/ui/pickers/SelectDirectoryDialog.vue'
 import AdmonitionBanner from 'components/ui/AdmonitionBanner.vue'
+import LibrarySelect from 'components/settings/library/LibrarySelect.vue'
 
 const props = defineProps({
   pluginId: {
@@ -429,7 +442,7 @@ const settingsHaveBeenModified = () => {
     newSettings[setting.key_id] = setting.value
   })
   for (let i = 0; i < originalSettings.value.length; i++) {
-    if (newSettings[originalSettings.value[i].key_id] !== originalSettings.value[i].value) {
+    if (JSON.stringify(newSettings[originalSettings.value[i].key_id]) !== JSON.stringify(originalSettings.value[i].value)) {
       return true
     }
   }

@@ -12,7 +12,8 @@
     "serve": "quasar dev --debug",
     "dev": "quasar dev",
     "build": "quasar build",
-    "build:publish": "quasar build --publish"
+    "build:publish": "quasar build --publish",
+    "test:library-dialog": "node --test tests/library-dialog.test.cjs"
   },
   "dependencies": {
     "@quasar/extras": "^1.18.0",

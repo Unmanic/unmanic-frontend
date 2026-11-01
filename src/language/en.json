@@ -205,6 +205,8 @@
         "libraryRemoteOnlyStatus": "Remote only",
         "enableScanner": "Enable library scanner for this library",
         "enableInotify": "Enable file monitor for this library",
+        "waitForLibraries": "Wait for Libraries",
+        "waitForLibrariesHint": "Plugins can wait for these Libraries to finish processing. Leave empty to disable dependency waiting. Include any processing Libraries that receive their jobs.",
         "libraryFileMonitorStatusLabel": "File monitor",
         "priorityScore": "Set a priority score modifier for tasks generated for this library",
         "plugins": "Plugins",

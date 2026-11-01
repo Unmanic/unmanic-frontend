@@ -152,6 +152,13 @@
                 </q-item-section>
               </q-item>
             </div>
+            <div class="q-pb-sm">
+              <LibrarySelect
+                v-model="waitForLibraryIds"
+                :library-id="currentID"
+                :label="$t('components.settings.library.waitForLibraries')"
+                :hint="$t('components.settings.library.waitForLibrariesHint')"/>
+            </div>
             <div
               v-if="enableReceiveRemoteFilesOnly !== true"
               class="q-pb-sm">
@@ -343,6 +350,7 @@ import PluginSelectorDialog from 'components/settings/plugins/PluginSelectorDial
 import LibraryConfigurePluginFlowList from 'components/settings/library/partials/LibraryConfigurePluginFlowList'
 import JsonImportExportDialog from 'components/settings/library/JsonImportExportDialog.vue'
 import PluginInfoDialog from 'components/settings/plugins/PluginInfoDialog'
+import LibrarySelect from 'components/settings/library/LibrarySelect.vue'
 import UnmanicListActionButton from "components/ui/buttons/UnmanicListActionButton.vue"
 import UnmanicListAddButton from "components/ui/buttons/UnmanicListAddButton.vue"
 
@@ -368,6 +376,7 @@ const path = ref(null)
 const enableReceiveRemoteFilesOnly = ref(null)
 const enableScanner = ref(null)
 const enableInotify = ref(null)
+const waitForLibraryIds = ref([])
 const priorityScore = ref(null)
 const tags = ref(null)
 const enabledPlugins = ref(null)
@@ -421,6 +430,7 @@ const currentSnapshot = computed(() => {
     enableReceiveRemoteFilesOnly: enableReceiveRemoteFilesOnly.value,
     enableScanner: enableScanner.value,
     enableInotify: enableInotify.value,
+    waitForLibraryIds: [...waitForLibraryIds.value].sort((a, b) => a - b),
     priorityScore: priorityScore.value,
     tags: [...tags.value],
     enabledPlugins: pluginSnapshot
@@ -455,6 +465,7 @@ const fetchLibraryConfig = (libraryId) => {
     enableReceiveRemoteFilesOnly.value = libraryConfig.enable_remote_only
     enableScanner.value = libraryConfig.enable_scanner
     enableInotify.value = libraryConfig.enable_inotify
+    waitForLibraryIds.value = libraryConfig.wait_for_library_ids || []
     priorityScore.value = libraryConfig.priority_score
     tags.value = libraryConfig.tags
     enabledPlugins.value = response.data.plugins.enabled_plugins
@@ -472,6 +483,7 @@ const saveLibraryConfig = async ({ hideOnSuccess = false } = {}) => {
       enable_remote_only: enableReceiveRemoteFilesOnly.value,
       enable_scanner: enableScanner.value,
       enable_inotify: enableInotify.value,
+      wait_for_library_ids: waitForLibraryIds.value,
       priority_score: priorityScore.value,
       tags: tags.value,
     },
@@ -686,6 +698,7 @@ const cloneLibrary = () => {
       enable_remote_only: enableReceiveRemoteFilesOnly.value,
       enable_scanner: enableScanner.value,
       enable_inotify: enableInotify.value,
+      wait_for_library_ids: waitForLibraryIds.value,
       priority_score: priorityScore.value,
       tags: tags.value,
     }
@@ -725,6 +738,7 @@ const resetLibraryConfig = () => {
   enableReceiveRemoteFilesOnly.value = null
   enableScanner.value = null
   enableInotify.value = null
+  waitForLibraryIds.value = []
   priorityScore.value = null
   tags.value = null
   enabledPlugins.value = null
